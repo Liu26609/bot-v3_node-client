@@ -20,6 +20,4 @@ async function start() {
     bot.setBotConfig(botConfig)
     // 实例游戏
     new game();
-   
-
 }

@@ -67,7 +67,8 @@ class bot {
                 itemMap.forEach((item, msgId) => {
                     if (nowTime - item.creatorTime > timeOut) {
                         // 已过期
-                        return
+                        itemMap.delete(msgId)
+                        return;
                     }
                     if (item.surplusCont <= 0) {
                         // 已使用完可用次数

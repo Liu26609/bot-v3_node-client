@@ -1,0 +1,18 @@
+/**
+ * 指令基类
+ */
+export class task_base{
+    /**
+     * 用户ID
+     */
+    userId: string;
+    /**
+     * 用户频道来源
+     */
+    channel_id: string;
+    constructor(...args){
+        this.userId = args[0];
+        this.channel_id = args[1];
+    }
+
+}
