@@ -53,7 +53,9 @@ export default class game {
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if(conf.match == matchType.all && data.content == key){
-                new conf.action(data.author.id, data.channel_id) as task_base;
+                new conf.action(data.author.id, data.channel_id)
+            }else if(conf.match == matchType.all && data.content.includes(key)){
+                new conf.action(data.author.id, data.channel_id)
             }
         });
 
