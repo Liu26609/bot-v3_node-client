@@ -1,0 +1,37 @@
+{
+  "name": "nodeclient",
+  "version": "1.0.1000018",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "start:dev": "nodemon",
+    "sync": "tsrpc sync",
+    "start": "node Build/index.js",
+    "git": "git add . && git commit -m 'autoUpdate' && npm version patch && git push --all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^10.0.0",
+    "chai": "^4.3.6",
+    "d3-node": "^2.2.3",
+    "d3-selection-multi": "^1.0.1",
+    "express": "^4.18.1",
+    "install": "^0.13.0",
+    "jsdom": "^19.0.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "qq-guild-bot": "^2.9.3",
+    "ts-node": "^10.7.0",
+    "tsrpc": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
