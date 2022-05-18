@@ -25,8 +25,8 @@ start();
 async function start() {
     sever.setApiUrl('http://127.0.0.1:8888')
     bot.setBotConfig(botConfig)
-    // new game();
-    test()
+    new game();
+    // test()
 
 }
 async function test() {
