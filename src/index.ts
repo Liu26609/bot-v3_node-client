@@ -25,9 +25,11 @@ start();
 async function start() {
     sever.setApiUrl('http://127.0.0.1:8888')
     bot.setBotConfig(botConfig)
-    new game();
-    // test()
+    // new game();
+    test()
+
 }
-function test(){
-    new battleTest('1','1')
+async function test() {
+    let data = await sever.callApi('Battle', {})
+    log(data)
 }

@@ -2,19 +2,26 @@ import { err, info, log } from '../..';
 import { SKILL_ACTIVE, SKILL_ACTIVE_RES, SKILL_ACTIVE_RES_TAG, SKILL_ACTIVE_RES_TYPE, SKILL_TYPE } from '../../shared/game/skill';
 import bot from '../../unity/bot';
 import common from '../../unity/common';
+import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 export class battleTest extends task_base {
     /**
      * 技能释放记录
      */
-    logSkillMap:Map<string,Map<number,SKILL_ACTIVE_RES>>;
+    logSkillMap: Map<string, Map<number, SKILL_ACTIVE_RES>>;
     constructor(...args) {
         super(...args)
         this.logSkillMap = new Map();
         this.render()
+
     }
     async render() {
-       let startTime = Date.now();
+        let data = await sever.callApi('Battle', {})
+        log(data)
+        
+        JSON.stringify(data.res?.log)
+        return;
+        let startTime = Date.now();
         let skill = {
             id: 1,
             // 技能名称
@@ -33,11 +40,11 @@ export class battleTest extends task_base {
         }
         // 进行一次测试战斗
         let aGroup = [
-            {id:'1', hp: 100000000000, hp_max: 100, leve: 1, name: '楚轩', skill: [skill] },
-            {id:'2', hp: 100000000000, hp_max: 100, leve: 1, name: '楚轩的宠物', skill: [skill] },
+            { id: '1', hp: 100000000000, hp_max: 100, leve: 1, name: '楚轩', skill: [skill] },
+            { id: '2', hp: 100000000000, hp_max: 100, leve: 1, name: '楚轩的宠物', skill: [skill] },
         ];
         let bGroup = [
-            {id:'3', hp: 900000000000, hp_max: 100, leve: 1, name: '复制体楚轩', skill: [skill] }
+            { id: '3', hp: 900000000000, hp_max: 100, leve: 1, name: '复制体楚轩', skill: [skill] }
         ];
 
         let isNextRound = this.checkGroupAllDie(aGroup) && this.checkGroupAllDie(bGroup);
@@ -53,18 +60,18 @@ export class battleTest extends task_base {
         text += `战斗耗时${(Date.now() - startTime) / 1000}s\n`
         let aSkLog = this.converSkLog(aGroup);
         let bSkLog = this.converSkLog(bGroup);
-        
+
         text += aSkLog;
         text += '\n';
         text += bSkLog;
         log(text)
         bot.sendText(this.channel_id, text)
     }
-    converSkLog(Group){
+    converSkLog(Group) {
         let text = '';
         Group.forEach(item => {
             let SKlogMap = this.logSkillMap.get(item.id);
-            if(!SKlogMap){
+            if (!SKlogMap) {
                 return;
             }
             text += item.name;
@@ -106,34 +113,34 @@ export class battleTest extends task_base {
             }
             // 受击者相关被动技能触发
             // 得到最终结果
-            this.setSkillLog(attackBody.id,attackSkill)
+            this.setSkillLog(attackBody.id, attackSkill)
             hotBody.hp -= attackSkill.val;
             // info(`${attackBody.name}使用${attackSkill.name}攻击了${hotBody.name}造成${attackSkill.val}`)
         }
     }
     // 攻击人id
     // 最终输出
-    setSkillLog(id:string,res:SKILL_ACTIVE_RES){
+    setSkillLog(id: string, res: SKILL_ACTIVE_RES) {
         let bodyFreeSkMap;
-        if(this.logSkillMap.has(id)){
+        if (this.logSkillMap.has(id)) {
             bodyFreeSkMap = this.logSkillMap.get(id)
-        }else{
+        } else {
             bodyFreeSkMap = new Map();
         }
 
-        if(bodyFreeSkMap.has(res.id)){
+        if (bodyFreeSkMap.has(res.id)) {
             let logs = bodyFreeSkMap.get(res.id) as SKILL_ACTIVE_RES;
             logs.val += res.val;
-        }else{
-            bodyFreeSkMap.set(res.id,res)
+        } else {
+            bodyFreeSkMap.set(res.id, res)
         }
 
 
-        this.logSkillMap.set(id,bodyFreeSkMap)
-        
+        this.logSkillMap.set(id, bodyFreeSkMap)
+
     }
-    
-    private getMissSkill():SKILL_ACTIVE {
+
+    private getMissSkill(): SKILL_ACTIVE {
         return {
             id: 0,
             // 技能名称
@@ -188,8 +195,8 @@ export class battleTest extends task_base {
             randomSkill = this.getMissSkill()
         }
         let res = {
-            id:randomSkill.id,
-            name:randomSkill.name,
+            id: randomSkill.id,
+            name: randomSkill.name,
             type: SKILL_ACTIVE_RES_TYPE.none,
             val: 0,
             tag: SKILL_ACTIVE_RES_TAG.none
