@@ -1,16 +1,5 @@
 # QQbot
 
-## 架构
-### TSRPC Server
-```
-前后端使用 TSRPC 框架
-API调用方式执行用户指令
-ws服务进行客户端全体/范围式通知
-```
-### node-little-db
-```
-服务端数据存储使用 node-little-db 本地json存储库
-```
 ## 技能结构
 ### 主动技能
 ```
