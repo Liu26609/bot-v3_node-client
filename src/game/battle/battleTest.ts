@@ -4,12 +4,17 @@ import bot from '../../unity/bot';
 import common from '../../unity/common';
 import { task_base } from './../task_base';
 export class battleTest extends task_base {
+    /**
+     * 技能释放记录
+     */
+    logSkillMap:Map<string,Map<number,SKILL_ACTIVE_RES>>;
     constructor(...args) {
         super(...args)
+        this.logSkillMap = new Map();
         this.render()
     }
-    render() {
-        bot.sendText(this.channel_id, '666')
+    async render() {
+       let startTime = Date.now();
         let skill = {
             id: 1,
             // 技能名称
@@ -28,23 +33,53 @@ export class battleTest extends task_base {
         }
         // 进行一次测试战斗
         let aGroup = [
-            { hp: 100, hp_max: 100, leve: 1, name: '楚轩', skill: [skill] },
-            { hp: 100, hp_max: 100, leve: 1, name: '楚轩的宠物', skill: [skill] },
+            {id:'1', hp: 100000000000, hp_max: 100, leve: 1, name: '楚轩', skill: [skill] },
+            {id:'2', hp: 100000000000, hp_max: 100, leve: 1, name: '楚轩的宠物', skill: [skill] },
         ];
         let bGroup = [
-            { hp: 10000, hp_max: 100, leve: 1, name: '复制体楚轩', skill: [skill] }
+            {id:'3', hp: 900000000000, hp_max: 100, leve: 1, name: '复制体楚轩', skill: [skill] }
         ];
 
         let isNextRound = this.checkGroupAllDie(aGroup) && this.checkGroupAllDie(bGroup);
         let round = 1;
-        while (isNextRound && round < 200) {
+        while (isNextRound && round < 9999999) {
             this.battleOne(aGroup, bGroup)
             this.battleOne(bGroup, aGroup)
             round++;
             isNextRound = this.checkGroupAllDie(aGroup) && this.checkGroupAllDie(bGroup);
         }
         log(`战斗${round}回合`)
+        let text = `战斗${round}回合\n`;
+        text += `战斗耗时${(Date.now() - startTime) / 1000}s\n`
+        let aSkLog = this.converSkLog(aGroup);
+        let bSkLog = this.converSkLog(bGroup);
+        
+        text += aSkLog;
+        text += '\n';
+        text += bSkLog;
+        log(text)
+        bot.sendText(this.channel_id, text)
     }
+    converSkLog(Group){
+        let text = '';
+        Group.forEach(item => {
+            let SKlogMap = this.logSkillMap.get(item.id);
+            if(!SKlogMap){
+                return;
+            }
+            text += item.name;
+            SKlogMap.forEach(SKlogItem => {
+                text += `│▌${SKlogItem.name}:${SKlogItem.val}`
+            });
+            text += '\n';
+        });
+        return text;
+    }
+    /**
+     * 攻击一次
+     * @param attackGroup 
+     * @param hotGroup 
+     */
     battleOne(attackGroup, hotGroup) {
         for (let attack_index = 0; attack_index < attackGroup.length; attack_index++) {
             const attackBody = attackGroup[attack_index];
@@ -71,11 +106,34 @@ export class battleTest extends task_base {
             }
             // 受击者相关被动技能触发
             // 得到最终结果
+            this.setSkillLog(attackBody.id,attackSkill)
             hotBody.hp -= attackSkill.val;
-            info(`${attackBody.name}使用${attackSkill.name}攻击了${hotBody.name}造成${attackSkill.val}`)
+            // info(`${attackBody.name}使用${attackSkill.name}攻击了${hotBody.name}造成${attackSkill.val}`)
         }
     }
-    getMissSkill():SKILL_ACTIVE {
+    // 攻击人id
+    // 最终输出
+    setSkillLog(id:string,res:SKILL_ACTIVE_RES){
+        let bodyFreeSkMap;
+        if(this.logSkillMap.has(id)){
+            bodyFreeSkMap = this.logSkillMap.get(id)
+        }else{
+            bodyFreeSkMap = new Map();
+        }
+
+        if(bodyFreeSkMap.has(res.id)){
+            let logs = bodyFreeSkMap.get(res.id) as SKILL_ACTIVE_RES;
+            logs.val += res.val;
+        }else{
+            bodyFreeSkMap.set(res.id,res)
+        }
+
+
+        this.logSkillMap.set(id,bodyFreeSkMap)
+        
+    }
+    
+    private getMissSkill():SKILL_ACTIVE {
         return {
             id: 0,
             // 技能名称
@@ -93,6 +151,11 @@ export class battleTest extends task_base {
             data: []
         }
     }
+    /**
+     * 随机出用户使用技能
+     * @param freeUnit 
+     * @returns 
+     */
     getActiveSkill(freeUnit): SKILL_ACTIVE_RES {
         let allProbability = 0;//总频率
         let bodySkillList = freeUnit.skill;
@@ -125,6 +188,7 @@ export class battleTest extends task_base {
             randomSkill = this.getMissSkill()
         }
         let res = {
+            id:randomSkill.id,
             name:randomSkill.name,
             type: SKILL_ACTIVE_RES_TYPE.none,
             val: 0,
@@ -133,6 +197,7 @@ export class battleTest extends task_base {
         // 分析技能输出值
         switch (randomSkill.type) {
             case SKILL_TYPE.miss:
+                res.val = 1;
                 break;
             case SKILL_TYPE.attack_Magic_fixed:
                 res.val = 100;

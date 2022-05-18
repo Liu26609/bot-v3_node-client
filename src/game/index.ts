@@ -32,7 +32,7 @@ export default class game {
     }
     private initKeyMap() {
         this.matchMap.set('签到', { action: me_sign, match: matchType.all })
-        this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
+        // this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
     }
     start() {
@@ -52,9 +52,9 @@ export default class game {
 
         // 分析行为
         this.matchMap.forEach((conf, key) => {
-            if(conf.match == matchType.all && data.content == key){
+            if (conf.match == matchType.all && data.content == key) {
                 new conf.action(data.author.id, data.channel_id)
-            }else if(conf.match == matchType.all && data.content.includes(key)){
+            } else if (conf.match == matchType.all && data.content.includes(key)) {
                 new conf.action(data.author.id, data.channel_id)
             }
         });
