@@ -16,13 +16,13 @@ export class battleTest extends task_base {
 
     }
     async render() {
-        let startTime = Date.now();
         let res = await sever.callApi('Battle', {})
         if (!res.isSucc) {
-            log('战斗出错了');
+            bot.sendText(this.channel_id,`意外的错误：${res.err.message}`)
             return;
         }
         let data = res.res;
+        console.log(data.kill_log)
         let temp = ``;
 
         let battleLog = ['', ''];
@@ -44,25 +44,51 @@ export class battleTest extends task_base {
             battleLog[item.group] += itemLog;
 
         }
-        log(battleLog)
 
-        temp += `战斗耗时${(Date.now() - startTime) / 1000}s\n`;
-        temp += `🔥￣￣￣￣＼📄伤害统计／￣￣￣￣🔥\n`;
-        temp += `${battleLog[0]}\n`;
-        temp += `🔥￣￣￣￣＼💌敌方统计／￣￣￣￣￣🔥\n`;
-        temp += `${battleLog[1]}\n`;
-        temp += `￣￣￣￣￣＼🧙战斗过程／￣￣￣￣￣\n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
-        temp += `②💀回合【瑞兽】青鸾击杀了@楚轩 \n`
+        let battleConfig = {
+            hurtLog: {
+                me: false,
+                enemy: false
+            },
+            killLog: {
+                open: true,
+            }
+        }
 
-        temp += `￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
+
+        let configTemp = `频道设置
+是否显示我方伤害日志：${battleConfig.hurtLog.me ? '是' : '否'}
+是否显示敌方伤害日志：${battleConfig.hurtLog.enemy ? '是' : '否'}
+是否显示击杀记录日志：${battleConfig.killLog.open ? '是' : '否'}`
+        bot.sendText(this.channel_id, configTemp)
+
+        if (battleConfig.hurtLog.me) {
+            let hurtLog = '';
+            hurtLog += `🔥￣￣￣￣＼📄伤害统计／￣￣￣￣🔥\n`;
+            hurtLog += `${battleLog[0]}\n`;
+            await bot.sendText(this.channel_id,hurtLog)
+        }
+        if (battleConfig.hurtLog.enemy) {
+            let hurtLog = '';
+            hurtLog += `🔥￣￣￣￣＼💌敌方统计／￣￣￣￣🔥\n`;
+            hurtLog += `${battleLog[1]}\n`;
+            await bot.sendText(this.channel_id,hurtLog)
+        }
+
+        if (battleConfig.killLog.open) {
+            let killLog = '';
+            killLog += `￣￣￣￣￣＼🧙战斗胜利／￣￣￣￣\n`
+            for (let index = 0; index < data.kill_log.length; index++) {
+                const kill_item = data.kill_log[index];
+                killLog += `${kill_item.round}回合:${kill_item.name}击杀了${kill_item.die_Name}\n`
+            }
+            await bot.sendText(this.channel_id,killLog)
+        }
+
+
+        temp += `\n￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
         temp += `💰金币+25⏳经验+3296⏳宠物经验+3296🌈称号经验+1✝️正义值+1`
-        
+
         bot.sendText(this.channel_id, temp)
     }
 

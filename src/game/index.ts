@@ -1,3 +1,4 @@
+import { sys_update } from './sys/update';
 import { battleTest } from './battle/battleTest';
 import { task_base } from './task_base';
 import { me_attribute } from './me/me_attribute';
@@ -6,6 +7,7 @@ import { BOT_MSG_AT } from "../shared/bot/bot";
 import bot from "../unity/bot";
 import sever from "../unity/sever";
 import me_sign from "./me/me_sign";
+import gameCfg from './gameCfg';
 
 enum matchType {
     /**
@@ -31,8 +33,9 @@ export default class game {
         this.start();
     }
     private initKeyMap() {
-        this.matchMap.set('签到', { action: me_sign, match: matchType.all })
+        // this.matchMap.set('签到', { action: me_sign, match: matchType.all })
         // this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
+        this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
     }
     start() {
@@ -49,7 +52,6 @@ export default class game {
             return;
         }
         log('收到艾特消息', data.content)
-
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
