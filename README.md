@@ -1,10 +1,11 @@
 # QQbot
 ## 如何运行
-### 部署环境
 ```
 1.下载Node.js
 2.npm install
-
+3.开启ts监听 build-ts
+4.index.ts botCfg 配置修改为自己机器人配置
+5.F5运行
 ```
 ## 功能
 ### 签到
