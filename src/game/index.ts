@@ -8,6 +8,9 @@ import bot from "../unity/bot";
 import sever from "../unity/sever";
 import me_sign from "./me/me_sign";
 import gameCfg from './gameCfg';
+import { text_equip_style } from './temp/text/equip';
+import { embed_style } from './temp/embed/embed';
+import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../shared/game/equip';
 
 enum matchType {
     /**
@@ -52,55 +55,30 @@ export default class game {
             return;
         }
         if(data.content == '合成装备'){
-            let sendObj = {
-                    title:`十米的大刀`,
-                    thumbnail: {
-                        url: `${gameCfg.cosUrl}equip/1.png`
-                      },
-                    prompt:'装备属性',
-                    fields:[
-                        {
-                            name:`朋友，你渴望力量吗？嗯？？不好意思刀没磨！！！把渴望力量改成是兄弟就来砍我才对,而且武器加什么防御啊，不应该加命中嘛`
-                        },
-                        {
-                            name:`￣￣￣￣＼装备属性／￣￣￣￣`
-                        },
-                        {
-                            name:`⚜️品质:作者专属`
-                        },
-                        {
-                            name:`⚜️强化:+99`
-                        },
-                        {
-                            name:`⚜️位置:武器`
-                        },
-                        {
-                            name:`⚔️物理攻击+99999`
-                        },
-                        {
-                            name:`⚔️魔法攻击+99999`
-                        },
-                        {
-                            name:`⚔️物理防御+5000`
-                        },
-                        {
-                            name:`￣￣￣￣＼特殊效果／￣￣￣￣`
-                        },
-                        {
-                            name:`┏每1次攻击增加1经验⏳`
-                        },
-                        {
-                            name:`┗已触发:0次`
-                        },
-                        {
-                            name:`┏每经过1秒增加1经验⏳`
-                        },
-                        {
-                            name:`┗已触发:0次`
-                        }
-                    ]
-            }
-            bot.sendEmbed(data.channel_id,sendObj)
+            let temp = new embed_style();
+            temp.setTitle('十几米的大刀');
+            temp.setTips('合成装备')
+            temp.setIcon(`${gameCfg.cosUrl}equip/1.png`)
+            temp.addLine('朋友，你渴望力量吗？嗯？？不好意思刀没磨！！！把渴望力量改成是兄弟就来砍我才对,而且武器加什么防御啊，不应该加命中嘛')
+            temp.addLine('￣￣￣￣＼装备属性／￣￣￣￣')
+            temp.addLine(`🔨品质：${EQUIP_QUALITY_CN[EQUIP_QUALITY[0]]}`)
+            temp.addLine(`🔨强化：+99`)
+            temp.addLine(`🗂️类型：${EQUIP_TYPE_CN[EQUIP_TYPE[0]]}`)
+            temp.addLine(`物理攻击+999`)
+            temp.addLine(`魔法攻击++999`)
+            temp.addLine(`物理防御+999`)
+            temp.addLine(`魔法防御+999`)
+            temp.addLine(`每秒回血+999`)
+            temp.addLine('￣￣￣￣＼特殊效果／￣￣￣￣')
+            temp.addLine('┏每1次攻击增加1经验⏳');
+            temp.addLine('┗已触发:0次');
+            temp.addLine('┏┏每经过1秒增加1经验⏳');
+            temp.addLine('┗已触发:0次');
+            temp.addLine('┏每1次攻击增加1经验⏳');
+            temp.addLine('┗已触发:0次');
+            temp.addLine('┏┏每经过1秒增加1经验⏳');
+            temp.addLine('┗已触发:0次');
+            temp.sendMsg(data.channel_id)
         }
         log('收到艾特消息', data.content)
         // 分析行为
