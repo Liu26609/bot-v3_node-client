@@ -36,8 +36,8 @@ export default class game {
         this.start();
     }
     private initKeyMap() {
-        this.matchMap.set('签到', { action: me_sign, match: matchType.all })
-        // this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
+        this.matchMap.set('签到1', { action: me_sign, match: matchType.all })
+        this.matchMap.set('属性1', { action: me_attribute, match: matchType.all })
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
     }

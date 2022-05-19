@@ -1,4 +1,5 @@
 import bot from "../../../unity/bot";
+import gameCfg from "../../gameCfg";
 
 export class embed_style {
     private title: string;
@@ -29,7 +30,7 @@ export class embed_style {
         let sendObj = {
             title: this.title,
             thumbnail: {
-                url: this.icon
+                url: this.icon || gameCfg.LOGO
             },
             prompt: this.tips,
             fields: [...this.list]
