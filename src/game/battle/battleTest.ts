@@ -18,7 +18,7 @@ export class battleTest extends task_base {
     async render() {
         let res = await sever.callApi('Battle', {})
         if (!res.isSucc) {
-            bot.sendText(this.channel_id,`意外的错误：${res.err.message}`)
+            bot.sendText(this.channel_id,`意外的错误：\n${res.err.message}`)
             return;
         }
         let data = res.res;
@@ -47,8 +47,8 @@ export class battleTest extends task_base {
 
         let battleConfig = {
             hurtLog: {
-                me: false,
-                enemy: false
+                me: true,
+                enemy: true
             },
             killLog: {
                 open: true,

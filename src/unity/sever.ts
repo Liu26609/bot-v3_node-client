@@ -50,7 +50,7 @@ class sever{
         }
         return res;
     }
-    private async HelloWorld(tryCont?:number){
+    async HelloWorld(tryCont?:number){
         if(!tryCont){
             tryCont = 0;
         }

@@ -1,5 +1,6 @@
 import { AvailableIntentsEventsEnum, createWebsocket, createOpenAPI, MessageToCreate } from "qq-guild-bot";
 import { err, info, log } from "..";
+import gameCfg from "../game/gameCfg";
 import { BOT_Config, BOT_READY, BOT_EventType, BOT_MSG_AT, BOT_OnData, BOT_MSGID_MAP } from '../shared/bot/bot'
 
 class bot {
@@ -44,10 +45,18 @@ class bot {
     /**
      * 
      * @param channelID 频道ID
-     * @param messsage 消息体
+     * @param message 消息体
      */
-    private async postMessage(channelID: string, messsage: MessageToCreate) {
-        return this.client.messageApi.postMessage(channelID, messsage)
+    private async postMessage(channelID: string, message: MessageToCreate) {
+        if(gameCfg.isDebug){
+            if(message.content){
+                info('调试模式：',message.content)
+            }else if(message.embed){
+                info('调试模式：',message.content)
+            }
+            return true;
+        }
+        return this.client.messageApi.postMessage(channelID, message)
     }
     private getMsgId(channelID: string): string | undefined {
         let nowTime = Date.now();
