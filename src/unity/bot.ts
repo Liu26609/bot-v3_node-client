@@ -125,6 +125,23 @@ class bot {
             err('消息发送错误', res)
         }
     }
+    async sendEmbed(channelID:string,embed:any){
+        let msg_id;
+
+        msg_id = this.getMsgId(channelID)
+
+        // 单频道1秒内只能发送5条消息
+
+        // TODO：后期考虑利用每天主动消息
+        if (!msg_id) {
+            err('没有找到可用消息ID')
+            return;
+        }
+        let res = await this.postMessage(channelID, {
+            msg_id: msg_id,
+            embed: embed
+        })
+    }
     /**
      * 设置机器人信息
      * @param data 
