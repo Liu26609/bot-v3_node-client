@@ -65,7 +65,7 @@ export default class game {
             temp.addLine(`🔨强化：+99`)
             temp.addLine(`🗂️类型：${EQUIP_TYPE_CN[EQUIP_TYPE[0]]}`)
             temp.addLine(`物理攻击+999`)
-            temp.addLine(`魔法攻击++999`)
+            temp.addLine(`魔法攻击+999`)
             temp.addLine(`物理防御+999`)
             temp.addLine(`魔法防御+999`)
             temp.addLine(`每秒回血+999`)
