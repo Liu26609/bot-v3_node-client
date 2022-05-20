@@ -1,45 +1,64 @@
+
 # QQbot
 ## 如何运行
+### 环境
 ```
-1.下载Node.js
-2.npm install
-3.开启ts监听 build-ts
-4.index.ts botCfg 配置修改为自己机器人配置
-5.F5运行
+Node.js
 ```
-## 功能
-### 签到
+### 部署
 ```
-指令：签到
+git init 
+npm install
 ```
-### 更新日志
+### 开启ts监听
 ```
-指令:更新日志
+build-ts
+package.json
+"scripts": {
+    "build-ts": "tsc",
+    "start:dev": "nodemon",
+    "sync": "tsrpc sync",
+    "start": "node Build/index.js",
+    "git": "git add . && git commit -m 'autoUpdate' && npm version patch && git push --all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+}
 ```
-### 测试
+### 修改机器人配置
 ```
-指令:测试
-功能：战斗模块测试
+修改 index.ts
+ let botCfg = {
+     shards: [0, 1],
+     appID: '', // ID
+     token: '', // token
+    intents: [AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES],    // 事件订阅,用于开启可接收的消息类型
+     sandbox: false
+ }
 ```
-### 属性
+## 运行
 ```
-指令：属性1
-功能：查看属性
+start
+package.json
+"scripts": {
+    "build-ts": "tsc",
+    "start:dev": "nodemon",
+    "sync": "tsrpc sync",
+    "start": "node Build/index.js",
+    "git": "git add . && git commit -m 'autoUpdate' && npm version patch && git push --all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+}
 ```
-## 技能结构
-### 主动技能
+## 指令列表
 ```
-1.伤害型技能
-2.复活型技能
-3.召唤型技能
-```
-## 装备体系
-### 可成长
-```
-装备唯一性，属性可成长
-1.击杀单位成长：每击杀一个单位增加多少属性
-2.艾特成长:每艾特一次装备增加多少属性
-3.时间成长：每秒提升装备多少属性
+ this.matchMap.set('签到', { action: me_sign, match: matchType.all })
+ this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
+ this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
+ this.matchMap.set('测试', { action: battleTest, match: matchType.all })
+ this.matchMap.set('位置', { action: me_pos, match: matchType.all })
+ this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
+ this.matchMap.set('上', { action: me_move, match: matchType.all })
+ this.matchMap.set('下', { action: me_move, match: matchType.all })
+ this.matchMap.set('左', { action: me_move, match: matchType.all })
+ this.matchMap.set('右', { action: me_move, match: matchType.all })
 ```
 
 # TSRPC API 接口文档
