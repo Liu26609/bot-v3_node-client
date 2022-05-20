@@ -11,6 +11,7 @@ import gameCfg from './gameCfg';
 import { text_equip_style } from './temp/text/equip';
 import { embed_style } from './temp/embed/embed';
 import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../shared/game/equip';
+import { me_pos } from './me/me_pos';
 
 enum matchType {
     /**
@@ -40,6 +41,7 @@ export default class game {
         this.matchMap.set('属性1', { action: me_attribute, match: matchType.all })
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
+        this.matchMap.set('位置1', { action: me_pos, match: matchType.all })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
