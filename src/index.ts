@@ -16,9 +16,9 @@ export const info = console.info;
 
 start();
 async function start() {
-    // sever.setApiUrl('http://127.0.0.1:8888')
-    sever.setApiUrl('http://81.68.240.214:8080/')
-    
+    sever.setApiUrl('http://127.0.0.1:8080')
+    // sever.setApiUrl('http://81.68.240.214:8080/')
+    info('start')
     bot.setBotConfig(botCfg)
     new game();
     // test()

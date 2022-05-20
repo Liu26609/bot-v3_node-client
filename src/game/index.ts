@@ -83,12 +83,15 @@ export default class game {
             temp2.sendMsg(data.channel_id)
         }
         log('收到艾特消息', data.content)
+        const userId = data.author.id;
+        const userIcon = data.author.avatar;
+        const fromChannel = data.channel_id;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
-                new conf.action(data.author.id, data.channel_id)
+                new conf.action(userId, fromChannel,userIcon)
             } else if (conf.match == matchType.all && data.content.includes(key)) {
-                new conf.action(data.author.id, data.channel_id)
+                new conf.action(userId, fromChannel,userIcon)
             }
         });
 
