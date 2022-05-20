@@ -46,10 +46,10 @@ export default class game {
         this.matchMap.set('位置1', { action: me_pos, match: matchType.all })
         this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
 
-        this.matchMap.set('上', { action: me_move, match: matchType.all })
-        this.matchMap.set('下', { action: me_move, match: matchType.all })
-        this.matchMap.set('左', { action: me_move, match: matchType.all })
-        this.matchMap.set('右', { action: me_move, match: matchType.all })
+        this.matchMap.set('上1', { action: me_move, match: matchType.all })
+        this.matchMap.set('下1', { action: me_move, match: matchType.all })
+        this.matchMap.set('左1', { action: me_move, match: matchType.all })
+        this.matchMap.set('右1', { action: me_move, match: matchType.all })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))

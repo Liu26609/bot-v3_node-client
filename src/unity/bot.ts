@@ -196,6 +196,10 @@ class bot {
         while (data.content.includes(' ')) {
             data.content = data.content.replace(' ', '');
         }
+        // TODO调试
+        while (data.content.includes('1')) {
+            data.content = data.content.replace('1', '');
+        }
         log('收到消息', data.author.username, data.content)
         // 将消息存入哈希表内
         let itemMap;
