@@ -56,6 +56,7 @@ class bot {
             }
             return true;
         }
+        info('发送消息成功')
         return this.client.messageApi.postMessage(channelID, message)
     }
     private getMsgId(channelID: string): string | undefined {
@@ -197,9 +198,9 @@ class bot {
             data.content = data.content.replace(' ', '');
         }
         // TODO调试
-        while (data.content.includes('1')) {
-            data.content = data.content.replace('1', '');
-        }
+        // while (data.content.includes('1')) {
+        //     data.content = data.content.replace('1', '');
+        // }
         log('收到消息', data.author.username, data.content)
         // 将消息存入哈希表内
         let itemMap;

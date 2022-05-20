@@ -17,7 +17,6 @@ import { task_base } from "../task_base";
 export class me_pos extends task_base {
     constructor(...a) {
         super(...a);
-        log('...a',a,this)
         this.render();
     }
     async render() {
@@ -27,7 +26,6 @@ export class me_pos extends task_base {
             return;
         }
         let data = req.res;
-        log('posData', data)
         let temp = ``;
         temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
         temp += `            ${data.isTop ? '上' : '⛔'}\n`;

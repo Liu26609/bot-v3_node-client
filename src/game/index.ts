@@ -39,17 +39,17 @@ export default class game {
         this.start();
     }
     private initKeyMap() {
-        this.matchMap.set('签到1', { action: me_sign, match: matchType.all })
-        this.matchMap.set('属性1', { action: me_attribute, match: matchType.all })
+        this.matchMap.set('签到', { action: me_sign, match: matchType.all })
+        this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
-        this.matchMap.set('位置1', { action: me_pos, match: matchType.all })
+        this.matchMap.set('位置', { action: me_pos, match: matchType.all })
         this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
 
-        this.matchMap.set('上1', { action: me_move, match: matchType.all })
-        this.matchMap.set('下1', { action: me_move, match: matchType.all })
-        this.matchMap.set('左1', { action: me_move, match: matchType.all })
-        this.matchMap.set('右1', { action: me_move, match: matchType.all })
+        this.matchMap.set('上', { action: me_move, match: matchType.all })
+        this.matchMap.set('下', { action: me_move, match: matchType.all })
+        this.matchMap.set('左', { action: me_move, match: matchType.all })
+        this.matchMap.set('右', { action: me_move, match: matchType.all })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
@@ -60,9 +60,16 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
+        if(data.channel_id != '1933444'){
+            return;
+        }
         if (!sever.isReady()) {
             bot.sendText(data.channel_id, `服务器无响应,客户端ID:${bot.severId()}`);
             return;
+        }
+        if(data.content == '频道ID'){
+            bot.sendText(data.channel_id, data.channel_id);
+            return 
         }
         if(data.content == '合成装备'){
             let temp = new embed_style();

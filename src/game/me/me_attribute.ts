@@ -23,7 +23,6 @@ export class me_attribute extends task_base {
         }
         new text_attribute_style().sendData(data.body).sendMsg(this.channel_id);
 
-        log(data)
         let out_attribute = data.body.out_attribute;
         let temp = new embed_style();
         temp.setTitle(data?.body.title.name);
