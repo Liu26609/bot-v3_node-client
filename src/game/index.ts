@@ -1,3 +1,4 @@
+import { me_move } from './me/me_move';
 import { sys_update } from './sys/update';
 import { battleTest } from './battle/battleTest';
 import { task_base } from './task_base';
@@ -43,7 +44,12 @@ export default class game {
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
         this.matchMap.set('位置1', { action: me_pos, match: matchType.all })
-        this.matchMap.set('sys/addOneWrod', { action: addOneWrod, match: matchType.match })
+        this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
+
+        this.matchMap.set('上', { action: me_move, match: matchType.all })
+        this.matchMap.set('下', { action: me_move, match: matchType.all })
+        this.matchMap.set('左', { action: me_move, match: matchType.all })
+        this.matchMap.set('右', { action: me_move, match: matchType.all })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
@@ -95,9 +101,9 @@ export default class game {
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
-                new conf.action(userId, fromChannel,userIcon,content)
+                new conf.action(userId, fromChannel,userIcon,content,key)
             } else if (conf.match == matchType.match && data.content.includes(key)) {
-                new conf.action(userId, fromChannel,userIcon,content)
+                new conf.action(userId, fromChannel,userIcon,content,key)
             }
         });
 
