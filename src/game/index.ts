@@ -12,6 +12,7 @@ import { text_equip_style } from './temp/text/equip';
 import { embed_style } from './temp/embed/embed';
 import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../shared/game/equip';
 import { me_pos } from './me/me_pos';
+import { addOneWrod } from './sys/addOneWrod';
 
 enum matchType {
     /**
@@ -42,6 +43,7 @@ export default class game {
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
         this.matchMap.set('位置1', { action: me_pos, match: matchType.all })
+        this.matchMap.set('sys/addOneWrod', { action: addOneWrod, match: matchType.match })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
@@ -88,12 +90,14 @@ export default class game {
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
+        const content = data.content;
+
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
-                new conf.action(userId, fromChannel,userIcon)
-            } else if (conf.match == matchType.all && data.content.includes(key)) {
-                new conf.action(userId, fromChannel,userIcon)
+                new conf.action(userId, fromChannel,userIcon,content)
+            } else if (conf.match == matchType.match && data.content.includes(key)) {
+                new conf.action(userId, fromChannel,userIcon,content)
             }
         });
 
