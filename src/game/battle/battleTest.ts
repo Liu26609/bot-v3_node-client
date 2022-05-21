@@ -17,8 +17,8 @@ export class battleTest extends task_base {
     }
     async render() {
         let res = await sever.callApi('Battle', {})
-        if (!res.isSucc) {
-            bot.sendText(this.channel_id,`意外的错误：\n${res.err.message}`)
+        if(!res.isSucc){
+            this.sendErr(res.err)
             return;
         }
         let data = res.res;
@@ -80,7 +80,7 @@ export class battleTest extends task_base {
             killLog += `￣￣￣￣￣＼🧙战斗胜利／￣￣￣￣\n`
             for (let index = 0; index < data.kill_log.length; index++) {
                 const kill_item = data.kill_log[index];
-                killLog += `${kill_item.round}回合:${kill_item.name}击杀了${kill_item.die_Name}\n`
+                killLog += `${kill_item.round}回合:${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
             }
             await bot.sendText(this.channel_id,killLog)
         }

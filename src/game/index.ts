@@ -1,3 +1,4 @@
+import { me_changeName } from './me/me_changeName';
 import { chainTask } from './sys/chainTask';
 import { me_wallet } from './me/me_wallet';
 import { pos_attackPlayer } from './battle/pos_attackPlayer';
@@ -19,6 +20,7 @@ import { me_pos } from './me/me_pos';
 import { addOneWrod } from './sys/addOneWrod';
 import { pos_attackEnemy } from './battle/pos_attackEnemy';
 import { baseTaskMenu } from './sys/baseTaskMenu';
+import { openMapChestBox } from './map/openMapChestBox';
 
 enum matchType {
     /**
@@ -54,11 +56,14 @@ export default class game {
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
+        this.matchMap.set('打开宝箱', { action: openMapChestBox, match: matchType.match })
+        this.matchMap.set('改名', { action: me_changeName, match: matchType.match })
         this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
         this.matchMap.set('下', { action: me_move, match: matchType.all })
         this.matchMap.set('左', { action: me_move, match: matchType.all })
         this.matchMap.set('右', { action: me_move, match: matchType.all })
+
         this.matchMap.set('链式指令', { action: chainTask, match: matchType.all })
     }
     start() {

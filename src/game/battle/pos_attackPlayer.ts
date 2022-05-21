@@ -14,8 +14,8 @@ export class pos_attackPlayer extends task_base{
             return;
         }
         let req = await sever.callApi('PosAttackPlayer',{userId:this.userId,attackId:Number(attackIndex)});
-        if (!req.isSucc) {
-            bot.sendText(this.channel_id,`意外的错误：\n${req.err.message}`)
+        if(!req.isSucc){
+            this.sendErr(req.err)
             return;
         }
         let data = req.res;
@@ -79,7 +79,7 @@ export class pos_attackPlayer extends task_base{
             
             for (let index = 0; index < data.kill_log.length; index++) {
                 const kill_item = data.kill_log[index];
-                killLog += `${kill_item.round}回合:${kill_item.name}击杀了${kill_item.die_Name}\n`
+                killLog += `${kill_item.round}回合:${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
             }
             await bot.sendText(this.channel_id,killLog)
         }

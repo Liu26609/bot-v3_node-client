@@ -38,7 +38,7 @@ export class me_move extends task_base {
             userId: this.userId
         })
         if(!req.isSucc){
-            bot.sendText(this.channel_id,req.err.message)
+            this.sendErr(req.err)
             return;
         }
         new me_pos(...this.args);

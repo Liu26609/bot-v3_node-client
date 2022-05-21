@@ -12,6 +12,7 @@ export class baseTaskMenu extends task_base{
 排行榜|拍卖行
 ￣￣￣￣￣￣＼功能指令／￣￣￣￣
 ＞我的称号　称号改名　重置称号＜
+＞打开宝箱　　　　　　　　　　＜
 ＞我的宠物　　　　　　　　　　＜
 ＞我的血统　　　　　　重置血统＜
 ＞每日任务　　　　　　飞升任务＜

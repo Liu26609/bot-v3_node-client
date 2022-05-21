@@ -14,11 +14,8 @@ export default class me_sign extends task_base {
         })
     }
     render(res: ApiReturn<ResSign>) {
-        if (!res.isSucc) {
-            bot.sendText(this.channel_id, '签到失败');
-            return;
-        }
-        if (res.err) {
+        if(!res.isSucc){
+            this.sendErr(res.err)
             return;
         }
         let data = res.res;

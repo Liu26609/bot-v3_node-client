@@ -1,4 +1,5 @@
 import { log } from '../..';
+import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -27,8 +28,8 @@ export class pos_attackEnemy extends task_base {
         }
 
         let req = await sever.callApi('PosAttackEnemy',{userId:this.userId,attackId:attackId});
-        if (!req.isSucc) {
-            bot.sendText(this.channel_id,`意外的错误：\n${req.err.message}`)
+        if(!req.isSucc){
+            this.sendErr(req.err)
             return;
         }
         let data = req.res;
@@ -92,14 +93,22 @@ export class pos_attackEnemy extends task_base {
             
             for (let index = 0; index < data.kill_log.length; index++) {
                 const kill_item = data.kill_log[index];
-                killLog += `${kill_item.round}回合:${kill_item.name}击杀了${kill_item.die_Name}\n`
+                killLog += `${kill_item.round}回合:${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
             }
             await bot.sendText(this.channel_id,killLog)
         }
 
 
         temp += `\n￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
-        temp += `💰金币+25⏳经验+3296⏳宠物经验+3296🌈称号经验+1✝️正义值+1`
+        if(data.reward.length > 0){
+            data.reward.forEach(item => {
+                temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}`
+            });
+        }else{
+            temp += `😤这次战斗好像奖励了个寂寞`
+        }
+        temp += `\n🧚‍♂️击杀怪物后地图有几率掉落宝箱哦~`
+        
 
         bot.sendText(this.channel_id, temp)
     }

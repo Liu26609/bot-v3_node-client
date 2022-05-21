@@ -3,6 +3,7 @@ import { log } from "../..";
 import bot from "../../unity/bot";
 import sever from "../../unity/sever";
 import { task_base } from "../task_base";
+import { chestBoxLv, chestBoxLv_CN } from '../../shared/game/prop';
 
 /**
  * 指令：位置
@@ -22,11 +23,11 @@ export class me_pos extends task_base {
     async render() {
         let req = await sever.callApi('Pos', { userId: this.userId });
         if (!req.isSucc) {
-            bot.sendText(this.channel_id, `意外的错误:${req.err}`)
+            this.sendErr(req.err)
             return;
         }
         let data = req.res;
-        log('pos',data.enemy)
+        log('pos', data.enemy)
         let temp = ``;
         temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
         temp += `            ${data.isTop ? '上' : '⛔'}\n`;
@@ -38,26 +39,38 @@ export class me_pos extends task_base {
             for (let index = 0; index < data.player.length; index++) {
                 const body = data.player[index] as body;
                 const id = body.id;
-                if(id == this.userId){
+                if (id == this.userId) {
                     continue;
                 }
-                const name =  body.name;
+                const name = body.name;
                 const leve = body.leve;
                 temp += ` [玩家${index}]Lv.${leve}${name}\n`;
             }
             for (let index = 0; index < data.enemy.length; index++) {
                 const body = data.enemy[index] as BASE_BODYS;
-                const name =  body.name;
+                if (body.hp < 0) {
+                    continue;
+                }
+                const name = body.name;
                 const leve = body.leve;
                 temp += ` [怪物${index}]Lv.${leve}${name}hp:${body.hp}\n`;
-
             }
         }
-        temp += `┄════🎉发现宝箱═══━┄\n`;
-        temp += ` [宝箱0]🎁黄金宝箱\n`;
-        temp += ` [宝箱1]🎁传说宝箱\n`;
-        temp += ` [宝箱2]🎁木质宝箱\n`;
+        if (data.chest.length > 0) {
+            let haveNull = true;
+            for (let index = 0; index < data.chest.length; index++) {
+                const item = data.chest[index];
+                if (!item.isOpen) {
+                    if (haveNull) {
+                        temp += `┄════🎉发现宝箱═══━┄\n`;
+                    }
+                    haveNull = false;
+                    temp += ` [宝箱${index}]${chestBoxLv_CN[chestBoxLv[item.leve]]}\n`;
+                }
+            }
+        }
         temp += `┗┄━══════════━┄`
+
         bot.sendText(this.channel_id, temp)
 
     }

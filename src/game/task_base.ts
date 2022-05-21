@@ -1,3 +1,7 @@
+import { TsrpcError } from "tsrpc";
+import bot from "../unity/bot";
+import common from "../unity/common";
+
 /**
  * 指令基类
  */
@@ -32,6 +36,17 @@ export class task_base{
         this.content = args[3];
         this.matchKey = args[4];
         this.userName = args[5];
+    }
+    sendErr(err:TsrpcError){
+        let temp = ``;
+        temp += `┏┄════⚠️错误提示═══━┄\n`
+        temp += `┣⛔︎错误代码:${err.code || '0x' + common.random(0,99999999999).toString(16)}\n`;
+        temp += `┣🗂️错误类型:${err.type}\n`;
+        temp += `┣┄════❌错误提示═══━┄\n`
+        temp += `          ${err.message}\n`;
+        temp += `┗┄━═══════════━┄\n`;
+        temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
+        bot.sendText(this.channel_id,temp);
     }
 
 }

@@ -16,11 +16,11 @@ export class me_attribute extends task_base {
     }
     async render(){
         let res = await sever.callApi('Me_Attribute',{userId:this.userId});
-        let data =  res.res;
-        if(!data){
-            bot.sendText(this.channel_id,`出错了${res.err}`)
+        if(!res.isSucc){
+            this.sendErr(res.err)
             return;
         }
+        let data =  res.res;
         new text_attribute_style().sendData(data.body).sendMsg(this.channel_id);
 
         let out_attribute = data.body.out_attribute;
