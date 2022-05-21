@@ -15,6 +15,7 @@ import { embed_style } from './temp/embed/embed';
 import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../shared/game/equip';
 import { me_pos } from './me/me_pos';
 import { addOneWrod } from './sys/addOneWrod';
+import { pos_attackEnemy } from './battle/pos_attackEnemy';
 
 enum matchType {
     /**
@@ -47,7 +48,8 @@ export default class game {
         this.matchMap.set('位置', { action: me_pos, match: matchType.all })
         this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
-
+        this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
+        this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
         this.matchMap.set('下', { action: me_move, match: matchType.all })
         this.matchMap.set('左', { action: me_move, match: matchType.all })

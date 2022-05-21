@@ -1,4 +1,4 @@
-import { body } from './../../shared/game/body';
+import { BASE_BODYS, body } from './../../shared/game/body';
 import { log } from "../..";
 import bot from "../../unity/bot";
 import sever from "../../unity/sever";
@@ -26,13 +26,14 @@ export class me_pos extends task_base {
             return;
         }
         let data = req.res;
+        log('pos',data.enemy)
         let temp = ``;
         temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
         temp += `            ${data.isTop ? '上' : '⛔'}\n`;
         temp += `  ${data.isLeft ? '左' : '⛔'}       🧙‍♂️       ${data.isRight ? '右' : '⛔'}\n`;
         temp += `            ${data.isButtom ? '下' : '⛔'}\n`;
 
-        if (data.player.length > 1) {
+        if (data.player.length + data.enemy.length > 1) {
             temp += `┄════🔥发现敌人═══━┄\n`;
             for (let index = 0; index < data.player.length; index++) {
                 const body = data.player[index] as body;
@@ -43,6 +44,12 @@ export class me_pos extends task_base {
                 const name =  body.name;
                 const leve = body.leve;
                 temp += ` [玩家${index}]Lv.${leve}${name}\n`;
+            }
+            for (let index = 0; index < data.enemy.length; index++) {
+                const body = data.enemy[index] as BASE_BODYS;
+                const name =  body.name;
+                const leve = body.leve;
+                temp += ` [怪物${index}]Lv.${leve}${name}hp:${body.hp}\n`;
 
             }
         }
