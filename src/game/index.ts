@@ -1,3 +1,5 @@
+import { chainTask } from './sys/chainTask';
+import { me_wallet } from './me/me_wallet';
 import { pos_attackPlayer } from './battle/pos_attackPlayer';
 import { me_move } from './me/me_move';
 import { sys_update } from './sys/update';
@@ -16,6 +18,7 @@ import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../s
 import { me_pos } from './me/me_pos';
 import { addOneWrod } from './sys/addOneWrod';
 import { pos_attackEnemy } from './battle/pos_attackEnemy';
+import { baseTaskMenu } from './sys/baseTaskMenu';
 
 enum matchType {
     /**
@@ -50,10 +53,13 @@ export default class game {
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
+        this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
+        this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
         this.matchMap.set('下', { action: me_move, match: matchType.all })
         this.matchMap.set('左', { action: me_move, match: matchType.all })
         this.matchMap.set('右', { action: me_move, match: matchType.all })
+        this.matchMap.set('链式指令', { action: chainTask, match: matchType.all })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
@@ -108,13 +114,13 @@ export default class game {
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
         const content = data.content;
-
+        const userName = data.author.username;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
-                new conf.action(userId, fromChannel,userIcon,content,key)
+                new conf.action(userId, fromChannel,userIcon,content,key,userName)
             } else if (conf.match == matchType.match && data.content.includes(key)) {
-                new conf.action(userId, fromChannel,userIcon,content,key)
+                new conf.action(userId, fromChannel,userIcon,content,key,userName)
             }
         });
 

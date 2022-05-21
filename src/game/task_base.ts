@@ -22,6 +22,7 @@ export class task_base{
      * 触发指令
      */
     matchKey: string;
+    userName:string;
     args:any[]
     constructor(...args){
         this.args = args;
@@ -30,6 +31,7 @@ export class task_base{
         this.userIcon = args[2];
         this.content = args[3];
         this.matchKey = args[4];
+        this.userName = args[5];
     }
 
 }
