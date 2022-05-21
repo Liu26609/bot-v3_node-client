@@ -50,19 +50,10 @@ class sever{
         }
         return res;
     }
-    async HelloWorld(tryCont?:number){
-        if(!tryCont){
-            tryCont = 0;
-        }
-        tryCont +=1;
+    async HelloWorld(){
         let data = await this.client.callApi('Hello',{name:'World'})
         if(!data.isSucc){
             err('服务器测试通讯失败',data.err.message)
-            if(tryCont <= 5){
-                setTimeout(()=>{
-                    this.HelloWorld(tryCont);
-                },2000)
-            }
             return;
         }
         this._isReady = true;

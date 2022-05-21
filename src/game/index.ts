@@ -21,6 +21,7 @@ import { addOneWrod } from './sys/addOneWrod';
 import { pos_attackEnemy } from './battle/pos_attackEnemy';
 import { baseTaskMenu } from './sys/baseTaskMenu';
 import { openMapChestBox } from './map/openMapChestBox';
+import common from '../unity/common';
 
 enum matchType {
     /**
@@ -75,18 +76,28 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
-        if(data.channel_id != '1933444'){
+        if (data.channel_id != '1933444') {
             return;
         }
         if (!sever.isReady()) {
-            bot.sendText(data.channel_id, `服务器无响应,客户端ID:${bot.severId()}`);
+            let temp = ``;
+            temp += `┏┄════⚠️错误提示═══━┄\n`
+            temp += `┣⛔︎错误代码:${common.random(0, 99999999999).toString(16)}\n`;
+            temp += `┣🗂️错误类型:🔴服务器无响应\n`;
+            temp += `┣┄════❌错误提示═══━┄\n`
+            temp += `  🟢客户端:${bot.severId()}\n`;
+            temp += `  🟡正在开始重新连接\n`;
+            temp += `┗┄━═══════════━┄\n`;
+            temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
+            bot.sendText(data.channel_id, temp);
+            sever.HelloWorld()
             return;
         }
-        if(data.content == '频道ID'){
+        if (data.content == '频道ID') {
             bot.sendText(data.channel_id, data.channel_id);
-            return 
+            return
         }
-        if(data.content == '合成装备'){
+        if (data.content == '合成装备') {
             let temp = new embed_style();
             temp.setTips('合成装备')
             temp.setIcon(`${gameCfg.cosUrl}equip/1.png`)
@@ -101,7 +112,7 @@ export default class game {
             temp.addLine(`魔法防御+999`)
             temp.addLine(`每秒回血+999`)
             await temp.sendMsg(data.channel_id)
-           
+
             let temp2 = new embed_style();
             temp2.setTitle('￣￣￣￣＼特殊效果／￣￣￣￣')
             temp2.addLine('┏每1次攻击增加1经验⏳');
@@ -123,9 +134,9 @@ export default class game {
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
-                new conf.action(userId, fromChannel,userIcon,content,key,userName)
+                new conf.action(userId, fromChannel, userIcon, content, key, userName)
             } else if (conf.match == matchType.match && data.content.includes(key)) {
-                new conf.action(userId, fromChannel,userIcon,content,key,userName)
+                new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }
         });
 
