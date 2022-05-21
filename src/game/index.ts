@@ -1,3 +1,4 @@
+import { pos_attackPlayer } from './battle/pos_attackPlayer';
 import { me_move } from './me/me_move';
 import { sys_update } from './sys/update';
 import { battleTest } from './battle/battleTest';
@@ -45,6 +46,7 @@ export default class game {
         this.matchMap.set('测试', { action: battleTest, match: matchType.all })
         this.matchMap.set('位置', { action: me_pos, match: matchType.all })
         this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
+        this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
 
         this.matchMap.set('上', { action: me_move, match: matchType.all })
         this.matchMap.set('下', { action: me_move, match: matchType.all })
