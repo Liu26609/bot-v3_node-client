@@ -1,5 +1,5 @@
 import { ApiReturn, HttpClient, TransportOptions } from "tsrpc";
-import { err, info, log } from "..";
+import { err, info } from "..";
 import { serviceProto, ServiceType } from "../shared/protocols/serviceProto";
 
 /**

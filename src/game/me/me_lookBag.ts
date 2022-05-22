@@ -4,6 +4,7 @@ import { TsrpcErrorType } from 'tsrpc';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
+import { textStyle } from '../../shared/game/setUp';
 export class me_lookBag extends task_base {
     constructor(...a) {
         super(...a)
@@ -52,7 +53,12 @@ export class me_lookBag extends task_base {
             return;
         }
         let data = req.res;
-        new text_equip_style().setData(data).sendMsg(this.channel_id);
-        new embed_equip_style().setData(data).sendMsg(this.channel_id);
+        if(data.userCfg.textStyle == textStyle.text){
+            new text_equip_style().setData(data).sendMsg(this.channel_id);
+
+        }else if(data.userCfg.textStyle == textStyle.card){
+            new embed_equip_style().setData(data).sendMsg(this.channel_id);
+
+        }
     }
 }

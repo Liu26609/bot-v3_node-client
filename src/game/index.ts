@@ -1,3 +1,5 @@
+import { shop_equip } from './shop/shop_equip';
+import { me_destroyBagEquip } from './me/me_destroyBagEquip';
 import { me_wearEquip } from './me/me_wearEquip';
 import { me_lookBag } from './me/me_lookBag';
 import { me_bag } from './me/me_bag';
@@ -26,6 +28,7 @@ import { pos_attackEnemy } from './battle/pos_attackEnemy';
 import { baseTaskMenu } from './sys/baseTaskMenu';
 import { openMapChestBox } from './map/openMapChestBox';
 import common from '../unity/common';
+import { setUp } from './sys/setUp';
 
 enum matchType {
     /**
@@ -73,6 +76,10 @@ export default class game {
         this.matchMap.set('背包', { action: me_bag, match: matchType.all })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
+        this.matchMap.set('销毁装备', { action: me_destroyBagEquip, match: matchType.match })
+        this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
+        this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
+        this.matchMap.set('设置', { action: setUp, match: matchType.match })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
@@ -103,34 +110,6 @@ export default class game {
         if (data.content == '频道ID') {
             bot.sendText(data.channel_id, data.channel_id);
             return
-        }
-        if (data.content == '合成装备') {
-            let temp = new embed_style();
-            temp.setTips('合成装备')
-            temp.setIcon(`${gameCfg.cosUrl}equip/1.png`)
-            temp.setTitle('朋友，你渴望力量吗？嗯？？不好意思刀没磨！！！把渴望力量改成是兄弟就来砍我才对,而且武器加什么防御啊，不应该加命中嘛')
-            temp.addLine(`Ⓜ️名称：十几米的大刀`)
-            temp.addLine(`🔨品质：${EQUIP_QUALITY_CN[EQUIP_QUALITY[0]]}`)
-            temp.addLine(`🔨强化：+99`)
-            temp.addLine(`🗂️类型：${EQUIP_TYPE_CN[EQUIP_TYPE[0]]}`)
-            temp.addLine(`物理攻击+999`)
-            temp.addLine(`魔法攻击+999`)
-            temp.addLine(`物理防御+999`)
-            temp.addLine(`魔法防御+999`)
-            temp.addLine(`每秒回血+999`)
-            await temp.sendMsg(data.channel_id)
-
-            let temp2 = new embed_style();
-            temp2.setTitle('￣￣￣￣＼特殊效果／￣￣￣￣')
-            temp2.addLine('┏每1次攻击增加1经验⏳');
-            temp2.addLine('┗已触发:0次');
-            temp2.addLine('┏┏每经过1秒增加1经验⏳');
-            temp2.addLine('┗已触发:0次');
-            temp2.addLine('┏每1次攻击增加1经验⏳');
-            temp2.addLine('┗已触发:0次');
-            temp2.addLine('┏┏每经过1秒增加1经验⏳');
-            temp2.addLine('┗已触发:0次');
-            temp2.sendMsg(data.channel_id)
         }
         log('收到艾特消息', data.content)
         const userId = data.author.id;

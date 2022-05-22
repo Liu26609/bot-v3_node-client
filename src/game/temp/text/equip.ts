@@ -23,7 +23,7 @@ export class text_equip_style {
         this.equipData = data;
         return this;
     }
-    sendMsg(channelId: string) {
+    getTemp(){
         let name = this.equipData.name;
         let leve = this.equipData.leve;
         const quality = this.equipData.quality;
@@ -56,6 +56,10 @@ export class text_equip_style {
         } else {
             str += `┗┄━══════════━┄`;
         }
+        return str;
+    }
+    sendMsg(channelId: string) {
+        let str = this.getTemp();
         bot.sendText(channelId, str)
         bot.sendText(channelId, this.equipData.story)
     }
