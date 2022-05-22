@@ -24,7 +24,7 @@ export class embed_equip_style {
         let temp = new embed_style();
         temp.setTips('装备属性')
         temp.setIcon(`${gameCfg.cosUrl}equip/${iconId}.png`)
-        temp.setTitle('朋友，你渴望力量吗？嗯？？不好意思刀没磨！！！把渴望力量改成是兄弟就来砍我才对,而且武器加什么防御啊，不应该加命中嘛')
+        temp.setTitle(`${this.equipData.story}`)
         temp.addLine(`Ⓜ️名称：${name}`)
         temp.addLine(`🔨品质：${EQUIP_QUALITY_CN[EQUIP_QUALITY[quality]]}`)
         temp.addLine(`🔨强化：+${leve}`)
