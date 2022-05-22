@@ -13,7 +13,7 @@ export class pos_attackPlayer extends task_base{
             bot.sendText(this.channel_id,'请指定当前位置玩家的ID')
             return;
         }
-        let req = await sever.callApi('PosAttackPlayer',{userId:this.userId,attackId:Number(attackIndex)});
+        let req = await sever.callApi('PosAttackPlayer',{userId:this.userId,attackId:Math.ceil(Number(attackIndex))});
         if(!req.isSucc){
             this.sendErr(req.err)
             return;

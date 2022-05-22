@@ -1,3 +1,4 @@
+import { embed_style } from './temp/embed/embed';
 import { TsrpcError } from "tsrpc";
 import bot from "../unity/bot";
 import common from "../unity/common";
@@ -47,6 +48,15 @@ export class task_base{
         temp += `┗┄━═══════════━┄\n`;
         temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
         bot.sendText(this.channel_id,temp);
+
+        let temps = new embed_style();
+        temps.setTitle('⚠️出错辣！')
+        temps.setTips('出大事了！！')
+        temps.addLine(`⛔︎错误代码:${err.code || '0x' + common.random(0,99999999999).toString(16)}`)
+        temps.addLine(`🗂️错误类型:${err.type}`)
+        temps.addLine(`❌错误提示:${err.message}`)
+        temps.addLine(`🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`);
+        temps.sendMsg(this.channel_id)
     }
 
 }

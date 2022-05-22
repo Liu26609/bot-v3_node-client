@@ -197,6 +197,10 @@ class bot {
         while (data.content.includes(' ')) {
             data.content = data.content.replace(' ', '');
         }
+        while (data.content.includes('+')) {
+            data.content = data.content.replace(' ', '');
+        }
+        
         // TODO调试
         // while (data.content.includes('1')) {
         //     data.content = data.content.replace('1', '');

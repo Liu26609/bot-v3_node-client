@@ -1,0 +1,19 @@
+import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
+import bot from '../../unity/bot';
+import { task_base } from './../task_base';
+export class me_resLife extends task_base{
+    constructor(...a){
+        super(...a)
+        this.render()
+    }
+    render(){
+        let temp = ``;
+        temp += `┏┄════👑重生复活═══━┄\n`
+        temp += `┣🔻扣除${rewardKey_CN[rewardKey[1]]}x0\n`
+        temp += `┣🔻扣除${rewardKey_CN[rewardKey[2]]}x0\n`
+        temp += `┣🔻扣除${rewardKey_CN[rewardKey[3]]}x0\n`
+        temp += `🧚‍♂️复活完成:死亡不是终结,破产才是。\n`
+        temp += `┗┄━══════════━┄`
+        bot.sendText(this.channel_id,temp)
+    }
+}

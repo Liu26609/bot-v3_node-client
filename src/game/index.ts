@@ -1,3 +1,7 @@
+import { me_wearEquip } from './me/me_wearEquip';
+import { me_lookBag } from './me/me_lookBag';
+import { me_bag } from './me/me_bag';
+import { me_resLife } from './me/me_resLife';
 import { me_changeName } from './me/me_changeName';
 import { chainTask } from './sys/chainTask';
 import { me_wallet } from './me/me_wallet';
@@ -64,8 +68,11 @@ export default class game {
         this.matchMap.set('下', { action: me_move, match: matchType.all })
         this.matchMap.set('左', { action: me_move, match: matchType.all })
         this.matchMap.set('右', { action: me_move, match: matchType.all })
-
+        this.matchMap.set('复活',{ action: me_resLife, match: matchType.all })
         this.matchMap.set('链式指令', { action: chainTask, match: matchType.all })
+        this.matchMap.set('背包', { action: me_bag, match: matchType.all })
+        this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
+        this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
