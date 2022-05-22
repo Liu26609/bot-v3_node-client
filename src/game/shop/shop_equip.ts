@@ -1,5 +1,7 @@
 import { log } from '../..';
+import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import bot from '../../unity/bot';
+import sever from '../../unity/sever';
 import { text_equip_style } from '../temp/text/equip';
 import { task_base } from './../task_base';
 export class shop_equip extends task_base {
@@ -7,39 +9,26 @@ export class shop_equip extends task_base {
         super(...a);
         this.render();
     }
-    render() {
-        let data = {
-            "id":"1",
-            "name": "十米的大刀",
-            "type": 0,
-            "quality": 8,
-            "icon": "1",
-            "story": "朋友，你渴望力量吗？嗯？？不好意思刀没磨！！！把渴望力量改成是兄弟就来砍我才对,而且武器加什么防御啊，不应该加命中嘛",
-            "base_attribute": {
-                "hp_max": 1000000,
-                "MagicAttack": 1761735,
-                "PhysicalAttacks": 5065165,
-                "MagicDefense": 9726623,
-                "PhysicalDefense": 4103747,
-                "secondResHp": 2375697
-            },
-            "effect": [
-                {
-                    "type": 0,
-                    "val": 100,
-                    "trigger": 0
-                }
-            ],
-            "leve": 568
+    async render() {
+      
+        let req = await sever.callApi('Shop_equip',{userId:this.userId});
+        if (!req.isSucc) {
+            this.sendErr(req.err)
+            return;
         }
+        let data = req.res;
+      
+        let str = '';
+        str += `装备商店第${data.updateNum}期商品到货啦~`
+        str += `\n购买价格:${rewardKey_CN[rewardKey[data.buyCondition.key]]}x${data.buyCondition.val}`
+        str += `\n商店库存:${data.stock - data.sellNum}`
+        str += `\n刷新时间:${Math.ceil((data.nextUpdateTime - Date.now())/1000)}秒`
+        str += `\n购买指令：购买装备`
+        str += `\n🧚‍♂️每次刷新随机价格，与装备属性无关`;
+        str += `\n↓↓↓↓以下是装备属性预览↓↓↓↓`;
+        await bot.sendText(this.channel_id,str)
         let temp = new text_equip_style();
-        temp.setData(data);
-        let str = temp.getTemp();
-        str += `\n购买价格:💳技能卡52`
-        str += `\n我的钱包:💳技能卡484`
-        str += `\n刷新时间：6679.108秒`
-        str += `\n🧚‍♂️购买指令：购买技能`
-        str += `\n价格每次随机刷新，与装备属性无关`;
-        bot.sendText(this.channel_id,str)
+        temp.setData(data.sell_temp).sendMsg(this.channel_id);
+
     }
 }

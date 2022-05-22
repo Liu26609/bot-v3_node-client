@@ -1,3 +1,4 @@
+import { shop_equip_buy } from './shop/shop_equip_buy';
 import { shop_equip } from './shop/shop_equip';
 import { me_destroyBagEquip } from './me/me_destroyBagEquip';
 import { me_wearEquip } from './me/me_wearEquip';
@@ -79,6 +80,7 @@ export default class game {
         this.matchMap.set('销毁装备', { action: me_destroyBagEquip, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
+        this.matchMap.set('购买装备', { action: shop_equip_buy, match: matchType.all })
         this.matchMap.set('设置', { action: setUp, match: matchType.match })
     }
     start() {
@@ -90,9 +92,6 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
-        if (data.channel_id != '1933444') {
-            return;
-        }
         if (!sever.isReady()) {
             let temp = ``;
             temp += `┏┄════⚠️错误提示═══━┄\n`
@@ -110,6 +109,9 @@ export default class game {
         if (data.content == '频道ID') {
             bot.sendText(data.channel_id, data.channel_id);
             return
+        }
+        if (data.channel_id != '1933444') {
+            return;
         }
         log('收到艾特消息', data.content)
         const userId = data.author.id;

@@ -30,7 +30,7 @@ export class embed_style {
         let sendObj = {
             title: this.title,
             thumbnail: {
-                url: this.icon || gameCfg.LOGO
+                url: this.icon || ''
             },
             prompt: this.tips,
             fields: [...this.list]

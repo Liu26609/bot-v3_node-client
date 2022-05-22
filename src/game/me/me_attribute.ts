@@ -23,8 +23,6 @@ export class me_attribute extends task_base {
         }
         let data = res.res;
         if (data.userCfg.textStyle == textStyle.card) {
-            new text_attribute_style().sendData(data.body).sendMsg(this.channel_id);
-        } else if (data.userCfg.textStyle == textStyle.text) {
             let out_attribute = data.body.out_attribute;
             let temp = new embed_style();
             temp.setTitle(data?.body.title.name);
@@ -40,6 +38,8 @@ export class me_attribute extends task_base {
             temp.addLine(`🔰物理防御:${out_attribute.PhysicalDefense}`)
             temp.addLine(`💖每秒回复:${out_attribute.secondResHp}`)
             temp.sendMsg(this.channel_id)
+        } else if (data.userCfg.textStyle == textStyle.text) {
+            new text_attribute_style().sendData(data.body).sendMsg(this.channel_id);
         }
     }
 }
