@@ -9,6 +9,7 @@ export class baseTaskMenu extends task_base{
     render(){
         let temp = `￣￣￣￣￣￣＼V3.X／￣￣￣￣￣￣
 属性|钱包|背包|位置|设置|改名|复活
+传送|钓鱼
 排行榜|拍卖行
 ￣￣￣￣￣￣＼功能指令／￣￣￣￣
 ＞我的称号　称号改名　重置称号＜
