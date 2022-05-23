@@ -1,3 +1,4 @@
+import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -83,10 +84,15 @@ export class pos_attackPlayer extends task_base{
             }
             await bot.sendText(this.channel_id,killLog)
         }
-
-
         temp += `\n￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
-        temp += `💰金币+25⏳经验+3296⏳宠物经验+3296🌈称号经验+1✝️正义值+1`
+        if(data.reward.length > 0){
+            data.reward.forEach(item => {
+                temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}`
+            });
+        }else{
+            temp += `😤这次战斗好像奖励了个寂寞`
+        }
+        temp += `\n🧚‍♂️击杀怪物后地图有几率掉落宝箱哦~`
 
         bot.sendText(this.channel_id, temp)
     }
