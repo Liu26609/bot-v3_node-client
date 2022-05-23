@@ -15,7 +15,9 @@ export class battleTest extends task_base {
         this.render()
 
     }
+    
     async render() {
+        
         let res = await sever.callApi('Battle', {})
         if(!res.isSucc){
             this.sendErr(res.err)

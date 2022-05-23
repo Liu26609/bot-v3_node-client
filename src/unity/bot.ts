@@ -161,6 +161,9 @@ class bot {
         info(`BOT ID:${data.user.id}`);
         this.botInfo = data;
     }
+    getBot_name(){
+        return this.botInfo?.user.username;
+    }
     /**
      * 绑定机器人事件监听
      * @param intents 

@@ -1,6 +1,7 @@
 import botCfg from "./botCfg";
 import game from "./game";
 import bot from "./unity/bot";
+import common from "./unity/common";
 import sever from "./unity/sever";
 export const log = console.log;
 export const err = console.error;
@@ -20,10 +21,11 @@ async function start() {
     info('start')
     bot.setBotConfig(botCfg)
     new game();
-    // test()
+    test()
 
 }
 async function test() {
-    let data = await sever.callApi('Battle', {})
-    log(data)
+    // log('匹配相识度', common.xsd('普通攻击(魔法', '普通攻击(魔法)'))
+    // let data = await sever.callApi('Battle', {})
+  
 }

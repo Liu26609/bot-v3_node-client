@@ -24,12 +24,41 @@ class common {
             return false
         }
     }
+    xsd(x, y) {
+        var z = 0;
+        x = x.toUpperCase();
+        y = y.toUpperCase();
+        x = x.replace('_', '');
+        y = y.replace('_', '');
+        if (typeof x == "string") {
+            x = x.split("");
+            y = y.split("");
+        }
+        var s = x.length + y.length;
+        x.sort();
+        y.sort();
+        var a = x.shift();
+        var b = y.shift();
+        while (a !== undefined && b != undefined) {
+            if (a === b) {
+                z++;
+                a = x.shift();
+                b = y.shift();
+            } else if (a < b) {
+                a = x.shift();
+            } else if (a > b) {
+                b = y.shift();
+            }
+        }
+        return z / s * 200;
+    }
     BN(value) {
         const newValue = ['', '', '']
         let fr = 1000
         let num = 3
         let text1 = ''
         let fm = 1
+        value = Math.ceil(value)
         while (value / fr >= 1) {
             fr *= 10
             num += 1

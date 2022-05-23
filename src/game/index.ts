@@ -1,3 +1,6 @@
+import { me_skill } from './me/me_skill';
+import { shop_skill_buy } from './shop/shop_skill_buy';
+import { shop_skill } from './shop/shop_skill';
 import { shop_equip_buy } from './shop/shop_equip_buy';
 import { shop_equip } from './shop/shop_equip';
 import { me_destroyBagEquip } from './me/me_destroyBagEquip';
@@ -30,6 +33,9 @@ import { baseTaskMenu } from './sys/baseTaskMenu';
 import { openMapChestBox } from './map/openMapChestBox';
 import common from '../unity/common';
 import { setUp } from './sys/setUp';
+import { searchSkill } from './sys/searchSkill';
+import { me_destroyMeSkill } from './me/me_destroyMeSkill';
+import { me_openBlindBox } from './me/me_openBlindBox';
 
 enum matchType {
     /**
@@ -66,6 +72,7 @@ export default class game {
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
         this.matchMap.set('打开宝箱', { action: openMapChestBox, match: matchType.match })
+        this.matchMap.set('打开盲盒', { action: me_openBlindBox, match: matchType.match })
         this.matchMap.set('改名', { action: me_changeName, match: matchType.match })
         this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
@@ -81,7 +88,12 @@ export default class game {
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
         this.matchMap.set('购买装备', { action: shop_equip_buy, match: matchType.all })
+        this.matchMap.set('技能商店', { action: shop_skill, match: matchType.all })
+        this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
+        this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('设置', { action: setUp, match: matchType.match })
+        this.matchMap.set('查询技能', { action: searchSkill, match: matchType.match })
+        this.matchMap.set('遗忘技能', { action: me_destroyMeSkill, match: matchType.match })
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))

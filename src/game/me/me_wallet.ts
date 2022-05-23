@@ -5,6 +5,7 @@ import sever from '../../unity/sever';
 import { log } from '../..';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { textStyle } from '../../shared/game/setUp';
+import common from '../../unity/common';
 
 export class me_wallet extends task_base {
     constructor(...a) {
@@ -21,13 +22,13 @@ export class me_wallet extends task_base {
         switch (data.userCfg.textStyle) {
             case textStyle.text:
                 let tems = `🏧${this.userName}的钱包\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.gold]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.BlindBox]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.titleCard]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${data.resLife}`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.gold]]}:${common.BN(data.gold)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.BlindBox]]}:${common.BN(data.BlindBox)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.titleCard]]}:${common.BN(data.titleCard)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${common.BN(data.changeNameCard)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${common.BN(data.skillCard)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${common.BN(data.transferCard)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${common.BN(data.resLife)}`
                 bot.sendText(this.channel_id, tems)
 
                 break;
@@ -36,13 +37,13 @@ export class me_wallet extends task_base {
                 temp.setTitle(`🏧${this.userName}的钱包`);
                 temp.setTips('我的钱包')
                 temp.setIcon(this.userIcon)
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.gold]]}:${data.gold}`);
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.BlindBox]]}:${data.BlindBox}`);
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.titleCard]]}:${data.titleCard}`)
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${data.changeNameCard}`);
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${data.skillCard}`);
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${data.transferCard}`);
-                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${data.resLife}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.gold]]}:${common.BN(data.gold)}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.BlindBox]]}:${common.BN(data.BlindBox)}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.titleCard]]}:${common.BN(data.titleCard)}`)
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${common.BN(data.changeNameCard)}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${common.BN(data.skillCard)}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${common.BN(data.transferCard)}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${common.BN(data.resLife)}`);
                 temp.sendMsg(this.channel_id)
                 break;
             default:
