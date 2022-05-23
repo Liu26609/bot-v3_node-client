@@ -26,7 +26,8 @@ export class me_wallet extends task_base {
                 tems += `${rewardKey_CN[rewardKey[rewardKey.titleCard]]}:${data.gold}\n`
                 tems += `${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${data.gold}\n`
                 tems += `${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${data.gold}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${data.gold}`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${data.gold}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${data.resLife}`
                 bot.sendText(this.channel_id, tems)
 
                 break;
@@ -41,6 +42,7 @@ export class me_wallet extends task_base {
                 temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${data.changeNameCard}`);
                 temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${data.skillCard}`);
                 temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${data.transferCard}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${data.resLife}`);
                 temp.sendMsg(this.channel_id)
                 break;
             default:
