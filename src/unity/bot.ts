@@ -201,7 +201,7 @@ class bot {
             data.content = data.content.replace(' ', '');
         }
         while (data.content.includes('/')) {
-            data.content = data.content.replace(' ', '');
+            data.content = data.content.replace('/', '');
         }
         
         // TODO调试

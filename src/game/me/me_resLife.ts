@@ -1,12 +1,18 @@
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import bot from '../../unity/bot';
+import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 export class me_resLife extends task_base{
     constructor(...a){
         super(...a)
         this.render()
     }
-    render(){
+    async render(){
+        let req = await sever.callApi('ResLife',{userId:this.userId})
+        if(!req.isSucc){
+            this.sendErr(req.err)
+            return;
+        }
         let temp = ``;
         temp += `┏┄════👑重生复活═══━┄\n`
         temp += `┣🔻扣除${rewardKey_CN[rewardKey[1]]}x0\n`
