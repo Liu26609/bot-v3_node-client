@@ -1,3 +1,4 @@
+import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../shared/game/equip";
 import bot from "../../unity/bot";
 import common from "../../unity/common";
 import sever from "../../unity/sever";
@@ -18,7 +19,7 @@ export class me_equip extends task_base {
         let temp = `┏┄════👑我的装备═══━┄\n`;
         if (data.equipList.length > 0) {
             data.equipList.forEach(info => {
-                temp += `╔[饰品](传说)-${info.name}+${info.leve}\n`;
+                temp += `╔[${EQUIP_TYPE_CN[EQUIP_TYPE[info.type]]}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[info.quality]]})${info.name}+${info.leve}\n`;
                 temp += `║♥️最大生命+${common.BN(common.converEquipattribute(info,`hp_max`))}\n`;
                 temp += `║🔮魔法攻击+${common.BN(common.converEquipattribute(info,`MagicAttack`))}\n`;
                 temp += `║🌟魔法防御+${common.BN(common.converEquipattribute(info,`MagicDefense`))}\n`;

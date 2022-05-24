@@ -1,3 +1,7 @@
+import { me_titleRandom } from './me/me_titleRandom';
+import { me_title } from './me/me_title';
+import { me_callPos } from './me/me_callPos';
+import { me_strengthen } from './me/me_strengthen';
 import { me_skill } from './me/me_skill';
 import { shop_skill_buy } from './shop/shop_skill_buy';
 import { shop_skill } from './shop/shop_skill';
@@ -37,6 +41,7 @@ import { searchSkill } from './sys/searchSkill';
 import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
 import { me_equip } from './me/me_equip';
+import { me_titleChangeName } from './me/me_titleChangeName';
 
 enum matchType {
     /**
@@ -62,40 +67,46 @@ export default class game {
         this.start();
     }
     private initKeyMap() {
-        this.matchMap.set('签到', { action: me_sign, match: matchType.all })
-        this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
-        this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
-        this.matchMap.set('测试', { action: battleTest, match: matchType.all })
-        this.matchMap.set('位置', { action: me_pos, match: matchType.all })
+        this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
+        this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
+        this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
+        this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
+        this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
-        this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
         this.matchMap.set('打开宝箱', { action: openMapChestBox, match: matchType.match })
         this.matchMap.set('打开盲盒', { action: me_openBlindBox, match: matchType.match })
+        this.matchMap.set('查询技能', { action: searchSkill, match: matchType.match })
+        this.matchMap.set('我的装备', { action: me_equip, match: matchType.all })
+        this.matchMap.set('遗忘技能', { action: me_destroyMeSkill, match: matchType.match })
+        this.matchMap.set('销毁装备', { action: me_destroyBagEquip, match: matchType.match })
+        this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
+        this.matchMap.set('购买装备', { action: shop_equip_buy, match: matchType.all })
+        this.matchMap.set('技能商店', { action: shop_skill, match: matchType.all })
+        this.matchMap.set('链式指令', { action: chainTask, match: matchType.all })
+        this.matchMap.set('我的称号', { action: me_title, match: matchType.match })
+        this.matchMap.set('重置称号', { action: me_titleRandom, match: matchType.match })
+        this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
+        this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
+        this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
+        this.matchMap.set('签到', { action: me_sign, match: matchType.all })
+        this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
+        this.matchMap.set('测试', { action: battleTest, match: matchType.all })
+        this.matchMap.set('位置', { action: me_pos, match: matchType.all })
         this.matchMap.set('改名', { action: me_changeName, match: matchType.match })
         this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
+        this.matchMap.set('复活',{ action: me_resLife, match: matchType.all })
+        this.matchMap.set('背包', { action: me_bag, match: matchType.all })
+        this.matchMap.set('设置', { action: setUp, match: matchType.match })
+        this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
+        this.matchMap.set('传送', { action: me_callPos, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
         this.matchMap.set('下', { action: me_move, match: matchType.all })
         this.matchMap.set('左', { action: me_move, match: matchType.all })
         this.matchMap.set('右', { action: me_move, match: matchType.all })
-        this.matchMap.set('复活',{ action: me_resLife, match: matchType.all })
-        this.matchMap.set('链式指令', { action: chainTask, match: matchType.all })
-        this.matchMap.set('背包', { action: me_bag, match: matchType.all })
-        this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
-        this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
-        this.matchMap.set('销毁装备', { action: me_destroyBagEquip, match: matchType.match })
-        this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
-        this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
-        this.matchMap.set('购买装备', { action: shop_equip_buy, match: matchType.all })
-        this.matchMap.set('技能商店', { action: shop_skill, match: matchType.all })
-        this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
-        this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
-        this.matchMap.set('设置', { action: setUp, match: matchType.match })
-        this.matchMap.set('查询技能', { action: searchSkill, match: matchType.match })
-        this.matchMap.set('我的装备', { action: me_equip, match: matchType.all })
-        this.matchMap.set('遗忘技能', { action: me_destroyMeSkill, match: matchType.match })
+
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
@@ -127,9 +138,9 @@ export default class game {
         if (data.channel_id != '1933444') {
             return;
         }
-        if(data.author.id != '14139673525601401123'){
-            return;
-        }
+        // if(data.author.id != '14139673525601401123'){
+        //     return;
+        // }
         log('收到艾特消息', data.content)
         const userId = data.author.id;
         const userIcon = data.author.avatar;
@@ -141,10 +152,10 @@ export default class game {
         let isFind = false;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
-            if (conf.match == matchType.all && data.content == key) {
+            if (conf.match == matchType.all && data.content == key && !isFind) {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
-            } else if (conf.match == matchType.match && data.content.includes(key)) {
+            } else if (conf.match == matchType.match && data.content.includes(key) && !isFind) {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }
@@ -157,13 +168,12 @@ export default class game {
             matchList.sort(function (A, B) {
                 return B.match - A.match;
             });
-            let temp = `你是不是想\n`;
+            let temp = `┏┄════🔎你想找什么?══━┄\n`;
             for (let index = 0; index < 5; index++) {
-                if(index > 0 && matchList[index].match <= 10){
-                    break;
-                }
-                temp += `[${index + 1}]@${bot.getBot_name()}  ${matchList[index].key}\n`;
+                temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
             }
+            temp += `┗┄━══════════━┄`
+            
             bot.sendText(data.channel_id,temp)
         }
        
