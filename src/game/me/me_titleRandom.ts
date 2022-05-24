@@ -21,6 +21,10 @@ export class me_titleRandom extends task_base {
             bot.sendText(this.channel_id, '🧚‍♂️提示:重置次数不能为负哦~')
             return;
         }
+        if(Number(randomCont) > 5000000){
+            bot.sendText(this.channel_id, '🧚‍♂️提示:重置次数最大为500万哦~')
+            return;
+        }
         let req = await sever.callApi('Me_titleRandom', { userId: this.userId, randomCont: Number(randomCont) });
         if (!req.isSucc) {
             this.sendErr(req.err)
@@ -30,12 +34,12 @@ export class me_titleRandom extends task_base {
         let temp = `┏┄════🌏重置完成═══━┄\n`;
         temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
         temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-        temp += `⚜️等级：LV.${data.title.leve}(${data.title.exp}/${data.title.leve * 10000})\n`;
-        temp += ` ♥️最大生命+${data.title.attribute.hp_max}%\n`;
-        temp += `🔪物理攻击+${data.title.attribute.PhysicalAttacks}%\n`;
-        temp += `🔰物理防御+${data.title.attribute.PhysicalDefense}%\n`;
-        temp += `🔮魔法攻击+${data.title.attribute.MagicAttack}%\n`;
-        temp += `🌟魔法防御+${data.title.attribute.MagicDefense}%\n`;
+        temp += ` ♥️最大生命+${data.bf.hp_max}➡️${data.now.hp_max}%\n`;
+        temp += `🔪物理攻击+${data.bf.PhysicalAttacks}➡️${data.now.PhysicalAttacks}%\n`;
+        temp += `🔰物理防御+${data.bf.PhysicalDefense}➡️${data.now.PhysicalDefense}%\n`;
+        temp += `🔮魔法攻击+${data.bf.MagicAttack}➡️${data.now.MagicAttack}%\n`;
+        temp += `🌟魔法防御+${data.bf.MagicDefense}➡️${data.now.MagicDefense}%\n`;
+        temp += `💖每秒回复+${data.bf.secondResHp}➡️${data.now.secondResHp}%\n`;
         temp += `🎨拥有者:<@!${this.userId}>\n`;
         temp += `┗┄━══════════━┄`
 
