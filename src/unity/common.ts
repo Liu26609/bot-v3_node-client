@@ -1,28 +1,41 @@
+import { equip } from "../shared/game/equip";
+
 /**
  * 公共方法库
  */
 class common {
-    constructor(){
+    constructor() {
 
     }
     /**
      * 获取一个随机数
      */
-    random(min:number,max:number){
-       return Math.floor(Math.random() * (max - min + 1)) + min
+    random(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
     }
     /**
      * 文字是否合法
      * @param str 
      * @returns 
      */
-     islegal(str) {
+    islegal(str) {
         let reg = new RegExp("^[A-Za-z0-9\u4e00-\u9fa5]+$");
         if (reg.test(str)) {
             return true;
         } else {
             return false
         }
+    }
+    /**
+    * 装备属性转换
+    * @param e 
+    * @param keys 
+    * @returns 
+    */
+    converEquipattribute(e: equip, keys: string) {
+        let equipVal = e.base_attribute[keys] as number;
+        let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality, 0.9);
+        return val || 0
     }
     xsd(x, y) {
         var z = 0;
@@ -55,7 +68,7 @@ class common {
     BN(value) {
         const newValue = ['', '', '']
         let fr = 1000
-        let num = 3
+        let num = 3;
         let text1 = ''
         let fm = 1
         value = Math.ceil(value)

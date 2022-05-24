@@ -36,6 +36,7 @@ import { setUp } from './sys/setUp';
 import { searchSkill } from './sys/searchSkill';
 import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
+import { me_equip } from './me/me_equip';
 
 enum matchType {
     /**
@@ -93,6 +94,7 @@ export default class game {
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('设置', { action: setUp, match: matchType.match })
         this.matchMap.set('查询技能', { action: searchSkill, match: matchType.match })
+        this.matchMap.set('我的装备', { action: me_equip, match: matchType.all })
         this.matchMap.set('遗忘技能', { action: me_destroyMeSkill, match: matchType.match })
     }
     start() {
@@ -125,20 +127,46 @@ export default class game {
         if (data.channel_id != '1933444') {
             return;
         }
+        if(data.author.id != '14139673525601401123'){
+            return;
+        }
         log('收到艾特消息', data.content)
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
         const content = data.content;
         const userName = data.author.username;
+
+        let matchList = [] as {conf:any,match:number,key:string}[];
+        let isFind = false;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && data.content == key) {
+                isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             } else if (conf.match == matchType.match && data.content.includes(key)) {
+                isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }
+            if(!isFind){
+                matchList.push({conf:conf,match:common.xsd(key,data.content),key:key})
+            }
         });
+
+        if(!isFind){
+            matchList.sort(function (A, B) {
+                return B.match - A.match;
+            });
+            let temp = `你是不是想\n`;
+            for (let index = 0; index < 5; index++) {
+                if(index > 0 && matchList[index].match <= 10){
+                    break;
+                }
+                temp += `[${index + 1}]@${bot.getBot_name()}  ${matchList[index].key}\n`;
+            }
+            bot.sendText(data.channel_id,temp)
+        }
+       
 
     }
     // 客户端刷新单位：秒
