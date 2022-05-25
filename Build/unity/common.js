@@ -38,7 +38,7 @@ class common {
         return val || 0;
     }
     xsd(x, y) {
-        var z = 0;
+        let z = 0;
         x = x.toUpperCase();
         y = y.toUpperCase();
         x = x.replace('_', '');
@@ -47,11 +47,11 @@ class common {
             x = x.split("");
             y = y.split("");
         }
-        var s = x.length + y.length;
+        let s = x.length + y.length;
         x.sort();
         y.sort();
-        var a = x.shift();
-        var b = y.shift();
+        let a = x.shift();
+        let b = y.shift();
         while (a !== undefined && b != undefined) {
             if (a === b) {
                 z++;
@@ -67,22 +67,51 @@ class common {
         }
         return z / s * 200;
     }
-    BN(num) {
-        let strLength = num.toString().length;
-        let str = num.toString();
-        const units = ['千', '万', '亿', '兆', '千兆', '亿兆', '京', '千京', '亿京', '垓', '千垓', '千垓', '秭'];
-        if (strLength <= 3) {
-            return str;
-        }
-        else if (strLength > 42) {
-            return 999 + 'max';
+    BN(number, decimalDigit) {
+        decimalDigit = decimalDigit == null ? 2 : decimalDigit;
+        let integer = Math.floor(number);
+        let digit = this._getDigit(integer);
+        // ['个', '十', '百', '千', '万', '十万', '百万', '千万']; 
+        let unit = [];
+        if (digit > 3) {
+            let multiple = Math.floor(digit / 8);
+            if (multiple >= 1) {
+                let tmp = Math.round(integer / Math.pow(10, 8 * multiple));
+                unit.push(this._addWan(tmp, number, 8 * multiple, decimalDigit));
+                for (let i = 0; i < multiple; i++) {
+                    unit.push('亿');
+                }
+                return unit.join('');
+            }
+            else {
+                return this._addWan(integer, number, 0, decimalDigit);
+            }
         }
         else {
-            const unitIndex = Math.ceil(strLength / 3) - 2;
-            const unit = units[unitIndex];
-            const leftLength = strLength - (3 * (Math.ceil(strLength / 3) - 1));
-            return str.substring(0, leftLength) + '.' + str.substring(leftLength, leftLength + 2) + unit;
+            return number;
         }
+    }
+    _addWan(integer, number, mutiple, decimalDigit) {
+        let me = this;
+        let digit = me._getDigit(integer);
+        if (digit > 3) {
+            let remainder = digit % 8;
+            if (remainder >= 5) { // ‘十万’、‘百万’、‘千万’显示为‘万’ 
+                remainder = 4;
+            }
+            return Math.round(number / Math.pow(10, remainder + mutiple - decimalDigit)) / Math.pow(10, decimalDigit) + '万';
+        }
+        else {
+            return Math.round(number / Math.pow(10, mutiple - decimalDigit)) / Math.pow(10, decimalDigit);
+        }
+    }
+    _getDigit(integer) {
+        let digit = -1;
+        while (integer >= 1) {
+            digit++;
+            integer = integer / 10;
+        }
+        return digit;
     }
 }
 exports.default = new common();
