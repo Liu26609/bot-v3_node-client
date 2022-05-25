@@ -10,7 +10,11 @@ const task_base_1 = require("../task_base");
 class addOneWrod extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
-        const str = this.content.replace('一言', '');
+        const str = this.content.replace(this.matchKey, '');
+        if (str.length == 0) {
+            bot_1.default.sendText(this.channel_id, `一言收录词库：词库内容不能为空`);
+            return;
+        }
         sever_1.default.callApi('AddOneWord', { text: str }).then((res) => {
             if (res.isSucc) {
                 bot_1.default.sendText(this.channel_id, `收录成功:当前库数量${res.res.creatorId}`);
