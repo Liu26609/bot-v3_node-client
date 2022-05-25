@@ -50,6 +50,7 @@ const me_destroyMeSkill_1 = require("./me/me_destroyMeSkill");
 const me_openBlindBox_1 = require("./me/me_openBlindBox");
 const me_equip_1 = require("./me/me_equip");
 const me_titleChangeName_1 = require("./me/me_titleChangeName");
+const shop_back_1 = require("./shop/shop_back");
 var matchType;
 (function (matchType) {
     /**
@@ -92,6 +93,7 @@ class game {
         this.matchMap.set('购买技能', { action: shop_skill_buy_1.shop_skill_buy, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
+        this.matchMap.set('黑市', { action: shop_back_1.shop_back, match: matchType.all });
         this.matchMap.set('签到', { action: me_sign_1.default, match: matchType.all });
         this.matchMap.set('属性', { action: me_attribute_1.me_attribute, match: matchType.all });
         this.matchMap.set('测试', { action: battleTest_1.battleTest, match: matchType.all });
@@ -138,9 +140,9 @@ class game {
             if (data.channel_id != '1933444') {
                 return;
             }
-            // if(data.author.id != '14139673525601401123'){
-            //     return;
-            // }
+            if (data.author.id != '14139673525601401123') {
+                return;
+            }
             (0, __1.log)('收到艾特消息', data.content);
             const userId = data.author.id;
             const userIcon = data.author.avatar;

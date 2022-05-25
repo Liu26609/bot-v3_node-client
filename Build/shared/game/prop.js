@@ -3,7 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.chestBoxLv_CN = exports.chestBoxLv = exports.rewardFormula = exports.rewardKey_CN = exports.rewardKey = exports.storeBackTemp = void 0;
 var storeBackTemp;
 (function (storeBackTemp) {
-    storeBackTemp[storeBackTemp["forever_hpMax"] = 0] = "forever_hpMax";
+    storeBackTemp[storeBackTemp["forever_hpMax_1"] = 0] = "forever_hpMax_1";
+    storeBackTemp[storeBackTemp["forever_hpMax_10"] = 1] = "forever_hpMax_10";
+    storeBackTemp[storeBackTemp["forever_hpMax_100"] = 2] = "forever_hpMax_100";
+    storeBackTemp[storeBackTemp["forever_hpMax_200"] = 3] = "forever_hpMax_200";
+    storeBackTemp[storeBackTemp["forever_hpMax_400"] = 4] = "forever_hpMax_400";
+    storeBackTemp[storeBackTemp["forever_hpMax_500"] = 5] = "forever_hpMax_500";
 })(storeBackTemp = exports.storeBackTemp || (exports.storeBackTemp = {}));
 var rewardKey;
 (function (rewardKey) {
