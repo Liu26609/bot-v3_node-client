@@ -1,23 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chestBoxLv_CN = exports.chestBoxLv = exports.rewardFormula = exports.rewardKey_CN = exports.rewardKey = exports.mapId = exports.storeBackTemp = void 0;
-var storeBackTemp;
-(function (storeBackTemp) {
-    storeBackTemp[storeBackTemp["forever_hpMax_1"] = 0] = "forever_hpMax_1";
-    storeBackTemp[storeBackTemp["forever_hpMax_10"] = 1] = "forever_hpMax_10";
-})(storeBackTemp = exports.storeBackTemp || (exports.storeBackTemp = {}));
-var mapId;
-(function (mapId) {
-    /**
-     * 空地
-     */
-    mapId[mapId["opening"] = 0] = "opening";
-    /**
-     * 墙壁
-     */
-    mapId[mapId["wall"] = 1] = "wall";
-    mapId[mapId["water"] = 2] = "water";
-})(mapId = exports.mapId || (exports.mapId = {}));
+exports.chestBoxLv_CN = exports.chestBoxLv = exports.rewardFormula = exports.rewardKey_CN = exports.rewardKey = void 0;
 var rewardKey;
 (function (rewardKey) {
     /**
@@ -48,14 +31,6 @@ var rewardKey;
      * 传送卡
      */
     rewardKey[rewardKey["transferCard"] = 6] = "transferCard";
-    /**
-     * 复活币
-     */
-    rewardKey[rewardKey["resLife"] = 7] = "resLife";
-    /**
-     * 鱼干
-     */
-    rewardKey[rewardKey["driedFish"] = 8] = "driedFish";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -66,8 +41,6 @@ var rewardKey_CN;
     rewardKey_CN["changeNameCard"] = "\uD83D\uDCB3\u6539\u540D\u5361";
     rewardKey_CN["skillCard"] = "\uD83D\uDD2F\u6280\u80FD\u5361";
     rewardKey_CN["transferCard"] = "\uD83C\uDFC3\u4F20\u9001\u5361";
-    rewardKey_CN["resLife"] = "\uD83D\uDCA0\u590D\u6D3B\u5E01";
-    rewardKey_CN["driedFish"] = "\uD83D\uDC1F\uFE0F\u5C0F\u9C7C\u5E72";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型
@@ -75,7 +48,6 @@ var rewardKey_CN;
 var rewardFormula;
 (function (rewardFormula) {
     rewardFormula[rewardFormula["map_enemy"] = 0] = "map_enemy";
-    rewardFormula[rewardFormula["map_player"] = 1] = "map_player";
 })(rewardFormula = exports.rewardFormula || (exports.rewardFormula = {}));
 /**
  * 宝箱等级

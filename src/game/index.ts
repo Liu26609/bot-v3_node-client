@@ -1,3 +1,5 @@
+import { fishing } from './map/fishing';
+import { shop_back_buy } from './shop/shop_back_buy';
 import { me_titleRandom } from './me/me_titleRandom';
 import { me_title } from './me/me_title';
 import { me_callPos } from './me/me_callPos';
@@ -90,8 +92,10 @@ export default class game {
         this.matchMap.set('我的称号', { action: me_title, match: matchType.match })
         this.matchMap.set('重置称号', { action: me_titleRandom, match: matchType.match })
         this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
+        this.matchMap.set('黑市购买', { action: shop_back_buy, match: matchType.all })
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
+        this.matchMap.set('钓鱼', { action: fishing, match: matchType.all })
         this.matchMap.set('黑市', { action: shop_back, match: matchType.all })
         this.matchMap.set('签到', { action: me_sign, match: matchType.all })
         this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
@@ -140,9 +144,9 @@ export default class game {
         if (data.channel_id != '1933444') {
             return;
         }
-        if(data.author.id != '14139673525601401123'){
-            return;
-        }
+        // if(data.author.id != '14139673525601401123'){
+        //     return;
+        // }
         log('收到艾特消息', data.content)
         const userId = data.author.id;
         const userIcon = data.author.avatar;
@@ -175,7 +179,7 @@ export default class game {
                 temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
             }
             temp += `┗┄━══════════━┄`
-            
+
             bot.sendText(data.channel_id,temp)
         }
        

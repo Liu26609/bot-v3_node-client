@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 53,
+    "version": 54,
     "services": [
         {
             "id": 13,
@@ -17,6 +17,11 @@ exports.serviceProto = {
         {
             "id": 10,
             "name": "Battle",
+            "type": "api"
+        },
+        {
+            "id": 43,
+            "name": "fishing",
             "type": "api"
         },
         {
@@ -150,6 +155,11 @@ exports.serviceProto = {
         {
             "id": 34,
             "name": "SearchSkill",
+            "type": "api"
+        },
+        {
+            "id": 44,
+            "name": "Shop_back_buy",
             "type": "api"
         },
         {
@@ -874,6 +884,52 @@ exports.serviceProto = {
                 }
             ]
         },
+        "Ptlfishing/Reqfishing": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "Ptlfishing/Resfishing": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "jin",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "fish",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "reward",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
         "PtlGetUserSetUp/ReqGetUserSetUp": {
             "type": "Interface",
             "properties": [
@@ -1068,6 +1124,14 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 16,
+                    "name": "add",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
                     "id": 12,
                     "name": "sign",
                     "type": {
@@ -1171,6 +1235,13 @@ exports.serviceProto = {
                 {
                     "id": 6,
                     "name": "resLife",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "driedFish",
                     "type": {
                         "type": "Number"
                     }
@@ -2137,6 +2208,13 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 9,
+                    "name": "posTiledId",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
                     "id": 0,
                     "name": "pos",
                     "type": {
@@ -2481,6 +2559,39 @@ exports.serviceProto = {
                 }
             ]
         },
+        "PtlShop_back_buy/ReqShop_back_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlShop_back_buy/ResShop_back_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                }
+            ]
+        },
         "PtlShop_back/ReqShop_back": {
             "type": "Interface",
             "properties": [
@@ -2597,22 +2708,6 @@ exports.serviceProto = {
                 {
                     "id": 1,
                     "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                },
-                {
-                    "id": 4,
-                    "value": 4
-                },
-                {
-                    "id": 5,
-                    "value": 5
                 }
             ]
         },

@@ -28,12 +28,17 @@ export class me_pos extends task_base {
         }
         let data = req.res;
         log('pos', data.enemy)
+
+        
         let temp = ``;
         temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
         temp += `            ${data.isTop ? '上' : '⛔'}\n`;
         temp += `  ${data.isLeft ? '左' : '⛔'}       🧙‍♂️       ${data.isRight ? '右' : '⛔'}\n`;
         temp += `            ${data.isButtom ? '下' : '⛔'}\n`;
-
+        if (data.posTiledId == 2) {
+            temp += `┄════💧发现湖泊═══━┄\n`
+            temp += `在这里发现了一个湖泊，你可以发送[钓鱼]试试\n`
+        }
         if (data.player.length + data.enemy.length > 1) {
             temp += `┄════🔥发现敌人═══━┄\n`;
             for (let index = 0; index < data.player.length; index++) {

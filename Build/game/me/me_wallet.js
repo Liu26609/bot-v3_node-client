@@ -42,7 +42,8 @@ class me_wallet extends task_base_1.task_base {
                     tems += `${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}\n`;
                     tems += `${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.skillCard]]}:${common_1.default.BN(data.skillCard)}\n`;
                     tems += `${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.transferCard]]}:${common_1.default.BN(data.transferCard)}\n`;
-                    tems += `${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.resLife]]}:${common_1.default.BN(data.resLife)}`;
+                    tems += `${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.resLife]]}:${common_1.default.BN(data.resLife)}\n`;
+                    tems += `${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`;
                     bot_1.default.sendText(this.channel_id, tems);
                     break;
                 case setUp_1.textStyle.card:
@@ -57,6 +58,7 @@ class me_wallet extends task_base_1.task_base {
                     temp.addLine(`${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
                     temp.addLine(`${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
                     temp.addLine(`${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
+                    temp.addLine(`${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
                     temp.sendMsg(this.channel_id);
                     break;
                 default:

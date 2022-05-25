@@ -28,7 +28,8 @@ export class me_wallet extends task_base {
                 tems += `${rewardKey_CN[rewardKey[rewardKey.changeNameCard]]}:${common.BN(data.changeNameCard)}\n`
                 tems += `${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${common.BN(data.skillCard)}\n`
                 tems += `${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${common.BN(data.transferCard)}\n`
-                tems += `${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${common.BN(data.resLife)}`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${common.BN(data.resLife)}\n`
+                tems += `${rewardKey_CN[rewardKey[rewardKey.driedFish]]}:${common.BN(data.driedFish)}`
                 bot.sendText(this.channel_id, tems)
 
                 break;
@@ -44,6 +45,7 @@ export class me_wallet extends task_base {
                 temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.skillCard]]}:${common.BN(data.skillCard)}`);
                 temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.transferCard]]}:${common.BN(data.transferCard)}`);
                 temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.resLife]]}:${common.BN(data.resLife)}`);
+                temp.addLine(`${rewardKey_CN[rewardKey[rewardKey.driedFish]]}:${common.BN(data.driedFish)}`);
                 temp.sendMsg(this.channel_id)
                 break;
             default:

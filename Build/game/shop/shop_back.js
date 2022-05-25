@@ -31,7 +31,7 @@ class shop_back extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = `黑市商店第${data.updateNum}期商品到货啦~
-出售商品:🔪物理攻击永久+1
+出售商品:${this.converSellTemp(data.sell_temp)}
 购买价格:${prop_1.rewardKey_CN[prop_1.rewardKey[data.buyCondition.key]]}x${data.buyCondition.val}
 商店库存:${data.stock - data.sellNum}
 刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
@@ -39,6 +39,20 @@ class shop_back extends task_base_1.task_base {
 🧚‍♂️出售商品和价格每次随机刷新`;
             bot_1.default.sendText(this.channel_id, temp);
         });
+    }
+    converSellTemp(temp) {
+        let str = ``;
+        switch (temp) {
+            case prop_1.storeBackTemp.forever_hpMax_1:
+                str = `♥️最大生命永久+1`;
+                break;
+            case prop_1.storeBackTemp.forever_hpMax_10:
+                str = `♥️最大生命永久+10`;
+                break;
+            default:
+                break;
+        }
+        return str;
     }
 }
 exports.shop_back = shop_back;

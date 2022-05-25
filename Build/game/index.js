@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const fishing_1 = require("./map/fishing");
+const shop_back_buy_1 = require("./shop/shop_back_buy");
 const me_titleRandom_1 = require("./me/me_titleRandom");
 const me_title_1 = require("./me/me_title");
 const me_callPos_1 = require("./me/me_callPos");
@@ -91,8 +93,10 @@ class game {
         this.matchMap.set('我的称号', { action: me_title_1.me_title, match: matchType.match });
         this.matchMap.set('重置称号', { action: me_titleRandom_1.me_titleRandom, match: matchType.match });
         this.matchMap.set('购买技能', { action: shop_skill_buy_1.shop_skill_buy, match: matchType.all });
+        this.matchMap.set('黑市购买', { action: shop_back_buy_1.shop_back_buy, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
+        this.matchMap.set('钓鱼', { action: fishing_1.fishing, match: matchType.all });
         this.matchMap.set('黑市', { action: shop_back_1.shop_back, match: matchType.all });
         this.matchMap.set('签到', { action: me_sign_1.default, match: matchType.all });
         this.matchMap.set('属性', { action: me_attribute_1.me_attribute, match: matchType.all });
@@ -140,9 +144,9 @@ class game {
             if (data.channel_id != '1933444') {
                 return;
             }
-            if (data.author.id != '14139673525601401123') {
-                return;
-            }
+            // if(data.author.id != '14139673525601401123'){
+            //     return;
+            // }
             (0, __1.log)('收到艾特消息', data.content);
             const userId = data.author.id;
             const userIcon = data.author.avatar;
