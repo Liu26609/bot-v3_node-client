@@ -84,7 +84,7 @@ class common {
                 return this._addWan(integer, number, 0, decimalDigit);
             }
         } else {
-            return number;
+            return Math.ceil(number);
         }
     }
 
