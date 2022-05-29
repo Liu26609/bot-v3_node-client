@@ -65,7 +65,7 @@ class common {
         }
         return z / s * 200;
     }
-    BN(number:any,decimalDigit:any) {
+    BN(number:any,decimalDigit?:any) {
         decimalDigit = decimalDigit == null ? 2 : decimalDigit;
         let integer = Math.floor(number);
         let digit = this._getDigit(integer);
@@ -75,7 +75,7 @@ class common {
             let multiple = Math.floor(digit / 8);
             if (multiple >= 1) {
                 let tmp = Math.round(integer / Math.pow(10, 8 * multiple));
-                unit.push(this._addWan(tmp, number, 8 * multiple, decimalDigit));
+                unit.push(this._addWan(tmp, number, 8 * multiple, decimalDigit) as any);
                 for (let i = 0; i < multiple; i++) {
                     unit.push('亿');
                 }
