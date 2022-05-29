@@ -1,5 +1,6 @@
 import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../../shared/game/equip';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
+import { walletKey_CN, walletKey } from '../../shared/game/user';
 import bot from '../../unity/bot';
 import common from '../../unity/common';
 import sever from '../../unity/sever';
@@ -47,8 +48,8 @@ export class me_strengthen extends task_base {
         let temp = `┏┄════${data.isSuccress?'🎉强化成功':'😞强化失败'}═══━┄\n`;
         if(data.isSuccress){
             temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`
-            temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
             temp += `♥️最大生命${common.BN(common.converEquipattribute(bf, `hp_max`))}➡️${common.BN(common.converEquipattribute(now, `hp_max`))}\n`;
             temp += `🔮魔法攻击${common.BN(common.converEquipattribute(bf, `MagicAttack`))}➡️${common.BN(common.converEquipattribute(now, `MagicAttack`))}\n`;
@@ -60,8 +61,8 @@ export class me_strengthen extends task_base {
         }else{
             temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
             temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`
-            temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━══════════━┄`;
         }
        

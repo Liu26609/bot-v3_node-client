@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_openBlindBox = void 0;
 const tsrpc_1 = require("tsrpc");
 const prop_1 = require("../../shared/game/prop");
+const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -61,8 +62,8 @@ class me_openBlindBox extends task_base_1.task_base {
             let data = req.res;
             let temp = ``;
             temp += `\n￣￣￣￣￣＼🎁盲盒奖励／￣￣￣￣￣\n`;
-            temp += `🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             if (data.reward.length > 0) {
                 data.reward.forEach(item => {
                     temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}+${item.val}\n`;

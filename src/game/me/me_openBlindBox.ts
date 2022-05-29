@@ -1,5 +1,6 @@
 import { TsrpcErrorType } from 'tsrpc';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
+import { walletKey, walletKey_CN } from '../../shared/game/user';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -46,8 +47,8 @@ export class me_openBlindBox extends task_base {
         let temp = ``;
 
         temp += `\n￣￣￣￣￣＼🎁盲盒奖励／￣￣￣￣￣\n`;
-        temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
-        temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`
+        temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
+        temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`
         if (data.reward.length > 0) {
             data.reward.forEach(item => {
                 temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`

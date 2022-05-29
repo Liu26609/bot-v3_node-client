@@ -4,6 +4,7 @@ import { textStyle } from "../../shared/game/setUp";
 import bot from "../../unity/bot";
 import sever from "../../unity/sever";
 import { task_base } from "../task_base";
+import { walletKey, walletKey_CN } from '../../shared/game/user';
 
 export class shop_skill extends task_base{
     constructor(...a){
@@ -21,7 +22,7 @@ export class shop_skill extends task_base{
         
         let str = '';
         str += `技能商店第${data.updateNum}期商品到货啦~`
-        str += `\n购买价格:${rewardKey_CN[rewardKey[data.buyCondition.key]]}x${data.buyCondition.val}`
+        str += `\n购买价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}`
         str += `\n商店库存:${data.stock - data.sellNum}`
         str += `\n刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`
         str += `\n购买指令：购买技能`

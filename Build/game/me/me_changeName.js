@@ -19,8 +19,8 @@ const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../unity/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
-const prop_1 = require("../../shared/game/prop");
 const setUp_1 = require("../../shared/game/setUp");
+const user_1 = require("../../shared/game/user");
 class me_changeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -72,8 +72,8 @@ class me_changeName extends task_base_1.task_base {
                 temp += `┣┄════🎋新的名称═══━┄\n`;
                 temp += `┣🆕${data.newName}\n`;
                 temp += `┣┄════🏧钱包变化═══━┄\n`;
-                temp += `┣🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-                temp += `┣▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+                temp += `┣🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+                temp += `┣▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `┗┄━═══════════━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp);
             }
@@ -88,8 +88,8 @@ class me_changeName extends task_base_1.task_base {
                 temps.addLine(`￣￣￣＼🎋新的名称／￣￣￣`);
                 temps.addLine(`🆕${data.newName}`);
                 temps.addLine(`￣￣￣＼🏧钱包变化／￣￣￣`);
-                temps.addLine(`🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
-                temps.addLine(`▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}`);
+                temps.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
+                temps.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}`);
                 temps.sendMsg(this.channel_id);
             }
         });

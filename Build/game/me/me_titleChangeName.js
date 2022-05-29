@@ -17,7 +17,7 @@ const me_title_1 = require("./me_title");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
-const prop_1 = require("../../shared/game/prop");
+const user_1 = require("../../shared/game/user");
 class me_titleChangeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -37,8 +37,8 @@ class me_titleChangeName extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = `┏┄════🎉改名成功═══━┄\n`;
-            temp += `🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━══════════━┄`;
             bot_1.default.sendText(this.channel_id, temp);
             new me_title_1.me_title(...this.args);

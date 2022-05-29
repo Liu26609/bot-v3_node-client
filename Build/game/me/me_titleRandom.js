@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_titleRandom = void 0;
-const prop_1 = require("../../shared/game/prop");
+const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -47,8 +47,8 @@ class me_titleRandom extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = `┏┄════🌏重置完成═══━┄\n`;
-            temp += `🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += ` ♥️最大生命+${data.bf.hp_max}➡️${data.now.hp_max}%\n`;
             temp += `🔪物理攻击+${data.bf.PhysicalAttacks}➡️${data.now.PhysicalAttacks}%\n`;
             temp += `🔰物理防御+${data.bf.PhysicalDefense}➡️${data.now.PhysicalDefense}%\n`;

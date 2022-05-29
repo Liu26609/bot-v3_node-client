@@ -1,4 +1,5 @@
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
+import { walletKey, walletKey_CN } from '../../shared/game/user';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -10,7 +11,7 @@ export class me_callPos extends task_base {
     menu() {
         let temp = `┏┄═════🌏传送═════━┄
 ┣传送指令：传送 + 坐标
-┣每次传送需要${rewardKey_CN[rewardKey[rewardKey.transferCard]]}x1
+┣每次传送需要${walletKey_CN[walletKey[walletKey.transferCard]]}x1
 🌰栗子：传送 + 10，20(传送10,20)
 🧚‍♂️提示：逗号不方便？可以试试这些符号(.。,，+-!！*)
 ┗┄━══════════━┄`
@@ -35,8 +36,8 @@ export class me_callPos extends task_base {
         let data = req.res;
         let temp = `┏┄════🌏传送完成═══━┄\n`;
         temp += `你已传送到🌏${data.mapName}[${data.callPos.x},${data.callPos.y}]\n`;
-        temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-        temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+        temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+        temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
         temp += `┗┄━══════════━┄`
 
         bot.sendText(this.channel_id,temp)

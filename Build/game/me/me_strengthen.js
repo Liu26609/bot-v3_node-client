@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_strengthen = void 0;
 const equip_1 = require("../../shared/game/equip");
-const prop_1 = require("../../shared/game/prop");
+const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../unity/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
@@ -59,8 +59,8 @@ class me_strengthen extends task_base_1.task_base {
             let temp = `┏┄════${data.isSuccress ? '🎉强化成功' : '😞强化失败'}═══━┄\n`;
             if (data.isSuccress) {
                 temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
-                temp += `🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-                temp += `▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+                temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+                temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
                 temp += `♥️最大生命${common_1.default.BN(common_1.default.converEquipattribute(bf, `hp_max`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `hp_max`))}\n`;
                 temp += `🔮魔法攻击${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicAttack`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicAttack`))}\n`;
@@ -73,8 +73,8 @@ class me_strengthen extends task_base_1.task_base {
             else {
                 temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
                 temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
-                temp += `🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-                temp += `▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+                temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+                temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `┗┄━══════════━┄`;
             }
             bot_1.default.sendText(this.channel_id, temp);

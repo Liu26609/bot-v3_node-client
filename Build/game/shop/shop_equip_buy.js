@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.shop_equip_buy = void 0;
-const prop_1 = require("../../shared/game/prop");
 const setUp_1 = require("../../shared/game/setUp");
+const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const embed_1 = require("../temp/embed/embed");
@@ -37,8 +37,8 @@ class shop_equip_buy extends task_base_1.task_base {
                 temp += `┏┄════🕊️购买成功═══━┄\n`;
                 temp += `┣装备已放入你的背包，祝您购物愉快~\n`;
                 temp += `┣┄════🏧钱包变化═══━┄\n`;
-                temp += `┣🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-                temp += `┣▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+                temp += `┣🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+                temp += `┣▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `┗┄━═══════════━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp);
             }
@@ -48,8 +48,8 @@ class shop_equip_buy extends task_base_1.task_base {
                 temps.setIcon(this.userIcon);
                 temps.setTips('装备已放入你的背包，祝您购物愉快~');
                 temps.addLine(`￣￣￣＼🏧钱包变化／￣￣￣`);
-                temps.addLine(`🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
-                temps.addLine(`▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[data.pay.condition.key]]}x${data.pay.now}`);
+                temps.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
+                temps.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}`);
                 temps.sendMsg(this.channel_id);
             }
         });

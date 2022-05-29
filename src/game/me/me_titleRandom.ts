@@ -1,4 +1,5 @@
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
+import { walletKey_CN, walletKey } from '../../shared/game/user';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -32,8 +33,8 @@ export class me_titleRandom extends task_base {
         }
         let data = req.res;
         let temp = `┏┄════🌏重置完成═══━┄\n`;
-        temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-        temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+        temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+        temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
         temp += ` ♥️最大生命+${data.bf.hp_max}➡️${data.now.hp_max}%\n`;
         temp += `🔪物理攻击+${data.bf.PhysicalAttacks}➡️${data.now.PhysicalAttacks}%\n`;
         temp += `🔰物理防御+${data.bf.PhysicalDefense}➡️${data.now.PhysicalDefense}%\n`;

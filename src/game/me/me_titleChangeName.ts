@@ -3,6 +3,7 @@ import bot from "../../unity/bot";
 import sever from "../../unity/sever";
 import { task_base } from "../task_base";
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
+import { walletKey_CN, walletKey } from '../../shared/game/user';
 
 export class me_titleChangeName extends task_base {
     constructor(...a) {
@@ -23,8 +24,8 @@ export class me_titleChangeName extends task_base {
         let data = req.res;
 
         let temp = `┏┄════🎉改名成功═══━┄\n`;
-        temp += `🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-        temp += `▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+        temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+        temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
         temp += `┗┄━══════════━┄`;
         bot.sendText(this.channel_id,temp);
         new me_title(...this.args)

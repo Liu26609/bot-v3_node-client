@@ -14,11 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.shop_skill = void 0;
 const skill_1 = require("./../temp/text/skill");
-const prop_1 = require("../../shared/game/prop");
 const setUp_1 = require("../../shared/game/setUp");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
+const user_1 = require("../../shared/game/user");
 class shop_skill extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -34,7 +34,7 @@ class shop_skill extends task_base_1.task_base {
             let data = req.res;
             let str = '';
             str += `技能商店第${data.updateNum}期商品到货啦~`;
-            str += `\n购买价格:${prop_1.rewardKey_CN[prop_1.rewardKey[data.buyCondition.key]]}x${data.buyCondition.val}`;
+            str += `\n购买价格:${user_1.walletKey_CN[user_1.walletKey[data.buyCondition.key]]}x${data.buyCondition.val}`;
             str += `\n商店库存:${data.stock - data.sellNum}`;
             str += `\n刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`;
             str += `\n购买指令：购买技能`;

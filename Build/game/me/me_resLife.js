@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_resLife = void 0;
-const prop_1 = require("../../shared/game/prop");
+const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -31,9 +31,9 @@ class me_resLife extends task_base_1.task_base {
             }
             let temp = ``;
             temp += `┏┄════👑重生复活═══━┄\n`;
-            temp += `┣🔻扣除${prop_1.rewardKey_CN[prop_1.rewardKey[1]]}x0\n`;
-            temp += `┣🔻扣除${prop_1.rewardKey_CN[prop_1.rewardKey[2]]}x0\n`;
-            temp += `┣🔻扣除${prop_1.rewardKey_CN[prop_1.rewardKey[3]]}x0\n`;
+            temp += `┣🔻扣除${user_1.walletKey_CN[user_1.walletKey[1]]}x0\n`;
+            temp += `┣🔻扣除${user_1.walletKey_CN[user_1.walletKey[2]]}x0\n`;
+            temp += `┣🔻扣除${user_1.walletKey_CN[user_1.walletKey[3]]}x0\n`;
             temp += `🧚‍♂️复活完成:死亡不是终结,破产才是。\n`;
             temp += `┗┄━══════════━┄`;
             bot_1.default.sendText(this.channel_id, temp);

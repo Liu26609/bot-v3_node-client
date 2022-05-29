@@ -6,6 +6,7 @@ import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { textStyle } from '../../shared/game/setUp';
+import { walletKey_CN, walletKey } from '../../shared/game/user';
 export class me_changeName extends task_base {
     constructor(...a) {
         super(...a)
@@ -56,8 +57,8 @@ export class me_changeName extends task_base {
             temp += `┣┄════🎋新的名称═══━┄\n`
             temp += `┣🆕${data.newName}\n`;
             temp += `┣┄════🏧钱包变化═══━┄\n`
-            temp += `┣🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `┣▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `┣🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `┣▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━═══════════━┄\n`;
             bot.sendText(this.channel_id,temp);
         }else if(data.userCfg.textStyle == textStyle.card){
@@ -71,8 +72,8 @@ export class me_changeName extends task_base {
             temps.addLine(`￣￣￣＼🎋新的名称／￣￣￣`)
             temps.addLine(`🆕${data.newName}`)
             temps.addLine(`￣￣￣＼🏧钱包变化／￣￣￣`)
-            temps.addLine(`🔻消耗${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
-            temps.addLine(`▶️还有${rewardKey_CN[rewardKey[data.pay.condition.key]]}x${data.pay.now}`)
+            temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
+            temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)
         }
         
