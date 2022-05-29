@@ -88,7 +88,7 @@ class common {
             }
         }
         else {
-            return number;
+            return Math.ceil(number);
         }
     }
     _addWan(integer, number, mutiple, decimalDigit) {
