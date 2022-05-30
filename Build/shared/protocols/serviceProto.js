@@ -2,8 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 55,
+    "version": 57,
     "services": [
+        {
+            "id": 45,
+            "name": "auction/Auction_look",
+            "type": "api"
+        },
         {
             "id": 13,
             "name": "AddOneWord",
@@ -194,6 +199,252 @@ exports.serviceProto = {
         }
     ],
     "types": {
+        "auction/PtlAuction_look/ReqAuction_look": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "auction/PtlAuction_look/ResAuction_look": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "info",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/auction"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "../game/prop/auction": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "index",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "endTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "auction",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "Interface",
+                                    "properties": [
+                                        {
+                                            "id": 0,
+                                            "name": "type",
+                                            "type": {
+                                                "type": "Reference",
+                                                "target": "../game/prop/autionType"
+                                            }
+                                        },
+                                        {
+                                            "id": 1,
+                                            "name": "data",
+                                            "type": {
+                                                "type": "Any"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal",
+                                    "literal": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "offer_Cont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "offer_val",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "offer_lastId",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal",
+                                    "literal": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "offer_name",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal",
+                                    "literal": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "look_cont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "min_offer",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "sell_id",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal",
+                                    "literal": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "sell_name",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal",
+                                    "literal": false
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "../game/prop/autionType": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                }
+            ]
+        },
+        "../game/setUp/userSetUpCfg": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "textStyle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/textStyle"
+                    }
+                }
+            ]
+        },
+        "../game/setUp/textStyle": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                }
+            ]
+        },
         "PtlAddOneWord/ReqAddOneWord": {
             "type": "Interface",
             "properties": [
@@ -453,32 +704,6 @@ exports.serviceProto = {
                 {
                     "id": 0,
                     "value": 0
-                }
-            ]
-        },
-        "../game/setUp/userSetUpCfg": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "textStyle",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/textStyle"
-                    }
-                }
-            ]
-        },
-        "../game/setUp/textStyle": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
                 }
             ]
         },

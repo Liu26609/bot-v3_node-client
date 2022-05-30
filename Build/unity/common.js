@@ -37,6 +37,15 @@ class common {
         let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality, 0.9);
         return val || 0;
     }
+    /**
+     * 字符串过滤数字无关的值
+     * @param str
+     * @returns
+     */
+    getNumber(str) {
+        let numStr = str.replace(/[^0-9]/ig, "");
+        return Number(numStr);
+    }
     xsd(x, y) {
         let z = 0;
         x = x.toUpperCase();

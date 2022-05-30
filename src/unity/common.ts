@@ -37,6 +37,15 @@ class common {
         let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality, 0.9);
         return val || 0
     }
+    /**
+     * 字符串过滤数字无关的值
+     * @param str 
+     * @returns 
+     */
+    getNumber(str:string) {
+        let numStr = str.replace(/[^0-9]/ig, "");
+        return Number(numStr);
+    }
     xsd(x, y) {
         let z = 0;
         x = x.toUpperCase();
@@ -65,12 +74,12 @@ class common {
         }
         return z / s * 200;
     }
-    BN(number:any,decimalDigit?:any) {
+    BN(number: any, decimalDigit?: any) {
         decimalDigit = decimalDigit == null ? 2 : decimalDigit;
         let integer = Math.floor(number);
         let digit = this._getDigit(integer);
         // ['个', '十', '百', '千', '万', '十万', '百万', '千万']; 
-        let unit:string[] = [];
+        let unit: string[] = [];
         if (digit > 3) {
             let multiple = Math.floor(digit / 8);
             if (multiple >= 1) {
@@ -88,7 +97,7 @@ class common {
         }
     }
 
-    private _addWan(integer:any, number:any, mutiple:any, decimalDigit:any) {
+    private _addWan(integer: any, number: any, mutiple: any, decimalDigit: any) {
         let me = this;
         let digit = me._getDigit(integer);
         if (digit > 3) {
@@ -101,7 +110,7 @@ class common {
             return Math.round(number / Math.pow(10, mutiple - decimalDigit)) / Math.pow(10, decimalDigit);
         }
     }
-    private _getDigit(integer:any) {
+    private _getDigit(integer: any) {
         let digit = -1;
         while (integer >= 1) {
             digit++;

@@ -1,3 +1,4 @@
+import { log } from './../index';
 import { ApiReturn, HttpClient, TransportOptions } from "tsrpc";
 import { err, info } from "..";
 import { serviceProto, ServiceType } from "../shared/protocols/serviceProto";
@@ -22,7 +23,6 @@ class sever{
     async setApiUrl(link:string){
         this.apiUrl = link;
         this.client =  new HttpClient(serviceProto,{server:this.apiUrl})
-
         return await this.HelloWorld();
     }
     /**

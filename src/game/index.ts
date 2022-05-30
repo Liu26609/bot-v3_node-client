@@ -1,3 +1,4 @@
+import { auction_look } from './shop/auction_look';
 import { fishing } from './map/fishing';
 import { shop_back_buy } from './shop/shop_back_buy';
 import { me_titleRandom } from './me/me_titleRandom';
@@ -45,6 +46,7 @@ import { me_openBlindBox } from './me/me_openBlindBox';
 import { me_equip } from './me/me_equip';
 import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
+import { auction } from './shop/auction';
 
 enum matchType {
     /**
@@ -94,6 +96,11 @@ export default class game {
         this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
         this.matchMap.set('黑市购买', { action: shop_back_buy, match: matchType.all })
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
+        this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
+        this.matchMap.set(`拍卖`, { action: auction, match: matchType.match })
+
+
+
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
         this.matchMap.set('钓鱼', { action: fishing, match: matchType.all })
         this.matchMap.set('黑市', { action: shop_back, match: matchType.all })
