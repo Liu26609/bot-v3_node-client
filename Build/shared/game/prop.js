@@ -1,11 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chestBoxLv_CN = exports.chestBoxLv = exports.rewardFormula = exports.rewardKey_CN = exports.rewardKey = exports.mapId = exports.storeBackTemp = exports.autionType = void 0;
-var autionType;
-(function (autionType) {
-    autionType[autionType["wallet"] = 0] = "wallet";
-    autionType[autionType["equip"] = 1] = "equip";
-})(autionType = exports.autionType || (exports.autionType = {}));
+exports.chestBoxLv_CN = exports.chestBoxLv = exports.rewardFormula = exports.rewardKey_CN = exports.rewardKey = exports.mapId = exports.storeBackTemp = void 0;
 var storeBackTemp;
 (function (storeBackTemp) {
     storeBackTemp[storeBackTemp["forever_hpMax_1"] = 0] = "forever_hpMax_1";

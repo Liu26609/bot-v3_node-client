@@ -16,7 +16,7 @@ export const info = console.info;
 
 start();
 async function start() {
-    sever.setApiUrl('http://127.0.0.1:8080')
+    sever.setApiUrl('https://jfuvyi-lgkyca-8080.preview.myide.io')
     // sever.setApiUrl('http://81.68.240.214:8080/')
     info('start')
     bot.setBotConfig(botCfg)
