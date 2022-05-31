@@ -51,9 +51,9 @@ class bot {
             }
         })
 
-        sever.wsClient.listenMsg('CallAll', (res) => {
-           this.callAll(res.content)
-        })
+        // sever.wsClient.listenMsg('CallAll', (res) => {
+        //    this.callAll(res.content)
+        // })
     }
     /**
      * 通知客户端全部频道
