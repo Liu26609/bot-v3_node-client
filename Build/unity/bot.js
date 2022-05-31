@@ -16,10 +16,12 @@ const qq_guild_bot_1 = require("qq-guild-bot");
 const __1 = require("..");
 const gameCfg_1 = __importDefault(require("../game/gameCfg"));
 const bot_1 = require("../shared/bot/bot");
+const sever_1 = __importDefault(require("./sever"));
 class bot {
     constructor() {
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
+        this.channelMap = new Map();
     }
     severId() {
         var _a;
@@ -46,6 +48,35 @@ class bot {
             this._bindWsOnCall(intents);
             // AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES
         }
+        sever_1.default.wsClient.listenMsg('CallAppoint', (res) => {
+            let lastChannelId = this.userActiveChannelMap.get(res.callUserId);
+            if (lastChannelId) {
+                this.sendText(lastChannelId, res.content);
+            }
+        });
+        sever_1.default.wsClient.listenMsg('CallAll', (res) => {
+            this.callAll(res.content);
+        });
+    }
+    /**
+     * 通知客户端全部频道
+     * @param str
+     */
+    callAll(str) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let list = [];
+            this.channelMap.forEach((lastActiveTime, id) => __awaiter(this, void 0, void 0, function* () {
+                if (Date.now() - lastActiveTime > 60 * 5 * 950) {
+                    this.channelMap.delete(id);
+                }
+                else {
+                    list.push(id);
+                }
+            }));
+            for (let index = 0; index < list.length; index++) {
+                yield this.sendText(list[index], str);
+            }
+        });
     }
     /**
      *
@@ -69,7 +100,7 @@ class bot {
     }
     getMsgId(channelID) {
         let nowTime = Date.now();
-        let timeOut = 5 * 60 * 1000;
+        let timeOut = 5 * 60 * 950;
         let msg_id;
         // 在哈希表中查找适合的消息id
         this.msgIdMap.forEach((itemMap, channel) => {
@@ -78,12 +109,12 @@ class bot {
                     if (nowTime - item.creatorTime > timeOut) {
                         // 已过期
                         itemMap.delete(msgId);
-                        return;
+                        return 0;
                     }
                     if (item.surplusCont <= 0) {
                         // 已使用完可用次数
-                        itemMap.delete(msgId);
-                        return;
+                        item.surplusCont = 5;
+                        return 1;
                     }
                     item.surplusCont -= 1;
                     msg_id = msgId;
@@ -101,6 +132,10 @@ class bot {
         return __awaiter(this, void 0, void 0, function* () {
             let msg_id;
             msg_id = this.getMsgId(channelID);
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 1000); });
+                msg_id = this.getMsgId(channelID);
+            }
             // 单频道1秒内只能发送5条消息
             // TODO：后期考虑利用每天主动消息
             if (!msg_id) {
@@ -125,6 +160,10 @@ class bot {
         return __awaiter(this, void 0, void 0, function* () {
             let msg_id;
             msg_id = this.getMsgId(channelID);
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 1000); });
+                msg_id = this.getMsgId(channelID);
+            }
             // 单频道1秒内只能发送5条消息
             // TODO：后期考虑利用每天主动消息
             if (!msg_id) {
@@ -144,6 +183,10 @@ class bot {
         return __awaiter(this, void 0, void 0, function* () {
             let msg_id;
             msg_id = this.getMsgId(channelID);
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 1000); });
+                msg_id = this.getMsgId(channelID);
+            }
             // 单频道1秒内只能发送5条消息
             // TODO：后期考虑利用每天主动消息
             if (!msg_id) {
@@ -217,10 +260,11 @@ class bot {
         //     data.content = data.content.replace('1', '');
         // }
         // log('收到消息', data)
-        (0, __1.log)('收到消息', data.author.username, data.content);
+        // log('收到消息', data.author.username, data.content)
         // 将消息存入哈希表内
         let itemMap;
         const msgData = {
+            lastSendTime: Date.now(),
             surplusCont: 5,
             creatorTime: Date.now(),
         };
@@ -234,6 +278,7 @@ class bot {
         itemMap.set(data.id, msgData);
         // 更新用户活跃子频道
         this.userActiveChannelMap.set(data.author.id, data.channel_id);
+        this.channelMap.set(data.channel_id, Date.now());
         if (!this.onMsg_atCall) {
             (0, __1.err)('at 监听回调不存在');
             return;

@@ -2,6 +2,7 @@ import { AvailableIntentsEventsEnum, createWebsocket, createOpenAPI, MessageToCr
 import { err, info, log } from "..";
 import gameCfg from "../game/gameCfg";
 import { BOT_Config, BOT_READY, BOT_EventType, BOT_MSG_AT, BOT_OnData, BOT_MSGID_MAP } from '../shared/bot/bot'
+import sever from "./sever";
 
 class bot {
     private config?: BOT_Config;
@@ -10,10 +11,12 @@ class bot {
     private client: any;
     private onMsg_atCall?: any;
     private msgIdMap: Map<string, Map<string, BOT_MSGID_MAP>>;//消息id哈希表，子频道ID，消息ID
+    private channelMap:Map<string,number>;//子频道ID，上次此频道活跃时间
     private userActiveChannelMap: Map<string, string>;//玩家上次活跃的频道
     constructor() {
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
+        this.channelMap = new Map();
     }
     severId() {
         return this.botInfo?.shard[0];
@@ -41,6 +44,33 @@ class bot {
             this._bindWsOnCall(intents);
             // AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES
         }
+        sever.wsClient.listenMsg('CallAppoint', (res) => {
+            let lastChannelId = this.userActiveChannelMap.get(res.callUserId);
+            if (lastChannelId) {
+                this.sendText(lastChannelId, res.content)
+            }
+        })
+
+        sever.wsClient.listenMsg('CallAll', (res) => {
+           this.callAll(res.content)
+        })
+    }
+    /**
+     * 通知客户端全部频道
+     * @param str 
+     */
+    async callAll(str:string){
+        let list:string[] = []
+        this.channelMap.forEach(async (lastActiveTime,id) => {
+            if(Date.now() - lastActiveTime > 60*5*950){
+                this.channelMap.delete(id)
+            }else{
+                list.push(id);
+            }
+        });
+        for (let index = 0; index < list.length; index++) {
+            await this.sendText(list[index],str)
+        }
     }
     /**
      * 
@@ -48,11 +78,11 @@ class bot {
      * @param message 消息体
      */
     private async postMessage(channelID: string, message: MessageToCreate) {
-        if(gameCfg.isDebug){
-            if(message.content){
-                info('调试模式：',message.content)
-            }else if(message.embed){
-                info('调试模式：',message.content)
+        if (gameCfg.isDebug) {
+            if (message.content) {
+                info('调试模式：', message.content)
+            } else if (message.embed) {
+                info('调试模式：', message.content)
             }
             return true;
         }
@@ -61,7 +91,7 @@ class bot {
     }
     private getMsgId(channelID: string): string | undefined {
         let nowTime = Date.now();
-        let timeOut = 5 * 60 * 1000;
+        let timeOut = 5 * 60 * 950;
         let msg_id;
         // 在哈希表中查找适合的消息id
         this.msgIdMap.forEach((itemMap, channel) => {
@@ -70,12 +100,12 @@ class bot {
                     if (nowTime - item.creatorTime > timeOut) {
                         // 已过期
                         itemMap.delete(msgId)
-                        return;
+                        return 0;
                     }
                     if (item.surplusCont <= 0) {
                         // 已使用完可用次数
-                        itemMap.delete(msgId)
-                        return;
+                        item.surplusCont = 5;
+                        return 1;
                     }
                     item.surplusCont -= 1;
                     msg_id = msgId;
@@ -93,7 +123,10 @@ class bot {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
-
+        if(msg_id == 1){
+            await new Promise(rs => { setTimeout(rs, 1000) });
+            msg_id = this.getMsgId(channelID)
+        }
         // 单频道1秒内只能发送5条消息
 
         // TODO：后期考虑利用每天主动消息
@@ -119,7 +152,10 @@ class bot {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
-
+        if(msg_id == 1){
+            await new Promise(rs => { setTimeout(rs, 1000) });
+            msg_id = this.getMsgId(channelID)
+        }
         // 单频道1秒内只能发送5条消息
 
         // TODO：后期考虑利用每天主动消息
@@ -135,11 +171,14 @@ class bot {
             err('消息发送错误', res)
         }
     }
-    async sendEmbed(channelID:string,embed:any){
+    async sendEmbed(channelID: string, embed: any) {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
-
+        if(msg_id == 1){
+            await new Promise(rs => { setTimeout(rs, 1000) });
+            msg_id = this.getMsgId(channelID)
+        }
         // 单频道1秒内只能发送5条消息
 
         // TODO：后期考虑利用每天主动消息
@@ -161,7 +200,7 @@ class bot {
         info(`BOT ID:${data.user.id}`);
         this.botInfo = data;
     }
-    getBot_name(){
+    getBot_name() {
         return this.botInfo?.user.username;
     }
     /**
@@ -206,16 +245,17 @@ class bot {
         while (data.content.includes('/')) {
             data.content = data.content.replace('/', '');
         }
-        
+
         // TODO调试
         // while (data.content.includes('1')) {
         //     data.content = data.content.replace('1', '');
         // }
         // log('收到消息', data)
-        log('收到消息', data.author.username, data.content)
+        // log('收到消息', data.author.username, data.content)
         // 将消息存入哈希表内
         let itemMap;
         const msgData = {
+            lastSendTime: Date.now(),
             surplusCont: 5,
             creatorTime: Date.now(),
         }
@@ -229,7 +269,7 @@ class bot {
 
         // 更新用户活跃子频道
         this.userActiveChannelMap.set(data.author.id, data.channel_id);
-
+        this.channelMap.set(data.channel_id,Date.now())
         if (!this.onMsg_atCall) {
             err('at 监听回调不存在')
             return;

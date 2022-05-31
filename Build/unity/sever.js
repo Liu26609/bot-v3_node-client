@@ -33,6 +33,35 @@ class sever {
             return yield this.HelloWorld();
         });
     }
+    setWsUrl(link) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.wsUrl = link;
+            this.wsClient = new tsrpc_1.WsClient(serviceProto_1.serviceProto, { server: this.wsUrl });
+            this.wsClient.flows.postDisconnectFlow.push(v => {
+                // 等待 2 秒后自动重连
+                setTimeout(() => __awaiter(this, void 0, void 0, function* () {
+                    (0, __1.info)('网络错误,连接已断开,开始重连');
+                    yield this.wsConnect();
+                    // 重连也错误，弹出错误提示
+                }), 2000);
+                return v;
+            });
+            return this.wsConnect();
+        });
+    }
+    wsConnect() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let res = yield this.wsClient.connect();
+            if (!res.isSucc) {
+                // Retry after 2 seconds
+                yield new Promise(rs => { setTimeout(rs, 2000); });
+                yield this.wsConnect();
+            }
+            else {
+                (0, __1.info)('ws服务器重连成功');
+            }
+        });
+    }
     /**
      * 调用API
      * @param apiName

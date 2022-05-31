@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 58,
+    "version": 61,
     "services": [
         {
             "id": 45,
@@ -18,6 +18,16 @@ exports.serviceProto = {
             "id": 46,
             "name": "auction/Auction",
             "type": "api"
+        },
+        {
+            "id": 49,
+            "name": "CallAll",
+            "type": "msg"
+        },
+        {
+            "id": 48,
+            "name": "CallAppoint",
+            "type": "msg"
         },
         {
             "id": 13,
@@ -523,6 +533,37 @@ exports.serviceProto = {
         },
         "auction/PtlAuction/ResAuction": {
             "type": "Interface"
+        },
+        "MsgCallAll/MsgCallAll": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 1,
+                    "name": "content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "MsgCallAppoint/MsgCallAppoint": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "callUserId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
         },
         "PtlAddOneWord/ReqAddOneWord": {
             "type": "Interface",

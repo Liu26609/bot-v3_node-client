@@ -30,12 +30,13 @@ exports.info = console.info;
 start();
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
-        sever_1.default.setApiUrl('http://127.0.0.1:8080');
-        // sever.setApiUrl('http://81.68.240.214:8080/')
-        (0, exports.info)('start');
-        bot_1.default.setBotConfig(botCfg_1.default);
-        new game_1.default();
-        test();
+        yield sever_1.default.setApiUrl('http://127.0.0.1:8080');
+        sever_1.default.setWsUrl('http://127.0.0.1:3000').then(() => {
+            (0, exports.info)('start');
+            bot_1.default.setBotConfig(botCfg_1.default);
+            new game_1.default();
+            test();
+        });
     });
 }
 function test() {
