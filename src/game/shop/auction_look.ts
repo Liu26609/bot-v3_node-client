@@ -1,6 +1,11 @@
+import { text_equip_style } from './../temp/text/equip';
+import { equip } from '../../shared/game/equip';
+import { autionType } from '../../shared/game/prop';
+import { ResAuction_look } from '../../shared/protocols/auction/PtlAuction_look';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from '../task_base';
+import { walletKey, walletKey_CN } from '../../shared/game/user';
 export class auction_look extends task_base {
     constructor(...a) {
         super(...a);
@@ -21,8 +26,56 @@ export class auction_look extends task_base {
             this.notAuction();
             return;
         }
+        if (!data.info.auction) {
+            this.notAuction();
+            return;
+        }
+        if (data.info.auction.type == autionType.equip) {
+            this.equipAuction(data);
+        }else if(data.info.auction.type == autionType.wallet){
+            this.walletAuction(data);
+        }
 
-        bot.sendText(this.channel_id, `有商品在拍卖`);
+    }
+    walletAuction(data: ResAuction_look) {
+        if (!data.info.auction) {
+            return;
+        }
+        let temp = `￣￣￣￣￣＼⚖️拍卖行／￣￣￣￣￣
+拍卖行第${data.info.index}次拍卖
+成交倒计时：${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒
+拍卖物品：${walletKey_CN[walletKey[data.info.auction.data.key]]}X${data.info.auction.data.val}
+出价次数：${data.info.offer_Cont}次
+围观次数：${data.info.look_cont}次
+最低加价:${data.info.min_offer}💰
+当前价格：${data.info.offer_val}💰
+最后出价人：${data.info.offer_name || '虚位以待'}
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+🧚‍♂️出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)`
+
+        bot.sendText(this.channel_id, temp);
+    }
+    equipAuction(data: ResAuction_look) {
+        if (!data.info.auction) {
+            return;
+        }
+        let equipData = data.info.auction.data as equip;
+
+        let equipTemp = new text_equip_style().setData(equipData).getTemp()
+
+        let temp = `┏┄════⚖️拍卖行═══━┄
+拍卖行第${data.info.index}次拍卖
+成交倒计时：${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒
+出价次数：${data.info.offer_Cont}次
+围观次数：${data.info.look_cont}次
+最低加价:${data.info.min_offer}💰
+当前价格：${data.info.offer_val}💰
+最后出价人：${data.info.offer_name || '虚位以待'}
+${equipTemp}
+🧚‍♂️出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)
+`
+
+        bot.sendText(this.channel_id, temp);
     }
     /**
      * 没有拍卖

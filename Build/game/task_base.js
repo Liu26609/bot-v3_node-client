@@ -21,6 +21,9 @@ class task_base {
         this.matchKey = args[4];
         this.userName = args[5];
     }
+    at() {
+        return `<@!${this.userId}>`;
+    }
     sendErr(err) {
         let random = common_1.default.random(0, 1);
         switch (err.type) {

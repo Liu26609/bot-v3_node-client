@@ -4,6 +4,7 @@ import { task_base } from './../task_base';
 import bot from '../../unity/bot';
 import { walletKey, walletKey_CN, walletKey_CNText } from '../../shared/game/user';
 import common from '../../unity/common';
+import sever from '../../unity/sever';
 export class auction extends task_base{
     constructor(...a){
         super(...a);
@@ -24,6 +25,11 @@ export class auction extends task_base{
 
         if(auctionStr.includes('装备')){
             type = autionType.equip;
+            key = cont;
+            if(cont < 0){
+                bot.sendText(this.channel_id,'拍卖装备id不能小于0')
+                return;
+            }
         }else if(auctionStr.includes(walletKey_CNText[walletKey[walletKey.BlindBox]])){
             type = autionType.wallet;
             key = walletKey.BlindBox
@@ -52,16 +58,22 @@ export class auction extends task_base{
             return;
         }
 
-        if(cont <= 0){
+        if(cont <= 0 && type != autionType.equip){
             bot.sendText(this.channel_id,'数量不能小于1')
             return;
         }
 
-        if(type == autionType.equip){
-            bot.sendText(this.channel_id,'拍卖装备')
-        }else if(type == autionType.wallet){
-            bot.sendText(this.channel_id,`拍卖资源${walletKey_CN[walletKey[key]]}x${cont}`)
+        let req = await sever.callApi('auction/Auction',{
+            userId:this.userId,
+            key:key,
+            type:type,
+            cont:cont
+        })
+        if (!req.isSucc) {
+            this.sendErr(req.err)
+            return;
         }
+        
 
     }
 }

@@ -2,11 +2,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 57,
+    "version": 58,
     "services": [
         {
             "id": 45,
             "name": "auction/Auction_look",
+            "type": "api"
+        },
+        {
+            "id": 47,
+            "name": "auction/Auction_offer",
+            "type": "api"
+        },
+        {
+            "id": 46,
+            "name": "auction/Auction",
             "type": "api"
         },
         {
@@ -444,6 +454,75 @@ exports.serviceProto = {
                     "value": 1
                 }
             ]
+        },
+        "auction/PtlAuction_offer/ReqAuction_offer": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "addNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "auction/PtlAuction_offer/ResAuction_offer": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "auction/PtlAuction/ReqAuction": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "key",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/autionType"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "cont",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "auction/PtlAuction/ResAuction": {
+            "type": "Interface"
         },
         "PtlAddOneWord/ReqAddOneWord": {
             "type": "Interface",

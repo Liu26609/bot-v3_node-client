@@ -38,6 +38,9 @@ export class task_base {
         this.matchKey = args[4];
         this.userName = args[5];
     }
+    at(){
+        return `<@!${this.userId}>`
+    }
     sendErr(err: TsrpcError) {
         let random = common.random(0, 1);
         switch (err.type) {

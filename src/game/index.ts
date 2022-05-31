@@ -47,6 +47,7 @@ import { me_equip } from './me/me_equip';
 import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
 import { auction } from './shop/auction';
+import { auction_offer } from './shop/auction_offer';
 
 enum matchType {
     /**
@@ -98,7 +99,7 @@ export default class game {
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`拍卖`, { action: auction, match: matchType.match })
-
+        this.matchMap.set(`出价`, { action: auction_offer, match: matchType.match })
 
 
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })

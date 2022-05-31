@@ -55,6 +55,7 @@ const me_equip_1 = require("./me/me_equip");
 const me_titleChangeName_1 = require("./me/me_titleChangeName");
 const shop_back_1 = require("./shop/shop_back");
 const auction_1 = require("./shop/auction");
+const auction_offer_1 = require("./shop/auction_offer");
 var matchType;
 (function (matchType) {
     /**
@@ -99,6 +100,7 @@ class game {
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`拍卖`, { action: auction_1.auction, match: matchType.match });
+        this.matchMap.set(`出价`, { action: auction_offer_1.auction_offer, match: matchType.match });
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
         this.matchMap.set('钓鱼', { action: fishing_1.fishing, match: matchType.all });
         this.matchMap.set('黑市', { action: shop_back_1.shop_back, match: matchType.all });
