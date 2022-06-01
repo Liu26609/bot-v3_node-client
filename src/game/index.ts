@@ -48,6 +48,7 @@ import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
 import { auction } from './shop/auction';
 import { auction_offer } from './shop/auction_offer';
+import { me_pet } from './me/me_pet';
 
 enum matchType {
     /**
@@ -97,6 +98,8 @@ export default class game {
         this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
         this.matchMap.set('黑市购买', { action: shop_back_buy, match: matchType.all })
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
+        this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
+
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`拍卖`, { action: auction, match: matchType.match })
         this.matchMap.set(`出价`, { action: auction_offer, match: matchType.match })

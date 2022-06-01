@@ -56,6 +56,7 @@ const me_titleChangeName_1 = require("./me/me_titleChangeName");
 const shop_back_1 = require("./shop/shop_back");
 const auction_1 = require("./shop/auction");
 const auction_offer_1 = require("./shop/auction_offer");
+const me_pet_1 = require("./me/me_pet");
 var matchType;
 (function (matchType) {
     /**
@@ -98,6 +99,7 @@ class game {
         this.matchMap.set('购买技能', { action: shop_skill_buy_1.shop_skill_buy, match: matchType.all });
         this.matchMap.set('黑市购买', { action: shop_back_buy_1.shop_back_buy, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
+        this.matchMap.set('我的宠物', { action: me_pet_1.me_pet, match: matchType.all });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`拍卖`, { action: auction_1.auction, match: matchType.match });
         this.matchMap.set(`出价`, { action: auction_offer_1.auction_offer, match: matchType.match });
