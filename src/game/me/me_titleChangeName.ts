@@ -12,6 +12,10 @@ export class me_titleChangeName extends task_base {
     }
     async render() {
         let changeName = this.content.replace(this.matchKey, '');
+        if(changeName.length < 1){
+            this.menu()
+            return;
+        }
         if (changeName.length > 6) {
             bot.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~')
             return;
@@ -29,5 +33,11 @@ export class me_titleChangeName extends task_base {
         temp += `┗┄━══════════━┄`;
         bot.sendText(this.channel_id,temp);
         new me_title(...this.args)
+    }
+    menu(){
+        let temp = ``;
+        temp += `🧚‍♂️提示：称号改名指令[称号改名 + 修改名称]\n`
+        temp += `🌰栗子:@${bot.getBot_name()} 称号改名天选之子`
+        bot.sendText(this.channel_id,temp)
     }
 }

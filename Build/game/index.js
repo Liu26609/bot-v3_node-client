@@ -56,7 +56,11 @@ const me_titleChangeName_1 = require("./me/me_titleChangeName");
 const shop_back_1 = require("./shop/shop_back");
 const auction_1 = require("./shop/auction");
 const auction_offer_1 = require("./shop/auction_offer");
-const me_pet_1 = require("./me/me_pet");
+const me_pet_1 = require("./me/pet/me_pet");
+const me_lookPet_1 = require("./me/pet/me_lookPet");
+const me_petChangeName_1 = require("./me/pet/me_petChangeName");
+const me_petRm_1 = require("./me/pet/me_petRm");
+const docile_1 = require("./map/docile");
 var matchType;
 (function (matchType) {
     /**
@@ -100,6 +104,10 @@ class game {
         this.matchMap.set('黑市购买', { action: shop_back_buy_1.shop_back_buy, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('我的宠物', { action: me_pet_1.me_pet, match: matchType.all });
+        this.matchMap.set('查看宠物', { action: me_lookPet_1.me_lookPet, match: matchType.match });
+        this.matchMap.set('宠物改名', { action: me_petChangeName_1.me_petChangeName, match: matchType.match });
+        this.matchMap.set('放生宠物', { action: me_petRm_1.me_petRm, match: matchType.match });
+        this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`拍卖`, { action: auction_1.auction, match: matchType.match });
         this.matchMap.set(`出价`, { action: auction_offer_1.auction_offer, match: matchType.match });
@@ -113,6 +121,7 @@ class game {
         this.matchMap.set('改名', { action: me_changeName_1.me_changeName, match: matchType.match });
         this.matchMap.set('钱包', { action: me_wallet_1.me_wallet, match: matchType.match });
         this.matchMap.set('复活', { action: me_resLife_1.me_resLife, match: matchType.all });
+        this.matchMap.set('治疗', { action: me_resLife_1.me_resLife, match: matchType.all });
         this.matchMap.set('背包', { action: me_bag_1.me_bag, match: matchType.all });
         this.matchMap.set('设置', { action: setUp_1.setUp, match: matchType.match });
         this.matchMap.set('强化', { action: me_strengthen_1.me_strengthen, match: matchType.match });
@@ -173,8 +182,9 @@ class game {
                     isFind = true;
                     new conf.action(userId, fromChannel, userIcon, content, key, userName);
                 }
+                let match = common_1.default.xsd(key, data.content);
                 if (!isFind) {
-                    matchList.push({ conf: conf, match: common_1.default.xsd(key, data.content), key: key });
+                    matchList.push({ conf: conf, match: match, key: key });
                 }
             });
             if (!isFind) {

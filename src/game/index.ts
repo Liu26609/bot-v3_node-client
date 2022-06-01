@@ -48,7 +48,11 @@ import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
 import { auction } from './shop/auction';
 import { auction_offer } from './shop/auction_offer';
-import { me_pet } from './me/me_pet';
+import { me_pet } from './me/pet/me_pet';
+import { me_lookPet } from './me/pet/me_lookPet';
+import { me_petChangeName } from './me/pet/me_petChangeName';
+import { me_petRm } from './me/pet/me_petRm';
+import { docile } from './map/docile';
 
 enum matchType {
     /**
@@ -99,7 +103,10 @@ export default class game {
         this.matchMap.set('黑市购买', { action: shop_back_buy, match: matchType.all })
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
-
+        this.matchMap.set('查看宠物', { action: me_lookPet, match: matchType.match })
+        this.matchMap.set('宠物改名', { action: me_petChangeName, match: matchType.match })
+        this.matchMap.set('放生宠物', { action: me_petRm, match: matchType.match })
+        this.matchMap.set('捕捉', { action: docile, match: matchType.match })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`拍卖`, { action: auction, match: matchType.match })
         this.matchMap.set(`出价`, { action: auction_offer, match: matchType.match })
@@ -115,6 +122,7 @@ export default class game {
         this.matchMap.set('改名', { action: me_changeName, match: matchType.match })
         this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
         this.matchMap.set('复活',{ action: me_resLife, match: matchType.all })
+        this.matchMap.set('治疗',{ action: me_resLife, match: matchType.all })
         this.matchMap.set('背包', { action: me_bag, match: matchType.all })
         this.matchMap.set('设置', { action: setUp, match: matchType.match })
         this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
@@ -176,8 +184,9 @@ export default class game {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }
+            let match = common.xsd(key,data.content);
             if(!isFind){
-                matchList.push({conf:conf,match:common.xsd(key,data.content),key:key})
+                matchList.push({conf:conf,match:match,key:key})
             }
         });
 

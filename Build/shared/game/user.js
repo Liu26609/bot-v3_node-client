@@ -11,6 +11,7 @@ var walletKey;
     walletKey[walletKey["transferCard"] = 5] = "transferCard";
     walletKey[walletKey["resLife"] = 6] = "resLife";
     walletKey[walletKey["driedFish"] = 7] = "driedFish";
+    walletKey[walletKey["spiritBall"] = 8] = "spiritBall";
 })(walletKey = exports.walletKey || (exports.walletKey = {}));
 var walletKey_CNText;
 (function (walletKey_CNText) {
@@ -22,6 +23,7 @@ var walletKey_CNText;
     walletKey_CNText["transferCard"] = "\u4F20\u9001\u5361";
     walletKey_CNText["resLife"] = "\u590D\u6D3B\u5E01";
     walletKey_CNText["driedFish"] = "\u5C0F\u9C7C\u5E72";
+    walletKey_CNText["spiritBall"] = "\u7CBE\u7075\u7403";
 })(walletKey_CNText = exports.walletKey_CNText || (exports.walletKey_CNText = {}));
 var walletKey_CN;
 (function (walletKey_CN) {
@@ -33,4 +35,5 @@ var walletKey_CN;
     walletKey_CN["transferCard"] = "\uD83C\uDFC3\u4F20\u9001\u5361";
     walletKey_CN["resLife"] = "\uD83D\uDCA0\u590D\u6D3B\u5E01";
     walletKey_CN["driedFish"] = "\uD83D\uDC1F\uFE0F\u5C0F\u9C7C\u5E72";
+    walletKey_CN["spiritBall"] = "\uD83D\uDC7E\u7CBE\u7075\u7403";
 })(walletKey_CN = exports.walletKey_CN || (exports.walletKey_CN = {}));

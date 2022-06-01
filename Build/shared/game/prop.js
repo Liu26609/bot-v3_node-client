@@ -61,6 +61,10 @@ var rewardKey;
      * 鱼干
      */
     rewardKey[rewardKey["driedFish"] = 8] = "driedFish";
+    /**
+     * 精灵球
+     */
+    rewardKey[rewardKey["spiritBall"] = 9] = "spiritBall";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -73,6 +77,7 @@ var rewardKey_CN;
     rewardKey_CN["transferCard"] = "\uD83C\uDFC3\u4F20\u9001\u5361";
     rewardKey_CN["resLife"] = "\uD83D\uDCA0\u590D\u6D3B\u5E01";
     rewardKey_CN["driedFish"] = "\uD83D\uDC1F\uFE0F\u5C0F\u9C7C\u5E72";
+    rewardKey_CN["spiritBall"] = "\uD83D\uDC7E\u7CBE\u7075\u7403";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型

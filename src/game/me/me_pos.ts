@@ -53,7 +53,7 @@ export class me_pos extends task_base {
             }
             for (let index = 0; index < data.enemy.length; index++) {
                 const body = data.enemy[index] as BASE_BODYS;
-                if (body.hp < 0) {
+                if (body.hp <= 0) {
                     continue;
                 }
                 const name = body.name;

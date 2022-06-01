@@ -5,4 +5,5 @@ var bodyType;
 (function (bodyType) {
     bodyType[bodyType["player"] = 0] = "player";
     bodyType[bodyType["enemy"] = 1] = "enemy";
+    bodyType[bodyType["pet"] = 2] = "pet";
 })(bodyType = exports.bodyType || (exports.bodyType = {}));
