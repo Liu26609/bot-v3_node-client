@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const skill_1 = require("../shared/game/skill");
 /**
  * 公共方法库
  */
@@ -25,6 +26,24 @@ class common {
         else {
             return false;
         }
+    }
+    getSkDesc(info) {
+        let temp = ``;
+        switch (info.type) {
+            case skill_1.SKILL_TYPE.miss:
+                temp += `对空气造成了成吨的伤害`;
+                break;
+            case skill_1.SKILL_TYPE.attack_Magic_fixed:
+                temp += `对一个单位造成固定${info.data[0]}的🔮魔法伤害`;
+                break;
+            case skill_1.SKILL_TYPE.attack_Physics_fixed:
+                temp += `对一个单位造成固定${info.data[0]}的🔪物理伤害`;
+                break;
+            default:
+                temp += `这个技能好像还没有收录到系统`;
+                break;
+        }
+        return temp;
     }
     /**
     * 装备属性转换

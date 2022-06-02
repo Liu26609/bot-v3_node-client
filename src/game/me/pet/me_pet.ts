@@ -26,7 +26,7 @@ export class me_pet extends task_base{
             temp+= `[${index}]${pet.name}Lv.${pet.leve}♥️${((pet.hp / pet.out_attribute.hp_max)*100).toFixed(0)}%\n`;
         }
 
-        temp += `┗┄━═════════════━┄\n`;
+        temp += `┗┄━═${this.at()}═━┄\n`;
 
         temp += `查看指令：查看宠物+id
 改名指令:宠物改名 + id + 名字

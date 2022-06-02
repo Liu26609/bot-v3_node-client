@@ -59,7 +59,7 @@ export class me_changeName extends task_base {
             temp += `┣┄════🏧钱包变化═══━┄\n`
             temp += `┣🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `┣▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `┗┄━═══════════━┄\n`;
+            temp += `┗┄━═${this.at()}═━┄\n`;
             bot.sendText(this.channel_id,temp);
         }else if(data.userCfg.textStyle == textStyle.card){
             let temps = new embed_style();

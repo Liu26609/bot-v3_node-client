@@ -58,7 +58,7 @@ class me_strengthen extends task_base_1.task_base {
             let now = data.nowEquip;
             let temp = `┏┄════${data.isSuccress ? '🎉强化成功' : '😞强化失败'}═══━┄\n`;
             if (data.isSuccress) {
-                temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
+                temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%${this.at()}\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
@@ -75,7 +75,7 @@ class me_strengthen extends task_base_1.task_base {
                 temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-                temp += `┗┄━══════════━┄`;
+                temp += `┗┄━═${this.at()}═━┄`;
             }
             bot_1.default.sendText(this.channel_id, temp);
         });

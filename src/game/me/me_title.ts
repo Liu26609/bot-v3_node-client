@@ -21,9 +21,8 @@ export class me_title extends task_base{
         temp += `🔰物理防御+${data.title.attribute.PhysicalDefense}%\n`;
         temp += `🔮魔法攻击+${data.title.attribute.MagicAttack}%\n`;
         temp += `🌟魔法防御+${data.title.attribute.MagicDefense}%\n`;
-        temp += `🎨拥有者:<@!${this.userId}>\n`;
         temp += `🧚‍♂️攻击怪物可提高称号经验,等级越高加成越高\n`;
-        temp += `┗┄━══════════━┄`;
+        temp += `┗┄━═${this.at()}═━┄`;
         bot.sendText(this.channel_id,temp)
     }
 }

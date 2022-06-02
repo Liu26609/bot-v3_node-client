@@ -35,22 +35,23 @@ class me_wallet extends task_base_1.task_base {
             let data = req.res;
             switch (data.userCfg.textStyle) {
                 case setUp_1.textStyle.text:
-                    let tems = `🏧${this.at()}的小金库\n`;
+                    let tems = `┏┄🏧${this.userName}的小金库━┄\n`;
                     tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`;
-                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}\n`;
+                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`;
                     tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`;
-                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}\n`;
+                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`;
                     tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`;
-                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}\n`;
+                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`;
                     tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`;
-                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}\n`;
+                    tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`;
                     tems += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`;
+                    tems += `┗┄━═${this.at()}═━┄`;
                     bot_1.default.sendText(this.channel_id, tems);
                     break;
                 case setUp_1.textStyle.card:
                     let temp = new embed_1.embed_style();
                     temp.setTitle(`🏧${this.userName}的小金库`);
-                    temp.setTips('我的钱包');
+                    temp.setTips('我的小金库');
                     temp.setIcon(this.userIcon);
                     temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
                     temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);

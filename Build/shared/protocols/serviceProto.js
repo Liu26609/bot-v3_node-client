@@ -2,8 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 65,
+    "version": 67,
     "services": [
+        {
+            "id": 57,
+            "name": "ancestry/Me_Ancestry",
+            "type": "api"
+        },
         {
             "id": 45,
             "name": "auction/Auction_look",
@@ -244,6 +249,248 @@ exports.serviceProto = {
         }
     ],
     "types": {
+        "ancestry/PtlMe_Ancestry/ReqMe_Ancestry": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "ancestry/PtlMe_Ancestry/ResMe_Ancestry": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "ancestry",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/ancestry"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "SK",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/skill/SKILL_ACTIVE"
+                    }
+                }
+            ]
+        },
+        "../game/body/ancestry": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "from",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "title",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "leve",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/ancestryLeve"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "base",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "skill",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/body/ancestryLeve": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
+                },
+                {
+                    "id": 6,
+                    "value": 6
+                },
+                {
+                    "id": 7,
+                    "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
+                }
+            ]
+        },
+        "../game/body/base_attribute": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "hp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "MagicAttack",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "PhysicalAttacks",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "MagicDefense",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "PhysicalDefense",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "secondResHp",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/skill/SKILL_ACTIVE": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "tips",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "story",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/skill/SKILL_TYPE"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "speed",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "data",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Number"
+                        }
+                    }
+                }
+            ]
+        },
+        "../game/skill/SKILL_TYPE": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                }
+            ]
+        },
         "auction/PtlAuction_look/ReqAuction_look": {
             "type": "Interface",
             "properties": [
@@ -989,53 +1236,6 @@ exports.serviceProto = {
                 }
             ]
         },
-        "../game/body/base_attribute": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "hp_max",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "MagicAttack",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "PhysicalAttacks",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "MagicDefense",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "PhysicalDefense",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "secondResHp",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
         "../game/body/posV2": {
             "type": "Interface",
             "properties": [
@@ -1694,6 +1894,14 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 2,
+                    "name": "ancestry",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/ancestry"
+                    }
+                },
+                {
                     "id": 1,
                     "name": "userCfg",
                     "type": {
@@ -1846,6 +2054,29 @@ exports.serviceProto = {
                             "type": "Reference",
                             "target": "../game/body/BASE_BODYS"
                         }
+                    }
+                },
+                {
+                    "id": 18,
+                    "name": "ancestry",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "id",
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "name": "leve",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -3043,81 +3274,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Number"
                     }
-                }
-            ]
-        },
-        "../game/skill/SKILL_ACTIVE": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "id",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "tips",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "story",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "type",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/skill/SKILL_TYPE"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "speed",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "data",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Number"
-                        }
-                    }
-                }
-            ]
-        },
-        "../game/skill/SKILL_TYPE": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
                 }
             ]
         },

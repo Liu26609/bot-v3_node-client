@@ -28,7 +28,7 @@ export class me_skill extends task_base {
             const name = data.skillList[index];
             temp += `[${index}]${name}\n`;
         }
-        temp += `┗┄━══════════━┄`
+        temp += `┗┄━═${this.at()}═━┄`
         await bot.sendText(this.channel_id,temp)
 
         let temps = ``;

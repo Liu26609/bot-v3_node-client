@@ -19,6 +19,7 @@ const sever_1 = __importDefault(require("../../unity/sever"));
 const attribute_1 = require("../temp/text/attribute");
 const setUp_1 = require("../../shared/game/setUp");
 const common_1 = __importDefault(require("../../unity/common"));
+const body_1 = require("../../shared/game/body");
 /**
 * 查看我的属性
 */
@@ -42,6 +43,7 @@ class me_attribute extends task_base_1.task_base {
                 temp.setIcon(this.userIcon);
                 temp.setTips('属性');
                 temp.addLine(`Ⓜ️名称:${data.body.name}`);
+                temp.addLine(`👑血统:${body_1.ancestryLeve[data.ancestry.leve]}}级${data.ancestry.title}`);
                 temp.addLine(`🔥等级:${data.body.leve}`);
                 temp.addLine(`⏳经验:${common_1.default.BN(data.body.exp)}/${common_1.default.BN(data.body.exp_max)}`);
                 temp.addLine(`♥️生命:${common_1.default.BN(data.body.hp)}/${common_1.default.BN(out_attribute.hp_max)}`);
@@ -53,7 +55,7 @@ class me_attribute extends task_base_1.task_base {
                 temp.sendMsg(this.channel_id);
             }
             else if (data.userCfg.textStyle == setUp_1.textStyle.text) {
-                new attribute_1.text_attribute_style().sendData(data.body).sendMsg(this.channel_id);
+                new attribute_1.text_attribute_style().sendData(data.body).sendAncestry(data.ancestry).sendMsg(this.channel_id);
             }
         });
     }

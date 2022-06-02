@@ -22,23 +22,24 @@ export class me_wallet extends task_base {
         let data = req.res;
         switch (data.userCfg.textStyle) {
             case textStyle.text:
-                let tems = `🏧${this.at()}的小金库\n`
+                let tems = `┏┄🏧${this.userName}的小金库━┄\n`
                 tems += `${walletKey_CN[walletKey[walletKey.gold]]}:${common.BN(data.gold)}`
-                tems += `${walletKey_CN[walletKey[walletKey.BlindBox]]}:${common.BN(data.BlindBox)}\n`
+                tems += `${walletKey_CN[walletKey[walletKey.BlindBox]]}:${common.BN(data.BlindBox)}`
                 tems += `${walletKey_CN[walletKey[walletKey.titleCard]]}:${common.BN(data.titleCard)}`
-                tems += `${walletKey_CN[walletKey[walletKey.changeNameCard]]}:${common.BN(data.changeNameCard)}\n`
+                tems += `${walletKey_CN[walletKey[walletKey.changeNameCard]]}:${common.BN(data.changeNameCard)}`
                 tems += `${walletKey_CN[walletKey[walletKey.skillCard]]}:${common.BN(data.skillCard)}`
-                tems += `${walletKey_CN[walletKey[walletKey.transferCard]]}:${common.BN(data.transferCard)}\n`
+                tems += `${walletKey_CN[walletKey[walletKey.transferCard]]}:${common.BN(data.transferCard)}`
                 tems += `${walletKey_CN[walletKey[walletKey.resLife]]}:${common.BN(data.resLife)}`
-                tems += `${walletKey_CN[walletKey[walletKey.driedFish]]}:${common.BN(data.driedFish)}\n`
+                tems += `${walletKey_CN[walletKey[walletKey.driedFish]]}:${common.BN(data.driedFish)}`
                 tems += `${walletKey_CN[walletKey[walletKey.spiritBall]]}:${common.BN(data.spiritBall)}`
+                tems += `┗┄━═${this.at()}═━┄`
                 bot.sendText(this.channel_id, tems)
 
                 break;
             case textStyle.card:
                 let temp = new embed_style();
                 temp.setTitle(`🏧${this.userName}的小金库`);
-                temp.setTips('我的钱包')
+                temp.setTips('我的小金库')
                 temp.setIcon(this.userIcon)
                 temp.addLine(`${walletKey_CN[walletKey[walletKey.gold]]}:${common.BN(data.gold)}`);
                 temp.addLine(`${walletKey_CN[walletKey[walletKey.BlindBox]]}:${common.BN(data.BlindBox)}`);

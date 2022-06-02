@@ -31,7 +31,7 @@ export class me_equip extends task_base {
         } else {
             temp += `┣你好像一件装备都没有穿上哦\n`;
         }
-        temp += `┗┄━══════════━┄\n`;
+        temp += `┗┄━═${this.at()}═━┄\n`;
         temp += `强化装备指令: 强化 + 装备位置\n`;
         temp += `🌰栗子：@${bot.getBot_name()} 强化武器\n`;
         bot.sendText(this.channel_id, temp)

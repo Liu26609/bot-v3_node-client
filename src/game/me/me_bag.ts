@@ -30,7 +30,7 @@ export class me_bag extends task_base {
             const item = data.bag[index];
             temp += `[${index}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[item.quality]]})${item.name}+${item.leve}\n`
         }
-        temp += `┗┄━══════════━┄\n`;
+        temp += `┗┄━═${this.at()}═━┄\n`;
         let temps = ``;
         temps += `┏┄════👑指令提示═══━┄\n`;
         temps += `[查看背包装备 + 数字]查看指定装备属性\n`;
