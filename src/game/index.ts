@@ -54,6 +54,8 @@ import { me_petChangeName } from './me/pet/me_petChangeName';
 import { me_petRm } from './me/pet/me_petRm';
 import { docile } from './map/docile';
 import { me_ancestry } from './me/ancestry/me_ancestry';
+import { randomAncestry } from './me/ancestry/randomAncestry';
+import { attackBoss } from './battle/attackBoss';
 
 enum matchType {
     /**
@@ -108,6 +110,8 @@ export default class game {
         this.matchMap.set('宠物改名', { action: me_petChangeName, match: matchType.match })
         this.matchMap.set('放生宠物', { action: me_petRm, match: matchType.match })
         this.matchMap.set('我的进化', { action: me_ancestry, match: matchType.match })
+        this.matchMap.set('重置进化', { action: randomAncestry, match: matchType.all })
+        this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })
         this.matchMap.set('捕捉', { action: docile, match: matchType.match })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`拍卖`, { action: auction, match: matchType.match })

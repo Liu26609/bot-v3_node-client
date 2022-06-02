@@ -62,6 +62,8 @@ const me_petChangeName_1 = require("./me/pet/me_petChangeName");
 const me_petRm_1 = require("./me/pet/me_petRm");
 const docile_1 = require("./map/docile");
 const me_ancestry_1 = require("./me/ancestry/me_ancestry");
+const randomAncestry_1 = require("./me/ancestry/randomAncestry");
+const attackBoss_1 = require("./battle/attackBoss");
 var matchType;
 (function (matchType) {
     /**
@@ -109,6 +111,8 @@ class game {
         this.matchMap.set('宠物改名', { action: me_petChangeName_1.me_petChangeName, match: matchType.match });
         this.matchMap.set('放生宠物', { action: me_petRm_1.me_petRm, match: matchType.match });
         this.matchMap.set('我的进化', { action: me_ancestry_1.me_ancestry, match: matchType.match });
+        this.matchMap.set('重置进化', { action: randomAncestry_1.randomAncestry, match: matchType.all });
+        this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`拍卖`, { action: auction_1.auction, match: matchType.match });

@@ -28,7 +28,7 @@ export class text_attribute_style{
         temp += `┏┄════👑属性═══━┄\n`
         temp += `┣Ⓜ️名称:${this.data.name}\n`;
         if(this.ancestry){
-            temp += `┣👑血统:${ancestryLeve[this.ancestry.leve]}级${this.ancestry.title}\n`
+            temp += `┣👑血统${ancestryLeve[this.ancestry.leve]}级${this.ancestry.title}\n`
         }
         temp += `┣🔥等级:${this.data.leve}\n`;
         temp += `┣⏳经验:${common.BN(this.data.exp)}/${common.BN(this.data.exp_max)}\n`;
