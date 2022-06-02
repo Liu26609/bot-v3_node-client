@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addOneWrod = void 0;
+exports.addOneWord = void 0;
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
-class addOneWrod extends task_base_1.task_base {
+class addOneWord extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         const str = this.content.replace(this.matchKey, '');
@@ -22,4 +22,4 @@ class addOneWrod extends task_base_1.task_base {
         });
     }
 }
-exports.addOneWrod = addOneWrod;
+exports.addOneWord = addOneWord;

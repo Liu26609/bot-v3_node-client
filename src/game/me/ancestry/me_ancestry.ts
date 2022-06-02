@@ -25,7 +25,7 @@ export class me_ancestry extends task_base {
 🔰物理防御${data.ancestry.base.PhysicalDefense}分 🔮魔法攻击${data.ancestry.base.MagicAttack}分
 🌟魔法防御${data.ancestry.base.MagicDefense}分💖生命回复${data.ancestry.base.secondResHp}分
 [${data.SK.name}]${common.getSkDesc(data.SK)}
-┗┄━═${this.at()}═━┄
+┗┄━${this.at()}━┄
 🧚‍♂️成长分数越高每级属性提升越高,成长分数会随着进化等级变化`
         bot.sendText(this.channel_id, temp);
     }

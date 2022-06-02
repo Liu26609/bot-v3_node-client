@@ -39,7 +39,7 @@ class me_wallet extends task_base_1.task_base {
                     for (const key in user_1.walletKey_CN) {
                         tems += `${user_1.walletKey_CN[key]}:${common_1.default.BN(data[key])}\n`;
                     }
-                    tems += `┗┄━═${this.at()}═━┄`;
+                    tems += `┗┄━${this.at()}━┄`;
                     bot_1.default.sendText(this.channel_id, tems);
                     break;
                 case setUp_1.textStyle.card:

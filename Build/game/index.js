@@ -42,7 +42,6 @@ const bot_1 = __importDefault(require("../unity/bot"));
 const sever_1 = __importDefault(require("../unity/sever"));
 const me_sign_1 = __importDefault(require("./me/me_sign"));
 const me_pos_1 = require("./me/me_pos");
-const addOneWrod_1 = require("./sys/addOneWrod");
 const pos_attackEnemy_1 = require("./battle/pos_attackEnemy");
 const baseTaskMenu_1 = require("./sys/baseTaskMenu");
 const openMapChestBox_1 = require("./map/openMapChestBox");
@@ -64,6 +63,8 @@ const docile_1 = require("./map/docile");
 const me_ancestry_1 = require("./me/ancestry/me_ancestry");
 const randomAncestry_1 = require("./me/ancestry/randomAncestry");
 const attackBoss_1 = require("./battle/attackBoss");
+const addOneWrod_1 = require("./sys/addOneWrod");
+const rank_1 = require("./battle/rank");
 var matchType;
 (function (matchType) {
     /**
@@ -85,7 +86,7 @@ class game {
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
-        this.matchMap.set('addOneWrod', { action: addOneWrod_1.addOneWrod, match: matchType.match });
+        this.matchMap.set('addOneWord', { action: addOneWrod_1.addOneWord, match: matchType.match });
         this.matchMap.set('称号改名', { action: me_titleChangeName_1.me_titleChangeName, match: matchType.match });
         this.matchMap.set('更新日志', { action: update_1.sys_update, match: matchType.all });
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer_1.pos_attackPlayer, match: matchType.match });
@@ -112,6 +113,7 @@ class game {
         this.matchMap.set('放生宠物', { action: me_petRm_1.me_petRm, match: matchType.match });
         this.matchMap.set('我的进化', { action: me_ancestry_1.me_ancestry, match: matchType.match });
         this.matchMap.set('重置进化', { action: randomAncestry_1.randomAncestry, match: matchType.all });
+        this.matchMap.set('华山论剑', { action: rank_1.rank, match: matchType.all });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
@@ -156,12 +158,12 @@ class game {
                 temp += `  🟡正在开始重新连接\n`;
                 temp += `┗┄━═══════════━┄\n`;
                 temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
-                bot_1.default.sendText(data.channel_id, temp);
-                sever_1.default.HelloWorld();
+                yield bot_1.default.sendText(data.channel_id, temp);
+                yield sever_1.default.HelloWorld();
                 return;
             }
             if (data.content == '频道ID') {
-                bot_1.default.sendText(data.channel_id, data.channel_id);
+                yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
             if (data.channel_id != '1933444') {
@@ -202,13 +204,9 @@ class game {
                     temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                 }
                 temp += `┗┄━══════════━┄`;
-                bot_1.default.sendText(data.channel_id, temp);
+                yield bot_1.default.sendText(data.channel_id, temp);
             }
         });
-    }
-    // 客户端刷新单位：秒
-    update() {
-        (0, __1.log)('update');
     }
 }
 exports.default = game;

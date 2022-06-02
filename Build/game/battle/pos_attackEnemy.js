@@ -44,7 +44,7 @@ class pos_attackEnemy extends task_base_1.task_base {
                     attackId = index;
                 }
             }
-            let req = yield sever_1.default.callApi('PosAttackEnemy', { userId: this.userId, attackId: attackId });
+            let req = yield sever_1.default.callApi('battle/PosAttackEnemy', { userId: this.userId, attackId: attackId });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
@@ -74,11 +74,6 @@ class pos_attackEnemy extends task_base_1.task_base {
                     open: true,
                 }
             };
-            let configTemp = `频道设置
-是否显示我方伤害日志：${battleConfig.hurtLog.me ? '是' : '否'}
-是否显示敌方伤害日志：${battleConfig.hurtLog.enemy ? '是' : '否'}
-是否显示击杀记录日志：${battleConfig.killLog.open ? '是' : '否'}`;
-            // bot.sendText(this.channel_id, configTemp)
             if (battleConfig.hurtLog.me) {
                 let hurtLog = '';
                 hurtLog += `🔥￣￣￣￣＼📄伤害统计／￣￣￣￣🔥\n`;

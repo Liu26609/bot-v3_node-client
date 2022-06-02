@@ -44,7 +44,7 @@ class me_skill extends task_base_1.task_base {
                 const name = data.skillList[index];
                 temp += `[${index}]${name}\n`;
             }
-            temp += `┗┄━═${this.at()}═━┄`;
+            temp += `┗┄━${this.at()}━┄`;
             yield bot_1.default.sendText(this.channel_id, temp);
             let temps = ``;
             temps += `┏┄════👑指令提示═══━┄\n`;

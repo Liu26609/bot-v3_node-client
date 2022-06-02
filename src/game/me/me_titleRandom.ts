@@ -41,7 +41,7 @@ export class me_titleRandom extends task_base {
         temp += `🔮魔法攻击+${data.bf.MagicAttack}➡️${data.now.MagicAttack}%\n`;
         temp += `🌟魔法防御+${data.bf.MagicDefense}➡️${data.now.MagicDefense}%\n`;
         temp += `💖每秒回复+${data.bf.secondResHp}➡️${data.now.secondResHp}%\n`;
-        temp += `┗┄━═${this.at()}═━┄`
+        temp += `┗┄━${this.at()}━┄`
 
         bot.sendText(this.channel_id,temp)
 

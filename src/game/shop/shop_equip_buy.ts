@@ -29,10 +29,10 @@ export class shop_equip_buy extends task_base{
             bot.sendText(this.channel_id,temp);
         }else if(data.userCfg.textStyle == textStyle.card){
             let temps = new embed_style();
-            temps.setTitle('￣￣￣＼🕊️购买成功／￣￣￣')
+            temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
             temps.setTips('装备已放入你的背包，祝您购物愉快~')
-            temps.addLine(`￣￣￣＼🏧钱包变化／￣￣￣`)
+            temps.addLine(`🧚‍♂️装备已放入你的背包，祝您购物愉快~`)
             temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)

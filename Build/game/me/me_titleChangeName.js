@@ -43,7 +43,7 @@ class me_titleChangeName extends task_base_1.task_base {
             let temp = `┏┄════🎉改名成功═══━┄\n`;
             temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `┗┄━═${this.at()}═━┄`;
+            temp += `┗┄━${this.at()}━┄`;
             bot_1.default.sendText(this.channel_id, temp);
             new me_title_1.me_title(...this.args);
         });

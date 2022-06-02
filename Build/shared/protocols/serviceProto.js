@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 2,
+    "version": 3,
     "services": [
         {
             "id": 0,
@@ -32,6 +32,16 @@ exports.serviceProto = {
         {
             "id": 5,
             "name": "battle/AttackBoss",
+            "type": "api"
+        },
+        {
+            "id": 49,
+            "name": "battle/PosAttackEnemy",
+            "type": "api"
+        },
+        {
+            "id": 50,
+            "name": "battle/Rank",
             "type": "api"
         },
         {
@@ -200,11 +210,6 @@ exports.serviceProto = {
         {
             "id": 37,
             "name": "Pos",
-            "type": "api"
-        },
-        {
-            "id": 38,
-            "name": "PosAttackEnemy",
             "type": "api"
         },
         {
@@ -1414,6 +1419,65 @@ exports.serviceProto = {
                 {
                     "id": 10,
                     "value": 10
+                },
+                {
+                    "id": 11,
+                    "value": 11
+                }
+            ]
+        },
+        "battle/PtlPosAttackEnemy/ReqPosAttackEnemy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "attackId",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "battle/PtlPosAttackEnemy/ResPosAttackEnemy": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "PtlBattle/ResBattle"
+                    }
+                }
+            ]
+        },
+        "battle/PtlRank/ReqRank": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "battle/PtlRank/ResRank": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "PtlBattle/ResBattle"
+                    }
                 }
             ]
         },
@@ -2029,6 +2093,13 @@ exports.serviceProto = {
                 }
             ],
             "properties": [
+                {
+                    "id": 10,
+                    "name": "rankscore",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
                 {
                     "id": 0,
                     "name": "sys",
@@ -3239,37 +3310,6 @@ exports.serviceProto = {
                 {
                     "id": 9,
                     "value": 9
-                }
-            ]
-        },
-        "PtlPosAttackEnemy/ReqPosAttackEnemy": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "attackId",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlPosAttackEnemy/ResPosAttackEnemy": {
-            "type": "Interface",
-            "extends": [
-                {
-                    "id": 0,
-                    "type": {
-                        "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
-                    }
                 }
             ]
         },

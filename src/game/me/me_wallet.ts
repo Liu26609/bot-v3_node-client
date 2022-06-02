@@ -26,7 +26,7 @@ export class me_wallet extends task_base {
                 for (const key in walletKey_CN) {
                     tems += `${walletKey_CN[key]}:${common.BN(data[key])}\n`
                 }
-                tems += `┗┄━═${this.at()}═━┄`
+                tems += `┗┄━${this.at()}━┄`
                 bot.sendText(this.channel_id, tems)
 
                 break;

@@ -33,8 +33,9 @@ export class auction_offer extends task_base {
         
     }
     notNum() {
-        let temp = `🧚‍♂️出价指令：出价 + 加价金币
-(如:出价100，如果成交则为当前价格 + 出价)`;
+        let temp = ``;
+        temp += `🧚‍♂️出价指令：出价 + 加价金币\n`
+        temp += `🌰栗子:@${bot.getBot_name()} 出价1`
         bot.sendText(this.channel_id, temp)
         new auction_look(...this.args);
     }

@@ -2,7 +2,7 @@ import bot from "../../unity/bot";
 import sever from "../../unity/sever";
 import { task_base } from "../task_base";
 
-export class addOneWrod extends task_base {
+export class addOneWord extends task_base {
     constructor(...a) {
         super(...a);
         const str = this.content.replace(this.matchKey, '')

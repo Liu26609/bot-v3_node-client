@@ -32,6 +32,7 @@ export class text_attribute_style{
         }
         temp += `┣🔥等级:${this.data.leve}\n`;
         temp += `┣⏳经验:${common.BN(this.data.exp)}/${common.BN(this.data.exp_max)}\n`;
+        temp += `┣⚜️声望值:${this.data.rankscore}\n`;
         temp += `┣♥️生命:${common.BN(this.data.hp)}/${common.BN(out_attribute.hp_max)}\n`;
         temp += `┣🔮魔法攻击:${common.BN(out_attribute.MagicAttack)}\n`;
         temp += `┣🌟魔法防御:${common.BN(out_attribute.MagicDefense)}\n`;

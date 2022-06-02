@@ -86,7 +86,7 @@ class me_pos extends task_base_1.task_base {
                     }
                 }
             }
-            temp += `┗┄━═${this.at()}═━┄`;
+            temp += `┗┄━${this.at()}━┄`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }

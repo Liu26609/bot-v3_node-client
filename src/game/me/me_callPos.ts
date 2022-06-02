@@ -14,7 +14,7 @@ export class me_callPos extends task_base {
 ┣每次传送需要${walletKey_CN[walletKey[walletKey.transferCard]]}x1
 🌰栗子：传送 + 10，20(传送10,20)
 🧚‍♂️提示：逗号不方便？可以试试这些符号(.。,，+-!！*)
-┗┄━═${this.at()}═━┄`
+┗┄━${this.at()}━┄`
         bot.sendText(this.channel_id, temp);
     }
     async render() {
@@ -38,7 +38,7 @@ export class me_callPos extends task_base {
         temp += `你已传送到🌏${data.mapName}[${data.callPos.x},${data.callPos.y}]\n`;
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-        temp += `┗┄━═${this.at()}═━┄`
+        temp += `┗┄━${this.at()}━┄`
 
         bot.sendText(this.channel_id,temp)
 

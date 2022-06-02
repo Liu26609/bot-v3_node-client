@@ -22,19 +22,13 @@ import { pos_attackPlayer } from './battle/pos_attackPlayer';
 import { me_move } from './me/me_move';
 import { sys_update } from './sys/update';
 import { battleTest } from './battle/battleTest';
-import { task_base } from './task_base';
 import { me_attribute } from './me/me_attribute';
-import { err, log } from "..";
+import { log } from "..";
 import { BOT_MSG_AT } from "../shared/bot/bot";
 import bot from "../unity/bot";
 import sever from "../unity/sever";
 import me_sign from "./me/me_sign";
-import gameCfg from './gameCfg';
-import { text_equip_style } from './temp/text/equip';
-import { embed_style } from './temp/embed/embed';
-import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from '../shared/game/equip';
 import { me_pos } from './me/me_pos';
-import { addOneWrod } from './sys/addOneWrod';
 import { pos_attackEnemy } from './battle/pos_attackEnemy';
 import { baseTaskMenu } from './sys/baseTaskMenu';
 import { openMapChestBox } from './map/openMapChestBox';
@@ -45,17 +39,19 @@ import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
 import { me_equip } from './me/me_equip';
 import { me_titleChangeName } from './me/me_titleChangeName';
-import { shop_back } from './shop/shop_back';
-import { auction } from './shop/auction';
-import { auction_offer } from './shop/auction_offer';
-import { me_pet } from './me/pet/me_pet';
-import { me_lookPet } from './me/pet/me_lookPet';
+import { shop_back }        from './shop/shop_back';
+import { auction }          from './shop/auction';
+import { auction_offer }    from './shop/auction_offer';
+import { me_pet }           from './me/pet/me_pet';
+import { me_lookPet }       from './me/pet/me_lookPet';
 import { me_petChangeName } from './me/pet/me_petChangeName';
-import { me_petRm } from './me/pet/me_petRm';
-import { docile } from './map/docile';
-import { me_ancestry } from './me/ancestry/me_ancestry';
-import { randomAncestry } from './me/ancestry/randomAncestry';
-import { attackBoss } from './battle/attackBoss';
+import { me_petRm }         from './me/pet/me_petRm';
+import { docile }           from './map/docile';
+import { me_ancestry }      from './me/ancestry/me_ancestry';
+import { randomAncestry }   from './me/ancestry/randomAncestry';
+import { attackBoss }       from './battle/attackBoss';
+import {addOneWord}         from "./sys/addOneWrod";
+import {rank}               from "./battle/rank";
 
 enum matchType {
     /**
@@ -84,7 +80,7 @@ export default class game {
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
-        this.matchMap.set('addOneWrod', { action: addOneWrod, match: matchType.match })
+        this.matchMap.set('addOneWord', { action: addOneWord, match: matchType.match })
         this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
@@ -111,6 +107,7 @@ export default class game {
         this.matchMap.set('放生宠物', { action: me_petRm, match: matchType.match })
         this.matchMap.set('我的进化', { action: me_ancestry, match: matchType.match })
         this.matchMap.set('重置进化', { action: randomAncestry, match: matchType.all })
+        this.matchMap.set('华山论剑', { action: rank, match: matchType.all })
         this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })
         this.matchMap.set('捕捉', { action: docile, match: matchType.match })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
@@ -158,12 +155,12 @@ export default class game {
             temp += `  🟡正在开始重新连接\n`;
             temp += `┗┄━═══════════━┄\n`;
             temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
-            bot.sendText(data.channel_id, temp);
-            sever.HelloWorld()
+            await bot.sendText(data.channel_id, temp);
+            await sever.HelloWorld()
             return;
         }
         if (data.content == '频道ID') {
-            bot.sendText(data.channel_id, data.channel_id);
+            await bot.sendText(data.channel_id, data.channel_id);
             return
         }
         if (data.channel_id != '1933444') {
@@ -206,13 +203,13 @@ export default class game {
             }
             temp += `┗┄━══════════━┄`
 
-            bot.sendText(data.channel_id,temp)
+            await bot.sendText(data.channel_id,temp)
         }
        
 
     }
     // 客户端刷新单位：秒
-    update() {
-        log('update')
-    }
+//    update() {
+//        log('update')
+//    }
 }
