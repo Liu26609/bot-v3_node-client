@@ -43,14 +43,14 @@ class me_bag extends task_base_1.task_base {
                 return;
             }
             let temp = ``;
-            temp += `┏┄════👑我的背包═══━┄\n`;
+            temp += `┏┄══👑我的背包══━┄\n`;
             for (let index = 0; index < data.bag.length; index++) {
                 const item = data.bag[index];
                 temp += `[${index}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[item.quality]]})${item.name}+${item.leve}\n`;
             }
-            temp += `┗┄━═${this.at()}═━┄\n`;
+            temp += `┗┄━${this.at()}━┄\n`;
             let temps = ``;
-            temps += `┏┄════👑指令提示═══━┄\n`;
+            temps += `┏┄═══👑指令提示══━┄\n`;
             temps += `[查看背包装备 + 数字]查看指定装备属性\n`;
             temps += `[穿装备 + 数字]装备上指定装备\n`;
             temps += `[销毁装备 + 数字]丢弃指定装备\n`;

@@ -1,3 +1,4 @@
+import { text_example_style } from './../temp/text/example';
 import { embed_style } from './../temp/embed/embed';
 import { TsrpcErrorType } from 'tsrpc';
 import bot from '../../unity/bot';
@@ -13,7 +14,7 @@ export class me_changeName extends task_base {
         this.render()
     }
     menu(){
-        bot.sendText(this.channel_id,`🧚‍♂️改名指令：改名 + 你的名字(如:改名张三)`);
+        new text_example_style().setCommand('改名指令：改名 + 你的名字').setExample('改名张三').sendMsg(this.channel_id)
     }
     async render() {
         let changeName = this.content.replace(this.matchKey, '');

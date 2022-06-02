@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_changeName = void 0;
+const example_1 = require("./../temp/text/example");
 const embed_1 = require("./../temp/embed/embed");
 const tsrpc_1 = require("tsrpc");
 const bot_1 = __importDefault(require("../../unity/bot"));
@@ -27,7 +28,7 @@ class me_changeName extends task_base_1.task_base {
         this.render();
     }
     menu() {
-        bot_1.default.sendText(this.channel_id, `🧚‍♂️改名指令：改名 + 你的名字(如:改名张三)`);
+        new example_1.text_example_style().setCommand('改名指令：改名 + 你的名字').setExample('改名张三').sendMsg(this.channel_id);
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
