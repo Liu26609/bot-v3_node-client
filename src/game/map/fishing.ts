@@ -8,7 +8,7 @@ export class fishing extends task_base{
     }
     async render(){
         // 开始钓鱼
-        let req = await sever.callApi('fishing',{userId:this.userId});
+        let req = await sever.callApi('map/fishing',{userId:this.userId});
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

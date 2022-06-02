@@ -47,7 +47,7 @@ ps:宝箱会在地图上击杀怪物后随机掉落
                 });
                 return;
             }
-            let req = yield sever_1.default.callApi('OpenMapChestBox', { userId: this.userId, openIndex: openIndex });
+            let req = yield sever_1.default.callApi('map/OpenMapChestBox', { userId: this.userId, openIndex: openIndex });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
