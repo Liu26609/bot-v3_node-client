@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const pk_1 = require("./battle/pk");
 const auction_look_1 = require("./shop/auction_look");
 const fishing_1 = require("./map/fishing");
 const shop_back_buy_1 = require("./shop/shop_back_buy");
@@ -114,6 +115,7 @@ class game {
         this.matchMap.set('我的进化', { action: me_ancestry_1.me_ancestry, match: matchType.match });
         this.matchMap.set('重置进化', { action: randomAncestry_1.randomAncestry, match: matchType.all });
         this.matchMap.set('华山论剑', { action: rank_1.rank, match: matchType.all });
+        this.matchMap.set('PK', { action: pk_1.pk, match: matchType.match });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });

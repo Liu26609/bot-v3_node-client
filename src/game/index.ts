@@ -1,3 +1,4 @@
+import { pk } from './battle/pk';
 import { auction_look } from './shop/auction_look';
 import { fishing } from './map/fishing';
 import { shop_back_buy } from './shop/shop_back_buy';
@@ -108,6 +109,7 @@ export default class game {
         this.matchMap.set('我的进化', { action: me_ancestry, match: matchType.match })
         this.matchMap.set('重置进化', { action: randomAncestry, match: matchType.all })
         this.matchMap.set('华山论剑', { action: rank, match: matchType.all })
+        this.matchMap.set('PK', { action: pk, match: matchType.match })
         this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })
         this.matchMap.set('捕捉', { action: docile, match: matchType.match })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })

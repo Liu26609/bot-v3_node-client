@@ -22,9 +22,10 @@ export class text_example_style {
         return this;
     }
     sendMsg(channelId: string) {
-        let temp = ``;
-        temp += `🧚‍♂️${this.command}\n`
-        temp += `🌰栗子:@${bot.getBot_name()} ${this.command}`
+        let temp = `┏@${bot.getBot_name()},输入以下指令┄\n`;
+        temp += `▶️${this.command}\n`
+        temp += `🌰栗子:@${bot.getBot_name()} ${this.example}\n`
+        temp += `┗┄━══════════━┄`
         bot.sendText(channelId,temp);
     }
 }
