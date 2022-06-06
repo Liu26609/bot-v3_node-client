@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 3,
+    "version": 7,
     "services": [
         {
             "id": 0,
@@ -260,6 +260,41 @@ exports.serviceProto = {
         {
             "id": 48,
             "name": "Sign",
+            "type": "api"
+        },
+        {
+            "id": 53,
+            "name": "team/ChangeName_team",
+            "type": "api"
+        },
+        {
+            "id": 52,
+            "name": "team/Creator_team",
+            "type": "api"
+        },
+        {
+            "id": 54,
+            "name": "team/CreatorJoinCode_team",
+            "type": "api"
+        },
+        {
+            "id": 55,
+            "name": "team/Dismiss_team",
+            "type": "api"
+        },
+        {
+            "id": 57,
+            "name": "team/Join_team",
+            "type": "api"
+        },
+        {
+            "id": 51,
+            "name": "team/Me_team",
+            "type": "api"
+        },
+        {
+            "id": 56,
+            "name": "team/UserList",
             "type": "api"
         }
     ],
@@ -2255,6 +2290,37 @@ exports.serviceProto = {
                             }
                         ]
                     }
+                },
+                {
+                    "id": 11,
+                    "name": "team",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "id",
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "leve",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/team/teamLeve"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "name": "contribute",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -2349,6 +2415,19 @@ exports.serviceProto = {
                     "type": {
                         "type": "Number"
                     }
+                }
+            ]
+        },
+        "../game/team/teamLeve": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
                 }
             ]
         },
@@ -3909,6 +3988,296 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "team/PtlChangeName_team/ReqChangeName_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlChangeName_team/ResChangeName_team": {
+            "type": "Interface"
+        },
+        "team/PtlCreator_team/ReqCreator_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlCreator_team/ResCreator_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "team",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/team/team_info"
+                    }
+                }
+            ]
+        },
+        "../game/team/team_info": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "maxExp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "userCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "maxUserCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "gain",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                }
+            ]
+        },
+        "team/PtlCreatorJoinCode_team/ReqCreatorJoinCode_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlCreatorJoinCode_team/ResCreatorJoinCode_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "code",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlDismiss_team/ReqDismiss_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlDismiss_team/ResDismiss_team": {
+            "type": "Interface"
+        },
+        "team/PtlJoin_team/ReqJoin_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "code",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlJoin_team/ResJoin_team": {
+            "type": "Interface"
+        },
+        "team/PtlMe_team/ReqMe_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlMe_team/ResMe_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "info",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/team/team_info"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "myLeve",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/team/teamLeve"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "myContribute",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "team/PtlUserList/ReqUserList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlUserList/ResUserList": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "leve",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "pos",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/body/posV2"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 }
             ]

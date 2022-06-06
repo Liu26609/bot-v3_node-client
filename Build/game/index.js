@@ -12,6 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const creatorJoinCode_team_1 = require("./me/team/creatorJoinCode_team");
+const userList_team_1 = require("./me/team/userList_team");
+const dismiss_team_1 = require("./me/team/dismiss_team");
+const creator_team_1 = require("./me/team/creator_team");
+const me_team_1 = require("./me/team/me_team");
 const pk_1 = require("./battle/pk");
 const auction_look_1 = require("./shop/auction_look");
 const fishing_1 = require("./map/fishing");
@@ -66,6 +71,8 @@ const randomAncestry_1 = require("./me/ancestry/randomAncestry");
 const attackBoss_1 = require("./battle/attackBoss");
 const addOneWrod_1 = require("./sys/addOneWrod");
 const rank_1 = require("./battle/rank");
+const changeName_team_1 = require("./me/team/changeName_team");
+const join_team_1 = require("./me/team/join_team");
 var matchType;
 (function (matchType) {
     /**
@@ -115,6 +122,13 @@ class game {
         this.matchMap.set('我的进化', { action: me_ancestry_1.me_ancestry, match: matchType.match });
         this.matchMap.set('重置进化', { action: randomAncestry_1.randomAncestry, match: matchType.all });
         this.matchMap.set('华山论剑', { action: rank_1.rank, match: matchType.all });
+        this.matchMap.set('我的工会', { action: me_team_1.me_team, match: matchType.all });
+        this.matchMap.set('创建工会', { action: creator_team_1.creator_team, match: matchType.match });
+        this.matchMap.set('解散工会', { action: dismiss_team_1.dismiss_team, match: matchType.all });
+        this.matchMap.set('工会改名', { action: changeName_team_1.changeName_team, match: matchType.match });
+        this.matchMap.set('成员列表', { action: userList_team_1.userList_team, match: matchType.all });
+        this.matchMap.set('生成邀请码', { action: creatorJoinCode_team_1.creatorJoinCode_team, match: matchType.all });
+        this.matchMap.set('加入工会', { action: join_team_1.join_team, match: matchType.match });
         this.matchMap.set('PK', { action: pk_1.pk, match: matchType.match });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
@@ -172,6 +186,7 @@ class game {
                 return;
             }
             // if(data.author.id != '14139673525601401123'){
+            //     bot.sendText(data.channel_id,`无权限`)
             //     return;
             // }
             (0, __1.log)('收到艾特消息', data.content);
@@ -202,7 +217,7 @@ class game {
                     return B.match - A.match;
                 });
                 let temp = `┏┄════🔎你想找什么?══━┄\n`;
-                for (let index = 0; index < 5; index++) {
+                for (let index = 0; index < 8; index++) {
                     temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                 }
                 temp += `┗┄━══════════━┄`;

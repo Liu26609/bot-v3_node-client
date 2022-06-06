@@ -12,7 +12,6 @@ export class pk extends task_base {
             this.menu();
             return;
         }
-        let id = this.content.match(/<@!(\S*)>/)[1];
         let pkList = this.content.split('<@!')
         let battleId:string[] = []
         for (let index = 0; index < pkList.length; index++) {

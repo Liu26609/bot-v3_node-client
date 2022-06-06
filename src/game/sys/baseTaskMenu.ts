@@ -7,13 +7,14 @@ export class baseTaskMenu extends task_base{
         this.render();
     }
     render(){
-        let temp = `￣￣￣￣￣￣＼V3.X／￣￣￣￣￣￣
-属性|钱包|背包|位置|改名|复活|传送
+        let pack = require('../../../package.json');
+        let temp = `┏┄════🏰V3.${pack.version}
+属性|钱包|背包|位置|改名|PK|传送
 排行榜|拍卖行
 ￣￣￣￣￣￣＼功能指令／￣￣￣￣
 ＞我的称号　称号改名　重置称号＜
 ＞打开宝箱　　　　　　打开盲盒＜
-＞我的宠物　　　　　　　　　　＜
+＞我的宠物　　　　　　华山论剑＜
 ＞我的进化　　　　　　重置进化＜
 ＞每日任务　　　　　　飞升任务＜
 ＞我的技能　　　　　　技能商店＜
@@ -22,7 +23,7 @@ export class baseTaskMenu extends task_base{
 ￣￣￣￣￣￣＼高级功能／￣￣￣￣
 ＞链式指令　　　　　　查询技能＜
 ＞设置
-￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣`;
+┗┄━════════════━┄`;
         bot.sendText(this.channel_id,temp)
     }
 

@@ -1,3 +1,8 @@
+import { creatorJoinCode_team } from './me/team/creatorJoinCode_team';
+import { userList_team } from './me/team/userList_team';
+import { dismiss_team } from './me/team/dismiss_team';
+import { creator_team } from './me/team/creator_team';
+import { me_team } from './me/team/me_team';
 import { pk } from './battle/pk';
 import { auction_look } from './shop/auction_look';
 import { fishing } from './map/fishing';
@@ -53,6 +58,8 @@ import { randomAncestry }   from './me/ancestry/randomAncestry';
 import { attackBoss }       from './battle/attackBoss';
 import {addOneWord}         from "./sys/addOneWrod";
 import {rank}               from "./battle/rank";
+import { changeName_team } from './me/team/changeName_team';
+import { join_team } from './me/team/join_team';
 
 enum matchType {
     /**
@@ -109,6 +116,14 @@ export default class game {
         this.matchMap.set('我的进化', { action: me_ancestry, match: matchType.match })
         this.matchMap.set('重置进化', { action: randomAncestry, match: matchType.all })
         this.matchMap.set('华山论剑', { action: rank, match: matchType.all })
+        this.matchMap.set('我的工会', { action: me_team, match: matchType.all })
+        this.matchMap.set('创建工会', { action: creator_team, match: matchType.match })
+        this.matchMap.set('解散工会', { action: dismiss_team, match: matchType.all })
+        this.matchMap.set('工会改名', { action: changeName_team, match: matchType.match })
+        this.matchMap.set('成员列表', { action: userList_team, match: matchType.all })
+        this.matchMap.set('生成邀请码', { action: creatorJoinCode_team, match: matchType.all })
+        this.matchMap.set('加入工会', { action: join_team, match: matchType.match })
+
         this.matchMap.set('PK', { action: pk, match: matchType.match })
         this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })
         this.matchMap.set('捕捉', { action: docile, match: matchType.match })
@@ -169,6 +184,7 @@ export default class game {
             return;
         }
         // if(data.author.id != '14139673525601401123'){
+        //     bot.sendText(data.channel_id,`无权限`)
         //     return;
         // }
         log('收到艾特消息', data.content)
@@ -200,7 +216,7 @@ export default class game {
                 return B.match - A.match;
             });
             let temp = `┏┄════🔎你想找什么?══━┄\n`;
-            for (let index = 0; index < 5; index++) {
+            for (let index = 0; index < 8; index++) {
                 temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
             }
             temp += `┗┄━══════════━┄`
