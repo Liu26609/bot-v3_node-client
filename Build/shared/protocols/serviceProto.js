@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 9,
+    "version": 10,
     "services": [
         {
             "id": 0,
@@ -62,6 +62,11 @@ exports.serviceProto = {
         {
             "id": 8,
             "name": "map/OpenMapChestBox",
+            "type": "api"
+        },
+        {
+            "id": 62,
+            "name": "me/EverDayTask",
             "type": "api"
         },
         {
@@ -238,37 +243,37 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 62,
+            "id": 63,
             "name": "shop/Shop_back_buy",
             "type": "api"
         },
         {
-            "id": 63,
+            "id": 64,
             "name": "shop/Shop_back",
             "type": "api"
         },
         {
-            "id": 64,
+            "id": 65,
             "name": "shop/Shop_equip_buy",
             "type": "api"
         },
         {
-            "id": 65,
+            "id": 66,
             "name": "shop/Shop_equip",
             "type": "api"
         },
         {
-            "id": 66,
+            "id": 67,
             "name": "shop/Shop_skill_buy",
             "type": "api"
         },
         {
-            "id": 67,
+            "id": 68,
             "name": "shop/Shop_skill",
             "type": "api"
         },
         {
-            "id": 68,
+            "id": 69,
             "name": "shop/Shop_team_buy",
             "type": "api"
         },
@@ -1716,6 +1721,146 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
                     }
+                }
+            ]
+        },
+        "me/PtlEverDayTask/ReqEverDayTask": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "me/PtlEverDayTask/ResEverDayTask": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/taskTemp/taskTemp"
+                    }
+                }
+            ]
+        },
+        "../game/taskTemp/taskTemp": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "isEnd",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "lastUpdate",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "isReward",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Reference",
+                            "target": "../game/taskTemp/everDayTask_Item"
+                        }
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "updateDay",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/taskTemp/everDayTask_Item": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/taskTemp/TaskId"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "now",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "target",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/taskTemp/TaskId": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
+                },
+                {
+                    "id": 6,
+                    "value": 6
+                },
+                {
+                    "id": 7,
+                    "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
                 }
             ]
         },

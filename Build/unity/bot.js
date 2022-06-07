@@ -54,9 +54,9 @@ class bot {
                 this.sendText(lastChannelId, res.content);
             }
         });
-        // sever.wsClient.listenMsg('CallAll', (res) => {
-        //    this.callAll(res.content)
-        // })
+        sever_1.default.wsClient.listenMsg('CallAll', (res) => {
+            this.callAll(res.content);
+        });
     }
     /**
      * 通知客户端全部频道

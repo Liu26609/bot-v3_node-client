@@ -46,7 +46,7 @@ export class me_openBlindBox extends task_base {
         let data = req.res;
         let temp = ``;
 
-        temp += `┏┄═════🎁盲盒奖励复═══━┄\n`;
+        temp += `┏┄═════🎁盲盒奖励═══━┄\n`;
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`
         if (data.reward.length > 0) {

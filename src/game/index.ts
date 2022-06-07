@@ -93,7 +93,7 @@ export default class game {
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
-        this.matchMap.set('addOneWord', { action: addOneWord, match: matchType.match })
+        this.matchMap.set('一言', { action: addOneWord, match: matchType.match })
         this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
@@ -134,8 +134,6 @@ export default class game {
         this.matchMap.set('每日任务', { action: everDayTask, match: matchType.all })
         this.matchMap.set('工会购买', { action: shop_team_buy, match: matchType.all })
         this.matchMap.set('PK', { action: pk, match: matchType.match })
-        this.matchMap.set('pk', { action: pk, match: matchType.match })
-        this.matchMap.set('Pk', { action: pk, match: matchType.match })
         this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })
         this.matchMap.set('捕捉', { action: docile, match: matchType.match })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
@@ -209,10 +207,10 @@ export default class game {
         let isFind = false;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
-            if (conf.match == matchType.all && data.content == key && !isFind) {
+            if (conf.match == matchType.all && data.content.toUpperCase() == key.toUpperCase() && !isFind) {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
-            } else if (conf.match == matchType.match && data.content.includes(key) && !isFind) {
+            } else if (conf.match == matchType.match && data.content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }

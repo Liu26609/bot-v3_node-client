@@ -99,7 +99,7 @@ class game {
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
-        this.matchMap.set('addOneWord', { action: addOneWrod_1.addOneWord, match: matchType.match });
+        this.matchMap.set('一言', { action: addOneWrod_1.addOneWord, match: matchType.match });
         this.matchMap.set('称号改名', { action: me_titleChangeName_1.me_titleChangeName, match: matchType.match });
         this.matchMap.set('更新日志', { action: update_1.sys_update, match: matchType.all });
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer_1.pos_attackPlayer, match: matchType.match });
@@ -140,8 +140,6 @@ class game {
         this.matchMap.set('每日任务', { action: everDayTask_1.everDayTask, match: matchType.all });
         this.matchMap.set('工会购买', { action: shop_team_buy_1.shop_team_buy, match: matchType.all });
         this.matchMap.set('PK', { action: pk_1.pk, match: matchType.match });
-        this.matchMap.set('pk', { action: pk_1.pk, match: matchType.match });
-        this.matchMap.set('Pk', { action: pk_1.pk, match: matchType.match });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
@@ -211,11 +209,11 @@ class game {
             let isFind = false;
             // 分析行为
             this.matchMap.forEach((conf, key) => {
-                if (conf.match == matchType.all && data.content == key && !isFind) {
+                if (conf.match == matchType.all && data.content.toUpperCase() == key.toUpperCase() && !isFind) {
                     isFind = true;
                     new conf.action(userId, fromChannel, userIcon, content, key, userName);
                 }
-                else if (conf.match == matchType.match && data.content.includes(key) && !isFind) {
+                else if (conf.match == matchType.match && data.content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
                     isFind = true;
                     new conf.action(userId, fromChannel, userIcon, content, key, userName);
                 }

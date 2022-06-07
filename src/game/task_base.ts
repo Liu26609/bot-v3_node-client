@@ -38,8 +38,15 @@ export class task_base {
         this.matchKey = args[4];
         this.userName = args[5];
     }
+    /**
+     * 艾特用户
+     * @returns 
+     */
     at(){
         return `<@!${this.userId}>`
+    }
+    log(str:string){
+        bot.sendText(this.channel_id,`🧚‍♂️<@!${this.userId}>${str}`)
     }
     sendErr(err: TsrpcError) {
         let random = common.random(0, 1);

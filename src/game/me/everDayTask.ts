@@ -1,26 +1,66 @@
+import { TaskId } from '../../shared/game/taskTemp';
 import bot from '../../unity/bot';
+import sever from '../../unity/sever';
 import { task_base } from './../task_base';
-export class everDayTask extends task_base{
-    constructor(...a){
+export class everDayTask extends task_base {
+    constructor(...a) {
         super(...a);
         this.render();
     }
-    async render(){
-        let temp = `┏┄══🌈每日任务══━┄
-☑️[签到]每日签到领奖励(0/1)
-☑️[竞猜]欧皇检测器(0/1)
-☑️[黑市]查看一次黑市商品(0/1)
-☑️[PK]频道PK(0/10)
-☑️[捕捉]在地图上抓一次怪物(0/1)
-☑️[钓鱼]钓鱼佬绝不空军(0/10)
-☑️[技能商店]查看一次技能商品(0/1)
-☑️[装备商店]查看一次装备商品(0/1)
-☑️[攻击怪物]吃饭睡觉打怪物(0/20)
-☑️[攻击boss]全服一起打BOSS(0/3)
-☑️[华山论剑]排位PK(0/10)
-┗┄━${this.at()}━┄
-    🧚‍♂️任务还未完成，继续加油哦~`
-    bot.sendText(this.channel_id,temp)
+    async render() {
+        let req = await sever.callApi('me/EverDayTask', { userId: this.userId })
+        if (!req.isSucc) {
+            this.sendErr(req.err)
+            return;
+        }
+        let data = req.res;
+
+        let temp = ``;
+        temp += `┏┄══🌈每日任务══━┄\n`
+        for (let index = 0; index < data.list.length; index++) {
+            const item = data.list[index];
+            const isDone = item.now >= item.target;
+            temp += `${isDone?'✅':'☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`
+        }
+        temp += `┗┄━${this.at()}━┄`
+
+        bot.sendText(this.channel_id, temp)
+    }
+    coverTaskIdTips(id: TaskId) {
+        let str = ``;
+        switch (id) {
+            case TaskId.sign:
+                str = `[签到]每日签到`
+                break;
+            case TaskId.BackShop_look:
+                str = `[黑市]查看黑市商店`
+                break;
+            case TaskId.EquipShop_look:
+                str = `[装备商店]查看装备商店`
+                break;
+            case TaskId.PK:
+                str = `[PK]频道PK点到为止`
+                break;
+            case TaskId.catch:
+                str = `[捕捉]成功抓到宠物`
+                break;
+            case TaskId.fishing:
+                str = `[钓鱼]钓鱼佬绝不空军`
+                break;
+            case TaskId.attackMonster:
+                str = `[攻击怪物]吃饭睡觉打怪物`
+                break;
+            case TaskId.attackBoss:
+                str = `[攻击boss]全服一起刮痧BOSS`
+                break;
+            case TaskId.rank:
+                str = `[华山论剑]天梯排位`
+                break;
+            default:
+                str = `未收录任务id${id}`
+                break;
+        }
+        return str
     }
 }
 /**
