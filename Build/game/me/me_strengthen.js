@@ -46,6 +46,7 @@ class me_strengthen extends task_base_1.task_base {
                     break;
             }
             if (typeof (strengthenType) != 'number') {
+                this.menu();
                 return;
             }
             let req = yield sever_1.default.callApi('Me_strengthen', { userId: this.userId, strengthenType: strengthenType });

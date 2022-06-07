@@ -35,6 +35,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 61,
+            "name": "battle/PkRank",
+            "type": "api"
+        },
+        {
             "id": 49,
             "name": "battle/PosAttackEnemy",
             "type": "api"
@@ -233,37 +238,37 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 61,
+            "id": 62,
             "name": "shop/Shop_back_buy",
             "type": "api"
         },
         {
-            "id": 62,
+            "id": 63,
             "name": "shop/Shop_back",
             "type": "api"
         },
         {
-            "id": 63,
+            "id": 64,
             "name": "shop/Shop_equip_buy",
             "type": "api"
         },
         {
-            "id": 64,
+            "id": 65,
             "name": "shop/Shop_equip",
             "type": "api"
         },
         {
-            "id": 65,
+            "id": 66,
             "name": "shop/Shop_skill_buy",
             "type": "api"
         },
         {
-            "id": 66,
+            "id": 67,
             "name": "shop/Shop_skill",
             "type": "api"
         },
         {
-            "id": 67,
+            "id": 68,
             "name": "shop/Shop_team_buy",
             "type": "api"
         },
@@ -1478,6 +1483,40 @@ exports.serviceProto = {
                 {
                     "id": 11,
                     "value": 11
+                }
+            ]
+        },
+        "battle/PtlPkRank/ReqPkRank": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "attackId",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "String"
+                        }
+                    }
+                }
+            ]
+        },
+        "battle/PtlPkRank/ResPkRank": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "PtlBattle/ResBattle"
+                    }
                 }
             ]
         },

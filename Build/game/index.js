@@ -77,6 +77,7 @@ const changeName_team_1 = require("./me/team/changeName_team");
 const join_team_1 = require("./me/team/join_team");
 const out_team_1 = require("./me/team/out_team");
 const Kickout_team_1 = require("./me/team/Kickout_team");
+const everDayTask_1 = require("./me/everDayTask");
 var matchType;
 (function (matchType) {
     /**
@@ -136,8 +137,11 @@ class game {
         this.matchMap.set('退出工会', { action: out_team_1.out_team, match: matchType.all });
         this.matchMap.set('踢出成员', { action: Kickout_team_1.kickout_team, match: matchType.match });
         this.matchMap.set('工会商店', { action: shop_team_1.shop_team, match: matchType.all });
+        this.matchMap.set('每日任务', { action: everDayTask_1.everDayTask, match: matchType.all });
         this.matchMap.set('工会购买', { action: shop_team_buy_1.shop_team_buy, match: matchType.all });
         this.matchMap.set('PK', { action: pk_1.pk, match: matchType.match });
+        this.matchMap.set('pk', { action: pk_1.pk, match: matchType.match });
+        this.matchMap.set('Pk', { action: pk_1.pk, match: matchType.match });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
@@ -190,9 +194,9 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
-            // if (data.channel_id != '1933444') {
-            //     return;
-            // }
+            if (data.channel_id != '1933444') {
+                return;
+            }
             // if(data.author.id != '14139673525601401123'){
             //     bot.sendText(data.channel_id,`无权限`)
             //     return;

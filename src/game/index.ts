@@ -64,6 +64,7 @@ import { changeName_team } from './me/team/changeName_team';
 import { join_team } from './me/team/join_team';
 import { out_team } from './me/team/out_team';
 import { kickout_team } from './me/team/Kickout_team';
+import { everDayTask } from './me/everDayTask';
 
 enum matchType {
     /**
@@ -130,8 +131,11 @@ export default class game {
         this.matchMap.set('退出工会', { action: out_team, match: matchType.all })
         this.matchMap.set('踢出成员', { action: kickout_team, match: matchType.match })
         this.matchMap.set('工会商店', { action: shop_team, match: matchType.all })
+        this.matchMap.set('每日任务', { action: everDayTask, match: matchType.all })
         this.matchMap.set('工会购买', { action: shop_team_buy, match: matchType.all })
         this.matchMap.set('PK', { action: pk, match: matchType.match })
+        this.matchMap.set('pk', { action: pk, match: matchType.match })
+        this.matchMap.set('Pk', { action: pk, match: matchType.match })
         this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })
         this.matchMap.set('捕捉', { action: docile, match: matchType.match })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
@@ -187,9 +191,9 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
-        // if (data.channel_id != '1933444') {
-        //     return;
-        // }
+        if (data.channel_id != '1933444') {
+            return;
+        }
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`无权限`)
         //     return;

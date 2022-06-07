@@ -29,12 +29,12 @@ export class me_strengthen extends task_base {
                 strengthenType = EQUIP_TYPE.weapons;
                 break;
             default:
-
+                
                 break;
         }
 
         if (typeof (strengthenType) != 'number') {
-
+            this.menu();
             return;
         }
         let req = await sever.callApi('Me_strengthen', { userId: this.userId, strengthenType: strengthenType })
@@ -45,8 +45,8 @@ export class me_strengthen extends task_base {
         let data = req.res;
         let bf = data.bfEquip;
         let now = data.nowEquip;
-        let temp = `┏┄════${data.isSuccress?'🎉强化成功':'😞强化失败'}═══━┄\n`;
-        if(data.isSuccress){
+        let temp = `┏┄════${data.isSuccress ? '🎉强化成功' : '😞强化失败'}═══━┄\n`;
+        if (data.isSuccress) {
             temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%${this.at()}\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
@@ -58,14 +58,14 @@ export class me_strengthen extends task_base {
             temp += `🔰物理防御${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
             temp += `💖每秒回复${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
             temp += `┗攻击特效:${now.effect?.length || 0}条`;
-        }else{
+        } else {
             temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
             temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━${this.at()}━┄`;
         }
-       
+
         bot.sendText(this.channel_id, temp)
     }
 }
