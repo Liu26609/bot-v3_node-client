@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const shop_team_buy_1 = require("./shop/shop_team_buy");
+const shop_team_1 = require("./shop/shop_team");
 const creatorJoinCode_team_1 = require("./me/team/creatorJoinCode_team");
 const userList_team_1 = require("./me/team/userList_team");
 const dismiss_team_1 = require("./me/team/dismiss_team");
@@ -73,6 +75,8 @@ const addOneWrod_1 = require("./sys/addOneWrod");
 const rank_1 = require("./battle/rank");
 const changeName_team_1 = require("./me/team/changeName_team");
 const join_team_1 = require("./me/team/join_team");
+const out_team_1 = require("./me/team/out_team");
+const Kickout_team_1 = require("./me/team/Kickout_team");
 var matchType;
 (function (matchType) {
     /**
@@ -129,6 +133,10 @@ class game {
         this.matchMap.set('成员列表', { action: userList_team_1.userList_team, match: matchType.all });
         this.matchMap.set('生成邀请码', { action: creatorJoinCode_team_1.creatorJoinCode_team, match: matchType.all });
         this.matchMap.set('加入工会', { action: join_team_1.join_team, match: matchType.match });
+        this.matchMap.set('退出工会', { action: out_team_1.out_team, match: matchType.all });
+        this.matchMap.set('踢出成员', { action: Kickout_team_1.kickout_team, match: matchType.match });
+        this.matchMap.set('工会商店', { action: shop_team_1.shop_team, match: matchType.all });
+        this.matchMap.set('工会购买', { action: shop_team_buy_1.shop_team_buy, match: matchType.all });
         this.matchMap.set('PK', { action: pk_1.pk, match: matchType.match });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
         this.matchMap.set('捕捉', { action: docile_1.docile, match: matchType.match });
@@ -182,9 +190,9 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
-            if (data.channel_id != '1933444') {
-                return;
-            }
+            // if (data.channel_id != '1933444') {
+            //     return;
+            // }
             // if(data.author.id != '14139673525601401123'){
             //     bot.sendText(data.channel_id,`无权限`)
             //     return;

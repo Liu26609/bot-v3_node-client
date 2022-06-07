@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 7,
+    "version": 9,
     "services": [
         {
             "id": 0,
@@ -263,6 +263,16 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 61,
+            "name": "shop/Shop_team_buy",
+            "type": "api"
+        },
+        {
+            "id": 60,
+            "name": "shop/Shop_team",
+            "type": "api"
+        },
+        {
             "id": 53,
             "name": "team/ChangeName_team",
             "type": "api"
@@ -288,8 +298,18 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 58,
+            "name": "team/KicOut_team",
+            "type": "api"
+        },
+        {
             "id": 51,
             "name": "team/Me_team",
+            "type": "api"
+        },
+        {
+            "id": 59,
+            "name": "team/Out_team",
             "type": "api"
         },
         {
@@ -3992,6 +4012,158 @@ exports.serviceProto = {
                 }
             ]
         },
+        "shop/PtlShop_team_buy/ReqShop_team_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_team_buy/ResShop_team_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_team/ReqShop_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_team/ResShop_team": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_team"
+                    }
+                }
+            ],
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "../game/prop/store_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "sell_temp",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/storeTeamTemp"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "creatorTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nextUpdateTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "sellNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "buyCondition",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/user/walletKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "stock",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "updateNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/prop/storeTeamTemp": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                }
+            ]
+        },
         "team/PtlChangeName_team/ReqChangeName_team": {
             "type": "Interface",
             "properties": [
@@ -4107,6 +4279,13 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 8,
+                    "name": "contribution",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
                     "id": 5,
                     "name": "gain",
                     "type": {
@@ -4177,6 +4356,28 @@ exports.serviceProto = {
         "team/PtlJoin_team/ResJoin_team": {
             "type": "Interface"
         },
+        "team/PtlKicOut_team/ReqKicOut_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "index",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "team/PtlKicOut_team/ResKicOut_team": {
+            "type": "Interface"
+        },
         "team/PtlMe_team/ReqMe_team": {
             "type": "Interface",
             "properties": [
@@ -4230,6 +4431,21 @@ exports.serviceProto = {
                     }
                 }
             ]
+        },
+        "team/PtlOut_team/ReqOut_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "team/PtlOut_team/ResOut_team": {
+            "type": "Interface"
         },
         "team/PtlUserList/ReqUserList": {
             "type": "Interface",

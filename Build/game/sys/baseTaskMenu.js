@@ -13,7 +13,7 @@ class baseTaskMenu extends task_base_1.task_base {
     }
     render() {
         let pack = require('../../../package.json');
-        let temp = `┏┄════🏰V3.${pack.version}
+        let temp = `┏┄════🏰V${pack.version}
 属性|钱包|背包|位置|改名|PK|传送
 排行榜|拍卖行
 ￣￣￣￣￣￣＼功能指令／￣￣￣￣

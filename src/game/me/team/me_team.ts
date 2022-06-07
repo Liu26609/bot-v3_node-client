@@ -39,7 +39,8 @@ export class me_team extends task_base {
     ctlMenu(leve:teamLeve){
         let temp = `┏┄════🏰工会指令═══━┄\n`;
         if(leve == teamLeve.creator){
-            temp += `解散工会:解散工会\n`;
+            temp += `工会商店=>工会商店\n`;
+            temp += `解散工会=>解散工会\n`;
             temp += `工会改名=>工会改名 + 名称\n`
             temp += `成员列表=>工会成员\n`
             temp += `踢出成员=>踢出 + 成员ID\n`
