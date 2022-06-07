@@ -228,42 +228,42 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 42,
-            "name": "Shop_back_buy",
-            "type": "api"
-        },
-        {
-            "id": 43,
-            "name": "Shop_back",
-            "type": "api"
-        },
-        {
-            "id": 44,
-            "name": "Shop_equip_buy",
-            "type": "api"
-        },
-        {
-            "id": 45,
-            "name": "Shop_equip",
-            "type": "api"
-        },
-        {
-            "id": 46,
-            "name": "Shop_skill_buy",
-            "type": "api"
-        },
-        {
-            "id": 47,
-            "name": "Shop_skill",
-            "type": "api"
-        },
-        {
             "id": 48,
             "name": "Sign",
             "type": "api"
         },
         {
             "id": 61,
+            "name": "shop/Shop_back_buy",
+            "type": "api"
+        },
+        {
+            "id": 62,
+            "name": "shop/Shop_back",
+            "type": "api"
+        },
+        {
+            "id": 63,
+            "name": "shop/Shop_equip_buy",
+            "type": "api"
+        },
+        {
+            "id": 64,
+            "name": "shop/Shop_equip",
+            "type": "api"
+        },
+        {
+            "id": 65,
+            "name": "shop/Shop_skill_buy",
+            "type": "api"
+        },
+        {
+            "id": 66,
+            "name": "shop/Shop_skill",
+            "type": "api"
+        },
+        {
+            "id": 67,
             "name": "shop/Shop_team_buy",
             "type": "api"
         },
@@ -3529,7 +3529,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_back_buy/ReqShop_back_buy": {
+        "PtlSign/ReqSign": {
             "type": "Interface",
             "properties": [
                 {
@@ -3541,7 +3541,60 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_back_buy/ResShop_back_buy": {
+        "PtlSign/ResSign": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "isRepeat",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "cont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "oneWord",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "lastSignTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_back_buy/ReqShop_back_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_back_buy/ResShop_back_buy": {
             "type": "Interface",
             "properties": [
                 {
@@ -3562,7 +3615,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_back/ReqShop_back": {
+        "shop/PtlShop_back/ReqShop_back": {
             "type": "Interface",
             "properties": [
                 {
@@ -3574,7 +3627,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_back/ResShop_back": {
+        "shop/PtlShop_back/ResShop_back": {
             "type": "Interface",
             "extends": [
                 {
@@ -3681,7 +3734,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_equip_buy/ReqShop_equip_buy": {
+        "shop/PtlShop_equip_buy/ReqShop_equip_buy": {
             "type": "Interface",
             "properties": [
                 {
@@ -3693,7 +3746,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_equip_buy/ResShop_equip_buy": {
+        "shop/PtlShop_equip_buy/ResShop_equip_buy": {
             "type": "Interface",
             "properties": [
                 {
@@ -3714,7 +3767,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_equip/ReqShop_equip": {
+        "shop/PtlShop_equip/ReqShop_equip": {
             "type": "Interface",
             "properties": [
                 {
@@ -3726,7 +3779,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_equip/ResShop_equip": {
+        "shop/PtlShop_equip/ResShop_equip": {
             "type": "Interface",
             "extends": [
                 {
@@ -3820,7 +3873,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_skill_buy/ReqShop_skill_buy": {
+        "shop/PtlShop_skill_buy/ReqShop_skill_buy": {
             "type": "Interface",
             "properties": [
                 {
@@ -3832,7 +3885,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_skill_buy/ResShop_skill_buy": {
+        "shop/PtlShop_skill_buy/ResShop_skill_buy": {
             "type": "Interface",
             "properties": [
                 {
@@ -3853,7 +3906,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_skill/ReqShop_skill": {
+        "shop/PtlShop_skill/ReqShop_skill": {
             "type": "Interface",
             "properties": [
                 {
@@ -3865,7 +3918,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlShop_skill/ResShop_skill": {
+        "shop/PtlShop_skill/ResShop_skill": {
             "type": "Interface",
             "extends": [
                 {
@@ -3955,59 +4008,6 @@ exports.serviceProto = {
                     "name": "updateNum",
                     "type": {
                         "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlSign/ReqSign": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlSign/ResSign": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "isRepeat",
-                    "type": {
-                        "type": "Boolean"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "cont",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "oneWord",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "lastSignTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]

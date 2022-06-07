@@ -26,7 +26,7 @@ class shop_skill_buy extends task_base_1.task_base {
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            let req = yield sever_1.default.callApi('Shop_skill_buy', { userId: this.userId });
+            let req = yield sever_1.default.callApi('shop/Shop_skill_buy', { userId: this.userId });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;

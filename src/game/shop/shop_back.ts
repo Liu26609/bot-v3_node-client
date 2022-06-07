@@ -10,7 +10,7 @@ export class shop_back extends task_base {
         this.render()
     }
     async render() {
-        let req = await sever.callApi('Shop_back', { userId: this.userId });
+        let req = await sever.callApi('shop/Shop_back', { userId: this.userId });
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;
