@@ -31,17 +31,10 @@ export class shop_equip extends task_base {
         str += `\n↓↓↓↓以下是装备属性预览↓↓↓↓`;
         await bot.sendText(this.channel_id, str)
 
-        switch (data.userCfg.textStyle) {
-            case textStyle.card:
-                new embed_equip_style().setData(data.sell_temp).sendMsg(this.channel_id)
-                break;
-            case textStyle.text:
-                let temp = new text_equip_style();
-                temp.setData(data.sell_temp).sendMsg(this.channel_id);
-                break;
-            default:
-                break;
-        }
+
+        let temp = new text_equip_style();
+        temp.setData(data.sell_temp).sendMsg(this.channel_id);
+
 
 
     }

@@ -13,12 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_lookBag = void 0;
-const embed_equip_style_1 = require("./../temp/embed/embed_equip_style");
 const equip_1 = require("./../temp/text/equip");
 const tsrpc_1 = require("tsrpc");
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
-const setUp_1 = require("../../shared/game/setUp");
 class me_lookBag extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -68,12 +66,7 @@ class me_lookBag extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            if (data.userCfg.textStyle == setUp_1.textStyle.text) {
-                new equip_1.text_equip_style().setData(data).sendMsg(this.channel_id);
-            }
-            else if (data.userCfg.textStyle == setUp_1.textStyle.card) {
-                new embed_equip_style_1.embed_equip_style().setData(data).sendMsg(this.channel_id);
-            }
+            new equip_1.text_equip_style().setData(data).sendMsg(this.channel_id);
         });
     }
 }

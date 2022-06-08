@@ -5,7 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_equip_style = void 0;
 const equip_1 = require("../../../shared/game/equip");
+const base64_safe_1 = __importDefault(require("../../../unity/base64_safe"));
 const bot_1 = __importDefault(require("../../../unity/bot"));
+const gameCfg_1 = __importDefault(require("../../gameCfg"));
 /**
 ┏┄════👑装备属性═══━┄
 ┣⭐️⭐️🌟🌟🌟🌟
@@ -34,37 +36,51 @@ class text_equip_style {
         const type = this.equipData.type;
         const attribute = this.equipData.base_attribute;
         const effect = this.equipData.effect;
-        let str = '';
-        str += `┏┄════👑装备属性═══━┄\n`;
-        str += `┣Ⓜ️名称：${name} +${leve}\n`;
-        str += `┣🔨品质：${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[quality]]}\n`;
-        str += `┣🗂️类型：${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[type]]}\n`;
-        str += `┣物理攻击+${attribute.PhysicalAttacks}\n`;
-        str += `┣魔法攻击+${attribute.PhysicalAttacks}\n`;
-        str += `┣物理防御+${attribute.PhysicalAttacks}\n`;
-        str += `┣魔法防御+${attribute.MagicDefense}\n`;
-        str += `┣每秒回血+${attribute.secondResHp}\n`;
-        if (effect) {
-            str += `┣┄════👑装备特效═══━┄\n`;
-            effect.forEach(effectItem => {
-                switch (effectItem.type) {
-                    case equip_1.EQUIP_EFFECT.attack_addExp:
-                        str += `┏每次攻击增加${effectItem.val}经验⏳\n`;
-                        str += `┗已触发:${effectItem.trigger}次\n`;
-                        break;
-                    default:
-                        break;
-                }
-            });
-        }
-        else {
-            str += `┗┄━══════════━┄`;
-        }
-        return str;
+        const iconId = this.equipData.icon;
+        // let str = '';
+        // str += `┏┄════👑装备属性═══━┄\n`;
+        // str += `┣Ⓜ️名称：${name} +${leve}\n`;
+        // str += `┣🔨品质：${EQUIP_QUALITY_CN[EQUIP_QUALITY[quality]]}\n`;
+        // str += `┣🗂️类型：${EQUIP_TYPE_CN[EQUIP_TYPE[type]]}\n`;
+        // str += `┣物理攻击+${attribute.PhysicalAttacks}\n`;
+        // str += `┣魔法攻击+${attribute.PhysicalAttacks}\n`;
+        // str += `┣物理防御+${attribute.PhysicalAttacks}\n`;
+        // str += `┣魔法防御+${attribute.MagicDefense}\n`;
+        // str += `┣每秒回血+${attribute.secondResHp}\n`;
+        // if (effect) {
+        //     str += `┣┄════👑装备特效═══━┄\n`;
+        //     effect.forEach(effectItem => {
+        //         switch (effectItem.type) {
+        //             case EQUIP_EFFECT.attack_addExp:
+        //                 str += `┏每次攻击增加${effectItem.val}经验⏳\n`;
+        //                 str += `┗已触发:${effectItem.trigger}次\n`;
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //     });
+        // } else {
+        //     str += `┗┄━══════════━┄`;
+        // }
+        let image = `https://21-1257174510.cos.ap-nanjing.myqcloud.com/temp/equip.png?`;
+        // 装备图标
+        image += `imageMogr2/interlace/0/quality/75|watermark/1/image/${base64_safe_1.default.urlEncode(`${gameCfg_1.default.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/220`;
+        // 称号
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe_1.default.urlEncode(`${name} +${leve}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
+        // 品质
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe_1.default.urlEncode(`${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[quality]]}(${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[type]]})`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
+        // 属性
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe_1.default.urlEncode(`${attribute.PhysicalAttacks}
+${attribute.PhysicalAttacks}
+${attribute.PhysicalAttacks}
+${attribute.MagicDefense}
+${attribute.secondResHp}
+${attribute.hp_max}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#ffffff`)}/fontsize/20/dx/10/dy/215`;
+        return image;
     }
     sendMsg(channelId) {
-        let str = this.getTemp();
-        bot_1.default.sendText(channelId, str);
+        let url = this.getTemp();
+        bot_1.default.sendImage(channelId, url);
         bot_1.default.sendText(channelId, this.equipData.story);
     }
 }

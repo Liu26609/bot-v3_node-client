@@ -19,46 +19,41 @@ export class me_lookBag extends task_base {
             })
             return;
         }
-        if(isNaN(Number(lookIndex))){
+        if (isNaN(Number(lookIndex))) {
             this.sendErr({
                 message: '查看背包装备id只能是数字',
                 type: TsrpcErrorType.ApiError
             })
             return;
         }
-        if(Number(lookIndex) < 0){
+        if (Number(lookIndex) < 0) {
             this.sendErr({
                 message: '查看背包装备id不能是负数',
                 type: TsrpcErrorType.ApiError
             })
             return;
         }
-        if(Math.ceil(Number(lookIndex)) !=  Number(lookIndex)){
+        if (Math.ceil(Number(lookIndex)) != Number(lookIndex)) {
             this.sendErr({
                 message: '查看背包装备id不能是小数点',
                 type: TsrpcErrorType.ApiError
             })
             return;
         }
-        if(Number(lookIndex) > 100){
+        if (Number(lookIndex) > 100) {
             this.sendErr({
                 message: '查看背包装备的id太大了',
                 type: TsrpcErrorType.ApiError
             })
             return;
         }
-        let req = await sever.callApi('Me_lookBag',{userId:this.userId,lookId:Number(lookIndex)})
-        if(!req.isSucc){
+        let req = await sever.callApi('Me_lookBag', { userId: this.userId, lookId: Number(lookIndex) })
+        if (!req.isSucc) {
             this.sendErr(req.err)
             return;
         }
         let data = req.res;
-        if(data.userCfg.textStyle == textStyle.text){
-            new text_equip_style().setData(data).sendMsg(this.channel_id);
+        new text_equip_style().setData(data).sendMsg(this.channel_id);
 
-        }else if(data.userCfg.textStyle == textStyle.card){
-            new embed_equip_style().setData(data).sendMsg(this.channel_id);
-
-        }
     }
 }

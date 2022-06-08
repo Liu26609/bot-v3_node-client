@@ -13,8 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.shop_equip = void 0;
-const embed_equip_style_1 = require("./../temp/embed/embed_equip_style");
-const setUp_1 = require("../../shared/game/setUp");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const equip_1 = require("../temp/text/equip");
@@ -42,17 +40,8 @@ class shop_equip extends task_base_1.task_base {
             str += `\n🧚‍♂️每次刷新随机价格，与装备属性无关`;
             str += `\n↓↓↓↓以下是装备属性预览↓↓↓↓`;
             yield bot_1.default.sendText(this.channel_id, str);
-            switch (data.userCfg.textStyle) {
-                case setUp_1.textStyle.card:
-                    new embed_equip_style_1.embed_equip_style().setData(data.sell_temp).sendMsg(this.channel_id);
-                    break;
-                case setUp_1.textStyle.text:
-                    let temp = new equip_1.text_equip_style();
-                    temp.setData(data.sell_temp).sendMsg(this.channel_id);
-                    break;
-                default:
-                    break;
-            }
+            let temp = new equip_1.text_equip_style();
+            temp.setData(data.sell_temp).sendMsg(this.channel_id);
         });
     }
 }
