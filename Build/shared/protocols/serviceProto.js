@@ -70,6 +70,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 73,
+            "name": "minGame/MinGame_lottery",
+            "type": "api"
+        },
+        {
             "id": 9,
             "name": "CallAll",
             "type": "msg"
@@ -248,17 +253,17 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 73,
+            "id": 74,
             "name": "rank/Rank_petCont",
             "type": "api"
         },
         {
-            "id": 74,
+            "id": 75,
             "name": "rank/Rank_petLv",
             "type": "api"
         },
         {
-            "id": 75,
+            "id": 76,
             "name": "rank/Rank_rankscore",
             "type": "api"
         },
@@ -273,17 +278,17 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 76,
+            "id": 77,
             "name": "rank/Rank_team",
             "type": "api"
         },
         {
-            "id": 77,
+            "id": 78,
             "name": "rank/Rank_titleAttr",
             "type": "api"
         },
         {
-            "id": 78,
+            "id": 79,
             "name": "rank/Rank_titleCont",
             "type": "api"
         },
@@ -1906,6 +1911,125 @@ exports.serviceProto = {
                 {
                     "id": 9,
                     "value": 9
+                },
+                {
+                    "id": 10,
+                    "value": 10
+                }
+            ]
+        },
+        "minGame/PtlMinGame_lottery/ReqMinGame_lottery": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "guessNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "minGame/PtlMinGame_lottery/ResMinGame_lottery": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "info",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/minGame/lottery"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "guessJude",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "reward",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/minGame/lottery": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "round",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "endTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "min",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "guessCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "correct",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "addup",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "lastWin",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },

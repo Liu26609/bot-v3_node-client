@@ -88,6 +88,7 @@ const rank_leve_1 = require("./rank/rank_leve");
 const rank_menu_1 = require("./rank/rank_menu");
 const rank_strengthen_1 = require("./rank/rank_strengthen");
 const rank_petLeve_1 = require("./rank/rank_petLeve");
+const lottery_1 = require("./minGame/lottery/lottery");
 var matchType;
 (function (matchType) {
     /**
@@ -119,6 +120,7 @@ class game {
         this.matchMap.set(`称号属性排行榜`, { action: rank_titleAttr_1.rank_titleAttr, match: matchType.all });
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont_1.rank_titleCont, match: matchType.all });
         this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
+        this.matchMap.set('猜数', { action: lottery_1.lottery, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
@@ -218,11 +220,14 @@ class game {
             if (data.channel_id != '1933444') {
                 return;
             }
+            // if(data.channel_id != '6348738'){
+            //     return;
+            // }
+            (0, __1.log)('收到消息', data.channel_id, data.author.username, data.content);
             // if(data.author.id != '14139673525601401123'){
             //     bot.sendText(data.channel_id,`无权限`)
             //     return;
             // }
-            (0, __1.log)('收到消息', data.author.username, data.content);
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;

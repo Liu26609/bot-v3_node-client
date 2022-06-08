@@ -20,7 +20,7 @@ export class everDayTask extends task_base {
         for (let index = 0; index < data.list.length; index++) {
             const item = data.list[index];
             const isDone = item.now >= item.target;
-            temp += `${isDone?'✅':'☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`
+            temp += `${isDone ? '✅' : '☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`
         }
         temp += `┗┄━${this.at()}━┄`
 
@@ -55,6 +55,9 @@ export class everDayTask extends task_base {
                 break;
             case TaskId.rank:
                 str = `[华山论剑]天梯排位`
+                break;
+            case TaskId.lottery_partake:
+                str = `[猜数]每日猜一猜,万一中了呢`
                 break;
             default:
                 str = `未收录任务id${id}`

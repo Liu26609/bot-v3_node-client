@@ -75,6 +75,7 @@ import { rank_leve } from './rank/rank_leve';
 import { rank_menu } from './rank/rank_menu';
 import { rank_strengthen } from './rank/rank_strengthen';
 import { rank_petLeve } from './rank/rank_petLeve';
+import { lottery } from './minGame/lottery/lottery';
 
 enum matchType {
     /**
@@ -114,7 +115,7 @@ export default class game {
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont, match: matchType.all })
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
 
-
+        this.matchMap.set('猜数', { action: lottery, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
@@ -215,14 +216,19 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
+
         if (data.channel_id != '1933444') {
             return;
         }
+        // if(data.channel_id != '6348738'){
+        //     return;
+        // }
+        log('收到消息',data.channel_id, data.author.username, data.content)
+
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`无权限`)
         //     return;
         // }
-        log('收到消息', data.author.username, data.content)
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
