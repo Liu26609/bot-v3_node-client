@@ -135,13 +135,12 @@ class bot {
             return;
         }
 
-        let res = await this.postMessage(channelID, {
+        await this.postMessage(channelID, {
             content: content,
             msg_id: msg_id
+        }).catch(()=>{
+            err('消息发送错误')
         })
-        if (res.status != 200) {
-            err('消息发送错误', res)
-        }
     }
     /**
  * 发送图片内容
@@ -163,13 +162,12 @@ class bot {
             err('没有找到可用消息ID')
             return;
         }
-        let res = await this.postMessage(channelID, {
+        await this.postMessage(channelID, {
             msg_id: msg_id,
             image: url
+        }).catch(()=>{
+            err('消息发送错误')
         })
-        if (res.status != 200) {
-            err('消息发送错误', res)
-        }
     }
     async sendEmbed(channelID: string, embed: any) {
         let msg_id;
@@ -186,9 +184,11 @@ class bot {
             err('没有找到可用消息ID')
             return;
         }
-        let res = await this.postMessage(channelID, {
+        await this.postMessage(channelID, {
             msg_id: msg_id,
             embed: embed
+        }).catch(()=>{
+            err('消息发送错误')
         })
     }
     /**

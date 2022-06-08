@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 10,
+    "version": 13,
     "services": [
         {
             "id": 0,
@@ -240,6 +240,51 @@ exports.serviceProto = {
         {
             "id": 48,
             "name": "Sign",
+            "type": "api"
+        },
+        {
+            "id": 70,
+            "name": "rank/Rank_leve",
+            "type": "api"
+        },
+        {
+            "id": 73,
+            "name": "rank/Rank_petCont",
+            "type": "api"
+        },
+        {
+            "id": 74,
+            "name": "rank/Rank_petLv",
+            "type": "api"
+        },
+        {
+            "id": 75,
+            "name": "rank/Rank_rankscore",
+            "type": "api"
+        },
+        {
+            "id": 71,
+            "name": "rank/Rank_sign",
+            "type": "api"
+        },
+        {
+            "id": 72,
+            "name": "rank/Rank_strengthen",
+            "type": "api"
+        },
+        {
+            "id": 76,
+            "name": "rank/Rank_team",
+            "type": "api"
+        },
+        {
+            "id": 77,
+            "name": "rank/Rank_titleAttr",
+            "type": "api"
+        },
+        {
+            "id": 78,
+            "name": "rank/Rank_titleCont",
             "type": "api"
         },
         {
@@ -3762,6 +3807,319 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_leve/ReqRank_leve": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_leve/ResRank_leve": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_petCont/ReqRank_petCont": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_petCont/ResRank_petCont": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_petLv/ReqRank_petLv": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_petLv/ResRank_petLv": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_rankscore/ReqRank_rankscore": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_rankscore/ResRank_rankscore": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_sign/ReqRank_sign": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_sign/ResRank_sign": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_strengthen/ReqRank_strengthen": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_strengthen/ResRank_strengthen": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "equipName",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_team/ReqRank_team": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_team/ResRank_team": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_titleAttr/ReqRank_titleAttr": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_titleAttr/ResRank_titleAttr": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_titleCont/ReqRank_titleCont": {
+            "type": "Interface"
+        },
+        "rank/PtlRank_titleCont/ResRank_titleCont": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "list",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "name",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 }
             ]

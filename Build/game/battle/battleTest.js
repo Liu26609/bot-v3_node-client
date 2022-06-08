@@ -20,7 +20,8 @@ class battleTest extends task_base_1.task_base {
     constructor(...args) {
         super(...args);
         this.logSkillMap = new Map();
-        this.render();
+        // this.render()
+        bot_1.default.sendText(this.channel_id, `@everyone 测试`);
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {

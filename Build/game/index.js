@@ -12,6 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const rank_titleCont_1 = require("./rank/rank_titleCont");
+const rank_titleAttr_1 = require("./rank/rank_titleAttr");
+const rank_teamLv_1 = require("./rank/rank_teamLv");
+const rank_petCont_1 = require("./rank/rank_petCont");
+const rank_rankscore_1 = require("./rank/rank_rankscore");
+const rank_sign_1 = require("./rank/rank_sign");
 const shop_team_buy_1 = require("./shop/shop_team_buy");
 const shop_team_1 = require("./shop/shop_team");
 const creatorJoinCode_team_1 = require("./me/team/creatorJoinCode_team");
@@ -80,6 +86,8 @@ const Kickout_team_1 = require("./me/team/Kickout_team");
 const everDayTask_1 = require("./me/everDayTask");
 const rank_leve_1 = require("./rank/rank_leve");
 const rank_menu_1 = require("./rank/rank_menu");
+const rank_strengthen_1 = require("./rank/rank_strengthen");
+const rank_petLeve_1 = require("./rank/rank_petLeve");
 var matchType;
 (function (matchType) {
     /**
@@ -98,6 +106,19 @@ class game {
         this.start();
     }
     initKeyMap() {
+        /**
+        * 排行榜指令模块
+        */
+        this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
+        this.matchMap.set(`签到排行榜`, { action: rank_sign_1.rank_sign, match: matchType.all });
+        this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
+        this.matchMap.set(`声望排行榜`, { action: rank_rankscore_1.rank_rankscore, match: matchType.all });
+        this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont_1.rank_petCont, match: matchType.all });
+        this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve_1.rank_petLeve, match: matchType.all });
+        this.matchMap.set(`工会等级排行榜`, { action: rank_teamLv_1.rank_teamLv, match: matchType.all });
+        this.matchMap.set(`称号属性排行榜`, { action: rank_titleAttr_1.rank_titleAttr, match: matchType.all });
+        this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont_1.rank_titleCont, match: matchType.all });
+        this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
@@ -147,8 +168,6 @@ class game {
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`拍卖`, { action: auction_1.auction, match: matchType.match });
         this.matchMap.set(`出价`, { action: auction_offer_1.auction_offer, match: matchType.match });
-        this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
-        this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
         this.matchMap.set('钓鱼', { action: fishing_1.fishing, match: matchType.all });
         this.matchMap.set('黑市', { action: shop_back_1.shop_back, match: matchType.all });
@@ -196,9 +215,9 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
-            if (data.channel_id != '1933444') {
-                return;
-            }
+            // if (data.channel_id != '1933444') {
+            //     return;
+            // }
             // if(data.author.id != '14139673525601401123'){
             //     bot.sendText(data.channel_id,`无权限`)
             //     return;

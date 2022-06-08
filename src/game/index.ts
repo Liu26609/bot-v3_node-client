@@ -1,3 +1,9 @@
+import { rank_titleCont } from './rank/rank_titleCont';
+import { rank_titleAttr } from './rank/rank_titleAttr';
+import { rank_teamLv } from './rank/rank_teamLv';
+import { rank_petCont } from './rank/rank_petCont';
+import { rank_rankscore } from './rank/rank_rankscore';
+import { rank_sign } from './rank/rank_sign';
 import { shop_team_buy } from './shop/shop_team_buy';
 import { shop_team } from './shop/shop_team';
 import { creatorJoinCode_team } from './me/team/creatorJoinCode_team';
@@ -47,19 +53,19 @@ import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
 import { me_equip } from './me/me_equip';
 import { me_titleChangeName } from './me/me_titleChangeName';
-import { shop_back }        from './shop/shop_back';
-import { auction }          from './shop/auction';
-import { auction_offer }    from './shop/auction_offer';
-import { me_pet }           from './me/pet/me_pet';
-import { me_lookPet }       from './me/pet/me_lookPet';
+import { shop_back } from './shop/shop_back';
+import { auction } from './shop/auction';
+import { auction_offer } from './shop/auction_offer';
+import { me_pet } from './me/pet/me_pet';
+import { me_lookPet } from './me/pet/me_lookPet';
 import { me_petChangeName } from './me/pet/me_petChangeName';
-import { me_petRm }         from './me/pet/me_petRm';
-import { docile }           from './map/docile';
-import { me_ancestry }      from './me/ancestry/me_ancestry';
-import { randomAncestry }   from './me/ancestry/randomAncestry';
-import { attackBoss }       from './battle/attackBoss';
-import {addOneWord}         from "./sys/addOneWrod";
-import {rank}               from "./battle/rank";
+import { me_petRm } from './me/pet/me_petRm';
+import { docile } from './map/docile';
+import { me_ancestry } from './me/ancestry/me_ancestry';
+import { randomAncestry } from './me/ancestry/randomAncestry';
+import { attackBoss } from './battle/attackBoss';
+import { addOneWord } from "./sys/addOneWrod";
+import { rank } from "./battle/rank";
 import { changeName_team } from './me/team/changeName_team';
 import { join_team } from './me/team/join_team';
 import { out_team } from './me/team/out_team';
@@ -67,6 +73,8 @@ import { kickout_team } from './me/team/Kickout_team';
 import { everDayTask } from './me/everDayTask';
 import { rank_leve } from './rank/rank_leve';
 import { rank_menu } from './rank/rank_menu';
+import { rank_strengthen } from './rank/rank_strengthen';
+import { rank_petLeve } from './rank/rank_petLeve';
 
 enum matchType {
     /**
@@ -92,6 +100,21 @@ export default class game {
         this.start();
     }
     private initKeyMap() {
+        /**
+        * 排行榜指令模块
+        */
+        this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
+        this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
+        this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
+        this.matchMap.set(`声望排行榜`, { action: rank_rankscore, match: matchType.all })
+        this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont, match: matchType.all })
+        this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve, match: matchType.all })
+        this.matchMap.set(`工会等级排行榜`, { action: rank_teamLv, match: matchType.all })
+        this.matchMap.set(`称号属性排行榜`, { action: rank_titleAttr, match: matchType.all })
+        this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont, match: matchType.all })
+        this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
+
+
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
@@ -143,8 +166,6 @@ export default class game {
         this.matchMap.set(`出价`, { action: auction_offer, match: matchType.match })
 
 
-        this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
-        this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
 
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
         this.matchMap.set('钓鱼', { action: fishing, match: matchType.all })
@@ -155,8 +176,8 @@ export default class game {
         this.matchMap.set('位置', { action: me_pos, match: matchType.all })
         this.matchMap.set('改名', { action: me_changeName, match: matchType.match })
         this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
-        this.matchMap.set('复活',{ action: me_resLife, match: matchType.all })
-        this.matchMap.set('治疗',{ action: me_resLife, match: matchType.all })
+        this.matchMap.set('复活', { action: me_resLife, match: matchType.all })
+        this.matchMap.set('治疗', { action: me_resLife, match: matchType.all })
         this.matchMap.set('背包', { action: me_bag, match: matchType.all })
         this.matchMap.set('设置', { action: setUp, match: matchType.match })
         this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
@@ -194,21 +215,21 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
-        if (data.channel_id != '1933444') {
-            return;
-        }
+        // if (data.channel_id != '1933444') {
+        //     return;
+        // }
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`无权限`)
         //     return;
         // }
-        log('收到消息',data.author.username, data.content)
+        log('收到消息', data.author.username, data.content)
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
         const content = data.content;
         const userName = data.author.username;
 
-        let matchList = [] as {conf:any,match:number,key:string}[];
+        let matchList = [] as { conf: any, match: number, key: string }[];
         let isFind = false;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
@@ -219,13 +240,13 @@ export default class game {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }
-            let match = common.xsd(key,data.content);
-            if(!isFind){
-                matchList.push({conf:conf,match:match,key:key})
+            let match = common.xsd(key, data.content);
+            if (!isFind) {
+                matchList.push({ conf: conf, match: match, key: key })
             }
         });
 
-        if(!isFind){
+        if (!isFind) {
             matchList.sort(function (A, B) {
                 return B.match - A.match;
             });
@@ -235,13 +256,13 @@ export default class game {
             }
             temp += `┗┄━══════════━┄`
 
-            await bot.sendText(data.channel_id,temp)
+            await bot.sendText(data.channel_id, temp)
         }
-       
+
 
     }
     // 客户端刷新单位：秒
-//    update() {
-//        log('update')
-//    }
+    //    update() {
+    //        log('update')
+    //    }
 }

@@ -142,13 +142,12 @@ class bot {
                 (0, __1.err)('没有找到可用消息ID');
                 return;
             }
-            let res = yield this.postMessage(channelID, {
+            yield this.postMessage(channelID, {
                 content: content,
                 msg_id: msg_id
+            }).catch(() => {
+                (0, __1.err)('消息发送错误');
             });
-            if (res.status != 200) {
-                (0, __1.err)('消息发送错误', res);
-            }
         });
     }
     /**
@@ -170,13 +169,12 @@ class bot {
                 (0, __1.err)('没有找到可用消息ID');
                 return;
             }
-            let res = yield this.postMessage(channelID, {
+            yield this.postMessage(channelID, {
                 msg_id: msg_id,
                 image: url
+            }).catch(() => {
+                (0, __1.err)('消息发送错误');
             });
-            if (res.status != 200) {
-                (0, __1.err)('消息发送错误', res);
-            }
         });
     }
     sendEmbed(channelID, embed) {
@@ -193,9 +191,11 @@ class bot {
                 (0, __1.err)('没有找到可用消息ID');
                 return;
             }
-            let res = yield this.postMessage(channelID, {
+            yield this.postMessage(channelID, {
                 msg_id: msg_id,
                 embed: embed
+            }).catch(() => {
+                (0, __1.err)('消息发送错误');
             });
         });
     }

@@ -10,13 +10,13 @@ class common {
         this.rankMap.set(0, '🏆');
         this.rankMap.set(1, '🥈');
         this.rankMap.set(2, '🥉');
-        this.rankMap.set(3, '④');
-        this.rankMap.set(4, '⑤');
-        this.rankMap.set(5, '⑥ ');
-        this.rankMap.set(6, '⑦');
-        this.rankMap.set(7, '⑧');
-        this.rankMap.set(8, '⑨');
-        this.rankMap.set(9, ' ⑩');
+        this.rankMap.set(3, '4️⃣');
+        this.rankMap.set(4, '5️⃣');
+        this.rankMap.set(5, '6️⃣ ');
+        this.rankMap.set(6, '7️⃣');
+        this.rankMap.set(7, '8️⃣');
+        this.rankMap.set(8, '9️⃣');
+        this.rankMap.set(9, '🔟');
         this.rankMap.set(10, '⑪');
         this.rankMap.set(11, '⑫');
         this.rankMap.set(12, '⑬');
@@ -34,7 +34,7 @@ class common {
      * @returns
      */
     getRankStr(index) {
-        return this.rankMap.get(index) || (index + 1).toString();
+        return this.rankMap.get(index) || `(${(index + 1).toString()})`;
     }
     /**
      * 获取一个随机数

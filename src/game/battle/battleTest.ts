@@ -12,7 +12,8 @@ export class battleTest extends task_base {
     constructor(...args) {
         super(...args)
         this.logSkillMap = new Map();
-        this.render()
+        // this.render()
+        bot.sendText(this.channel_id,`@everyone 测试`)
 
     }
     
