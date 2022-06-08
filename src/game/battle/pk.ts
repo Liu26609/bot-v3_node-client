@@ -23,7 +23,10 @@ export class pk extends task_base {
             }
         }
         let newArr = [...new Set(battleId)]
-
+        if(newArr.length <= 0){
+            this.menu()
+            return
+        }
         let req = await sever.callApi('battle/PkRank', {userId: this.userId,attackId:newArr});
         if (!req.isSucc) {
             this.sendErr(req.err)

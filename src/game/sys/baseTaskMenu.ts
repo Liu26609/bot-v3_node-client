@@ -16,7 +16,6 @@ export class baseTaskMenu extends task_base{
 ＞我的工会　　　　　　我的装备＜
 ＞我的技能　　　　　　＜
 ＞每日任务　　　　　　＜
-
 ￣￣￣￣￣￣＼高级功能／￣￣￣￣
 ＞链式指令　　　　　　　　＜
 ┗┄━══════════━┄`;

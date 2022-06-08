@@ -196,7 +196,7 @@ export default class game {
         //     bot.sendText(data.channel_id,`无权限`)
         //     return;
         // }
-        log('收到艾特消息', data.content)
+        log('收到消息',data.author.username, data.content)
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
