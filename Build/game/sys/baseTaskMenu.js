@@ -20,11 +20,14 @@ class baseTaskMenu extends task_base_1.task_base {
 ＞我的称号　　　　　　我的进化＜
 ＞我的工会　　　　　　我的装备＜
 ＞我的技能　　　　　　＜
-＞每日任务　　　　　　飞升任务＜
-＞榜上有名　　　　　　　排行榜＜
+＞每日任务　　　　　　＜
+
 ￣￣￣￣￣￣＼高级功能／￣￣￣￣
-＞链式指令　　　　　　　　设置＜
+＞链式指令　　　　　　　　＜
 ┗┄━══════════━┄`;
+        // 飞升任务
+        // 设置
+        // ＞榜上有名　　　　　　　排行榜＜
         bot_1.default.sendText(this.channel_id, temp);
     }
 }

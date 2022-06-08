@@ -189,9 +189,9 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
-        if (data.channel_id != '1933444') {
-            return;
-        }
+        // if (data.channel_id != '1933444') {
+        //     return;
+        // }
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`无权限`)
         //     return;
