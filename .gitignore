@@ -1,4 +1,5 @@
 node_modules
 ./src/shared
 Build
+Build_dev
 src/botCfg.ts

@@ -19,7 +19,7 @@ export class rank_titleAttr extends task_base{
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
-            temp += `${common.getRankStr(index)}${e.name}+${e.val}%\n`
+            temp += `${common.getRankStr(index)}${e.name}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒`
         bot.sendText(this.channel_id,temp)

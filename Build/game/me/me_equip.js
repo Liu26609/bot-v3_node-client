@@ -18,6 +18,7 @@ const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../unity/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
+const example_1 = require("../temp/text/example");
 class me_equip extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -36,12 +37,8 @@ class me_equip extends task_base_1.task_base {
                 data.equipList.forEach(info => {
                     var _a;
                     temp += `╔[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[info.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[info.quality]]})${info.name}+${info.leve}\n`;
-                    temp += `║♥️最大生命+${common_1.default.BN(common_1.default.converEquipattribute(info, `hp_max`))}\n`;
-                    temp += `║🔮魔法攻击+${common_1.default.BN(common_1.default.converEquipattribute(info, `MagicAttack`))}\n`;
-                    temp += `║🌟魔法防御+${common_1.default.BN(common_1.default.converEquipattribute(info, `MagicDefense`))}\n`;
-                    temp += `║🔪物理攻击+${common_1.default.BN(common_1.default.converEquipattribute(info, `PhysicalAttacks`))}\n`;
-                    temp += `║🔰物理防御+${common_1.default.BN(common_1.default.converEquipattribute(info, `PhysicalDefense`))}\n`;
-                    temp += `║💖每秒回复+${common_1.default.BN(common_1.default.converEquipattribute(info, `secondResHp`))}\n`;
+                    temp += `♥️+${common_1.default.BN(common_1.default.converEquipattribute(info, `hp_max`))}💖+${common_1.default.BN(common_1.default.converEquipattribute(info, `secondResHp`))}🌟+${common_1.default.BN(common_1.default.converEquipattribute(info, `MagicDefense`))}\n`;
+                    temp += `🔮+${common_1.default.BN(common_1.default.converEquipattribute(info, `MagicAttack`))}🔪+${common_1.default.BN(common_1.default.converEquipattribute(info, `PhysicalAttacks`))}🔰+${common_1.default.BN(common_1.default.converEquipattribute(info, `PhysicalDefense`))}\n`;
                     temp += `╚攻击特效:${((_a = info.effect) === null || _a === void 0 ? void 0 : _a.length) || 0}条\n`;
                 });
             }
@@ -49,9 +46,8 @@ class me_equip extends task_base_1.task_base {
                 temp += `┣你好像一件装备都没有穿上哦\n`;
             }
             temp += `┗┄━${this.at()}━┄\n`;
-            temp += `强化装备指令: 强化 + 装备位置\n`;
-            temp += `🌰栗子：@${bot_1.default.getBot_name()} 强化武器\n`;
             bot_1.default.sendText(this.channel_id, temp);
+            new example_1.text_example_style().setCommand('强化装备指令:强化 + 装备位置').setExample('强化武器').sendMsg(this.channel_id);
         });
     }
 }
