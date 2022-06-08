@@ -65,6 +65,8 @@ import { join_team } from './me/team/join_team';
 import { out_team } from './me/team/out_team';
 import { kickout_team } from './me/team/Kickout_team';
 import { everDayTask } from './me/everDayTask';
+import { rank_leve } from './rank/rank_leve';
+import { rank_menu } from './rank/rank_menu';
 
 enum matchType {
     /**
@@ -141,6 +143,9 @@ export default class game {
         this.matchMap.set(`出价`, { action: auction_offer, match: matchType.match })
 
 
+        this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
+        this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
+
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
         this.matchMap.set('钓鱼', { action: fishing, match: matchType.all })
         this.matchMap.set('黑市', { action: shop_back, match: matchType.all })
@@ -189,9 +194,9 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
-        // if (data.channel_id != '1933444') {
-        //     return;
-        // }
+        if (data.channel_id != '1933444') {
+            return;
+        }
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`无权限`)
         //     return;

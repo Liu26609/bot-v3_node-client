@@ -78,6 +78,8 @@ const join_team_1 = require("./me/team/join_team");
 const out_team_1 = require("./me/team/out_team");
 const Kickout_team_1 = require("./me/team/Kickout_team");
 const everDayTask_1 = require("./me/everDayTask");
+const rank_leve_1 = require("./rank/rank_leve");
+const rank_menu_1 = require("./rank/rank_menu");
 var matchType;
 (function (matchType) {
     /**
@@ -145,6 +147,8 @@ class game {
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`拍卖`, { action: auction_1.auction, match: matchType.match });
         this.matchMap.set(`出价`, { action: auction_offer_1.auction_offer, match: matchType.match });
+        this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
+        this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
         this.matchMap.set('钓鱼', { action: fishing_1.fishing, match: matchType.all });
         this.matchMap.set('黑市', { action: shop_back_1.shop_back, match: matchType.all });
@@ -192,9 +196,9 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
-            // if (data.channel_id != '1933444') {
-            //     return;
-            // }
+            if (data.channel_id != '1933444') {
+                return;
+            }
             // if(data.author.id != '14139673525601401123'){
             //     bot.sendText(data.channel_id,`无权限`)
             //     return;

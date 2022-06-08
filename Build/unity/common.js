@@ -6,6 +6,35 @@ const skill_1 = require("../shared/game/skill");
  */
 class common {
     constructor() {
+        this.rankMap = new Map();
+        this.rankMap.set(0, '🏆');
+        this.rankMap.set(1, '🥈');
+        this.rankMap.set(2, '🥉');
+        this.rankMap.set(3, '④');
+        this.rankMap.set(4, '⑤');
+        this.rankMap.set(5, '⑥ ');
+        this.rankMap.set(6, '⑦');
+        this.rankMap.set(7, '⑧');
+        this.rankMap.set(8, '⑨');
+        this.rankMap.set(9, ' ⑩');
+        this.rankMap.set(10, '⑪');
+        this.rankMap.set(11, '⑫');
+        this.rankMap.set(12, '⑬');
+        this.rankMap.set(13, '⑭');
+        this.rankMap.set(14, '⑮');
+        this.rankMap.set(15, '⑯');
+        this.rankMap.set(16, '⑰');
+        this.rankMap.set(17, '⑱');
+        this.rankMap.set(18, '⑲');
+        this.rankMap.set(19, '⑳');
+    }
+    /**
+     * 获取排行文字
+     * @param index
+     * @returns
+     */
+    getRankStr(index) {
+        return this.rankMap.get(index) || (index + 1).toString();
     }
     /**
      * 获取一个随机数
