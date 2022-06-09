@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 13,
+    "version": 15,
     "services": [
         {
             "id": 0,
@@ -32,6 +32,11 @@ exports.serviceProto = {
         {
             "id": 5,
             "name": "battle/AttackBoss",
+            "type": "api"
+        },
+        {
+            "id": 80,
+            "name": "battle/Challenge_image",
             "type": "api"
         },
         {
@@ -1541,6 +1546,168 @@ exports.serviceProto = {
                 }
             ]
         },
+        "battle/PtlChallenge_image/ReqChallenge_image": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "isStart",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_image/ResChallenge_image": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "PtlBattle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nextDNA",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "imageLeve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "imageDNALeve",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "winAdd",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "failDel",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/body/DNA_Leve": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
+                },
+                {
+                    "id": 6,
+                    "value": 6
+                },
+                {
+                    "id": 7,
+                    "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
+                },
+                {
+                    "id": 10,
+                    "value": 10
+                },
+                {
+                    "id": 11,
+                    "value": 11
+                },
+                {
+                    "id": 12,
+                    "value": 12
+                },
+                {
+                    "id": 13,
+                    "value": 13
+                },
+                {
+                    "id": 14,
+                    "value": 14
+                },
+                {
+                    "id": 15,
+                    "value": 15
+                },
+                {
+                    "id": 16,
+                    "value": 16
+                },
+                {
+                    "id": 17,
+                    "value": 17
+                },
+                {
+                    "id": 18,
+                    "value": 18
+                },
+                {
+                    "id": 19,
+                    "value": 19
+                }
+            ]
+        },
         "battle/PtlPkRank/ReqPkRank": {
             "type": "Interface",
             "properties": [
@@ -2585,6 +2752,14 @@ exports.serviceProto = {
                                 }
                             }
                         ]
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "dnaLock",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
                     }
                 },
                 {

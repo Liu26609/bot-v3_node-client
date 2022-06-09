@@ -10,14 +10,13 @@ export class baseTaskMenu extends task_base{
         let pack = require('../../../package.json');
         let temp = `┏┄🏰V${pack.version}
 属性|钱包|背包|位置|改名|传送
-拍卖行
 ￣￣￣￣￣￣＼功能指令／￣￣￣￣
 ＞我的称号　　　　　　我的进化＜
 ＞我的工会　　　　　　我的装备＜
 ＞我的技能　　　　　　　排行榜＜
-＞每日任务　　　　　　＜
+＞每日任务　　　　　　我的宠物＜
 ￣￣￣￣￣￣＼高级功能／￣￣￣￣
-＞链式指令　　　　　　　　＜
+＞链式指令　　　　　　　　　　＜
 ┗┄━══════════━┄`;
 // 飞升任务
 // 设置
