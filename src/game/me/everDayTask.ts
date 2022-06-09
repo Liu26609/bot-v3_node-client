@@ -30,10 +30,10 @@ export class everDayTask extends task_base {
         let str = ``;
         switch (id) {
             case TaskId.sign:
-                str = `[签到]每日签到`
+                str = `[签到]签什么到，钓鱼去！`
                 break;
             case TaskId.BackShop_look:
-                str = `[黑市]查看黑市商店`
+                str = `[黑市]不正当的PY商店`
                 break;
             case TaskId.EquipShop_look:
                 str = `[装备商店]查看装备商店`
@@ -42,22 +42,22 @@ export class everDayTask extends task_base {
                 str = `[PK]频道PK点到为止`
                 break;
             case TaskId.catch:
-                str = `[捕捉]成功抓到宠物`
+                str = `[捕捉]废品收集器`
                 break;
             case TaskId.fishing:
                 str = `[钓鱼]钓鱼佬绝不空军`
                 break;
             case TaskId.attackMonster:
-                str = `[攻击怪物]吃饭睡觉打怪物`
+                str = `[攻击怪物]闲的无聊打个怪`
                 break;
             case TaskId.attackBoss:
-                str = `[攻击boss]全服一起刮痧BOSS`
+                str = `[攻击boss]刮痧师傅在线刮痧`
                 break;
             case TaskId.rank:
-                str = `[华山论剑]天梯排位`
+                str = `[华山论剑]菜鸡互啄`
                 break;
             case TaskId.lottery_partake:
-                str = `[猜数]每日猜一猜,万一中了呢`
+                str = `[猜数]中是不可能中的`
                 break;
             default:
                 str = `未收录任务id${id}`

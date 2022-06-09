@@ -69,31 +69,34 @@ export class pos_attackEnemy extends task_base {
 
         if (battleConfig.hurtLog.me) {
             let hurtLog = '';
-            hurtLog += `🔥￣￣￣￣＼📄伤害统计／￣￣￣￣🔥\n`;
-            hurtLog += `${battleLog[0]}\n`;
+            hurtLog += `┏┄════📄伤害统计═══━┄\n`;
+            hurtLog += `${battleLog[0]}`;
+            hurtLog += `┗┄━${this.at()}━┄`
             await bot.sendText(this.channel_id,hurtLog)
         }
         if (battleConfig.hurtLog.enemy) {
             let hurtLog = '';
-            hurtLog += `🔥￣￣￣￣＼💌敌方统计／￣￣￣￣🔥\n`;
-            hurtLog += `${battleLog[1]}\n`;
+            hurtLog += `┏┄════🔥敌方统计═══━┄\n`;
+            hurtLog += `${battleLog[1]}`;
+            hurtLog += `┗┄━${this.at()}━┄`
             await bot.sendText(this.channel_id,hurtLog)
         }
 
         if (battleConfig.killLog.open) {
             let killLog = '';
-            killLog += `￣￣￣￣￣＼🧙战斗过程／￣￣￣￣\n`;
+            killLog += `┏┄════🧙战斗过程═══━┄\n`;
             killLog += `🧚‍♂️本次战斗共${data.battleRound}回合\n`
             
             for (let index = 0; index < data.kill_log.length; index++) {
                 const kill_item = data.kill_log[index];
                 killLog += `${kill_item.round}回合:${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
             }
+            killLog += `┗┄━${this.at()}━┄`
             await bot.sendText(this.channel_id,killLog)
         }
 
 
-        temp += `\n￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
+        temp += `┏┄════🎁战斗结果═══━┄\n`;
         if(data.reward.length > 0){
             data.reward.forEach(item => {
                 temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}`
@@ -101,6 +104,7 @@ export class pos_attackEnemy extends task_base {
         }else{
             temp += `😤这次战斗好像奖励了个寂寞`
         }
+        temp += `\n┗┄━${this.at()}━┄`
         temp += `\n🧚‍♂️击杀怪物后地图有几率掉落宝箱哦~`
         
 

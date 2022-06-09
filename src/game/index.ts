@@ -217,12 +217,17 @@ export default class game {
             return
         }
 
-        if (data.channel_id != '1933444') {
+        let isNext = false;
+        let whiteMap = new Map();
+        whiteMap.set('1933444',true)
+        whiteMap.set('1495759',true)
+        whiteMap.set('7244616',true)
+        if (whiteMap.has(data.channel_id)) {
+            isNext = true;
+        }
+        if(!isNext){
             return;
         }
-        // if(data.channel_id != '6348738'){
-        //     return;
-        // }
         log('收到消息',data.channel_id, data.author.username, data.content)
 
         // if(data.author.id != '14139673525601401123'){
