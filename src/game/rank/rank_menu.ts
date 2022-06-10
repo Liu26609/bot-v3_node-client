@@ -12,7 +12,8 @@ export class rank_menu extends task_base{
 📑工会等级排行榜📑声望排行榜
 📑称号属性排行榜📑等级排行榜
 📑称号重置排行榜📑猜数排行榜
-📑猜数欧皇排行榜
+📑猜数欧皇排行榜📑金币排行榜
+📑基因锁排行榜  📑血统排行榜
 ࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ目前可查看排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒`
         bot.sendText(this.channel_id,temp)
     }

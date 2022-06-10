@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 16,
+    "version": 17,
     "services": [
         {
             "id": 0,
@@ -32,6 +32,11 @@ exports.serviceProto = {
         {
             "id": 5,
             "name": "battle/AttackBoss",
+            "type": "api"
+        },
+        {
+            "id": 83,
+            "name": "battle/Challenge_box",
             "type": "api"
         },
         {
@@ -1556,7 +1561,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "battle/PtlChallenge_image/ReqChallenge_image": {
+        "battle/PtlChallenge_box/ReqChallenge_box": {
             "type": "Interface",
             "properties": [
                 {
@@ -1568,14 +1573,14 @@ exports.serviceProto = {
                 },
                 {
                     "id": 1,
-                    "name": "isStart",
+                    "name": "type",
                     "type": {
-                        "type": "Boolean"
+                        "type": "Number"
                     }
                 }
             ]
         },
-        "battle/PtlChallenge_image/ResChallenge_image": {
+        "battle/PtlChallenge_box/ResChallenge_box": {
             "type": "Interface",
             "properties": [
                 {
@@ -1589,46 +1594,24 @@ exports.serviceProto = {
                 },
                 {
                     "id": 1,
-                    "name": "isMax",
+                    "name": "openlimit",
                     "type": {
-                        "type": "Boolean"
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
                     }
                 },
                 {
                     "id": 2,
-                    "name": "nextDNA",
+                    "name": "win",
                     "type": {
-                        "type": "Reference",
-                        "target": "../game/body/DNA_Leve"
+                        "type": "String"
                     }
                 },
                 {
                     "id": 3,
-                    "name": "imageLeve",
+                    "name": "fail",
                     "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "imageDNALeve",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/DNA_Leve"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "winAdd",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "failDel",
-                    "type": {
-                        "type": "Number"
+                        "type": "String"
                     }
                 }
             ]
@@ -1715,6 +1698,83 @@ exports.serviceProto = {
                 {
                     "id": 19,
                     "value": 19
+                }
+            ]
+        },
+        "battle/PtlChallenge_image/ReqChallenge_image": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "isStart",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_image/ResChallenge_image": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "PtlBattle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nextDNA",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "imageLeve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "imageDNALeve",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "winAdd",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "failDel",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },
