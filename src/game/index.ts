@@ -1,3 +1,4 @@
+import { soaringTask } from './me/task/soaringTask';
 import { challenge_box } from './challenge/challenge_box';
 import { rank_MinGame_lottery_cont } from './rank/rank_MinGame_lottery_cont';
 import { rank_MinGame_lottery_win } from './rank/rank_MinGame_lottery_win';
@@ -74,7 +75,7 @@ import { changeName_team } from './me/team/changeName_team';
 import { join_team } from './me/team/join_team';
 import { out_team } from './me/team/out_team';
 import { kickout_team } from './me/team/Kickout_team';
-import { everDayTask } from './me/everDayTask';
+import { everDayTask } from './me/task/everDayTask';
 import { rank_leve } from './rank/rank_leve';
 import { rank_menu } from './rank/rank_menu';
 import { rank_strengthen } from './rank/rank_strengthen';
@@ -124,6 +125,7 @@ export default class game {
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
         this.matchMap.set('挑战复制体', { action: challenge_image, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
+        this.matchMap.set('阶梯计划', { action: soaringTask, match: matchType.all })
         this.matchMap.set('盒子制造者', { action: challenge_box, match: matchType.match })
 
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
@@ -227,19 +229,19 @@ export default class game {
             return
         }
 
-        let isNext = false;
-        let whiteMap = new Map();
-        whiteMap.set('1933444',true)
-        whiteMap.set('1495759',true)
-        whiteMap.set('7244616',true) 
-        whiteMap.set('7267397',true)
+        // let isNext = false;
+        // let whiteMap = new Map();
+        // whiteMap.set('1933444',true)
+        // whiteMap.set('1495759',true)
+        // whiteMap.set('7244616',true) 
+        // whiteMap.set('7267397',true)
 
-        if (whiteMap.has(data.channel_id)) {
-            isNext = true;
-        }
-        if(!isNext){
-            return;
-        }
+        // if (whiteMap.has(data.channel_id)) {
+        //     isNext = true;
+        // }
+        // if(!isNext){
+        //     return;
+        // }
         log('收到消息',data.channel_id, data.author.username, data.content)
 
         // if(data.author.id != '14139673525601401123'){

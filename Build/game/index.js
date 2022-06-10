@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const soaringTask_1 = require("./me/task/soaringTask");
 const challenge_box_1 = require("./challenge/challenge_box");
 const rank_MinGame_lottery_cont_1 = require("./rank/rank_MinGame_lottery_cont");
 const rank_MinGame_lottery_win_1 = require("./rank/rank_MinGame_lottery_win");
@@ -87,7 +88,7 @@ const changeName_team_1 = require("./me/team/changeName_team");
 const join_team_1 = require("./me/team/join_team");
 const out_team_1 = require("./me/team/out_team");
 const Kickout_team_1 = require("./me/team/Kickout_team");
-const everDayTask_1 = require("./me/everDayTask");
+const everDayTask_1 = require("./me/task/everDayTask");
 const rank_leve_1 = require("./rank/rank_leve");
 const rank_menu_1 = require("./rank/rank_menu");
 const rank_strengthen_1 = require("./rank/rank_strengthen");
@@ -130,6 +131,7 @@ class game {
         this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });
         this.matchMap.set('挑战复制体', { action: challenge_image_1.challenge_image, match: matchType.match });
         this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
+        this.matchMap.set('阶梯计划', { action: soaringTask_1.soaringTask, match: matchType.all });
         this.matchMap.set('盒子制造者', { action: challenge_box_1.challenge_box, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
@@ -227,18 +229,18 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
-            let isNext = false;
-            let whiteMap = new Map();
-            whiteMap.set('1933444', true);
-            whiteMap.set('1495759', true);
-            whiteMap.set('7244616', true);
-            whiteMap.set('7267397', true);
-            if (whiteMap.has(data.channel_id)) {
-                isNext = true;
-            }
-            if (!isNext) {
-                return;
-            }
+            // let isNext = false;
+            // let whiteMap = new Map();
+            // whiteMap.set('1933444',true)
+            // whiteMap.set('1495759',true)
+            // whiteMap.set('7244616',true) 
+            // whiteMap.set('7267397',true)
+            // if (whiteMap.has(data.channel_id)) {
+            //     isNext = true;
+            // }
+            // if(!isNext){
+            //     return;
+            // }
             (0, __1.log)('收到消息', data.channel_id, data.author.username, data.content);
             // if(data.author.id != '14139673525601401123'){
             //     bot.sendText(data.channel_id,`无权限`)

@@ -1,14 +1,14 @@
-import { TaskId } from '../../shared/game/taskTemp';
-import bot from '../../unity/bot';
-import sever from '../../unity/sever';
-import { task_base } from './../task_base';
+import { TaskId } from '../../../shared/game/taskTemp';
+import bot from '../../../unity/bot';
+import sever from '../../../unity/sever';
+import { task_base } from '../../task_base';
 export class everDayTask extends task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     async render() {
-        let req = await sever.callApi('me/EverDayTask', { userId: this.userId })
+        let req = await sever.callApi('task/EverDayTask', { userId: this.userId })
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;
@@ -50,7 +50,7 @@ export class everDayTask extends task_base {
             case TaskId.attackMonster:
                 str = `[攻击怪物]闲的无聊打个怪`
                 break;
-            case TaskId.attackBoss:
+            case TaskId.attackBoss_partake:
                 str = `[攻击boss]刮痧师傅在线刮痧`
                 break;
             case TaskId.rank:

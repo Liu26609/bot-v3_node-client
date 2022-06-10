@@ -17,11 +17,13 @@ export class text_attribute_style{
         this.data = data;
         return this;
     }
-    sendMsg(channelId: string){
+    async sendMsg(channelId: string){
         if(!this.data){
             err('text_attribute_style 没有数据')
             return;
         }
+        // let image = `https://21-1257174510.cos.ap-nanjing.myqcloud.com/title/test.png`;
+        // await bot.sendImage(channelId,image);
         const out_attribute = this.data.out_attribute;
         let temp = ``;
         temp += this.data.title.name + '\n';
@@ -41,6 +43,6 @@ export class text_attribute_style{
         temp += `🔰物理防御:${common.BN(out_attribute.PhysicalDefense)}\n`;
         temp += `💖每秒回复:${common.BN(out_attribute.secondResHp)}\n`;
         temp += `┗┄━══════════━┄`
-        bot.sendText(channelId,temp);
+        await bot.sendText(channelId,temp);
     }
 }

@@ -22,7 +22,7 @@ export class rank_titleCont extends task_base{
             temp += `${common.getRankStr(index)}${e.name}🔃${e.val}次\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号重置次数排行ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
-        temp += `${this.at()}🎖我的排名${common.getRankStr(data.meIndex)}`
+        temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }
 }

@@ -79,6 +79,7 @@ var DNA_CN;
     DNA_CN["SS"] = "\u4E94\u9636\u9AD8\u7EA7-\u4E00\u5FF5\u5373\u8D77";
     DNA_CN["SSS"] = "\u4E94\u9636\u5DC5\u5CF0-\u534A\u6B65\u8D85\u8131";
     DNA_CN["MAX"] = "\u4E94\u9636\u5DC5\u5CF0-\u8D85\u8131\u8005";
+    DNA_CN["MAXX"] = "\u516D\u9636-\u76D2\u5B50\u5236\u9020\u8005";
 })(DNA_CN = exports.DNA_CN || (exports.DNA_CN = {}));
 var bodyType;
 (function (bodyType) {

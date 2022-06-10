@@ -22,7 +22,7 @@ export class rank_petLeve extends task_base{
             temp += `${common.getRankStr(index)}LV.${e.val}👾${e.name}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ宠物等级排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
-        temp += `${this.at()}🎖我的排名${common.getRankStr(data.meIndex)}`
+        temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }
 }

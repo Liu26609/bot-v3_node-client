@@ -78,6 +78,8 @@ var rewardKey;
      * 声望
      */
     rewardKey[rewardKey["rankscore"] = 11] = "rankscore";
+    rewardKey[rewardKey["justice"] = 12] = "justice";
+    rewardKey[rewardKey["evil"] = 13] = "evil";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -93,6 +95,8 @@ var rewardKey_CN;
     rewardKey_CN["spiritBall"] = "\uD83D\uDC7E\u7CBE\u7075\u7403";
     rewardKey_CN["evolveCard"] = "\uD83C\uDF0C\u8FDB\u5316\u5361";
     rewardKey_CN["rankscore"] = "\u269C\uFE0F\u58F0\u671B\u503C";
+    rewardKey_CN["justice"] = "\uD83D\uDFE9\u6B63\u4E49\u503C";
+    rewardKey_CN["evil"] = "\uD83D\uDFE5\u7EA2\u540D\u503C";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型

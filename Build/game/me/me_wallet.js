@@ -15,9 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_wallet = void 0;
 const embed_1 = require("./../temp/embed/embed");
 const task_base_1 = require("../task_base");
-const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
-const setUp_1 = require("../../shared/game/setUp");
 const common_1 = __importDefault(require("../../unity/common"));
 const user_1 = require("../../shared/game/user");
 class me_wallet extends task_base_1.task_base {
@@ -33,34 +31,21 @@ class me_wallet extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            switch (data.userCfg.textStyle) {
-                case setUp_1.textStyle.text:
-                    let tems = `┏┄🏧${this.userName}的小金库━┄\n`;
-                    for (const key in user_1.walletKey_CN) {
-                        tems += `${user_1.walletKey_CN[key]}:${common_1.default.BN(data[key])}\n`;
-                    }
-                    tems += `┗┄━${this.at()}━┄`;
-                    bot_1.default.sendText(this.channel_id, tems);
-                    break;
-                case setUp_1.textStyle.card:
-                    let temp = new embed_1.embed_style();
-                    temp.setTitle(`🏧${this.userName}的小金库`);
-                    temp.setTips('我的小金库');
-                    temp.setIcon(this.userIcon);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
-                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`);
-                    temp.sendMsg(this.channel_id);
-                    break;
-                default:
-                    break;
-            }
+            let temp = new embed_1.embed_style();
+            temp.setTitle(`🏧${this.userName}的小金库`);
+            temp.setTips('我的小金库');
+            temp.setIcon(this.userIcon);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`);
+            temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evolveCard]]}:${common_1.default.BN(data.spiritBall)}`);
+            temp.sendMsg(this.channel_id);
         });
     }
 }

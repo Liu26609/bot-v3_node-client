@@ -12,7 +12,24 @@ var walletKey;
     walletKey[walletKey["resLife"] = 6] = "resLife";
     walletKey[walletKey["driedFish"] = 7] = "driedFish";
     walletKey[walletKey["spiritBall"] = 8] = "spiritBall";
+    /**
+     * 进化卡
+     */
     walletKey[walletKey["evolveCard"] = 9] = "evolveCard";
+    /**
+    * 正义值
+    * 增加：刷怪,击杀红名玩家
+    * 减少：击杀正义值玩家
+    * 效果：商店出售消耗正义值商品
+    */
+    walletKey[walletKey["justice"] = 10] = "justice";
+    /**
+     * 红名值
+     * 增加：击杀玩家增加
+     * 减少：刷怪
+     * 效果：商店不能购买东西
+     */
+    walletKey[walletKey["evil"] = 11] = "evil";
 })(walletKey = exports.walletKey || (exports.walletKey = {}));
 var walletKey_CNText;
 (function (walletKey_CNText) {
@@ -26,6 +43,8 @@ var walletKey_CNText;
     walletKey_CNText["driedFish"] = "\u5C0F\u9C7C\u5E72";
     walletKey_CNText["spiritBall"] = "\u7CBE\u7075\u7403";
     walletKey_CNText["evolveCard"] = "\u8FDB\u5316\u5361";
+    walletKey_CNText["justice"] = "\u6B63\u4E49\u503C";
+    walletKey_CNText["evil"] = "\u7EA2\u540D\u503C";
 })(walletKey_CNText = exports.walletKey_CNText || (exports.walletKey_CNText = {}));
 var walletKey_CN;
 (function (walletKey_CN) {
@@ -39,4 +58,6 @@ var walletKey_CN;
     walletKey_CN["driedFish"] = "\uD83D\uDC1F\uFE0F\u5C0F\u9C7C\u5E72";
     walletKey_CN["spiritBall"] = "\uD83D\uDC7E\u7CBE\u7075\u7403";
     walletKey_CN["evolveCard"] = "\uD83C\uDF0C\u8FDB\u5316\u5361";
+    walletKey_CN["justice"] = "\uD83D\uDFE9\u6B63\u4E49\u503C";
+    walletKey_CN["evil"] = "\uD83D\uDFE5\u7EA2\u540D\u503C";
 })(walletKey_CN = exports.walletKey_CN || (exports.walletKey_CN = {}));

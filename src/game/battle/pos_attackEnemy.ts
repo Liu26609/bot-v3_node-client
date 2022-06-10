@@ -99,7 +99,7 @@ export class pos_attackEnemy extends task_base {
         temp += `┏┄════🎁战斗结果═══━┄\n`;
         if(data.reward.length > 0){
             data.reward.forEach(item => {
-                temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}`
+                temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0?'+':''}${item.val}`
             });
         }else{
             temp += `😤这次战斗好像奖励了个寂寞`

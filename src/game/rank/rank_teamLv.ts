@@ -22,7 +22,7 @@ export class rank_teamLv extends task_base{
             temp += `${common.getRankStr(index)}Lv.${e.val}🏰${e.name}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ工会排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
-        temp += `${this.at()}🎖我的排名${common.getRankStr(data.meIndex)}`
+        temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }
 }

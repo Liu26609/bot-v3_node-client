@@ -22,7 +22,7 @@ export class rank_MinGame_lottery_cont extends task_base{
             temp += `${common.getRankStr(index)}🎰参与${e.val}次🧝${e.name}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ猜数参与排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
-        temp += `${this.at()}🎖我的排名${common.getRankStr(data.meIndex)}`
+        temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }
 }

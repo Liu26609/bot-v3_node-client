@@ -30,7 +30,7 @@ class pos_attackPlayer extends task_base_1.task_base {
                 bot_1.default.sendText(this.channel_id, '请指定当前位置玩家的ID');
                 return;
             }
-            let req = yield sever_1.default.callApi('PosAttackPlayer', { userId: this.userId, attackId: Math.ceil(Number(attackIndex)) });
+            let req = yield sever_1.default.callApi('battle/PosAttackPlayer', { userId: this.userId, attackId: Math.ceil(Number(attackIndex)) });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;

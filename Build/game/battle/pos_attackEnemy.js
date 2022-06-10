@@ -102,7 +102,7 @@ class pos_attackEnemy extends task_base_1.task_base {
             temp += `┏┄════🎁战斗结果═══━┄\n`;
             if (data.reward.length > 0) {
                 data.reward.forEach(item => {
-                    temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}+${item.val}`;
+                    temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
                 });
             }
             else {
