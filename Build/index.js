@@ -31,8 +31,8 @@ exports.info = console.info;
 start();
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield sever_1.default.setApiUrl('http://127.0.0.1:8080');
-        sever_1.default.setWsUrl('http://127.0.0.1:3000').then(() => {
+        yield sever_1.default.setApiUrl(botCfg_1.default.apiUrl);
+        sever_1.default.setWsUrl(botCfg_1.default.wsUrl).then(() => {
             (0, exports.info)('start');
             bot_1.default.setBotConfig(botCfg_1.default);
             new game_1.default();

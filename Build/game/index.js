@@ -12,6 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const challenge_box_1 = require("./challenge/challenge_box");
+const rank_MinGame_lottery_cont_1 = require("./rank/rank_MinGame_lottery_cont");
+const rank_MinGame_lottery_win_1 = require("./rank/rank_MinGame_lottery_win");
 const challenge_image_1 = require("./challenge/challenge_image");
 const rank_titleCont_1 = require("./rank/rank_titleCont");
 const rank_titleAttr_1 = require("./rank/rank_titleAttr");
@@ -89,6 +92,7 @@ const rank_leve_1 = require("./rank/rank_leve");
 const rank_menu_1 = require("./rank/rank_menu");
 const rank_strengthen_1 = require("./rank/rank_strengthen");
 const rank_petLeve_1 = require("./rank/rank_petLeve");
+const lottery_1 = require("./minGame/lottery/lottery");
 var matchType;
 (function (matchType) {
     /**
@@ -119,9 +123,14 @@ class game {
         this.matchMap.set(`工会等级排行榜`, { action: rank_teamLv_1.rank_teamLv, match: matchType.all });
         this.matchMap.set(`称号属性排行榜`, { action: rank_titleAttr_1.rank_titleAttr, match: matchType.all });
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont_1.rank_titleCont, match: matchType.all });
+        this.matchMap.set(`猜数排行榜`, { action: rank_MinGame_lottery_cont_1.rank_MinGame_lottery_cont, match: matchType.all });
+        this.matchMap.set(`猜数欧皇排行榜`, { action: rank_MinGame_lottery_win_1.rank_MinGame_lottery_win, match: matchType.all });
         this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
+        this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });
         this.matchMap.set('挑战复制体', { action: challenge_image_1.challenge_image, match: matchType.match });
+        this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
+        this.matchMap.set('盒子制造者', { action: challenge_box_1.challenge_box, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });

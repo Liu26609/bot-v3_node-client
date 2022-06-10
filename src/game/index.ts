@@ -1,3 +1,6 @@
+import { challenge_box } from './challenge/challenge_box';
+import { rank_MinGame_lottery_cont } from './rank/rank_MinGame_lottery_cont';
+import { rank_MinGame_lottery_win } from './rank/rank_MinGame_lottery_win';
 import { challenge_image } from './challenge/challenge_image';
 import { rank_titleCont } from './rank/rank_titleCont';
 import { rank_titleAttr } from './rank/rank_titleAttr';
@@ -114,9 +117,15 @@ export default class game {
         this.matchMap.set(`工会等级排行榜`, { action: rank_teamLv, match: matchType.all })
         this.matchMap.set(`称号属性排行榜`, { action: rank_titleAttr, match: matchType.all })
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont, match: matchType.all })
+        this.matchMap.set(`猜数排行榜`, { action: rank_MinGame_lottery_cont, match: matchType.all })
+        this.matchMap.set(`猜数欧皇排行榜`, { action: rank_MinGame_lottery_win, match: matchType.all })
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
+        this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
         this.matchMap.set('挑战复制体', { action: challenge_image, match: matchType.match })
+        this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
+        this.matchMap.set('盒子制造者', { action: challenge_box, match: matchType.match })
+
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })

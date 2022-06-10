@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 15,
+    "version": 16,
     "services": [
         {
             "id": 0,
@@ -255,6 +255,16 @@ exports.serviceProto = {
         {
             "id": 70,
             "name": "rank/Rank_leve",
+            "type": "api"
+        },
+        {
+            "id": 81,
+            "name": "rank/Rank_minGame_lottery_cont",
+            "type": "api"
+        },
+        {
+            "id": 82,
+            "name": "rank/Rank_minGame_lottery_win",
             "type": "api"
         },
         {
@@ -2869,6 +2879,14 @@ exports.serviceProto = {
                             }
                         ]
                     }
+                },
+                {
+                    "id": 13,
+                    "name": "minGameLog",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/minGame"
+                    }
                 }
             ]
         },
@@ -2976,6 +2994,34 @@ exports.serviceProto = {
                 {
                     "id": 1,
                     "value": 1
+                }
+            ]
+        },
+        "../game/body/minGame": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "lottery",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "partake",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "win",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -4111,179 +4157,18 @@ exports.serviceProto = {
             ]
         },
         "rank/PtlRank_leve/ReqRank_leve": {
-            "type": "Interface"
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
         },
         "rank/PtlRank_leve/ResRank_leve": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "list",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "rank/PtlRank_petCont/ReqRank_petCont": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_petCont/ResRank_petCont": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "list",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "rank/PtlRank_petLv/ReqRank_petLv": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_petLv/ResRank_petLv": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "list",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "rank/PtlRank_rankscore/ReqRank_rankscore": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_rankscore/ResRank_rankscore": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "list",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "rank/PtlRank_sign/ReqRank_sign": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_sign/ResRank_sign": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "list",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "rank/PtlRank_strengthen/ReqRank_strengthen": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_strengthen/ResRank_strengthen": {
             "type": "Interface",
             "properties": [
                 {
@@ -4310,115 +4195,260 @@ exports.serviceProto = {
                                 },
                                 {
                                     "id": 2,
-                                    "name": "equipName",
+                                    "name": "id",
                                     "type": {
                                         "type": "String"
                                     }
                                 }
                             ]
                         }
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "meIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_lottery_cont/ReqRank_minGame_lottery_cont": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_lottery_cont/ResRank_minGame_lottery_cont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_lottery_win/ReqRank_minGame_lottery_win": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_lottery_win/ResRank_minGame_lottery_win": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_petCont/ReqRank_petCont": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_petCont/ResRank_petCont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_petLv/ReqRank_petLv": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_petLv/ResRank_petLv": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_rankscore/ReqRank_rankscore": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_rankscore/ResRank_rankscore": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_sign/ReqRank_sign": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_sign/ResRank_sign": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_strengthen/ReqRank_strengthen": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_strengthen/ResRank_strengthen": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]
         },
         "rank/PtlRank_team/ReqRank_team": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_team/ResRank_team": {
             "type": "Interface",
             "properties": [
                 {
                     "id": 0,
-                    "name": "list",
+                    "name": "userId",
                     "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_team/ResRank_team": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]
         },
         "rank/PtlRank_titleAttr/ReqRank_titleAttr": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_titleAttr/ResRank_titleAttr": {
             "type": "Interface",
             "properties": [
                 {
                     "id": 0,
-                    "name": "list",
+                    "name": "userId",
                     "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_titleAttr/ResRank_titleAttr": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]
         },
         "rank/PtlRank_titleCont/ReqRank_titleCont": {
-            "type": "Interface"
-        },
-        "rank/PtlRank_titleCont/ResRank_titleCont": {
             "type": "Interface",
             "properties": [
                 {
                     "id": 0,
-                    "name": "list",
+                    "name": "userId",
                     "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "name",
-                                    "type": {
-                                        "type": "String"
-                                    }
-                                }
-                            ]
-                        }
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_titleCont/ResRank_titleCont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]

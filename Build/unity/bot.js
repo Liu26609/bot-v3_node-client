@@ -142,8 +142,9 @@ class bot {
                 (0, __1.err)('没有找到可用消息ID');
                 return;
             }
+            let pack = require('../../package.json');
             yield this.postMessage(channelID, {
-                content: content,
+                content: `V${pack.version}:\n` + content,
                 msg_id: msg_id
             }).catch(() => {
                 (0, __1.err)('消息发送错误');

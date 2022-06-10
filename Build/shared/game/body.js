@@ -76,9 +76,9 @@ var DNA_CN;
     DNA_CN["AA"] = "\u4E94\u9636\u521D\u7EA7-\u4E34\u7EC8\u6781";
     DNA_CN["AAA"] = "\u4E94\u9636\u4E2D\u7EA7-\u7EC8\u6781";
     DNA_CN["S"] = "\u4E94\u9636\u4E2D\u7EA7-\u6211\u5373\u6C38\u6052";
-    DNA_CN["SS"] = "\u4E94\u9636\u4E2D\u7EA7-\u4E00\u5FF5\u5373\u8D77";
-    DNA_CN["SSS"] = "\u4E94\u9636\u4E2D\u7EA7-\u534A\u6B65\u8D85\u8131";
-    DNA_CN["MAX"] = "\u4E94\u9636\u4E2D\u7EA7-\u8D85\u8131\u8005";
+    DNA_CN["SS"] = "\u4E94\u9636\u9AD8\u7EA7-\u4E00\u5FF5\u5373\u8D77";
+    DNA_CN["SSS"] = "\u4E94\u9636\u5DC5\u5CF0-\u534A\u6B65\u8D85\u8131";
+    DNA_CN["MAX"] = "\u4E94\u9636\u5DC5\u5CF0-\u8D85\u8131\u8005";
 })(DNA_CN = exports.DNA_CN || (exports.DNA_CN = {}));
 var bodyType;
 (function (bodyType) {

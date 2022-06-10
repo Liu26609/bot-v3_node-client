@@ -17,8 +17,8 @@ export const info = console.info;
 
 start();
 async function start() {
-    await sever.setApiUrl('http://127.0.0.1:8080')
-    sever.setWsUrl('http://127.0.0.1:3000').then(()=>{
+    await sever.setApiUrl(botCfg.apiUrl)
+    sever.setWsUrl(botCfg.wsUrl).then(()=>{
         info('start')
         bot.setBotConfig(botCfg)
         new game();

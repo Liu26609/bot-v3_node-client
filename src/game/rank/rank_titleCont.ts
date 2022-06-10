@@ -9,7 +9,7 @@ export class rank_titleCont extends task_base{
         this.render();
     }
     async render(){
-        let req = await sever.callApi('rank/Rank_titleCont',{})
+        let req = await sever.callApi('rank/Rank_titleCont',{userId:this.userId})
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;
@@ -21,7 +21,8 @@ export class rank_titleCont extends task_base{
             let e = data.list[index]
             temp += `${common.getRankStr(index)}${e.name}🔃${e.val}次\n`
         }
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号重置次数排行ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒`
+        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号重置次数排行ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `${this.at()}🎖我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }
 }
