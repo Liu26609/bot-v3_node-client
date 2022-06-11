@@ -40,7 +40,7 @@ export class me_pos extends task_base {
             temp += `在这里发现了一个湖泊，你可以发送[钓鱼]试试\n`
         }
         if (data.player.length + data.enemy.length > 1) {
-            temp += `┄════🔥发现敌人═══━┄\n`;
+            temp += `┄════🧐发现敌人═══━┄\n`;
             for (let index = 0; index < data.player.length; index++) {
                 const body = data.player[index] as body;
                 const id = body.id;
@@ -52,7 +52,7 @@ export class me_pos extends task_base {
                 }
                 const name = body.name;
                 const leve = body.leve;
-                temp += ` [玩家${index}]Lv.${leve}${name}\n`;
+                temp += ` [玩家${index}]🔥${leve}🧙${name}\n`;
             }
             for (let index = 0; index < data.enemy.length; index++) {
                 const body = data.enemy[index] as BASE_BODYS;
@@ -61,7 +61,7 @@ export class me_pos extends task_base {
                 }
                 const name = body.name;
                 const leve = body.leve;
-                temp += ` [怪物${index}]Lv.${leve}${name}hp:${body.hp}\n`;
+                temp += ` [怪物${index}]🔥${leve}🧞${name}♥️${((body.hp/body.out_attribute.hp_max)*100).toFixed(0)}%\n`;
             }
         }
         if (data.chest.length > 0) {

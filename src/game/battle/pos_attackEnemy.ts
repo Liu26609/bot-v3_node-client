@@ -15,7 +15,7 @@ export class pos_attackEnemy extends task_base {
         if (this.matchKey == '攻击全部怪物') {
             // 攻击全部怪物 =》 攻击全部存活的怪物
             attackId = -1;
-        }else if(this.matchKey == '攻击怪物' && isNaN(Number(this.content.replace('攻击怪物','')))){
+        }else if(this.matchKey == '攻击怪物' && this.content == '攻击怪物'){
             attackId = -2;
         }else{
             let index = Number(this.content.replace('攻击怪物',''))

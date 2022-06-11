@@ -4088,31 +4088,7 @@ exports.serviceProto = {
             ]
         },
         "PtlResLife/ResResLife": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userRes",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "petRes",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
+            "type": "Interface"
         },
         "PtlSearchSkill/ReqSearchSkill": {
             "type": "Interface",
