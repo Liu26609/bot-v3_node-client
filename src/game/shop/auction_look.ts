@@ -41,7 +41,7 @@ export class auction_look extends task_base {
         if (!data.info.auction) {
             return;
         }
-        let temp = `￣￣￣￣￣＼⚖️拍卖行／￣￣￣￣￣
+        let temp = `┏┄════⚖️拍卖行═══━┄
 拍卖行第${data.info.index}次拍卖
 成交倒计时：${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒
 拍卖物品：${walletKey_CN[walletKey[data.info.auction.data.key]]}X${data.info.auction.data.val}
@@ -50,7 +50,7 @@ export class auction_look extends task_base {
 最低加价:${data.info.min_offer}💰
 当前价格：${data.info.offer_val}💰
 最后出价人：${data.info.offer_name || '虚位以待'}
-￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+┗┄━═══════════━┄
 🧚‍♂️出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)`
 
         bot.sendText(this.channel_id, temp);
@@ -61,8 +61,7 @@ export class auction_look extends task_base {
         }
         let equipData = data.info.auction.data as equip;
 
-        let equipTemp_image = new text_equip_style().setData(equipData).getTemp()
-
+        new text_equip_style().setData(equipData).sendMsg(this.channel_id)
         let temp = `┏┄════⚖️拍卖行═══━┄
 拍卖行第${data.info.index}次拍卖
 成交倒计时：${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒
@@ -72,8 +71,8 @@ export class auction_look extends task_base {
 当前价格：${data.info.offer_val}💰
 最后出价人：${data.info.offer_name || '虚位以待'}
 🧚‍♂️出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)
+┗┄━═══════════━┄
 `
-        await bot.sendImage(this.channel_id, equipTemp_image)
         bot.sendText(this.channel_id, temp);
     }
     /**
