@@ -81,6 +81,7 @@ import { rank_menu } from './rank/rank_menu';
 import { rank_strengthen } from './rank/rank_strengthen';
 import { rank_petLeve } from './rank/rank_petLeve';
 import { lottery } from './minGame/lottery/lottery';
+import { rank_gold } from './rank/rank_gold';
 
 enum matchType {
     /**
@@ -113,6 +114,7 @@ export default class game {
         this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
         this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
         this.matchMap.set(`声望排行榜`, { action: rank_rankscore, match: matchType.all })
+        this.matchMap.set(`金币排行榜`, { action: rank_gold, match: matchType.all })
         this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont, match: matchType.all })
         this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve, match: matchType.all })
         this.matchMap.set(`工会等级排行榜`, { action: rank_teamLv, match: matchType.all })

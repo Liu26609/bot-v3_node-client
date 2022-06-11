@@ -253,6 +253,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 85,
+            "name": "rank/Rank_gold",
+            "type": "api"
+        },
+        {
             "id": 70,
             "name": "rank/Rank_leve",
             "type": "api"
@@ -348,12 +353,12 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 85,
+            "id": 86,
             "name": "task/EverDayTask",
             "type": "api"
         },
         {
-            "id": 86,
+            "id": 87,
             "name": "task/soaringTask",
             "type": "api"
         },
@@ -4190,7 +4195,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "rank/PtlRank_leve/ReqRank_leve": {
+        "rank/PtlRank_gold/ReqRank_gold": {
             "type": "Interface",
             "properties": [
                 {
@@ -4198,6 +4203,18 @@ exports.serviceProto = {
                     "name": "userId",
                     "type": {
                         "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_gold/ResRank_gold": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]
@@ -4243,6 +4260,18 @@ exports.serviceProto = {
                     "name": "meIndex",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_leve/ReqRank_leve": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
                     }
                 }
             ]

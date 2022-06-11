@@ -94,6 +94,7 @@ const rank_menu_1 = require("./rank/rank_menu");
 const rank_strengthen_1 = require("./rank/rank_strengthen");
 const rank_petLeve_1 = require("./rank/rank_petLeve");
 const lottery_1 = require("./minGame/lottery/lottery");
+const rank_gold_1 = require("./rank/rank_gold");
 var matchType;
 (function (matchType) {
     /**
@@ -119,6 +120,7 @@ class game {
         this.matchMap.set(`签到排行榜`, { action: rank_sign_1.rank_sign, match: matchType.all });
         this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
         this.matchMap.set(`声望排行榜`, { action: rank_rankscore_1.rank_rankscore, match: matchType.all });
+        this.matchMap.set(`金币排行榜`, { action: rank_gold_1.rank_gold, match: matchType.all });
         this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont_1.rank_petCont, match: matchType.all });
         this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve_1.rank_petLeve, match: matchType.all });
         this.matchMap.set(`工会等级排行榜`, { action: rank_teamLv_1.rank_teamLv, match: matchType.all });
