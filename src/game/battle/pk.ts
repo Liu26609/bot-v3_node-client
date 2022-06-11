@@ -4,6 +4,7 @@ import bot from '../../unity/bot';
 import { log } from '../..';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import sever from '../../unity/sever';
+import common from '../../unity/common';
 export class pk extends task_base {
     constructor(...a) {
         super(...a);
@@ -18,8 +19,12 @@ export class pk extends task_base {
         let battleId:string[] = []
         for (let index = 0; index < pkList.length; index++) {
             const element = pkList[index];
-            if(element.includes('>')){
-                battleId.push(element.replace('>',''))
+            const list = element.split('>')
+            for (let index = 0; index < list.length; index++) {
+                const itemId = list[index];
+                if(itemId && itemId.length > 10){
+                    battleId.push(itemId)
+                }
             }
         }
         let newArr = [...new Set(battleId)]

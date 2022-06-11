@@ -41,7 +41,7 @@ class me_pos extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            (0, __1.log)('pos', data.enemy);
+            (0, __1.log)('pos', data);
             let temp = ``;
             temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
             temp += `            ${data.isTop ? '上' : '⛔'}\n`;
@@ -57,6 +57,9 @@ class me_pos extends task_base_1.task_base {
                     const body = data.player[index];
                     const id = body.id;
                     if (id == this.userId) {
+                        continue;
+                    }
+                    if (body.hp <= 0) {
                         continue;
                     }
                     const name = body.name;

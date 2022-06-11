@@ -27,7 +27,7 @@ export class me_pos extends task_base {
             return;
         }
         let data = req.res;
-        log('pos', data.enemy)
+        log('pos', data)
 
         
         let temp = ``;
@@ -45,6 +45,9 @@ export class me_pos extends task_base {
                 const body = data.player[index] as body;
                 const id = body.id;
                 if (id == this.userId) {
+                    continue;
+                }
+                if (body.hp <= 0) {
                     continue;
                 }
                 const name = body.name;
