@@ -434,6 +434,43 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/skill/SKILL_ACTIVE"
                     }
+                },
+                {
+                    "id": 2,
+                    "name": "info",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "id",
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "leve",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "name": "exp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "name": "exp_max",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -1579,6 +1616,14 @@ exports.serviceProto = {
                 {
                     "id": 13,
                     "value": 13
+                },
+                {
+                    "id": 14,
+                    "value": 14
+                },
+                {
+                    "id": 15,
+                    "value": 15
                 }
             ]
         },
@@ -2715,6 +2760,27 @@ exports.serviceProto = {
                                 }
                             },
                             {
+                                "id": 5,
+                                "name": "exp_max",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 6,
+                                "name": "todayGetExp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 7,
+                                "name": "updateExpTime",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
                                 "id": 3,
                                 "name": "randomCont",
                                 "type": {
@@ -2826,6 +2892,20 @@ exports.serviceProto = {
                             {
                                 "id": 1,
                                 "name": "leve",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "name": "exp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "name": "exp_max",
                                 "type": {
                                     "type": "Number"
                                 }
@@ -3573,6 +3653,27 @@ exports.serviceProto = {
                             {
                                 "id": 2,
                                 "name": "exp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 5,
+                                "name": "todayGetExp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 6,
+                                "name": "updateExpTime",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 7,
+                                "name": "exp_max",
                                 "type": {
                                     "type": "Number"
                                 }

@@ -19,7 +19,7 @@ export class rank_titleCont extends task_base{
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号重置次数排行ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
-            temp += `${common.getRankStr(index)}${e.name}🔃${e.val}次\n`
+            temp += `${common.getRankStr(index)}${e.name}🔃${common.BN(e.val)}次\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ称号重置次数排行ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`

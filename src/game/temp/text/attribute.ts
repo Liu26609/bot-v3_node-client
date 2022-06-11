@@ -38,7 +38,7 @@ export class text_attribute_style{
         // 红名值or正义值
         if(this.data.wallet.evil > 0){
             temp += `${walletKey_CN[walletKey[walletKey.evil]]}:${common.BN(this.data.wallet.evil)}\n`
-        }else if(this.data.wallet.justice > 0){
+        }else{
             temp += `${walletKey_CN[walletKey[walletKey.justice]]}:${common.BN(this.data.wallet.justice)}\n`
         }
 

@@ -50,7 +50,7 @@ class text_attribute_style {
             if (this.data.wallet.evil > 0) {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evil]]}:${common_1.default.BN(this.data.wallet.evil)}\n`;
             }
-            else if (this.data.wallet.justice > 0) {
+            else {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.justice]]}:${common_1.default.BN(this.data.wallet.justice)}\n`;
             }
             temp += `⏳经验值[${common_1.default.BN(this.data.exp)}/${common_1.default.BN(this.data.exp_max)}]\n`;

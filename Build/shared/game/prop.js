@@ -78,8 +78,22 @@ var rewardKey;
      * 声望
      */
     rewardKey[rewardKey["rankscore"] = 11] = "rankscore";
+    /**
+     * 正义值
+     */
     rewardKey[rewardKey["justice"] = 12] = "justice";
+    /**
+    * 红名值
+    */
     rewardKey[rewardKey["evil"] = 13] = "evil";
+    /**
+     * 进化点
+     */
+    rewardKey[rewardKey["dnaExp"] = 14] = "dnaExp";
+    /**
+     * 称号经验
+     */
+    rewardKey[rewardKey["titleExp"] = 15] = "titleExp";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -97,6 +111,8 @@ var rewardKey_CN;
     rewardKey_CN["rankscore"] = "\u269C\uFE0F\u58F0\u671B\u503C";
     rewardKey_CN["justice"] = "\uD83D\uDFE9\u6B63\u4E49\u503C";
     rewardKey_CN["evil"] = "\uD83D\uDFE5\u7EA2\u540D\u503C";
+    rewardKey_CN["dnaExp"] = "\uD83E\uDDEC\u8FDB\u5316\u70B9";
+    rewardKey_CN["titleExp"] = "\uD83C\uDF08\u79F0\u53F7\u7ECF\u9A8C";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型
