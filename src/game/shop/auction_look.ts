@@ -32,7 +32,7 @@ export class auction_look extends task_base {
         }
         if (data.info.auction.type == autionType.equip) {
             this.equipAuction(data);
-        }else if(data.info.auction.type == autionType.wallet){
+        } else if (data.info.auction.type == autionType.wallet) {
             this.walletAuction(data);
         }
 
@@ -55,13 +55,13 @@ export class auction_look extends task_base {
 
         bot.sendText(this.channel_id, temp);
     }
-    equipAuction(data: ResAuction_look) {
+    async equipAuction(data: ResAuction_look) {
         if (!data.info.auction) {
             return;
         }
         let equipData = data.info.auction.data as equip;
 
-        let equipTemp = new text_equip_style().setData(equipData).getTemp()
+        let equipTemp_image = new text_equip_style().setData(equipData).getTemp()
 
         let temp = `┏┄════⚖️拍卖行═══━┄
 拍卖行第${data.info.index}次拍卖
@@ -71,10 +71,9 @@ export class auction_look extends task_base {
 最低加价:${data.info.min_offer}💰
 当前价格：${data.info.offer_val}💰
 最后出价人：${data.info.offer_name || '虚位以待'}
-${equipTemp}
 🧚‍♂️出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)
 `
-
+        await bot.sendImage(this.channel_id, equipTemp_image)
         bot.sendText(this.channel_id, temp);
     }
     /**
