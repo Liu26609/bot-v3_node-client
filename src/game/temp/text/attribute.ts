@@ -23,8 +23,6 @@ export class text_attribute_style{
             err('text_attribute_style 没有数据')
             return;
         }
-        // let image = `https://21-1257174510.cos.ap-nanjing.myqcloud.com/title/test.png`;
-        // await bot.sendImage(channelId,image);
         const out_attribute = this.data.out_attribute;
         let temp = ``;
         temp += this.data.title.name + '\n';
