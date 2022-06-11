@@ -41,7 +41,8 @@ class text_attribute_style {
             let temp = ``;
             temp += this.data.title.name + '\n';
             temp += `┏┄════👑属性═══━┄\n`;
-            temp += `Ⓜ️Lv.${this.data.leve}${this.data.name}\n`;
+            temp += `🔥Lv.${this.data.leve}\n`;
+            temp += `Ⓜ️${this.data.name}\n`;
             if (this.ancestry) {
                 temp += `👑${this.ancestry.title}\n`;
             }
