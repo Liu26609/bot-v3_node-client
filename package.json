@@ -1,6 +1,6 @@
 {
   "name": "nodeclient",
-  "version": "3.0.1000112",
+  "version": "3.0.1000113",
   "description": "",
   "main": "index.js",
   "scripts": {
