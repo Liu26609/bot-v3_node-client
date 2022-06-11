@@ -57,7 +57,7 @@ class pos_attackEnemy extends task_base_1.task_base {
             for (let index = 0; index < battleList.length; index++) {
                 const item = battleList[index];
                 let itemLog = '';
-                itemLog += '🧙' + item.name;
+                itemLog += item.icon + item.name;
                 for (let index = 0; index < item.list.length; index++) {
                     const free_skill = item.list[index];
                     itemLog += `│▌${free_skill.name}:${free_skill.val}`;

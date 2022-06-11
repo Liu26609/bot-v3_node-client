@@ -1,3 +1,4 @@
+import { shop_icon } from './shop/shop_icon';
 import { soaringTask } from './me/task/soaringTask';
 import { challenge_box } from './challenge/challenge_box';
 import { rank_MinGame_lottery_cont } from './rank/rank_MinGame_lottery_cont';
@@ -82,6 +83,7 @@ import { rank_strengthen } from './rank/rank_strengthen';
 import { rank_petLeve } from './rank/rank_petLeve';
 import { lottery } from './minGame/lottery/lottery';
 import { rank_gold } from './rank/rank_gold';
+import { shop_icon_buy } from './shop/shop_icon_buy';
 
 enum matchType {
     /**
@@ -153,6 +155,9 @@ export default class game {
         this.matchMap.set('重置称号', { action: me_titleRandom, match: matchType.match })
         this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
         this.matchMap.set('黑市购买', { action: shop_back_buy, match: matchType.all })
+        this.matchMap.set('头像商店', { action: shop_icon, match: matchType.all })
+        this.matchMap.set('购买头像', { action: shop_icon_buy, match: matchType.all })
+
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
         this.matchMap.set('查看宠物', { action: me_lookPet, match: matchType.match })

@@ -94,6 +94,10 @@ var rewardKey;
      * 称号经验
      */
     rewardKey[rewardKey["titleExp"] = 15] = "titleExp";
+    /**
+     * 宠物经验
+     */
+    rewardKey[rewardKey["petExp"] = 16] = "petExp";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -113,6 +117,7 @@ var rewardKey_CN;
     rewardKey_CN["evil"] = "\uD83D\uDFE5\u7EA2\u540D\u503C";
     rewardKey_CN["dnaExp"] = "\uD83E\uDDEC\u8FDB\u5316\u70B9";
     rewardKey_CN["titleExp"] = "\uD83C\uDF08\u79F0\u53F7\u7ECF\u9A8C";
+    rewardKey_CN["petExp"] = "\uD83C\uDF56\u5BA0\u7269\u7ECF\u9A8C";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型

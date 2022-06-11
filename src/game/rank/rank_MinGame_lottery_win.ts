@@ -19,7 +19,7 @@ export class rank_MinGame_lottery_win extends task_base{
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ猜数欧皇排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
-            temp += `${common.getRankStr(index)}🥳猜中${e.val}次🦄${e.name}\n`
+            temp += `${common.getRankStr(index)}🥳猜中${e.val}次${e.icon}${e.name}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ猜数欧皇排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`

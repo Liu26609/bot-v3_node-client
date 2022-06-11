@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 18,
+    "version": 22,
     "services": [
         {
             "id": 0,
@@ -222,15 +222,7 @@ exports.serviceProto = {
         {
             "id": 36,
             "name": "Move",
-            "type": "api",
-            "conf": {
-                "direction": {
-                    "top": 1,
-                    "right": 2,
-                    "buttom": 3,
-                    "left": 4
-                }
-            }
+            "type": "api"
         },
         {
             "id": 37,
@@ -330,6 +322,16 @@ exports.serviceProto = {
         {
             "id": 66,
             "name": "shop/Shop_equip",
+            "type": "api"
+        },
+        {
+            "id": 89,
+            "name": "shop/Shop_icon_buy",
+            "type": "api"
+        },
+        {
+            "id": 88,
+            "name": "shop/Shop_icon",
             "type": "api"
         },
         {
@@ -1206,6 +1208,13 @@ exports.serviceProto = {
                             "type": "Interface",
                             "properties": [
                                 {
+                                    "id": 4,
+                                    "name": "icon",
+                                    "type": {
+                                        "type": "String"
+                                    }
+                                },
+                                {
                                     "id": 0,
                                     "name": "id",
                                     "type": {
@@ -1457,6 +1466,13 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 10,
+                    "name": "icon",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
                     "id": 1,
                     "name": "type",
                     "type": {
@@ -1521,6 +1537,13 @@ exports.serviceProto = {
                 {
                     "id": 9,
                     "name": "exp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "lastResHpTime",
                     "type": {
                         "type": "Number"
                     }
@@ -1629,6 +1652,10 @@ exports.serviceProto = {
                 {
                     "id": 15,
                     "value": 15
+                },
+                {
+                    "id": 16,
+                    "value": 16
                 }
             ]
         },
@@ -4012,6 +4039,13 @@ exports.serviceProto = {
                             "target": "../game/prop/chestBox"
                         }
                     }
+                },
+                {
+                    "id": 10,
+                    "name": "meIcon",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },
@@ -4243,6 +4277,14 @@ exports.serviceProto = {
                                     "type": {
                                         "type": "String"
                                     }
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "icon",
+                                    "type": {
+                                        "type": "String"
+                                    },
+                                    "optional": true
                                 },
                                 {
                                     "id": 2,
@@ -4744,6 +4786,144 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "creatorTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nextUpdateTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "sellNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "buyCondition",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/user/walletKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "stock",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "updateNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_icon_buy/ReqShop_icon_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_icon_buy/ResShop_icon_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_icon/ReqShop_icon": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_icon/ResShop_icon": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_icon"
+                    }
+                }
+            ],
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "../game/prop/store_icon": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "sell_temp",
+                    "type": {
+                        "type": "String"
                     }
                 },
                 {

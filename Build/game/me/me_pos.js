@@ -45,7 +45,7 @@ class me_pos extends task_base_1.task_base {
             let temp = ``;
             temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
             temp += `            ${data.isTop ? '上' : '⛔'}\n`;
-            temp += `  ${data.isLeft ? '左' : '⛔'}       🧙‍♂️       ${data.isRight ? '右' : '⛔'}\n`;
+            temp += `  ${data.isLeft ? '左' : '⛔'}       ${data.meIcon}       ${data.isRight ? '右' : '⛔'}\n`;
             temp += `            ${data.isButtom ? '下' : '⛔'}\n`;
             if (data.posTiledId == 2) {
                 temp += `┄════💧发现湖泊═══━┄\n`;
@@ -64,7 +64,7 @@ class me_pos extends task_base_1.task_base {
                     }
                     const name = body.name;
                     const leve = body.leve;
-                    temp += ` [玩家${index}]🔥${leve}🧙${name}\n`;
+                    temp += ` [玩家${index}]🔥${leve}${body.icon}${name}\n`;
                 }
                 for (let index = 0; index < data.enemy.length; index++) {
                     const body = data.enemy[index];
@@ -73,7 +73,7 @@ class me_pos extends task_base_1.task_base {
                     }
                     const name = body.name;
                     const leve = body.leve;
-                    temp += ` [怪物${index}]🔥${leve}🧞${name}♥️${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
+                    temp += ` [怪物${index}]🔥${leve}${body.icon}${name}♥️${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
                 }
             }
             if (data.chest.length > 0) {

@@ -30,7 +30,7 @@ export class pos_attackPlayer extends task_base{
             const item = battleList[index];
             let itemLog = ''
 
-            itemLog += '🧙' + item.name;
+            itemLog += item.icon + item.name;
             for (let index = 0; index < item.list.length; index++) {
 
                 const free_skill = item.list[index];

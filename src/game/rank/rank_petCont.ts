@@ -19,7 +19,7 @@ export class rank_petCont extends task_base{
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ宠物数量排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
-            temp += `${common.getRankStr(index)}👾X${e.val}🧚‍♂️${e.name}\n`
+            temp += `${common.getRankStr(index)}👾X${e.val}${e.icon}${e.name}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ宠物数量排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`

@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const shop_icon_1 = require("./shop/shop_icon");
 const soaringTask_1 = require("./me/task/soaringTask");
 const challenge_box_1 = require("./challenge/challenge_box");
 const rank_MinGame_lottery_cont_1 = require("./rank/rank_MinGame_lottery_cont");
@@ -95,6 +96,7 @@ const rank_strengthen_1 = require("./rank/rank_strengthen");
 const rank_petLeve_1 = require("./rank/rank_petLeve");
 const lottery_1 = require("./minGame/lottery/lottery");
 const rank_gold_1 = require("./rank/rank_gold");
+const shop_icon_buy_1 = require("./shop/shop_icon_buy");
 var matchType;
 (function (matchType) {
     /**
@@ -158,6 +160,8 @@ class game {
         this.matchMap.set('重置称号', { action: me_titleRandom_1.me_titleRandom, match: matchType.match });
         this.matchMap.set('购买技能', { action: shop_skill_buy_1.shop_skill_buy, match: matchType.all });
         this.matchMap.set('黑市购买', { action: shop_back_buy_1.shop_back_buy, match: matchType.all });
+        this.matchMap.set('头像商店', { action: shop_icon_1.shop_icon, match: matchType.all });
+        this.matchMap.set('购买头像', { action: shop_icon_buy_1.shop_icon_buy, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('我的宠物', { action: me_pet_1.me_pet, match: matchType.all });
         this.matchMap.set('查看宠物', { action: me_lookPet_1.me_lookPet, match: matchType.match });

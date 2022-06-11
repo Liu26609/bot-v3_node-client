@@ -39,8 +39,8 @@ class text_attribute_style {
             let temp = ``;
             temp += this.data.title.name + '\n';
             temp += `┏┄════👑属性═══━┄\n`;
-            temp += `🔥Lv.${this.data.leve}\n`;
-            temp += `Ⓜ️${this.data.name}\n`;
+            temp += `🔥Lv.${this.data.leve}⏳(${common_1.default.BN(this.data.exp)}/${common_1.default.BN(this.data.exp_max)})\n`;
+            temp += `${this.data.icon}${this.data.name}\n`;
             if (this.ancestry) {
                 temp += `👑${this.ancestry.title}\n`;
             }
@@ -53,7 +53,6 @@ class text_attribute_style {
             else {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.justice]]}:${common_1.default.BN(this.data.wallet.justice)}\n`;
             }
-            temp += `⏳经验值[${common_1.default.BN(this.data.exp)}/${common_1.default.BN(this.data.exp_max)}]\n`;
             temp += `♥️生命:${common_1.default.BN(this.data.hp)}/${common_1.default.BN(out_attribute.hp_max)}\n`;
             temp += `🔮魔法攻击${common_1.default.BN(out_attribute.MagicAttack)}\n`;
             temp += `🌟魔法防御${common_1.default.BN(out_attribute.MagicDefense)}\n`;
