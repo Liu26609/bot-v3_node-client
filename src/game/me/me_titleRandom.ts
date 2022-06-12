@@ -15,15 +15,15 @@ export class me_titleRandom extends task_base {
         }
 
         if (isNaN(Number(randomCont))) {
-            bot.sendText(this.channel_id, '🧚‍♂️提示:重置次数不能为负哦~')
+            bot.sendText(this.channel_id, '<emoji:147>提示:重置次数不能为负哦~')
             return;
         }
         if (Number(randomCont) <= 0) {
-            bot.sendText(this.channel_id, '🧚‍♂️提示:重置次数不能为负哦~')
+            bot.sendText(this.channel_id, '<emoji:147>提示:重置次数不能为负哦~')
             return;
         }
         if(Number(randomCont) > 5000000){
-            bot.sendText(this.channel_id, '🧚‍♂️提示:重置次数最大为500万哦~')
+            bot.sendText(this.channel_id, '<emoji:147>提示:重置次数最大为500万哦~')
             return;
         }
         let req = await sever.callApi('Me_titleRandom', { userId: this.userId, randomCont: Number(randomCont) });

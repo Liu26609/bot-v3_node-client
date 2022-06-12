@@ -32,7 +32,7 @@ export class shop_icon_buy extends task_base{
             temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
             temps.setTips('头像已经自动修改，祝您购物愉快~')
-            temps.addLine(`🧚‍♂️头像已经自动修改，祝您购物愉快~`)
+            temps.addLine(`<emoji:147>头像已经自动修改，祝您购物愉快~`)
             temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)

@@ -38,7 +38,7 @@ class shop_skill extends task_base_1.task_base {
             str += `\n商店库存:${data.stock - data.sellNum}`;
             str += `\n刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`;
             str += `\n购买指令：购买技能`;
-            str += `\n🧚‍♂️每次刷新随机价格，与技能属性无关`;
+            str += `\n<emoji:147>每次刷新随机价格，与技能属性无关`;
             str += `\n↓↓↓↓以下是技能属性预览↓↓↓↓`;
             yield bot_1.default.sendText(this.channel_id, str);
             new skill_1.text_skill_style().sendData(data.sell_temp).sendMsg(this.channel_id);

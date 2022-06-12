@@ -18,11 +18,11 @@ export class me_petRm extends task_base{
             this.sendErr(req.err)
             return;
         }
-        bot.sendText(this.channel_id,`🧚‍♂️你的宠物屁颠屁颠的走了~`)
+        bot.sendText(this.channel_id,`<emoji:147>你的宠物屁颠屁颠的走了~`)
     }
     menu(){
         let temp = ``;
-        temp += `🧚‍♂️提示：查看宠物放生指令:宠物放生 + id\n`
+        temp += `<emoji:147>提示：查看宠物放生指令:宠物放生 + id\n`
         temp += `🌰栗子:@${bot.getBot_name()} 宠物放生0`
         bot.sendText(this.channel_id,temp)
     }

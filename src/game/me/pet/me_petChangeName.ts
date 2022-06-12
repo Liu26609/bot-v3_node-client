@@ -20,7 +20,7 @@ export class me_petChangeName extends task_base{
         }
         let name = this.content.replace(this.matchKey,'').replace(index.toString(),'');
         if(name.length <= 0){
-            bot.sendText(this.channel_id,`🧚‍♂️要修改的宠物名称太短啦~`);
+            bot.sendText(this.channel_id,`<emoji:147>要修改的宠物名称太短啦~`);
             return
         }
         let text = new text_length()
@@ -34,11 +34,11 @@ export class me_petChangeName extends task_base{
             return;
         }
         
-        bot.sendText(this.channel_id,`🧚‍♂️宠物改名成功，快发送[查看宠物${index}]看看吧~`);
+        bot.sendText(this.channel_id,`<emoji:147>宠物改名成功，快发送[查看宠物${index}]看看吧~`);
     }
     menu(){
         let temp = ``;
-        temp += `🧚‍♂️提示：查看宠物改名指令:宠物改名 + id + 名字\n`
+        temp += `<emoji:147>提示：查看宠物改名指令:宠物改名 + id + 名字\n`
         temp += `🌰栗子:@${bot.getBot_name()} 宠物改名0小黄`
         bot.sendText(this.channel_id,temp)
     }

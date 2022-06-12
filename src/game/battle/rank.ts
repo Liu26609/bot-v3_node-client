@@ -60,7 +60,7 @@ export class rank extends task_base{
         if (battleConfig.killLog.open) {
             let killLog = '';
             killLog += `￣￣￣￣￣＼🧙战斗过程／￣￣￣￣\n`;
-            killLog += `🧚‍♂️本次战斗共${data.battleRound}回合\n`
+            killLog += `<emoji:147>本次战斗共${data.battleRound}回合\n`
 
             for (let index = 0; index < data.kill_log.length; index++) {
                 const kill_item = data.kill_log[index];
@@ -76,7 +76,7 @@ export class rank extends task_base{
         }else{
             temp += `😤这次战斗好像奖励了个寂寞`
         }
-        temp += `\n🧚‍♂️声望值越高每天可领取奖励越高~`
+        temp += `\n<emoji:147>声望值越高每天可领取奖励越高~`
 
         await bot.sendText(this.channel_id,temp)
     }

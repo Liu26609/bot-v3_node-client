@@ -91,7 +91,7 @@ class pos_attackEnemy extends task_base_1.task_base {
             if (battleConfig.killLog.open) {
                 let killLog = '';
                 killLog += `┏┄════🧙战斗过程═══━┄\n`;
-                killLog += `🧚‍♂️本次战斗共${data.battleRound}回合\n`;
+                killLog += `<emoji:147>本次战斗共${data.battleRound}回合\n`;
                 for (let index = 0; index < data.kill_log.length; index++) {
                     const kill_item = data.kill_log[index];
                     killLog += `${kill_item.round}回合:${kill_item.body.name}击杀了${kill_item.die_body.name}\n`;
@@ -109,7 +109,7 @@ class pos_attackEnemy extends task_base_1.task_base {
                 temp += `😤这次战斗好像奖励了个寂寞`;
             }
             temp += `\n┗┄━${this.at()}━┄`;
-            temp += `\n🧚‍♂️击杀怪物后地图有几率掉落宝箱哦~`;
+            temp += `\n<emoji:147>击杀怪物后地图有几率掉落宝箱哦~`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }

@@ -42,7 +42,7 @@ export class me_titleChangeName extends task_base {
     }
     menu(){
         let temp = ``;
-        temp += `🧚‍♂️提示：称号改名指令[称号改名 + 修改名称]\n`
+        temp += `<emoji:147>提示：称号改名指令[称号改名 + 修改名称]\n`
         temp += `🌰栗子:@${bot.getBot_name()} 称号改名天选之子`
         bot.sendText(this.channel_id,temp)
     }

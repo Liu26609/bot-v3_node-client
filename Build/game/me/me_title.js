@@ -45,7 +45,7 @@ class me_title extends task_base_1.task_base {
             temp += `🔮魔法攻击+${data.title.attribute.MagicAttack * leve}%\n`;
             temp += `🌟魔法防御+${data.title.attribute.MagicDefense * leve}%\n`;
             temp += `💖每秒回复+${data.title.attribute.secondResHp * leve}%\n`;
-            temp += `🧚‍♂️攻击怪物/玩家可提高称号经验,等级越高加成越高\n`;
+            temp += `<emoji:147>攻击怪物/玩家可提高称号经验,等级越高加成越高\n`;
             temp += `┗┄━${this.at()}━┄\n`;
             temp += `┏┄═══👑指令提示══━┄\n`;
             temp += `🏷️称号改名[称号改名 + 名称]\n`;

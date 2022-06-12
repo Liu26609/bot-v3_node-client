@@ -22,6 +22,7 @@ const rank_titleCont_1 = require("./rank/rank_titleCont");
 const rank_titleAttr_1 = require("./rank/rank_titleAttr");
 const rank_teamLv_1 = require("./rank/rank_teamLv");
 const rank_petCont_1 = require("./rank/rank_petCont");
+const rank_rankscore_1 = require("./rank/rank_rankscore");
 const rank_sign_1 = require("./rank/rank_sign");
 const shop_team_buy_1 = require("./shop/shop_team_buy");
 const shop_team_1 = require("./shop/shop_team");
@@ -54,7 +55,6 @@ const me_wallet_1 = require("./me/me_wallet");
 const pos_attackPlayer_1 = require("./battle/pos_attackPlayer");
 const me_move_1 = require("./me/me_move");
 const update_1 = require("./sys/update");
-const battleTest_1 = require("./battle/battleTest");
 const me_attribute_1 = require("./me/me_attribute");
 const __1 = require("..");
 const bot_1 = __importDefault(require("../unity/bot"));
@@ -124,7 +124,7 @@ class game {
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry_1.rank_ancestry, match: matchType.all });
         this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
         this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv_1.rank_dnaLv, match: matchType.all });
-        this.matchMap.set(`声望排行榜`, { action: rank_1.rank, match: matchType.all });
+        this.matchMap.set(`声望排行榜`, { action: rank_rankscore_1.rank_rankscore, match: matchType.all });
         this.matchMap.set(`金币排行榜`, { action: rank_gold_1.rank_gold, match: matchType.all });
         this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont_1.rank_petCont, match: matchType.all });
         this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve_1.rank_petLeve, match: matchType.all });
@@ -195,7 +195,7 @@ class game {
         this.matchMap.set('黑市商店', { action: shop_back_1.shop_back, match: matchType.all });
         this.matchMap.set('签到', { action: me_sign_1.default, match: matchType.all });
         this.matchMap.set('属性', { action: me_attribute_1.me_attribute, match: matchType.all });
-        this.matchMap.set('测试', { action: battleTest_1.battleTest, match: matchType.all });
+        // this.matchMap.set('测试', { action: battleTest, match: matchType.all })
         this.matchMap.set('位置', { action: me_pos_1.me_pos, match: matchType.all });
         this.matchMap.set('改名', { action: me_changeName_1.me_changeName, match: matchType.match });
         this.matchMap.set('钱包', { action: me_wallet_1.me_wallet, match: matchType.match });
@@ -228,7 +228,7 @@ class game {
                 temp += `  🟢客户端:${bot_1.default.severId()}\n`;
                 temp += `  🟡正在开始重新连接\n`;
                 temp += `┗┄━═══════════━┄\n`;
-                temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
+                temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
                 yield bot_1.default.sendText(data.channel_id, temp);
                 yield sever_1.default.HelloWorld();
                 return;

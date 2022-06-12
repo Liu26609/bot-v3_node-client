@@ -17,6 +17,6 @@ export class join_team extends task_base{
     }
     menu(){
         new text_example_style().setCommand('加入工会 + 邀请码').setExample('加入工会 + 181392f77d8').sendMsg(this.channel_id);
-        bot.sendText(this.channel_id,`${this.at()}🧚‍♂️邀请码需要联系工会会长获得`)
+        bot.sendText(this.channel_id,`${this.at()}<emoji:147>邀请码需要联系工会会长获得`)
     }
 }

@@ -27,7 +27,7 @@ class me_callPos extends task_base_1.task_base {
 ┣传送指令：传送 + 坐标
 ┣每次传送需要${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}x1
 🌰栗子：传送 + 10，20(传送10,20)
-🧚‍♂️提示：逗号不方便？可以试试这些符号(.。,，+-!！*)
+<emoji:147>提示：逗号不方便？可以试试这些符号(.。,，+-!！*)
 ┗┄━${this.at()}━┄`;
         bot_1.default.sendText(this.channel_id, temp);
     }
@@ -88,18 +88,18 @@ class me_callPos extends task_base_1.task_base {
         // 判断坐标是否为数字
         if (isNaN(Number(sendPos[0]))) {
             // 坐标不是数字
-            bot_1.default.sendText(this.channel_id, `🧚‍♂️你发送的传送坐标不是一个数字噢~`);
+            bot_1.default.sendText(this.channel_id, `<emoji:147>你发送的传送坐标不是一个数字噢~`);
             return false;
         }
         if (isNaN(Number(sendPos[1]))) {
             // 坐标不是数字
-            bot_1.default.sendText(this.channel_id, `🧚‍♂️你发送的传送坐标不是一个数字噢~`);
+            bot_1.default.sendText(this.channel_id, `<emoji:147>你发送的传送坐标不是一个数字噢~`);
             return false;
         }
         // 判断坐标是否为负数
         if (Number(sendPos[0]) < 0 || Number(sendPos[1]) < 0) {
             // 坐标不是数字
-            bot_1.default.sendText(this.channel_id, `🧚‍♂️此坐标暂未开放~`);
+            bot_1.default.sendText(this.channel_id, `<emoji:147>此坐标暂未开放~`);
             return false;
         }
         return sendPos;

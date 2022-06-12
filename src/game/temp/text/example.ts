@@ -9,7 +9,7 @@ export class text_example_style {
     }
     /**
      * 改名 + 你的名字
-     * 🧚‍♂️改名指令：改名 + 你的名字
+     * <emoji:147>改名指令：改名 + 你的名字
      * @param str 
      * @returns 
      */

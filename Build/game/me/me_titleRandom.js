@@ -29,15 +29,15 @@ class me_titleRandom extends task_base_1.task_base {
                 randomCont = '1';
             }
             if (isNaN(Number(randomCont))) {
-                bot_1.default.sendText(this.channel_id, '🧚‍♂️提示:重置次数不能为负哦~');
+                bot_1.default.sendText(this.channel_id, '<emoji:147>提示:重置次数不能为负哦~');
                 return;
             }
             if (Number(randomCont) <= 0) {
-                bot_1.default.sendText(this.channel_id, '🧚‍♂️提示:重置次数不能为负哦~');
+                bot_1.default.sendText(this.channel_id, '<emoji:147>提示:重置次数不能为负哦~');
                 return;
             }
             if (Number(randomCont) > 5000000) {
-                bot_1.default.sendText(this.channel_id, '🧚‍♂️提示:重置次数最大为500万哦~');
+                bot_1.default.sendText(this.channel_id, '<emoji:147>提示:重置次数最大为500万哦~');
                 return;
             }
             let req = yield sever_1.default.callApi('Me_titleRandom', { userId: this.userId, randomCont: Number(randomCont) });

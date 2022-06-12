@@ -29,16 +29,16 @@ class task_base {
         return `<@!${this.userId}>`;
     }
     log(str) {
-        bot_1.default.sendText(this.channel_id, `🧚‍♂️<@!${this.userId}>${str}`);
+        bot_1.default.sendText(this.channel_id, `<emoji:147><@!${this.userId}>${str}`);
     }
     sendErr(err) {
         let random = common_1.default.random(0, 1);
         switch (err.type) {
             case tsrpc_1.TsrpcErrorType.ApiError:
-                bot_1.default.sendText(this.channel_id, `<@!${this.userId}>🧚‍♂️${err.message}`);
+                bot_1.default.sendText(this.channel_id, `<@!${this.userId}><emoji:147>${err.message}`);
                 break;
             case tsrpc_1.TsrpcErrorType.NetworkError:
-                bot_1.default.sendText(this.channel_id, `<@!${this.userId}>🧚‍♂️服务器睡着了，正在努力叫醒中`);
+                bot_1.default.sendText(this.channel_id, `<@!${this.userId}><emoji:147>服务器睡着了，正在努力叫醒中`);
                 break;
             default:
                 if (random) {
@@ -48,7 +48,7 @@ class task_base {
                     temps.addLine(`⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}`);
                     temps.addLine(`🗂️错误类型:${err.type}`);
                     temps.addLine(`❌错误提示:${err.message}`);
-                    temps.addLine(`🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`);
+                    temps.addLine(`<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`);
                     temps.sendMsg(this.channel_id);
                 }
                 else {
@@ -59,7 +59,7 @@ class task_base {
                     temp += `┣┄════❌错误提示═══━┄\n`;
                     temp += `          ${err.message}\n`;
                     temp += `┗┄━═══════════━┄\n`;
-                    temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
+                    temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
                     bot_1.default.sendText(this.channel_id, temp);
                 }
                 break;

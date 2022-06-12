@@ -37,7 +37,7 @@ class shop_equip extends task_base_1.task_base {
             str += `\n商店库存:${data.stock - data.sellNum}`;
             str += `\n刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`;
             str += `\n购买指令：购买装备`;
-            str += `\n🧚‍♂️每次刷新随机价格，与装备属性无关`;
+            str += `\n<emoji:147>每次刷新随机价格，与装备属性无关`;
             str += `\n↓↓↓↓以下是装备属性预览↓↓↓↓`;
             yield bot_1.default.sendText(this.channel_id, str);
             let temp = new equip_1.text_equip_style();

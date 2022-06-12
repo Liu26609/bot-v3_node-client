@@ -119,7 +119,7 @@ export default class game {
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry, match: matchType.all })
         this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
         this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv, match: matchType.all })
-        this.matchMap.set(`声望排行榜`, { action: rank, match: matchType.all })
+        this.matchMap.set(`声望排行榜`, { action: rank_rankscore, match: matchType.all })
         this.matchMap.set(`金币排行榜`, { action: rank_gold, match: matchType.all })
         this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont, match: matchType.all })
         this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve, match: matchType.all })
@@ -195,7 +195,7 @@ export default class game {
         this.matchMap.set('黑市商店', { action: shop_back, match: matchType.all })
         this.matchMap.set('签到', { action: me_sign, match: matchType.all })
         this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
-        this.matchMap.set('测试', { action: battleTest, match: matchType.all })
+        // this.matchMap.set('测试', { action: battleTest, match: matchType.all })
         this.matchMap.set('位置', { action: me_pos, match: matchType.all })
         this.matchMap.set('改名', { action: me_changeName, match: matchType.match })
         this.matchMap.set('钱包', { action: me_wallet, match: matchType.match })
@@ -229,7 +229,7 @@ export default class game {
             temp += `  🟢客户端:${bot.severId()}\n`;
             temp += `  🟡正在开始重新连接\n`;
             temp += `┗┄━═══════════━┄\n`;
-            temp += `🧚‍♂️如不知如何发生的错误且长时间存在请截图反馈`;
+            temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
             await bot.sendText(data.channel_id, temp);
             await sever.HelloWorld()
             return;

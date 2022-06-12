@@ -34,13 +34,13 @@ export class auction_offer extends task_base {
     }
     notNum() {
         let temp = ``;
-        temp += `🧚‍♂️出价指令：出价 + 加价金币\n`
+        temp += `<emoji:147>出价指令：出价 + 加价金币\n`
         temp += `🌰栗子:@${bot.getBot_name()} 出价1`
         bot.sendText(this.channel_id, temp)
         new auction_look(...this.args);
     }
     notZeo() {
-        let temp = `🧚‍♂️提示：出价好像太低了~`;
+        let temp = `<emoji:147>提示：出价好像太低了~`;
         bot.sendText(this.channel_id, temp)
         new auction_look(...this.args);
     }

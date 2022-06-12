@@ -22,7 +22,7 @@ export class shop_back extends task_base {
 商店库存:${data.stock - data.sellNum}
 刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
 购买指令：黑市购买
-🧚‍♂️出售商品和价格每次随机刷新`;
+<emoji:147>出售商品和价格每次随机刷新`;
         bot.sendText(this.channel_id, temp)
     }
     converSellTemp(temp: storeBackTemp) {

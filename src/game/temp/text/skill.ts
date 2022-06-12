@@ -3,7 +3,7 @@
 // 描述:顾名思义，攻击失手没打着
 // 类型:主动技能
 // 触发频率:10
-// 🧚‍♂️频率≠概率,部分技能需要有特殊条件才能触发(例如:十步杀一人)
+// <emoji:147>频率≠概率,部分技能需要有特殊条件才能触发(例如:十步杀一人)
 // ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
 
 import { err } from "../../..";
@@ -33,7 +33,7 @@ export class text_skill_style {
         temp += `📖背景故事:${info.story}\n`;
         temp += `📄效果描述:${common.getSkDesc(info)}\n`;
         temp += `🚀触发频率:${info.speed}\n`;
-        temp += `🧚‍♂️频率≠概率,部分技能需要有特殊条件才能触发\n`;
+        temp += `<emoji:147>频率≠概率,部分技能需要有特殊条件才能触发\n`;
         temp += `┗┄━══════════━┄`
         bot.sendText(channelId, temp);
     }

@@ -32,7 +32,7 @@ export class me_team extends task_base {
 🔮魔法攻击+${data.info.gain.MagicAttack}
 🌟魔法防御+${data.info.gain.MagicDefense}
 ┗┄━${this.at()}━┄
-🧚‍♂️击杀其他工会成员将获得贡献值`;
+<emoji:147>击杀其他工会成员将获得贡献值`;
         bot.sendText(this.channel_id, team);
         this.ctlMenu(data.myLeve);
     }
@@ -59,7 +59,7 @@ export class me_team extends task_base {
 加入工会指令=>加入工会 + 邀请码
 创建工会指令=>创建工会 + 名字
 ┗┄━${this.at()}━┄
-🧚‍♂️邀请码需要会长艾特机器人发送[创建邀请码]`;
+<emoji:147>邀请码需要会长艾特机器人发送[创建邀请码]`;
         bot.sendText(this.channel_id, team)
     }
 }

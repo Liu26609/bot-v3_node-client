@@ -13,7 +13,7 @@ export class me_openBlindBox extends task_base {
         let temp = `￣￣￣￣￣＼打开盲盒／￣￣￣￣￣
 打开指令：打开盲盒 + 数量
 如:@${bot.getBot_name()} 打开盲盒1
-🧚‍♂️参与打怪，各种活动，拍卖可获得盲盒哦~
+<emoji:147>参与打怪，各种活动，拍卖可获得盲盒哦~
 ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣`;
         bot.sendText(this.channel_id, temp)
     }

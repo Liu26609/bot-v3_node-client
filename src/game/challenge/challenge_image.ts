@@ -71,7 +71,7 @@ export class challenge_image extends task_base {
             if (battleConfig.killLog.open) {
                 let killLog = '';
                 killLog += `￣￣￣￣￣＼🧙战斗过程／￣￣￣￣\n`;
-                killLog += `🧚‍♂️本次战斗共${data.battle.battleRound}回合\n`
+                killLog += `<emoji:147>本次战斗共${data.battle.battleRound}回合\n`
 
                 for (let index = 0; index < data.battle.kill_log.length; index++) {
                     const kill_item = data.battle.kill_log[index];

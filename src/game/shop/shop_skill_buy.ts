@@ -21,7 +21,7 @@ export class shop_skill_buy extends task_base{
         if(data.userCfg.textStyle == textStyle.text){
             let temp = ``;
             temp += `┏┄════🕊️购买成功═══━┄\n`
-            temp += `┣🧚‍♂️技能已领悟，祝您购物愉快~\n`
+            temp += `┣<emoji:147>技能已领悟，祝您购物愉快~\n`
             temp += `┣┄════🏧钱包变化═══━┄\n`
             temp += `┣🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `┣▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
@@ -32,7 +32,7 @@ export class shop_skill_buy extends task_base{
             temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
             temps.setTips('技能已领悟，祝您购物愉快~')
-            temps.addLine('🧚‍♂️技能已领悟，祝您购物愉快~')
+            temps.addLine('<emoji:147>技能已领悟，祝您购物愉快~')
             temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)

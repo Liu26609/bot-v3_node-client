@@ -14,7 +14,7 @@ export class dismiss_team extends task_base{
             return;
         }
         let data = req.res;
-        // let temp = `🧚‍♂️已解散工会`;
+        // let temp = `<emoji:147>已解散工会`;
         // bot.sendText(this.channel_id,temp)
     }
 }
