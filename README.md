@@ -36,22 +36,25 @@
     - [Me_petLook](#/pet/Me_petLook)
     - [Me_petRm](#/pet/Me_petRm)
 - rank
-    - [Rank_leve](#/rank/Rank_leve)
-    - [Rank_minGame_lottery_cont](#/rank/Rank_minGame_lottery_cont)
-    - [Rank_minGame_lottery_win](#/rank/Rank_minGame_lottery_win)
-    - [Rank_petCont](#/rank/Rank_petCont)
-    - [Rank_petLv](#/rank/Rank_petLv)
-    - [Rank_rankscore](#/rank/Rank_rankscore)
-    - [Rank_sign](#/rank/Rank_sign)
-    - [Rank_strengthen](#/rank/Rank_strengthen)
-    - [Rank_team](#/rank/Rank_team)
-    - [Rank_titleAttr](#/rank/Rank_titleAttr)
-    - [Rank_titleCont](#/rank/Rank_titleCont)
+    - [Rank_gold](#/rank/Rank_gold)
+    - [等级排行榜](#/rank/Rank_leve)
+    - [猜数参与次数排行榜](#/rank/Rank_minGame_lottery_cont)
+    - [猜数猜中次数排行榜](#/rank/Rank_minGame_lottery_win)
+    - [宠物数量排行榜](#/rank/Rank_petCont)
+    - [宠物等级排行榜](#/rank/Rank_petLv)
+    - [排位声望排行榜](#/rank/Rank_rankscore)
+    - [签到天数排行榜](#/rank/Rank_sign)
+    - [装备强化排行榜](#/rank/Rank_strengthen)
+    - [工会等级排行榜](#/rank/Rank_team)
+    - [称号属性排行榜](#/rank/Rank_titleAttr)
+    - [称号重置次数排行榜](#/rank/Rank_titleCont)
 - shop
     - [Shop_back](#/shop/Shop_back)
     - [Shop_back_buy](#/shop/Shop_back_buy)
     - [Shop_equip](#/shop/Shop_equip)
     - [Shop_equip_buy](#/shop/Shop_equip_buy)
+    - [头像商店](#/shop/Shop_icon)
+    - [头像商店购买](#/shop/Shop_icon_buy)
     - [Shop_skill](#/shop/Shop_skill)
     - [Shop_skill_buy](#/shop/Shop_skill_buy)
     - [Shop_team](#/shop/Shop_team)
@@ -91,8 +94,8 @@
 - [我的钱包](#/Me_wallet)
 - [Me_wearEquip](#/Me_wearEquip)
 - [Move](#/Move)
-- [Pos](#/Pos)
-- [ResLife](#/ResLife)
+- [当前位置接口](#/Pos)
+- [复活治疗接口](#/ResLife)
 - [SearchSkill](#/SearchSkill)
 - [用户签到接口](#/Sign)
 
@@ -322,6 +325,8 @@ interface ResAttackBoss {
     battleRound: number,
     /** 技能释放记录 */
     log: {
+        /** 释放者头像 */
+        icon: string,
         /** 释放者ID */
         id: string,
         /** 释放者名称 */
@@ -348,6 +353,7 @@ interface ResAttackBoss {
         round: number,
         body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -366,10 +372,12 @@ interface ResAttackBoss {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         },
         die_body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -388,11 +396,12 @@ interface ResAttackBoss {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }
     }[],
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[]
 }
@@ -426,6 +435,8 @@ interface ResChallenge_box {
         battleRound: number,
         /** 技能释放记录 */
         log: {
+            /** 释放者头像 */
+            icon: string,
             /** 释放者ID */
             id: string,
             /** 释放者名称 */
@@ -452,6 +463,7 @@ interface ResChallenge_box {
             round: number,
             body: {
                 id: string,
+                icon: string,
                 type: 0 | 1 | 2,
                 name: string,
                 leve: number,
@@ -470,10 +482,12 @@ interface ResChallenge_box {
                     y: number
                 },
                 exp: number,
-                exp_max: number
+                exp_max: number,
+                lastResHpTime: number
             },
             die_body: {
                 id: string,
+                icon: string,
                 type: 0 | 1 | 2,
                 name: string,
                 leve: number,
@@ -492,11 +506,12 @@ interface ResChallenge_box {
                     y: number
                 },
                 exp: number,
-                exp_max: number
+                exp_max: number,
+                lastResHpTime: number
             }
         }[],
         reward: {
-            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
             val: number
         }[]
     },
@@ -535,6 +550,8 @@ interface ResChallenge_image {
         battleRound: number,
         /** 技能释放记录 */
         log: {
+            /** 释放者头像 */
+            icon: string,
             /** 释放者ID */
             id: string,
             /** 释放者名称 */
@@ -561,6 +578,7 @@ interface ResChallenge_image {
             round: number,
             body: {
                 id: string,
+                icon: string,
                 type: 0 | 1 | 2,
                 name: string,
                 leve: number,
@@ -579,10 +597,12 @@ interface ResChallenge_image {
                     y: number
                 },
                 exp: number,
-                exp_max: number
+                exp_max: number,
+                lastResHpTime: number
             },
             die_body: {
                 id: string,
+                icon: string,
                 type: 0 | 1 | 2,
                 name: string,
                 leve: number,
@@ -601,11 +621,12 @@ interface ResChallenge_image {
                     y: number
                 },
                 exp: number,
-                exp_max: number
+                exp_max: number,
+                lastResHpTime: number
             }
         }[],
         reward: {
-            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
             val: number
         }[]
     },
@@ -645,6 +666,8 @@ interface ResPkRank {
     battleRound: number,
     /** 技能释放记录 */
     log: {
+        /** 释放者头像 */
+        icon: string,
         /** 释放者ID */
         id: string,
         /** 释放者名称 */
@@ -671,6 +694,7 @@ interface ResPkRank {
         round: number,
         body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -689,10 +713,12 @@ interface ResPkRank {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         },
         die_body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -711,11 +737,12 @@ interface ResPkRank {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }
     }[],
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[]
 }
@@ -747,6 +774,8 @@ interface ResPosAttackEnemy {
     battleRound: number,
     /** 技能释放记录 */
     log: {
+        /** 释放者头像 */
+        icon: string,
         /** 释放者ID */
         id: string,
         /** 释放者名称 */
@@ -773,6 +802,7 @@ interface ResPosAttackEnemy {
         round: number,
         body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -791,10 +821,12 @@ interface ResPosAttackEnemy {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         },
         die_body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -813,11 +845,12 @@ interface ResPosAttackEnemy {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }
     }[],
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[]
 }
@@ -845,6 +878,8 @@ interface ResPosAttackPlayer {
     battleRound: number,
     /** 技能释放记录 */
     log: {
+        /** 释放者头像 */
+        icon: string,
         /** 释放者ID */
         id: string,
         /** 释放者名称 */
@@ -871,6 +906,7 @@ interface ResPosAttackPlayer {
         round: number,
         body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -889,10 +925,12 @@ interface ResPosAttackPlayer {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         },
         die_body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -911,11 +949,12 @@ interface ResPosAttackPlayer {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }
     }[],
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[]
 }
@@ -942,6 +981,8 @@ interface ResRank {
     battleRound: number,
     /** 技能释放记录 */
     log: {
+        /** 释放者头像 */
+        icon: string,
         /** 释放者ID */
         id: string,
         /** 释放者名称 */
@@ -968,6 +1009,7 @@ interface ResRank {
         round: number,
         body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -986,10 +1028,12 @@ interface ResRank {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         },
         die_body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -1008,11 +1052,12 @@ interface ResRank {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }
     }[],
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[]
 }
@@ -1069,7 +1114,7 @@ interface ReqOpenMapChestBox {
 ```ts
 interface ResOpenMapChestBox {
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[],
     userCfg: { textStyle: 0 | 1 }
@@ -1168,6 +1213,7 @@ interface ReqMe_pet {
 interface ResMe_pet {
     petList: {
         id: string,
+        icon: string,
         type: 0 | 1 | 2,
         name: string,
         leve: number,
@@ -1186,7 +1232,8 @@ interface ResMe_pet {
             y: number
         },
         exp: number,
-        exp_max: number
+        exp_max: number,
+        lastResHpTime: number
     }[]
 }
 ```
@@ -1234,6 +1281,7 @@ interface ReqMe_petLook {
 interface ResMe_petLook {
     base: {
         id: string,
+        icon: string,
         type: 0 | 1 | 2,
         name: string,
         leve: number,
@@ -1252,7 +1300,8 @@ interface ResMe_petLook {
             y: number
         },
         exp: number,
-        exp_max: number
+        exp_max: number,
+        lastResHpTime: number
     }
 }
 ```
@@ -1283,7 +1332,36 @@ interface ResMe_petRm {
 
 ## rank
 
-### Rank_leve <a id="/rank/Rank_leve"></a>
+### Rank_gold <a id="/rank/Rank_gold"></a>
+
+**路径**
+- POST `/rank/Rank_gold`
+
+**请求**
+```ts
+interface ReqRank_gold {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_gold {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
+### 等级排行榜 <a id="/rank/Rank_leve"></a>
 
 **路径**
 - POST `/rank/Rank_leve`
@@ -1302,6 +1380,7 @@ interface ResRank_leve {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1311,7 +1390,7 @@ interface ResRank_leve {
 
 ---
 
-### Rank_minGame_lottery_cont <a id="/rank/Rank_minGame_lottery_cont"></a>
+### 猜数参与次数排行榜 <a id="/rank/Rank_minGame_lottery_cont"></a>
 
 **路径**
 - POST `/rank/Rank_minGame_lottery_cont`
@@ -1330,6 +1409,7 @@ interface ResRank_minGame_lottery_cont {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1339,7 +1419,7 @@ interface ResRank_minGame_lottery_cont {
 
 ---
 
-### Rank_minGame_lottery_win <a id="/rank/Rank_minGame_lottery_win"></a>
+### 猜数猜中次数排行榜 <a id="/rank/Rank_minGame_lottery_win"></a>
 
 **路径**
 - POST `/rank/Rank_minGame_lottery_win`
@@ -1358,6 +1438,7 @@ interface ResRank_minGame_lottery_win {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1367,7 +1448,7 @@ interface ResRank_minGame_lottery_win {
 
 ---
 
-### Rank_petCont <a id="/rank/Rank_petCont"></a>
+### 宠物数量排行榜 <a id="/rank/Rank_petCont"></a>
 
 **路径**
 - POST `/rank/Rank_petCont`
@@ -1386,6 +1467,7 @@ interface ResRank_petCont {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1395,7 +1477,7 @@ interface ResRank_petCont {
 
 ---
 
-### Rank_petLv <a id="/rank/Rank_petLv"></a>
+### 宠物等级排行榜 <a id="/rank/Rank_petLv"></a>
 
 **路径**
 - POST `/rank/Rank_petLv`
@@ -1414,6 +1496,7 @@ interface ResRank_petLv {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1423,7 +1506,7 @@ interface ResRank_petLv {
 
 ---
 
-### Rank_rankscore <a id="/rank/Rank_rankscore"></a>
+### 排位声望排行榜 <a id="/rank/Rank_rankscore"></a>
 
 **路径**
 - POST `/rank/Rank_rankscore`
@@ -1442,6 +1525,7 @@ interface ResRank_rankscore {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1451,7 +1535,7 @@ interface ResRank_rankscore {
 
 ---
 
-### Rank_sign <a id="/rank/Rank_sign"></a>
+### 签到天数排行榜 <a id="/rank/Rank_sign"></a>
 
 **路径**
 - POST `/rank/Rank_sign`
@@ -1470,6 +1554,7 @@ interface ResRank_sign {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1479,7 +1564,7 @@ interface ResRank_sign {
 
 ---
 
-### Rank_strengthen <a id="/rank/Rank_strengthen"></a>
+### 装备强化排行榜 <a id="/rank/Rank_strengthen"></a>
 
 **路径**
 - POST `/rank/Rank_strengthen`
@@ -1498,6 +1583,7 @@ interface ResRank_strengthen {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1507,7 +1593,7 @@ interface ResRank_strengthen {
 
 ---
 
-### Rank_team <a id="/rank/Rank_team"></a>
+### 工会等级排行榜 <a id="/rank/Rank_team"></a>
 
 **路径**
 - POST `/rank/Rank_team`
@@ -1526,6 +1612,7 @@ interface ResRank_team {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1535,7 +1622,7 @@ interface ResRank_team {
 
 ---
 
-### Rank_titleAttr <a id="/rank/Rank_titleAttr"></a>
+### 称号属性排行榜 <a id="/rank/Rank_titleAttr"></a>
 
 **路径**
 - POST `/rank/Rank_titleAttr`
@@ -1554,6 +1641,7 @@ interface ResRank_titleAttr {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1563,7 +1651,7 @@ interface ResRank_titleAttr {
 
 ---
 
-### Rank_titleCont <a id="/rank/Rank_titleCont"></a>
+### 称号重置次数排行榜 <a id="/rank/Rank_titleCont"></a>
 
 **路径**
 - POST `/rank/Rank_titleCont`
@@ -1582,6 +1670,7 @@ interface ResRank_titleCont {
     list: {
         val: number,
         name: string,
+        icon?: string,
         id: string
     }[],
     /** 我的排名 */
@@ -1738,6 +1827,73 @@ interface ReqShop_equip_buy {
 **响应**
 ```ts
 interface ResShop_equip_buy {
+    pay: {
+        state: boolean,
+        condition: {
+            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
+            val: number
+        },
+        now: number
+    },
+    userCfg: { textStyle: 0 | 1 }
+}
+```
+
+---
+
+### 头像商店 <a id="/shop/Shop_icon"></a>
+
+**路径**
+- POST `/shop/Shop_icon`
+
+**请求**
+```ts
+interface ReqShop_icon {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResShop_icon {
+    userCfg: { textStyle: 0 | 1 },
+    /** 出售的模板id */
+    sell_temp: string,
+    /** 刷新的时间 */
+    creatorTime: number,
+    /** 下次刷新时间 */
+    nextUpdateTime: number,
+    /** 已出售数量 */
+    sellNum: number,
+    /** 购买条件 */
+    buyCondition: {
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
+        val: number
+    },
+    /** 本次库存 */
+    stock: number,
+    /** 商店总共刷新次数 */
+    updateNum: number
+}
+```
+
+---
+
+### 头像商店购买 <a id="/shop/Shop_icon_buy"></a>
+
+**路径**
+- POST `/shop/Shop_icon_buy`
+
+**请求**
+```ts
+interface ReqShop_icon_buy {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResShop_icon_buy {
     pay: {
         state: boolean,
         condition: {
@@ -2306,6 +2462,8 @@ interface ResBattle {
     battleRound: number,
     /** 技能释放记录 */
     log: {
+        /** 释放者头像 */
+        icon: string,
         /** 释放者ID */
         id: string,
         /** 释放者名称 */
@@ -2332,6 +2490,7 @@ interface ResBattle {
         round: number,
         body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -2350,10 +2509,12 @@ interface ResBattle {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         },
         die_body: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -2372,11 +2533,12 @@ interface ResBattle {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }
     }[],
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[]
 }
@@ -2597,6 +2759,7 @@ interface ResMe_Attribute {
         setUp: { textStyle: 0 | 1 },
         pet: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -2615,7 +2778,8 @@ interface ResMe_Attribute {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }[],
         ancestry: {
             id: string,
@@ -2636,6 +2800,7 @@ interface ResMe_Attribute {
             }
         },
         id: string,
+        icon: string,
         type: 0 | 1 | 2,
         name: string,
         leve: number,
@@ -2654,7 +2819,8 @@ interface ResMe_Attribute {
             y: number
         },
         exp: number,
-        exp_max: number
+        exp_max: number,
+        lastResHpTime: number
     },
     /** 血统 */
     ancestry: {
@@ -2904,7 +3070,7 @@ interface ReqMe_openBlindBox {
 ```ts
 interface ResMe_openBlindBox {
     reward: {
-        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
         val: number
     }[],
     pay: {
@@ -3439,6 +3605,7 @@ interface ResMove {
         setUp: { textStyle: 0 | 1 },
         pet: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -3457,7 +3624,8 @@ interface ResMove {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }[],
         ancestry: {
             id: string,
@@ -3478,6 +3646,7 @@ interface ResMove {
             }
         },
         id: string,
+        icon: string,
         type: 0 | 1 | 2,
         name: string,
         leve: number,
@@ -3496,26 +3665,15 @@ interface ResMove {
             y: number
         },
         exp: number,
-        exp_max: number
+        exp_max: number,
+        lastResHpTime: number
     }[]
-}
-```
-
-**配置**
-```ts
-{
-  "direction": {
-    "top": 1,
-    "right": 2,
-    "buttom": 3,
-    "left": 4
-  }
 }
 ```
 
 ---
 
-## Pos <a id="/Pos"></a>
+## 当前位置接口 <a id="/Pos"></a>
 
 **路径**
 - POST `/Pos`
@@ -3542,6 +3700,7 @@ interface ResPos {
     isLeft: boolean,
     enemy: {
         id: string,
+        icon: string,
         type: 0 | 1 | 2,
         name: string,
         leve: number,
@@ -3560,7 +3719,8 @@ interface ResPos {
             y: number
         },
         exp: number,
-        exp_max: number
+        exp_max: number,
+        lastResHpTime: number
     }[],
     player: {
         /** 声望 */
@@ -3717,6 +3877,7 @@ interface ResPos {
         setUp: { textStyle: 0 | 1 },
         pet: {
             id: string,
+            icon: string,
             type: 0 | 1 | 2,
             name: string,
             leve: number,
@@ -3735,7 +3896,8 @@ interface ResPos {
                 y: number
             },
             exp: number,
-            exp_max: number
+            exp_max: number,
+            lastResHpTime: number
         }[],
         ancestry: {
             id: string,
@@ -3756,6 +3918,7 @@ interface ResPos {
             }
         },
         id: string,
+        icon: string,
         type: 0 | 1 | 2,
         name: string,
         leve: number,
@@ -3774,19 +3937,24 @@ interface ResPos {
             y: number
         },
         exp: number,
-        exp_max: number
+        exp_max: number,
+        lastResHpTime: number
     }[],
     chest: {
         /** 宝箱等级 */
         leve: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         isOpen: boolean
-    }[]
+    }[],
+    /** 我的头像 */
+    meIcon: string
 }
 ```
 
 ---
 
-## ResLife <a id="/ResLife"></a>
+## 复活治疗接口 <a id="/ResLife"></a>
+
+正常情况下死亡会在下一次请求任意API时复活
 
 **路径**
 - POST `/ResLife`
@@ -3801,16 +3969,7 @@ interface ReqResLife {
 **响应**
 ```ts
 interface ResResLife {
-    pay: {
-        state: boolean,
-        condition: {
-            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
-            val: number
-        },
-        now: number
-    },
-    userRes: number,
-    petRes: number
+
 }
 ```
 
