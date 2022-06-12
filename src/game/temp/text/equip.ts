@@ -25,7 +25,7 @@ export class text_equip_style {
         this.equipData = data;
         return this;
     }
-    getTemp(){
+    getTemp() {
         let name = this.equipData.name;
         let leve = this.equipData.leve;
         const quality = this.equipData.quality;
@@ -61,20 +61,19 @@ export class text_equip_style {
 
 
         let image = `https://21-1257174510.cos.ap-nanjing.myqcloud.com/temp/equip.png?`;
-    // 装备图标
-    image += `imageMogr2/interlace/0/quality/75|watermark/1/image/${base64_safe.urlEncode(`${gameCfg.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/220`;
-    // 称号
-    image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${name} +${leve}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
-     // 品质
-     image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${EQUIP_QUALITY_CN[EQUIP_QUALITY[quality]]}(${EQUIP_TYPE_CN[EQUIP_TYPE[type]]})`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
-     // 属性
-     image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${attribute.PhysicalAttacks}
+        // 装备图标
+        image += `imageMogr2/interlace/0/quality/75|watermark/1/image/${base64_safe.urlEncode(`${gameCfg.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/220`;
+        // 称号
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${name} +${leve}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
+        // 品质
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${EQUIP_QUALITY_CN[EQUIP_QUALITY[quality]]}(${EQUIP_TYPE_CN[EQUIP_TYPE[type]]})`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
+        // 属性
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${attribute.PhysicalAttacks}
 ${attribute.PhysicalAttacks}
 ${attribute.PhysicalAttacks}
 ${attribute.MagicDefense}
 ${attribute.secondResHp}
 ${attribute.hp_max}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffffff`)}/fontsize/20/dx/10/dy/215`;
-
 
 
         return image;
