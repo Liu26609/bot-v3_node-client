@@ -278,8 +278,14 @@ class game {
                 matchList.sort(function (A, B) {
                     return B.match - A.match;
                 });
-                let temp = `┏┄════🔎你想找什么?══━┄\n`;
-                for (let index = 0; index < 8; index++) {
+                if (matchList[0].match == 0) {
+                    var arr = matchList;
+                    arr.sort(() => {
+                        return Math.random() - 0.5;
+                    });
+                }
+                let temp = `┏┄════<emoji:318>你想找什么?══━┄\n`;
+                for (let index = 0; index < 10; index++) {
                     temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                 }
                 temp += `┗┄━══════════━┄`;

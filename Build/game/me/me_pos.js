@@ -64,7 +64,7 @@ class me_pos extends task_base_1.task_base {
                     }
                     const name = body.name;
                     const leve = body.leve;
-                    temp += ` [玩家${index}]🔥${leve}${body.icon}${name}\n`;
+                    temp += ` [玩家${index}]Lv.${leve}${body.icon}${name}\n`;
                 }
                 for (let index = 0; index < data.enemy.length; index++) {
                     const body = data.enemy[index];
@@ -73,7 +73,7 @@ class me_pos extends task_base_1.task_base {
                     }
                     const name = body.name;
                     const leve = body.leve;
-                    temp += ` [怪物${index}]🔥${leve}${body.icon}${name}♥️${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
+                    temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}<emoji:67>${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
                 }
             }
             if (data.chest.length > 0) {

@@ -28,7 +28,7 @@ export class text_attribute_style{
         temp += this.data.title.name + '\n';
         temp += `┏┄════👑属性═══━┄\n`
         temp += `🔥Lv.${this.data.leve}⏳(${common.BN(this.data.exp)}/${common.BN(this.data.exp_max)})\n`;
-        temp += `${this.data.icon}${this.data.name}\n`
+        temp += `${this.data.icon}名称:${this.data.name}\n`
         if(this.ancestry){
             temp += `👑${this.ancestry.title}\n`
         }

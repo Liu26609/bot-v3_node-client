@@ -249,7 +249,7 @@ export default class game {
         // if(!isNext){
         //     return;
         // }
-        log('收到消息',data.channel_id, data.author.username, data.content)
+        log('收到消息', data.channel_id, data.author.username, data.content)
 
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`无权限`)
@@ -282,8 +282,14 @@ export default class game {
             matchList.sort(function (A, B) {
                 return B.match - A.match;
             });
-            let temp = `┏┄════🔎你想找什么?══━┄\n`;
-            for (let index = 0; index < 8; index++) {
+            if (matchList[0].match == 0) {
+                var arr = matchList
+                arr.sort(()=> {
+                    return Math.random() - 0.5
+                })
+            }
+            let temp = `┏┄════<emoji:318>你想找什么?══━┄\n`;
+            for (let index = 0; index < 10; index++) {
                 temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
             }
             temp += `┗┄━══════════━┄`

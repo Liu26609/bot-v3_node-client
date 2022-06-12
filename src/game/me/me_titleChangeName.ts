@@ -4,6 +4,7 @@ import sever from "../../unity/sever";
 import { task_base } from "../task_base";
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { walletKey_CN, walletKey } from '../../shared/game/user';
+import { text_length } from '../../unity/text_length';
 
 export class me_titleChangeName extends task_base {
     constructor(...a) {
@@ -16,6 +17,11 @@ export class me_titleChangeName extends task_base {
             this.menu()
             return;
         }
+        // let text = new text_length()
+        // if(text.getlength(changeName) > 6){
+        //     bot.sendText(this.channel_id,`要修改的名字太长辣！`)
+        //     return;
+        // }
         if (changeName.length > 6) {
             bot.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~')
             return;

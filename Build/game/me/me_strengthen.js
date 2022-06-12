@@ -57,7 +57,7 @@ class me_strengthen extends task_base_1.task_base {
             let data = req.res;
             let bf = data.bfEquip;
             let now = data.nowEquip;
-            let temp = `┏┄════${data.isSuccress ? '🎉强化成功' : '😞强化失败'}═══━┄\n`;
+            let temp = `┏┄════${data.isSuccress ? '<emoji:320>强化成功' : '<emoji:173>强化失败'}═══━┄\n`;
             if (data.isSuccress) {
                 temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%${this.at()}\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;

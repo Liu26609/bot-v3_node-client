@@ -20,7 +20,7 @@ export class me_pet extends task_base{
             return;
         }
         let list = req.res.petList;
-        let temp = `┏┄═══🥚我的宠物═══━┄\n`;
+        let temp = `┏┄═══<emoji:244>我的宠物═══━┄\n`;
         for (let index = 0; index < list.length; index++) {
             const pet = list[index];
             temp+= `[${index}]${pet.name}Lv.${pet.leve}♥️${((pet.hp / pet.out_attribute.hp_max)*100).toFixed(0)}%\n`;

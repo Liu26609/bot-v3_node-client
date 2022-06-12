@@ -30,6 +30,11 @@ class me_titleChangeName extends task_base_1.task_base {
                 this.menu();
                 return;
             }
+            // let text = new text_length()
+            // if(text.getlength(changeName) > 6){
+            //     bot.sendText(this.channel_id,`要修改的名字太长辣！`)
+            //     return;
+            // }
             if (changeName.length > 6) {
                 bot_1.default.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~');
                 return;
