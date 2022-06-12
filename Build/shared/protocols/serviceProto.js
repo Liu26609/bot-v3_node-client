@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 24,
+    "version": 25,
     "services": [
         {
             "id": 0,
@@ -242,6 +242,16 @@ exports.serviceProto = {
         {
             "id": 48,
             "name": "Sign",
+            "type": "api"
+        },
+        {
+            "id": 91,
+            "name": "rank/Rank_ancestry",
+            "type": "api"
+        },
+        {
+            "id": 92,
+            "name": "rank/Rank_dnaLv",
             "type": "api"
         },
         {
@@ -4198,7 +4208,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "rank/PtlRank_gold/ReqRank_gold": {
+        "rank/PtlRank_ancestry/ReqRank_ancestry": {
             "type": "Interface",
             "properties": [
                 {
@@ -4210,7 +4220,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "rank/PtlRank_gold/ResRank_gold": {
+        "rank/PtlRank_ancestry/ResRank_ancestry": {
             "type": "Interface",
             "extends": [
                 {
@@ -4271,6 +4281,54 @@ exports.serviceProto = {
                     "name": "meIndex",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_dnaLv/ReqRank_dnaLv": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_dnaLv/ResRank_dnaLv": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_gold/ReqRank_gold": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_gold/ResRank_gold": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]

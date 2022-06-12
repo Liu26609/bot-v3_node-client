@@ -47,6 +47,8 @@ import { ReqPos, ResPos } from './PtlPos';
 import { ReqResLife, ResResLife } from './PtlResLife';
 import { ReqSearchSkill, ResSearchSkill } from './PtlSearchSkill';
 import { ReqSign, ResSign } from './PtlSign';
+import { ReqRank_ancestry, ResRank_ancestry } from './rank/PtlRank_ancestry';
+import { ReqRank_dnaLv, ResRank_dnaLv } from './rank/PtlRank_dnaLv';
 import { ReqRank_gold, ResRank_gold } from './rank/PtlRank_gold';
 import { ReqRank_leve, ResRank_leve } from './rank/PtlRank_leve';
 import { ReqRank_minGame_lottery_cont, ResRank_minGame_lottery_cont } from './rank/PtlRank_minGame_lottery_cont';
@@ -267,6 +269,14 @@ export interface ServiceType {
             req: ReqSign,
             res: ResSign
         },
+        "rank/Rank_ancestry": {
+            req: ReqRank_ancestry,
+            res: ResRank_ancestry
+        },
+        "rank/Rank_dnaLv": {
+            req: ReqRank_dnaLv,
+            res: ResRank_dnaLv
+        },
         "rank/Rank_gold": {
             req: ReqRank_gold,
             res: ResRank_gold
@@ -407,7 +417,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 24,
+    "version": 25,
     "services": [
         {
             "id": 0,
@@ -647,6 +657,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 48,
             "name": "Sign",
+            "type": "api"
+        },
+        {
+            "id": 91,
+            "name": "rank/Rank_ancestry",
+            "type": "api"
+        },
+        {
+            "id": 92,
+            "name": "rank/Rank_dnaLv",
             "type": "api"
         },
         {
@@ -4603,7 +4623,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "rank/PtlRank_gold/ReqRank_gold": {
+        "rank/PtlRank_ancestry/ReqRank_ancestry": {
             "type": "Interface",
             "properties": [
                 {
@@ -4615,7 +4635,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "rank/PtlRank_gold/ResRank_gold": {
+        "rank/PtlRank_ancestry/ResRank_ancestry": {
             "type": "Interface",
             "extends": [
                 {
@@ -4676,6 +4696,54 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "meIndex",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_dnaLv/ReqRank_dnaLv": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_dnaLv/ResRank_dnaLv": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_gold/ReqRank_gold": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_gold/ResRank_gold": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]

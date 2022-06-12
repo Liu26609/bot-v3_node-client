@@ -22,7 +22,6 @@ const rank_titleCont_1 = require("./rank/rank_titleCont");
 const rank_titleAttr_1 = require("./rank/rank_titleAttr");
 const rank_teamLv_1 = require("./rank/rank_teamLv");
 const rank_petCont_1 = require("./rank/rank_petCont");
-const rank_rankscore_1 = require("./rank/rank_rankscore");
 const rank_sign_1 = require("./rank/rank_sign");
 const shop_team_buy_1 = require("./shop/shop_team_buy");
 const shop_team_1 = require("./shop/shop_team");
@@ -97,6 +96,8 @@ const rank_petLeve_1 = require("./rank/rank_petLeve");
 const lottery_1 = require("./minGame/lottery/lottery");
 const rank_gold_1 = require("./rank/rank_gold");
 const shop_icon_buy_1 = require("./shop/shop_icon_buy");
+const rank_dnaLv_1 = require("./rank/rank_dnaLv");
+const rank_ancestry_1 = require("./rank/rank_ancestry");
 var matchType;
 (function (matchType) {
     /**
@@ -120,8 +121,10 @@ class game {
         */
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
         this.matchMap.set(`签到排行榜`, { action: rank_sign_1.rank_sign, match: matchType.all });
+        this.matchMap.set(`进化排行榜`, { action: rank_ancestry_1.rank_ancestry, match: matchType.all });
         this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
-        this.matchMap.set(`声望排行榜`, { action: rank_rankscore_1.rank_rankscore, match: matchType.all });
+        this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv_1.rank_dnaLv, match: matchType.all });
+        this.matchMap.set(`声望排行榜`, { action: rank_1.rank, match: matchType.all });
         this.matchMap.set(`金币排行榜`, { action: rank_gold_1.rank_gold, match: matchType.all });
         this.matchMap.set(`宠物数量排行榜`, { action: rank_petCont_1.rank_petCont, match: matchType.all });
         this.matchMap.set(`宠物等级排行榜`, { action: rank_petLeve_1.rank_petLeve, match: matchType.all });
