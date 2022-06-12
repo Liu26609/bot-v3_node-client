@@ -49,12 +49,14 @@ class bot {
             // AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES
         }
         sever_1.default.wsClient.listenMsg('CallAppoint', (res) => {
+            (0, __1.log)('收到ws消息', res);
             let lastChannelId = this.userActiveChannelMap.get(res.callUserId);
             if (lastChannelId) {
                 this.sendText(lastChannelId, res.content);
             }
         });
         sever_1.default.wsClient.listenMsg('CallAll', (res) => {
+            (0, __1.log)('收到ws消息', res);
             this.callAll(res.content);
         });
     }

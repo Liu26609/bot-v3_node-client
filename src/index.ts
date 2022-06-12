@@ -2,18 +2,11 @@ import botCfg from "./botCfg";
 import game from "./game";
 import base64_safe from "./unity/base64_safe";
 import bot from "./unity/bot";
-import common from "./unity/common";
 import sever from "./unity/sever";
 export const log = console.log;
 export const err = console.error;
 export const info = console.info;
-// let botCfg = {
-//     shards: [0, 1],
-//     appID: '', // ID
-//     token: '', // token
-//     intents: [AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES],    // 事件订阅,用于开启可接收的消息类型
-//     sandbox: false
-// }
+
 
 start();
 async function start() {

@@ -21,13 +21,6 @@ const sever_1 = __importDefault(require("./unity/sever"));
 exports.log = console.log;
 exports.err = console.error;
 exports.info = console.info;
-// let botCfg = {
-//     shards: [0, 1],
-//     appID: '', // ID
-//     token: '', // token
-//     intents: [AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES],    // 事件订阅,用于开启可接收的消息类型
-//     sandbox: false
-// }
 start();
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
