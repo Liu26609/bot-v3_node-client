@@ -101,7 +101,7 @@ export class challenge_image extends task_base {
             this.max()
             return;
         }
-        let temp = `┏┄══🎰挑战复制体══━┄\n`;
+        let temp = `┏┄══🎰镜像挑战══━┄\n`;
         temp += `🧚相同属性强者胜,祝君好运\n`
         temp += `💌你将挑战你的镜像,镜像没有宠物,没有装备,但称号满分,等级为${data.imageLeve}级且基因锁为[${DNA_CN[DNA_Leve[data.imageDNALeve]]}]\n`
         temp += `┄══🌈挑战胜利══━┄\n`
@@ -111,6 +111,6 @@ export class challenge_image extends task_base {
         temp += `🔻等级扣除${data.failDel}级\n`
         temp += `┗┄━══════════━┄`
         bot.sendText(this.channel_id, temp);
-        new text_example_style().setCommand(`挑战指令：开始挑战复制体`).setExample(`开始挑战复制体`).sendMsg(this.channel_id)
+        new text_example_style().setCommand(`挑战指令：开始${this.matchKey}`).setExample(`开始${this.matchKey}`).sendMsg(this.channel_id)
     }
 }

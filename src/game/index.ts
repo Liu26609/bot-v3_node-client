@@ -131,10 +131,9 @@ export default class game {
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
-        this.matchMap.set('挑战复制体', { action: challenge_image, match: matchType.match })
+        this.matchMap.set('镜像挑战', { action: challenge_image, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
         this.matchMap.set('阶梯计划', { action: soaringTask, match: matchType.all })
-        this.matchMap.set('盒子制造者', { action: challenge_box, match: matchType.match })
 
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
