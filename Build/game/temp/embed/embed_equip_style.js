@@ -37,7 +37,7 @@ class embed_equip_style {
             temp.setIcon(`${gameCfg_1.default.cosUrl}equip/${iconId}.png`);
             temp.setTitle(`${this.equipData.story}`);
             temp.addLine(`Ⓜ️名称：${name}`);
-            temp.addLine(`🔨品质：${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[quality]]}`);
+            temp.addLine(`🔨品质：${equip_1.EQUIP_QUALITY[quality]}`);
             temp.addLine(`🔨强化：+${leve}`);
             temp.addLine(`🗂️类型：${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[type]]}`);
             temp.addLine(`物理攻击+${attribute.PhysicalAttacks}`);

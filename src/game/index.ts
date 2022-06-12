@@ -1,3 +1,4 @@
+import { rank_military_pet } from './rank/rank_military_pet';
 import { shop_icon } from './shop/shop_icon';
 import { soaringTask } from './me/task/soaringTask';
 import { challenge_box } from './challenge/challenge_box';
@@ -21,7 +22,7 @@ import { pk } from './battle/pk';
 import { auction_look } from './shop/auction_look';
 import { fishing } from './map/fishing';
 import { shop_back_buy } from './shop/shop_back_buy';
-import { me_titleRandom } from './me/me_titleRandom';
+import { me_titleRandom } from './me/title/me_titleRandom';
 import { me_title } from './me/me_title';
 import { me_callPos } from './me/me_callPos';
 import { me_strengthen } from './me/me_strengthen';
@@ -86,6 +87,7 @@ import { rank_gold } from './rank/rank_gold';
 import { shop_icon_buy } from './shop/shop_icon_buy';
 import { rank_dnaLv } from './rank/rank_dnaLv';
 import { rank_ancestry } from './rank/rank_ancestry';
+import { rank_military } from './rank/rank_military';
 
 enum matchType {
     /**
@@ -117,6 +119,8 @@ export default class game {
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
         this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry, match: matchType.all })
+        this.matchMap.set(`战力排行榜`, { action: rank_military, match: matchType.all })
+        this.matchMap.set(`宠物战力排行榜`, { action: rank_military_pet, match: matchType.all })
         this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
         this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv, match: matchType.all })
         this.matchMap.set(`声望排行榜`, { action: rank_rankscore, match: matchType.all })

@@ -43,7 +43,7 @@ class me_equip extends task_base_1.task_base {
             let temp = `┏┄════👑我的装备═══━┄\n`;
             if (data.equipList.length > 0) {
                 data.equipList.forEach(info => {
-                    temp += `╔[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[info.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[info.quality]]})${info.name}+${info.leve}\n`;
+                    temp += `╔[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[info.type]]}](${equip_1.EQUIP_QUALITY[info.quality]})${info.name}+${info.leve}\n`;
                     let showCont = 0;
                     for (let index = 0; index < attrArry.length; index++) {
                         const attr = attrArry[index];

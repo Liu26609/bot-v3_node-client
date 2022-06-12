@@ -1,5 +1,5 @@
 import { log } from "../..";
-import { EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../shared/game/equip";
+import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../shared/game/equip";
 import bot from "../../unity/bot";
 import common from "../../unity/common";
 import sever from "../../unity/sever";
@@ -29,7 +29,7 @@ export class me_equip extends task_base {
         let temp = `┏┄════👑我的装备═══━┄\n`;
         if (data.equipList.length > 0) {
             data.equipList.forEach(info => {
-                temp += `╔[${EQUIP_TYPE_CN[EQUIP_TYPE[info.type]]}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[info.quality]]})${info.name}+${info.leve}\n`;
+                temp += `╔[${EQUIP_TYPE_CN[EQUIP_TYPE[info.type]]}](${EQUIP_QUALITY[info.quality]})${info.name}+${info.leve}\n`;
                 let showCont = 0;
                 for (let index = 0; index < attrArry.length; index++) {
                     const attr = attrArry[index];

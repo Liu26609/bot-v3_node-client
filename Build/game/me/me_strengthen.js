@@ -26,7 +26,7 @@ class me_strengthen extends task_base_1.task_base {
     }
     menu() {
         let temp = `强化装备指令: 强化 + 装备位置
-🌰栗子：@达尔文进化岛 强化武器`;
+🌰栗子：@达尔文进化岛 强化主武器`;
         bot_1.default.sendText(this.channel_id, temp);
     }
     render() {
@@ -64,7 +64,7 @@ class me_strengthen extends task_base_1.task_base {
                 temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%${this.at()}\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-                temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
+                temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY[bf.quality]})${bf.name}+${now.leve}\n`;
                 temp += `♥️最大生命${common_1.default.BN(common_1.default.converEquipattribute(bf, `hp_max`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `hp_max`))}\n`;
                 temp += `🔮魔法攻击${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicAttack`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicAttack`))}\n`;
                 temp += `🌟魔法防御${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicDefense`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicDefense`))}\n`;
@@ -74,7 +74,7 @@ class me_strengthen extends task_base_1.task_base {
                 temp += `┗══════════┄`;
             }
             else {
-                temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
+                temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY[bf.quality]})${bf.name}+${now.leve}\n`;
                 temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;

@@ -1,4 +1,4 @@
-import { equip, EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
+import { equip, EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
 import bot from "../../../unity/bot";
 import gameCfg from "../../gameCfg";
 import { embed_style } from "./embed";
@@ -25,7 +25,7 @@ export class embed_equip_style {
         temp.setIcon(`${gameCfg.cosUrl}equip/${iconId}.png`)
         temp.setTitle(`${this.equipData.story}`)
         temp.addLine(`Ⓜ️名称：${name}`)
-        temp.addLine(`🔨品质：${EQUIP_QUALITY_CN[EQUIP_QUALITY[quality]]}`)
+        temp.addLine(`🔨品质：${EQUIP_QUALITY[quality]}`)
         temp.addLine(`🔨强化：+${leve}`)
         temp.addLine(`🗂️类型：${EQUIP_TYPE_CN[EQUIP_TYPE[type]]}`)
         temp.addLine(`物理攻击+${attribute.PhysicalAttacks}`)

@@ -27,6 +27,7 @@ export class text_attribute_style{
         let temp = ``;
         temp += this.data.title.name + '\n';
         temp += `┏┄════👑属性═══━┄\n`
+        temp += `<emoji:11>战力:${common.BN(this.data.military)}\n`
         temp += `🔥Lv.${this.data.leve}⏳(${common.BN(this.data.exp)}/${common.BN(this.data.exp_max)})\n`;
         temp += `${this.data.icon}名称:${this.data.name}\n`
         if(this.ancestry){
@@ -44,7 +45,7 @@ export class text_attribute_style{
             temp += `${walletKey_CN[walletKey[walletKey.justice]]}:${common.BN(this.data.wallet.justice)}\n`
         }
 
-        temp += `♥️${common.BN(this.data.hp,1)}/${common.BN(out_attribute.hp_max,1)}(💖+${common.BN(out_attribute.secondResHp,0)}/s)\n`;
+        temp += `♥️${common.BN(this.data.hp,1)}/${common.BN(out_attribute.hp_max,1)}💖+${common.BN(out_attribute.secondResHp,0)}/s\n`;
         temp += `🔮魔法攻击${common.BN(out_attribute.MagicAttack)}\n`;
         temp += `🌟魔法防御${common.BN(out_attribute.MagicDefense)}\n`;
         temp += `🔪物理攻击${common.BN(out_attribute.PhysicalAttacks)}\n`;

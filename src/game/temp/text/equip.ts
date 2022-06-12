@@ -1,4 +1,4 @@
-import { equip, EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
+import { equip, EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
 import base64_safe from "../../../unity/base64_safe";
 import bot from "../../../unity/bot";
 import gameCfg from "../../gameCfg";
@@ -39,11 +39,11 @@ export class text_equip_style {
         // 称号
         image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${name} +${leve}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
         // 品质
-        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${EQUIP_QUALITY_CN[EQUIP_QUALITY[quality]]}(${EQUIP_TYPE_CN[EQUIP_TYPE[type]]})`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
+        image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${EQUIP_TYPE_CN[EQUIP_TYPE[type]]}(${EQUIP_QUALITY[quality]})`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
         // 属性
         image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe.urlEncode(`${attribute.PhysicalAttacks}
-${attribute.PhysicalAttacks}
-${attribute.PhysicalAttacks}
+${attribute.MagicAttack}
+${attribute.PhysicalDefense}
 ${attribute.MagicDefense}
 ${attribute.secondResHp}
 ${attribute.hp_max}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffffff`)}/fontsize/20/dx/10/dy/215`;

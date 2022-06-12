@@ -8,27 +8,27 @@ export interface body extends BASE_BODYS {
      * 声望
      */
     rankscore: number,
-   
+
     sys: {
         creator_time: number
     },
     equip: {
         weapons?: equip,
-        subWeapon?:equip
+        subWeapon?: equip
     },
     title: {
         name: string,
         leve: number,
         exp: number,
-        exp_max:number,
+        exp_max: number,
         /**
          * 今日剩余可获取经验
          */
-        todayGetExp:number,
+        todayGetExp: number,
         /**
          * 经验上限刷新时间
          */
-        updateExpTime:number,
+        updateExpTime: number,
         /**
          * 随机次数
          */
@@ -61,7 +61,7 @@ export interface body extends BASE_BODYS {
     bag: equip[],
     setUp: userSetUpCfg,
     pet: BASE_BODYS[],
-    ancestry: { id: string, leve: number,exp:number,exp_max:number },
+    ancestry: { id: string, leve: number, exp: number, exp_max: number },
     team: {
         id: string,//队伍ID
         leve: teamLeve,//职位等级
@@ -183,7 +183,11 @@ export enum DNA_CN {
 
 export interface BASE_BODYS {
     id: string,
-    icon:string,
+    /**
+     * 战力
+     */
+    military: number,
+    icon: string,
     type: bodyType,
     name: string,
     leve: number,
@@ -196,7 +200,7 @@ export interface BASE_BODYS {
     /**
      * 上次生命恢复时间戳
      */
-    lastResHpTime:number,
+    lastResHpTime: number,
 }
 export enum bodyType {
     player,
@@ -209,9 +213,21 @@ export interface posV2 {
 }
 export interface base_attribute {
     hp_max: number,//最大生命
-    MagicAttack: number,//魔法攻击
-    PhysicalAttacks: number,//物理攻击
-    MagicDefense: number,//魔法防御
-    PhysicalDefense: number,//物理防御
+    /**
+    * 魔法攻击
+    */
+    MagicAttack: number,
+    /**
+     * 物理攻击
+     */
+    PhysicalAttacks: number,
+    /**
+     * 魔法防御
+     */
+    MagicDefense: number,
+    /**
+     * 物理防御
+     */
+    PhysicalDefense: number,
     secondResHp: number,//每秒回复生命
 }

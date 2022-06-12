@@ -1,4 +1,4 @@
-import { EQUIP_QUALITY, EQUIP_QUALITY_CN } from '../../shared/game/equip';
+import { EQUIP_QUALITY } from '../../shared/game/equip';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -28,7 +28,7 @@ export class me_bag extends task_base {
         temp += `┏┄👑我的背包(${data.bag.length}/20)━┄\n`;
         for (let index = 0; index < data.bag.length; index++) {
             const item = data.bag[index];
-            temp += `[${index}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[item.quality]]})${item.name}+${item.leve}\n`
+            temp += `[${index}](${EQUIP_QUALITY[item.quality]})${item.name}+${item.leve}\n`
         }
         temp += `┗┄━${this.at()}━┄\n`;
         let temps = ``;

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 26,
+    "version": 28,
     "services": [
         {
             "id": 0,
@@ -82,6 +82,11 @@ exports.serviceProto = {
         {
             "id": 90,
             "name": "me/title/Me_title_changeName",
+            "type": "api"
+        },
+        {
+            "id": 93,
+            "name": "me/title/Me_titleRandom",
             "type": "api"
         },
         {
@@ -205,11 +210,6 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 33,
-            "name": "Me_titleRandom",
-            "type": "api"
-        },
-        {
             "id": 34,
             "name": "Me_wallet",
             "type": "api"
@@ -262,6 +262,16 @@ exports.serviceProto = {
         {
             "id": 70,
             "name": "rank/Rank_leve",
+            "type": "api"
+        },
+        {
+            "id": 94,
+            "name": "rank/Rank_military_pet",
+            "type": "api"
+        },
+        {
+            "id": 95,
+            "name": "rank/Rank_military",
             "type": "api"
         },
         {
@@ -1483,6 +1493,13 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 12,
+                    "name": "military",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
                     "id": 10,
                     "name": "icon",
                     "type": {
@@ -2193,6 +2210,62 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlMe_titleRandom/ReqMe_titleRandom": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "randomCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlMe_titleRandom/ResMe_titleRandom": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "bf",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "now",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
                     }
                 }
             ]
@@ -3716,62 +3789,6 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlMe_titleRandom/ReqMe_titleRandom": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "randomCont",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlMe_titleRandom/ResMe_titleRandom": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "bf",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "now",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                }
-            ]
-        },
         "PtlMe_wallet/ReqMe_wallet": {
             "type": "Interface",
             "properties": [
@@ -4212,6 +4229,33 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
                     }
+                },
+                {
+                    "id": 5,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -4348,6 +4392,54 @@ exports.serviceProto = {
                     "name": "userId",
                     "type": {
                         "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military_pet/ReqRank_military_pet": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military_pet/ResRank_military_pet": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military/ReqRank_military": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military/ResRank_military": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]

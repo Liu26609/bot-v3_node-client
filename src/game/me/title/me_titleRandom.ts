@@ -1,8 +1,8 @@
-import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
-import { walletKey_CN, walletKey } from '../../shared/game/user';
-import bot from '../../unity/bot';
-import sever from '../../unity/sever';
-import { task_base } from './../task_base';
+import { rewardKey, rewardKey_CN } from '../../../shared/game/prop';
+import { walletKey_CN, walletKey } from '../../../shared/game/user';
+import bot from '../../../unity/bot';
+import sever from '../../../unity/sever';
+import { task_base } from '../../task_base';
 export class me_titleRandom extends task_base {
     constructor(...a) {
         super(...a);
@@ -26,7 +26,7 @@ export class me_titleRandom extends task_base {
             bot.sendText(this.channel_id, '<emoji:147>提示:重置次数最大为500万哦~')
             return;
         }
-        let req = await sever.callApi('Me_titleRandom', { userId: this.userId, randomCont: Number(randomCont) });
+        let req = await sever.callApi('me/title/Me_titleRandom', { userId: this.userId, randomCont: Number(randomCont) });
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

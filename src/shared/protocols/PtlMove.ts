@@ -1,5 +1,7 @@
 import { body, posV2 } from "../game/body"
-
+/**
+ * 移动
+ */
 export interface ReqMove {
     userId: string,
     direction: moveDirection

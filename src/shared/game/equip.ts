@@ -41,18 +41,7 @@ export enum EQUIP_QUALITY {
     ss,//="上古"
     sss//="作者专属"
 }
-export enum EQUIP_QUALITY_CN {
-    G="破烂",
-    F="战损",
-    E="普通",
-    D="精良",
-    C="稀有",
-    B="史诗",
-    A="传说",
-    s="神器",
-    ss="上古",
-    sss="作者专属"
-}
+
 export enum EQUIP_TYPE {
     /**
      * 武器

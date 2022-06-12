@@ -8,6 +8,7 @@ const task_base_1 = require("../task_base");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const setUp_1 = require("../../shared/game/setUp");
+const prop_1 = require("../../shared/game/prop");
 /**
  * 用户签到
  */
@@ -34,11 +35,17 @@ class me_sign extends task_base_1.task_base {
     succressSign(data) {
         switch (data.userCfg.textStyle) {
             case setUp_1.textStyle.text:
-                let temp = `￣￣￣￣￣＼💌签到成功／￣￣￣￣￣
-已签到:${data.cont}次
-签收人:<@!${this.userId}>
-￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
-“${data.oneWord}”`;
+                let temp = `┏┄════💌签到成功══━┄\n`;
+                temp += `已签到:${data.cont}次\n`;
+                if (data.reward.length > 0) {
+                    temp += `签到奖励:`;
+                    data.reward.forEach(item => {
+                        temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
+                    });
+                    temp += `\n`;
+                }
+                temp += `┗┄━${this.at()}━┄\n`;
+                temp += `“${data.oneWord}”`;
                 bot_1.default.sendText(this.channel_id, temp);
                 break;
             case setUp_1.textStyle.card:
@@ -57,10 +64,10 @@ class me_sign extends task_base_1.task_base {
     repeatSign(data) {
         switch (data.userCfg.textStyle) {
             case setUp_1.textStyle.text:
-                let temp = `￣￣￣￣￣＼💌签到重复／￣￣￣￣￣
-已签到:${data.cont}次
-签收人:<@!${this.userId}>
-￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+                let temp = `┏┄════💌签到重复══━┄
+累计签到:${data.cont}
+<emoji:147>今天已经签到过了
+┗┄━${this.at()}━┄
 “${data.oneWord}”`;
                 bot_1.default.sendText(this.channel_id, temp);
                 break;

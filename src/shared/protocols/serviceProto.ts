@@ -15,6 +15,7 @@ import { ReqDocile, ResDocile } from './map/PtlDocile';
 import { Reqfishing, Resfishing } from './map/Ptlfishing';
 import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
+import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lottery';
 import { MsgCallAll } from './MsgCallAll';
 import { MsgCallAppoint } from './MsgCallAppoint';
@@ -39,7 +40,6 @@ import { ReqMe_setUp, ResMe_setUp } from './PtlMe_setUp';
 import { ReqMe_skill, ResMe_skill } from './PtlMe_skill';
 import { ReqMe_strengthen, ResMe_strengthen } from './PtlMe_strengthen';
 import { ReqMe_title, ResMe_title } from './PtlMe_title';
-import { ReqMe_titleRandom, ResMe_titleRandom } from './PtlMe_titleRandom';
 import { ReqMe_wallet, ResMe_wallet } from './PtlMe_wallet';
 import { ReqMe_wearEquip, ResMe_wearEquip } from './PtlMe_wearEquip';
 import { ReqMove, ResMove } from './PtlMove';
@@ -51,6 +51,8 @@ import { ReqRank_ancestry, ResRank_ancestry } from './rank/PtlRank_ancestry';
 import { ReqRank_dnaLv, ResRank_dnaLv } from './rank/PtlRank_dnaLv';
 import { ReqRank_gold, ResRank_gold } from './rank/PtlRank_gold';
 import { ReqRank_leve, ResRank_leve } from './rank/PtlRank_leve';
+import { ReqRank_military_pet, ResRank_military_pet } from './rank/PtlRank_military_pet';
+import { ReqRank_military, ResRank_military } from './rank/PtlRank_military';
 import { ReqRank_minGame_lottery_cont, ResRank_minGame_lottery_cont } from './rank/PtlRank_minGame_lottery_cont';
 import { ReqRank_minGame_lottery_win, ResRank_minGame_lottery_win } from './rank/PtlRank_minGame_lottery_win';
 import { ReqRank_petCont, ResRank_petCont } from './rank/PtlRank_petCont';
@@ -149,6 +151,10 @@ export interface ServiceType {
             req: ReqMe_title_changeName,
             res: ResMe_title_changeName
         },
+        "me/title/Me_titleRandom": {
+            req: ReqMe_titleRandom,
+            res: ResMe_titleRandom
+        },
         "minGame/MinGame_lottery": {
             req: ReqMinGame_lottery,
             res: ResMinGame_lottery
@@ -237,10 +243,6 @@ export interface ServiceType {
             req: ReqMe_title,
             res: ResMe_title
         },
-        "Me_titleRandom": {
-            req: ReqMe_titleRandom,
-            res: ResMe_titleRandom
-        },
         "Me_wallet": {
             req: ReqMe_wallet,
             res: ResMe_wallet
@@ -284,6 +286,14 @@ export interface ServiceType {
         "rank/Rank_leve": {
             req: ReqRank_leve,
             res: ResRank_leve
+        },
+        "rank/Rank_military_pet": {
+            req: ReqRank_military_pet,
+            res: ResRank_military_pet
+        },
+        "rank/Rank_military": {
+            req: ReqRank_military,
+            res: ResRank_military
         },
         "rank/Rank_minGame_lottery_cont": {
             req: ReqRank_minGame_lottery_cont,
@@ -417,7 +427,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 26,
+    "version": 28,
     "services": [
         {
             "id": 0,
@@ -497,6 +507,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 90,
             "name": "me/title/Me_title_changeName",
+            "type": "api"
+        },
+        {
+            "id": 93,
+            "name": "me/title/Me_titleRandom",
             "type": "api"
         },
         {
@@ -620,11 +635,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 33,
-            "name": "Me_titleRandom",
-            "type": "api"
-        },
-        {
             "id": 34,
             "name": "Me_wallet",
             "type": "api"
@@ -677,6 +687,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 70,
             "name": "rank/Rank_leve",
+            "type": "api"
+        },
+        {
+            "id": 94,
+            "name": "rank/Rank_military_pet",
+            "type": "api"
+        },
+        {
+            "id": 95,
+            "name": "rank/Rank_military",
             "type": "api"
         },
         {
@@ -1898,6 +1918,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
+                    "id": 12,
+                    "name": "military",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
                     "id": 10,
                     "name": "icon",
                     "type": {
@@ -2608,6 +2635,62 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlMe_titleRandom/ReqMe_titleRandom": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "randomCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlMe_titleRandom/ResMe_titleRandom": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "bf",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "now",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
                     }
                 }
             ]
@@ -4131,62 +4214,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "PtlMe_titleRandom/ReqMe_titleRandom": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "randomCont",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlMe_titleRandom/ResMe_titleRandom": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "bf",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "now",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                }
-            ]
-        },
         "PtlMe_wallet/ReqMe_wallet": {
             "type": "Interface",
             "properties": [
@@ -4627,6 +4654,33 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
                     }
+                },
+                {
+                    "id": 5,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -4763,6 +4817,54 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "userId",
                     "type": {
                         "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military_pet/ReqRank_military_pet": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military_pet/ResRank_military_pet": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military/ReqRank_military": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_military/ResRank_military": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]
