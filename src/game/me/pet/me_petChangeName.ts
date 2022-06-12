@@ -1,3 +1,4 @@
+import { log } from '../../..';
 import bot from '../../../unity/bot';
 import common from '../../../unity/common';
 import sever from '../../../unity/sever';
@@ -13,12 +14,13 @@ export class me_petChangeName extends task_base{
             this.menu();
             return;
         }
-        let index = common.getNumber(this.content[3])
+        let index = common.getNumber(this.content[4])
         let name = this.content.replace(this.matchKey,'').replace(index.toString(),'');
         if(name.length <= 0){
             bot.sendText(this.channel_id,`🧚‍♂️要修改的宠物名称太短啦~`);
             return
         }
+        log('修改的名称',name,this.content[3])
         let text = new text_length()
         if(text.getlength(name) > 4){
             bot.sendText(this.channel_id,`要修改的名字太长辣！`)
