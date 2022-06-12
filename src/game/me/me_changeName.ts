@@ -8,6 +8,7 @@ import { task_base } from './../task_base';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { textStyle } from '../../shared/game/setUp';
 import { walletKey_CN, walletKey } from '../../shared/game/user';
+import { text_length } from '../../unity/text_length';
 export class me_changeName extends task_base {
     constructor(...a) {
         super(...a)
@@ -29,20 +30,12 @@ export class me_changeName extends task_base {
             })
             return;
         }
-        if(changeName.length > 10){
-            this.sendErr({
-                message: '要修改的名字太长辣！',
-                type: TsrpcErrorType.ApiError
-            })
+        let text = new text_length()
+        if(text.getlength(changeName) > 6){
+            bot.sendText(this.channel_id,`要修改的名字太长辣！`)
             return;
         }
-        if(!common.islegal(changeName)){
-            this.sendErr({
-                message: `名称:${changeName}\n此昵称不符合规范\n只能起中文,字母,数字的名字`,
-                type: TsrpcErrorType.ApiError
-            })
-            return;
-        }
+
         let req = await sever.callApi('Me_changeName',{userId:this.userId,changeName:changeName});
         if(req.err){
             this.sendErr(req.err)

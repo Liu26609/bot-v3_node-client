@@ -1,6 +1,7 @@
 import bot from '../../../unity/bot';
 import common from '../../../unity/common';
 import sever from '../../../unity/sever';
+import { text_length } from '../../../unity/text_length';
 import { task_base } from '../../task_base';
 export class me_petChangeName extends task_base{
     constructor(...a){
@@ -12,11 +13,16 @@ export class me_petChangeName extends task_base{
             this.menu();
             return;
         }
-        let index = common.getNumber(this.content.replace(this.matchKey,''))
+        let index = common.getNumber(this.content[3])
         let name = this.content.replace(this.matchKey,'').replace(index.toString(),'');
         if(name.length <= 0){
             bot.sendText(this.channel_id,`🧚‍♂️要修改的宠物名称太短啦~`);
             return
+        }
+        let text = new text_length()
+        if(text.getlength(name) > 4){
+            bot.sendText(this.channel_id,`要修改的名字太长辣！`)
+            return;
         }
         let req = await sever.callApi('pet/Me_petChangeName',{userId:this.userId,index:index,name:name})
         if (!req.isSucc) {

@@ -17,11 +17,11 @@ const example_1 = require("./../temp/text/example");
 const embed_1 = require("./../temp/embed/embed");
 const tsrpc_1 = require("tsrpc");
 const bot_1 = __importDefault(require("../../unity/bot"));
-const common_1 = __importDefault(require("../../unity/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
 const setUp_1 = require("../../shared/game/setUp");
 const user_1 = require("../../shared/game/user");
+const text_length_1 = require("../../unity/text_length");
 class me_changeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -44,18 +44,9 @@ class me_changeName extends task_base_1.task_base {
                 });
                 return;
             }
-            if (changeName.length > 10) {
-                this.sendErr({
-                    message: '要修改的名字太长辣！',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
-                return;
-            }
-            if (!common_1.default.islegal(changeName)) {
-                this.sendErr({
-                    message: `名称:${changeName}\n此昵称不符合规范\n只能起中文,字母,数字的名字`,
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+            let text = new text_length_1.text_length();
+            if (text.getlength(changeName) > 6) {
+                bot_1.default.sendText(this.channel_id, `要修改的名字太长辣！`);
                 return;
             }
             let req = yield sever_1.default.callApi('Me_changeName', { userId: this.userId, changeName: changeName });
