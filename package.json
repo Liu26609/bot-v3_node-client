@@ -6,10 +6,8 @@
   "scripts": {
     "build-ts": "tsc",
     "start:dev": "nodemon",
-    "sync": "tsrpc sync",
     "start": "node Build/index.js",
-    "git": "git add . && git commit -m 'autoUpdate' && npm version patch && git push --all",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "git": "git add . && git commit -m 'autoUpdate' && npm version patch && git push --all"
   },
   "keywords": [],
   "author": "",
