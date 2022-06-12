@@ -26,7 +26,7 @@ export class text_baseAttribute_style{
         const out_attribute = this.data.out_attribute;
         let temp = ``;
         temp += `┏┄════${this.title}═══━┄\n`
-        temp += `${this.data.icon}${this.data.name}\n`;
+        temp += `${this.data.icon}名称:${this.data.name}\n`;
         temp += `🔥等级:${this.data.leve}⏳${common.BN(this.data.exp)}/${common.BN(this.data.exp_max)}\n`;
         temp += `♥️生命:${common.BN(this.data.hp)}/${common.BN(out_attribute.hp_max)}\n`;
         temp += `🔮魔法攻击:${common.BN(out_attribute.MagicAttack)}\n`;

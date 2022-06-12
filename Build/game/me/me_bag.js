@@ -43,7 +43,7 @@ class me_bag extends task_base_1.task_base {
                 return;
             }
             let temp = ``;
-            temp += `┏┄══👑我的背包══━┄\n`;
+            temp += `┏┄👑我的背包(${data.bag.length}/20)━┄\n`;
             for (let index = 0; index < data.bag.length; index++) {
                 const item = data.bag[index];
                 temp += `[${index}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[item.quality]]})${item.name}+${item.leve}\n`;

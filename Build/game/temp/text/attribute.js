@@ -44,8 +44,10 @@ class text_attribute_style {
             if (this.ancestry) {
                 temp += `👑${this.ancestry.title}\n`;
             }
-            temp += `🔒基因锁[${body_1.DNA_CN[body_1.DNA_Leve[this.data.dnaLock]]}]\n`;
-            temp += `⚜️声望值:${this.data.rankscore}`;
+            if (this.data.dnaLock > 0) {
+                temp += `🔒基因锁[${body_1.DNA_CN[body_1.DNA_Leve[this.data.dnaLock]]}]\n`;
+            }
+            temp += `⚜️声望值:${common_1.default.BN(this.data.rankscore)}`;
             // 红名值or正义值
             if (this.data.wallet.evil > 0) {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evil]]}:${common_1.default.BN(this.data.wallet.evil)}\n`;
@@ -53,12 +55,11 @@ class text_attribute_style {
             else {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.justice]]}:${common_1.default.BN(this.data.wallet.justice)}\n`;
             }
-            temp += `♥️生命:${common_1.default.BN(this.data.hp)}/${common_1.default.BN(out_attribute.hp_max)}\n`;
+            temp += `♥️${common_1.default.BN(this.data.hp, 1)}/${common_1.default.BN(out_attribute.hp_max, 1)}(💖+${common_1.default.BN(out_attribute.secondResHp, 0)}/s)\n`;
             temp += `🔮魔法攻击${common_1.default.BN(out_attribute.MagicAttack)}\n`;
             temp += `🌟魔法防御${common_1.default.BN(out_attribute.MagicDefense)}\n`;
             temp += `🔪物理攻击${common_1.default.BN(out_attribute.PhysicalAttacks)}\n`;
             temp += `🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense)}\n`;
-            temp += `💖每秒回复${common_1.default.BN(out_attribute.secondResHp)}\n`;
             temp += `┗┄━══════════━┄`;
             yield bot_1.default.sendText(channelId, temp);
         });

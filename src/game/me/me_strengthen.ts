@@ -28,8 +28,11 @@ export class me_strengthen extends task_base {
             case EQUIP_TYPE_CN.weapons:
                 strengthenType = EQUIP_TYPE.weapons;
                 break;
+            case EQUIP_TYPE_CN.subWeapon:
+                strengthenType = EQUIP_TYPE.subWeapon;
+                break;
             default:
-                
+
                 break;
         }
 
@@ -57,7 +60,7 @@ export class me_strengthen extends task_base {
             temp += `🔪物理攻击${common.BN(common.converEquipattribute(bf, `PhysicalAttacks`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalAttacks`))}\n`;
             temp += `🔰物理防御${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
             temp += `💖每秒回复${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
-            temp += `┗攻击特效:${now.effect?.length || 0}条`;
+            temp += `┗══════════┄`;
         } else {
             temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;
             temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`

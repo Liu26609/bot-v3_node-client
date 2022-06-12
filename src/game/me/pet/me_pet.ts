@@ -27,11 +27,14 @@ export class me_pet extends task_base{
         }
 
         temp += `┗┄━${this.at()}━┄\n`;
-
-        temp += `查看指令：查看宠物+id
-改名指令:宠物改名 + id + 名字
-放生指令: 放生宠物+id`
+        let temps = ``;
+        temps += `┏┄═══👑指令提示══━┄\n`;
+        temps += `[查看宠物+ID]查看指定宠物属性\n`;
+        temps += `[宠物改名 + ID + 名字]修改宠物名称\n`;
+        temps += `[放生宠物 + ID]放生指定宠物\n`;
+        temps += `┗┄━══════════━┄\n`;
 
         bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temps)
     }
 }

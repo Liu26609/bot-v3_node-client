@@ -124,6 +124,12 @@ class common {
         }
         return z / s * 200;
     }
+    /**
+     *
+     * @param number
+     * @param decimalDigit 小数长度
+     * @returns
+     */
     BN(number, decimalDigit) {
         decimalDigit = decimalDigit == null ? 2 : decimalDigit;
         let integer = Math.floor(number);

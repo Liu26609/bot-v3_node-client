@@ -190,7 +190,7 @@ class game {
         this.matchMap.set(`出价`, { action: auction_offer_1.auction_offer, match: matchType.match });
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
         this.matchMap.set('钓鱼', { action: fishing_1.fishing, match: matchType.all });
-        this.matchMap.set('黑市', { action: shop_back_1.shop_back, match: matchType.all });
+        this.matchMap.set('黑市商店', { action: shop_back_1.shop_back, match: matchType.all });
         this.matchMap.set('签到', { action: me_sign_1.default, match: matchType.all });
         this.matchMap.set('属性', { action: me_attribute_1.me_attribute, match: matchType.all });
         this.matchMap.set('测试', { action: battleTest_1.battleTest, match: matchType.all });
@@ -248,10 +248,10 @@ class game {
             //     return;
             // }
             (0, __1.log)('收到消息', data.channel_id, data.author.username, data.content);
-            // if(data.author.id != '14139673525601401123'){
-            //     bot.sendText(data.channel_id,`无权限`)
-            //     return;
-            // }
+            if (data.author.id != '14139673525601401123') {
+                bot_1.default.sendText(data.channel_id, `本地测试中`);
+                return;
+            }
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;
@@ -285,8 +285,17 @@ class game {
                     });
                 }
                 let temp = `┏┄════<emoji:318>你想找什么?══━┄\n`;
-                for (let index = 0; index < 10; index++) {
-                    temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
+                if (matchList[0].match == 0) {
+                    for (let index = 0; index < 10; index++) {
+                        temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
+                    }
+                }
+                else {
+                    for (let index = 0; index < 10; index++) {
+                        if (matchList[index].match > 0) {
+                            temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
+                        }
+                    }
                 }
                 temp += `┗┄━══════════━┄`;
                 yield bot_1.default.sendText(data.channel_id, temp);

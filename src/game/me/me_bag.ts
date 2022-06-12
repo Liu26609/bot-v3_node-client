@@ -25,7 +25,7 @@ export class me_bag extends task_base {
             return;
         }
         let temp = ``;
-        temp += `┏┄══👑我的背包══━┄\n`;
+        temp += `┏┄👑我的背包(${data.bag.length}/20)━┄\n`;
         for (let index = 0; index < data.bag.length; index++) {
             const item = data.bag[index];
             temp += `[${index}](${EQUIP_QUALITY_CN[EQUIP_QUALITY[item.quality]]})${item.name}+${item.leve}\n`

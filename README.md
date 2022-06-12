@@ -28,6 +28,9 @@
     - [Docile](#/map/Docile)
     - [OpenMapChestBox](#/map/OpenMapChestBox)
     - [fishing](#/map/fishing)
+- me
+    - title
+        - [称号改名](#/me/title/Me_title_changeName)
 - minGame
     - [MinGame_lottery](#/minGame/MinGame_lottery)
 - pet
@@ -90,7 +93,6 @@
 - [Me_strengthen](#/Me_strengthen)
 - [Me_title](#/Me_title)
 - [Me_titleRandom](#/Me_titleRandom)
-- [Me_title_changeName](#/Me_title_changeName)
 - [我的钱包](#/Me_wallet)
 - [Me_wearEquip](#/Me_wearEquip)
 - [Move](#/Move)
@@ -1147,6 +1149,41 @@ interface Resfishing {
 
 ---
 
+## me
+
+### title
+
+#### 称号改名 <a id="/me/title/Me_title_changeName"></a>
+
+**路径**
+- POST `/me/title/Me_title_changeName`
+
+**请求**
+```ts
+interface ReqMe_title_changeName {
+    /** 修改的名称 */
+    changeName: string,
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResMe_title_changeName {
+    userCfg: { textStyle: 0 | 1 },
+    pay: {
+        state: boolean,
+        condition: {
+            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
+            val: number
+        },
+        now: number
+    }
+}
+```
+
+---
+
 ## minGame
 
 ### MinGame_lottery <a id="/minGame/MinGame_lottery"></a>
@@ -1774,7 +1811,7 @@ interface ResShop_equip {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0,
+        type: 0 | 1,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
@@ -1785,12 +1822,7 @@ interface ResShop_equip {
             MagicDefense: number,
             PhysicalDefense: number,
             secondResHp: number
-        },
-        effect?: {
-            type: 0,
-            val: number,
-            trigger: number
-        }[]
+        }
     },
     /** 刷新的时间 */
     creatorTime: number,
@@ -2419,7 +2451,7 @@ interface ResBag {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0,
+        type: 0 | 1,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
@@ -2430,12 +2462,7 @@ interface ResBag {
             MagicDefense: number,
             PhysicalDefense: number,
             secondResHp: number
-        },
-        effect?: {
-            type: 0,
-            val: number,
-            trigger: number
-        }[]
+        }
     }[],
     userCfg: { textStyle: 0 | 1 }
 }
@@ -2617,7 +2644,7 @@ interface ResMe_Attribute {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0,
+                type: 0 | 1,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
@@ -2628,12 +2655,28 @@ interface ResMe_Attribute {
                     MagicDefense: number,
                     PhysicalDefense: number,
                     secondResHp: number
-                },
-                effect?: {
-                    type: 0,
-                    val: number,
-                    trigger: number
-                }[]
+                }
+            },
+            subWeapon?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    PhysicalAttacks: number,
+                    MagicDefense: number,
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
             }
         },
         title: {
@@ -2738,7 +2781,7 @@ interface ResMe_Attribute {
             /** 品质 */
             quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
             /** 装备类型 */
-            type: 0,
+            type: 0 | 1,
             /** 强化等级 */
             leve: number,
             /** 基础属性 */
@@ -2749,12 +2792,7 @@ interface ResMe_Attribute {
                 MagicDefense: number,
                 PhysicalDefense: number,
                 secondResHp: number
-            },
-            effect?: {
-                type: 0,
-                val: number,
-                trigger: number
-            }[]
+            }
         }[],
         setUp: { textStyle: 0 | 1 },
         pet: {
@@ -2984,7 +3022,7 @@ interface ResMe_equip {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0,
+        type: 0 | 1,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
@@ -2995,12 +3033,7 @@ interface ResMe_equip {
             MagicDefense: number,
             PhysicalDefense: number,
             secondResHp: number
-        },
-        effect?: {
-            type: 0,
-            val: number,
-            trigger: number
-        }[]
+        }
     }[]
 }
 ```
@@ -3031,7 +3064,7 @@ interface ResMe_lookBag {
     /** 品质 */
     quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
     /** 装备类型 */
-    type: 0,
+    type: 0 | 1,
     /** 强化等级 */
     leve: number,
     /** 基础属性 */
@@ -3042,12 +3075,7 @@ interface ResMe_lookBag {
         MagicDefense: number,
         PhysicalDefense: number,
         secondResHp: number
-    },
-    effect?: {
-        type: 0,
-        val: number,
-        trigger: number
-    }[]
+    }
 }
 ```
 
@@ -3141,7 +3169,7 @@ interface ResMe_skill {
 ```ts
 interface ReqMe_strengthen {
     userId: string,
-    strengthenType: 0
+    strengthenType: 0 | 1
 }
 ```
 
@@ -3157,7 +3185,7 @@ interface ResMe_strengthen {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0,
+        type: 0 | 1,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
@@ -3168,12 +3196,7 @@ interface ResMe_strengthen {
             MagicDefense: number,
             PhysicalDefense: number,
             secondResHp: number
-        },
-        effect?: {
-            type: 0,
-            val: number,
-            trigger: number
-        }[]
+        }
     },
     nowEquip: {
         icon: string,
@@ -3183,7 +3206,7 @@ interface ResMe_strengthen {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0,
+        type: 0 | 1,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
@@ -3194,12 +3217,7 @@ interface ResMe_strengthen {
             MagicDefense: number,
             PhysicalDefense: number,
             secondResHp: number
-        },
-        effect?: {
-            type: 0,
-            val: number,
-            trigger: number
-        }[]
+        }
     },
     pay: {
         state: boolean,
@@ -3295,36 +3313,6 @@ interface ResMe_titleRandom {
         MagicDefense: number,
         PhysicalDefense: number,
         secondResHp: number
-    }
-}
-```
-
----
-
-## Me_title_changeName <a id="/Me_title_changeName"></a>
-
-**路径**
-- POST `/Me_title_changeName`
-
-**请求**
-```ts
-interface ReqMe_title_changeName {
-    changeName: string,
-    userId: string
-}
-```
-
-**响应**
-```ts
-interface ResMe_title_changeName {
-    userCfg: { textStyle: 0 | 1 },
-    pay: {
-        state: boolean,
-        condition: {
-            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
-            val: number
-        },
-        now: number
     }
 }
 ```
@@ -3463,7 +3451,7 @@ interface ResMove {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0,
+                type: 0 | 1,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
@@ -3474,12 +3462,28 @@ interface ResMove {
                     MagicDefense: number,
                     PhysicalDefense: number,
                     secondResHp: number
-                },
-                effect?: {
-                    type: 0,
-                    val: number,
-                    trigger: number
-                }[]
+                }
+            },
+            subWeapon?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    PhysicalAttacks: number,
+                    MagicDefense: number,
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
             }
         },
         title: {
@@ -3584,7 +3588,7 @@ interface ResMove {
             /** 品质 */
             quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
             /** 装备类型 */
-            type: 0,
+            type: 0 | 1,
             /** 强化等级 */
             leve: number,
             /** 基础属性 */
@@ -3595,12 +3599,7 @@ interface ResMove {
                 MagicDefense: number,
                 PhysicalDefense: number,
                 secondResHp: number
-            },
-            effect?: {
-                type: 0,
-                val: number,
-                trigger: number
-            }[]
+            }
         }[],
         setUp: { textStyle: 0 | 1 },
         pet: {
@@ -3735,7 +3734,7 @@ interface ResPos {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0,
+                type: 0 | 1,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
@@ -3746,12 +3745,28 @@ interface ResPos {
                     MagicDefense: number,
                     PhysicalDefense: number,
                     secondResHp: number
-                },
-                effect?: {
-                    type: 0,
-                    val: number,
-                    trigger: number
-                }[]
+                }
+            },
+            subWeapon?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    PhysicalAttacks: number,
+                    MagicDefense: number,
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
             }
         },
         title: {
@@ -3856,7 +3871,7 @@ interface ResPos {
             /** 品质 */
             quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
             /** 装备类型 */
-            type: 0,
+            type: 0 | 1,
             /** 强化等级 */
             leve: number,
             /** 基础属性 */
@@ -3867,12 +3882,7 @@ interface ResPos {
                 MagicDefense: number,
                 PhysicalDefense: number,
                 secondResHp: number
-            },
-            effect?: {
-                type: 0,
-                val: number,
-                trigger: number
-            }[]
+            }
         }[],
         setUp: { textStyle: 0 | 1 },
         pet: {

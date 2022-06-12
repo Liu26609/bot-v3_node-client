@@ -33,7 +33,7 @@ export class everDayTask extends task_base {
                 str = `[签到]签什么到，钓鱼去！`
                 break;
             case TaskId.BackShop_look:
-                str = `[黑市]不正当的PY商店`
+                str = `[黑市商店]不正当的PY商店`
                 break;
             case TaskId.EquipShop_look:
                 str = `[装备商店]查看装备商店`

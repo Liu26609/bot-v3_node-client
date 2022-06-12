@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EQUIP_TYPE_CN = exports.EQUIP_TYPE = exports.EQUIP_QUALITY_CN = exports.EQUIP_QUALITY = exports.EQUIP_EFFECT = void 0;
-var EQUIP_EFFECT;
-(function (EQUIP_EFFECT) {
-    /**
-     * 每次攻击增加val点经验
-     */
-    EQUIP_EFFECT[EQUIP_EFFECT["attack_addExp"] = 0] = "attack_addExp";
-})(EQUIP_EFFECT = exports.EQUIP_EFFECT || (exports.EQUIP_EFFECT = {}));
+exports.EQUIP_TYPE_CN = exports.EQUIP_TYPE = exports.EQUIP_QUALITY_CN = exports.EQUIP_QUALITY = void 0;
 /**
  * 装备品质
  */
@@ -43,11 +36,16 @@ var EQUIP_TYPE;
      * 武器
      */
     EQUIP_TYPE[EQUIP_TYPE["weapons"] = 0] = "weapons";
+    /**
+     * 副武器
+     */
+    EQUIP_TYPE[EQUIP_TYPE["subWeapon"] = 1] = "subWeapon";
 })(EQUIP_TYPE = exports.EQUIP_TYPE || (exports.EQUIP_TYPE = {}));
 var EQUIP_TYPE_CN;
 (function (EQUIP_TYPE_CN) {
     /**
      * 武器
      */
-    EQUIP_TYPE_CN["weapons"] = "\u6B66\u5668";
+    EQUIP_TYPE_CN["weapons"] = "\u4E3B\u6B66\u5668";
+    EQUIP_TYPE_CN["subWeapon"] = "\u526F\u6B66\u5668";
 })(EQUIP_TYPE_CN = exports.EQUIP_TYPE_CN || (exports.EQUIP_TYPE_CN = {}));

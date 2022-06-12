@@ -14,6 +14,7 @@ export interface body extends BASE_BODYS {
     },
     equip: {
         weapons?: equip,
+        subWeapon?:equip
     },
     title: {
         name: string,

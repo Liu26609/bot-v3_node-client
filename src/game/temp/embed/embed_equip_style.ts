@@ -1,4 +1,4 @@
-import { equip, EQUIP_EFFECT, EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
+import { equip, EQUIP_QUALITY, EQUIP_QUALITY_CN, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
 import bot from "../../../unity/bot";
 import gameCfg from "../../gameCfg";
 import { embed_style } from "./embed";
@@ -19,7 +19,6 @@ export class embed_equip_style {
         const quality = this.equipData.quality;
         const type = this.equipData.type;
         const attribute = this.equipData.base_attribute;
-        const effect = this.equipData.effect;
         const iconId = this.equipData.icon;
         let temp = new embed_style();
         temp.setTips('装备属性')
@@ -35,21 +34,6 @@ export class embed_equip_style {
         temp.addLine(`魔法防御+${attribute.MagicDefense}`)
         temp.addLine(`每秒回血+${attribute.secondResHp}`)
         await temp.sendMsg(channelId)
-        if (effect) {
-            let temp2 = new embed_style();
-            temp2.setTitle('￣￣￣￣＼特殊效果／￣￣￣￣')
-            effect.forEach(effectItem => {
-                switch (effectItem.type) {
-                    case EQUIP_EFFECT.attack_addExp:
-                        temp2.addLine(`┏每次攻击增加${effectItem.val}经验⏳`);
-                        temp2.addLine(`┗已触发:${effectItem.trigger}次`);
-                        break;
-                    default:
-                        break;
-                }
-            });
-            temp2.sendMsg(channelId)
-        }
 
     }
 }

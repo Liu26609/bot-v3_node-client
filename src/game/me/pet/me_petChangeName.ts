@@ -25,7 +25,7 @@ export class me_petChangeName extends task_base{
         }
         let text = new text_length()
         if(text.getlength(name) > 4){
-            bot.sendText(this.channel_id,`要修改的名字太长辣！`)
+            bot.sendText(this.channel_id,`要修改的名字太长了！`)
             return;
         }
         let req = await sever.callApi('pet/Me_petChangeName',{userId:this.userId,index:index,name:name})

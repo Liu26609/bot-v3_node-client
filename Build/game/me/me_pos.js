@@ -52,7 +52,7 @@ class me_pos extends task_base_1.task_base {
                 temp += `在这里发现了一个湖泊，你可以发送[钓鱼]试试\n`;
             }
             if (data.player.length + data.enemy.length > 1) {
-                temp += `┄════🧐发现敌人═══━┄\n`;
+                temp += `┄════<emoji:325>发现敌人═══━┄\n`;
                 for (let index = 0; index < data.player.length; index++) {
                     const body = data.player[index];
                     const id = body.id;
@@ -73,7 +73,7 @@ class me_pos extends task_base_1.task_base {
                     }
                     const name = body.name;
                     const leve = body.leve;
-                    temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}<emoji:67>${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
+                    temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}♥️${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
                 }
             }
             if (data.chest.length > 0) {

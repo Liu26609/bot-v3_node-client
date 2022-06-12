@@ -34,7 +34,7 @@ export class me_attribute extends task_base {
             temp.addLine(`👑血统${ancestryLeve[data.ancestry.leve]}级${data.ancestry.title}`)
             temp.addLine(`🔥等级:${data.body.leve}`)
             temp.addLine(`⏳经验:${common.BN(data.body.exp)}/${common.BN(data.body.exp_max)}`)
-            temp.addLine(`⚜️声望值:${data.body.rankscore}`)
+            temp.addLine(`⚜️声望值:${common.BN(data.body.rankscore)}`)
             temp.addLine(`♥️生命:${common.BN(data.body.hp)}/${common.BN(out_attribute.hp_max)}`)
             temp.addLine(`🔮魔法攻击:${common.BN(out_attribute.MagicAttack)}`)
             temp.addLine(`🌟魔法防御:${common.BN(out_attribute.MagicDefense)}`)

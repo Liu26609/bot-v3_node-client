@@ -18,6 +18,7 @@ const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
 const user_1 = require("../../shared/game/user");
+const text_length_1 = require("../../unity/text_length");
 class me_titleChangeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -30,16 +31,16 @@ class me_titleChangeName extends task_base_1.task_base {
                 this.menu();
                 return;
             }
-            // let text = new text_length()
-            // if(text.getlength(changeName) > 6){
-            //     bot.sendText(this.channel_id,`要修改的名字太长辣！`)
-            //     return;
-            // }
-            if (changeName.length > 6) {
-                bot_1.default.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~');
+            let text = new text_length_1.text_length();
+            if (text.getlength(changeName) > 6) {
+                bot_1.default.sendText(this.channel_id, `要修改的名字太长辣！`);
                 return;
             }
-            let req = yield sever_1.default.callApi('Me_title_changeName', { userId: this.userId, changeName: changeName });
+            // if (changeName.length > 6) {
+            //     bot.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~')
+            //     return;
+            // }
+            let req = yield sever_1.default.callApi('me/title/Me_title_changeName', { userId: this.userId, changeName: changeName });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;

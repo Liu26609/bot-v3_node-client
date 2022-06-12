@@ -32,18 +32,40 @@ class me_equip extends task_base_1.task_base {
                 return;
             }
             let data = res.res;
+            const attrArry = [
+                { key: 'hp_max', icon: '♥️' },
+                { key: 'secondResHp', icon: '💖' },
+                { key: 'MagicDefense', icon: '🌟' },
+                { key: 'MagicAttack', icon: '🔮' },
+                { key: 'PhysicalAttacks', icon: '🔪' },
+                { key: 'PhysicalDefense', icon: '🔰' },
+            ];
             let temp = `┏┄════👑我的装备═══━┄\n`;
             if (data.equipList.length > 0) {
                 data.equipList.forEach(info => {
-                    var _a;
                     temp += `╔[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[info.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[info.quality]]})${info.name}+${info.leve}\n`;
-                    temp += `♥️+${common_1.default.BN(common_1.default.converEquipattribute(info, `hp_max`))}💖+${common_1.default.BN(common_1.default.converEquipattribute(info, `secondResHp`))}🌟+${common_1.default.BN(common_1.default.converEquipattribute(info, `MagicDefense`))}\n`;
-                    temp += `🔮+${common_1.default.BN(common_1.default.converEquipattribute(info, `MagicAttack`))}🔪+${common_1.default.BN(common_1.default.converEquipattribute(info, `PhysicalAttacks`))}🔰+${common_1.default.BN(common_1.default.converEquipattribute(info, `PhysicalDefense`))}\n`;
-                    temp += `╚攻击特效:${((_a = info.effect) === null || _a === void 0 ? void 0 : _a.length) || 0}条\n`;
+                    let showCont = 0;
+                    for (let index = 0; index < attrArry.length; index++) {
+                        const attr = attrArry[index];
+                        const val = common_1.default.converEquipattribute(info, attr.key);
+                        if (val <= 0) {
+                            if (index == attrArry.length - 1) {
+                                temp += '\n';
+                            }
+                            continue;
+                        }
+                        showCont += 1;
+                        temp += `${attr.icon}${common_1.default.BN(val)}`;
+                        if (showCont % 3 == 0) {
+                            temp += '\n';
+                        }
+                    }
+                    // temp += `♥️${common.BN(common.converEquipattribute(info, `hp_max`))}💖${common.BN(common.converEquipattribute(info, `secondResHp`))}🌟${common.BN(common.converEquipattribute(info, `MagicDefense`))}\n`
+                    // temp += `🔮${common.BN(common.converEquipattribute(info, `MagicAttack`))}🔪${common.BN(common.converEquipattribute(info, `PhysicalAttacks`))}🔰${common.BN(common.converEquipattribute(info, `PhysicalDefense`))}\n`;
                 });
             }
             else {
-                temp += `┣你好像一件装备都没有穿上哦\n`;
+                temp += `┣你好像一件装备都没有穿上哦，看看[背包]有没有装备呢\n`;
             }
             temp += `┗┄━${this.at()}━┄\n`;
             bot_1.default.sendText(this.channel_id, temp);

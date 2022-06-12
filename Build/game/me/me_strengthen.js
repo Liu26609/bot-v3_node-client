@@ -30,7 +30,6 @@ class me_strengthen extends task_base_1.task_base {
         bot_1.default.sendText(this.channel_id, temp);
     }
     render() {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             if (this.content == this.matchKey) {
                 this.menu();
@@ -41,6 +40,9 @@ class me_strengthen extends task_base_1.task_base {
             switch (strengthenStr) {
                 case equip_1.EQUIP_TYPE_CN.weapons:
                     strengthenType = equip_1.EQUIP_TYPE.weapons;
+                    break;
+                case equip_1.EQUIP_TYPE_CN.subWeapon:
+                    strengthenType = equip_1.EQUIP_TYPE.subWeapon;
                     break;
                 default:
                     break;
@@ -69,7 +71,7 @@ class me_strengthen extends task_base_1.task_base {
                 temp += `🔪物理攻击${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalAttacks`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalAttacks`))}\n`;
                 temp += `🔰物理防御${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalDefense`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalDefense`))}\n`;
                 temp += `💖每秒回复${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalDefense`))}➡️${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalDefense`))}\n`;
-                temp += `┗攻击特效:${((_a = now.effect) === null || _a === void 0 ? void 0 : _a.length) || 0}条`;
+                temp += `┗══════════┄`;
             }
             else {
                 temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[bf.type]]}](${equip_1.EQUIP_QUALITY_CN[equip_1.EQUIP_QUALITY[bf.quality]]})${bf.name}+${now.leve}\n`;

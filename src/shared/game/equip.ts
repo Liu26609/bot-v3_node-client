@@ -23,15 +23,9 @@ export interface equip {
     /**
      * 基础属性
      */
-    base_attribute: base_attribute,
-    effect?:{type:EQUIP_EFFECT,val:number,trigger:number}[],
+    base_attribute: base_attribute
 }
-export enum EQUIP_EFFECT{
-    /**
-     * 每次攻击增加val点经验
-     */
-    attack_addExp
-}
+
 /**
  * 装备品质
  */
@@ -63,11 +57,16 @@ export enum EQUIP_TYPE {
     /**
      * 武器
      */
-    weapons
+    weapons,
+    /**
+     * 副武器
+     */
+    subWeapon
 }
 export enum EQUIP_TYPE_CN {
     /**
      * 武器
      */
-    weapons='武器'
+    weapons='主武器',
+    subWeapon='副武器'
 }

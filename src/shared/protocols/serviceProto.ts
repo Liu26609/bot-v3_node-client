@@ -14,6 +14,7 @@ import { ReqRank, ResRank } from './battle/PtlRank';
 import { ReqDocile, ResDocile } from './map/PtlDocile';
 import { Reqfishing, Resfishing } from './map/Ptlfishing';
 import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox';
+import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lottery';
 import { MsgCallAll } from './MsgCallAll';
 import { MsgCallAppoint } from './MsgCallAppoint';
@@ -37,7 +38,6 @@ import { ReqMe_openBlindBox, ResMe_openBlindBox } from './PtlMe_openBlindBox';
 import { ReqMe_setUp, ResMe_setUp } from './PtlMe_setUp';
 import { ReqMe_skill, ResMe_skill } from './PtlMe_skill';
 import { ReqMe_strengthen, ResMe_strengthen } from './PtlMe_strengthen';
-import { ReqMe_title_changeName, ResMe_title_changeName } from './PtlMe_title_changeName';
 import { ReqMe_title, ResMe_title } from './PtlMe_title';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './PtlMe_titleRandom';
 import { ReqMe_wallet, ResMe_wallet } from './PtlMe_wallet';
@@ -143,6 +143,10 @@ export interface ServiceType {
             req: ReqOpenMapChestBox,
             res: ResOpenMapChestBox
         },
+        "me/title/Me_title_changeName": {
+            req: ReqMe_title_changeName,
+            res: ResMe_title_changeName
+        },
         "minGame/MinGame_lottery": {
             req: ReqMinGame_lottery,
             res: ResMinGame_lottery
@@ -226,10 +230,6 @@ export interface ServiceType {
         "Me_strengthen": {
             req: ReqMe_strengthen,
             res: ResMe_strengthen
-        },
-        "Me_title_changeName": {
-            req: ReqMe_title_changeName,
-            res: ResMe_title_changeName
         },
         "Me_title": {
             req: ReqMe_title,
@@ -407,7 +407,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 22,
+    "version": 24,
     "services": [
         {
             "id": 0,
@@ -482,6 +482,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 8,
             "name": "map/OpenMapChestBox",
+            "type": "api"
+        },
+        {
+            "id": 90,
+            "name": "me/title/Me_title_changeName",
             "type": "api"
         },
         {
@@ -597,11 +602,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 30,
             "name": "Me_strengthen",
-            "type": "api"
-        },
-        {
-            "id": 31,
-            "name": "Me_title_changeName",
             "type": "api"
         },
         {
@@ -2545,6 +2545,46 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "me/title/PtlMe_title_changeName/ReqMe_title_changeName": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "changeName",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlMe_title_changeName/ResMe_title_changeName": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                }
+            ]
+        },
         "minGame/PtlMinGame_lottery/ReqMinGame_lottery": {
             "type": "Interface",
             "properties": [
@@ -2916,41 +2956,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Reference",
                         "target": "../game/body/base_attribute"
                     }
-                },
-                {
-                    "id": 7,
-                    "name": "effect",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "type",
-                                    "type": {
-                                        "type": "Reference",
-                                        "target": "../game/equip/EQUIP_EFFECT"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 2,
-                                    "name": "trigger",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "optional": true
                 }
             ]
         },
@@ -3005,15 +3010,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 0,
                     "value": 0
-                }
-            ]
-        },
-        "../game/equip/EQUIP_EFFECT": {
-            "type": "Enum",
-            "members": [
+                },
                 {
-                    "id": 0,
-                    "value": 0
+                    "id": 1,
+                    "value": 1
                 }
             ]
         },
@@ -3160,6 +3160,15 @@ export const serviceProto: ServiceProto<ServiceType> = {
                             {
                                 "id": 0,
                                 "name": "weapons",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 1,
+                                "name": "subWeapon",
                                 "type": {
                                     "type": "Reference",
                                     "target": "../game/equip/equip"
@@ -4000,46 +4009,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "isSuccress",
                     "type": {
                         "type": "Boolean"
-                    }
-                }
-            ]
-        },
-        "PtlMe_title_changeName/ReqMe_title_changeName": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "changeName",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlMe_title_changeName/ResMe_title_changeName": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
                     }
                 }
             ]
