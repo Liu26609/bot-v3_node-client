@@ -18,7 +18,7 @@ export class me_petRm extends task_base{
             this.sendErr(req.err)
             return;
         }
-        bot.sendText(this.channel_id,`🧚‍♂️放生成功`)
+        bot.sendText(this.channel_id,`🧚‍♂️你的宠物屁颠屁颠的走了~`)
     }
     menu(){
         let temp = ``;
