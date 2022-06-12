@@ -82,7 +82,7 @@ class common {
     */
     converEquipattribute(e: equip, keys: string) {
         let equipVal = e.base_attribute[keys] as number;
-        let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality, 0.9);
+        let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality + 1, 0.2);
         return val || 0
     }
     /**
