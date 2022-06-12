@@ -19,7 +19,7 @@ export class rank_military_pet extends task_base{
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ神宠排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
-            temp += `${common.getRankStr(index)}${e.icon}${e.name}<emoji:11>${e.val}\n`
+            temp += `${common.getRankStr(index)}${e.icon}${e.name}<emoji:11>${common.BN(e.val,0)}\n`
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ神宠排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
