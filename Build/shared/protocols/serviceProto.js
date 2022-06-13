@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 28,
+    "version": 29,
     "services": [
         {
             "id": 0,
@@ -255,8 +255,18 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 96,
+            "name": "rank/Rank_evil",
+            "type": "api"
+        },
+        {
             "id": 85,
             "name": "rank/Rank_gold",
+            "type": "api"
+        },
+        {
+            "id": 97,
+            "name": "rank/Rank_justice",
             "type": "api"
         },
         {
@@ -4385,6 +4395,30 @@ exports.serviceProto = {
                 }
             ]
         },
+        "rank/PtlRank_evil/ReqRank_evil": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_evil/ResRank_evil": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
         "rank/PtlRank_gold/ReqRank_gold": {
             "type": "Interface",
             "properties": [
@@ -4398,6 +4432,30 @@ exports.serviceProto = {
             ]
         },
         "rank/PtlRank_gold/ResRank_gold": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_justice/ReqRank_justice": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_justice/ResRank_justice": {
             "type": "Interface",
             "extends": [
                 {

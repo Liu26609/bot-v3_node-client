@@ -86,6 +86,21 @@ class common {
         return val || 0
     }
     /**
+     * 数组洗牌算法
+     */
+    randomArry(arr){
+        const newArr = [...arr]
+        const length = newArr.length
+        for (let i = 0; i < length; i++) {
+          const index = Math.floor(Math.random() * length);
+          let temp;
+          temp = newArr[index]
+          newArr[index] = newArr[i]
+          newArr[i] = temp
+        }
+        return newArr
+    }
+    /**
      * 字符串过滤数字无关的值
      * @param str 
      * @returns 

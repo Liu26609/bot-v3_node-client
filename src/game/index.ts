@@ -88,6 +88,8 @@ import { shop_icon_buy } from './shop/shop_icon_buy';
 import { rank_dnaLv } from './rank/rank_dnaLv';
 import { rank_ancestry } from './rank/rank_ancestry';
 import { rank_military } from './rank/rank_military';
+import { rank_evil } from './rank/rank_evil';
+import { rank_justice } from './rank/rank_justice';
 
 enum matchType {
     /**
@@ -118,6 +120,8 @@ export default class game {
         */
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
         this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
+        this.matchMap.set(`红名排行榜`, { action: rank_evil, match: matchType.all })
+        this.matchMap.set(`正义排行榜`, { action: rank_justice, match: matchType.all })
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry, match: matchType.all })
         this.matchMap.set(`战力排行榜`, { action: rank_military, match: matchType.all })
         this.matchMap.set(`宠物战力排行榜`, { action: rank_military_pet, match: matchType.all })
@@ -258,10 +262,10 @@ export default class game {
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
 
-        // if(data.author.id != '14139673525601401123'){
-        //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
-        //     return;
-        // }
+        if(data.author.id != '14139673525601401123'){
+            bot.sendText(data.channel_id,`你没有权限测试此机器人`)
+            return;
+        }
         
         const userId = data.author.id;
         const userIcon = data.author.avatar;

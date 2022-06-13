@@ -38,7 +38,8 @@ class text_equip_style {
         const iconId = this.equipData.icon;
         let image = `https://21-1257174510.cos.ap-nanjing.myqcloud.com/temp/equip.png?`;
         // 装备图标
-        image += `imageMogr2/interlace/0/quality/75|watermark/1/image/${base64_safe_1.default.urlEncode(`${gameCfg_1.default.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/220`;
+        // image += `imageMogr2/interlace/0/quality/75|watermark/1/image/${base64_safe.urlEncode(`${gameCfg.cosUrl_http}/equip/test.png`)}/dx/195/dy/228`;
+        image += `imageMogr2/interlace/0/quality/75|watermark/1/image/${base64_safe_1.default.urlEncode(`${gameCfg_1.default.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/228`;
         // 称号
         image += `imageMogr2/thumbnail/!50p|watermark/2/text/${base64_safe_1.default.urlEncode(`${name} +${leve}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
         // 品质
@@ -55,7 +56,8 @@ ${attribute.hp_max}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf'
     sendMsg(channelId) {
         let url = this.getTemp();
         bot_1.default.sendImage(channelId, url);
-        bot_1.default.sendText(channelId, this.equipData.story);
+        if (this.equipData.story.length > 0)
+            bot_1.default.sendText(channelId, this.equipData.story);
     }
 }
 exports.text_equip_style = text_equip_style;
