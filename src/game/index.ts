@@ -262,6 +262,7 @@ export default class game {
             bot.sendText(data.channel_id,`你没有权限测试此机器人`)
             return;
         }
+        
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;

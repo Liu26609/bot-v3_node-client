@@ -1,4 +1,3 @@
-import { rewardKey, rewardKey_CN } from '../../../shared/game/prop';
 import { walletKey_CN, walletKey } from '../../../shared/game/user';
 import bot from '../../../unity/bot';
 import sever from '../../../unity/sever';
