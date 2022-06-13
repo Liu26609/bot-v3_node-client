@@ -54,7 +54,6 @@ export interface body extends BASE_BODYS {
      * 签到数据
      */
     sign: USER_SIGN,
-
     task: {
         /**
          * 阶梯计划任务等级

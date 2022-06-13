@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SKILL_UNITY = exports.SKILL_ACTIVE_RES_TAG = exports.SKILL_ACTIVE_RES_TYPE = exports.SKILL_TYPE = void 0;
+exports.SKILL_UNITY_CN = exports.SKILL_UNITY = exports.SKILL_ACTIVE_RES_TAG = exports.SKILL_ACTIVE_RES_TYPE = exports.SKILL_TYPE = void 0;
 var SKILL_TYPE;
 (function (SKILL_TYPE) {
     /**
@@ -82,3 +82,22 @@ var SKILL_UNITY;
      */
     SKILL_UNITY[SKILL_UNITY["MagicDamage"] = 3] = "MagicDamage";
 })(SKILL_UNITY = exports.SKILL_UNITY || (exports.SKILL_UNITY = {}));
+var SKILL_UNITY_CN;
+(function (SKILL_UNITY_CN) {
+    /**
+     * 无单位
+     */
+    SKILL_UNITY_CN["none"] = "";
+    /**
+     * 次
+     */
+    SKILL_UNITY_CN["second"] = "\u6B21";
+    /**
+     * 物理伤害
+     */
+    SKILL_UNITY_CN["physicalDamage"] = "";
+    /**
+     * 魔法伤害
+     */
+    SKILL_UNITY_CN["MagicDamage"] = "";
+})(SKILL_UNITY_CN = exports.SKILL_UNITY_CN || (exports.SKILL_UNITY_CN = {}));

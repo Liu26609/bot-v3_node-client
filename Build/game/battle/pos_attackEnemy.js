@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pos_attackEnemy = void 0;
-const prop_1 = require("../../shared/game/prop");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
+const battleTemp_1 = require("../temp/text/battleTemp");
 const task_base_1 = require("./../task_base");
 class pos_attackEnemy extends task_base_1.task_base {
     constructor(...a) {
@@ -50,60 +50,18 @@ class pos_attackEnemy extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            console.log(data.kill_log);
             let temp = ``;
-            let battleLog = ['', ''];
-            let battleList = data.log;
-            for (let index = 0; index < battleList.length; index++) {
-                const item = battleList[index];
-                let itemLog = '';
-                itemLog += item.icon + item.name;
-                for (let index = 0; index < item.list.length; index++) {
-                    const free_skill = item.list[index];
-                    itemLog += `│▌${free_skill.name}:${free_skill.val}`;
-                }
-                itemLog += '\n';
-                battleLog[item.group] += itemLog;
-            }
-            let battleConfig = {
-                hurtLog: {
-                    me: true,
-                    enemy: true
-                },
-                killLog: {
-                    open: true,
-                }
-            };
-            if (battleConfig.hurtLog.me) {
-                let hurtLog = '';
-                hurtLog += `┏┄════📄伤害统计═══━┄\n`;
-                hurtLog += `${battleLog[0]}`;
-                hurtLog += `┗┄━${this.at()}━┄`;
-                yield bot_1.default.sendText(this.channel_id, hurtLog);
-            }
-            if (battleConfig.hurtLog.enemy) {
-                let hurtLog = '';
-                hurtLog += `┏┄════🔥敌方统计═══━┄\n`;
-                hurtLog += `${battleLog[1]}`;
-                hurtLog += `┗┄━${this.at()}━┄`;
-                yield bot_1.default.sendText(this.channel_id, hurtLog);
-            }
-            if (battleConfig.killLog.open) {
-                let killLog = '';
-                killLog += `┏┄════🧙战斗过程═══━┄\n`;
-                killLog += `<emoji:147>本次战斗共${data.battleRound}回合\n`;
-                for (let index = 0; index < data.kill_log.length; index++) {
-                    const kill_item = data.kill_log[index];
-                    killLog += `${kill_item.round}回合:${kill_item.body.name}击杀了${kill_item.die_body.name}\n`;
-                }
-                killLog += `┗┄━${this.at()}━┄`;
-                yield bot_1.default.sendText(this.channel_id, killLog);
-            }
+            let battleTemp = new battleTemp_1.text_battleTemp_style().sendData(data);
+            battleTemp.setHurtLotTitle_me(`┏┄════📄伤害统计═══━┄`);
+            battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计═══━┄`);
+            temp += battleTemp.getSkillHurt(0);
+            temp += battleTemp.getSkillHurt(1);
+            temp += `┄════🧙战斗过程═══━┄\n`;
+            temp += `<emoji:187>本次战斗共${data.battleRound}回合\n`;
+            temp += battleTemp.getKillProcess();
             temp += `┏┄════🎁战斗结果═══━┄\n`;
-            if (data.reward.length > 0) {
-                data.reward.forEach(item => {
-                    temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
-                });
+            if (battleTemp.getReward()) {
+                temp += battleTemp.getReward();
             }
             else {
                 temp += `😤这次战斗好像奖励了个寂寞`;

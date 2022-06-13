@@ -93,6 +93,25 @@ export enum SKILL_UNITY{
      * 魔法伤害
      */
     MagicDamage,
+    
+}
+export enum SKILL_UNITY_CN{
+    /**
+     * 无单位
+     */
+    none = '',
+    /**
+     * 次
+     */
+    second = '次',
+    /**
+     * 物理伤害
+     */
+    physicalDamage = '',
+    /**
+     * 魔法伤害
+     */
+    MagicDamage = '',
 
 }
 export interface SKILL_RES {
