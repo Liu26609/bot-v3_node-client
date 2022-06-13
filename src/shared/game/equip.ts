@@ -68,6 +68,20 @@ export enum EQUIP_TYPE {
      */
     medal
 }
+export enum EQUIP_TYPE_ICON {
+    /**
+     * 武器
+     */
+    weapons='🗡️',
+    subWeapon='🛡️',
+    clothes='👕',
+    necklace='🎄',
+    /**
+     * 帽子
+     */
+    hat='🎩',
+    medal='🏅'
+}
 export enum EQUIP_TYPE_CN {
     /**
      * 武器

@@ -46,7 +46,7 @@ class me_bag extends task_base_1.task_base {
             temp += `┏┄👑我的背包(${data.bag.length}/20)━┄\n`;
             for (let index = 0; index < data.bag.length; index++) {
                 const item = data.bag[index];
-                temp += `[${index}](${equip_1.EQUIP_QUALITY[item.quality]})${item.name}+${item.leve}\n`;
+                temp += `[${index}]${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[item.type]]}${item.name}(${equip_1.EQUIP_QUALITY[item.quality]})+${item.leve}\n`;
             }
             temp += `┗┄━${this.at()}━┄\n`;
             let temps = ``;

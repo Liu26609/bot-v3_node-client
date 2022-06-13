@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EQUIP_TYPE_CN = exports.EQUIP_TYPE = exports.EQUIP_QUALITY = void 0;
+exports.EQUIP_TYPE_CN = exports.EQUIP_TYPE_ICON = exports.EQUIP_TYPE = exports.EQUIP_QUALITY = void 0;
 /**
  * 装备品质
  */
@@ -44,6 +44,21 @@ var EQUIP_TYPE;
      */
     EQUIP_TYPE[EQUIP_TYPE["medal"] = 5] = "medal";
 })(EQUIP_TYPE = exports.EQUIP_TYPE || (exports.EQUIP_TYPE = {}));
+var EQUIP_TYPE_ICON;
+(function (EQUIP_TYPE_ICON) {
+    /**
+     * 武器
+     */
+    EQUIP_TYPE_ICON["weapons"] = "\uD83D\uDDE1\uFE0F";
+    EQUIP_TYPE_ICON["subWeapon"] = "\uD83D\uDEE1\uFE0F";
+    EQUIP_TYPE_ICON["clothes"] = "\uD83D\uDC55";
+    EQUIP_TYPE_ICON["necklace"] = "\uD83C\uDF84";
+    /**
+     * 帽子
+     */
+    EQUIP_TYPE_ICON["hat"] = "\uD83C\uDFA9";
+    EQUIP_TYPE_ICON["medal"] = "\uD83C\uDFC5";
+})(EQUIP_TYPE_ICON = exports.EQUIP_TYPE_ICON || (exports.EQUIP_TYPE_ICON = {}));
 var EQUIP_TYPE_CN;
 (function (EQUIP_TYPE_CN) {
     /**
