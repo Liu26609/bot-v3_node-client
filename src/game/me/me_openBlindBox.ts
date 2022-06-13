@@ -31,9 +31,9 @@ export class me_openBlindBox extends task_base {
             })
             return;
         }
-        if (openNum > 1000000000000) {
+        if (openNum > 1000000000000000) {
             this.sendErr({
-                message: '打开盲盒的数字不能超过1万亿',
+                message: '打开盲盒的数字不能超过1000万亿',
                 type: TsrpcErrorType.ApiError
             })
             return;
