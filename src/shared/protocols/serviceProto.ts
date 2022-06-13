@@ -14,6 +14,8 @@ import { ReqRank, ResRank } from './battle/PtlRank';
 import { ReqDocile, ResDocile } from './map/PtlDocile';
 import { Reqfishing, Resfishing } from './map/Ptlfishing';
 import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox';
+import { ReqendAutoPlay, ResendAutoPlay } from './me/autoPlay/PtlendAutoPlay';
+import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPlay';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lottery';
@@ -148,6 +150,14 @@ export interface ServiceType {
         "map/OpenMapChestBox": {
             req: ReqOpenMapChestBox,
             res: ResOpenMapChestBox
+        },
+        "me/autoPlay/endAutoPlay": {
+            req: ReqendAutoPlay,
+            res: ResendAutoPlay
+        },
+        "me/autoPlay/startAutoPlay": {
+            req: ReqstartAutoPlay,
+            res: ResstartAutoPlay
         },
         "me/title/Me_title_changeName": {
             req: ReqMe_title_changeName,
@@ -515,6 +525,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 96,
+            "name": "me/autoPlay/endAutoPlay",
+            "type": "api"
+        },
+        {
+            "id": 97,
+            "name": "me/autoPlay/startAutoPlay",
+            "type": "api"
+        },
+        {
             "id": 90,
             "name": "me/title/Me_title_changeName",
             "type": "api"
@@ -690,7 +710,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 96,
+            "id": 98,
             "name": "rank/Rank_evil",
             "type": "api"
         },
@@ -700,7 +720,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 97,
+            "id": 99,
             "name": "rank/Rank_justice",
             "type": "api"
         },
@@ -2615,6 +2635,80 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlendAutoPlay/ReqendAutoPlay": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlendAutoPlay/ResendAutoPlay": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "me/autoPlay/PtlstartAutoPlay/autoInfo"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlstartAutoPlay/autoInfo": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "startTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "autoLeve",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlstartAutoPlay/ReqstartAutoPlay": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "autoLeve",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlstartAutoPlay/ResstartAutoPlay": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "me/autoPlay/PtlstartAutoPlay/autoInfo"
                     }
                 }
             ]

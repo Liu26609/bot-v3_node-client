@@ -80,6 +80,16 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 96,
+            "name": "me/autoPlay/endAutoPlay",
+            "type": "api"
+        },
+        {
+            "id": 97,
+            "name": "me/autoPlay/startAutoPlay",
+            "type": "api"
+        },
+        {
             "id": 90,
             "name": "me/title/Me_title_changeName",
             "type": "api"
@@ -255,7 +265,7 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 96,
+            "id": 98,
             "name": "rank/Rank_evil",
             "type": "api"
         },
@@ -265,7 +275,7 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 97,
+            "id": 99,
             "name": "rank/Rank_justice",
             "type": "api"
         },
@@ -2180,6 +2190,80 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlendAutoPlay/ReqendAutoPlay": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlendAutoPlay/ResendAutoPlay": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "me/autoPlay/PtlstartAutoPlay/autoInfo"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlstartAutoPlay/autoInfo": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "startTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "autoLeve",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlstartAutoPlay/ReqstartAutoPlay": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "autoLeve",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/autoPlay/PtlstartAutoPlay/ResstartAutoPlay": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "me/autoPlay/PtlstartAutoPlay/autoInfo"
                     }
                 }
             ]

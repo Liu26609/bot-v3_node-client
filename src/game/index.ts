@@ -90,6 +90,7 @@ import { rank_ancestry } from './rank/rank_ancestry';
 import { rank_military } from './rank/rank_military';
 import { rank_evil } from './rank/rank_evil';
 import { rank_justice } from './rank/rank_justice';
+import { me_AutoPlay } from './me/autoPlay/me_AutoPlay';
 
 enum matchType {
     /**
@@ -142,7 +143,7 @@ export default class game {
         this.matchMap.set('镜像挑战', { action: challenge_image, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
         this.matchMap.set('阶梯计划', { action: soaringTask, match: matchType.all })
-
+        this.matchMap.set('挂机', { action: me_AutoPlay, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
@@ -262,10 +263,10 @@ export default class game {
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
 
-        if(data.author.id != '14139673525601401123'){
-            bot.sendText(data.channel_id,`你没有权限测试此机器人`)
-            return;
-        }
+        // if(data.author.id != '14139673525601401123'){
+        //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
+        //     return;
+        // }
         
         const userId = data.author.id;
         const userIcon = data.author.avatar;

@@ -102,6 +102,7 @@ const rank_ancestry_1 = require("./rank/rank_ancestry");
 const rank_military_1 = require("./rank/rank_military");
 const rank_evil_1 = require("./rank/rank_evil");
 const rank_justice_1 = require("./rank/rank_justice");
+const me_AutoPlay_1 = require("./me/autoPlay/me_AutoPlay");
 var matchType;
 (function (matchType) {
     /**
@@ -147,6 +148,7 @@ class game {
         this.matchMap.set('镜像挑战', { action: challenge_image_1.challenge_image, match: matchType.match });
         this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
         this.matchMap.set('阶梯计划', { action: soaringTask_1.soaringTask, match: matchType.all });
+        this.matchMap.set('挂机', { action: me_AutoPlay_1.me_AutoPlay, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
         this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
@@ -258,10 +260,10 @@ class game {
             //     return;
             // }
             (0, __1.log)('收到消息', data.channel_id, data.author.username, data.content);
-            if (data.author.id != '14139673525601401123') {
-                bot_1.default.sendText(data.channel_id, `你没有权限测试此机器人`);
-                return;
-            }
+            // if(data.author.id != '14139673525601401123'){
+            //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
+            //     return;
+            // }
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;
