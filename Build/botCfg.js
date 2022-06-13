@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const qq_guild_bot_1 = require("qq-guild-bot");
 exports.default = {
-    apiUrl: 'http://81.68.240.214:8080',
-    wsUrl: 'http://81.68.240.214:3000',
-    // apiUrl:'http://127.0.0.1:8080',
-    // wsUrl:'http://127.0.0.1:3000',
+    // apiUrl:'http://81.68.240.214:8080',
+    // wsUrl:'http://81.68.240.214:3000',
+    apiUrl: 'http://127.0.0.1:8080',
+    wsUrl: 'http://127.0.0.1:3000',
     // shards: [0, 1],
     // appID: '101983837', // ID
     // token: 'KRT0MyhsrJ4YGQXSyzAJiOJti58K982N', // token

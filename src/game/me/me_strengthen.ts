@@ -31,6 +31,18 @@ export class me_strengthen extends task_base {
             case EQUIP_TYPE_CN.subWeapon:
                 strengthenType = EQUIP_TYPE.subWeapon;
                 break;
+            case EQUIP_TYPE_CN.clothes:
+                strengthenType = EQUIP_TYPE.clothes;
+                break;
+            case EQUIP_TYPE_CN.hat:
+                strengthenType = EQUIP_TYPE.hat;
+                break;
+            case EQUIP_TYPE_CN.medal:
+                strengthenType = EQUIP_TYPE.medal;
+                break;
+            case EQUIP_TYPE_CN.necklace:
+                strengthenType = EQUIP_TYPE.necklace;
+                break;
             default:
 
                 break;
@@ -54,12 +66,12 @@ export class me_strengthen extends task_base {
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY[bf.quality]})${bf.name}+${now.leve}\n`;
-            if(common.converEquipattribute(bf, `hp_max`) > 0) temp += `♥️最大生命${common.BN(common.converEquipattribute(bf, `hp_max`))}➡️${common.BN(common.converEquipattribute(now, `hp_max`))}\n`;
-            if(common.converEquipattribute(bf, `MagicAttack`) > 0)temp += `🔮魔法攻击${common.BN(common.converEquipattribute(bf, `MagicAttack`))}➡️${common.BN(common.converEquipattribute(now, `MagicAttack`))}\n`;
-            if(common.converEquipattribute(bf, `MagicDefense`) > 0)temp += `🌟魔法防御${common.BN(common.converEquipattribute(bf, `MagicDefense`))}➡️${common.BN(common.converEquipattribute(now, `MagicDefense`))}\n`;
-            if(common.converEquipattribute(bf, `PhysicalAttacks`) > 0)temp += `🔪物理攻击${common.BN(common.converEquipattribute(bf, `PhysicalAttacks`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalAttacks`))}\n`;
-            if(common.converEquipattribute(bf, `PhysicalDefense`) > 0)temp += `🔰物理防御${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
-            if(common.converEquipattribute(bf, `PhysicalDefense`) > 0)temp += `💖每秒回复${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
+            if (common.converEquipattribute(bf, `hp_max`) > 0) temp += `♥️最大生命${common.BN(common.converEquipattribute(bf, `hp_max`))}➡️${common.BN(common.converEquipattribute(now, `hp_max`))}\n`;
+            if (common.converEquipattribute(bf, `MagicAttack`) > 0) temp += `🔮魔法攻击${common.BN(common.converEquipattribute(bf, `MagicAttack`))}➡️${common.BN(common.converEquipattribute(now, `MagicAttack`))}\n`;
+            if (common.converEquipattribute(bf, `MagicDefense`) > 0) temp += `🌟魔法防御${common.BN(common.converEquipattribute(bf, `MagicDefense`))}➡️${common.BN(common.converEquipattribute(now, `MagicDefense`))}\n`;
+            if (common.converEquipattribute(bf, `PhysicalAttacks`) > 0) temp += `🔪物理攻击${common.BN(common.converEquipattribute(bf, `PhysicalAttacks`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalAttacks`))}\n`;
+            if (common.converEquipattribute(bf, `PhysicalDefense`) > 0) temp += `🔰物理防御${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
+            if (common.converEquipattribute(bf, `PhysicalDefense`) > 0) temp += `💖每秒回复${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
             temp += `┗══════════┄`;
         } else {
             temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY[bf.quality]})${bf.name}+${now.leve}\n`;

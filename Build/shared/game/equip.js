@@ -27,6 +27,22 @@ var EQUIP_TYPE;
      * 副武器
      */
     EQUIP_TYPE[EQUIP_TYPE["subWeapon"] = 1] = "subWeapon";
+    /**
+     * 衣服
+     */
+    EQUIP_TYPE[EQUIP_TYPE["clothes"] = 2] = "clothes";
+    /**
+     * 饰品
+     */
+    EQUIP_TYPE[EQUIP_TYPE["necklace"] = 3] = "necklace";
+    /**
+     * 帽子
+     */
+    EQUIP_TYPE[EQUIP_TYPE["hat"] = 4] = "hat";
+    /**
+     * 勋章
+     */
+    EQUIP_TYPE[EQUIP_TYPE["medal"] = 5] = "medal";
 })(EQUIP_TYPE = exports.EQUIP_TYPE || (exports.EQUIP_TYPE = {}));
 var EQUIP_TYPE_CN;
 (function (EQUIP_TYPE_CN) {
@@ -35,4 +51,11 @@ var EQUIP_TYPE_CN;
      */
     EQUIP_TYPE_CN["weapons"] = "\u4E3B\u6B66\u5668";
     EQUIP_TYPE_CN["subWeapon"] = "\u526F\u6B66\u5668";
+    EQUIP_TYPE_CN["clothes"] = "\u8863\u670D";
+    EQUIP_TYPE_CN["necklace"] = "\u9970\u54C1";
+    /**
+     * 帽子
+     */
+    EQUIP_TYPE_CN["hat"] = "\u5E3D\u5B50";
+    EQUIP_TYPE_CN["medal"] = "\u52CB\u7AE0";
 })(EQUIP_TYPE_CN = exports.EQUIP_TYPE_CN || (exports.EQUIP_TYPE_CN = {}));

@@ -44,6 +44,18 @@ class me_strengthen extends task_base_1.task_base {
                 case equip_1.EQUIP_TYPE_CN.subWeapon:
                     strengthenType = equip_1.EQUIP_TYPE.subWeapon;
                     break;
+                case equip_1.EQUIP_TYPE_CN.clothes:
+                    strengthenType = equip_1.EQUIP_TYPE.clothes;
+                    break;
+                case equip_1.EQUIP_TYPE_CN.hat:
+                    strengthenType = equip_1.EQUIP_TYPE.hat;
+                    break;
+                case equip_1.EQUIP_TYPE_CN.medal:
+                    strengthenType = equip_1.EQUIP_TYPE.medal;
+                    break;
+                case equip_1.EQUIP_TYPE_CN.necklace:
+                    strengthenType = equip_1.EQUIP_TYPE.necklace;
+                    break;
                 default:
                     break;
             }

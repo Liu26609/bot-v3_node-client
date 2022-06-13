@@ -50,12 +50,35 @@ export enum EQUIP_TYPE {
     /**
      * 副武器
      */
-    subWeapon
+    subWeapon,
+    /**
+     * 衣服
+     */
+    clothes,
+    /**
+     * 饰品
+     */
+    necklace,
+    /**
+     * 帽子
+     */
+    hat,
+    /**
+     * 勋章
+     */
+    medal
 }
 export enum EQUIP_TYPE_CN {
     /**
      * 武器
      */
     weapons='主武器',
-    subWeapon='副武器'
+    subWeapon='副武器',
+    clothes='衣服',
+    necklace='饰品',
+    /**
+     * 帽子
+     */
+    hat='帽子',
+    medal='勋章'
 }

@@ -3124,6 +3124,22 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 1,
                     "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
                 }
             ]
         },
@@ -3279,6 +3295,15 @@ export const serviceProto: ServiceProto<ServiceType> = {
                             {
                                 "id": 1,
                                 "name": "subWeapon",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 2,
+                                "name": "clothes",
                                 "type": {
                                     "type": "Reference",
                                     "target": "../game/equip/equip"

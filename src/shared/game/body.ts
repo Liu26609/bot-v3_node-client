@@ -14,7 +14,14 @@ export interface body extends BASE_BODYS {
     },
     equip: {
         weapons?: equip,
-        subWeapon?: equip
+        /**
+         * 副武器
+         */
+        subWeapon?: equip,
+        /**
+         * 衣服
+         */
+        clothes?:equip
     },
     title: {
         name: string,
