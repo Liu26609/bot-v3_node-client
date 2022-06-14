@@ -7,7 +7,11 @@ export class sys_update_code extends task_base {
         this.render()
     }
     async render() {
-        if(this.userId != '14139673525601401123'){
+        let whiteMap = new Map();
+        whiteMap.set('14139673525601401123',1)
+        whiteMap.set('18408854810586198036',2)
+        
+        if(!whiteMap.has(this.userId)){
             this.log('你没有权限更新')
             return;
         }
@@ -41,10 +45,10 @@ export class sys_update_code extends task_base {
                 str = str.replace('commit', '')
                 str = 'commit:' + str;
                 await bot.sendText(this.channel_id, str)
-                this.buildCode()
-                // setTimeout(() => {
-                //     process.exit()
-                // }, 1000)
+                await this.log(`即将开始重启,大约耗时5秒`)
+                setTimeout(() => {
+                    process.exit()
+                }, 3000)
             }
         });
     }
@@ -60,31 +64,6 @@ export class sys_update_code extends task_base {
                 // setTimeout(() => {
                 //     process.exit()
                 // }, 1000)
-            }
-        });
-    }
-    async buildCode() {
-        const argv = process.argv
-        const githref = argv[2]
-        let child_process = require('child_process');
-        child_process.exec(`git pull`, { cwd: githref }, async (error, stdout: string, stderr) => {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            } else {
-                await bot.sendText(this.channel_id, stdout)
-                await this.log(`即将开始重启,大约耗时5秒`)
-
-                // let str = stdout;
-                // let urlStartIndex = str.indexOf('<')
-                // let urlEndIndex = str.indexOf(">");
-                // str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '')
-                // str = str.replace('commit', '')
-                // str = 'commit:' + str;
-                // await bot.sendText(this.channel_id, str)
-                // this.buildCode() 
-                setTimeout(() => {
-                    process.exit()
-                }, 3000)
             }
         });
     }

@@ -22,7 +22,10 @@ class sys_update_code extends task_base_1.task_base {
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            if (this.userId != '14139673525601401123') {
+            let whiteMap = new Map();
+            whiteMap.set('14139673525601401123', 1);
+            whiteMap.set('18408854810586198036', 2);
+            if (!whiteMap.has(this.userId)) {
                 this.log('你没有权限更新');
                 return;
             }
@@ -58,10 +61,10 @@ class sys_update_code extends task_base_1.task_base {
                 str = str.replace('commit', '');
                 str = 'commit:' + str;
                 yield bot_1.default.sendText(this.channel_id, str);
-                this.buildCode();
-                // setTimeout(() => {
-                //     process.exit()
-                // }, 1000)
+                yield this.log(`即将开始重启,大约耗时5秒`);
+                setTimeout(() => {
+                    process.exit();
+                }, 3000);
             }
         }));
     }
@@ -80,33 +83,6 @@ class sys_update_code extends task_base_1.task_base {
                 // }, 1000)
             }
         }));
-    }
-    buildCode() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const argv = process.argv;
-            const githref = argv[2];
-            let child_process = require('child_process');
-            child_process.exec(`git pull`, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
-                if (error !== null) {
-                    console.log('exec error: ' + error);
-                }
-                else {
-                    yield bot_1.default.sendText(this.channel_id, stdout);
-                    yield this.log(`即将开始重启,大约耗时5秒`);
-                    // let str = stdout;
-                    // let urlStartIndex = str.indexOf('<')
-                    // let urlEndIndex = str.indexOf(">");
-                    // str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '')
-                    // str = str.replace('commit', '')
-                    // str = 'commit:' + str;
-                    // await bot.sendText(this.channel_id, str)
-                    // this.buildCode() 
-                    setTimeout(() => {
-                        process.exit();
-                    }, 3000);
-                }
-            }));
-        });
     }
 }
 exports.sys_update_code = sys_update_code;
