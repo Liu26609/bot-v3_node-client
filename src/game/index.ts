@@ -169,7 +169,7 @@ export default class game {
         this.matchMap.set('黑市购买', { action: shop_back_buy, match: matchType.all })
         this.matchMap.set('头像商店', { action: shop_icon, match: matchType.all })
         this.matchMap.set('购买头像', { action: shop_icon_buy, match: matchType.all })
-
+        // 
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
         this.matchMap.set('查看宠物', { action: me_lookPet, match: matchType.match })
