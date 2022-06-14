@@ -22,7 +22,7 @@ class sys_update_code extends task_base_1.task_base {
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.log(`本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息`);
+            yield this.log(`本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...`);
             const argv = process.argv;
             const githref = argv[2];
             let child_process = require('child_process');
@@ -35,25 +35,47 @@ class sys_update_code extends task_base_1.task_base {
             //         // console.log(stdout)
             //     }
             // });
-            child_process.exec(`git log -n 1`, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
-                if (error !== null) {
-                    console.log('exec error: ' + error);
-                }
-                else {
-                    let str = stdout;
-                    let urlStartIndex = str.indexOf('<');
-                    let urlEndIndex = str.indexOf(">");
-                    str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '');
-                    str = str.replace('commit', '');
-                    str = 'commit:' + str;
-                    yield bot_1.default.sendText(this.channel_id, str);
-                    this.buildCode();
-                    // setTimeout(() => {
-                    //     process.exit()
-                    // }, 1000)
-                }
-            }));
+            this.updateCode();
         });
+    }
+    getLog() {
+        const argv = process.argv;
+        const githref = argv[2];
+        let child_process = require('child_process');
+        child_process.exec(`git log -n 1`, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
+            else {
+                let str = stdout;
+                let urlStartIndex = str.indexOf('<');
+                let urlEndIndex = str.indexOf(">");
+                str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '');
+                str = str.replace('commit', '');
+                str = 'commit:' + str;
+                yield bot_1.default.sendText(this.channel_id, str);
+                this.buildCode();
+                // setTimeout(() => {
+                //     process.exit()
+                // }, 1000)
+            }
+        }));
+    }
+    updateCode() {
+        const argv = process.argv;
+        const githref = argv[2];
+        let child_process = require('child_process');
+        child_process.exec(`git pull`, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
+            else {
+                this.getLog();
+                // setTimeout(() => {
+                //     process.exit()
+                // }, 1000)
+            }
+        }));
     }
     buildCode() {
         return __awaiter(this, void 0, void 0, function* () {

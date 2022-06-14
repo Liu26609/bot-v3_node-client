@@ -7,7 +7,7 @@ export class sys_update_code extends task_base {
         this.render()
     }
     async render() {
-        await this.log(`本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息`)
+        await this.log(`本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...`)
         const argv = process.argv
         const githref = argv[2]
         let child_process = require('child_process');
@@ -20,6 +20,12 @@ export class sys_update_code extends task_base {
         //         // console.log(stdout)
         //     }
         // });
+        this.updateCode()
+    }
+    getLog() {
+        const argv = process.argv
+        const githref = argv[2]
+        let child_process = require('child_process');
         child_process.exec(`git log -n 1`, { cwd: githref }, async (error, stdout: string, stderr) => {
             if (error !== null) {
                 console.log('exec error: ' + error);
@@ -32,6 +38,21 @@ export class sys_update_code extends task_base {
                 str = 'commit:' + str;
                 await bot.sendText(this.channel_id, str)
                 this.buildCode()
+                // setTimeout(() => {
+                //     process.exit()
+                // }, 1000)
+            }
+        });
+    }
+    updateCode() {
+        const argv = process.argv
+        const githref = argv[2]
+        let child_process = require('child_process');
+        child_process.exec(`git pull`, { cwd: githref }, async (error, stdout: string, stderr) => {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            } else {
+                this.getLog()
                 // setTimeout(() => {
                 //     process.exit()
                 // }, 1000)
