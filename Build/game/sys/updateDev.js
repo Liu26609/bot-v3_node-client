@@ -27,7 +27,6 @@ class sys_update_code extends task_base_1.task_base {
                 this.log('正在更新中,请勿重复更新');
                 return;
             }
-            isAcitve = true;
             let whiteMap = new Map();
             whiteMap.set('14139673525601401123', 1);
             whiteMap.set('18408854810586198036', 2);
@@ -35,6 +34,7 @@ class sys_update_code extends task_base_1.task_base {
                 this.log('你没有权限更新');
                 return;
             }
+            isAcitve = true;
             yield this.log(`本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...`);
             const argv = process.argv;
             const githref = argv[2];
