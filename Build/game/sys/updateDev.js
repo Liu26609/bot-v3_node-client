@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sys_update_code = void 0;
 const bot_1 = __importDefault(require("../../unity/bot"));
 const task_base_1 = require("./../task_base");
+let isAcitve = false;
 class sys_update_code extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -22,6 +23,11 @@ class sys_update_code extends task_base_1.task_base {
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
+            if (isAcitve) {
+                this.log('正在更新中,请勿重复更新');
+                return;
+            }
+            isAcitve = true;
             let whiteMap = new Map();
             whiteMap.set('14139673525601401123', 1);
             whiteMap.set('18408854810586198036', 2);
