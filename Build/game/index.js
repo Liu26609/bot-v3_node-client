@@ -102,6 +102,7 @@ const rank_military_1 = require("./rank/rank_military");
 const rank_evil_1 = require("./rank/rank_evil");
 const rank_justice_1 = require("./rank/rank_justice");
 const me_AutoPlay_1 = require("./me/autoPlay/me_AutoPlay");
+const updateDev_1 = require("./sys/updateDev");
 var matchType;
 (function (matchType) {
     /**
@@ -123,6 +124,7 @@ class game {
         /**
         * 排行榜指令模块
         */
+        this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
         this.matchMap.set(`签到排行榜`, { action: rank_sign_1.rank_sign, match: matchType.all });
         this.matchMap.set(`红名排行榜`, { action: rank_evil_1.rank_evil, match: matchType.all });
@@ -220,7 +222,7 @@ class game {
     }
     start() {
         bot_1.default.setOnMsg_at((data) => this.atBot(data));
-        this.updateCode();
+        // this.updateCode()
     }
     /**
      * // 收到消息
@@ -326,13 +328,6 @@ class game {
                 // console.log(stdout)
             }
         });
-        // process.exec('npm run build', (error, stdout, stderr) => {
-        //     // if (!error) {
-        //     //     // 成功
-        //     // } else {
-        //     //     // 失败
-        //     // }
-        // }
     }
 }
 exports.default = game;

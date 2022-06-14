@@ -22,6 +22,14 @@ class bot {
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
+        let pack = require('../../package.json');
+        this.locaDev = pack.version;
+    }
+    /**
+     * 获取本地版本号
+     */
+    getDev() {
+        return this.locaDev;
     }
     severId() {
         var _a;

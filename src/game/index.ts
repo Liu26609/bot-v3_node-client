@@ -90,6 +90,7 @@ import { rank_military } from './rank/rank_military';
 import { rank_evil } from './rank/rank_evil';
 import { rank_justice } from './rank/rank_justice';
 import { me_AutoPlay } from './me/autoPlay/me_AutoPlay';
+import { sys_update_code } from './sys/updateDev';
 
 enum matchType {
     /**
@@ -118,6 +119,7 @@ export default class game {
         /**
         * 排行榜指令模块
         */
+        this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
         this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
         this.matchMap.set(`红名排行榜`, { action: rank_evil, match: matchType.all })
@@ -220,7 +222,7 @@ export default class game {
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
-        this.updateCode()
+        // this.updateCode()
 
     }
     /**
@@ -324,22 +326,14 @@ export default class game {
         const argv = process.argv
         const githref = argv[2]
         let child_process = require('child_process');
-        child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, {cwd:githref}, function (error, stdout, stderr) {
+        child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, { cwd: githref }, function (error, stdout, stderr) {
             if (error !== null) {
-              console.log('exec error: ' + error);
-            }else{
-              console.log('????'+ stdout)
-              // console.log(stdout)
+                console.log('exec error: ' + error);
+            } else {
+                console.log('????' + stdout)
+                // console.log(stdout)
             }
         });
-
-        // process.exec('npm run build', (error, stdout, stderr) => {
-        //     // if (!error) {
-        //     //     // 成功
-        //     // } else {
-        //     //     // 失败
-        //     // }
-        // }
     }
     // 客户端刷新单位：秒
     //    update() {

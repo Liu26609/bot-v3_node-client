@@ -13,10 +13,19 @@ class bot {
     private msgIdMap: Map<string, Map<string, BOT_MSGID_MAP>>;//消息id哈希表，子频道ID，消息ID
     private channelMap:Map<string,number>;//子频道ID，上次此频道活跃时间
     private userActiveChannelMap: Map<string, string>;//玩家上次活跃的频道
+    private locaDev:string;
     constructor() {
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
+        let pack = require('../../package.json');
+        this.locaDev =  pack.version;
+    }
+    /**
+     * 获取本地版本号
+     */
+    getDev(){
+        return this.locaDev
     }
     severId() {
         return this.botInfo?.shard[0];
