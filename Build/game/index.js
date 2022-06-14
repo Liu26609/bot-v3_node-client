@@ -244,6 +244,7 @@ class game {
                 yield sever_1.default.HelloWorld();
                 return;
             }
+            yield bot_1.default.sendText(data.channel_id, '当你看到这句话,代表版本更新成功');
             if (data.content == '频道ID') {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
