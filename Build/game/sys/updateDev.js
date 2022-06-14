@@ -65,7 +65,8 @@ class sys_update_code extends task_base_1.task_base {
                     console.log('exec error: ' + error);
                 }
                 else {
-                    console.log(stdout);
+                    yield bot_1.default.sendText(this.channel_id, stdout);
+                    yield this.log(`即将开始重启,大约耗时5秒`);
                     // let str = stdout;
                     // let urlStartIndex = str.indexOf('<')
                     // let urlEndIndex = str.indexOf(">");
@@ -74,9 +75,9 @@ class sys_update_code extends task_base_1.task_base {
                     // str = 'commit:' + str;
                     // await bot.sendText(this.channel_id, str)
                     // this.buildCode() 
-                    // setTimeout(() => {
-                    //     process.exit()
-                    // }, 1000)
+                    setTimeout(() => {
+                        process.exit();
+                    }, 3000);
                 }
             }));
         });
