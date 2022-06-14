@@ -222,7 +222,7 @@ export default class game {
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
-        // this.updateCode()
+        this.updateCode()
 
     }
     /**
@@ -323,17 +323,18 @@ export default class game {
 
     }
     updateCode() {
-        const argv = process.argv
-        const githref = argv[2]
-        let child_process = require('child_process');
-        child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, { cwd: githref }, function (error, stdout, stderr) {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            } else {
-                console.log('????' + stdout)
-                // console.log(stdout)
-            }
-        });
+        let str = `commit ff83cf5ac375db80096607eea04408ec59a86b9c
+Author: 匿名用户 <8797550+ChuXuanD30@user.noreply.gitee.com>
+Date:   Tue Jun 14 14:13:39 2022 +0000
+
+    修复几个BUG新增几个BUG
+    新版本扩展信息`
+
+        let urlStartIndex = str.indexOf('<')
+        let urlEndIndex = str.indexOf(">");
+        str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '')
+        str = str.replace('commit', '')
+        str = 'id:' + str;
     }
     // 客户端刷新单位：秒
     //    update() {
