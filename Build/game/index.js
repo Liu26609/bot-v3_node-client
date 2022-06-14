@@ -123,6 +123,7 @@ class game {
     initKeyMap() {
         /**
         * 排行榜指令模块
+        *
         */
         this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });

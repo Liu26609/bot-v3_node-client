@@ -118,6 +118,7 @@ export default class game {
     private initKeyMap() {
         /**
         * 排行榜指令模块
+        * 
         */
         this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
