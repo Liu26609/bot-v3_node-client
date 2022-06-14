@@ -51,7 +51,6 @@ const me_lookBag_1 = require("./me/me_lookBag");
 const me_bag_1 = require("./me/me_bag");
 const me_resLife_1 = require("./me/me_resLife");
 const me_changeName_1 = require("./me/me_changeName");
-const chainTask_1 = require("./sys/chainTask");
 const me_wallet_1 = require("./me/me_wallet");
 const pos_attackPlayer_1 = require("./battle/pos_attackPlayer");
 const me_move_1 = require("./me/me_move");
@@ -167,7 +166,6 @@ class game {
         this.matchMap.set('装备商店', { action: shop_equip_1.shop_equip, match: matchType.all });
         this.matchMap.set('购买装备', { action: shop_equip_buy_1.shop_equip_buy, match: matchType.all });
         this.matchMap.set('技能商店', { action: shop_skill_1.shop_skill, match: matchType.all });
-        this.matchMap.set('链式指令', { action: chainTask_1.chainTask, match: matchType.all });
         this.matchMap.set('我的称号', { action: me_title_1.me_title, match: matchType.match });
         this.matchMap.set('重置称号', { action: me_titleRandom_1.me_titleRandom, match: matchType.match });
         this.matchMap.set('购买技能', { action: shop_skill_buy_1.shop_skill_buy, match: matchType.all });
@@ -222,6 +220,7 @@ class game {
     }
     start() {
         bot_1.default.setOnMsg_at((data) => this.atBot(data));
+        this.updateCode();
     }
     /**
      * // 收到消息
@@ -313,6 +312,27 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, temp);
             }
         });
+    }
+    updateCode() {
+        const argv = process.argv;
+        const githref = argv[2];
+        let child_process = require('child_process');
+        child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, { cwd: githref }, function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
+            else {
+                console.log('????' + stdout);
+                // console.log(stdout)
+            }
+        });
+        // process.exec('npm run build', (error, stdout, stderr) => {
+        //     // if (!error) {
+        //     //     // 成功
+        //     // } else {
+        //     //     // 失败
+        //     // }
+        // }
     }
 }
 exports.default = game;

@@ -37,7 +37,6 @@ import { me_lookBag } from './me/me_lookBag';
 import { me_bag } from './me/me_bag';
 import { me_resLife } from './me/me_resLife';
 import { me_changeName } from './me/me_changeName';
-import { chainTask } from './sys/chainTask';
 import { me_wallet } from './me/me_wallet';
 import { pos_attackPlayer } from './battle/pos_attackPlayer';
 import { me_move } from './me/me_move';
@@ -162,7 +161,6 @@ export default class game {
         this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
         this.matchMap.set('购买装备', { action: shop_equip_buy, match: matchType.all })
         this.matchMap.set('技能商店', { action: shop_skill, match: matchType.all })
-        this.matchMap.set('链式指令', { action: chainTask, match: matchType.all })
         this.matchMap.set('我的称号', { action: me_title, match: matchType.match })
         this.matchMap.set('重置称号', { action: me_titleRandom, match: matchType.match })
         this.matchMap.set('购买技能', { action: shop_skill_buy, match: matchType.all })
@@ -222,6 +220,7 @@ export default class game {
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
+        this.updateCode()
 
     }
     /**
@@ -267,7 +266,7 @@ export default class game {
         //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
         //     return;
         // }
-        
+
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
@@ -297,7 +296,7 @@ export default class game {
             });
             if (matchList[0].match == 0) {
                 var arr = matchList
-                arr.sort(()=> {
+                arr.sort(() => {
                     return Math.random() - 0.5
                 })
             }
@@ -306,20 +305,41 @@ export default class game {
                 for (let index = 0; index < 10; index++) {
                     temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
                 }
-            }else{
+            } else {
                 for (let index = 0; index < 10; index++) {
-                    if(matchList[index].match > 0){
+                    if (matchList[index].match > 0) {
                         temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
                     }
                 }
             }
-            
+
             temp += `┗┄━══════════━┄`
 
             await bot.sendText(data.channel_id, temp)
         }
 
 
+    }
+    updateCode() {
+        const argv = process.argv
+        const githref = argv[2]
+        let child_process = require('child_process');
+        child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, {cwd:githref}, function (error, stdout, stderr) {
+            if (error !== null) {
+              console.log('exec error: ' + error);
+            }else{
+              console.log('????'+ stdout)
+              // console.log(stdout)
+            }
+        });
+
+        // process.exec('npm run build', (error, stdout, stderr) => {
+        //     // if (!error) {
+        //     //     // 成功
+        //     // } else {
+        //     //     // 失败
+        //     // }
+        // }
     }
     // 客户端刷新单位：秒
     //    update() {
