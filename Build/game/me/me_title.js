@@ -34,7 +34,7 @@ class me_title extends task_base_1.task_base {
             temp += `⚜️等级：LV.${data.title.leve}(${data.title.exp}/${data.title.exp_max})\n`;
             temp += `${data.title.name}\n`;
             if (data.title.todayGetExp > 0) {
-                temp += `🔓今日可获得经验:${data.title.todayGetExp}\n`;
+                temp += `🔐今日可获得经验:${data.title.todayGetExp}\n`;
             }
             else {
                 temp += `🔒今日称号可获得经验已达上限\n`;

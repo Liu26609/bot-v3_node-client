@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_wearEquip = void 0;
-const tsrpc_1 = require("tsrpc");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -26,38 +25,23 @@ class me_wearEquip extends task_base_1.task_base {
         return __awaiter(this, void 0, void 0, function* () {
             let wearIndex = this.content.replace(this.matchKey, '');
             if (wearIndex == '') {
-                this.sendErr({
-                    message: '需要装备的id不能为空',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要装备的ID不能为空');
                 return;
             }
             if (isNaN(Number(wearIndex))) {
-                this.sendErr({
-                    message: '需要装备的id只能是数字',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要装备的ID只能是数字');
                 return;
             }
             if (Number(wearIndex) < 0) {
-                this.sendErr({
-                    message: '需要装备的id不能是负数',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要装备的ID不能是负数');
                 return;
             }
             if (Math.ceil(Number(wearIndex)) != Number(wearIndex)) {
-                this.sendErr({
-                    message: '需要装备的id不能是小数点',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要装备的ID不能是小数点');
                 return;
             }
             if (Number(wearIndex) > 100) {
-                this.sendErr({
-                    message: '需要装备的的id太大了',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要装备的的ID太大了');
                 return;
             }
             let req = yield sever_1.default.callApi('Me_wearEquip', { userId: this.userId, wearIndex: Number(wearIndex) });

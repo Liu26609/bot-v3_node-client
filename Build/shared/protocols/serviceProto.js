@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 29,
+    "version": 30,
     "services": [
         {
             "id": 0,
@@ -2973,6 +2973,33 @@ exports.serviceProto = {
                             {
                                 "id": 2,
                                 "name": "clothes",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 3,
+                                "name": "necklace",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 4,
+                                "name": "hat",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 5,
+                                "name": "medal",
                                 "type": {
                                     "type": "Reference",
                                     "target": "../game/equip/equip"

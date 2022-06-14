@@ -23,17 +23,16 @@ export class shop_back_buy extends task_base{
         if(data.userCfg.textStyle == textStyle.text){
             let temp = ``;
             temp += `┏┄════🕊️购买成功═══━┄\n`
-            temp += `┣商品已交易成功，祝您购物愉快~\n`
-            temp += `┣┄════🏧钱包变化═══━┄\n`
-            temp += `┣🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `┣▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `🎫商品已交易成功，祝您购物愉快~\n`
+            temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━${this.at()}━┄\n`;
             bot.sendText(this.channel_id,temp);
         }else if(data.userCfg.textStyle == textStyle.card){
             let temps = new embed_style();
             temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
-            temps.setTips('商品已交易成功，祝您购物愉快~')
+            temps.setTips('🎫商品已交易成功，祝您购物愉快~')
             temps.addLine(`<emoji:147>商品已交易成功，祝您购物愉快~`)
             temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)

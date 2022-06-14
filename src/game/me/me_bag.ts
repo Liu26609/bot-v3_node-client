@@ -9,9 +9,10 @@ export class me_bag extends task_base {
     }
     async bagNull(){
         let temps = ``;
-        temps += `<emoji:147>你的背包空空如也。\n`;
+        temps += `你的背包空空如也。\n`;
         temps += `[装备商店]也许有合适的装备哦`;
-        await bot.sendText(this.channel_id, temps);
+        temps += `[拍卖行]看看拍卖行有没有在卖装备`;
+        this.log(temps)
     }
     async render() {
         let req = await sever.callApi('Bag', { userId: this.userId });

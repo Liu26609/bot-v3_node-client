@@ -35,10 +35,10 @@ class me_sign extends task_base_1.task_base {
     succressSign(data) {
         switch (data.userCfg.textStyle) {
             case setUp_1.textStyle.text:
-                let temp = `┏┄════💌签到成功══━┄\n`;
-                temp += `已签到:${data.cont}次\n`;
+                let temp = `┏┄═💌签到成功━┄\n`;
+                temp += `💌已签到:${data.cont}次\n`;
                 if (data.reward.length > 0) {
-                    temp += `签到奖励:`;
+                    temp += `<emoji:147>签到奖励:`;
                     data.reward.forEach(item => {
                         temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
                     });
@@ -64,7 +64,7 @@ class me_sign extends task_base_1.task_base {
     repeatSign(data) {
         switch (data.userCfg.textStyle) {
             case setUp_1.textStyle.text:
-                let temp = `┏┄════💌签到重复══━┄
+                let temp = `┏┄═💌签到重复━┄
 累计签到:${data.cont}
 <emoji:147>今天已经签到过了
 ┗┄━${this.at()}━┄
@@ -74,7 +74,7 @@ class me_sign extends task_base_1.task_base {
             case setUp_1.textStyle.card:
                 let embed = new embed_1.embed_style();
                 embed.setTitle(`💌签到重复`);
-                embed.setTips('重复签到辣！');
+                embed.setTips('重复签到了~');
                 embed.setIcon(this.userIcon);
                 embed.addLine(`已签到:${data.cont}次`);
                 embed.addLine(`签收人:${this.userName}`);

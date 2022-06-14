@@ -13,38 +13,23 @@ export class me_lookBag extends task_base {
     async render() {
         let lookIndex = this.content.replace(this.matchKey, '');
         if (lookIndex == '') {
-            this.sendErr({
-                message: '查看背包装备id不能为空',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`查看背包装备ID不能为空`)
             return;
         }
         if (isNaN(Number(lookIndex))) {
-            this.sendErr({
-                message: '查看背包装备id只能是数字',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`查看背包装备ID只能是数字`)
             return;
         }
         if (Number(lookIndex) < 0) {
-            this.sendErr({
-                message: '查看背包装备id不能是负数',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`查看背包装备ID不能是负数`)
             return;
         }
         if (Math.ceil(Number(lookIndex)) != Number(lookIndex)) {
-            this.sendErr({
-                message: '查看背包装备id不能是小数点',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`查看背包装备ID不能是小数点`)
             return;
         }
         if (Number(lookIndex) > 100) {
-            this.sendErr({
-                message: '查看背包装备的id太大了',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`查看背包装备的ID太大了`)
             return;
         }
         let req = await sever.callApi('Me_lookBag', { userId: this.userId, lookId: Number(lookIndex) })

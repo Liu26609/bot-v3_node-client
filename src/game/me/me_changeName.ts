@@ -14,12 +14,12 @@ export class me_changeName extends task_base {
         super(...a)
         this.render()
     }
-    menu(){
+    menu() {
         new text_example_style().setCommand('改名指令：改名 + 你的名字').setExample('改名张三').sendMsg(this.channel_id)
     }
     async render() {
         let changeName = this.content.replace(this.matchKey, '');
-        if(this.content == this.matchKey){
+        if (this.content == this.matchKey) {
             this.menu()
             return;
         }
@@ -31,46 +31,38 @@ export class me_changeName extends task_base {
             return;
         }
         let text = new text_length()
-        if(text.getlength(changeName) > 6){
-            bot.sendText(this.channel_id,`要修改的名字太长辣！`)
+        if (text.getlength(changeName) > 6) {
+            bot.sendText(this.channel_id, `要修改的名字太长辣！`)
             return;
         }
 
-        let req = await sever.callApi('Me_changeName',{userId:this.userId,changeName:changeName});
-        if(req.err){
+        let req = await sever.callApi('Me_changeName', { userId: this.userId, changeName: changeName });
+        if (req.err) {
             this.sendErr(req.err)
             return;
         }
         let data = req.res;
-        if(data.userCfg.textStyle == textStyle.text){
+        if (data.userCfg.textStyle == textStyle.text) {
             let temp = ``;
-            temp += `┏┄════🕊️改名成功═══━┄\n`
-            temp += `┣改头换面，开始了全新的生活~\n`
-            temp += `┣┄════🧸之前名称═══━┄\n`
-            temp += `┣🧹${data.lastName}\n`;
-            temp += `┣┄════🎋新的名称═══━┄\n`
-            temp += `┣🆕${data.newName}\n`;
-            temp += `┣┄════🏧钱包变化═══━┄\n`
-            temp += `┣🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `┣▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+            temp += `┏┄════<emoji:269>改名成功═══━┄\n`
+            temp += `<emoji:322>改名前:${data.lastName}\n`;
+            temp += `<emoji:301>改名后:${data.newName}\n`;
+            temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+            temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━${this.at()}━┄\n`;
-            bot.sendText(this.channel_id,temp);
-        }else if(data.userCfg.textStyle == textStyle.card){
+            bot.sendText(this.channel_id, temp);
+        } else if (data.userCfg.textStyle == textStyle.card) {
             let temps = new embed_style();
-            temps.setTitle('￣￣￣＼🕊️改名成功／￣￣￣')
+            temps.setTitle('┏┄════<emoji:269>改名成功═══━┄')
             temps.setIcon(this.userIcon);
-            temps.setTips('改名成功辣！')
-            temps.addLine(`改头换面，开始了全新的生活~`)
-            temps.addLine(`￣￣￣＼🧸之前名称／￣￣￣`)
-            temps.addLine(`🧹${data.lastName}`)
-            temps.addLine(`￣￣￣＼🎋新的名称／￣￣￣`)
-            temps.addLine(`🆕${data.newName}`)
-            temps.addLine(`￣￣￣＼🏧钱包变化／￣￣￣`)
+            temps.setTips('改名成功！')
+            temps.addLine(`改名前:${data.lastName}`)
+            temps.addLine(`改名后:${data.newName}`)
             temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)
         }
-        
+
 
     }
 }

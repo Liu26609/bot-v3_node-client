@@ -15,12 +15,12 @@ export class changeName_team extends task_base {
         }
         let name = this.content.replace(this.matchKey,'');
         if(name.length <= 0){
-            bot.sendText(this.channel_id,'名字太短了')
+            this.log('工会名称不能为空哦')
             return;
         }
         let text = new text_length()
         if(text.getlength(name) > 10){
-            bot.sendText(this.channel_id,`要修改的名字太长辣！`)
+            this.log('要修改的工会名称太长~')
             return;
         }
 

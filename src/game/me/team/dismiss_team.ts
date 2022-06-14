@@ -13,8 +13,5 @@ export class dismiss_team extends task_base{
             this.sendErr(req.err)
             return;
         }
-        let data = req.res;
-        // let temp = `<emoji:147>已解散工会`;
-        // bot.sendText(this.channel_id,temp)
     }
 }

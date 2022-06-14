@@ -1,5 +1,5 @@
 import { log } from "../..";
-import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../shared/game/equip";
+import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from "../../shared/game/equip";
 import bot from "../../unity/bot";
 import common from "../../unity/common";
 import sever from "../../unity/sever";
@@ -26,34 +26,32 @@ export class me_equip extends task_base {
             { key: 'PhysicalAttacks', icon: '🔪' },
             { key: 'PhysicalDefense', icon: '🔰' },
         ]
-        let temp = `┏┄════👑我的装备═══━┄\n`;
+        let temp = `┏┄══👑我的装备═━┄\n`;
         if (data.equipList.length > 0) {
             data.equipList.forEach(info => {
-                temp += `╔[${EQUIP_TYPE_CN[EQUIP_TYPE[info.type]]}](${EQUIP_QUALITY[info.quality]})${info.name}+${info.leve}\n`;
+                temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[info.type]]}]${EQUIP_QUALITY[info.quality]}级装备\n${EQUIP_TYPE_ICON[EQUIP_TYPE[info.type]]}${info.name}+${info.leve}\n`;
                 let showCont = 0;
                 for (let index = 0; index < attrArry.length; index++) {
                     const attr = attrArry[index];
                     const val = common.converEquipattribute(info, attr.key)
-                    if(val <= 0){
-                        if(index == attrArry.length - 1){
-                            temp += '\n';
-                        }
+                    if (val <= 0) {
                         continue;
                     }
                     showCont += 1;
                     temp += `${attr.icon}${common.BN(val)}`;
-                    if(showCont % 3 == 0){
+                    if (showCont % 3 == 0) {
                         temp += '\n';
                     }
                 }
+                temp += '\n';
                 // temp += `♥️${common.BN(common.converEquipattribute(info, `hp_max`))}💖${common.BN(common.converEquipattribute(info, `secondResHp`))}🌟${common.BN(common.converEquipattribute(info, `MagicDefense`))}\n`
                 // temp += `🔮${common.BN(common.converEquipattribute(info, `MagicAttack`))}🔪${common.BN(common.converEquipattribute(info, `PhysicalAttacks`))}🔰${common.BN(common.converEquipattribute(info, `PhysicalDefense`))}\n`;
             });
         } else {
-            temp += `┣你好像一件装备都没有穿上哦，看看[背包]有没有装备呢\n`;
+            temp += `✎你好像一件装备都没有穿上哦，看看[背包]有没有装备呢\n`;
         }
-        temp += `\n┗┄━${this.at()}━┄\n`;
+        temp += `┗┄━${this.at()}━┄\n`;
         bot.sendText(this.channel_id, temp)
-        new text_example_style().setCommand('强化装备指令:强化 + 装备位置').setExample('强化武器').sendMsg(this.channel_id)
+        new text_example_style().setCommand('强化装备指令:强化 + 装备位置').setExample('强化主武器').sendMsg(this.channel_id)
     }
 }

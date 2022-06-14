@@ -22,10 +22,10 @@ export class shop_skill extends task_base{
         
         let str = '';
         str += `技能商店第${data.updateNum}期商品到货啦~`
-        str += `\n购买价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}`
-        str += `\n商店库存:${data.stock - data.sellNum}`
-        str += `\n刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`
-        str += `\n购买指令：购买技能`
+        str += `\n🛒购买价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}`
+        str += `\n🧮商店库存:${data.stock - data.sellNum}`
+        str += `\n🕤刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`
+        str += `\n🎫购买指令：购买技能`
         str += `\n<emoji:147>每次刷新随机价格，与技能属性无关`;
         str += `\n↓↓↓↓以下是技能属性预览↓↓↓↓`;
         await bot.sendText(this.channel_id, str)

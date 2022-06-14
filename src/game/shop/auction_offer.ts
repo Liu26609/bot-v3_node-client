@@ -40,8 +40,7 @@ export class auction_offer extends task_base {
         new auction_look(...this.args);
     }
     notZeo() {
-        let temp = `<emoji:147>提示：出价好像太低了~`;
-        bot.sendText(this.channel_id, temp)
+        this.log(`出价好像太低了~`)
         new auction_look(...this.args);
     }
 }

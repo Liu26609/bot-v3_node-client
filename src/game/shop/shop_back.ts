@@ -17,11 +17,11 @@ export class shop_back extends task_base {
         }
         let data = req.res;
         let temp = `黑市商店第${data.updateNum}期商品到货啦~
-出售商品:${this.converSellTemp(data.sell_temp)}
-购买价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}
-商店库存:${data.stock - data.sellNum}
-刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
-购买指令：黑市购买
+🏷出售商品:${this.converSellTemp(data.sell_temp)}
+🛒购买价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}
+🧮商店库存:${data.stock - data.sellNum}
+🕤刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
+🎫购买指令：黑市购买
 <emoji:147>出售商品和价格每次随机刷新`;
         bot.sendText(this.channel_id, temp)
     }

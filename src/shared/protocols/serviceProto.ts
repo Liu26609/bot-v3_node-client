@@ -447,7 +447,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 29,
+    "version": 30,
     "services": [
         {
             "id": 0,
@@ -3418,6 +3418,33 @@ export const serviceProto: ServiceProto<ServiceType> = {
                             {
                                 "id": 2,
                                 "name": "clothes",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 3,
+                                "name": "necklace",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 4,
+                                "name": "hat",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 5,
+                                "name": "medal",
                                 "type": {
                                     "type": "Reference",
                                     "target": "../game/equip/equip"

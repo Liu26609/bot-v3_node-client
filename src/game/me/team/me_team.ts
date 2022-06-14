@@ -36,19 +36,19 @@ export class me_team extends task_base {
         bot.sendText(this.channel_id, team);
         this.ctlMenu(data.myLeve);
     }
-    ctlMenu(leve:teamLeve){
+    ctlMenu(leve: teamLeve) {
         let temp = `┏┄════🏰工会指令═══━┄\n`;
-        if(leve == teamLeve.creator){
-            temp += `工会商店=>工会商店\n`;
-            temp += `解散工会=>解散工会\n`;
-            temp += `工会改名=>工会改名 + 名称\n`
-            temp += `成员列表=>工会成员\n`
-            temp += `踢出成员=>踢出 + 成员ID\n`
-            temp += `邀请成员=>生成邀请码\n`
+        if (leve == teamLeve.creator) {
+            temp += `[工会商店]查看工会商店\n`;
+            temp += `[解散工会]解散工会\n`;
+            temp += `[工会改名 + 名称]修改工会名称\n`
+            temp += `[成员列表]查看工会全部成员\n`
+            temp += `[踢出 + 成员ID]踢出工会指定成员\n`
+            temp += `[生成邀请码]创建一个工会加入代码\n`
             temp += `┗┄━${this.at()}━┄`;
-        }else if(leve == teamLeve.teamMember){
-            temp += `退出工会=>退出工会\n`;
-            temp += `成员列表=>工会成员\n`
+        } else if (leve == teamLeve.teamMember) {
+            temp += `[退出工会]退出此工会\n`;
+            temp += `[成员列表]查看工会全部成员\n`
             temp += `┗┄━${this.at()}━┄`;
         }
         bot.sendText(this.channel_id, temp);
@@ -56,8 +56,8 @@ export class me_team extends task_base {
     notTeam() {
         let team = `┏┄════🏰我的工会═══━┄
 你还未加入任何工会哦~
-加入工会指令=>加入工会 + 邀请码
-创建工会指令=>创建工会 + 名字
+[加入工会 + 邀请码]加入工会一个指定工会
+[创建工会 + 名字]创建一个工会
 ┗┄━${this.at()}━┄
 <emoji:147>邀请码需要会长艾特机器人发送[创建邀请码]`;
         bot.sendText(this.channel_id, team)

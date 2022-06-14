@@ -25,17 +25,11 @@ export class me_openBlindBox extends task_base {
         let openStr = this.content.replace(this.matchKey, '');
         let openNum = Math.ceil(Number(openStr));
         if (isNaN(openNum) || openNum <= 0) {
-            this.sendErr({
-                message: '打开盲盒的数字不合法',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`打开盲盒的数字不合法`)
             return;
         }
         if (openNum > 1000000000000000000000) {
-            this.sendErr({
-                message: '打开盲盒的数字不能超过1万万万亿',
-                type: TsrpcErrorType.ApiError
-            })
+            this.log(`打开盲盒的数字不能超过1万万万亿`)
             return;
         }
         let req = await sever.callApi('Me_openBlindBox', { userId: this.userId, openNum })
@@ -54,7 +48,7 @@ export class me_openBlindBox extends task_base {
                 temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
             });
         }
-        temp += `┗┄━═══════════━┄`;
+        temp += `┗┄━${this.at()}━┄`;
         bot.sendText(this.channel_id, temp);
     }
 }

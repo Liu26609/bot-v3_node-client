@@ -13,8 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_destroyBagEquip = void 0;
-const tsrpc_1 = require("tsrpc");
-const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
 class me_destroyBagEquip extends task_base_1.task_base {
@@ -30,43 +28,28 @@ class me_destroyBagEquip extends task_base_1.task_base {
                     this.sendErr(reqs.err);
                     return;
                 }
-                bot_1.default.sendText(this.channel_id, '装备已经删除辣！');
+                this.log('成功销毁全部装备');
                 return;
             }
             let destroyIndex = this.content.replace(this.matchKey, '');
             if (destroyIndex == '') {
-                this.sendErr({
-                    message: '需要丢弃的背包装备的id不能为空',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要销毁的背包装备的ID不能为空');
                 return;
             }
             if (isNaN(Number(destroyIndex))) {
-                this.sendErr({
-                    message: '需要丢弃的背包装备的id只能是数字',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要丢弃的背包装备的ID只能是数字');
                 return;
             }
             if (Number(destroyIndex) < 0) {
-                this.sendErr({
-                    message: '需要丢弃的背包装备的id不能是负数',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要丢弃的背包装备的ID不能是负数');
                 return;
             }
             if (Math.ceil(Number(destroyIndex)) != Number(destroyIndex)) {
-                this.sendErr({
-                    message: '需要丢弃的背包装备的id不能是小数点',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要丢弃的背包装备的ID不能有小数点');
                 return;
             }
             if (Number(destroyIndex) > 100) {
-                this.sendErr({
-                    message: '需要丢弃的背包装备的的id太大了',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log('需要丢弃的背包装备的的ID太大了');
                 return;
             }
             let req = yield sever_1.default.callApi('Me_destroyBagEquip', { userId: this.userId, destroyIndex: Number(destroyIndex) });
@@ -74,7 +57,7 @@ class me_destroyBagEquip extends task_base_1.task_base {
                 this.sendErr(req.err);
                 return;
             }
-            bot_1.default.sendText(this.channel_id, '装备已经删除辣！');
+            this.log('装备已经丢弃成功');
         });
     }
 }

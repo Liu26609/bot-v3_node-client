@@ -15,8 +15,7 @@ export class shop_team_buy extends task_base{
         let data = req.res;
         let temp = ``;
         temp += `┏┄════🕊️购买成功═══━┄\n`
-        temp += `<emoji:147>工会变得更强了~\n`
-        temp += `┣┄════🏧钱包变化═══━┄\n`
+        temp += `🎫工会变得更强了~\n`
         temp += `🔻消耗工会贡献x${data.pay.condition.val}\n`;
         temp += `▶️还有工会贡献x${data.pay.now}\n`;
         temp += `┗┄━═══════════━┄\n`;

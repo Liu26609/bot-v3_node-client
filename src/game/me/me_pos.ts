@@ -32,9 +32,9 @@ export class me_pos extends task_base {
         
         let temp = ``;
         temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
-        temp += `            ${data.isTop ? '上' : '⛔'}\n`;
-        temp += `  ${data.isLeft ? '左' : '⛔'}       ${data.meIcon}       ${data.isRight ? '右' : '⛔'}\n`;
-        temp += `            ${data.isButtom ? '下' : '⛔'}\n`;
+        temp += `                     ${data.isTop ? '上' : '⛔'}\n`;
+        temp += `  ${data.isLeft ? '左' : '⛔'}              ${data.meIcon}              ${data.isRight ? '右' : '⛔'}\n`;
+        temp += `                     ${data.isButtom ? '下' : '⛔'}\n`;
         if (data.posTiledId == 2) {
             temp += `┄════💧发现湖泊═══━┄\n`
             temp += `在这里发现了一个湖泊，你可以发送[钓鱼]试试\n`
@@ -61,7 +61,11 @@ export class me_pos extends task_base {
                 }
                 const name = body.name;
                 const leve = body.leve;
-                temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}♥️${((body.hp/body.out_attribute.hp_max)*100).toFixed(0)}%\n`;
+                let emoji = `♥️`;
+                if(body.out_attribute.hp_max > body.hp){
+                    emoji = `<emoji:67>`
+                }
+                temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}${emoji}${((body.hp/body.out_attribute.hp_max)*100).toFixed(0)}%\n`;
             }
         }
         if (data.chest.length > 0) {

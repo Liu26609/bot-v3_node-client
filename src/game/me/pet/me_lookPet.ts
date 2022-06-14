@@ -24,7 +24,7 @@ export class me_lookPet extends task_base{
     }
     menu(){
         let temp = ``;
-        temp += `<emoji:147>提示：查看宠物属性指令:查看宠物 + id\n`
+        temp += `<emoji:147>提示：查看宠物属性指令:查看宠物 + ID\n`
         temp += `🌰栗子:@${bot.getBot_name()} 查看宠物0`
         bot.sendText(this.channel_id,temp)
     }

@@ -1,4 +1,4 @@
-import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from '../../shared/game/equip';
+import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from '../../shared/game/equip';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { walletKey_CN, walletKey } from '../../shared/game/user';
 import bot from '../../unity/bot';
@@ -60,21 +60,22 @@ export class me_strengthen extends task_base {
         let data = req.res;
         let bf = data.bfEquip;
         let now = data.nowEquip;
-        let temp = `┏┄════${data.isSuccress ? '<emoji:320>强化成功' : '<emoji:173>强化失败'}═══━┄\n`;
+        let temp = `┏┄══${data.isSuccress ? '<emoji:320>强化成功' : '<emoji:173>强化失败'}══━┄\n`;
         if (data.isSuccress) {
-            temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%${this.at()}\n`
+            temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY[bf.quality]})${bf.name}+${now.leve}\n`;
-            if (common.converEquipattribute(bf, `hp_max`) > 0) temp += `♥️最大生命${common.BN(common.converEquipattribute(bf, `hp_max`))}➡️${common.BN(common.converEquipattribute(now, `hp_max`))}\n`;
-            if (common.converEquipattribute(bf, `MagicAttack`) > 0) temp += `🔮魔法攻击${common.BN(common.converEquipattribute(bf, `MagicAttack`))}➡️${common.BN(common.converEquipattribute(now, `MagicAttack`))}\n`;
-            if (common.converEquipattribute(bf, `MagicDefense`) > 0) temp += `🌟魔法防御${common.BN(common.converEquipattribute(bf, `MagicDefense`))}➡️${common.BN(common.converEquipattribute(now, `MagicDefense`))}\n`;
-            if (common.converEquipattribute(bf, `PhysicalAttacks`) > 0) temp += `🔪物理攻击${common.BN(common.converEquipattribute(bf, `PhysicalAttacks`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalAttacks`))}\n`;
-            if (common.converEquipattribute(bf, `PhysicalDefense`) > 0) temp += `🔰物理防御${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
-            if (common.converEquipattribute(bf, `PhysicalDefense`) > 0) temp += `💖每秒回复${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}➡️${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
+            temp += `${this.at()}(${EQUIP_QUALITY[bf.quality]}级装备)\n`
+            temp += `${EQUIP_TYPE_ICON[EQUIP_TYPE[bf.type]]}${bf.name}+${now.leve}\n`;
+            if (common.converEquipattribute(bf, `hp_max`) > 0) temp += `♥️最大生命${common.BN(common.converEquipattribute(bf, `hp_max`))}🔺${common.BN(common.converEquipattribute(now, `hp_max`))}\n`;
+            if (common.converEquipattribute(bf, `MagicAttack`) > 0) temp += `🔮魔法攻击${common.BN(common.converEquipattribute(bf, `MagicAttack`))}🔺${common.BN(common.converEquipattribute(now, `MagicAttack`))}\n`;
+            if (common.converEquipattribute(bf, `MagicDefense`) > 0) temp += `🌟魔法防御${common.BN(common.converEquipattribute(bf, `MagicDefense`))}🔺${common.BN(common.converEquipattribute(now, `MagicDefense`))}\n`;
+            if (common.converEquipattribute(bf, `PhysicalAttacks`) > 0) temp += `🔪物理攻击${common.BN(common.converEquipattribute(bf, `PhysicalAttacks`))}🔺${common.BN(common.converEquipattribute(now, `PhysicalAttacks`))}\n`;
+            if (common.converEquipattribute(bf, `PhysicalDefense`) > 0) temp += `🔰物理防御${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}🔺${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
+            if (common.converEquipattribute(bf, `PhysicalDefense`) > 0) temp += `💖每秒回复${common.BN(common.converEquipattribute(bf, `PhysicalDefense`))}🔺${common.BN(common.converEquipattribute(now, `PhysicalDefense`))}\n`;
             temp += `┗══════════┄`;
         } else {
-            temp += `[${EQUIP_TYPE_CN[EQUIP_TYPE[bf.type]]}](${EQUIP_QUALITY[bf.quality]})${bf.name}+${now.leve}\n`;
+            temp += `${EQUIP_TYPE_ICON[EQUIP_TYPE[bf.type]]}${bf.name}+${now.leve}\n`;
             temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;

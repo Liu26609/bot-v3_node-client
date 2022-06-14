@@ -22,14 +22,14 @@ export class randomAncestry extends task_base{
         let temp = `┏┄════👑新的血统═══━┄
 Ⓜ️来源[${info.from}]
 👑血统[${info.title}]
-🔥 等级[${ancestryLeve[info.leve]}级]
-┣┄════成长分数═══━┄
+┄════初始分数═══━┄
 ♥️最大生命${info.base.hp_max}分🔪物理攻击${info.base.PhysicalAttacks}分
 🔰物理防御${info.base.PhysicalDefense}分🔮魔法攻击${info.base.MagicAttack}分
 🌟魔法防御${info.base.MagicDefense}分💖生命回复${info.base.secondResHp}分
+┄════附带技能═══━┄
 [${sk.name}]${common.getSkDesc(sk)}
-┣🔻消耗${walletKey_CN[walletKey[pay.condition.key]]}x${pay.condition.val}
-┣▶️还有${walletKey_CN[walletKey[pay.condition.key]]}x${pay.now}
+🔻消耗${walletKey_CN[walletKey[pay.condition.key]]}x${pay.condition.val}
+▶️还有${walletKey_CN[walletKey[pay.condition.key]]}x${pay.now}
 ┗┄━${this.at()}━┄
 <emoji:147>成长分数越高升级速度越慢哦`;
         bot.sendText(this.channel_id,temp);

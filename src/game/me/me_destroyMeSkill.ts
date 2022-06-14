@@ -25,6 +25,6 @@ ps:数字为[我的技能]的id
             this.sendErr(req.err)
             return;
         }
-        bot.sendText(this.channel_id, '我之前学会了哪些技能来着？(遗忘成功)')
+        this.log(`我之前学会了哪些技能来着？(技能遗忘成功)`)
     }
 }

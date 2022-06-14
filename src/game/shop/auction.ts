@@ -27,7 +27,7 @@ export class auction extends task_base{
             type = autionType.equip;
             key = cont;
             if(cont < 0){
-                bot.sendText(this.channel_id,'拍卖装备id不能小于0')
+                this.log('拍卖装备:好像没有在背包内找到此ID装备')
                 return;
             }
         }else if(auctionStr.includes(walletKey_CNText[walletKey[walletKey.BlindBox]])){

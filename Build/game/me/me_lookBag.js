@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_lookBag = void 0;
 const equip_1 = require("./../temp/text/equip");
-const tsrpc_1 = require("tsrpc");
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
 class me_lookBag extends task_base_1.task_base {
@@ -26,38 +25,23 @@ class me_lookBag extends task_base_1.task_base {
         return __awaiter(this, void 0, void 0, function* () {
             let lookIndex = this.content.replace(this.matchKey, '');
             if (lookIndex == '') {
-                this.sendErr({
-                    message: '查看背包装备id不能为空',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`查看背包装备ID不能为空`);
                 return;
             }
             if (isNaN(Number(lookIndex))) {
-                this.sendErr({
-                    message: '查看背包装备id只能是数字',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`查看背包装备ID只能是数字`);
                 return;
             }
             if (Number(lookIndex) < 0) {
-                this.sendErr({
-                    message: '查看背包装备id不能是负数',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`查看背包装备ID不能是负数`);
                 return;
             }
             if (Math.ceil(Number(lookIndex)) != Number(lookIndex)) {
-                this.sendErr({
-                    message: '查看背包装备id不能是小数点',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`查看背包装备ID不能是小数点`);
                 return;
             }
             if (Number(lookIndex) > 100) {
-                this.sendErr({
-                    message: '查看背包装备的id太大了',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`查看背包装备的ID太大了`);
                 return;
             }
             let req = yield sever_1.default.callApi('Me_lookBag', { userId: this.userId, lookId: Number(lookIndex) });

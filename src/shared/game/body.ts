@@ -21,7 +21,10 @@ export interface body extends BASE_BODYS {
         /**
          * 衣服
          */
-        clothes?:equip
+        clothes?:equip,
+        necklace?:equip,
+        hat?:equip,
+        medal?:equip,
     },
     title: {
         name: string,

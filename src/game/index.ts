@@ -263,10 +263,10 @@ export default class game {
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
 
-        // if(data.author.id != '14139673525601401123'){
-        //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
-        //     return;
-        // }
+        if(data.author.id != '14139673525601401123'){
+            bot.sendText(data.channel_id,`你没有权限测试此机器人`)
+            return;
+        }
         
         const userId = data.author.id;
         const userIcon = data.author.avatar;

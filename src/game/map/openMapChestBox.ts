@@ -25,11 +25,13 @@ ps:宝箱会在地图上击杀怪物后随机掉落
         }
         let openStr = this.content.replace(this.matchKey, '');
         let openIndex = Math.ceil(Number(openStr));
-        if (isNaN(openIndex) || openIndex < 0 || openIndex > 100000000) {
-            this.sendErr({
-                message: '打开宝箱的数字不合法',
-                type: TsrpcErrorType.ApiError
-            })
+        if (isNaN(openIndex) || openIndex < 0) {
+
+            this.log('打开宝箱的ID不能小于0')
+            return;
+        }
+        if(openIndex > 10000){
+            this.log('打开宝箱的数量不能大于10000')
             return;
         }
         let req = await sever.callApi('map/OpenMapChestBox', { userId: this.userId, openIndex: openIndex });
@@ -40,13 +42,13 @@ ps:宝箱会在地图上击杀怪物后随机掉落
         let data = req.res;
         let temp = ``;
         temp += `┏┄════✨宝箱奖励═══━┄\n`;
-        temp += `┣你打开了宝箱！咻咻咻在里面获得了:\n`
+        temp += `<emoji:295>你打开了宝箱！获得奖励:\n`
         if (data.reward.length > 0) {
             data.reward.forEach(item => {
-                temp += `┣${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
+                temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
             });
         }
-        temp += `┗┄━══════════━┄`
+        temp += `┗┄━${this.at()}━┄`
         bot.sendText(this.channel_id, temp)
 
         //         ￣￣￣￣￣＼盲盒奖励／￣￣￣￣￣

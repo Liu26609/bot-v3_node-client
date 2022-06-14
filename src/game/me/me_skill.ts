@@ -23,7 +23,7 @@ export class me_skill extends task_base {
             return;
         }
         let data = req.res;
-        let temp = ` ┏┄┄════👑我的技能═══━┄\n`;
+        let temp = ` ┏┄┄👑我的技能━┄\n`;
         for (let index = 0; index < data.skillList.length; index++) {
             const name = data.skillList[index];
             temp += `[${index}]${name}\n`;
@@ -32,10 +32,10 @@ export class me_skill extends task_base {
         await bot.sendText(this.channel_id,temp)
 
         let temps = ``;
-        temps += `┏┄════👑指令提示═══━┄\n`;
+        temps += `┏┄══👑指令提示═━┄\n`;
         temps += `[查询技能 + 名称]查询技能详细\n`;
         temps += `[遗忘技能 + 数字]废弃指定技能\n`;
-        temps += `┗┄━══════════━┄\n`;
+        temps += `┗┄━━━━━━━━━┄\n`;
         bot.sendText(this.channel_id,temps)
     }
 }

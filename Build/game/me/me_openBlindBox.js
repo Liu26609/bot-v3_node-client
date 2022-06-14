@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_openBlindBox = void 0;
-const tsrpc_1 = require("tsrpc");
 const prop_1 = require("../../shared/game/prop");
 const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
@@ -41,17 +40,11 @@ class me_openBlindBox extends task_base_1.task_base {
             let openStr = this.content.replace(this.matchKey, '');
             let openNum = Math.ceil(Number(openStr));
             if (isNaN(openNum) || openNum <= 0) {
-                this.sendErr({
-                    message: '打开盲盒的数字不合法',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`打开盲盒的数字不合法`);
                 return;
             }
             if (openNum > 1000000000000000000000) {
-                this.sendErr({
-                    message: '打开盲盒的数字不能超过1万万万亿',
-                    type: tsrpc_1.TsrpcErrorType.ApiError
-                });
+                this.log(`打开盲盒的数字不能超过1万万万亿`);
                 return;
             }
             let req = yield sever_1.default.callApi('Me_openBlindBox', { userId: this.userId, openNum });
@@ -69,7 +62,7 @@ class me_openBlindBox extends task_base_1.task_base {
                     temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}+${item.val}\n`;
                 });
             }
-            temp += `┗┄━═══════════━┄`;
+            temp += `┗┄━${this.at()}━┄`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }
