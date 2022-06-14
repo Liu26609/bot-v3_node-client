@@ -15,6 +15,7 @@ export class sys_update_code extends task_base {
                 console.log('exec error: ' + error);
             } else {
                 bot.sendText(this.channel_id, stdout)
+                this.log(`更新完成,开始重启`)
                 // console.log(stdout)
             }
         });
