@@ -64,7 +64,7 @@ export class me_titleRandom extends task_base {
             }else if(data.bf[key] < data.now[key]){
                 changeIcon = '🔺';
             }
-            temp += ` ${titleStr}${data.bf[key]}${changeIcon}${data.now.hp_max}%\n`;
+            temp += ` ${titleStr}${data.bf[key]}${changeIcon}${data.now[key]}%\n`;
         }
         temp += `┗┄━${this.at()}━┄`
 
