@@ -244,10 +244,6 @@ class game {
                 yield sever_1.default.HelloWorld();
                 return;
             }
-<<<<<<< HEAD
-=======
-            yield bot_1.default.sendText(data.channel_id, '更新测试2');
->>>>>>> b1e7114e841acbf866a017a73162bfb5cf48c01d
             if (data.content == '频道ID') {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
