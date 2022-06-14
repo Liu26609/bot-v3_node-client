@@ -223,7 +223,7 @@ export default class game {
     }
     start() {
         bot.setOnMsg_at((data: BOT_MSG_AT) => this.atBot(data))
-        this.updateCode()
+        // this.updateCode()
 
     }
     /**
@@ -264,7 +264,8 @@ export default class game {
         //     return;
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
-
+        bot.sendText(data.channel_id,`这是一次远程本地=>远程同步修改`)
+        return
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
         //     return;
@@ -322,20 +323,6 @@ export default class game {
         }
 
 
-    }
-    updateCode() {
-        let str = `commit ff83cf5ac375db80096607eea04408ec59a86b9c
-Author: 匿名用户 <8797550+ChuXuanD30@user.noreply.gitee.com>
-Date:   Tue Jun 14 14:13:39 2022 +0000
-
-    修复几个BUG新增几个BUG
-    新版本扩展信息`
-
-        let urlStartIndex = str.indexOf('<')
-        let urlEndIndex = str.indexOf(">");
-        str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '')
-        str = str.replace('commit', '')
-        str = 'id:' + str;
     }
     // 客户端刷新单位：秒
     //    update() {
