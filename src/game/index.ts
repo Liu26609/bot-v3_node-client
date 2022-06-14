@@ -264,8 +264,7 @@ export default class game {
         //     return;
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
-        bot.sendText(data.channel_id,`这是一次远程本地=>远程同步修改`)
-        return
+        
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
         //     return;
