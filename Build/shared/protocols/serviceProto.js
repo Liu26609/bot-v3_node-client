@@ -2227,13 +2227,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Number"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "autoLeve",
-                    "type": {
-                        "type": "Number"
-                    }
                 }
             ]
         },
@@ -2245,13 +2238,6 @@ exports.serviceProto = {
                     "name": "userId",
                     "type": {
                         "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "autoLeve",
-                    "type": {
-                        "type": "Number"
                     }
                 }
             ]
