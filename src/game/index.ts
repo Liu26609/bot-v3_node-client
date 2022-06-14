@@ -91,6 +91,7 @@ import { rank_evil } from './rank/rank_evil';
 import { rank_justice } from './rank/rank_justice';
 import { me_AutoPlay } from './me/autoPlay/me_AutoPlay';
 import { sys_update_code } from './sys/updateDev';
+import { me_Reread } from './me/autoPlay/me_Reread';
 
 enum matchType {
     /**
@@ -109,9 +110,18 @@ export default class game {
      * 指令可交互行为分析
      */
     matchMap: Map<string, { action: any, match: matchType }>
+    /**
+     * 用户上次艾特内容
+     */
+    contentMap: Map<string, string>
+    /**
+     * 复读状态
+     */
+    repeState: Map<string, boolean>
     constructor() {
+        this.repeState = new Map();
         this.matchMap = new Map();
-
+        this.contentMap = new Map()
         this.initKeyMap();
         this.start();
     }
@@ -120,6 +130,7 @@ export default class game {
         * 排行榜指令模块
         * 
         */
+        this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
         this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
         this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
@@ -264,7 +275,7 @@ export default class game {
         //     return;
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
-        
+
         // if(data.author.id != '14139673525601401123'){
         //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
         //     return;
@@ -273,21 +284,35 @@ export default class game {
         const userId = data.author.id;
         const userIcon = data.author.avatar;
         const fromChannel = data.channel_id;
-        const content = data.content;
         const userName = data.author.username;
+        const lastContent = this.contentMap.get(userId);
+
+        let content = data.content;
+        if (content == '复读') {
+            if (this.repeState.has(userId)) {
+                content = lastContent || '复读';
+            } else {
+                this.repeState.set(userId, true)
+            }
+        }else{
+            this.contentMap.set(userId,content)
+            if (this.repeState.has(userId)) {
+                this.repeState.delete(userId)
+            }
+        }
 
         let matchList = [] as { conf: any, match: number, key: string }[];
         let isFind = false;
         // 分析行为
         this.matchMap.forEach((conf, key) => {
-            if (conf.match == matchType.all && data.content.toUpperCase() == key.toUpperCase() && !isFind) {
+            if (conf.match == matchType.all && content.toUpperCase() == key.toUpperCase() && !isFind) {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
-            } else if (conf.match == matchType.match && data.content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
+            } else if (conf.match == matchType.match && content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
                 isFind = true;
                 new conf.action(userId, fromChannel, userIcon, content, key, userName)
             }
-            let match = common.xsd(key, data.content);
+            let match = common.xsd(key, content);
             if (!isFind) {
                 matchList.push({ conf: conf, match: match, key: key })
             }

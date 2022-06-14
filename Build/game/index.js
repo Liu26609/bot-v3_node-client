@@ -103,6 +103,7 @@ const rank_evil_1 = require("./rank/rank_evil");
 const rank_justice_1 = require("./rank/rank_justice");
 const me_AutoPlay_1 = require("./me/autoPlay/me_AutoPlay");
 const updateDev_1 = require("./sys/updateDev");
+const me_Reread_1 = require("./me/autoPlay/me_Reread");
 var matchType;
 (function (matchType) {
     /**
@@ -116,7 +117,9 @@ var matchType;
 })(matchType || (matchType = {}));
 class game {
     constructor() {
+        this.repeState = new Map();
         this.matchMap = new Map();
+        this.contentMap = new Map();
         this.initKeyMap();
         this.start();
     }
@@ -125,6 +128,7 @@ class game {
         * 排行榜指令模块
         *
         */
+        this.matchMap.set('复读', { action: me_Reread_1.me_Reread, match: matchType.all });
         this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
         this.matchMap.set(`签到排行榜`, { action: rank_sign_1.rank_sign, match: matchType.all });
@@ -270,21 +274,36 @@ class game {
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;
-            const content = data.content;
             const userName = data.author.username;
+            const lastContent = this.contentMap.get(userId);
+            let content = data.content;
+            if (content == '复读') {
+                if (this.repeState.has(userId)) {
+                    content = lastContent || '复读';
+                }
+                else {
+                    this.repeState.set(userId, true);
+                }
+            }
+            else {
+                this.contentMap.set(userId, content);
+                if (this.repeState.has(userId)) {
+                    this.repeState.delete(userId);
+                }
+            }
             let matchList = [];
             let isFind = false;
             // 分析行为
             this.matchMap.forEach((conf, key) => {
-                if (conf.match == matchType.all && data.content.toUpperCase() == key.toUpperCase() && !isFind) {
+                if (conf.match == matchType.all && content.toUpperCase() == key.toUpperCase() && !isFind) {
                     isFind = true;
                     new conf.action(userId, fromChannel, userIcon, content, key, userName);
                 }
-                else if (conf.match == matchType.match && data.content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
+                else if (conf.match == matchType.match && content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
                     isFind = true;
                     new conf.action(userId, fromChannel, userIcon, content, key, userName);
                 }
-                let match = common_1.default.xsd(key, data.content);
+                let match = common_1.default.xsd(key, content);
                 if (!isFind) {
                     matchList.push({ conf: conf, match: match, key: key });
                 }
