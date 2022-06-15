@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const qq_guild_bot_1 = require("qq-guild-bot");
 const __1 = require("..");
-const gameCfg_1 = __importDefault(require("../game/gameCfg"));
 const bot_1 = require("../shared/bot/bot");
 const sever_1 = __importDefault(require("./sever"));
 class bot {
@@ -96,16 +95,6 @@ class bot {
      */
     postMessage(channelID, message) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (gameCfg_1.default.isDebug) {
-                if (message.content) {
-                    (0, __1.info)('调试模式：', message.content);
-                }
-                else if (message.embed) {
-                    (0, __1.info)('调试模式：', message.content);
-                }
-                return true;
-            }
-            (0, __1.info)('发送消息成功');
             return this.client.messageApi.postMessage(channelID, message);
         });
     }

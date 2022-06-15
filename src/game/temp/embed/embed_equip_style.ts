@@ -1,6 +1,5 @@
 import { equip, EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
 import bot from "../../../unity/bot";
-import gameCfg from "../../gameCfg";
 import { embed_style } from "./embed";
 
 
@@ -23,7 +22,7 @@ export class embed_equip_style {
         const iconId = this.equipData.icon;
         let temp = new embed_style();
         temp.setTips('装备属性')
-        temp.setIcon(`${bot_cfg.}equip/${iconId}.png`)
+        temp.setIcon(`${bot_cfg.cosUrl}equip/${iconId}.png`)
         temp.setTitle(`${this.equipData.story}`)
         temp.addLine(`Ⓜ️名称：${name}`)
         temp.addLine(`🔨品质：${EQUIP_QUALITY[quality]}`)

@@ -1,7 +1,6 @@
 import { equip, EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared/game/equip";
 import base64_safe from "../../../unity/base64_safe";
 import bot from "../../../unity/bot";
-import gameCfg from "../../gameCfg";
 export class text_equip_style {
     equipData!: equip;
     constructor() {

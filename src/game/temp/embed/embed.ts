@@ -1,5 +1,4 @@
 import bot from "../../../unity/bot";
-import gameCfg from "../../gameCfg";
 
 export class embed_style {
     private title: string;

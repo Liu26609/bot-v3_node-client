@@ -35,7 +35,7 @@ class embed_equip_style {
             const iconId = this.equipData.icon;
             let temp = new embed_1.embed_style();
             temp.setTips('装备属性');
-            temp.setIcon(`${bot_cfg.}equip/${iconId}.png`);
+            temp.setIcon(`${bot_cfg.cosUrl}equip/${iconId}.png`);
             temp.setTitle(`${this.equipData.story}`);
             temp.addLine(`Ⓜ️名称：${name}`);
             temp.addLine(`🔨品质：${equip_1.EQUIP_QUALITY[quality]}`);
