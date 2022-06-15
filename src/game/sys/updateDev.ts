@@ -1,5 +1,6 @@
 import { log } from '../..';
 import bot from '../../unity/bot';
+import common from '../../unity/common';
 import { task_base } from './../task_base';
 let isAcitve = false;
 export class sys_update_code extends task_base {
@@ -47,10 +48,7 @@ export class sys_update_code extends task_base {
         outText = outText.replace('commit', '')
         outText = 'commit:' + outText;
         await bot.sendText(this.channel_id, outText)
-        await this.log(`即将开始重启,大约耗时5秒`)
-        setTimeout(() => {
-            process.exit()
-        }, 3000)
+        await bot.callAll(`即将开始,重启需要耗时0.${common.random(0,1000)}秒,请耐心等待`)
     }
     async updateCode() {
         await this.runCmd('git pull');

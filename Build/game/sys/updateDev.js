@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sys_update_code = void 0;
 const bot_1 = __importDefault(require("../../unity/bot"));
+const common_1 = __importDefault(require("../../unity/common"));
 const task_base_1 = require("./../task_base");
 let isAcitve = false;
 class sys_update_code extends task_base_1.task_base {
@@ -64,10 +65,7 @@ class sys_update_code extends task_base_1.task_base {
             outText = outText.replace('commit', '');
             outText = 'commit:' + outText;
             yield bot_1.default.sendText(this.channel_id, outText);
-            yield this.log(`即将开始重启,大约耗时5秒`);
-            setTimeout(() => {
-                process.exit();
-            }, 3000);
+            yield bot_1.default.callAll(`即将开始,重启需要耗时0.${common_1.default.random(0, 1000)}秒,请耐心等待`);
         });
     }
     updateCode() {
