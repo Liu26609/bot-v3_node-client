@@ -14,6 +14,7 @@ export class embed_equip_style {
         return this;
     }
     async sendMsg(channelId: string) {
+        let bot_cfg = bot.getBotConfig()
         let name = this.equipData.name;
         let leve = this.equipData.leve;
         const quality = this.equipData.quality;
@@ -22,7 +23,7 @@ export class embed_equip_style {
         const iconId = this.equipData.icon;
         let temp = new embed_style();
         temp.setTips('装备属性')
-        temp.setIcon(`${gameCfg.cosUrl}equip/${iconId}.png`)
+        temp.setIcon(`${bot_cfg.}equip/${iconId}.png`)
         temp.setTitle(`${this.equipData.story}`)
         temp.addLine(`Ⓜ️名称：${name}`)
         temp.addLine(`🔨品质：${EQUIP_QUALITY[quality]}`)

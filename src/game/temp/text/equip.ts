@@ -18,16 +18,16 @@ export class text_equip_style {
         const type = this.equipData.type;
         const attribute = this.equipData.base_attribute;
         const iconId = this.equipData.icon;
-        let config_bot = bot.getBotConfig()
-        let image = `${config_bot.imgUrl}/temp/equip.png?`;
+        let bot_cfg = bot.getBotConfig()
+        let image = `${bot_cfg.cosUrl}/temp/equip.png?`;
         // 装备图标
-        image += `${config_bot.imgImgCode}/${base64_safe.urlEncode(`${gameCfg.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/228`;
+        image += `${bot_cfg.imgImgCode}/${base64_safe.urlEncode(`${bot_cfg.cosUrl_http}/equip/${iconId}.png`)}/dx/195/dy/228`;
         // 称号
-        image += `${config_bot.imgTextCode}/${base64_safe.urlEncode(`${name} +${leve}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
+        image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`${name} +${leve}`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#ffff00`)}/fontsize/32/dx/10/dy/390`;
         // 品质
-        image += `${config_bot.imgTextCode}/${base64_safe.urlEncode(`${EQUIP_TYPE_CN[EQUIP_TYPE[type]]}(${EQUIP_QUALITY[quality]})`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
+        image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`${EQUIP_TYPE_CN[EQUIP_TYPE[type]]}(${EQUIP_QUALITY[quality]})`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00ffff`)}/fontsize/24/dx/20/dy/350`;
         // 属性
-        image += `${config_bot.imgTextCode}/${base64_safe.urlEncode(`${attribute.PhysicalAttacks}
+        image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`${attribute.PhysicalAttacks}
 ${attribute.MagicAttack}
 ${attribute.PhysicalDefense}
 ${attribute.MagicDefense}

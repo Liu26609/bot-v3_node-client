@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.embed_equip_style = void 0;
 const equip_1 = require("../../../shared/game/equip");
-const gameCfg_1 = __importDefault(require("../../gameCfg"));
+const bot_1 = __importDefault(require("../../../unity/bot"));
 const embed_1 = require("./embed");
 class embed_equip_style {
     constructor() {
@@ -26,6 +26,7 @@ class embed_equip_style {
     }
     sendMsg(channelId) {
         return __awaiter(this, void 0, void 0, function* () {
+            let bot_cfg = bot_1.default.getBotConfig();
             let name = this.equipData.name;
             let leve = this.equipData.leve;
             const quality = this.equipData.quality;
@@ -34,7 +35,7 @@ class embed_equip_style {
             const iconId = this.equipData.icon;
             let temp = new embed_1.embed_style();
             temp.setTips('装备属性');
-            temp.setIcon(`${gameCfg_1.default.cosUrl}equip/${iconId}.png`);
+            temp.setIcon(`${bot_cfg.}equip/${iconId}.png`);
             temp.setTitle(`${this.equipData.story}`);
             temp.addLine(`Ⓜ️名称：${name}`);
             temp.addLine(`🔨品质：${equip_1.EQUIP_QUALITY[quality]}`);
