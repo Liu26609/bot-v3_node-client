@@ -17,7 +17,7 @@
     - [Auction_look](#/auction/Auction_look)
     - [Auction_offer](#/auction/Auction_offer)
 - battle
-    - [AttackBoss](#/battle/AttackBoss)
+    - [攻击世界BOSS](#/battle/AttackBoss)
     - [Challenge_box](#/battle/Challenge_box)
     - [Challenge_image](#/battle/Challenge_image)
     - [PkRank](#/battle/PkRank)
@@ -29,7 +29,11 @@
     - [OpenMapChestBox](#/map/OpenMapChestBox)
     - [fishing](#/map/fishing)
 - me
+    - autoPlay
+        - [endAutoPlay](#/me/autoPlay/endAutoPlay)
+        - [开始自动挂机](#/me/autoPlay/startAutoPlay)
     - title
+        - [重置称号](#/me/title/Me_titleRandom)
         - [称号改名](#/me/title/Me_title_changeName)
 - minGame
     - [MinGame_lottery](#/minGame/MinGame_lottery)
@@ -39,8 +43,14 @@
     - [Me_petLook](#/pet/Me_petLook)
     - [Me_petRm](#/pet/Me_petRm)
 - rank
+    - [血统等级排行榜](#/rank/Rank_ancestry)
+    - [基因锁等级排行榜](#/rank/Rank_dnaLv)
+    - [红名排行榜](#/rank/Rank_evil)
     - [Rank_gold](#/rank/Rank_gold)
+    - [Rank_justice](#/rank/Rank_justice)
     - [等级排行榜](#/rank/Rank_leve)
+    - [Rank_military](#/rank/Rank_military)
+    - [宠物战力排行榜](#/rank/Rank_military_pet)
     - [猜数参与次数排行榜](#/rank/Rank_minGame_lottery_cont)
     - [猜数猜中次数排行榜](#/rank/Rank_minGame_lottery_win)
     - [宠物数量排行榜](#/rank/Rank_petCont)
@@ -92,10 +102,9 @@
 - [Me_skill](#/Me_skill)
 - [Me_strengthen](#/Me_strengthen)
 - [Me_title](#/Me_title)
-- [Me_titleRandom](#/Me_titleRandom)
 - [我的钱包](#/Me_wallet)
 - [Me_wearEquip](#/Me_wearEquip)
-- [Move](#/Move)
+- [移动](#/Move)
 - [当前位置接口](#/Pos)
 - [复活治疗接口](#/ResLife)
 - [SearchSkill](#/SearchSkill)
@@ -131,8 +140,11 @@ interface ResMe_Ancestry {
         base: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -187,8 +199,11 @@ interface ResMe_randomAncestry {
         base: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -305,7 +320,7 @@ interface ResAuction_offer {
 
 ## battle
 
-### AttackBoss <a id="/battle/AttackBoss"></a>
+### 攻击世界BOSS <a id="/battle/AttackBoss"></a>
 
 **路径**
 - POST `/battle/AttackBoss`
@@ -322,6 +337,8 @@ interface ReqAttackBoss {
 interface ResAttackBoss {
     isWin: boolean,
     hp: number,
+    /** 伤害贡献 */
+    hurt: number,
     hp_max: number,
     /** 战斗回合 */
     battleRound: number,
@@ -355,6 +372,8 @@ interface ResAttackBoss {
         round: number,
         body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -364,8 +383,11 @@ interface ResAttackBoss {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -379,6 +401,8 @@ interface ResAttackBoss {
         },
         die_body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -388,8 +412,11 @@ interface ResAttackBoss {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -465,6 +492,8 @@ interface ResChallenge_box {
             round: number,
             body: {
                 id: string,
+                /** 战力 */
+                military: number,
                 icon: string,
                 type: 0 | 1 | 2,
                 name: string,
@@ -474,8 +503,11 @@ interface ResChallenge_box {
                 out_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 },
@@ -489,6 +521,8 @@ interface ResChallenge_box {
             },
             die_body: {
                 id: string,
+                /** 战力 */
+                military: number,
                 icon: string,
                 type: 0 | 1 | 2,
                 name: string,
@@ -498,8 +532,11 @@ interface ResChallenge_box {
                 out_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 },
@@ -580,6 +617,8 @@ interface ResChallenge_image {
             round: number,
             body: {
                 id: string,
+                /** 战力 */
+                military: number,
                 icon: string,
                 type: 0 | 1 | 2,
                 name: string,
@@ -589,8 +628,11 @@ interface ResChallenge_image {
                 out_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 },
@@ -604,6 +646,8 @@ interface ResChallenge_image {
             },
             die_body: {
                 id: string,
+                /** 战力 */
+                military: number,
                 icon: string,
                 type: 0 | 1 | 2,
                 name: string,
@@ -613,8 +657,11 @@ interface ResChallenge_image {
                 out_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 },
@@ -696,6 +743,8 @@ interface ResPkRank {
         round: number,
         body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -705,8 +754,11 @@ interface ResPkRank {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -720,6 +772,8 @@ interface ResPkRank {
         },
         die_body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -729,8 +783,11 @@ interface ResPkRank {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -804,6 +861,8 @@ interface ResPosAttackEnemy {
         round: number,
         body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -813,8 +872,11 @@ interface ResPosAttackEnemy {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -828,6 +890,8 @@ interface ResPosAttackEnemy {
         },
         die_body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -837,8 +901,11 @@ interface ResPosAttackEnemy {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -908,6 +975,8 @@ interface ResPosAttackPlayer {
         round: number,
         body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -917,8 +986,11 @@ interface ResPosAttackPlayer {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -932,6 +1004,8 @@ interface ResPosAttackPlayer {
         },
         die_body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -941,8 +1015,11 @@ interface ResPosAttackPlayer {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -1011,6 +1088,8 @@ interface ResRank {
         round: number,
         body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -1020,8 +1099,11 @@ interface ResRank {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -1035,6 +1117,8 @@ interface ResRank {
         },
         die_body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -1044,8 +1128,11 @@ interface ResRank {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -1151,7 +1238,103 @@ interface Resfishing {
 
 ## me
 
+### autoPlay
+
+#### endAutoPlay <a id="/me/autoPlay/endAutoPlay"></a>
+
+**路径**
+- POST `/me/autoPlay/endAutoPlay`
+
+**请求**
+```ts
+interface ReqendAutoPlay {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResendAutoPlay {
+    startTime: number
+}
+```
+
+---
+
+#### 开始自动挂机 <a id="/me/autoPlay/startAutoPlay"></a>
+
+**路径**
+- POST `/me/autoPlay/startAutoPlay`
+
+**请求**
+```ts
+interface ReqstartAutoPlay {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResstartAutoPlay {
+    startTime: number
+}
+```
+
+---
+
 ### title
+
+#### 重置称号 <a id="/me/title/Me_titleRandom"></a>
+
+**路径**
+- POST `/me/title/Me_titleRandom`
+
+**请求**
+```ts
+interface ReqMe_titleRandom {
+    userId: string,
+    randomCont: number
+}
+```
+
+**响应**
+```ts
+interface ResMe_titleRandom {
+    userCfg: { textStyle: 0 | 1 },
+    pay: {
+        state: boolean,
+        condition: {
+            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
+            val: number
+        },
+        now: number
+    },
+    bf: {
+        hp_max: number,
+        MagicAttack: number,
+        /** 物理攻击 */
+        PhysicalAttacks: number,
+        /** 魔法防御 */
+        MagicDefense: number,
+        /** 物理防御 */
+        PhysicalDefense: number,
+        secondResHp: number
+    },
+    now: {
+        hp_max: number,
+        MagicAttack: number,
+        /** 物理攻击 */
+        PhysicalAttacks: number,
+        /** 魔法防御 */
+        MagicDefense: number,
+        /** 物理防御 */
+        PhysicalDefense: number,
+        secondResHp: number
+    }
+}
+```
+
+---
 
 #### 称号改名 <a id="/me/title/Me_title_changeName"></a>
 
@@ -1250,6 +1433,8 @@ interface ReqMe_pet {
 interface ResMe_pet {
     petList: {
         id: string,
+        /** 战力 */
+        military: number,
         icon: string,
         type: 0 | 1 | 2,
         name: string,
@@ -1259,8 +1444,11 @@ interface ResMe_pet {
         out_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -1318,6 +1506,8 @@ interface ReqMe_petLook {
 interface ResMe_petLook {
     base: {
         id: string,
+        /** 战力 */
+        military: number,
         icon: string,
         type: 0 | 1 | 2,
         name: string,
@@ -1327,8 +1517,11 @@ interface ResMe_petLook {
         out_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -1369,6 +1562,93 @@ interface ResMe_petRm {
 
 ## rank
 
+### 血统等级排行榜 <a id="/rank/Rank_ancestry"></a>
+
+**路径**
+- POST `/rank/Rank_ancestry`
+
+**请求**
+```ts
+interface ReqRank_ancestry {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_ancestry {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
+### 基因锁等级排行榜 <a id="/rank/Rank_dnaLv"></a>
+
+**路径**
+- POST `/rank/Rank_dnaLv`
+
+**请求**
+```ts
+interface ReqRank_dnaLv {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_dnaLv {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
+### 红名排行榜 <a id="/rank/Rank_evil"></a>
+
+**路径**
+- POST `/rank/Rank_evil`
+
+**请求**
+```ts
+interface ReqRank_evil {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_evil {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
 ### Rank_gold <a id="/rank/Rank_gold"></a>
 
 **路径**
@@ -1398,6 +1678,35 @@ interface ResRank_gold {
 
 ---
 
+### Rank_justice <a id="/rank/Rank_justice"></a>
+
+**路径**
+- POST `/rank/Rank_justice`
+
+**请求**
+```ts
+interface ReqRank_justice {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_justice {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
 ### 等级排行榜 <a id="/rank/Rank_leve"></a>
 
 **路径**
@@ -1413,6 +1722,64 @@ interface ReqRank_leve {
 **响应**
 ```ts
 interface ResRank_leve {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
+### Rank_military <a id="/rank/Rank_military"></a>
+
+**路径**
+- POST `/rank/Rank_military`
+
+**请求**
+```ts
+interface ReqRank_military {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_military {
+    /** 排行列表 */
+    list: {
+        val: number,
+        name: string,
+        icon?: string,
+        id: string
+    }[],
+    /** 我的排名 */
+    meIndex: number
+}
+```
+
+---
+
+### 宠物战力排行榜 <a id="/rank/Rank_military_pet"></a>
+
+**路径**
+- POST `/rank/Rank_military_pet`
+
+**请求**
+```ts
+interface ReqRank_military_pet {
+    userId: string
+}
+```
+
+**响应**
+```ts
+interface ResRank_military_pet {
     /** 排行列表 */
     list: {
         val: number,
@@ -1811,15 +2178,18 @@ interface ResShop_equip {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0 | 1,
+        type: 0 | 1 | 2 | 3 | 4 | 5,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
         base_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -2240,8 +2610,11 @@ interface ResCreator_team {
         gain: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -2345,8 +2718,11 @@ interface ResMe_team {
         gain: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -2451,15 +2827,18 @@ interface ResBag {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0 | 1,
+        type: 0 | 1 | 2 | 3 | 4 | 5,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
         base_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -2517,6 +2896,8 @@ interface ResBattle {
         round: number,
         body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -2526,8 +2907,11 @@ interface ResBattle {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -2541,6 +2925,8 @@ interface ResBattle {
         },
         die_body: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -2550,8 +2936,11 @@ interface ResBattle {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -2644,19 +3033,23 @@ interface ResMe_Attribute {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0 | 1,
+                type: 0 | 1 | 2 | 3 | 4 | 5,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
                 base_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 }
             },
+            /** 副武器 */
             subWeapon?: {
                 icon: string,
                 /** 装备名称 */
@@ -2665,15 +3058,115 @@ interface ResMe_Attribute {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0 | 1,
+                type: 0 | 1 | 2 | 3 | 4 | 5,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
                 base_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            /** 衣服 */
+            clothes?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            necklace?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            hat?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            medal?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 }
@@ -2693,8 +3186,11 @@ interface ResMe_Attribute {
             attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             }
@@ -2705,8 +3201,11 @@ interface ResMe_Attribute {
         add: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -2781,15 +3280,18 @@ interface ResMe_Attribute {
             /** 品质 */
             quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
             /** 装备类型 */
-            type: 0 | 1,
+            type: 0 | 1 | 2 | 3 | 4 | 5,
             /** 强化等级 */
             leve: number,
             /** 基础属性 */
             base_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             }
@@ -2797,6 +3299,8 @@ interface ResMe_Attribute {
         setUp: { textStyle: 0 | 1 },
         pet: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -2806,8 +3310,11 @@ interface ResMe_Attribute {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -2838,6 +3345,8 @@ interface ResMe_Attribute {
             }
         },
         id: string,
+        /** 战力 */
+        military: number,
         icon: string,
         type: 0 | 1 | 2,
         name: string,
@@ -2847,8 +3356,11 @@ interface ResMe_Attribute {
         out_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -2871,8 +3383,11 @@ interface ResMe_Attribute {
         base: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -3022,15 +3537,18 @@ interface ResMe_equip {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0 | 1,
+        type: 0 | 1 | 2 | 3 | 4 | 5,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
         base_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -3064,15 +3582,18 @@ interface ResMe_lookBag {
     /** 品质 */
     quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
     /** 装备类型 */
-    type: 0 | 1,
+    type: 0 | 1 | 2 | 3 | 4 | 5,
     /** 强化等级 */
     leve: number,
     /** 基础属性 */
     base_attribute: {
         hp_max: number,
         MagicAttack: number,
+        /** 物理攻击 */
         PhysicalAttacks: number,
+        /** 魔法防御 */
         MagicDefense: number,
+        /** 物理防御 */
         PhysicalDefense: number,
         secondResHp: number
     }
@@ -3169,7 +3690,7 @@ interface ResMe_skill {
 ```ts
 interface ReqMe_strengthen {
     userId: string,
-    strengthenType: 0 | 1
+    strengthenType: 0 | 1 | 2 | 3 | 4 | 5
 }
 ```
 
@@ -3185,15 +3706,18 @@ interface ResMe_strengthen {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0 | 1,
+        type: 0 | 1 | 2 | 3 | 4 | 5,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
         base_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -3206,15 +3730,18 @@ interface ResMe_strengthen {
         /** 品质 */
         quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
         /** 装备类型 */
-        type: 0 | 1,
+        type: 0 | 1 | 2 | 3 | 4 | 5,
         /** 强化等级 */
         leve: number,
         /** 基础属性 */
         base_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
@@ -3262,57 +3789,14 @@ interface ResMe_title {
         attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         }
-    }
-}
-```
-
----
-
-## Me_titleRandom <a id="/Me_titleRandom"></a>
-
-**路径**
-- POST `/Me_titleRandom`
-
-**请求**
-```ts
-interface ReqMe_titleRandom {
-    userId: string,
-    randomCont: number
-}
-```
-
-**响应**
-```ts
-interface ResMe_titleRandom {
-    userCfg: { textStyle: 0 | 1 },
-    pay: {
-        state: boolean,
-        condition: {
-            key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11,
-            val: number
-        },
-        now: number
-    },
-    bf: {
-        hp_max: number,
-        MagicAttack: number,
-        PhysicalAttacks: number,
-        MagicDefense: number,
-        PhysicalDefense: number,
-        secondResHp: number
-    },
-    now: {
-        hp_max: number,
-        MagicAttack: number,
-        PhysicalAttacks: number,
-        MagicDefense: number,
-        PhysicalDefense: number,
-        secondResHp: number
     }
 }
 ```
@@ -3413,7 +3897,7 @@ interface ResMe_wearEquip {
 
 ---
 
-## Move <a id="/Move"></a>
+## 移动 <a id="/Move"></a>
 
 **路径**
 - POST `/Move`
@@ -3451,19 +3935,23 @@ interface ResMove {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0 | 1,
+                type: 0 | 1 | 2 | 3 | 4 | 5,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
                 base_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 }
             },
+            /** 副武器 */
             subWeapon?: {
                 icon: string,
                 /** 装备名称 */
@@ -3472,15 +3960,115 @@ interface ResMove {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0 | 1,
+                type: 0 | 1 | 2 | 3 | 4 | 5,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
                 base_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            /** 衣服 */
+            clothes?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            necklace?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            hat?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            medal?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 }
@@ -3500,8 +4088,11 @@ interface ResMove {
             attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             }
@@ -3512,8 +4103,11 @@ interface ResMove {
         add: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -3588,15 +4182,18 @@ interface ResMove {
             /** 品质 */
             quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
             /** 装备类型 */
-            type: 0 | 1,
+            type: 0 | 1 | 2 | 3 | 4 | 5,
             /** 强化等级 */
             leve: number,
             /** 基础属性 */
             base_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             }
@@ -3604,6 +4201,8 @@ interface ResMove {
         setUp: { textStyle: 0 | 1 },
         pet: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -3613,8 +4212,11 @@ interface ResMove {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -3645,6 +4247,8 @@ interface ResMove {
             }
         },
         id: string,
+        /** 战力 */
+        military: number,
         icon: string,
         type: 0 | 1 | 2,
         name: string,
@@ -3654,8 +4258,11 @@ interface ResMove {
         out_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -3699,6 +4306,8 @@ interface ResPos {
     isLeft: boolean,
     enemy: {
         id: string,
+        /** 战力 */
+        military: number,
         icon: string,
         type: 0 | 1 | 2,
         name: string,
@@ -3708,8 +4317,11 @@ interface ResPos {
         out_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -3734,19 +4346,23 @@ interface ResPos {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0 | 1,
+                type: 0 | 1 | 2 | 3 | 4 | 5,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
                 base_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 }
             },
+            /** 副武器 */
             subWeapon?: {
                 icon: string,
                 /** 装备名称 */
@@ -3755,15 +4371,115 @@ interface ResPos {
                 /** 品质 */
                 quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
                 /** 装备类型 */
-                type: 0 | 1,
+                type: 0 | 1 | 2 | 3 | 4 | 5,
                 /** 强化等级 */
                 leve: number,
                 /** 基础属性 */
                 base_attribute: {
                     hp_max: number,
                     MagicAttack: number,
+                    /** 物理攻击 */
                     PhysicalAttacks: number,
+                    /** 魔法防御 */
                     MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            /** 衣服 */
+            clothes?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            necklace?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            hat?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
+                    PhysicalDefense: number,
+                    secondResHp: number
+                }
+            },
+            medal?: {
+                icon: string,
+                /** 装备名称 */
+                name: string,
+                story: string,
+                /** 品质 */
+                quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+                /** 装备类型 */
+                type: 0 | 1 | 2 | 3 | 4 | 5,
+                /** 强化等级 */
+                leve: number,
+                /** 基础属性 */
+                base_attribute: {
+                    hp_max: number,
+                    MagicAttack: number,
+                    /** 物理攻击 */
+                    PhysicalAttacks: number,
+                    /** 魔法防御 */
+                    MagicDefense: number,
+                    /** 物理防御 */
                     PhysicalDefense: number,
                     secondResHp: number
                 }
@@ -3783,8 +4499,11 @@ interface ResPos {
             attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             }
@@ -3795,8 +4514,11 @@ interface ResPos {
         add: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -3871,15 +4593,18 @@ interface ResPos {
             /** 品质 */
             quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
             /** 装备类型 */
-            type: 0 | 1,
+            type: 0 | 1 | 2 | 3 | 4 | 5,
             /** 强化等级 */
             leve: number,
             /** 基础属性 */
             base_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             }
@@ -3887,6 +4612,8 @@ interface ResPos {
         setUp: { textStyle: 0 | 1 },
         pet: {
             id: string,
+            /** 战力 */
+            military: number,
             icon: string,
             type: 0 | 1 | 2,
             name: string,
@@ -3896,8 +4623,11 @@ interface ResPos {
             out_attribute: {
                 hp_max: number,
                 MagicAttack: number,
+                /** 物理攻击 */
                 PhysicalAttacks: number,
+                /** 魔法防御 */
                 MagicDefense: number,
+                /** 物理防御 */
                 PhysicalDefense: number,
                 secondResHp: number
             },
@@ -3928,6 +4658,8 @@ interface ResPos {
             }
         },
         id: string,
+        /** 战力 */
+        military: number,
         icon: string,
         type: 0 | 1 | 2,
         name: string,
@@ -3937,8 +4669,11 @@ interface ResPos {
         out_attribute: {
             hp_max: number,
             MagicAttack: number,
+            /** 物理攻击 */
             PhysicalAttacks: number,
+            /** 魔法防御 */
             MagicDefense: number,
+            /** 物理防御 */
             PhysicalDefense: number,
             secondResHp: number
         },
@@ -4044,7 +4779,11 @@ interface ResSign {
     * 1665841521
     */
     lastSignTime: number,
-    userCfg: { textStyle: 0 | 1 }
+    userCfg: { textStyle: 0 | 1 },
+    reward: {
+        key: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16,
+        val: number
+    }[]
 }
 ```
 
