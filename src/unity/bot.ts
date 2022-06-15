@@ -10,26 +10,26 @@ class bot {
     private client: any;
     private onMsg_atCall?: any;
     private msgIdMap: Map<string, Map<string, BOT_MSGID_MAP>>;//消息id哈希表，子频道ID，消息ID
-    private channelMap:Map<string,number>;//子频道ID，上次此频道活跃时间
+    private channelMap: Map<string, number>;//子频道ID，上次此频道活跃时间
     private userActiveChannelMap: Map<string, string>;//玩家上次活跃的频道
-    private locaDev:string;
+    private locaDev: string;
     constructor() {
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
         let pack = require('../../package.json');
-        this.locaDev =  pack.version;
+        this.locaDev = pack.version;
     }
     /**
      * 获取本地版本号
      */
-    getDev(){
+    getDev() {
         return this.locaDev
     }
     severId() {
         return this.botInfo?.shard[0];
     }
-    getBotConfig(){
+    getBotConfig() {
         return this.config as any;
     }
     /**
@@ -63,24 +63,44 @@ class bot {
         })
 
         sever.wsClient.listenMsg('CallAll', (res) => {
-           this.callAll(res.content)
+            this.callAll(res.content)
         })
     }
+    test(str: string) {
+        this.client.messageApi.postMessage(str, {
+            markdown: {
+                template_id: 1,
+                params: [
+                    {
+                        key: 'title',
+                        value: ['标题'],
+                    },
+                ],
+            },
+            msg_id: 'xxxxxx',
+            keyboard: {
+                id: '123',
+            },
+        })
+
+    }
+
+
     /**
      * 通知客户端全部频道
      * @param str 
      */
-    async callAll(str:string){
-        let list:string[] = []
-        this.channelMap.forEach(async (lastActiveTime,id) => {
-            if(Date.now() - lastActiveTime > 60*5*950){
+    async callAll(str: string) {
+        let list: string[] = []
+        this.channelMap.forEach(async (lastActiveTime, id) => {
+            if (Date.now() - lastActiveTime > 60 * 5 * 950) {
                 this.channelMap.delete(id)
-            }else{
+            } else {
                 list.push(id);
             }
         });
         for (let index = 0; index < list.length; index++) {
-            await this.sendText(list[index],str)
+            await this.sendText(list[index], str)
         }
     }
     /**
@@ -125,7 +145,7 @@ class bot {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
-        if(msg_id == 1){
+        if (msg_id == 1) {
             await new Promise(rs => { setTimeout(rs, 1000) });
             msg_id = this.getMsgId(channelID)
         }
@@ -139,7 +159,7 @@ class bot {
         await this.postMessage(channelID, {
             content: content,
             msg_id: msg_id
-        }).catch(()=>{
+        }).catch(() => {
             err('消息发送错误')
         })
     }
@@ -152,7 +172,7 @@ class bot {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
-        if(msg_id == 1){
+        if (msg_id == 1) {
             await new Promise(rs => { setTimeout(rs, 1000) });
             msg_id = this.getMsgId(channelID)
         }
@@ -166,7 +186,7 @@ class bot {
         await this.postMessage(channelID, {
             msg_id: msg_id,
             image: url
-        }).catch(()=>{
+        }).catch(() => {
             err('消息发送错误')
         })
     }
@@ -174,7 +194,7 @@ class bot {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
-        if(msg_id == 1){
+        if (msg_id == 1) {
             await new Promise(rs => { setTimeout(rs, 1000) });
             msg_id = this.getMsgId(channelID)
         }
@@ -188,7 +208,7 @@ class bot {
         await this.postMessage(channelID, {
             msg_id: msg_id,
             embed: embed
-        }).catch(()=>{
+        }).catch(() => {
             err('消息发送错误')
         })
     }
@@ -221,11 +241,23 @@ class bot {
                         this._onMsg_del();
                     }
                 });
+
                 break;
+            case AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
+                this.ws.on(AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data: BOT_OnData) => {
+                    log('？？？',data)
+                    if (data.eventType == BOT_EventType.test) {
+                        this._test()
+                    }
+                })
+            break;
             default:
                 log('暂未开发的事件:', intents)
                 break;
         }
+    }
+    private _test() {
+        log('测试表情')
     }
     /**
      * 内部处理艾特消息
@@ -270,7 +302,7 @@ class bot {
 
         // 更新用户活跃子频道
         this.userActiveChannelMap.set(data.author.id, data.channel_id);
-        this.channelMap.set(data.channel_id,Date.now())
+        this.channelMap.set(data.channel_id, Date.now())
         if (!this.onMsg_atCall) {
             err('at 监听回调不存在')
             return;

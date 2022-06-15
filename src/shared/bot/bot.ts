@@ -27,12 +27,42 @@ export interface BOT_OnData {
     eventType: BOT_EventType,
     msg: any
 }
+export interface BOT_MSG_EMOJI {
+    /**
+     * 子频道ID
+     */
+    channel_id: string,
+    /**
+     * 用户ID
+     */
+    user_id: string,
+    /**
+     * 频道ID
+     */
+    guild_id: string,
+    /**
+     * 表态对象
+     */
+    target: {
+        /**
+         * 对象ID
+         */
+        id: string,
+        /**
+         * 类型
+         * 0消息
+         */
+        type: number
+    },
+    emoji:{id:string,type:string}
+}
 /**
  * 消息类型
  */
 export enum BOT_EventType {
     msg_at = 'AT_MESSAGE_CREATE',
-    msg_del = 'PUBLIC_MESSAGE_DELETE'
+    msg_del = 'PUBLIC_MESSAGE_DELETE',
+    test = 'GUILD_MESSAGE_REACTIONS'
 }
 /**
  * 用户信息

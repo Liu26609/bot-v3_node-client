@@ -68,6 +68,23 @@ class bot {
             this.callAll(res.content);
         });
     }
+    test(str) {
+        this.client.messageApi.postMessage(str, {
+            markdown: {
+                template_id: 1,
+                params: [
+                    {
+                        key: 'title',
+                        value: ['标题'],
+                    },
+                ],
+            },
+            msg_id: 'xxxxxx',
+            keyboard: {
+                id: '123',
+            },
+        });
+    }
     /**
      * 通知客户端全部频道
      * @param str
@@ -230,10 +247,21 @@ class bot {
                     }
                 });
                 break;
+            case qq_guild_bot_1.AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
+                this.ws.on(qq_guild_bot_1.AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data) => {
+                    (0, __1.log)('？？？', data);
+                    if (data.eventType == bot_1.BOT_EventType.test) {
+                        this._test();
+                    }
+                });
+                break;
             default:
                 (0, __1.log)('暂未开发的事件:', intents);
                 break;
         }
+    }
+    _test() {
+        (0, __1.log)('测试表情');
     }
     /**
      * 内部处理艾特消息

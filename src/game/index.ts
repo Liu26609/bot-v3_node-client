@@ -267,7 +267,11 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
-
+        if(data.content == '测试'){
+            log('测试')
+            bot.test(data.channel_id)
+            return;
+        }
         // let isNext = false;
         // let whiteMap = new Map();
         // whiteMap.set('1933444',true)
