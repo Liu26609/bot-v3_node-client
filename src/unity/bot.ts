@@ -54,7 +54,6 @@ class bot {
             // AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES
         }
         sever.wsClient.listenMsg('CallAppoint', (res) => {
-            log('收到ws消息',res)
             let lastChannelId = this.userActiveChannelMap.get(res.callUserId);
             if (lastChannelId) {
                 this.sendText(lastChannelId, res.content)
@@ -62,7 +61,6 @@ class bot {
         })
 
         sever.wsClient.listenMsg('CallAll', (res) => {
-            log('收到ws消息',res)
            this.callAll(res.content)
         })
     }
