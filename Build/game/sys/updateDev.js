@@ -39,6 +39,7 @@ class sys_update_code extends task_base_1.task_base {
             isAcitve = true;
             yield bot_1.default.callAll(`开始更新版本\n本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...`);
             yield this.updateCode();
+            isAcitve = false;
         });
     }
     runCmd(task) {

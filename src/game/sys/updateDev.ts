@@ -25,6 +25,7 @@ export class sys_update_code extends task_base {
         isAcitve = true;
         await bot.callAll(`开始更新版本\n本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...`)
         await this.updateCode()
+        isAcitve = false;
     }
     runCmd(task: string) {
         return new Promise<string>((resolve, reject) => {
