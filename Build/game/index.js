@@ -104,6 +104,10 @@ const rank_justice_1 = require("./rank/rank_justice");
 const me_AutoPlay_1 = require("./me/autoPlay/me_AutoPlay");
 const updateDev_1 = require("./sys/updateDev");
 const me_Reread_1 = require("./me/autoPlay/me_Reread");
+const rank_MagicAttack_1 = require("./rank/rank_MagicAttack");
+const rank_MagicDefense_1 = require("./rank/rank_MagicDefense");
+const rank_PhysicalAttacks_1 = require("./rank/rank_PhysicalAttacks");
+const rank_PhysicalDefense_1 = require("./rank/rank_PhysicalDefense");
 var matchType;
 (function (matchType) {
     /**
@@ -131,6 +135,10 @@ class game {
         this.matchMap.set('复读', { action: me_Reread_1.me_Reread, match: matchType.all });
         this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
+        this.matchMap.set(`魔攻排行榜`, { action: rank_MagicAttack_1.rank_MagicAttack, match: matchType.all });
+        this.matchMap.set(`魔防排行榜`, { action: rank_MagicDefense_1.rank_MagicDefense, match: matchType.all });
+        this.matchMap.set(`物攻排行榜`, { action: rank_PhysicalAttacks_1.rank_PhysicalAttacks, match: matchType.all });
+        this.matchMap.set(`物防排行榜`, { action: rank_PhysicalDefense_1.rank_PhysicalDefense, match: matchType.all });
         this.matchMap.set(`签到排行榜`, { action: rank_sign_1.rank_sign, match: matchType.all });
         this.matchMap.set(`红名排行榜`, { action: rank_evil_1.rank_evil, match: matchType.all });
         this.matchMap.set(`正义排行榜`, { action: rank_justice_1.rank_justice, match: matchType.all });

@@ -12,32 +12,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.rank_menu = void 0;
+exports.rank_PhysicalAttacks = void 0;
 const bot_1 = __importDefault(require("../../unity/bot"));
+const common_1 = __importDefault(require("../../unity/common"));
+const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
-class rank_menu extends task_base_1.task_base {
+// 等级排行榜
+class rank_PhysicalAttacks extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            let temp = `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ目前可查看排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒
-📑宠物等级排行榜📑强化排行榜
-📑宠物数量排行榜📑签到排行榜
-📑工会等级排行榜📑声望排行榜
-📑称号属性排行榜📑等级排行榜
-📑称号重置排行榜📑猜数排行榜
-📑猜数欧皇排行榜📑金币排行榜
-📑基因锁排行榜  📑进化排行榜
-📑宠物战力排行榜📑战力排行榜
-📑红名排行榜    📑正义排行榜
-📑魔攻排行榜📑物攻排行榜
-📑魔防排行榜📑物防排行榜
-// 📑工会贡献排行榜📑生命排行榜
-࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ目前可查看排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒`;
+            let req = yield sever_1.default.callApi('rank/Rank_PhysicalAttacks', { userId: this.userId });
+            if (!req.isSucc) {
+                this.sendErr(req.err);
+                return;
+            }
+            let data = req.res;
+            let temp = ``;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ物攻排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            for (let index = 0; index < data.list.length; index++) {
+                let e = data.list[index];
+                temp += `${common_1.default.getRankStr(index)}🔪${common_1.default.BN(e.val)}${e.icon}${e.name}\n`;
+            }
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ物攻排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }
 }
-exports.rank_menu = rank_menu;
+exports.rank_PhysicalAttacks = rank_PhysicalAttacks;

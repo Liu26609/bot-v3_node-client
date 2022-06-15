@@ -31,21 +31,21 @@ var mapId;
 var rewardKey;
 (function (rewardKey) {
     /**
+  * 盲盒
+  */
+    rewardKey[rewardKey["BlindBox"] = 0] = "BlindBox";
+    /**
      * 经验
      */
-    rewardKey[rewardKey["exp"] = 0] = "exp";
+    rewardKey[rewardKey["exp"] = 1] = "exp";
     /**
      * 金币
      */
-    rewardKey[rewardKey["gold"] = 1] = "gold";
+    rewardKey[rewardKey["gold"] = 2] = "gold";
     /**
      * 称号卡
      */
-    rewardKey[rewardKey["titleCard"] = 2] = "titleCard";
-    /**
-     * 盲盒
-     */
-    rewardKey[rewardKey["BlindBox"] = 3] = "BlindBox";
+    rewardKey[rewardKey["titleCard"] = 3] = "titleCard";
     /**
      * 改名卡
      */
@@ -98,6 +98,10 @@ var rewardKey;
      * 宠物经验
      */
     rewardKey[rewardKey["petExp"] = 16] = "petExp";
+    /**
+     * 工会贡献
+     */
+    rewardKey[rewardKey["team_devote"] = 17] = "team_devote";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -118,6 +122,7 @@ var rewardKey_CN;
     rewardKey_CN["dnaExp"] = "\uD83E\uDDEC\u8FDB\u5316\u70B9";
     rewardKey_CN["titleExp"] = "\uD83C\uDF08\u79F0\u53F7\u7ECF\u9A8C";
     rewardKey_CN["petExp"] = "\uD83C\uDF56\u5BA0\u7269\u7ECF\u9A8C";
+    rewardKey_CN["team_devote"] = "\uD83C\uDFF0\u5DE5\u4F1A\u8D21\u732E";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型
@@ -148,11 +153,11 @@ var chestBoxLv_CN;
     chestBoxLv_CN["D"] = "\uD83D\uDCE6\uFE0F\u6728\u5236\u5B9D\u7BB1";
     chestBoxLv_CN["C"] = "\uD83D\uDCEE\u94C1\u8D28\u5B9D\u7BB1";
     chestBoxLv_CN["B"] = "\uD83D\uDCBC\u767D\u94F6\u5B9D\u7BB1";
-    chestBoxLv_CN["A"] = "\uD83D\uDECD\uFE0F\u767D\u91D1\u5B9D\u7BB1";
-    chestBoxLv_CN["AA"] = "\uD83D\uDC5B\u9EC4\u91D1\u5B9D\u7BB1";
+    chestBoxLv_CN["A"] = "\uD83D\uDECD\uFE0F\u9EC4\u91D1\u5B9D\u7BB1";
+    chestBoxLv_CN["AA"] = "\uD83D\uDC5B\u767D\u91D1\u5B9D\u7BB1";
     chestBoxLv_CN["AAA"] = "\uD83D\uDC51\u94BB\u77F3\u5B9D\u7BB1";
     chestBoxLv_CN["S"] = "\uD83D\uDD4B\u53F2\u8BD7\u5B9D\u7BB1";
     chestBoxLv_CN["SS"] = "\uD83C\uDFEE\u4F20\u5947\u5B9D\u7BB1";
     chestBoxLv_CN["SSS"] = "\uD83D\uDCD9\u8FDC\u53E4\u5B9D\u7BB1";
-    chestBoxLv_CN["SSSS"] = "\u2699\u4F5C\u8005\u5B9D\u7BB1";
+    chestBoxLv_CN["SSSS"] = "\u2699\u4F5C\u8005\u5B9D\u7BB1"; //拉满
 })(chestBoxLv_CN = exports.chestBoxLv_CN || (exports.chestBoxLv_CN = {}));

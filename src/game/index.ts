@@ -91,6 +91,10 @@ import { rank_justice } from './rank/rank_justice';
 import { me_AutoPlay } from './me/autoPlay/me_AutoPlay';
 import { sys_update_code } from './sys/updateDev';
 import { me_Reread } from './me/autoPlay/me_Reread';
+import { rank_MagicAttack } from './rank/rank_MagicAttack';
+import { rank_MagicDefense } from './rank/rank_MagicDefense';
+import { rank_PhysicalAttacks } from './rank/rank_PhysicalAttacks';
+import { rank_PhysicalDefense } from './rank/rank_PhysicalDefense';
 
 enum matchType {
     /**
@@ -132,6 +136,10 @@ export default class game {
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
         this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
+        this.matchMap.set(`魔攻排行榜`, { action: rank_MagicAttack, match: matchType.all })
+        this.matchMap.set(`魔防排行榜`, { action: rank_MagicDefense, match: matchType.all })
+        this.matchMap.set(`物攻排行榜`, { action: rank_PhysicalAttacks, match: matchType.all })
+        this.matchMap.set(`物防排行榜`, { action: rank_PhysicalDefense, match: matchType.all })
         this.matchMap.set(`签到排行榜`, { action: rank_sign, match: matchType.all })
         this.matchMap.set(`红名排行榜`, { action: rank_evil, match: matchType.all })
         this.matchMap.set(`正义排行榜`, { action: rank_justice, match: matchType.all })

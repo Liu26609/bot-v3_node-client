@@ -18,7 +18,7 @@ export class me_AutoPlay extends task_base {
     }
     menu() {
         let temp = `┏┄════挂机══━┄\n`;
-        temp += `1.每战斗一次会消耗${walletKey_CN[walletKey[walletKey.driedFish]]}X1,没有${walletKey_CN[walletKey[walletKey.driedFish]]}将自动停止挂机\n`
+        temp += `1.每战斗一次会消耗${walletKey_CN[walletKey[walletKey.driedFish]]},没有${walletKey_CN[walletKey[walletKey.driedFish]]}将自动停止挂机\n`
         temp += `2.挂机会持续与怪物战斗,如果你太弱可能会频繁死亡\n`
         temp += `3.艾特机器人5分钟内会推送挂机战斗记录\n`
         temp += `4.请在个人频道或在不打扰他人的频道开始挂机\n`

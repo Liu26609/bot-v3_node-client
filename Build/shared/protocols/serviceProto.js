@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 30,
+    "version": 33,
     "services": [
         {
             "id": 0,
@@ -285,6 +285,16 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 100,
+            "name": "rank/Rank_MagicAttack",
+            "type": "api"
+        },
+        {
+            "id": 101,
+            "name": "rank/Rank_MagicDefense",
+            "type": "api"
+        },
+        {
             "id": 94,
             "name": "rank/Rank_military_pet",
             "type": "api"
@@ -312,6 +322,16 @@ exports.serviceProto = {
         {
             "id": 75,
             "name": "rank/Rank_petLv",
+            "type": "api"
+        },
+        {
+            "id": 102,
+            "name": "rank/Rank_PhysicalAttacks",
+            "type": "api"
+        },
+        {
+            "id": 103,
+            "name": "rank/Rank_PhysicalDefense",
             "type": "api"
         },
         {
@@ -1710,6 +1730,10 @@ exports.serviceProto = {
                 {
                     "id": 16,
                     "value": 16
+                },
+                {
+                    "id": 17,
+                    "value": 17
                 }
             ]
         },
@@ -2551,7 +2575,17 @@ exports.serviceProto = {
             ]
         },
         "pet/PtlMe_petChangeName/ResMe_petChangeName": {
-            "type": "Interface"
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                }
+            ]
         },
         "pet/PtlMe_petLook/ReqMe_petLook": {
             "type": "Interface",
@@ -4576,6 +4610,54 @@ exports.serviceProto = {
                 }
             ]
         },
+        "rank/PtlRank_MagicAttack/ReqRank_MagicAttack": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_MagicAttack/ResRank_MagicAttack": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_MagicDefense/ReqRank_MagicDefense": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_MagicDefense/ResRank_MagicDefense": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
         "rank/PtlRank_military_pet/ReqRank_military_pet": {
             "type": "Interface",
             "properties": [
@@ -4709,6 +4791,54 @@ exports.serviceProto = {
             ]
         },
         "rank/PtlRank_petLv/ResRank_petLv": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalAttacks/ReqRank_PhysicalAttacks": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalAttacks/ResRank_PhysicalAttacks": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalDefense/ReqRank_PhysicalDefense": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalDefense/ResRank_PhysicalDefense": {
             "type": "Interface",
             "extends": [
                 {
@@ -5542,7 +5672,7 @@ exports.serviceProto = {
                                 "name": "key",
                                 "type": {
                                     "type": "Reference",
-                                    "target": "../game/user/walletKey"
+                                    "target": "../game/prop/rewardKey"
                                 }
                             },
                             {

@@ -55,12 +55,16 @@ import { ReqRank_evil, ResRank_evil } from './rank/PtlRank_evil';
 import { ReqRank_gold, ResRank_gold } from './rank/PtlRank_gold';
 import { ReqRank_justice, ResRank_justice } from './rank/PtlRank_justice';
 import { ReqRank_leve, ResRank_leve } from './rank/PtlRank_leve';
+import { ReqRank_MagicAttack, ResRank_MagicAttack } from './rank/PtlRank_MagicAttack';
+import { ReqRank_MagicDefense, ResRank_MagicDefense } from './rank/PtlRank_MagicDefense';
 import { ReqRank_military_pet, ResRank_military_pet } from './rank/PtlRank_military_pet';
 import { ReqRank_military, ResRank_military } from './rank/PtlRank_military';
 import { ReqRank_minGame_lottery_cont, ResRank_minGame_lottery_cont } from './rank/PtlRank_minGame_lottery_cont';
 import { ReqRank_minGame_lottery_win, ResRank_minGame_lottery_win } from './rank/PtlRank_minGame_lottery_win';
 import { ReqRank_petCont, ResRank_petCont } from './rank/PtlRank_petCont';
 import { ReqRank_petLv, ResRank_petLv } from './rank/PtlRank_petLv';
+import { ReqRank_PhysicalAttacks, ResRank_PhysicalAttacks } from './rank/PtlRank_PhysicalAttacks';
+import { ReqRank_PhysicalDefense, ResRank_PhysicalDefense } from './rank/PtlRank_PhysicalDefense';
 import { ReqRank_rankscore, ResRank_rankscore } from './rank/PtlRank_rankscore';
 import { ReqRank_sign, ResRank_sign } from './rank/PtlRank_sign';
 import { ReqRank_strengthen, ResRank_strengthen } from './rank/PtlRank_strengthen';
@@ -307,6 +311,14 @@ export interface ServiceType {
             req: ReqRank_leve,
             res: ResRank_leve
         },
+        "rank/Rank_MagicAttack": {
+            req: ReqRank_MagicAttack,
+            res: ResRank_MagicAttack
+        },
+        "rank/Rank_MagicDefense": {
+            req: ReqRank_MagicDefense,
+            res: ResRank_MagicDefense
+        },
         "rank/Rank_military_pet": {
             req: ReqRank_military_pet,
             res: ResRank_military_pet
@@ -330,6 +342,14 @@ export interface ServiceType {
         "rank/Rank_petLv": {
             req: ReqRank_petLv,
             res: ResRank_petLv
+        },
+        "rank/Rank_PhysicalAttacks": {
+            req: ReqRank_PhysicalAttacks,
+            res: ResRank_PhysicalAttacks
+        },
+        "rank/Rank_PhysicalDefense": {
+            req: ReqRank_PhysicalDefense,
+            res: ResRank_PhysicalDefense
         },
         "rank/Rank_rankscore": {
             req: ReqRank_rankscore,
@@ -447,7 +467,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 30,
+    "version": 33,
     "services": [
         {
             "id": 0,
@@ -730,6 +750,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 100,
+            "name": "rank/Rank_MagicAttack",
+            "type": "api"
+        },
+        {
+            "id": 101,
+            "name": "rank/Rank_MagicDefense",
+            "type": "api"
+        },
+        {
             "id": 94,
             "name": "rank/Rank_military_pet",
             "type": "api"
@@ -757,6 +787,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 75,
             "name": "rank/Rank_petLv",
+            "type": "api"
+        },
+        {
+            "id": 102,
+            "name": "rank/Rank_PhysicalAttacks",
+            "type": "api"
+        },
+        {
+            "id": 103,
+            "name": "rank/Rank_PhysicalDefense",
             "type": "api"
         },
         {
@@ -2155,6 +2195,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 16,
                     "value": 16
+                },
+                {
+                    "id": 17,
+                    "value": 17
                 }
             ]
         },
@@ -2996,7 +3040,17 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "pet/PtlMe_petChangeName/ResMe_petChangeName": {
-            "type": "Interface"
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                }
+            ]
         },
         "pet/PtlMe_petLook/ReqMe_petLook": {
             "type": "Interface",
@@ -5021,6 +5075,54 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "rank/PtlRank_MagicAttack/ReqRank_MagicAttack": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_MagicAttack/ResRank_MagicAttack": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_MagicDefense/ReqRank_MagicDefense": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_MagicDefense/ResRank_MagicDefense": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
         "rank/PtlRank_military_pet/ReqRank_military_pet": {
             "type": "Interface",
             "properties": [
@@ -5154,6 +5256,54 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "rank/PtlRank_petLv/ResRank_petLv": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalAttacks/ReqRank_PhysicalAttacks": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalAttacks/ResRank_PhysicalAttacks": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalDefense/ReqRank_PhysicalDefense": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_PhysicalDefense/ResRank_PhysicalDefense": {
             "type": "Interface",
             "extends": [
                 {
@@ -5987,7 +6137,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                                 "name": "key",
                                 "type": {
                                     "type": "Reference",
-                                    "target": "../game/user/walletKey"
+                                    "target": "../game/prop/rewardKey"
                                 }
                             },
                             {

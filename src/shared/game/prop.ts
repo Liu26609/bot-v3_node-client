@@ -105,7 +105,7 @@ export interface store_team {
     /**
      * 购买条件
      */
-    buyCondition: { key: walletKey, val: number },
+    buyCondition: { key: rewardKey, val: number },
     /**
      * 本次库存
      */
@@ -205,6 +205,10 @@ export interface prop {
     data: equip;
 }
 export enum rewardKey {
+       /**
+     * 盲盒
+     */
+        BlindBox,
     /**
      * 经验
      */
@@ -217,10 +221,6 @@ export enum rewardKey {
      * 称号卡
      */
     titleCard,
-    /**
-     * 盲盒
-     */
-    BlindBox,
     /**
      * 改名卡
      */
@@ -272,7 +272,11 @@ export enum rewardKey {
     /**
      * 宠物经验
      */
-    petExp
+    petExp,
+    /**
+     * 工会贡献
+     */
+    team_devote
 }
 export enum rewardKey_CN {
     exp = '⏳经验',
@@ -291,8 +295,8 @@ export enum rewardKey_CN {
     evil = '🟥红名值',
     dnaExp = '🧬进化点',
     titleExp = '🌈称号经验',
-    petExp = '🍖宠物经验'
-
+    petExp = '🍖宠物经验',
+    team_devote = '🏰工会贡献'
 }
 
 /**
@@ -325,14 +329,14 @@ export enum chestBoxLv {
     SSSS
 }
 export enum chestBoxLv_CN {
-    D = '📦️木制宝箱',
-    C = '📮铁质宝箱',
-    B = '💼白银宝箱',
-    A = '🛍️白金宝箱',
-    AA = '👛黄金宝箱',
-    AAA = '👑钻石宝箱',
-    S = '🕋史诗宝箱',
-    SS = '🏮传奇宝箱',
-    SSS = '📙远古宝箱',
-    SSSS = '⚙作者宝箱'
+    D = '📦️木制宝箱',//奖励1个
+    C = '📮铁质宝箱',//奖励1个
+    B = '💼白银宝箱',//奖励1个
+    A = '🛍️黄金宝箱',//奖励2个
+    AA = '👛白金宝箱',//奖励3个
+    AAA = '👑钻石宝箱',//奖励4个
+    S = '🕋史诗宝箱',//奖励5个
+    SS = '🏮传奇宝箱',//奖励6个
+    SSS = '📙远古宝箱',//奖励7个
+    SSSS = '⚙作者宝箱'//拉满
 }
