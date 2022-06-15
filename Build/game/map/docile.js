@@ -29,6 +29,10 @@ class docile extends task_base_1.task_base {
                 return;
             }
             let docileIndex = Number(this.content.replace('捕捉', ''));
+            if (isNaN(docileIndex)) {
+                this.menu();
+                return;
+            }
             let req = yield sever_1.default.callApi('map/Docile', { userId: this.userId, index: Math.ceil(docileIndex) });
             if (!req.isSucc) {
                 this.sendErr(req.err);

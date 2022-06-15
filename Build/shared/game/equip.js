@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EQUIP_TYPE_CN = exports.EQUIP_TYPE_ICON = exports.EQUIP_TYPE = exports.EQUIP_QUALITY = void 0;
+exports.EQUIP_TYPE_CN = exports.EQUIP_TYPE_ICON = exports.EQUIP_TYPE = exports.EQUIP_QUALITY_COLOR = exports.EQUIP_QUALITY = void 0;
 /**
  * 装备品质
  */
@@ -13,10 +13,23 @@ var EQUIP_QUALITY;
     EQUIP_QUALITY[EQUIP_QUALITY["C"] = 4] = "C";
     EQUIP_QUALITY[EQUIP_QUALITY["B"] = 5] = "B";
     EQUIP_QUALITY[EQUIP_QUALITY["A"] = 6] = "A";
-    EQUIP_QUALITY[EQUIP_QUALITY["s"] = 7] = "s";
-    EQUIP_QUALITY[EQUIP_QUALITY["ss"] = 8] = "ss";
-    EQUIP_QUALITY[EQUIP_QUALITY["sss"] = 9] = "sss"; //="作者专属"
+    EQUIP_QUALITY[EQUIP_QUALITY["S"] = 7] = "S";
+    EQUIP_QUALITY[EQUIP_QUALITY["SS"] = 8] = "SS";
+    EQUIP_QUALITY[EQUIP_QUALITY["SSS"] = 9] = "SSS"; //="作者专属"
 })(EQUIP_QUALITY = exports.EQUIP_QUALITY || (exports.EQUIP_QUALITY = {}));
+var EQUIP_QUALITY_COLOR;
+(function (EQUIP_QUALITY_COLOR) {
+    EQUIP_QUALITY_COLOR["G"] = "#808080";
+    EQUIP_QUALITY_COLOR["F"] = "#F8F8FF";
+    EQUIP_QUALITY_COLOR["E"] = "#BBFFFF";
+    EQUIP_QUALITY_COLOR["D"] = "#7FFFD4";
+    EQUIP_QUALITY_COLOR["C"] = "#1E90FF";
+    EQUIP_QUALITY_COLOR["B"] = "#A020F0";
+    EQUIP_QUALITY_COLOR["A"] = "#FFA500";
+    EQUIP_QUALITY_COLOR["S"] = "#FF00FF";
+    EQUIP_QUALITY_COLOR["SS"] = "#FFA500";
+    EQUIP_QUALITY_COLOR["SSS"] = "#EE2C2C"; //="作者专属"
+})(EQUIP_QUALITY_COLOR = exports.EQUIP_QUALITY_COLOR || (exports.EQUIP_QUALITY_COLOR = {}));
 var EQUIP_TYPE;
 (function (EQUIP_TYPE) {
     /**

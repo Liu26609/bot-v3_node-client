@@ -13,7 +13,10 @@ export class docile extends task_base{
             return;
         }
         let docileIndex = Number(this.content.replace('捕捉',''));
-
+        if(isNaN(docileIndex)){
+            this.menu()
+            return
+        }
         let req = await sever.callApi('map/Docile',{userId:this.userId,index:Math.ceil(docileIndex)});
         if (!req.isSucc) {
             this.sendErr(req.err)
