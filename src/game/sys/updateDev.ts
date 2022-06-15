@@ -8,71 +8,52 @@ export class sys_update_code extends task_base {
         this.render()
     }
     async render() {
-        if(isAcitve){
+        if (isAcitve) {
             this.log('正在更新中,请勿重复更新')
             return;
         }
         let whiteMap = new Map();
-        whiteMap.set('14139673525601401123',1)
-        whiteMap.set('18408854810586198036',2)
-         whiteMap.set('1081629992283146971',2)
-        
-        if(!whiteMap.has(this.userId)){
+        whiteMap.set('14139673525601401123', 1)
+        whiteMap.set('18408854810586198036', 2)
+        whiteMap.set('1081629992283146971', 2)
+
+        if (!whiteMap.has(this.userId)) {
             this.log('你没有权限更新')
             return;
         }
         isAcitve = true;
-
-        await this.log(`本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...`)
-        const argv = process.argv
-        const githref = argv[2]
-        let child_process = require('child_process');
-        // child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, { cwd: githref }, (error, stdout, stderr) => {
-        //     if (error !== null) {
-        //         console.log('exec error: ' + error);
-        //     } else {
-        //         bot.sendText(this.channel_id, stdout)
-        //         this.log(`更新完成,开始重启`)
-        //         // console.log(stdout)
-        //     }
-        // });
-        this.updateCode()
+        await bot.callAll(`开始更新版本\n本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...`)
+        await this.updateCode()
     }
-    getLog() {
-        const argv = process.argv
-        const githref = argv[2]
-        let child_process = require('child_process');
-        child_process.exec(`git log -n 1`, { cwd: githref }, async (error, stdout: string, stderr) => {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            } else {
-                let str = stdout;
-                let urlStartIndex = str.indexOf('<')
-                let urlEndIndex = str.indexOf(">");
-                str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '')
-                str = str.replace('commit', '')
-                str = 'commit:' + str;
-                await bot.sendText(this.channel_id, str)
-                await this.log(`即将开始重启,大约耗时5秒`)
-                setTimeout(() => {
-                    process.exit()
-                }, 3000)
-            }
-        });
+    runCmd(task: string) {
+        return new Promise<string>((resolve, reject) => {
+            const argv = process.argv
+            const githref = argv[2]
+            let child_process = require('child_process');
+            child_process.exec(task, { cwd: githref }, async (error, stdout: string, stderr) => {
+                if (error !== null) {
+                    resolve('exec error: ' + error)
+                } else {
+                    resolve(stdout)
+                }
+            });
+        })
     }
-    updateCode() {
-        const argv = process.argv
-        const githref = argv[2]
-        let child_process = require('child_process');
-        child_process.exec(`git pull`, { cwd: githref }, async (error, stdout: string, stderr) => {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            } else {
-                this.getLog()
-                // setTimeout(() => {
-                //     process.exit()
-                // }, 1000)
-            }
-        });
+    async getLog() {
+        let outText =  await this.runCmd('git log -n 1');
+        let urlStartIndex = outText.indexOf('<')
+        let urlEndIndex = outText.indexOf(">");
+        outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '')
+        outText = outText.replace('commit', '')
+        outText = 'commit:' + outText;
+        await bot.sendText(this.channel_id, outText)
+        await this.log(`即将开始重启,大约耗时5秒`)
+        setTimeout(() => {
+            process.exit()
+        }, 3000)
+    }
+    async updateCode() {
+        await this.runCmd('git pull');
+        this.getLog()
     }
 }

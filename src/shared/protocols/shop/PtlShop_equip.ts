@@ -1,5 +1,8 @@
 import {store_equip } from '../../game/prop';
 import { userSetUpCfg } from '../../game/setUp';
+/**
+ * 黑市商店
+ */
 export interface ReqShop_equip {
     userId:string
 }

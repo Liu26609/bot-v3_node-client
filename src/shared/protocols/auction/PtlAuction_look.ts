@@ -1,6 +1,8 @@
 import { auction } from "../../game/prop";
 import { userSetUpCfg } from "../../game/setUp";
-
+/**
+ * 查看拍卖行
+ */
 export interface ReqAuction_look {
     userId: string
 }

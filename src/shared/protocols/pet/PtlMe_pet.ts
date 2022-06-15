@@ -1,5 +1,7 @@
 import { BASE_BODYS } from "../../game/body"
-
+/**
+ * 我的宠物
+ */
 export interface ReqMe_pet {
     userId: string
 }

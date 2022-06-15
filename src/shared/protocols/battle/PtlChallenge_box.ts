@@ -1,5 +1,8 @@
 import { ResBattle } from '../PtlBattle';
 import { DNA_Leve } from './../../game/body';
+/**
+ * 破壁计划:挑战完成将会获得奖励和切换地图
+ */
 export interface ReqChallenge_box {
     userId:string,
     /**

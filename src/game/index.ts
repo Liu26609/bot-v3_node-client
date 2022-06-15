@@ -41,7 +41,6 @@ import { me_wallet } from './me/me_wallet';
 import { pos_attackPlayer } from './battle/pos_attackPlayer';
 import { me_move } from './me/me_move';
 import { sys_update } from './sys/update';
-import { battleTest } from './battle/battleTest';
 import { me_attribute } from './me/me_attribute';
 import { log } from "..";
 import { BOT_MSG_AT } from "../shared/bot/bot";

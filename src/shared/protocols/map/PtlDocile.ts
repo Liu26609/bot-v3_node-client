@@ -1,4 +1,7 @@
 import { payRes } from './../../game/prop';
+/**
+ * 捕捉当前位置怪物
+ */
 export interface ReqDocile {
     userId:string,
     index:number

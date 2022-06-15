@@ -35,6 +35,9 @@ class bot {
         var _a;
         return (_a = this.botInfo) === null || _a === void 0 ? void 0 : _a.shard[0];
     }
+    getBotConfig() {
+        return this.config;
+    }
     /**
      * 设置机器人配置
      * @param config

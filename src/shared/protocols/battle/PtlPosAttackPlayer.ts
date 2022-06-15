@@ -1,6 +1,7 @@
-import { SKILL_RES } from "../../game/skill";
 import { ResBattle } from "../PtlBattle";
-
+/**
+ * 攻击当前位置玩家
+ */
 export interface ReqPosAttackPlayer {
     userId: string,
     attackId:number

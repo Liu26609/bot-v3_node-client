@@ -1,3 +1,6 @@
+/**
+ * 修改工会名称
+ */
 export interface ReqChangeName_team {
     userId: string,
     name:string

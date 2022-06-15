@@ -1,6 +1,8 @@
 import { payRes } from '../../game/prop';
 import { userSetUpCfg } from "../../game/setUp"
-
+/**
+ * 技能商店购买
+ */
 export interface ReqShop_skill_buy {
     userId:string
 }

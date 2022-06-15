@@ -1,6 +1,8 @@
 import { DNA_Leve } from './../../game/body';
 import { ResBattle } from "../PtlBattle";
-
+/**
+ * 挑战自身镜像
+ */
 export interface ReqChallenge_image {
     userId:string,
     isStart:boolean

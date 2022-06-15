@@ -1,5 +1,7 @@
 import { ResBattle } from "../PtlBattle";
-
+/**
+ * 攻击当前位置怪物
+ */
 export interface ReqPosAttackEnemy {
     userId: string,
     /**

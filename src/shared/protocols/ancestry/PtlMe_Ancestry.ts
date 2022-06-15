@@ -1,7 +1,9 @@
 import { body } from './../../game/body';
 import { ancestry } from "../../game/body"
 import { SKILL_ACTIVE } from "../../game/skill"
-
+/**
+ * 我的进化
+ */
 export interface ReqMe_Ancestry {
     userId: string
 }

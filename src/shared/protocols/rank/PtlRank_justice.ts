@@ -1,5 +1,7 @@
 import { ResRank_leve } from "./PtlRank_leve";
-
+/**
+ * 正义值排行榜
+ */
 export interface ReqRank_justice {
     userId: string
 }

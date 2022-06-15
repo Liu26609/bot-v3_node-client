@@ -36,60 +36,45 @@ class sys_update_code extends task_base_1.task_base {
                 return;
             }
             isAcitve = true;
-            yield this.log(`本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...`);
+            yield bot_1.default.callAll(`开始更新版本\n本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...`);
+            yield this.updateCode();
+        });
+    }
+    runCmd(task) {
+        return new Promise((resolve, reject) => {
             const argv = process.argv;
             const githref = argv[2];
             let child_process = require('child_process');
-            // child_process.exec(`git add . && git commit -m 'codeAutoTest' && npm version patch && git push --all`, { cwd: githref }, (error, stdout, stderr) => {
-            //     if (error !== null) {
-            //         console.log('exec error: ' + error);
-            //     } else {
-            //         bot.sendText(this.channel_id, stdout)
-            //         this.log(`更新完成,开始重启`)
-            //         // console.log(stdout)
-            //     }
-            // });
-            this.updateCode();
+            child_process.exec(task, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
+                if (error !== null) {
+                    resolve('exec error: ' + error);
+                }
+                else {
+                    resolve(stdout);
+                }
+            }));
         });
     }
     getLog() {
-        const argv = process.argv;
-        const githref = argv[2];
-        let child_process = require('child_process');
-        child_process.exec(`git log -n 1`, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            }
-            else {
-                let str = stdout;
-                let urlStartIndex = str.indexOf('<');
-                let urlEndIndex = str.indexOf(">");
-                str = str.replace(str.slice(urlStartIndex, urlEndIndex + 1), '');
-                str = str.replace('commit', '');
-                str = 'commit:' + str;
-                yield bot_1.default.sendText(this.channel_id, str);
-                yield this.log(`即将开始重启,大约耗时5秒`);
-                setTimeout(() => {
-                    process.exit();
-                }, 3000);
-            }
-        }));
+        return __awaiter(this, void 0, void 0, function* () {
+            let outText = yield this.runCmd('git log -n 1');
+            let urlStartIndex = outText.indexOf('<');
+            let urlEndIndex = outText.indexOf(">");
+            outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '');
+            outText = outText.replace('commit', '');
+            outText = 'commit:' + outText;
+            yield bot_1.default.sendText(this.channel_id, outText);
+            yield this.log(`即将开始重启,大约耗时5秒`);
+            setTimeout(() => {
+                process.exit();
+            }, 3000);
+        });
     }
     updateCode() {
-        const argv = process.argv;
-        const githref = argv[2];
-        let child_process = require('child_process');
-        child_process.exec(`git pull`, { cwd: githref }, (error, stdout, stderr) => __awaiter(this, void 0, void 0, function* () {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            }
-            else {
-                this.getLog();
-                // setTimeout(() => {
-                //     process.exit()
-                // }, 1000)
-            }
-        }));
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.runCmd('git pull');
+            this.getLog();
+        });
     }
 }
 exports.sys_update_code = sys_update_code;

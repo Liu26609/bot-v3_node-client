@@ -30,6 +30,9 @@ class bot {
     severId() {
         return this.botInfo?.shard[0];
     }
+    getBotConfig(){
+        return this.config as any;
+    }
     /**
      * 设置机器人配置
      * @param config 

@@ -1,5 +1,7 @@
 import { userSetUpCfg } from "../../game/setUp";
-
+/**
+ * 在当前位置钓鱼
+ */
 export interface Reqfishing {
     userId:string,
 }

@@ -1,3 +1,6 @@
+/**
+ * 宠物改名
+ */
 export interface ReqMe_petChangeName {
     userId: string,
     index:number,

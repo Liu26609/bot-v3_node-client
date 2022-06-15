@@ -1,5 +1,7 @@
 import { ResRank_leve } from "./PtlRank_leve";
-
+/**
+ * 战力拍卖行
+ */
 export interface ReqRank_military {
     userId: string
 }

@@ -10,46 +10,46 @@
 ## 目录
 
 - ancestry
-    - [Me_Ancestry](#/ancestry/Me_Ancestry)
+    - [我的进化](#/ancestry/Me_Ancestry)
     - [重置进化](#/ancestry/Me_randomAncestry)
 - auction
-    - [Auction](#/auction/Auction)
-    - [Auction_look](#/auction/Auction_look)
-    - [Auction_offer](#/auction/Auction_offer)
+    - [拍卖物品/装备](#/auction/Auction)
+    - [查看拍卖行](#/auction/Auction_look)
+    - [拍卖行出价](#/auction/Auction_offer)
 - battle
     - [攻击世界BOSS](#/battle/AttackBoss)
-    - [Challenge_box](#/battle/Challenge_box)
-    - [Challenge_image](#/battle/Challenge_image)
-    - [PkRank](#/battle/PkRank)
-    - [PosAttackEnemy](#/battle/PosAttackEnemy)
-    - [PosAttackPlayer](#/battle/PosAttackPlayer)
-    - [Rank](#/battle/Rank)
+    - [破壁计划:挑战完成将会获得奖励和切换地图](#/battle/Challenge_box)
+    - [挑战自身镜像](#/battle/Challenge_image)
+    - [攻击频道内指定玩家](#/battle/PkRank)
+    - [攻击当前位置怪物](#/battle/PosAttackEnemy)
+    - [攻击当前位置玩家](#/battle/PosAttackPlayer)
+    - [排位](#/battle/Rank)
 - map
-    - [Docile](#/map/Docile)
-    - [OpenMapChestBox](#/map/OpenMapChestBox)
-    - [fishing](#/map/fishing)
+    - [捕捉当前位置怪物](#/map/Docile)
+    - [打开当前位置宝箱](#/map/OpenMapChestBox)
+    - [在当前位置钓鱼](#/map/fishing)
 - me
     - autoPlay
-        - [endAutoPlay](#/me/autoPlay/endAutoPlay)
+        - [结束自动挂机](#/me/autoPlay/endAutoPlay)
         - [开始自动挂机](#/me/autoPlay/startAutoPlay)
     - title
         - [重置称号](#/me/title/Me_titleRandom)
         - [称号改名](#/me/title/Me_title_changeName)
 - minGame
-    - [MinGame_lottery](#/minGame/MinGame_lottery)
+    - [小游戏:猜数魔改版](#/minGame/MinGame_lottery)
 - pet
-    - [Me_pet](#/pet/Me_pet)
-    - [Me_petChangeName](#/pet/Me_petChangeName)
-    - [Me_petLook](#/pet/Me_petLook)
-    - [Me_petRm](#/pet/Me_petRm)
+    - [我的宠物](#/pet/Me_pet)
+    - [宠物改名](#/pet/Me_petChangeName)
+    - [查看指定宠物](#/pet/Me_petLook)
+    - [删除宠物](#/pet/Me_petRm)
 - rank
     - [血统等级排行榜](#/rank/Rank_ancestry)
     - [基因锁等级排行榜](#/rank/Rank_dnaLv)
     - [红名排行榜](#/rank/Rank_evil)
-    - [Rank_gold](#/rank/Rank_gold)
-    - [Rank_justice](#/rank/Rank_justice)
+    - [金币排行榜](#/rank/Rank_gold)
+    - [正义值排行榜](#/rank/Rank_justice)
     - [等级排行榜](#/rank/Rank_leve)
-    - [Rank_military](#/rank/Rank_military)
+    - [战力拍卖行](#/rank/Rank_military)
     - [宠物战力排行榜](#/rank/Rank_military_pet)
     - [猜数参与次数排行榜](#/rank/Rank_minGame_lottery_cont)
     - [猜数猜中次数排行榜](#/rank/Rank_minGame_lottery_win)
@@ -62,23 +62,23 @@
     - [称号属性排行榜](#/rank/Rank_titleAttr)
     - [称号重置次数排行榜](#/rank/Rank_titleCont)
 - shop
-    - [Shop_back](#/shop/Shop_back)
-    - [Shop_back_buy](#/shop/Shop_back_buy)
-    - [Shop_equip](#/shop/Shop_equip)
-    - [Shop_equip_buy](#/shop/Shop_equip_buy)
+    - [黑市商店购买](#/shop/Shop_back)
+    - [黑市商店](#/shop/Shop_back_buy)
+    - [黑市商店](#/shop/Shop_equip)
+    - [装备商店购买](#/shop/Shop_equip_buy)
     - [头像商店](#/shop/Shop_icon)
     - [头像商店购买](#/shop/Shop_icon_buy)
-    - [Shop_skill](#/shop/Shop_skill)
-    - [Shop_skill_buy](#/shop/Shop_skill_buy)
-    - [Shop_team](#/shop/Shop_team)
-    - [Shop_team_buy](#/shop/Shop_team_buy)
+    - [技能商店](#/shop/Shop_skill)
+    - [技能商店购买](#/shop/Shop_skill_buy)
+    - [工会商店](#/shop/Shop_team)
+    - [工会商店购买](#/shop/Shop_team_buy)
 - task
-    - [EverDayTask](#/task/EverDayTask)
+    - [查看每日任务](#/task/EverDayTask)
     - [阶梯计划](#/task/soaringTask)
 - team
-    - [ChangeName_team](#/team/ChangeName_team)
-    - [CreatorJoinCode_team](#/team/CreatorJoinCode_team)
-    - [Creator_team](#/team/Creator_team)
+    - [修改工会名称](#/team/ChangeName_team)
+    - [创建加入工会邀请码](#/team/CreatorJoinCode_team)
+    - [创建工会](#/team/Creator_team)
     - [Dismiss_team](#/team/Dismiss_team)
     - [Join_team](#/team/Join_team)
     - [KicOut_team](#/team/KicOut_team)
@@ -114,7 +114,7 @@
 
 ## ancestry
 
-### Me_Ancestry <a id="/ancestry/Me_Ancestry"></a>
+### 我的进化 <a id="/ancestry/Me_Ancestry"></a>
 
 **路径**
 - POST `/ancestry/Me_Ancestry`
@@ -235,7 +235,7 @@ interface ResMe_randomAncestry {
 
 ## auction
 
-### Auction <a id="/auction/Auction"></a>
+### 拍卖物品/装备 <a id="/auction/Auction"></a>
 
 **路径**
 - POST `/auction/Auction`
@@ -259,7 +259,7 @@ interface ResAuction {
 
 ---
 
-### Auction_look <a id="/auction/Auction_look"></a>
+### 查看拍卖行 <a id="/auction/Auction_look"></a>
 
 **路径**
 - POST `/auction/Auction_look`
@@ -296,7 +296,7 @@ interface ResAuction_look {
 
 ---
 
-### Auction_offer <a id="/auction/Auction_offer"></a>
+### 拍卖行出价 <a id="/auction/Auction_offer"></a>
 
 **路径**
 - POST `/auction/Auction_offer`
@@ -438,7 +438,7 @@ interface ResAttackBoss {
 
 ---
 
-### Challenge_box <a id="/battle/Challenge_box"></a>
+### 破壁计划:挑战完成将会获得奖励和切换地图 <a id="/battle/Challenge_box"></a>
 
 **路径**
 - POST `/battle/Challenge_box`
@@ -568,7 +568,7 @@ interface ResChallenge_box {
 
 ---
 
-### Challenge_image <a id="/battle/Challenge_image"></a>
+### 挑战自身镜像 <a id="/battle/Challenge_image"></a>
 
 **路径**
 - POST `/battle/Challenge_image`
@@ -695,7 +695,7 @@ interface ResChallenge_image {
 
 ---
 
-### PkRank <a id="/battle/PkRank"></a>
+### 攻击频道内指定玩家 <a id="/battle/PkRank"></a>
 
 **路径**
 - POST `/battle/PkRank`
@@ -809,7 +809,7 @@ interface ResPkRank {
 
 ---
 
-### PosAttackEnemy <a id="/battle/PosAttackEnemy"></a>
+### 攻击当前位置怪物 <a id="/battle/PosAttackEnemy"></a>
 
 **路径**
 - POST `/battle/PosAttackEnemy`
@@ -927,7 +927,7 @@ interface ResPosAttackEnemy {
 
 ---
 
-### PosAttackPlayer <a id="/battle/PosAttackPlayer"></a>
+### 攻击当前位置玩家 <a id="/battle/PosAttackPlayer"></a>
 
 **路径**
 - POST `/battle/PosAttackPlayer`
@@ -1041,7 +1041,7 @@ interface ResPosAttackPlayer {
 
 ---
 
-### Rank <a id="/battle/Rank"></a>
+### 排位 <a id="/battle/Rank"></a>
 
 **路径**
 - POST `/battle/Rank`
@@ -1156,7 +1156,7 @@ interface ResRank {
 
 ## map
 
-### Docile <a id="/map/Docile"></a>
+### 捕捉当前位置怪物 <a id="/map/Docile"></a>
 
 **路径**
 - POST `/map/Docile`
@@ -1186,7 +1186,7 @@ interface ResDocile {
 
 ---
 
-### OpenMapChestBox <a id="/map/OpenMapChestBox"></a>
+### 打开当前位置宝箱 <a id="/map/OpenMapChestBox"></a>
 
 **路径**
 - POST `/map/OpenMapChestBox`
@@ -1212,7 +1212,7 @@ interface ResOpenMapChestBox {
 
 ---
 
-### fishing <a id="/map/fishing"></a>
+### 在当前位置钓鱼 <a id="/map/fishing"></a>
 
 **路径**
 - POST `/map/fishing`
@@ -1240,7 +1240,7 @@ interface Resfishing {
 
 ### autoPlay
 
-#### endAutoPlay <a id="/me/autoPlay/endAutoPlay"></a>
+#### 结束自动挂机 <a id="/me/autoPlay/endAutoPlay"></a>
 
 **路径**
 - POST `/me/autoPlay/endAutoPlay`
@@ -1369,7 +1369,7 @@ interface ResMe_title_changeName {
 
 ## minGame
 
-### MinGame_lottery <a id="/minGame/MinGame_lottery"></a>
+### 小游戏:猜数魔改版 <a id="/minGame/MinGame_lottery"></a>
 
 **路径**
 - POST `/minGame/MinGame_lottery`
@@ -1416,7 +1416,7 @@ interface ResMinGame_lottery {
 
 ## pet
 
-### Me_pet <a id="/pet/Me_pet"></a>
+### 我的宠物 <a id="/pet/Me_pet"></a>
 
 **路径**
 - POST `/pet/Me_pet`
@@ -1465,7 +1465,7 @@ interface ResMe_pet {
 
 ---
 
-### Me_petChangeName <a id="/pet/Me_petChangeName"></a>
+### 宠物改名 <a id="/pet/Me_petChangeName"></a>
 
 **路径**
 - POST `/pet/Me_petChangeName`
@@ -1488,7 +1488,7 @@ interface ResMe_petChangeName {
 
 ---
 
-### Me_petLook <a id="/pet/Me_petLook"></a>
+### 查看指定宠物 <a id="/pet/Me_petLook"></a>
 
 **路径**
 - POST `/pet/Me_petLook`
@@ -1538,7 +1538,7 @@ interface ResMe_petLook {
 
 ---
 
-### Me_petRm <a id="/pet/Me_petRm"></a>
+### 删除宠物 <a id="/pet/Me_petRm"></a>
 
 **路径**
 - POST `/pet/Me_petRm`
@@ -1649,7 +1649,7 @@ interface ResRank_evil {
 
 ---
 
-### Rank_gold <a id="/rank/Rank_gold"></a>
+### 金币排行榜 <a id="/rank/Rank_gold"></a>
 
 **路径**
 - POST `/rank/Rank_gold`
@@ -1678,7 +1678,7 @@ interface ResRank_gold {
 
 ---
 
-### Rank_justice <a id="/rank/Rank_justice"></a>
+### 正义值排行榜 <a id="/rank/Rank_justice"></a>
 
 **路径**
 - POST `/rank/Rank_justice`
@@ -1736,7 +1736,7 @@ interface ResRank_leve {
 
 ---
 
-### Rank_military <a id="/rank/Rank_military"></a>
+### 战力拍卖行 <a id="/rank/Rank_military"></a>
 
 **路径**
 - POST `/rank/Rank_military`
@@ -2086,7 +2086,7 @@ interface ResRank_titleCont {
 
 ## shop
 
-### Shop_back <a id="/shop/Shop_back"></a>
+### 黑市商店购买 <a id="/shop/Shop_back"></a>
 
 **路径**
 - POST `/shop/Shop_back`
@@ -2124,7 +2124,7 @@ interface ResShop_back {
 
 ---
 
-### Shop_back_buy <a id="/shop/Shop_back_buy"></a>
+### 黑市商店 <a id="/shop/Shop_back_buy"></a>
 
 **路径**
 - POST `/shop/Shop_back_buy`
@@ -2153,7 +2153,7 @@ interface ResShop_back_buy {
 
 ---
 
-### Shop_equip <a id="/shop/Shop_equip"></a>
+### 黑市商店 <a id="/shop/Shop_equip"></a>
 
 **路径**
 - POST `/shop/Shop_equip`
@@ -2214,7 +2214,7 @@ interface ResShop_equip {
 
 ---
 
-### Shop_equip_buy <a id="/shop/Shop_equip_buy"></a>
+### 装备商店购买 <a id="/shop/Shop_equip_buy"></a>
 
 **路径**
 - POST `/shop/Shop_equip_buy`
@@ -2310,7 +2310,7 @@ interface ResShop_icon_buy {
 
 ---
 
-### Shop_skill <a id="/shop/Shop_skill"></a>
+### 技能商店 <a id="/shop/Shop_skill"></a>
 
 **路径**
 - POST `/shop/Shop_skill`
@@ -2356,7 +2356,7 @@ interface ResShop_skill {
 
 ---
 
-### Shop_skill_buy <a id="/shop/Shop_skill_buy"></a>
+### 技能商店购买 <a id="/shop/Shop_skill_buy"></a>
 
 **路径**
 - POST `/shop/Shop_skill_buy`
@@ -2385,7 +2385,7 @@ interface ResShop_skill_buy {
 
 ---
 
-### Shop_team <a id="/shop/Shop_team"></a>
+### 工会商店 <a id="/shop/Shop_team"></a>
 
 **路径**
 - POST `/shop/Shop_team`
@@ -2423,7 +2423,7 @@ interface ResShop_team {
 
 ---
 
-### Shop_team_buy <a id="/shop/Shop_team_buy"></a>
+### 工会商店购买 <a id="/shop/Shop_team_buy"></a>
 
 **路径**
 - POST `/shop/Shop_team_buy`
@@ -2454,7 +2454,7 @@ interface ResShop_team_buy {
 
 ## task
 
-### EverDayTask <a id="/task/EverDayTask"></a>
+### 查看每日任务 <a id="/task/EverDayTask"></a>
 
 **路径**
 - POST `/task/EverDayTask`
@@ -2529,7 +2529,7 @@ interface RessoaringTask {
 
 ## team
 
-### ChangeName_team <a id="/team/ChangeName_team"></a>
+### 修改工会名称 <a id="/team/ChangeName_team"></a>
 
 **路径**
 - POST `/team/ChangeName_team`
@@ -2551,7 +2551,7 @@ interface ResChangeName_team {
 
 ---
 
-### CreatorJoinCode_team <a id="/team/CreatorJoinCode_team"></a>
+### 创建加入工会邀请码 <a id="/team/CreatorJoinCode_team"></a>
 
 **路径**
 - POST `/team/CreatorJoinCode_team`
@@ -2572,7 +2572,7 @@ interface ResCreatorJoinCode_team {
 
 ---
 
-### Creator_team <a id="/team/Creator_team"></a>
+### 创建工会 <a id="/team/Creator_team"></a>
 
 **路径**
 - POST `/team/Creator_team`

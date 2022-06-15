@@ -1,5 +1,7 @@
 import { ResBattle } from "../PtlBattle";
-
+/**
+ * 排位
+ */
 export interface ReqRank {
     userId:string,
 }
