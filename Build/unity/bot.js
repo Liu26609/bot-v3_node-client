@@ -323,7 +323,7 @@ class bot {
      */
     _onMsg_at(data) {
         var _a;
-        (0, __1.log)('收到消息', data);
+        // log('收到消息', data)
         let gCfg = db_1.default.get(db_1.dbName.channelCfg, data.guild_id);
         if (!gCfg) {
             gCfg = db_1.default.create(db_1.dbName.channelCfg, data.guild_id, this.getGuildCfgTemp());

@@ -296,7 +296,7 @@ class bot {
      * 内部处理艾特消息
      */
     private _onMsg_at(data: BOT_MSG_AT) {
-        log('收到消息', data)
+        // log('收到消息', data)
         let gCfg = db.get(dbName.channelCfg, data.guild_id) as guildCfg;
         if (!gCfg) {
             gCfg = db.create(dbName.channelCfg, data.guild_id, this.getGuildCfgTemp());
