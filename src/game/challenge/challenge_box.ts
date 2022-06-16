@@ -60,13 +60,13 @@ export class challenge_box extends task_base {
                 temp += `🎴破壁计划完成度:${data.completion}%<emoji:67>\n`
                 temp += `📜累计参与人数:${data.partakeCont}人\n`
                 temp += `📑累计挑战次数:${data.challengeCont}次\n`
-                temp += `<emoji:224>本次战斗伤害:${data.completion}\n`
+                temp += `<emoji:224>本次战斗伤害:${data.hurt}\n`
                 temp += `<emoji:298>参与奖励:${battleTemp.getReward()}`
             } else {
                 temp += `🎴破壁计划完成度:${data.completion}%<emoji:67>\n`
                 temp += `📜累计参与人数:${data.partakeCont}人\n`
                 temp += `📑累计挑战次数:${data.challengeCont}次\n`
-                temp += `<emoji:224>本次战斗伤害:${data.completion}\n`
+                temp += `<emoji:224>本次战斗伤害:${data.hurt}\n`
             }
             temp += `┗┄━${this.at()}━┄`
             await bot.sendText(this.channel_id,temp)
