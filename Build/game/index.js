@@ -266,6 +266,10 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
             }
+            if (data.content == '我的ID' || data.content == '我的id') {
+                yield bot_1.default.sendText(data.channel_id, data.author.id);
+                return;
+            }
             if (data.content == '测试') {
                 (0, __1.log)('测试');
                 bot_1.default.test(data.channel_id);
