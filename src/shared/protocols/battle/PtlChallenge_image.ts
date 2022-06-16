@@ -31,6 +31,7 @@ export interface ResChallenge_image {
      * 失败将扣除等级
      */
     failDel:number,
+    
 }
 
 // export const conf = {}

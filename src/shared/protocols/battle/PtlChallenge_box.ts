@@ -28,6 +28,22 @@ export interface ResChallenge_box {
      * 失败
      */
     fail:string,
+    /**
+     * 计划完成度
+     */
+     completion:number,
+     /**
+      * 参与度
+      */
+     partakeCont:number,
+     /**
+      * 挑战次数
+      */
+     challengeCont:number,
+     /**
+      * 本次伤害
+      */
+     hurt:number
 }
 
 // export const conf = {}

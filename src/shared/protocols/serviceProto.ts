@@ -477,7 +477,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 36,
+    "version": 37,
     "services": [
         {
             "id": 0,
@@ -2273,6 +2273,34 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "fail",
                     "type": {
                         "type": "String"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "completion",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "partakeCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "challengeCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "hurt",
+                    "type": {
+                        "type": "Number"
                     }
                 }
             ]

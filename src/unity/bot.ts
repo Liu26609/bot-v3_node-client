@@ -160,7 +160,14 @@ class bot {
             content: content,
             msg_id: msg_id
         }).catch(() => {
-            err('消息发送错误')
+            // if()
+            // 判定是否是艾特全体没有权限导致
+            if(content.includes('@everyone')){
+                log('没有艾特全体权限,尝试普通消息发送')
+                this.sendText(channelID,content.replace('@everyone',''))
+            }else{
+                err('消息发送错误',msg_id,content)
+            }
         })
     }
     /**

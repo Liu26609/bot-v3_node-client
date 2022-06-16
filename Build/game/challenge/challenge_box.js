@@ -63,12 +63,19 @@ class challenge_box extends task_base_1.task_base {
                 temp += battleTemp.getKillProcess();
                 temp += `┏┄════🎁战斗结果═══━┄\n`;
                 if (battleTemp.getReward()) {
-                    temp += battleTemp.getReward();
+                    temp += `🎴破壁计划完成度:${data.completion}%<emoji:67>\n`;
+                    temp += `📜累计参与人数:${data.partakeCont}人\n`;
+                    temp += `📑累计挑战次数:${data.challengeCont}次\n`;
+                    temp += `<emoji:224>本次战斗伤害:${data.completion}\n`;
+                    temp += `<emoji:298>参与奖励:${battleTemp.getReward()}`;
                 }
                 else {
-                    temp += `😤这次战斗好像奖励了个寂寞`;
+                    temp += `🎴破壁计划完成度:${data.completion}%<emoji:67>\n`;
+                    temp += `📜累计参与人数:${data.partakeCont}人\n`;
+                    temp += `📑累计挑战次数:${data.challengeCont}次\n`;
+                    temp += `<emoji:224>本次战斗伤害:${data.completion}\n`;
                 }
-                temp += `\n┗┄━${this.at()}━┄`;
+                temp += `┗┄━${this.at()}━┄`;
                 yield bot_1.default.sendText(this.channel_id, temp);
             }
         });
