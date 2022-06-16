@@ -67,6 +67,7 @@ class sys_update_code extends task_base_1.task_base {
             outText = 'commit:' + outText;
             yield bot_1.default.sendText(this.channel_id, outText);
             yield bot_1.default.callAll(`即将开始,重启需要耗时0.${common_1.default.random(0, 1000)}秒,请耐心等待`);
+            process.exit();
         });
     }
     updateCode() {

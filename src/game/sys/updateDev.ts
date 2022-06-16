@@ -50,6 +50,7 @@ export class sys_update_code extends task_base {
         outText = 'commit:' + outText;
         await bot.sendText(this.channel_id, outText)
         await bot.callAll(`即将开始,重启需要耗时0.${common.random(0,1000)}秒,请耐心等待`)
+        process.exit()
     }
     async updateCode() {
         await this.runCmd('git pull');
