@@ -1,3 +1,4 @@
+import { shop_rankscore_buy } from './shop/shop_rankscore_buy';
 import { rank_military_pet } from './rank/rank_military_pet';
 import { shop_icon } from './shop/shop_icon';
 import { soaringTask } from './me/task/soaringTask';
@@ -95,6 +96,7 @@ import { rank_MagicAttack } from './rank/rank_MagicAttack';
 import { rank_MagicDefense } from './rank/rank_MagicDefense';
 import { rank_PhysicalAttacks } from './rank/rank_PhysicalAttacks';
 import { rank_PhysicalDefense } from './rank/rank_PhysicalDefense';
+import { shop_rankscore } from './shop/shop_rankscore';
 
 enum matchType {
     /**
@@ -221,6 +223,8 @@ export default class game {
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
         this.matchMap.set('钓鱼', { action: fishing, match: matchType.all })
         this.matchMap.set('黑市商店', { action: shop_back, match: matchType.all })
+        this.matchMap.set('声望商店', { action: shop_rankscore, match: matchType.all })
+        this.matchMap.set('声望购买', { action: shop_rankscore_buy, match: matchType.all })
         this.matchMap.set('签到', { action: me_sign, match: matchType.all })
         this.matchMap.set('属性', { action: me_attribute, match: matchType.all })
         // this.matchMap.set('测试', { action: battleTest, match: matchType.all })

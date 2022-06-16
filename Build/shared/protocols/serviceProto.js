@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 33,
+    "version": 36,
     "services": [
         {
             "id": 0,
@@ -392,6 +392,16 @@ exports.serviceProto = {
         {
             "id": 88,
             "name": "shop/Shop_icon",
+            "type": "api"
+        },
+        {
+            "id": 105,
+            "name": "shop/Shop_rankscore_buy",
+            "type": "api"
+        },
+        {
+            "id": 104,
+            "name": "shop/Shop_rankscore",
             "type": "api"
         },
         {
@@ -5395,6 +5405,161 @@ exports.serviceProto = {
                                 "type": {
                                     "type": "Reference",
                                     "target": "../game/user/walletKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "stock",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "updateNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_rankscore_buy/ReqShop_rankscore_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_rankscore_buy/ResShop_rankscore_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_rankscore/ReqShop_rankscore": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_rankscore/ResShop_rankscore": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 1,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_rankscore"
+                    }
+                }
+            ],
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userCfg",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/setUp/userSetUpCfg"
+                    }
+                }
+            ]
+        },
+        "../game/prop/store_rankscore": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "sell_temp",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/prop/rewardKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "creatorTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nextUpdateTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "sellNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "buyCondition",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/prop/rewardKey"
                                 }
                             },
                             {

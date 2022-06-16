@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const shop_rankscore_buy_1 = require("./shop/shop_rankscore_buy");
 const rank_military_pet_1 = require("./rank/rank_military_pet");
 const shop_icon_1 = require("./shop/shop_icon");
 const soaringTask_1 = require("./me/task/soaringTask");
@@ -108,6 +109,7 @@ const rank_MagicAttack_1 = require("./rank/rank_MagicAttack");
 const rank_MagicDefense_1 = require("./rank/rank_MagicDefense");
 const rank_PhysicalAttacks_1 = require("./rank/rank_PhysicalAttacks");
 const rank_PhysicalDefense_1 = require("./rank/rank_PhysicalDefense");
+const shop_rankscore_1 = require("./shop/shop_rankscore");
 var matchType;
 (function (matchType) {
     /**
@@ -217,6 +219,8 @@ class game {
         this.matchMap.set('穿装备', { action: me_wearEquip_1.me_wearEquip, match: matchType.match });
         this.matchMap.set('钓鱼', { action: fishing_1.fishing, match: matchType.all });
         this.matchMap.set('黑市商店', { action: shop_back_1.shop_back, match: matchType.all });
+        this.matchMap.set('声望商店', { action: shop_rankscore_1.shop_rankscore, match: matchType.all });
+        this.matchMap.set('声望购买', { action: shop_rankscore_buy_1.shop_rankscore_buy, match: matchType.all });
         this.matchMap.set('签到', { action: me_sign_1.default, match: matchType.all });
         this.matchMap.set('属性', { action: me_attribute_1.me_attribute, match: matchType.all });
         // this.matchMap.set('测试', { action: battleTest, match: matchType.all })

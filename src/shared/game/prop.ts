@@ -81,10 +81,44 @@ export interface store_icon {
      */
     updateNum: number
 }
+/**
+ * 声望商店
+ */
+ export interface store_rankscore{
+    /**
+             * 出售的模板id
+             */
+    sell_temp: {key:rewardKey,val:number},
+    /**
+     * 刷新的时间
+     */
+    creatorTime: number,
+    /**
+     * 下次刷新时间
+     */
+    nextUpdateTime: number,
+    /**
+     * 已出售数量
+     */
+    sellNum: number,
+    /**
+     * 购买条件
+     */
+    buyCondition: { key: rewardKey, val: number },
+    /**
+     * 本次库存
+     */
+    stock: number,
+    /**
+     * 商店总共刷新次数
+     */
+    updateNum: number
+}
 export enum storeBackTemp {
     forever_hpMax_1,//最大生命永久+
     forever_hpMax_10,
 }
+
 export interface store_team {
     /**
              * 出售的模板id
