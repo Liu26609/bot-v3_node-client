@@ -13,8 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sys_update_code = void 0;
+const db_1 = require("./../../unity/db");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../unity/common"));
+const db_2 = __importDefault(require("../../unity/db"));
 const task_base_1 = require("./../task_base");
 let isAcitve = false;
 class sys_update_code extends task_base_1.task_base {
@@ -37,7 +39,7 @@ class sys_update_code extends task_base_1.task_base {
                 return;
             }
             isAcitve = true;
-            yield bot_1.default.callAll(`开始更新版本\n本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...`);
+            yield bot_1.default.callAll(`开始更新版本\n本地版本号:V${bot_1.default.getDev()}\n开始获取更新最新版本信息...\n为了保证数据不会出错,请暂时不要艾特机器人。`);
             yield this.updateCode();
             isAcitve = false;
         });
@@ -66,6 +68,9 @@ class sys_update_code extends task_base_1.task_base {
             outText = outText.replace('commit', '');
             outText = 'commit:' + outText;
             yield bot_1.default.sendText(this.channel_id, outText);
+            yield bot_1.default.callAll(`正在存储数据...这个时间大约需要10秒`);
+            db_2.default.saveDirData(db_1.dbName.channelCfg);
+            yield new Promise(rs => { setTimeout(rs, 10000); });
             yield bot_1.default.callAll(`即将开始,重启需要耗时0.${common_1.default.random(0, 1000)}秒,请耐心等待`);
             process.exit();
         });

@@ -19,6 +19,7 @@ class task_base {
         this.content = args[3];
         this.matchKey = args[4];
         this.userName = args[5];
+        this.guild = args[6];
     }
     /**
      * 艾特用户

@@ -295,8 +295,8 @@ export default class game {
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
 
-        // if(data.author.id != '14139673525601401123'){
-        //     bot.sendText(data.channel_id,`你没有权限测试此机器人`)
+        // if(data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123'){
+        //     bot.sendText(data.channel_id,`内测中,请前往官方频道[达尔文进化岛]测试体验`)
         //     return;
         // }
 
@@ -305,6 +305,7 @@ export default class game {
         const fromChannel = data.channel_id;
         const userName = data.author.username;
         const lastContent = this.contentMap.get(userId);
+        const guild = data.guild_id;
 
         let content = data.content;
         if (content == '复读') {
@@ -326,10 +327,10 @@ export default class game {
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && content.toUpperCase() == key.toUpperCase() && !isFind) {
                 isFind = true;
-                new conf.action(userId, fromChannel, userIcon, content, key, userName)
+                new conf.action(userId, fromChannel, userIcon, content, key, userName,guild)
             } else if (conf.match == matchType.match && content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
                 isFind = true;
-                new conf.action(userId, fromChannel, userIcon, content, key, userName)
+                new conf.action(userId, fromChannel, userIcon, content, key, userName,guild)
             }
             let match = common.xsd(key, content);
             if (!isFind) {

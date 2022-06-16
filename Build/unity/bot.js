@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -15,6 +38,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const qq_guild_bot_1 = require("qq-guild-bot");
 const __1 = require("..");
 const bot_1 = require("../shared/bot/bot");
+const db_1 = __importStar(require("./db"));
 const sever_1 = __importDefault(require("./sever"));
 class bot {
     constructor() {
@@ -66,6 +90,15 @@ class bot {
         });
         sever_1.default.wsClient.listenMsg('CallAll', (res) => {
             this.callAll(res.content);
+        });
+        // CallAutoPlay
+        sever_1.default.wsClient.listenMsg('CallAutoPlay', (res) => {
+            let msg_id;
+            msg_id = this.getMsgId(res.channel_id);
+            this.sendText(res.channel_id, res.content);
+            // if(typeof(msg_id) == 'string'){
+            //     this.postMessage(res.channel_id,{msg_id:msg_id,content:res.content})
+            // }
         });
     }
     test(str) {
@@ -126,11 +159,13 @@ class bot {
                     if (nowTime - item.creatorTime > timeOut) {
                         // 已过期
                         itemMap.delete(msgId);
+                        msg_id = 0;
                         return 0;
                     }
                     if (item.surplusCont <= 0) {
                         // 已使用完可用次数
                         item.surplusCont = 5;
+                        msg_id = 1;
                         return 1;
                     }
                     item.surplusCont -= 1;
@@ -150,7 +185,11 @@ class bot {
             let msg_id;
             msg_id = this.getMsgId(channelID);
             if (msg_id == 1) {
-                yield new Promise(rs => { setTimeout(rs, 1000); });
+                yield new Promise(rs => { setTimeout(rs, 1200); });
+                msg_id = this.getMsgId(channelID);
+            }
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 1200); });
                 msg_id = this.getMsgId(channelID);
             }
             // 单频道1秒内只能发送5条消息
@@ -271,12 +310,29 @@ class bot {
     _test() {
         (0, __1.log)('测试表情');
     }
+    getGuildCfgTemp() {
+        let temp = {
+            autoPassChannel_id: '',
+            atCont: 0,
+            master: ''
+        };
+        return temp;
+    }
     /**
      * 内部处理艾特消息
      */
     _onMsg_at(data) {
         var _a;
-        // log('收到消息', data)
+        (0, __1.log)('收到消息', data);
+        let gCfg = db_1.default.get(db_1.dbName.channelCfg, data.guild_id);
+        if (!gCfg) {
+            gCfg = db_1.default.create(db_1.dbName.channelCfg, data.guild_id, this.getGuildCfgTemp());
+        }
+        gCfg.atCont += 1;
+        if (data.member.roles.includes('4')) {
+            // 频道主艾特了
+            gCfg.master = data.author.id;
+        }
         // 过滤艾特
         let filter = `<@!${(_a = this.botInfo) === null || _a === void 0 ? void 0 : _a.user.id}>`;
         while (data.content.includes(filter)) {

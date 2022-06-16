@@ -21,6 +21,7 @@ import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRand
 import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lottery';
 import { MsgCallAll } from './MsgCallAll';
 import { MsgCallAppoint } from './MsgCallAppoint';
+import { MsgCallAutoPlay } from './MsgCallAutoPlay';
 import { ReqMe_pet, ResMe_pet } from './pet/PtlMe_pet';
 import { ReqMe_petChangeName, ResMe_petChangeName } from './pet/PtlMe_petChangeName';
 import { ReqMe_petLook, ResMe_petLook } from './pet/PtlMe_petLook';
@@ -472,12 +473,13 @@ export interface ServiceType {
     },
     msg: {
         "CallAll": MsgCallAll,
-        "CallAppoint": MsgCallAppoint
+        "CallAppoint": MsgCallAppoint,
+        "CallAutoPlay": MsgCallAutoPlay
     }
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 37,
+    "version": 39,
     "services": [
         {
             "id": 0,
@@ -587,6 +589,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 10,
             "name": "CallAppoint",
+            "type": "msg"
+        },
+        {
+            "id": 106,
+            "name": "CallAutoPlay",
             "type": "msg"
         },
         {
@@ -2764,6 +2771,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Number"
                     }
+                },
+                {
+                    "id": 1,
+                    "name": "channel_id",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },
@@ -2773,6 +2787,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 0,
                     "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "channel_id",
                     "type": {
                         "type": "String"
                     }
@@ -3020,6 +3041,25 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 0,
                     "name": "callUserId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "MsgCallAutoPlay/MsgCallAutoPlay": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 2,
+                    "name": "channel_id",
                     "type": {
                         "type": "String"
                     }

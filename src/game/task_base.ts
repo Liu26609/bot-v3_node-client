@@ -28,6 +28,10 @@ export class task_base {
      */
     matchKey: string;
     userName: string;
+    /**
+     * 频道ID
+     */
+    guild:string
     args: any[]
     constructor(...args) {
         this.args = args;
@@ -37,6 +41,7 @@ export class task_base {
         this.content = args[3];
         this.matchKey = args[4];
         this.userName = args[5];
+        this.guild = args[6]
     }
     /**
      * 艾特用户

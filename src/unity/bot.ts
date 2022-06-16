@@ -1,6 +1,8 @@
 import { AvailableIntentsEventsEnum, createWebsocket, createOpenAPI, MessageToCreate } from "qq-guild-bot";
 import { err, info, log } from "..";
+import { guildCfg } from "../interface/guildCfg";
 import { BOT_Config, BOT_READY, BOT_EventType, BOT_MSG_AT, BOT_OnData, BOT_MSGID_MAP } from '../shared/bot/bot'
+import db, { dbName } from "./db";
 import sever from "./sever";
 
 class bot {
@@ -65,6 +67,15 @@ class bot {
         sever.wsClient.listenMsg('CallAll', (res) => {
             this.callAll(res.content)
         })
+        // CallAutoPlay
+        sever.wsClient.listenMsg('CallAutoPlay', (res) => {
+            let msg_id;
+            msg_id = this.getMsgId(res.channel_id)
+            this.sendText(res.channel_id, res.content)
+            // if(typeof(msg_id) == 'string'){
+            //     this.postMessage(res.channel_id,{msg_id:msg_id,content:res.content})
+            // }
+        })
     }
     test(str: string) {
         this.client.messageApi.postMessage(str, {
@@ -122,11 +133,13 @@ class bot {
                     if (nowTime - item.creatorTime > timeOut) {
                         // 已过期
                         itemMap.delete(msgId)
+                        msg_id = 0
                         return 0;
                     }
                     if (item.surplusCont <= 0) {
                         // 已使用完可用次数
                         item.surplusCont = 5;
+                        msg_id = 1
                         return 1;
                     }
                     item.surplusCont -= 1;
@@ -146,7 +159,11 @@ class bot {
 
         msg_id = this.getMsgId(channelID)
         if (msg_id == 1) {
-            await new Promise(rs => { setTimeout(rs, 1000) });
+            await new Promise(rs => { setTimeout(rs, 1200) });
+            msg_id = this.getMsgId(channelID)
+        }
+        if (msg_id == 1) {
+            await new Promise(rs => { setTimeout(rs, 1200) });
             msg_id = this.getMsgId(channelID)
         }
         // 单频道1秒内只能发送5条消息
@@ -156,17 +173,18 @@ class bot {
             err('没有找到可用消息ID')
             return;
         }
+        
         await this.postMessage(channelID, {
             content: content,
             msg_id: msg_id
         }).catch(() => {
             // if()
             // 判定是否是艾特全体没有权限导致
-            if(content.includes('@everyone')){
+            if (content.includes('@everyone')) {
                 log('没有艾特全体权限,尝试普通消息发送')
-                this.sendText(channelID,content.replace('@everyone',''))
-            }else{
-                err('消息发送错误',msg_id,content)
+                this.sendText(channelID, content.replace('@everyone', ''))
+            } else {
+                err('消息发送错误', msg_id, content)
             }
         })
     }
@@ -252,12 +270,12 @@ class bot {
                 break;
             case AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
                 this.ws.on(AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data: BOT_OnData) => {
-                    log('？？？',data)
+                    log('？？？', data)
                     if (data.eventType == BOT_EventType.test) {
                         this._test()
                     }
                 })
-            break;
+                break;
             default:
                 log('暂未开发的事件:', intents)
                 break;
@@ -266,11 +284,28 @@ class bot {
     private _test() {
         log('测试表情')
     }
+    private getGuildCfgTemp(): guildCfg {
+        let temp = {
+            autoPassChannel_id: '',
+            atCont: 0,
+            master: ''
+        }
+        return temp
+    }
     /**
      * 内部处理艾特消息
      */
     private _onMsg_at(data: BOT_MSG_AT) {
-        // log('收到消息', data)
+        log('收到消息', data)
+        let gCfg = db.get(dbName.channelCfg, data.guild_id) as guildCfg;
+        if (!gCfg) {
+            gCfg = db.create(dbName.channelCfg, data.guild_id, this.getGuildCfgTemp());
+        }
+        gCfg.atCont += 1;
+        if (data.member.roles.includes('4')) {
+            // 频道主艾特了
+            gCfg.master = data.author.id;
+        }
         // 过滤艾特
         let filter = `<@!${this.botInfo?.user.id}>`;
         while (data.content.includes(filter)) {

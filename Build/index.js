@@ -16,6 +16,7 @@ exports.info = exports.err = exports.log = void 0;
 const botCfg_1 = __importDefault(require("./botCfg"));
 const game_1 = __importDefault(require("./game"));
 const bot_1 = __importDefault(require("./unity/bot"));
+const db_1 = __importDefault(require("./unity/db"));
 const sever_1 = __importDefault(require("./unity/sever"));
 exports.log = console.log;
 exports.err = console.error;
@@ -23,9 +24,12 @@ exports.info = console.info;
 start();
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
+        (0, exports.info)('开始初始化配置');
+        yield db_1.default.init();
+        (0, exports.info)('初始化完成');
         yield sever_1.default.setApiUrl(botCfg_1.default.apiUrl);
         sever_1.default.setWsUrl(botCfg_1.default.wsUrl).then(() => {
-            (0, exports.info)('start');
+            (0, exports.info)('开始启动机器人');
             bot_1.default.setBotConfig(botCfg_1.default);
             // 开始测试实例
             new game_1.default();

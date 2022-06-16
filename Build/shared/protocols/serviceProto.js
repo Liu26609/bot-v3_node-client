@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 37,
+    "version": 39,
     "services": [
         {
             "id": 0,
@@ -112,6 +112,11 @@ exports.serviceProto = {
         {
             "id": 10,
             "name": "CallAppoint",
+            "type": "msg"
+        },
+        {
+            "id": 106,
+            "name": "CallAutoPlay",
             "type": "msg"
         },
         {
@@ -2289,6 +2294,13 @@ exports.serviceProto = {
                     "type": {
                         "type": "Number"
                     }
+                },
+                {
+                    "id": 1,
+                    "name": "channel_id",
+                    "type": {
+                        "type": "String"
+                    }
                 }
             ]
         },
@@ -2298,6 +2310,13 @@ exports.serviceProto = {
                 {
                     "id": 0,
                     "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "channel_id",
                     "type": {
                         "type": "String"
                     }
@@ -2545,6 +2564,25 @@ exports.serviceProto = {
                 {
                     "id": 0,
                     "name": "callUserId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "MsgCallAutoPlay/MsgCallAutoPlay": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 2,
+                    "name": "channel_id",
                     "type": {
                         "type": "String"
                     }

@@ -1,6 +1,8 @@
+import { dbName } from './../../unity/db';
 import { log } from '../..';
 import bot from '../../unity/bot';
 import common from '../../unity/common';
+import db from '../../unity/db';
 import { task_base } from './../task_base';
 let isAcitve = false;
 export class sys_update_code extends task_base {
@@ -23,7 +25,7 @@ export class sys_update_code extends task_base {
             return;
         }
         isAcitve = true;
-        await bot.callAll(`开始更新版本\n本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...`)
+        await bot.callAll(`开始更新版本\n本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...\n为了保证数据不会出错,请暂时不要艾特机器人。`)
         await this.updateCode()
         isAcitve = false;
     }
@@ -42,14 +44,17 @@ export class sys_update_code extends task_base {
         })
     }
     async getLog() {
-        let outText =  await this.runCmd('git log -n 1');
+        let outText = await this.runCmd('git log -n 1');
         let urlStartIndex = outText.indexOf('<')
         let urlEndIndex = outText.indexOf(">");
         outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '')
         outText = outText.replace('commit', '')
         outText = 'commit:' + outText;
         await bot.sendText(this.channel_id, outText)
-        await bot.callAll(`即将开始,重启需要耗时0.${common.random(0,1000)}秒,请耐心等待`)
+        await bot.callAll(`正在存储数据...这个时间大约需要10秒`)
+        db.saveDirData(dbName.channelCfg)
+        await new Promise(rs => { setTimeout(rs, 10000) });
+        await bot.callAll(`即将开始,重启需要耗时0.${common.random(0, 1000)}秒,请耐心等待`)
         process.exit()
     }
     async updateCode() {
