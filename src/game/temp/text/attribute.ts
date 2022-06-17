@@ -1,7 +1,7 @@
 import { info } from 'console';
 import { err } from "../../..";
 import { ancestry, ancestryLeve, body, DNA_CN, DNA_Leve } from "../../../shared/game/body";
-import { teamLeve_CN, TEAM_INFO } from "../../../shared/game/team";
+import { teamLeve, teamLeve_CN, TEAM_INFO } from "../../../shared/game/team";
 import { walletKey, walletKey_CN } from "../../../shared/game/user";
 import bot from "../../../unity/bot";
 import common from "../../../unity/common";
@@ -47,7 +47,7 @@ export class text_attribute_style {
         }
         // 工会
         if(this.team){
-            temp += `🏰${this.team.leve}级工会:${this.team.name}[${teamLeve_CN[this.data.team.leve]}]`
+            temp += `🏰${this.team.leve}级工会:${this.team.name}[${teamLeve_CN[teamLeve[this.data.team.leve]]}]\n`
         }
         temp += `⚜️声望值:${common.BN(this.data.rankscore)}`;
 
