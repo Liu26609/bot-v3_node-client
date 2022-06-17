@@ -59,10 +59,10 @@ export class text_attribute_style {
         }
 
         temp += `♥️${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}💖+${common.BN(out_attribute.secondResHp, 0)}/s\n`;
-        if (common.BN(out_attribute.MagicAttack)) temp += `🔮魔法攻击${common.BN(out_attribute.MagicAttack)}\n`;
-        if (common.BN(out_attribute.MagicDefense)) temp += `🌟魔法防御${common.BN(out_attribute.MagicDefense)}\n`;
-        if (common.BN(out_attribute.PhysicalAttacks)) temp += `🔪物理攻击${common.BN(out_attribute.PhysicalAttacks)}\n`;
-        if (common.BN(out_attribute.PhysicalAttacks)) temp += `🔰物理防御${common.BN(out_attribute.PhysicalDefense)}\n`;
+        if (out_attribute.MagicAttack > 1) temp += `🔮魔法攻击${common.BN(out_attribute.MagicAttack)}\n`;
+        if (out_attribute.MagicDefense > 1) temp += `🌟魔法防御${common.BN(out_attribute.MagicDefense)}\n`;
+        if (out_attribute.PhysicalAttacks > 1) temp += `🔪物理攻击${common.BN(out_attribute.PhysicalAttacks)}\n`;
+        if (out_attribute.PhysicalAttacks > 1) temp += `🔰物理防御${common.BN(out_attribute.PhysicalDefense)}\n`;
         temp += `┗┄━══════════━┄`
         await bot.sendText(channelId, temp);
     }

@@ -73,7 +73,7 @@ class me_strengthen extends task_base_1.task_base {
             let now = data.nowEquip;
             let temp = `┏┄══${data.isSuccress ? '<emoji:320>强化成功' : '<emoji:173>强化失败'}══━┄\n`;
             if (data.isSuccress) {
-                temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
+                temp += `🔣本次成功率:${data.rate.toFixed(4)}%\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `${this.at()}(${equip_1.EQUIP_QUALITY[bf.quality]}级装备)\n`;
@@ -94,7 +94,7 @@ class me_strengthen extends task_base_1.task_base {
             }
             else {
                 temp += `${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[bf.type]]}${bf.name}+${now.leve}\n`;
-                temp += `🔣本次成功率:${(data.rate * 100).toFixed(2)}%\n`;
+                temp += `🔣本次成功率:${data.rate.toFixed(4)}%\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `┗┄━${this.at()}━┄`;

@@ -42,7 +42,7 @@ export enum EQUIP_QUALITY {
     SSS//="作者专属"
 }
 export enum EQUIP_QUALITY_COLOR {
-    G='#808080',//="破烂"
+    G='#FFFFFF',//="破烂"
     F='#F8F8FF',//="战损"
     E='#BBFFFF',//="普通"
     D='#7FFFD4',//="精良"
