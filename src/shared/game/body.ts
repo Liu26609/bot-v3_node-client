@@ -123,6 +123,7 @@ export interface ancestry {
     skill: number,
 }
 export enum ancestryLeve {
+    E,
     D,
     C,
     B,
@@ -132,6 +133,9 @@ export enum ancestryLeve {
     S,
     SS,
     SSS,
+    R,
+    SR,
+    SSR,
     MAX
 }
 export enum DNA_Leve {

@@ -26,8 +26,6 @@ export interface SKILL_ACTIVE {
     id: number,
     // 技能名称
     name: string,
-    // 技能描述
-    tips: string,
     // 技能故事
     story: string,
     // typeId:
