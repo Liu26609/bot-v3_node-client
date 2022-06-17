@@ -77,7 +77,9 @@ class sys_update_code extends task_base_1.task_base {
     }
     updateCode() {
         return __awaiter(this, void 0, void 0, function* () {
+            yield this.runCmd('git stash');
             yield this.runCmd('git pull');
+            yield this.runCmd('git stash pop ');
             this.getLog();
         });
     }
