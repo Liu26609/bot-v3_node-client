@@ -1,6 +1,7 @@
+import { userCfg, USER_CFG_MSGTEMPLATE, USER_CFG_TEXTSTRSTYLE } from './../interface/userCfg';
 import { AvailableIntentsEventsEnum, createWebsocket, createOpenAPI, MessageToCreate } from "qq-guild-bot";
 import { err, info, log } from "..";
-import { guildCfg } from "../interface/guildCfg";
+import { CFG_SWITCH, guildCfg } from "../interface/guildCfg";
 import { BOT_Config, BOT_READY, BOT_EventType, BOT_MSG_AT, BOT_OnData, BOT_MSGID_MAP } from '../shared/bot/bot'
 import db, { dbName } from "./db";
 import sever from "./sever";
@@ -289,16 +290,29 @@ class bot {
         }
         return temp
     }
+    private getUserCfgTemp():userCfg{
+        let temp = {
+            textStrStyle:USER_CFG_TEXTSTRSTYLE.default,
+            msgTemplate:USER_CFG_MSGTEMPLATE.card
+        }
+        return temp;
+    }
     /**
      * 内部处理艾特消息
      */
     private _onMsg_at(data: BOT_MSG_AT) {
         // log('收到消息', data)
-        let gCfg = db.get(dbName.channelCfg, data.guild_id) as guildCfg;
+        let gCfg = db.get(dbName.GuildCfg, data.guild_id) as guildCfg;
         if (!gCfg) {
-            gCfg = db.create(dbName.channelCfg, data.guild_id, this.getGuildCfgTemp());
+            gCfg = db.create(dbName.GuildCfg, data.guild_id, this.getGuildCfgTemp());
         }
         gCfg.atCont += 1;
+
+        let uCfg = db.get(dbName.UserCfg,data.author.id);
+        if(!uCfg){
+            uCfg = db.create(dbName.UserCfg, data.author.id, this.getUserCfgTemp());
+        }
+
         if (data.member.roles.includes('4')) {
             // 频道主艾特了
             gCfg.master = data.author.id;

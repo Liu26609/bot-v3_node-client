@@ -1,7 +1,11 @@
+import { err } from '..';
 import { embed_style } from './temp/embed/embed';
 import { TsrpcError, TsrpcErrorType } from "tsrpc";
 import bot from "../unity/bot";
 import common from "../unity/common";
+import { guildCfg } from '../interface/guildCfg';
+import db, { dbName } from '../unity/db';
+import { userCfg } from '../interface/userCfg';
 
 /**
  * 指令基类
@@ -33,6 +37,11 @@ export class task_base {
      */
     guild:string
     args: any[]
+    /**
+     * 频道配置
+     */
+    GuildCfg: guildCfg;
+    UserCfg: userCfg;
     constructor(...args) {
         this.args = args;
         this.userId = args[0];
@@ -41,7 +50,21 @@ export class task_base {
         this.content = args[3];
         this.matchKey = args[4];
         this.userName = args[5];
-        this.guild = args[6]
+        this.guild = args[6];
+        this.GuildCfg = db.get(dbName.GuildCfg, this.guild) as guildCfg;
+        if(!this.GuildCfg){
+            err('错误：未检查到频道配置信息',)
+        }
+        this.UserCfg =  db.get(dbName.UserCfg,this.userId) as userCfg
+        if(!this.UserCfg){
+            err('错误：未检查到用户配置信息',)
+        }
+    }
+    /**
+     * 是否为频道主
+     */
+    isMaster(){
+        return this.userId == this.GuildCfg.master;
     }
     /**
      * 艾特用户

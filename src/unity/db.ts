@@ -6,7 +6,8 @@ import store from "../shared/game/store";
 const PATH = require('path');
 const storePath = './db/'
 export enum dbName {
-    channelCfg = 'channelCfg',//用户列表
+    GuildCfg = 'guildCfg',//用户列表
+    UserCfg = 'userCfg',//用户列表
 }
 class db {
     private dbMap: Map<string, Map<string, any>>;
@@ -14,7 +15,8 @@ class db {
         this.dbMap = new Map();
     }
     async init() {
-        await this.loadDirData(dbName.channelCfg);
+        await this.loadDirData(dbName.GuildCfg);
+        await this.loadDirData(dbName.UserCfg);
     }
     /**
      * 创建一个数据，存在将覆盖

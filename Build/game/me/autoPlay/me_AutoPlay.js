@@ -67,25 +67,24 @@ class me_AutoPlay extends task_base_1.task_base {
      */
     checkGuildPass() {
         let pass = false;
-        let guild = db_1.default.get(db_1.dbName.channelCfg, this.guild);
-        if (!guild) {
+        if (!this.GuildCfg) {
             console.log('频道主还没有授权一个挂机子频道');
             // 频道主还没有授权一个挂机子频道
             this.notPassMenu();
-            if (!guild) {
-                db_1.default.create(db_1.dbName.channelCfg, this.guild, { autoPassChannel_id: '' });
+            if (!this.GuildCfg) {
+                db_1.default.create(db_1.dbName.GuildCfg, this.guild, { autoPassChannel_id: '' });
             }
             return pass;
         }
-        if (guild) {
-            if (guild.master == this.userId && this.content == this.matchKey) {
+        if (this.GuildCfg) {
+            if (this.isMaster() && this.content == this.matchKey) {
                 console.log('主人授权');
-                guild.autoPassChannel_id = this.channel_id;
+                this.GuildCfg.autoPassChannel_id = this.channel_id;
                 this.passAutoChannel();
                 pass = true;
                 return pass;
             }
-            if (guild.autoPassChannel_id != this.channel_id) {
+            if (this.GuildCfg.autoPassChannel_id != this.channel_id) {
                 console.log('未授权');
                 this.notPassMenu();
                 return pass;
@@ -98,19 +97,18 @@ class me_AutoPlay extends task_base_1.task_base {
         this.log(`已将挂机频道授权至<#${this.channel_id}>,现在挂机推送和开始挂机将只能在此子频道进行。`);
     }
     notPassMenu() {
-        let guild = db_1.default.get(db_1.dbName.channelCfg, this.guild);
         let temp = `┏┄═挂机子频道未授权━┄\n`;
         temp += `1.挂机会发送大量消息\n`;
         temp += `2.建议单独新建一个挂机专属子频道\n`;
-        if (guild) {
-            if (guild.master) {
-                temp += `3.此功能需要<@${guild.master}>来授权开启\n`;
+        if (this.GuildCfg) {
+            if (this.GuildCfg.master) {
+                temp += `3.此功能需要<@${this.GuildCfg.master}>来授权开启\n`;
             }
             else {
                 temp += `3.此功能需要频道主授权开启。请艾特频道主前来授权\n`;
             }
-            if (guild.autoPassChannel_id != '') {
-                temp += `4.你可以直接前往已授权频道<#${guild.autoPassChannel_id}>开始挂机,如果无法点击则已经被删除需要重新授权\n`;
+            if (this.GuildCfg.autoPassChannel_id != '') {
+                temp += `4.你可以直接前往已授权频道<#${this.GuildCfg.autoPassChannel_id}>开始挂机,如果无法点击则已经被删除需要重新授权\n`;
             }
         }
         temp += `┄═══👑授权指令══━┄\n`;

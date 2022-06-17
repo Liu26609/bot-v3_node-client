@@ -13,13 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_attribute = void 0;
-const embed_1 = require("./../temp/embed/embed");
+const embed_attribute_style_1 = require("./../temp/embed/embed_attribute_style");
 const task_base_1 = require("./../task_base");
 const sever_1 = __importDefault(require("../../unity/sever"));
 const attribute_1 = require("../temp/text/attribute");
-const setUp_1 = require("../../shared/game/setUp");
-const common_1 = __importDefault(require("../../unity/common"));
-const body_1 = require("../../shared/game/body");
+const userCfg_1 = require("../../interface/userCfg");
 /**
 * 查看我的属性
 */
@@ -36,26 +34,27 @@ class me_attribute extends task_base_1.task_base {
                 return;
             }
             let data = res.res;
-            if (data.userCfg.textStyle == setUp_1.textStyle.card) {
-                let out_attribute = data.body.out_attribute;
-                let temp = new embed_1.embed_style();
-                temp.setTitle(data === null || data === void 0 ? void 0 : data.body.title.name);
-                temp.setIcon(this.userIcon);
-                temp.setTips('属性');
-                temp.addLine(`Ⓜ️名称:${data.body.name}`);
-                temp.addLine(`👑血统${body_1.ancestryLeve[data.ancestry.leve]}级${data.ancestry.title}`);
-                temp.addLine(`🔥等级:${data.body.leve}`);
-                temp.addLine(`⏳经验:${common_1.default.BN(data.body.exp)}/${common_1.default.BN(data.body.exp_max)}`);
-                temp.addLine(`⚜️声望值:${common_1.default.BN(data.body.rankscore)}`);
-                temp.addLine(`♥️生命:${common_1.default.BN(data.body.hp)}/${common_1.default.BN(out_attribute.hp_max)}`);
-                temp.addLine(`🔮魔法攻击:${common_1.default.BN(out_attribute.MagicAttack)}`);
-                temp.addLine(`🌟魔法防御:${common_1.default.BN(out_attribute.MagicDefense)}`);
-                temp.addLine(`🔪物理攻击:${common_1.default.BN(out_attribute.PhysicalAttacks)}`);
-                temp.addLine(`🔰物理防御:${common_1.default.BN(out_attribute.PhysicalDefense)}`);
-                temp.addLine(`💖每秒回复:${common_1.default.BN(out_attribute.secondResHp)}`);
-                temp.sendMsg(this.channel_id);
+            if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.card) {
+                // let out_attribute = data.body.out_attribute;
+                // let temp = new embed_style();
+                // temp.setTitle(data?.body.title.name);
+                // temp.setIcon(this.userIcon);
+                // temp.setTips('属性')
+                // temp.addLine(`Ⓜ️名称:${data.body.name}`)
+                // temp.addLine(`👑血统${ancestryLeve[data.ancestry.leve]}级${data.ancestry.title}`)
+                // temp.addLine(`🔥等级:${data.body.leve}`)
+                // temp.addLine(`⏳经验:${common.BN(data.body.exp)}/${common.BN(data.body.exp_max)}`)
+                // temp.addLine(`⚜️声望值:${common.BN(data.body.rankscore)}`)
+                // temp.addLine(`♥️生命:${common.BN(data.body.hp)}/${common.BN(out_attribute.hp_max)}`)
+                // temp.addLine(`🔮魔法攻击:${common.BN(out_attribute.MagicAttack)}`)
+                // temp.addLine(`🌟魔法防御:${common.BN(out_attribute.MagicDefense)}`)
+                // temp.addLine(`🔪物理攻击:${common.BN(out_attribute.PhysicalAttacks)}`)
+                // temp.addLine(`🔰物理防御:${common.BN(out_attribute.PhysicalDefense)}`)
+                // temp.addLine(`💖每秒回复:${common.BN(out_attribute.secondResHp)}`)
+                // temp.sendMsg(this.channel_id)
+                new embed_attribute_style_1.embed_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
             }
-            else if (data.userCfg.textStyle == setUp_1.textStyle.text) {
+            else if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 new attribute_1.text_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
             }
         });

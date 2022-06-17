@@ -52,7 +52,7 @@ export class sys_update_code extends task_base {
         outText = 'commit:' + outText;
         await bot.sendText(this.channel_id, outText)
         await bot.callAll(`正在存储数据...这个时间大约需要10秒`)
-        db.saveDirData(dbName.channelCfg)
+        db.saveDirData(dbName.GuildCfg)
         await new Promise(rs => { setTimeout(rs, 10000) });
         await bot.callAll(`即将开始,重启需要耗时0.${common.random(0, 1000)}秒,请耐心等待`)
         process.exit()

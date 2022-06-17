@@ -233,7 +233,10 @@ class game {
         this.matchMap.set('复活', { action: me_resLife_1.me_resLife, match: matchType.all });
         this.matchMap.set('治疗', { action: me_resLife_1.me_resLife, match: matchType.all });
         this.matchMap.set('背包', { action: me_bag_1.me_bag, match: matchType.all });
-        this.matchMap.set('设置', { action: setUp_1.setUp, match: matchType.match });
+        // 设置相关
+        this.matchMap.set('设置', { action: setUp_1.setUp, match: matchType.match, isShowMatch: true });
+        this.matchMap.set('设置消息文本模式', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
+        this.matchMap.set('设置消息卡片模式', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
         this.matchMap.set('强化', { action: me_strengthen_1.me_strengthen, match: matchType.match });
         this.matchMap.set('传送', { action: me_callPos_1.me_callPos, match: matchType.match });
         this.matchMap.set('上', { action: me_move_1.me_move, match: matchType.all });
@@ -323,6 +326,9 @@ class game {
                 }
                 let match = common_1.default.xsd(key, content);
                 if (!isFind) {
+                    if (typeof (conf.isShowMatch) != 'undefined' && !conf.isShowMatch) {
+                        return;
+                    }
                     matchList.push({ conf: conf, match: match, key: key });
                 }
             });

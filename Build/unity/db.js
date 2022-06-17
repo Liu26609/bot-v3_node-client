@@ -21,7 +21,8 @@ const PATH = require('path');
 const storePath = './db/';
 var dbName;
 (function (dbName) {
-    dbName["channelCfg"] = "channelCfg";
+    dbName["GuildCfg"] = "guildCfg";
+    dbName["UserCfg"] = "userCfg";
 })(dbName = exports.dbName || (exports.dbName = {}));
 class db {
     constructor() {
@@ -29,7 +30,8 @@ class db {
     }
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.loadDirData(dbName.channelCfg);
+            yield this.loadDirData(dbName.GuildCfg);
+            yield this.loadDirData(dbName.UserCfg);
         });
     }
     /**

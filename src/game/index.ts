@@ -99,6 +99,7 @@ import { rank_MagicDefense } from './rank/rank_MagicDefense';
 import { rank_PhysicalAttacks } from './rank/rank_PhysicalAttacks';
 import { rank_PhysicalDefense } from './rank/rank_PhysicalDefense';
 import { shop_rankscore } from './shop/shop_rankscore';
+import { switch_CN, CFG_SWITCH } from '../interface/guildCfg';
 
 enum matchType {
     /**
@@ -116,7 +117,21 @@ export default class game {
     /**
      * 指令可交互行为分析
      */
-    matchMap: Map<string, { action: any, match: matchType }>
+
+    matchMap: Map<string, {
+        /**
+         * 意图
+         */
+        action: any,
+        /**
+         * 匹配规则
+         */
+        match: matchType,
+        /**
+         * 是否显示在匹配菜单内
+         */
+        isShowMatch?: boolean
+    }>
     /**
      * 用户上次艾特内容
      */
@@ -237,7 +252,12 @@ export default class game {
         this.matchMap.set('复活', { action: me_resLife, match: matchType.all })
         this.matchMap.set('治疗', { action: me_resLife, match: matchType.all })
         this.matchMap.set('背包', { action: me_bag, match: matchType.all })
-        this.matchMap.set('设置', { action: setUp, match: matchType.match })
+
+        // 设置相关
+        this.matchMap.set('设置', { action: setUp, match: matchType.match,isShowMatch:true })
+        this.matchMap.set('设置消息文本模式', { action: setUp, match: matchType.match,isShowMatch:false })
+        this.matchMap.set('设置消息卡片模式', { action: setUp, match: matchType.match,isShowMatch:false })
+
         this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
         this.matchMap.set('传送', { action: me_callPos, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
@@ -330,7 +350,13 @@ export default class game {
             }
             let match = common.xsd(key, content);
             if (!isFind) {
+                
+                if(typeof(conf.isShowMatch) != 'undefined' && !conf.isShowMatch){
+                    return;
+                }
+
                 matchList.push({ conf: conf, match: match, key: key })
+
             }
         });
 

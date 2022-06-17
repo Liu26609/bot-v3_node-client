@@ -35,6 +35,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const userCfg_1 = require("./../interface/userCfg");
 const qq_guild_bot_1 = require("qq-guild-bot");
 const __1 = require("..");
 const bot_1 = require("../shared/bot/bot");
@@ -320,17 +321,28 @@ class bot {
         };
         return temp;
     }
+    getUserCfgTemp() {
+        let temp = {
+            textStrStyle: userCfg_1.USER_CFG_TEXTSTRSTYLE.default,
+            msgTemplate: userCfg_1.USER_CFG_MSGTEMPLATE.card
+        };
+        return temp;
+    }
     /**
      * 内部处理艾特消息
      */
     _onMsg_at(data) {
         var _a;
         // log('收到消息', data)
-        let gCfg = db_1.default.get(db_1.dbName.channelCfg, data.guild_id);
+        let gCfg = db_1.default.get(db_1.dbName.GuildCfg, data.guild_id);
         if (!gCfg) {
-            gCfg = db_1.default.create(db_1.dbName.channelCfg, data.guild_id, this.getGuildCfgTemp());
+            gCfg = db_1.default.create(db_1.dbName.GuildCfg, data.guild_id, this.getGuildCfgTemp());
         }
         gCfg.atCont += 1;
+        let uCfg = db_1.default.get(db_1.dbName.UserCfg, data.author.id);
+        if (!uCfg) {
+            uCfg = db_1.default.create(db_1.dbName.UserCfg, data.author.id, this.getUserCfgTemp());
+        }
         if (data.member.roles.includes('4')) {
             // 频道主艾特了
             gCfg.master = data.author.id;
