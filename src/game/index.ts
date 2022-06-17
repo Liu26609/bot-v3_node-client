@@ -258,14 +258,7 @@ export default class game {
     async atBot(data: BOT_MSG_AT) {
         if (!sever.isReady()) {
             let temp = ``;
-            temp += `┏┄════⚠️错误提示═══━┄\n`
-            temp += `┣⛔︎错误代码:${common.random(0, 99999999999).toString(16)}\n`;
-            temp += `┣🗂️错误类型:🔴服务器无响应\n`;
-            temp += `┣┄════❌错误提示═══━┄\n`
-            temp += `  🟢客户端:${bot.severId()}\n`;
-            temp += `  🟡正在开始重新连接\n`;
-            temp += `┗┄━═══════════━┄\n`;
-            temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
+            temp += `<emoji:147>有内鬼！服务器终止了通话,正在重新通话`
             await bot.sendText(data.channel_id, temp);
             await sever.HelloWorld()
             return;
@@ -280,7 +273,7 @@ export default class game {
         }
         if (data.content == '测试') {
             log('测试')
-            bot.test(data.channel_id)
+            bot.test(data.guild_id, data.author.id)
             return;
         }
         // let isNext = false;

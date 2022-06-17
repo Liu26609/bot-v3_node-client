@@ -101,21 +101,17 @@ class bot {
             // }
         });
     }
-    test(str) {
-        this.client.messageApi.postMessage(str, {
-            markdown: {
-                template_id: 1,
-                params: [
-                    {
-                        key: 'title',
-                        value: ['标题'],
-                    },
-                ],
-            },
-            msg_id: 'xxxxxx',
-            keyboard: {
-                id: '123',
-            },
+    test(guildID, userID) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const options = {
+                seconds: '100'
+            };
+            try {
+                this.client.muteApi.muteMember(guildID, userID, options);
+            }
+            catch (error) {
+                console.log(error);
+            }
         });
     }
     /**
@@ -308,7 +304,13 @@ class bot {
         }
     }
     _test() {
-        (0, __1.log)('测试表情');
+        return __awaiter(this, void 0, void 0, function* () {
+            (0, __1.log)('测试表情');
+            // const options = {
+            //     timeTo:(Date.now() + 2000 / 1000).toFixed(0)
+            // }
+            // await this.client.muteApi.muteMember(guildID, userID, options);
+        });
     }
     getGuildCfgTemp() {
         let temp = {

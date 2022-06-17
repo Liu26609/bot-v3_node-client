@@ -253,14 +253,7 @@ class game {
         return __awaiter(this, void 0, void 0, function* () {
             if (!sever_1.default.isReady()) {
                 let temp = ``;
-                temp += `┏┄════⚠️错误提示═══━┄\n`;
-                temp += `┣⛔︎错误代码:${common_1.default.random(0, 99999999999).toString(16)}\n`;
-                temp += `┣🗂️错误类型:🔴服务器无响应\n`;
-                temp += `┣┄════❌错误提示═══━┄\n`;
-                temp += `  🟢客户端:${bot_1.default.severId()}\n`;
-                temp += `  🟡正在开始重新连接\n`;
-                temp += `┗┄━═══════════━┄\n`;
-                temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
+                temp += `<emoji:147>有内鬼！服务器终止了通话,正在重新通话`;
                 yield bot_1.default.sendText(data.channel_id, temp);
                 yield sever_1.default.HelloWorld();
                 return;
@@ -275,7 +268,7 @@ class game {
             }
             if (data.content == '测试') {
                 (0, __1.log)('测试');
-                bot_1.default.test(data.channel_id);
+                bot_1.default.test(data.guild_id, data.author.id);
                 return;
             }
             // let isNext = false;
