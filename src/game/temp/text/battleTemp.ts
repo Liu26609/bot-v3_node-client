@@ -66,7 +66,7 @@ export class text_battleTemp_style {
 
         if(data.reward.length > 0){
             data.reward.forEach(item => {
-                this.rewardKey_str += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0?'+':''}${item.val}`
+                this.rewardKey_str += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0?'+':''}${common.BN(item.val)}`
             });
         }
         return this;

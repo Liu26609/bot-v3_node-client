@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_battleTemp_style = void 0;
 const skill_1 = require("./../../../shared/game/skill");
@@ -7,6 +10,7 @@ const skill_1 = require("./../../../shared/game/skill");
  */
 const __1 = require("../../..");
 const skill_2 = require("../../../shared/game/skill");
+const common_1 = __importDefault(require("../../../unity/common"));
 const prop_1 = require("../../../shared/game/prop");
 class text_battleTemp_style {
     constructor() {
@@ -45,7 +49,7 @@ class text_battleTemp_style {
         // 设置战斗奖励
         if (data.reward.length > 0) {
             data.reward.forEach(item => {
-                this.rewardKey_str += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
+                this.rewardKey_str += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${common_1.default.BN(item.val)}`;
             });
         }
         return this;

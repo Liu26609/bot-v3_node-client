@@ -45,7 +45,7 @@ class attackBoss extends task_base_1.task_base {
             if (data.isWin) {
                 killLog += `<emoji:144><emoji:144><emoji:144><emoji:144>击杀奖励<emoji:144><emoji:144><emoji:144><emoji:144>\n`;
                 killLog += `${this.at()}在${data.battleRound}回合击杀了💀世界BOSS！\n`;
-                killLog += `<emoji:224>伤害贡献:${data.hurt}\n`;
+                killLog += `<emoji:224>伤害贡献:${common_1.default.BN(data.hurt)}\n`;
                 killLog += `<emoji:295>击杀奖励::${battleTemp.getReward()}`;
                 killLog += `\n`;
             }
@@ -53,7 +53,7 @@ class attackBoss extends task_base_1.task_base {
                 killLog += `┄════<emoji:299>刮痧奖励═══━┄\n`;
                 killLog += `💀世界BOSS在${data.battleRound}回合击败了${this.at()}\n`;
                 killLog += `<emoji:67>BOSS(${((data.hp / data.hp_max) * 100).toFixed(2)}%)${common_1.default.BN(data.hp)}/${common_1.default.BN(data.hp_max)}\n`;
-                killLog += `<emoji:224>伤害贡献:${data.hurt}\n`;
+                killLog += `<emoji:224>伤害贡献:${common_1.default.BN(data.hurt)}\n`;
                 killLog += `<emoji:298>参与奖励:${battleTemp.getReward()}`;
                 killLog += `\n`;
             }
