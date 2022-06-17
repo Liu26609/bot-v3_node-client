@@ -71,12 +71,22 @@ export interface body extends BASE_BODYS {
     setUp: userSetUpCfg,
     pet: BASE_BODYS[],
     ancestry: { id: string, leve: number, exp: number, exp_max: number },
-    team: {
-        id: string,//队伍ID
-        leve: teamLeve,//职位等级
-        contribute: number,//工会贡献
-    },
+    team: BODY_TEAM,
     minGameLog: minGame
+}
+export interface BODY_TEAM{
+    /**
+     * 队伍ID
+     */
+    id: string,
+    /**
+     * 职位等级
+     */
+    leve: teamLeve,
+    /**
+     * 工会贡献
+     */
+    contribute: number,
 }
 /**
  * 小游戏统计

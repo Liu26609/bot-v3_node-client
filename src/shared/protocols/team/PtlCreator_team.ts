@@ -1,4 +1,4 @@
-import { team_info } from './../../game/team';
+import { TEAM_INFO } from './../../game/team';
 import { payRes } from './../../game/prop';
 /**
  * 创建工会
@@ -10,7 +10,7 @@ export interface ReqCreator_team {
 
 export interface ResCreator_team {
     pay:payRes,
-    team:team_info,
+    team:TEAM_INFO,
     
 }
 

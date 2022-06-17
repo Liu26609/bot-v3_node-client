@@ -16,12 +16,12 @@ export class rank_PhysicalDefense extends task_base{
         }
         let data = req.res;
         let temp = ``;
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ物防排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `࿐ᐖ因为太怕痛就全加物防ᐛ࿐\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
             temp += `${common.getRankStr(index)}🔰${common.BN(e.val)}${e.icon}${e.name}\n`
         }
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ物防排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `࿐ᐖ因为太怕痛就全加物防ᐛ࿐\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }

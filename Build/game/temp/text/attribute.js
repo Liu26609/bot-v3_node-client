@@ -15,17 +15,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_attribute_style = void 0;
 const __1 = require("../../..");
 const body_1 = require("../../../shared/game/body");
+const team_1 = require("../../../shared/game/team");
 const user_1 = require("../../../shared/game/user");
 const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../unity/common"));
 class text_attribute_style {
     constructor() {
     }
-    sendAncestry(info) {
+    setAncestry(info) {
         this.ancestry = info;
         return this;
     }
-    sendData(data) {
+    setTeam(info) {
+        if (info) {
+            this.team = info;
+        }
+        return this;
+    }
+    setData(data) {
         this.data = data;
         return this;
     }
@@ -48,6 +55,10 @@ class text_attribute_style {
             if (this.data.dnaLock > 0) {
                 temp += `🔒基因锁[${body_1.DNA_CN[body_1.DNA_Leve[this.data.dnaLock]]}]\n`;
             }
+            // 工会
+            if (this.team) {
+                temp += `🏰${this.team.leve}级工会:${this.team.name}[${team_1.teamLeve_CN[this.data.team.leve]}]`;
+            }
             temp += `⚜️声望值:${common_1.default.BN(this.data.rankscore)}`;
             // 红名值or正义值
             if (this.data.wallet.evil > 0) {
@@ -57,10 +68,14 @@ class text_attribute_style {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.justice]]}:${common_1.default.BN(this.data.wallet.justice)}\n`;
             }
             temp += `♥️${common_1.default.BN(this.data.hp, 1)}/${common_1.default.BN(out_attribute.hp_max, 1)}💖+${common_1.default.BN(out_attribute.secondResHp, 0)}/s\n`;
-            temp += `🔮魔法攻击${common_1.default.BN(out_attribute.MagicAttack)}\n`;
-            temp += `🌟魔法防御${common_1.default.BN(out_attribute.MagicDefense)}\n`;
-            temp += `🔪物理攻击${common_1.default.BN(out_attribute.PhysicalAttacks)}\n`;
-            temp += `🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense)}\n`;
+            if (common_1.default.BN(out_attribute.MagicAttack))
+                temp += `🔮魔法攻击${common_1.default.BN(out_attribute.MagicAttack)}\n`;
+            if (common_1.default.BN(out_attribute.MagicDefense))
+                temp += `🌟魔法防御${common_1.default.BN(out_attribute.MagicDefense)}\n`;
+            if (common_1.default.BN(out_attribute.PhysicalAttacks))
+                temp += `🔪物理攻击${common_1.default.BN(out_attribute.PhysicalAttacks)}\n`;
+            if (common_1.default.BN(out_attribute.PhysicalAttacks))
+                temp += `🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense)}\n`;
             temp += `┗┄━══════════━┄`;
             yield bot_1.default.sendText(channelId, temp);
         });

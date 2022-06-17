@@ -12,35 +12,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.rank_gold = void 0;
+exports.rank_teamContribute = void 0;
 const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../unity/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
 // 等级排行榜
-class rank_gold extends task_base_1.task_base {
+class rank_teamContribute extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            let req = yield sever_1.default.callApi('rank/Rank_gold', { userId: this.userId });
+            let req = yield sever_1.default.callApi('rank/Rank_contribute', { userId: this.userId });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
             }
             let data = req.res;
             let temp = ``;
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ对钱不感兴趣ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ黑恶势力头头ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             for (let index = 0; index < data.list.length; index++) {
                 let e = data.list[index];
-                temp += `${common_1.default.getRankStr(index)}💰️${common_1.default.BN(e.val)}${e.icon}${e.name}\n`;
+                temp += `${common_1.default.getRankStr(index)}🏰${common_1.default.BN(e.val)}${e.icon}${e.name}\n`;
             }
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ对钱不感兴趣ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ黑恶势力头头ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }
 }
-exports.rank_gold = rank_gold;
+exports.rank_teamContribute = rank_teamContribute;

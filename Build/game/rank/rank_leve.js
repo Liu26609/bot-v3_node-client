@@ -32,12 +32,12 @@ class rank_leve extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = ``;
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ等级排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ肝帝你不懂ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             for (let index = 0; index < data.list.length; index++) {
                 let e = data.list[index];
                 temp += `${common_1.default.getRankStr(index)}Lv.${e.val}${e.icon}${e.name}\n`;
             }
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ等级排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ肝帝你不懂ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
             bot_1.default.sendText(this.channel_id, temp);
         });

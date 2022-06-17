@@ -58,7 +58,7 @@ class attackBoss extends task_base_1.task_base {
                 killLog += `\n`;
             }
             temp += killLog;
-            temp += `<emoji:147>攻击boss会死亡当可获得大量奖励\n`;
+            temp += `<emoji:147>攻击boss会死亡但可获得大量奖励\n`;
             temp += `┗┄━${this.at()}━┄`;
             // temp += `\n￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
             // if(data.reward.length > 0){

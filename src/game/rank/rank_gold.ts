@@ -16,12 +16,12 @@ export class rank_gold extends task_base{
         }
         let data = req.res;
         let temp = ``;
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ金币排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ对钱不感兴趣ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
             temp += `${common.getRankStr(index)}💰️${common.BN(e.val)}${e.icon}${e.name}\n`
         }
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ金币排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ对钱不感兴趣ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }

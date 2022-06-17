@@ -56,7 +56,7 @@ class me_attribute extends task_base_1.task_base {
                 temp.sendMsg(this.channel_id);
             }
             else if (data.userCfg.textStyle == setUp_1.textStyle.text) {
-                new attribute_1.text_attribute_style().sendData(data.body).sendAncestry(data.ancestry).sendMsg(this.channel_id);
+                new attribute_1.text_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
             }
         });
     }

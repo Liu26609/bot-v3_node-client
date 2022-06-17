@@ -51,9 +51,11 @@ import { ReqResLife, ResResLife } from './PtlResLife';
 import { ReqSearchSkill, ResSearchSkill } from './PtlSearchSkill';
 import { ReqSign, ResSign } from './PtlSign';
 import { ReqRank_ancestry, ResRank_ancestry } from './rank/PtlRank_ancestry';
+import { ReqRank_contribute, ResRank_contribute } from './rank/PtlRank_contribute';
 import { ReqRank_dnaLv, ResRank_dnaLv } from './rank/PtlRank_dnaLv';
 import { ReqRank_evil, ResRank_evil } from './rank/PtlRank_evil';
 import { ReqRank_gold, ResRank_gold } from './rank/PtlRank_gold';
+import { ReqRank_hp, ResRank_hp } from './rank/PtlRank_hp';
 import { ReqRank_justice, ResRank_justice } from './rank/PtlRank_justice';
 import { ReqRank_leve, ResRank_leve } from './rank/PtlRank_leve';
 import { ReqRank_MagicAttack, ResRank_MagicAttack } from './rank/PtlRank_MagicAttack';
@@ -294,6 +296,10 @@ export interface ServiceType {
             req: ReqRank_ancestry,
             res: ResRank_ancestry
         },
+        "rank/Rank_contribute": {
+            req: ReqRank_contribute,
+            res: ResRank_contribute
+        },
         "rank/Rank_dnaLv": {
             req: ReqRank_dnaLv,
             res: ResRank_dnaLv
@@ -305,6 +311,10 @@ export interface ServiceType {
         "rank/Rank_gold": {
             req: ReqRank_gold,
             res: ResRank_gold
+        },
+        "rank/Rank_hp": {
+            req: ReqRank_hp,
+            res: ResRank_hp
         },
         "rank/Rank_justice": {
             req: ReqRank_justice,
@@ -479,7 +489,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 39,
+    "version": 41,
     "services": [
         {
             "id": 0,
@@ -742,6 +752,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 107,
+            "name": "rank/Rank_contribute",
+            "type": "api"
+        },
+        {
             "id": 92,
             "name": "rank/Rank_dnaLv",
             "type": "api"
@@ -754,6 +769,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 85,
             "name": "rank/Rank_gold",
+            "type": "api"
+        },
+        {
+            "id": 108,
+            "name": "rank/Rank_hp",
             "type": "api"
         },
         {
@@ -3475,6 +3495,29 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
+                    "id": 3,
+                    "name": "team",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 2,
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/team/TEAM_INFO"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal"
+                                }
+                            }
+                        ]
+                    },
+                    "optional": true
+                },
+                {
                     "id": 2,
                     "name": "userCfg",
                     "type": {
@@ -3767,31 +3810,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 11,
                     "name": "team",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "id",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/team/teamLeve"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "contribute",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/BODY_TEAM"
                     }
                 },
                 {
@@ -3912,6 +3932,33 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "../game/body/BODY_TEAM": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "leve",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/team/teamLeve"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "contribute",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
         "../game/team/teamLeve": {
             "type": "Enum",
             "members": [
@@ -3949,6 +3996,75 @@ export const serviceProto: ServiceProto<ServiceType> = {
                                 }
                             }
                         ]
+                    }
+                }
+            ]
+        },
+        "../game/team/TEAM_INFO": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "maxExp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "userCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "maxUserCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "contribution",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "gain",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
                     }
                 }
             ]
@@ -5055,6 +5171,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "rank/PtlRank_contribute/ReqRank_contribute": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_contribute/ResRank_contribute": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
         "rank/PtlRank_dnaLv/ReqRank_dnaLv": {
             "type": "Interface",
             "properties": [
@@ -5116,6 +5256,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "rank/PtlRank_gold/ResRank_gold": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_hp/ReqRank_hp": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_hp/ResRank_hp": {
             "type": "Interface",
             "extends": [
                 {
@@ -6664,76 +6828,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "team",
                     "type": {
                         "type": "Reference",
-                        "target": "../game/team/team_info"
-                    }
-                }
-            ]
-        },
-        "../game/team/team_info": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "leve",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "exp",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "maxExp",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "userCont",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 7,
-                    "name": "maxUserCont",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 8,
-                    "name": "contribution",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "gain",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
+                        "target": "../game/team/TEAM_INFO"
                     }
                 }
             ]
@@ -6843,10 +6938,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Union",
                         "members": [
                             {
-                                "id": 0,
+                                "id": 2,
                                 "type": {
                                     "type": "Reference",
-                                    "target": "../game/team/team_info"
+                                    "target": "../game/team/TEAM_INFO"
                                 }
                             },
                             {

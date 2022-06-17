@@ -1,3 +1,5 @@
+import { rank_hp } from './rank/rank_hp';
+import { rank_teamContribute } from './rank/rank_teamContribute';
 import { shop_rankscore_buy } from './shop/shop_rankscore_buy';
 import { rank_military_pet } from './rank/rank_military_pet';
 import { shop_icon } from './shop/shop_icon';
@@ -133,8 +135,9 @@ export default class game {
     private initKeyMap() {
         /**
         * 排行榜指令模块
-        * 
         */
+        this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
+        this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
         this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
@@ -271,11 +274,11 @@ export default class game {
             await bot.sendText(data.channel_id, data.channel_id);
             return
         }
-        if(data.content == '我的ID' || data.content == '我的id'){
-            await bot.sendText(data.channel_id,data.author.id)
+        if (data.content == '我的ID' || data.content == '我的id') {
+            await bot.sendText(data.channel_id, data.author.id)
             return;
         }
-        if(data.content == '测试'){
+        if (data.content == '测试') {
             log('测试')
             bot.test(data.channel_id)
             return;
@@ -295,8 +298,8 @@ export default class game {
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
 
-        if(data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123'){
-            bot.sendText(data.channel_id,`内测中,请前往官方频道[达尔文进化岛]测试体验`)
+        if (data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123') {
+            bot.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验`)
             return;
         }
 
@@ -314,8 +317,8 @@ export default class game {
             } else {
                 this.repeState.set(userId, true)
             }
-        }else{
-            this.contentMap.set(userId,content)
+        } else {
+            this.contentMap.set(userId, content)
             if (this.repeState.has(userId)) {
                 this.repeState.delete(userId)
             }
@@ -327,10 +330,10 @@ export default class game {
         this.matchMap.forEach((conf, key) => {
             if (conf.match == matchType.all && content.toUpperCase() == key.toUpperCase() && !isFind) {
                 isFind = true;
-                new conf.action(userId, fromChannel, userIcon, content, key, userName,guild)
+                new conf.action(userId, fromChannel, userIcon, content, key, userName, guild)
             } else if (conf.match == matchType.match && content.toUpperCase().includes(key.toUpperCase()) && !isFind) {
                 isFind = true;
-                new conf.action(userId, fromChannel, userIcon, content, key, userName,guild)
+                new conf.action(userId, fromChannel, userIcon, content, key, userName, guild)
             }
             let match = common.xsd(key, content);
             if (!isFind) {

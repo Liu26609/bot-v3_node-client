@@ -16,12 +16,12 @@ export class rank_leve extends task_base{
         }
         let data = req.res;
         let temp = ``;
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ等级排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ肝帝你不懂ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         for (let index = 0; index < data.list.length; index++) {
             let e = data.list[index]
             temp += `${common.getRankStr(index)}Lv.${e.val}${e.icon}${e.name}\n`
         }
-        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ等级排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
+        temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ肝帝你不懂ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
         bot.sendText(this.channel_id,temp)
     }

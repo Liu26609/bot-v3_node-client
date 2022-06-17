@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const rank_hp_1 = require("./rank/rank_hp");
+const rank_teamContribute_1 = require("./rank/rank_teamContribute");
 const shop_rankscore_buy_1 = require("./shop/shop_rankscore_buy");
 const rank_military_pet_1 = require("./rank/rank_military_pet");
 const shop_icon_1 = require("./shop/shop_icon");
@@ -132,8 +134,9 @@ class game {
     initKeyMap() {
         /**
         * 排行榜指令模块
-        *
         */
+        this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
+        this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });
         this.matchMap.set('复读', { action: me_Reread_1.me_Reread, match: matchType.all });
         this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });

@@ -34,9 +34,8 @@ export default class me_sign extends task_base {
         switch (data.userCfg.textStyle) {
             case textStyle.text:
                 let temp = `┏┄═💌签到成功━┄\n`;
-                temp += `💌已签到:${data.cont}次\n`;
+                temp += `💝已签到:${data.cont}次<emoji:147>`;
                 if (data.reward.length > 0) {
-                    temp += `<emoji:147>签到奖励:`
                     data.reward.forEach(item => {
                         temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`
                     });

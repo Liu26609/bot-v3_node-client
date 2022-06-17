@@ -1,6 +1,6 @@
 import { base_attribute } from "./body";
 
-export interface team_info{
+export interface TEAM_INFO{
     name:string,
     id:string,
     leve:number,

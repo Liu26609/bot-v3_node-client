@@ -32,12 +32,12 @@ class rank_strengthen extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = ``;
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ强化排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ神器封神榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             for (let index = 0; index < data.list.length; index++) {
                 let e = data.list[index];
                 temp += `${common_1.default.getRankStr(index)}${e.name}+${e.val}\n`;
             }
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ强化排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ神器封神榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
             bot_1.default.sendText(this.channel_id, temp);
         });

@@ -32,12 +32,12 @@ class rank_justice extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = ``;
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ正义排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ剑是正义的仆人ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             for (let index = 0; index < data.list.length; index++) {
                 let e = data.list[index];
-                temp += `${common_1.default.getRankStr(index)}💰️${common_1.default.BN(e.val)}${e.icon}${e.name}\n`;
+                temp += `${common_1.default.getRankStr(index)}🟩${common_1.default.BN(e.val)}${e.icon}${e.name}\n`;
             }
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ正义排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ剑是正义的仆人ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
             bot_1.default.sendText(this.channel_id, temp);
         });

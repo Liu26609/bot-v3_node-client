@@ -74,7 +74,10 @@ class me_titleRandom extends task_base_1.task_base {
                         break;
                 }
                 let changeIcon = '🟢';
-                if (data.bf[key] > data.now[key]) {
+                if (data.now[key] == 9) {
+                    changeIcon = '🥳';
+                }
+                else if (data.bf[key] > data.now[key]) {
                     changeIcon = '🔻';
                 }
                 else if (data.bf[key] < data.now[key]) {

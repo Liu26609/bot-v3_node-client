@@ -33,12 +33,12 @@ class rank_ancestry extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = ``;
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ进化排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ进化金字塔ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             for (let index = 0; index < data.list.length; index++) {
                 let e = data.list[index];
                 temp += `${common_1.default.getRankStr(index)}${e.icon}(${body_1.ancestryLeve[e.val]}级)${e.name}\n`;
             }
-            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ进化排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
+            temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ进化金字塔ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
             bot_1.default.sendText(this.channel_id, temp);
         });
