@@ -43,12 +43,9 @@ export class challenge_image extends task_base {
             temp += `<emoji:187>本次战斗共${data.battle.battleRound}回合\n`
             temp += battleTemp.getKillProcess();
 
-
-            temp += `┏┄════🎁战斗结果═══━┄\n`;
             if (battleTemp.getReward()) {
+                temp += `┏┄════🎁战斗结果═══━┄\n`;
                 temp += battleTemp.getReward()
-            } else {
-                temp += `😤这次战斗好像奖励了个寂寞`
             }
             temp += `\n┗┄━${this.at()}━┄`
             await bot.sendText(this.channel_id,temp)
@@ -56,11 +53,9 @@ export class challenge_image extends task_base {
 
     }
     async max() {
-        bot.sendText(this.channel_id, `${this.at()}你已解开基因锁最高级[五阶中级-超脱者]，代表着挣脱束缚。
-因果也好、时空也好、晶壁系也好，都无法限制超脱者。
-万千多元宇宙的生灭，对超脱者来说，也不过是一场电影而已。
-唯有纪元更替，足以毁灭多元宇宙的大灾难，才能够影响到超脱者。
-超脱的无限是真无限，本源无限，权柄无限，规则无限，所有都无限，超越无穷，即为超脱。`)
+        bot.sendText(this.channel_id, `${this.at()}镜像挑战只能支持提升到[${DNA_CN[DNA_Leve[DNA_Leve.D]]}]
+而更高级的基因锁需要挑战[破壁计划]才能做到。
+为了顺利完成破壁计划,为此准备了[阶梯计划]`)
     }
     async menu() {
         let req = await sever.callApi('battle/Challenge_image', { userId: this.userId, isStart: false });
@@ -73,9 +68,10 @@ export class challenge_image extends task_base {
             this.max()
             return;
         }
+        await this.log(`基因锁：将沉睡着的生命因子给启用起来，破开自身生命界限的过程。基因锁可以兼容所有力量体系，所以基因锁解放者往往有魔位面的兼修者，前三阶的基因锁是可以通过面临生命危险、死亡的恐惧中激发潜能，基因锁一旦达到四阶以上，就必然殊途同归，渐渐达到另一个生命层次，基因锁是神与识结合，二者合一方才是神。`)
         let temp = `┏┄══🎰镜像挑战══━┄\n`;
         temp += `🧚相同属性强者胜,祝君好运\n`
-        temp += `💌你将挑战你的镜像,镜像没有宠物,没有装备,但称号满分,等级为${data.imageLeve}级且基因锁为[${DNA_CN[DNA_Leve[data.imageDNALeve]]}]\n`
+        temp += `💌你将挑战你的镜像,在死亡的恐惧中,激发潜能突破限制。镜像没有装备,但称号满分且基因锁为[${DNA_CN[DNA_Leve[data.imageDNALeve]]}]\n`
         temp += `┄══🌈挑战胜利══━┄\n`
         temp += `🔺基因锁将进阶为[${DNA_CN[DNA_Leve[data.nextDNA]]}]\n`
         temp += `🔺基因锁增益:全属性+${data.winAdd}%\n`

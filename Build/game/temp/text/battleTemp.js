@@ -40,7 +40,7 @@ class text_battleTemp_style {
                 if (free_skill.val == 0) {
                     continue;
                 }
-                itemLog += `│▌${free_skill.name}${free_skill.val}`;
+                itemLog += `│▌${free_skill.name}${common_1.default.BN(free_skill.val)}`;
                 itemLog += skill_2.SKILL_UNITY_CN[skill_1.SKILL_UNITY[free_skill.unit]];
             }
             itemLog += '\n';

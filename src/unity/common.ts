@@ -5,36 +5,36 @@ import { SKILL_ACTIVE, SKILL_TYPE } from "../shared/game/skill";
  * 公共方法库
  */
 class common {
-    private rankMap:Map<number,string>
+    private rankMap: Map<number, string>
     constructor() {
         this.rankMap = new Map();
-        this.rankMap.set(0,'🏆')
-        this.rankMap.set(1,'🥈')
-        this.rankMap.set(2,'🥉')
-        this.rankMap.set(3,'4️⃣')
-        this.rankMap.set(4,'5️⃣')
-        this.rankMap.set(5,'6️⃣ ')
-        this.rankMap.set(6,'7️⃣')
-        this.rankMap.set(7,'8️⃣')
-        this.rankMap.set(8,'9️⃣')
-        this.rankMap.set(9,'🔟')
-        this.rankMap.set(10,'⑪')
-        this.rankMap.set(11,'⑫')
-        this.rankMap.set(12,'⑬')
-        this.rankMap.set(13,'⑭')
-        this.rankMap.set(14,'⑮')
-        this.rankMap.set(15,'⑯')
-        this.rankMap.set(16,'⑰')
-        this.rankMap.set(17,'⑱')
-        this.rankMap.set(18,'⑲')
-        this.rankMap.set(19,'⑳')
+        this.rankMap.set(0, '🏆')
+        this.rankMap.set(1, '🥈')
+        this.rankMap.set(2, '🥉')
+        this.rankMap.set(3, '4️⃣')
+        this.rankMap.set(4, '5️⃣')
+        this.rankMap.set(5, '6️⃣ ')
+        this.rankMap.set(6, '7️⃣')
+        this.rankMap.set(7, '8️⃣')
+        this.rankMap.set(8, '9️⃣')
+        this.rankMap.set(9, '🔟')
+        this.rankMap.set(10, '⑪')
+        this.rankMap.set(11, '⑫')
+        this.rankMap.set(12, '⑬')
+        this.rankMap.set(13, '⑭')
+        this.rankMap.set(14, '⑮')
+        this.rankMap.set(15, '⑯')
+        this.rankMap.set(16, '⑰')
+        this.rankMap.set(17, '⑱')
+        this.rankMap.set(18, '⑲')
+        this.rankMap.set(19, '⑳')
     }
     /**
      * 获取排行文字
      * @param index 
      * @returns 
      */
-    getRankStr(index:number){
+    getRankStr(index: number) {
         return this.rankMap.get(index) || `(${(index + 1).toString()})`
     }
     /**
@@ -68,6 +68,9 @@ class common {
             case SKILL_TYPE.attack_Physics_fixed:
                 temp += `对一个单位造成固定${info.data[0]}的🔪物理伤害`
                 break;
+            case SKILL_TYPE.attack_Magic_rang:
+                temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔮魔法伤害`
+                break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
                 break;
@@ -88,15 +91,15 @@ class common {
     /**
      * 数组洗牌算法
      */
-    randomArry(arr){
+    randomArry(arr) {
         const newArr = [...arr]
         const length = newArr.length
         for (let i = 0; i < length; i++) {
-          const index = Math.floor(Math.random() * length);
-          let temp;
-          temp = newArr[index]
-          newArr[index] = newArr[i]
-          newArr[i] = temp
+            const index = Math.floor(Math.random() * length);
+            let temp;
+            temp = newArr[index]
+            newArr[index] = newArr[i]
+            newArr[i] = temp
         }
         return newArr
     }
@@ -105,7 +108,7 @@ class common {
      * @param str 
      * @returns 
      */
-    getNumber(str:string) {
+    getNumber(str: string) {
         let numStr = str.replace(/[^0-9]/ig, "");
         return Number(numStr);
     }
@@ -165,7 +168,69 @@ class common {
             return Math.ceil(number);
         }
     }
+    toolNumber(num_str) {
+        num_str = num_str.toString();
+        if (num_str.indexOf("+") != -1) {
+            num_str = num_str.replace("+", "");
+        }
+        if (num_str.indexOf("E") != -1 || num_str.indexOf("e") != -1) {
+            let resValue;
+            let power;
+            let result;
+            let dotIndex = 0;
+            let resArr:any[] = [];
+            let sym;
+            var numStr = num_str.toString();
+            if (numStr[0] == "-") {
+                // 如果为负数，转成正数处理，先去掉‘-’号，并保存‘-’.
+                numStr = numStr.substr(1);
+                sym = "-";
+            }
+            if (numStr.indexOf("E") != -1 || numStr.indexOf("e") != -1) {
+                var regExp = new RegExp(
+                    "^(((\\d+.?\\d+)|(\\d+))[Ee]{1}((-(\\d+))|(\\d+)))$",
+                    "ig"
+                );
+                result = regExp.exec(numStr);
+                if (result != null) {
+                    resValue = result[2];
+                    power = result[5];
+                    result = null;
+                }
+                if (!resValue && !power) {
+                    return false;
+                }
+                dotIndex = resValue.indexOf(".") == -1 ? 0 : resValue.indexOf(".");
+                resValue = resValue.replace(".", "");
+                resArr = resValue.split("");
+                if (Number(power) >= 0) {
+                    var subres = resValue.substr(dotIndex);
+                    power = Number(power);
+                    //幂数大于小数点后面的数字位数时，后面加0
+                    for (var i = 0; i <= power - subres.length; i++) {
+                        resArr.push("0");
+                    }
+                    if (power - subres.length < 0) {
+                        resArr.splice(dotIndex + power, 0, ".");
+                    }
+                } else {
+                    power = power.replace("-", "");
+                    power = Number(power);
+                    //幂数大于等于 小数点的index位置, 前面加0
+                    for (var i = 0; i < power - dotIndex; i++) {
+                        resArr.unshift("0");
+                    }
+                    var n = power - dotIndex >= 0 ? 1 : -(power - dotIndex);
+                    resArr.splice(n, 0, ".");
+                }
+            }
+            resValue = resArr.join("");
 
+            return sym + resValue;
+        } else {
+            return num_str;
+        }
+    }
     private _addWan(integer: any, number: any, mutiple: any, decimalDigit: any) {
         let me = this;
         let digit = me._getDigit(integer);

@@ -254,9 +254,9 @@ export default class game {
         this.matchMap.set('背包', { action: me_bag, match: matchType.all })
 
         // 设置相关
-        this.matchMap.set('设置', { action: setUp, match: matchType.match,isShowMatch:true })
-        this.matchMap.set('设置消息文本模式', { action: setUp, match: matchType.match,isShowMatch:false })
-        this.matchMap.set('设置消息卡片模式', { action: setUp, match: matchType.match,isShowMatch:false })
+        this.matchMap.set('设置', { action: setUp, match: matchType.match, isShowMatch: true })
+        this.matchMap.set('设置消息文本模式', { action: setUp, match: matchType.match, isShowMatch: false })
+        this.matchMap.set('设置消息卡片模式', { action: setUp, match: matchType.match, isShowMatch: false })
 
         this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
         this.matchMap.set('传送', { action: me_callPos, match: matchType.match })
@@ -310,11 +310,18 @@ export default class game {
         //     return;
         // }
         log('收到消息', data.channel_id, data.author.username, data.content)
-
         if (data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123') {
             bot.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验`)
             return;
         }
+        if (data.author.id != '14139673525601401123') {
+            bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
+            return;
+        }
+        // if (data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123') {
+        //     bot.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验`)
+        //     return;
+        // }
 
         const userId = data.author.id;
         const userIcon = data.author.avatar;
@@ -350,8 +357,8 @@ export default class game {
             }
             let match = common.xsd(key, content);
             if (!isFind) {
-                
-                if(typeof(conf.isShowMatch) != 'undefined' && !conf.isShowMatch){
+
+                if (typeof (conf.isShowMatch) != 'undefined' && !conf.isShowMatch) {
                     return;
                 }
 

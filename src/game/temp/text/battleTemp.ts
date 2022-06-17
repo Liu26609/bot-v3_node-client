@@ -52,7 +52,7 @@ export class text_battleTemp_style {
                 if(free_skill.val == 0){
                     continue;
                 }
-                itemLog += `│▌${free_skill.name}${free_skill.val}`;
+                itemLog += `│▌${free_skill.name}${common.BN(free_skill.val)}`;
                 itemLog += SKILL_UNITY_CN[SKILL_UNITY[free_skill.unit]]
             }
 

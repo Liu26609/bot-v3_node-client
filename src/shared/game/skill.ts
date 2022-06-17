@@ -2,17 +2,22 @@ export enum SKILL_TYPE {
     /**
      * 攻击失手
      */
-    miss = 0,
+    miss,
     /**
      * 对一个单位造成固定物理伤害
      * 参数1:伤害值
      */
-    attack_Physics_fixed = 1,
+    attack_Physics_fixed,
     /**
      * 对一个单位造成固定魔法伤害
      * 参数1:伤害值
      */
-    attack_Magic_fixed = 2
+    attack_Magic_fixed,
+    /**
+     * 对一个单位造成属性百分比伤害
+     * 参数1:百分比
+     */
+     attack_Magic_rang,
 }
 /**
  * 主动技能
