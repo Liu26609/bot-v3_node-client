@@ -74,8 +74,9 @@ class text_attribute_style {
                 temp += `🌟魔法防御${common_1.default.BN(out_attribute.MagicDefense)}\n`;
             if (out_attribute.PhysicalAttacks > 1)
                 temp += `🔪物理攻击${common_1.default.BN(out_attribute.PhysicalAttacks)}\n`;
-            if (out_attribute.PhysicalAttacks > 1)
+            if (out_attribute.PhysicalDefense > 1) {
                 temp += `🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense)}\n`;
+            }
             temp += `┗┄━══════════━┄`;
             yield bot_1.default.sendText(channelId, temp);
         });
