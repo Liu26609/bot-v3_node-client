@@ -100,43 +100,43 @@ class common {
       }
       return size / 2;
    }
-    /**
-     * 字符串过滤数字无关的值
-     * @param str 
-     * @returns 
-     */
-     getNumber(str: string) {
+   /**
+    * 字符串过滤数字无关的值
+    * @param str 
+    * @returns 
+    */
+   getNumber(str: string) {
       let numStr = str.replace(/[^0-9]/ig, "");
       return Number(numStr);
-  }
+   }
    /**
      * 文字是否合法
      * @param str 
      * @returns 
      */
-    islegal(str:string) {
+   islegal(str: string) {
       let reg = new RegExp("^[A-Za-z0-9\u4e00-\u9fa5]+$");
       if (reg.test(str)) {
-          return true;
+         return true;
       } else {
-          return false
+         return false
       }
-  }
-    /**
-     * 数组洗牌算法
-     */
-     randomArry(arr:number[]) {
+   }
+   /**
+    * 数组洗牌算法
+    */
+   randomArry(arr: number[]) {
       const newArr = [...arr]
       const length = newArr.length
       for (let i = 0; i < length; i++) {
-          const index = Math.floor(Math.random() * length);
-          let temp;
-          temp = newArr[index]
-          newArr[index] = newArr[i]
-          newArr[i] = temp
+         const index = Math.floor(Math.random() * length);
+         let temp;
+         temp = newArr[index]
+         newArr[index] = newArr[i]
+         newArr[i] = temp
       }
       return newArr
-  }
+   }
    /**
     * 装备属性转换
     * @param e 
@@ -171,28 +171,31 @@ class common {
       const days = (Math.abs(eDate - sDate)) / (1 * 24 * 60 * 60 * 1000)
       return Math.floor(days)
    }
-   
+
    getSkDesc(info: SKILL_ACTIVE) {
       let temp = ``;
       switch (info.type) {
-          case SKILL_TYPE.miss:
-              temp += `对空气造成了成吨的伤害`
-              break;
-          case SKILL_TYPE.attack_Magic_fixed:
-              temp += `对一个单位造成固定${info.data[0]}的🔮魔法伤害`
-              break;
-          case SKILL_TYPE.attack_Physics_fixed:
-              temp += `对一个单位造成固定${info.data[0]}的🔪物理伤害`
-              break;
-          case SKILL_TYPE.attack_Magic_rang:
-              temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔮魔法伤害`
-              break;
-          default:
-              temp += `这个技能好像还没有收录到系统`;
-              break;
+         case SKILL_TYPE.miss:
+            temp += `对空气造成了成吨的伤害`
+            break;
+         case SKILL_TYPE.attack_Magic_fixed:
+            temp += `对一个单位造成固定${info.data[0]}的🔮魔法伤害`
+            break;
+         case SKILL_TYPE.attack_Physics_fixed:
+            temp += `对一个单位造成固定${info.data[0]}的🔪物理伤害`
+            break;
+         case SKILL_TYPE.attack_Magic_rang:
+            temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔮魔法伤害`
+            break;
+         case SKILL_TYPE.attack_Physics_rang:
+            temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔪魔法伤害`
+            break;
+         default:
+            temp += `这个技能好像还没有收录到系统`;
+            break;
       }
       return temp;
-  }
+   }
    /**
     * 字符串相识度算法
     * @param x 
