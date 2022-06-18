@@ -68,7 +68,7 @@ class sys_update_code extends task_base_1.task_base {
             let urlEndIndex = outText.indexOf(">");
             outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '');
             outText = outText.replace('commit', '');
-            outText += 'commit:' + outText;
+            outText = 'commit:' + outText;
             outText += `\n:即将开始,重启需要耗时0.${common_1.default.random(0, 1000)}秒,请耐心等待`;
             db_2.default.saveDirData(db_1.dbName.GuildCfg);
             yield new Promise(rs => { setTimeout(rs, 10000); });

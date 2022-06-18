@@ -27,7 +27,7 @@ export class lottery extends task_base{
 
         if(data.guessJude){
             temp += `💌恭喜！！！${this.at()} 猜对了本轮数字:${guessNum}\n`
-            temp += `🧧获得奖励:${rewardKey_CN[rewardKey[rewardKey.exp]]}x${data.info.addup}\n`
+            temp += `🧧获得奖励:${rewardKey_CN[rewardKey[rewardKey.exp]]}x${data.reward}\n`
             temp += `下一轮即将开始！请做好准备\n`
         }else{
             temp += `${this.at()}很遗憾，数字猜错了\n`

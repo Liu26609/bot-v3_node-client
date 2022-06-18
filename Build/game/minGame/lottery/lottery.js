@@ -42,7 +42,7 @@ class lottery extends task_base_1.task_base {
             let temp = `┏┄══🎰猜数第${data.info.round}轮══━┄\n`;
             if (data.guessJude) {
                 temp += `💌恭喜！！！${this.at()} 猜对了本轮数字:${guessNum}\n`;
-                temp += `🧧获得奖励:${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.exp]]}x${data.info.addup}\n`;
+                temp += `🧧获得奖励:${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.exp]]}x${data.reward}\n`;
                 temp += `下一轮即将开始！请做好准备\n`;
             }
             else {
