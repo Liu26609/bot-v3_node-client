@@ -7,8 +7,8 @@ const embed_1 = require("./../temp/embed/embed");
 const task_base_1 = require("../task_base");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
-const setUp_1 = require("../../shared/game/setUp");
 const prop_1 = require("../../shared/game/prop");
+const userCfg_1 = require("../../interface/userCfg");
 /**
  * 用户签到
  */
@@ -33,8 +33,8 @@ class me_sign extends task_base_1.task_base {
         this.succressSign(data);
     }
     succressSign(data) {
-        switch (data.userCfg.textStyle) {
-            case setUp_1.textStyle.text:
+        switch (this.UserCfg.msgTemplate) {
+            case userCfg_1.USER_CFG_MSGTEMPLATE.text:
                 let temp = `┏┄═💌签到成功━┄\n`;
                 temp += `💝已签到:${data.cont}次<emoji:147>签到奖励\n`;
                 if (data.reward.length > 0) {
@@ -47,7 +47,7 @@ class me_sign extends task_base_1.task_base {
                 temp += `“${data.oneWord}”`;
                 bot_1.default.sendText(this.channel_id, temp);
                 break;
-            case setUp_1.textStyle.card:
+            case userCfg_1.USER_CFG_MSGTEMPLATE.card:
                 let embed = new embed_1.embed_style();
                 embed.setTitle(`💌签到成功`);
                 embed.addLine(`已签到:${data.cont}次`);
@@ -67,8 +67,8 @@ class me_sign extends task_base_1.task_base {
         }
     }
     repeatSign(data) {
-        switch (data.userCfg.textStyle) {
-            case setUp_1.textStyle.text:
+        switch (this.UserCfg.msgTemplate) {
+            case userCfg_1.USER_CFG_MSGTEMPLATE.text:
                 let temp = `┏┄═💌签到重复━┄
 累计签到:${data.cont}
 <emoji:147>今天已经签到过了
@@ -76,7 +76,7 @@ class me_sign extends task_base_1.task_base {
 “${data.oneWord}”`;
                 bot_1.default.sendText(this.channel_id, temp);
                 break;
-            case setUp_1.textStyle.card:
+            case userCfg_1.USER_CFG_MSGTEMPLATE.card:
                 let embed = new embed_1.embed_style();
                 embed.setTitle(`💌签到重复`);
                 embed.setTips('重复签到了~');

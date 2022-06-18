@@ -6,6 +6,7 @@ import bot from "../../unity/bot";
 import sever from "../../unity/sever";
 import { textStyle } from '../../shared/game/setUp';
 import { rewardKey_CN, rewardKey } from '../../shared/game/prop';
+import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
 /**
  * 用户签到
  */
@@ -31,8 +32,8 @@ export default class me_sign extends task_base {
     }
     succressSign(data: ResSign) {
 
-        switch (data.userCfg.textStyle) {
-            case textStyle.text:
+        switch (this.UserCfg.msgTemplate) {
+            case USER_CFG_MSGTEMPLATE.text:
                 let temp = `┏┄═💌签到成功━┄\n`;
                 temp += `💝已签到:${data.cont}次<emoji:147>签到奖励\n`;
                 if (data.reward.length > 0) {
@@ -46,7 +47,7 @@ export default class me_sign extends task_base {
                 bot.sendText(this.channel_id, temp)
 
                 break;
-            case textStyle.card:
+            case USER_CFG_MSGTEMPLATE.card:
                 let embed = new embed_style();
                 embed.setTitle(`💌签到成功`)
                 embed.addLine(`已签到:${data.cont}次`)
@@ -67,8 +68,8 @@ export default class me_sign extends task_base {
     }
     repeatSign(data: ResSign) {
 
-        switch (data.userCfg.textStyle) {
-            case textStyle.text:
+        switch (this.UserCfg.msgTemplate) {
+            case USER_CFG_MSGTEMPLATE.text:
                 let temp = `┏┄═💌签到重复━┄
 累计签到:${data.cont}
 <emoji:147>今天已经签到过了
@@ -76,7 +77,7 @@ export default class me_sign extends task_base {
 “${data.oneWord}”`
                 bot.sendText(this.channel_id, temp)
                 break;
-            case textStyle.card:
+            case USER_CFG_MSGTEMPLATE.card:
                 let embed = new embed_style();
                 embed.setTitle(`💌签到重复`)
                 embed.setTips('重复签到了~')
