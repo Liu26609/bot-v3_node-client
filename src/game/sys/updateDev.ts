@@ -59,7 +59,7 @@ export class sys_update_code extends task_base {
     }
     async updateCode() {
         // await this.runCmd('git stash');
-        // await this.runCmd('git pull');
+        await this.runCmd('git pull');
         await this.runCmd('git stash pop ');
         this.getLog()
     }
