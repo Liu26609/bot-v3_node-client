@@ -18,10 +18,15 @@ var SKILL_TYPE;
      */
     SKILL_TYPE[SKILL_TYPE["attack_Magic_fixed"] = 2] = "attack_Magic_fixed";
     /**
-     * 对一个单位造成属性百分比伤害
+     * 对一个单位造成属性百分比魔法伤害
      * 参数1:百分比
      */
     SKILL_TYPE[SKILL_TYPE["attack_Magic_rang"] = 3] = "attack_Magic_rang";
+    /**
+  * 对一个单位造成属性百分比物理伤害
+  * 参数1:百分比
+  */
+    SKILL_TYPE[SKILL_TYPE["attack_Physics_rang"] = 4] = "attack_Physics_rang";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {

@@ -81,4 +81,8 @@ var TaskId;
      * 成功强化一次装备
      */
     TaskId[TaskId["strengthen_succress"] = 12] = "strengthen_succress";
+    /**
+     * 捕捉一次宠物
+     */
+    TaskId[TaskId["docile_partake"] = 13] = "docile_partake";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

@@ -101,5 +101,9 @@ export enum TaskId {
     /**
      * 成功强化一次装备
      */
-    strengthen_succress
+    strengthen_succress,
+    /**
+     * 捕捉一次宠物
+     */
+    docile_partake
 }

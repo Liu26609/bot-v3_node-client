@@ -14,10 +14,16 @@ export enum SKILL_TYPE {
      */
     attack_Magic_fixed,
     /**
-     * 对一个单位造成属性百分比伤害
+     * 对一个单位造成属性百分比魔法伤害
      * 参数1:百分比
      */
-     attack_Magic_rang,
+    attack_Magic_rang,
+    /**
+  * 对一个单位造成属性百分比物理伤害
+  * 参数1:百分比
+  */
+    attack_Physics_rang,
+    
 }
 /**
  * 主动技能
@@ -79,7 +85,7 @@ export enum SKILL_ACTIVE_RES_TAG {
 /**
  * 技能统计单位
  */
-export enum SKILL_UNITY{
+export enum SKILL_UNITY {
     /**
      * 无单位
      */
@@ -96,9 +102,9 @@ export enum SKILL_UNITY{
      * 魔法伤害
      */
     MagicDamage,
-    
+
 }
-export enum SKILL_UNITY_CN{
+export enum SKILL_UNITY_CN {
     /**
      * 无单位
      */
@@ -119,9 +125,9 @@ export enum SKILL_UNITY_CN{
 }
 export interface SKILL_RES {
     // 技能id
-    id:number,
+    id: number,
     // 技能名称
-    name:string,
+    name: string,
     // 返回值类型
     type: SKILL_ACTIVE_RES_TYPE,
     // 数值
@@ -129,5 +135,5 @@ export interface SKILL_RES {
     // 目标
     tag: SKILL_ACTIVE_RES_TAG,
     // 统计单位
-    unit:SKILL_UNITY
+    unit: SKILL_UNITY
 }

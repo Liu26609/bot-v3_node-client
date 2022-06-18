@@ -8,7 +8,7 @@ export class embed_style {
     constructor() {
         this.title = '未命名';
         this.icon = '';
-        this.tips = '未设置';
+        this.tips = '达尔文进化岛';
         this.list = new Array();
         return this;
 
