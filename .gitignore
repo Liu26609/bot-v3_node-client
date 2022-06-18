@@ -3,3 +3,4 @@ node_modules
 Build/botCfg.js
 src/botCfg.ts
 db
+db
