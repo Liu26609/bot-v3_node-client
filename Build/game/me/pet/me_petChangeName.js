@@ -13,12 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_petChangeName = void 0;
+const embed_1 = require("./../../temp/embed/embed");
 const user_1 = require("../../../shared/game/user");
 const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const text_length_1 = require("../../../unity/text_length");
 const task_base_1 = require("../../task_base");
+const userCfg_1 = require("../../../interface/userCfg");
 class me_petChangeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -50,12 +52,24 @@ class me_petChangeName extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            let temp = `┏┄════👑改名成功═══━┄\n`;
-            temp += `🌰宠物改名成功，快发送[查看宠物${index}]看看吧~`;
-            temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
-            temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `┗┄━${this.at()}━┄`;
-            bot_1.default.sendText(this.channel_id, temp);
+            if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.card) {
+                let temp = new embed_1.embed_style();
+                temp.setIcon(this.userIcon);
+                temp.setTitle(`👑宠物改名成功`);
+                temp.setTips(`👑宠物改名成功`);
+                temp.addLine(`🌰宠物改名成功，快发送[查看宠物${index}]看看吧~`);
+                temp.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
+                temp.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}`);
+                temp.sendMsg(this.channel_id);
+            }
+            else {
+                let temp = `┏┄════👑改名成功═══━┄\n`;
+                temp += `🌰宠物改名成功，快发送[查看宠物${index}]看看吧~\n`;
+                temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
+                temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
+                temp += `┗┄━${this.at()}━┄`;
+                bot_1.default.sendText(this.channel_id, temp);
+            }
         });
     }
     menu() {
