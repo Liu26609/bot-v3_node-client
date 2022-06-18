@@ -1,3 +1,4 @@
+import { BattleKillLog } from "../../api/battle/ApiAttackBoss";
 import { BASE_BODYS } from "../game/body";
 import { rewardKey } from "../game/prop";
 import { userSetUpCfg } from "../game/setUp";
@@ -39,7 +40,7 @@ export interface ResBattle {
          */
         list: SKILL_RES[]
     }[]
-    kill_log:{ round: number, body:BASE_BODYS, die_body:BASE_BODYS }[],
+    kill_log:BattleKillLog[],
     reward:{key:rewardKey,val:number}[]
 }
 

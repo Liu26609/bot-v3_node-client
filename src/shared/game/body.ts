@@ -228,7 +228,8 @@ export interface BASE_BODYS {
 export enum bodyType {
     player,
     enemy,
-    pet
+    pet,
+    shadow
 }
 export interface posV2 {
     x: number,

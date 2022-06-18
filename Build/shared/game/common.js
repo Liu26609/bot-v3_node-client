@@ -189,7 +189,10 @@ class common {
                 temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔮魔法伤害`;
                 break;
             case skill_1.SKILL_TYPE.attack_Physics_rang:
-                temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔪魔法伤害`;
+                temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔪物理伤害`;
+                break;
+            case skill_1.SKILL_TYPE.creator_shadow:
+                temp += `创造${info.data[1]}个镜像分身,分身有自身${(info.data[0]).toFixed(2)}%属性,但只会存在一回合`;
                 break;
             default:
                 temp += `这个技能好像还没有收录到系统`;

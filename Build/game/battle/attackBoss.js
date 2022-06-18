@@ -31,6 +31,7 @@ class attackBoss extends task_base_1.task_base {
                 this.sendErr(req.err);
                 return;
             }
+            (0, __1.log)(req.res);
             let data = req.res;
             (0, __1.log)(data);
             let temp = ``;

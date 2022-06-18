@@ -489,7 +489,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 45,
+    "version": 46,
     "services": [
         {
             "id": 0,
@@ -1248,7 +1248,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Array",
                         "elementType": {
-                            "type": "Number"
+                            "type": "Any"
                         }
                     }
                 }
@@ -1276,6 +1276,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 4,
                     "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
                 }
             ]
         },
@@ -1852,32 +1856,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Array",
                         "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "round",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "body",
-                                    "type": {
-                                        "type": "Reference",
-                                        "target": "../game/body/BASE_BODYS"
-                                    }
-                                },
-                                {
-                                    "id": 2,
-                                    "name": "die_body",
-                                    "type": {
-                                        "type": "Reference",
-                                        "target": "../game/body/BASE_BODYS"
-                                    }
-                                }
-                            ]
+                            "type": "Reference",
+                            "target": "../../api/battle/ApiAttackBoss/BattleKillLog"
                         }
                     }
                 },
@@ -1957,6 +1937,17 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Reference",
                         "target": "../game/skill/SKILL_UNITY"
                     }
+                },
+                {
+                    "id": 6,
+                    "name": "data",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Number"
+                        }
+                    },
+                    "optional": true
                 }
             ]
         },
@@ -1970,6 +1961,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 1,
                     "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
                 }
             ]
         },
@@ -2051,140 +2046,46 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "../game/body/BASE_BODYS": {
+        "../../api/battle/ApiAttackBoss/BattleKillLog": {
             "type": "Interface",
             "properties": [
                 {
                     "id": 0,
-                    "name": "id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 12,
-                    "name": "military",
+                    "name": "round",
                     "type": {
                         "type": "Number"
                     }
                 },
                 {
-                    "id": 10,
-                    "name": "icon",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
                     "id": 1,
-                    "name": "type",
+                    "name": "body",
                     "type": {
-                        "type": "Reference",
-                        "target": "../game/body/bodyType"
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "name",
+                                "type": {
+                                    "type": "String"
+                                }
+                            }
+                        ]
                     }
                 },
                 {
                     "id": 2,
-                    "name": "name",
+                    "name": "die_body",
                     "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "leve",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "hp",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "active_skill",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Number"
-                        }
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "out_attribute",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                },
-                {
-                    "id": 7,
-                    "name": "pos",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/posV2"
-                    }
-                },
-                {
-                    "id": 8,
-                    "name": "exp",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 9,
-                    "name": "exp_max",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 11,
-                    "name": "lastResHpTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "../game/body/bodyType": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                }
-            ]
-        },
-        "../game/body/posV2": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "x",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "y",
-                    "type": {
-                        "type": "Number"
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "name",
+                                "type": {
+                                    "type": "String"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -3134,6 +3035,148 @@ export const serviceProto: ServiceProto<ServiceType> = {
                             "type": "Reference",
                             "target": "../game/body/BASE_BODYS"
                         }
+                    }
+                }
+            ]
+        },
+        "../game/body/BASE_BODYS": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "military",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "icon",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/bodyType"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "hp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "active_skill",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Number"
+                        }
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "out_attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "pos",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/posV2"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "exp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "lastResHpTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/body/bodyType": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                }
+            ]
+        },
+        "../game/body/posV2": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "x",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "y",
+                    "type": {
+                        "type": "Number"
                     }
                 }
             ]

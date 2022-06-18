@@ -23,7 +23,13 @@ export enum SKILL_TYPE {
   * 参数1:百分比
   */
     attack_Physics_rang,
-    
+    /**
+     * 创造一个和实力为自己属性百分比的分身,分身只会存活一回合
+     * 参数1::百分比
+     * 参数2：数量
+     */
+    creator_shadow,
+
 }
 /**
  * 主动技能
@@ -40,7 +46,7 @@ export interface SKILL_ACTIVE {
     //技能频率
     speed: number,
     // 技能参数
-    data: number[]
+    data: any[]
 }
 export enum SKILL_ACTIVE_RES_TYPE {
     /**
@@ -51,6 +57,10 @@ export enum SKILL_ACTIVE_RES_TYPE {
      * 伤害
      */
     hurt,
+    /**
+     * 增加单位
+     */
+    addUnit
 }
 /**
  * 技能目标
@@ -135,5 +145,6 @@ export interface SKILL_RES {
     // 目标
     tag: SKILL_ACTIVE_RES_TAG,
     // 统计单位
-    unit: SKILL_UNITY
+    unit: SKILL_UNITY,
+    data?:number[]
 }

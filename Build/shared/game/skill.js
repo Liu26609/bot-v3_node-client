@@ -27,6 +27,12 @@ var SKILL_TYPE;
   * 参数1:百分比
   */
     SKILL_TYPE[SKILL_TYPE["attack_Physics_rang"] = 4] = "attack_Physics_rang";
+    /**
+     * 创造一个和实力为自己属性百分比的分身,分身只会存活一回合
+     * 参数1::百分比
+     * 参数2：数量
+     */
+    SKILL_TYPE[SKILL_TYPE["creator_shadow"] = 5] = "creator_shadow";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -38,6 +44,10 @@ var SKILL_ACTIVE_RES_TYPE;
      * 伤害
      */
     SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["hurt"] = 1] = "hurt";
+    /**
+     * 增加单位
+     */
+    SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["addUnit"] = 2] = "addUnit";
 })(SKILL_ACTIVE_RES_TYPE = exports.SKILL_ACTIVE_RES_TYPE || (exports.SKILL_ACTIVE_RES_TYPE = {}));
 /**
  * 技能目标

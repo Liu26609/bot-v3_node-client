@@ -17,6 +17,7 @@ export class attackBoss extends task_base {
             this.sendErr(req.err)
             return;
         }
+        log(req.res)
         let data = req.res;
         log(data)
         let temp = ``;
