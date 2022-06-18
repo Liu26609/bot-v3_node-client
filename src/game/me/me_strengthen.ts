@@ -111,6 +111,7 @@ export class me_strengthen extends task_base {
                 temp.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
                 temp.addLine(`归属:${this.userName}`)
             }
+            temp.sendMsg(this.channel_id)
         }
 
     }
