@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 44,
+    "version": 45,
     "services": [
         {
             "id": 0,
@@ -4585,14 +4585,6 @@ exports.serviceProto = {
                     "name": "lastSignTime",
                     "type": {
                         "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 },
                 {

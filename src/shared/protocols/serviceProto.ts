@@ -489,7 +489,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 44,
+    "version": 45,
     "services": [
         {
             "id": 0,
@@ -5072,14 +5072,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "lastSignTime",
                     "type": {
                         "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 },
                 {
