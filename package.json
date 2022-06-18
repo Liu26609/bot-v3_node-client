@@ -7,7 +7,7 @@
     "build-ts": "tsc",
     "start:dev": "nodemon",
     "start": "node Build/index.js",
-    "git": "git add . && git commit -m 'autoUpdate' && npm version patch && git push --all"
+    "git": "git add . && git commit -m '打开宝箱卡片' && npm version patch && git push --all"
   },
   "keywords": [],
   "author": "",
