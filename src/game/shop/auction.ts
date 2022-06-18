@@ -3,7 +3,7 @@ import { autionType } from '../../shared/game/prop';
 import { task_base } from './../task_base';
 import bot from '../../unity/bot';
 import { walletKey, walletKey_CN, walletKey_CNText } from '../../shared/game/user';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import sever from '../../unity/sever';
 export class auction extends task_base{
     constructor(...a){

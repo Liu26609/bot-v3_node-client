@@ -1,6 +1,6 @@
 import { text_baseAttribute_style } from './../../temp/text/baseAttribute';
 import bot from '../../../unity/bot';
-import common from '../../../unity/common';
+import common from '../../../shared/game/common';
 import sever from '../../../unity/sever';
 import { task_base } from './../../task_base';
 export class me_lookPet extends task_base{

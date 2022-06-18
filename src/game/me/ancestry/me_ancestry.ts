@@ -1,6 +1,6 @@
 import { ancestryLeve } from "../../../shared/game/body";
 import bot from "../../../unity/bot";
-import common from "../../../unity/common";
+import common from "../../../shared/game/common";
 import sever from "../../../unity/sever";
 import { task_base } from "../../task_base";
 

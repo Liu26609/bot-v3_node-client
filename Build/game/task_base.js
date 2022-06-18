@@ -28,10 +28,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.task_base = void 0;
 const __1 = require("..");
+const embed_1 = require("./temp/embed/embed");
 const tsrpc_1 = require("tsrpc");
 const bot_1 = __importDefault(require("../unity/bot"));
-const common_1 = __importDefault(require("../unity/common"));
+const common_1 = __importDefault(require("../shared/game/common"));
 const db_1 = __importStar(require("../unity/db"));
+const userCfg_1 = require("../interface/userCfg");
 /**
  * 指令基类
  */
@@ -79,15 +81,27 @@ class task_base {
                 bot_1.default.sendText(this.channel_id, `<@!${this.userId}><emoji:147>服务器睡着了，正在努力叫醒中`);
                 break;
             default:
-                let temp = ``;
-                temp += `┏┄════⚠️错误提示═══━┄\n`;
-                temp += `┣⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}\n`;
-                temp += `┣🗂️错误类型:${err.type}\n`;
-                temp += `┣┄════❌错误提示═══━┄\n`;
-                temp += `          ${err.message}\n`;
-                temp += `┗┄━═══════════━┄\n`;
-                temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
-                bot_1.default.sendText(this.channel_id, temp);
+                if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
+                    let temp = ``;
+                    temp += `┏┄════⚠️错误提示═══━┄\n`;
+                    temp += `┣⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}\n`;
+                    temp += `┣🗂️错误类型:${err.type}\n`;
+                    temp += `┣┄════❌错误提示═══━┄\n`;
+                    temp += `          ${err.message}\n`;
+                    temp += `┗┄━═══════════━┄\n`;
+                    temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
+                    bot_1.default.sendText(this.channel_id, temp);
+                }
+                else {
+                    let temp = new embed_1.embed_style();
+                    temp.setTitle('⚠️错误提示');
+                    temp.setTips('出错了。');
+                    temp.addLine(`⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}`);
+                    temp.addLine(`🗂️错误类型:${err.type}`);
+                    temp.addLine(`${err.message}`);
+                    temp.addLine(`有问题截图反馈`);
+                    temp.sendMsg(this.channel_id);
+                }
                 break;
         }
     }

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_baseAttribute_style = void 0;
 const __1 = require("../../..");
 const bot_1 = __importDefault(require("../../../unity/bot"));
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 class text_baseAttribute_style {
     constructor() {
         this.title = `👑属性`;

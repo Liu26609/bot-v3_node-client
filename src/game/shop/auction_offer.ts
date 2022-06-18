@@ -1,6 +1,6 @@
 import { auction_look } from './auction_look';
 import bot from '../../unity/bot';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import { task_base } from './../task_base';
 import sever from '../../unity/sever';
 import { log } from '../..';

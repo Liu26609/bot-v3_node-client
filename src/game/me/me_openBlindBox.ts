@@ -1,4 +1,6 @@
+import { embed_style } from './../temp/embed/embed';
 import { TsrpcErrorType } from 'tsrpc';
+import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { walletKey, walletKey_CN } from '../../shared/game/user';
 import bot from '../../unity/bot';
@@ -10,12 +12,25 @@ export class me_openBlindBox extends task_base {
         this.render();
     }
     menu() {
-        let temp = `￣￣￣￣￣＼打开盲盒／￣￣￣￣￣
+        if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.card) {
+            let temp = new embed_style();
+            temp.setIcon(this.userIcon);
+            temp.setTitle('🎁打开盲盒')
+            temp.setTips('指令提示')
+            temp.addLine(`打开指令：打开盲盒 + 数量`)
+            temp.addLine(`如:@${bot.getBot_name()} 打开盲盒1`)
+            temp.addLine(`参与打怪，各种活动，拍卖可获得盲盒哦~`)
+            temp.sendMsg(this.channel_id)
+        } else {
+            let temp = `┏┄═════🎁打开盲盒═══━┄
 打开指令：打开盲盒 + 数量
 如:@${bot.getBot_name()} 打开盲盒1
 <emoji:147>参与打怪，各种活动，拍卖可获得盲盒哦~
-￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣`;
-        bot.sendText(this.channel_id, temp)
+┗┄━${this.at()}━┄`;
+
+            bot.sendText(this.channel_id, temp)
+        }
+
     }
     async render() {
         if (this.content == this.matchKey) {
@@ -38,17 +53,32 @@ export class me_openBlindBox extends task_base {
             return;
         }
         let data = req.res;
-        let temp = ``;
 
-        temp += `┏┄═════🎁盲盒奖励═══━┄\n`;
-        temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
-        temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`
-        if (data.reward.length > 0) {
-            data.reward.forEach(item => {
-                temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
-            });
+        if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.card) {
+            let temp = new embed_style();
+            temp.setIcon(this.userIcon);
+            temp.setTitle('🎁盲盒奖励')
+            temp.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
+            temp.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
+            if (data.reward.length > 0) {
+                data.reward.forEach(item => {
+                    temp.addLine(`${rewardKey_CN[rewardKey[item.key]]}+${item.val}`)
+                });
+            }
+            temp.sendMsg(this.channel_id)
+        } else {
+            let temp = ``;
+            temp += `┏┄═════🎁盲盒奖励═══━┄\n`;
+            temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
+            temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`
+            if (data.reward.length > 0) {
+                data.reward.forEach(item => {
+                    temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
+                });
+            }
+            temp += `┗┄━${this.at()}━┄`;
+            bot.sendText(this.channel_id, temp);
         }
-        temp += `┗┄━${this.at()}━┄`;
-        bot.sendText(this.channel_id, temp);
+
     }
 }

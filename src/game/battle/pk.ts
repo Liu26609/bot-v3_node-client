@@ -4,7 +4,7 @@ import bot from '../../unity/bot';
 import { log } from '../..';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import sever from '../../unity/sever';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import { text_battleTemp_style } from '../temp/text/battleTemp';
 export class pk extends task_base {
     constructor(...a) {

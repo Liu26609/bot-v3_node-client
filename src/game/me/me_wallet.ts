@@ -5,7 +5,7 @@ import sever from '../../unity/sever';
 import { log } from '../..';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { textStyle } from '../../shared/game/setUp';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import { walletKey_CN, walletKey } from '../../shared/game/user';
 import { text_style } from '../temp/text/text_style';
 import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';

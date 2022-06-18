@@ -18,7 +18,7 @@ const body_1 = require("../../../shared/game/body");
 const team_1 = require("../../../shared/game/team");
 const user_1 = require("../../../shared/game/user");
 const bot_1 = __importDefault(require("../../../unity/bot"));
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 class text_attribute_style {
     constructor() {
     }

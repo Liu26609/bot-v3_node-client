@@ -2,7 +2,7 @@ import { BASE_BODYS } from './../../../shared/game/body';
 import { err } from "../../..";
 import { body } from "../../../shared/game/body";
 import bot from "../../../unity/bot";
-import common from "../../../unity/common";
+import common from "../../../shared/game/common";
 
 export class text_baseAttribute_style{
     data?:BASE_BODYS;

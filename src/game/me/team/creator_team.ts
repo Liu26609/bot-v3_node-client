@@ -2,7 +2,7 @@ import { text_length } from './../../../unity/text_length';
 import { text_example_style } from './../../temp/text/example';
 import bot from '../../../unity/bot';
 import { task_base } from './../../task_base';
-import common from '../../../unity/common';
+import common from '../../../shared/game/common';
 import { walletKey, walletKey_CN } from '../../../shared/game/user';
 import sever from '../../../unity/sever';
 export class creator_team extends task_base {

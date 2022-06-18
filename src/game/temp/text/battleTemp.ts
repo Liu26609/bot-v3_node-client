@@ -6,7 +6,7 @@ import { err, info, log } from "../../..";
 import { SKILL_UNITY_CN } from "../../../shared/game/skill";
 import { ResBattle } from "../../../shared/protocols/PtlBattle";
 import bot from "../../../unity/bot";
-import common from "../../../unity/common";
+import common from "../../../shared/game/common";
 import { rewardKey_CN, rewardKey } from '../../../shared/game/prop';
 
 export class text_battleTemp_style {

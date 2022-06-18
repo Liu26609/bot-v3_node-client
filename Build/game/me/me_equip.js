@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_equip = void 0;
 const equip_1 = require("../../shared/game/equip");
 const bot_1 = __importDefault(require("../../unity/bot"));
-const common_1 = __importDefault(require("../../unity/common"));
+const common_1 = __importDefault(require("../../shared/game/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
 const example_1 = require("../temp/text/example");

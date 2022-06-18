@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_petRm = void 0;
 const bot_1 = __importDefault(require("../../../unity/bot"));
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const task_base_1 = require("./../../task_base");
 class me_petRm extends task_base_1.task_base {

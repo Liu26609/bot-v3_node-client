@@ -54,7 +54,7 @@ import { me_pos } from './me/me_pos';
 import { pos_attackEnemy } from './battle/pos_attackEnemy';
 import { baseTaskMenu } from './sys/baseTaskMenu';
 import { openMapChestBox } from './map/openMapChestBox';
-import common from '../unity/common';
+import common from '../shared/game/common';
 import { setUp } from './sys/setUp';
 import { searchSkill } from './sys/searchSkill';
 import { me_destroyMeSkill } from './me/me_destroyMeSkill';

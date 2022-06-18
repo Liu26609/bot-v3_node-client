@@ -16,7 +16,7 @@ exports.me_strengthen = void 0;
 const equip_1 = require("../../shared/game/equip");
 const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
-const common_1 = __importDefault(require("../../unity/common"));
+const common_1 = __importDefault(require("../../shared/game/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
 class me_strengthen extends task_base_1.task_base {

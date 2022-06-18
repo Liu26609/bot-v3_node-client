@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.kickout_team = void 0;
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const example_1 = require("../../temp/text/example");
 const task_base_1 = require("./../../task_base");

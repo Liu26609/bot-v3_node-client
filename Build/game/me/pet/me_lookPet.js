@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_lookPet = void 0;
 const baseAttribute_1 = require("./../../temp/text/baseAttribute");
 const bot_1 = __importDefault(require("../../../unity/bot"));
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const task_base_1 = require("./../../task_base");
 class me_lookPet extends task_base_1.task_base {

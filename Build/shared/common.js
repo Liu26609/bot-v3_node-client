@@ -1,75 +1,75 @@
-import { equip } from "../shared/game/equip";
-import { SKILL_ACTIVE, SKILL_TYPE } from "../shared/game/skill";
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const skill_1 = require("../shared/game/skill");
 /**
  * 公共方法库
  */
 class common {
-    private rankMap: Map<number, string>
     constructor() {
         this.rankMap = new Map();
-        this.rankMap.set(0, '🏆')
-        this.rankMap.set(1, '🥈')
-        this.rankMap.set(2, '🥉')
-        this.rankMap.set(3, '4️⃣')
-        this.rankMap.set(4, '5️⃣')
-        this.rankMap.set(5, '6️⃣ ')
-        this.rankMap.set(6, '7️⃣')
-        this.rankMap.set(7, '8️⃣')
-        this.rankMap.set(8, '9️⃣')
-        this.rankMap.set(9, '🔟')
-        this.rankMap.set(10, '⑪')
-        this.rankMap.set(11, '⑫')
-        this.rankMap.set(12, '⑬')
-        this.rankMap.set(13, '⑭')
-        this.rankMap.set(14, '⑮')
-        this.rankMap.set(15, '⑯')
-        this.rankMap.set(16, '⑰')
-        this.rankMap.set(17, '⑱')
-        this.rankMap.set(18, '⑲')
-        this.rankMap.set(19, '⑳')
+        this.rankMap.set(0, '🏆');
+        this.rankMap.set(1, '🥈');
+        this.rankMap.set(2, '🥉');
+        this.rankMap.set(3, '4️⃣');
+        this.rankMap.set(4, '5️⃣');
+        this.rankMap.set(5, '6️⃣ ');
+        this.rankMap.set(6, '7️⃣');
+        this.rankMap.set(7, '8️⃣');
+        this.rankMap.set(8, '9️⃣');
+        this.rankMap.set(9, '🔟');
+        this.rankMap.set(10, '⑪');
+        this.rankMap.set(11, '⑫');
+        this.rankMap.set(12, '⑬');
+        this.rankMap.set(13, '⑭');
+        this.rankMap.set(14, '⑮');
+        this.rankMap.set(15, '⑯');
+        this.rankMap.set(16, '⑰');
+        this.rankMap.set(17, '⑱');
+        this.rankMap.set(18, '⑲');
+        this.rankMap.set(19, '⑳');
     }
     /**
      * 获取排行文字
-     * @param index 
-     * @returns 
+     * @param index
+     * @returns
      */
-    getRankStr(index: number) {
-        return this.rankMap.get(index) || `(${(index + 1).toString()})`
+    getRankStr(index) {
+        return this.rankMap.get(index) || `(${(index + 1).toString()})`;
     }
     /**
      * 获取一个随机数
      */
-    random(min: number, max: number) {
-        return Math.floor(Math.random() * (max - min + 1)) + min
+    random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     /**
      * 文字是否合法
-     * @param str 
-     * @returns 
+     * @param str
+     * @returns
      */
     islegal(str) {
         let reg = new RegExp("^[A-Za-z0-9\u4e00-\u9fa5]+$");
         if (reg.test(str)) {
             return true;
-        } else {
-            return false
+        }
+        else {
+            return false;
         }
     }
-    getSkDesc(info: SKILL_ACTIVE) {
+    getSkDesc(info) {
         let temp = ``;
         switch (info.type) {
-            case SKILL_TYPE.miss:
-                temp += `对空气造成了成吨的伤害`
+            case skill_1.SKILL_TYPE.miss:
+                temp += `对空气造成了成吨的伤害`;
                 break;
-            case SKILL_TYPE.attack_Magic_fixed:
-                temp += `对一个单位造成固定${info.data[0]}的🔮魔法伤害`
+            case skill_1.SKILL_TYPE.attack_Magic_fixed:
+                temp += `对一个单位造成固定${info.data[0]}的🔮魔法伤害`;
                 break;
-            case SKILL_TYPE.attack_Physics_fixed:
-                temp += `对一个单位造成固定${info.data[0]}的🔪物理伤害`
+            case skill_1.SKILL_TYPE.attack_Physics_fixed:
+                temp += `对一个单位造成固定${info.data[0]}的🔪物理伤害`;
                 break;
-            case SKILL_TYPE.attack_Magic_rang:
-                temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔮魔法伤害`
+            case skill_1.SKILL_TYPE.attack_Magic_rang:
+                temp += `对一个单位造成${(info.data[0]).toFixed(2)}%的🔮魔法伤害`;
                 break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
@@ -79,36 +79,36 @@ class common {
     }
     /**
     * 装备属性转换
-    * @param e 
-    * @param keys 
-    * @returns 
+    * @param e
+    * @param keys
+    * @returns
     */
-    converEquipattribute(e: equip, keys: string) {
-        let equipVal = e.base_attribute[keys] as number;
+    converEquipattribute(e, keys) {
+        let equipVal = e.base_attribute[keys];
         let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality + 1, 0.2);
-        return val || 0
+        return val || 0;
     }
     /**
      * 数组洗牌算法
      */
     randomArry(arr) {
-        const newArr = [...arr]
-        const length = newArr.length
+        const newArr = [...arr];
+        const length = newArr.length;
         for (let i = 0; i < length; i++) {
             const index = Math.floor(Math.random() * length);
             let temp;
-            temp = newArr[index]
-            newArr[index] = newArr[i]
-            newArr[i] = temp
+            temp = newArr[index];
+            newArr[index] = newArr[i];
+            newArr[i] = temp;
         }
-        return newArr
+        return newArr;
     }
     /**
      * 字符串过滤数字无关的值
-     * @param str 
-     * @returns 
+     * @param str
+     * @returns
      */
-    getNumber(str: string) {
+    getNumber(str) {
         let numStr = str.replace(/[^0-9]/ig, "");
         return Number(numStr);
     }
@@ -132,39 +132,43 @@ class common {
                 z++;
                 a = x.shift();
                 b = y.shift();
-            } else if (a < b) {
+            }
+            else if (a < b) {
                 a = x.shift();
-            } else if (a > b) {
+            }
+            else if (a > b) {
                 b = y.shift();
             }
         }
         return z / s * 200;
     }
     /**
-     * 
-     * @param number 
+     *
+     * @param number
      * @param decimalDigit 小数长度
-     * @returns 
+     * @returns
      */
-    BN(number: any, decimalDigit?: any) {
+    BN(number, decimalDigit) {
         decimalDigit = decimalDigit == null ? 2 : decimalDigit;
         let integer = Math.floor(number);
         let digit = this._getDigit(integer);
         // ['个', '十', '百', '千', '万', '十万', '百万', '千万']; 
-        let unit: string[] = [];
+        let unit = [];
         if (digit > 3) {
             let multiple = Math.floor(digit / 8);
             if (multiple >= 1) {
                 let tmp = Math.round(integer / Math.pow(10, 8 * multiple));
-                unit.push(this._addWan(tmp, number, 8 * multiple, decimalDigit) as any);
+                unit.push(this._addWan(tmp, number, 8 * multiple, decimalDigit));
                 for (let i = 0; i < multiple; i++) {
                     unit.push('亿');
                 }
                 return unit.join('');
-            } else {
+            }
+            else {
                 return this._addWan(integer, number, 0, decimalDigit);
             }
-        } else {
+        }
+        else {
             return Math.ceil(number);
         }
     }
@@ -178,7 +182,7 @@ class common {
             let power;
             let result;
             let dotIndex = 0;
-            let resArr:any[] = [];
+            let resArr = [];
             let sym;
             var numStr = num_str.toString();
             if (numStr[0] == "-") {
@@ -187,10 +191,7 @@ class common {
                 sym = "-";
             }
             if (numStr.indexOf("E") != -1 || numStr.indexOf("e") != -1) {
-                var regExp = new RegExp(
-                    "^(((\\d+.?\\d+)|(\\d+))[Ee]{1}((-(\\d+))|(\\d+)))$",
-                    "ig"
-                );
+                var regExp = new RegExp("^(((\\d+.?\\d+)|(\\d+))[Ee]{1}((-(\\d+))|(\\d+)))$", "ig");
                 result = regExp.exec(numStr);
                 if (result != null) {
                     resValue = result[2];
@@ -213,7 +214,8 @@ class common {
                     if (power - subres.length < 0) {
                         resArr.splice(dotIndex + power, 0, ".");
                     }
-                } else {
+                }
+                else {
                     power = power.replace("-", "");
                     power = Number(power);
                     //幂数大于等于 小数点的index位置, 前面加0
@@ -225,13 +227,13 @@ class common {
                 }
             }
             resValue = resArr.join("");
-
             return sym + resValue;
-        } else {
+        }
+        else {
             return num_str;
         }
     }
-    private _addWan(integer: any, number: any, mutiple: any, decimalDigit: any) {
+    _addWan(integer, number, mutiple, decimalDigit) {
         let me = this;
         let digit = me._getDigit(integer);
         if (digit > 3) {
@@ -240,11 +242,12 @@ class common {
                 remainder = 4;
             }
             return Math.round(number / Math.pow(10, remainder + mutiple - decimalDigit)) / Math.pow(10, decimalDigit) + '万';
-        } else {
+        }
+        else {
             return Math.round(number / Math.pow(10, mutiple - decimalDigit)) / Math.pow(10, decimalDigit);
         }
     }
-    private _getDigit(integer: any) {
+    _getDigit(integer) {
         let digit = -1;
         while (integer >= 1) {
             digit++;
@@ -253,4 +256,4 @@ class common {
         return digit;
     }
 }
-export default new common();
+exports.default = new common();

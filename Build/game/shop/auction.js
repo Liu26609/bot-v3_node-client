@@ -18,7 +18,7 @@ const prop_1 = require("../../shared/game/prop");
 const task_base_1 = require("./../task_base");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const user_1 = require("../../shared/game/user");
-const common_1 = __importDefault(require("../../unity/common"));
+const common_1 = __importDefault(require("../../shared/game/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 class auction extends task_base_1.task_base {
     constructor(...a) {

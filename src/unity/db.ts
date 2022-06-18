@@ -1,5 +1,5 @@
 import fs from "fs";
-import common from "./common";
+import common from "../shared/game/common";
 import { info, log } from 'console';
 import store from "../shared/game/store";
 

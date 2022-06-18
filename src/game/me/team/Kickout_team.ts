@@ -1,5 +1,5 @@
 import bot from '../../../unity/bot';
-import common from '../../../unity/common';
+import common from '../../../shared/game/common';
 import sever from '../../../unity/sever';
 import { text_example_style } from '../../temp/text/example';
 import { task_base } from './../../task_base';

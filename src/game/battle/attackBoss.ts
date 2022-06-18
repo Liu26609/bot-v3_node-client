@@ -1,7 +1,7 @@
 import { log } from "../..";
 import { rewardKey, rewardKey_CN } from "../../shared/game/prop";
 import bot from "../../unity/bot";
-import common from "../../unity/common";
+import common from "../../shared/game/common";
 import sever from "../../unity/sever";
 import { task_base } from "../task_base";
 import { text_battleTemp_style } from "../temp/text/battleTemp";

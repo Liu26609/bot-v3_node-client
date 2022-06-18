@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sys_update_code = void 0;
 const db_1 = require("./../../unity/db");
 const bot_1 = __importDefault(require("../../unity/bot"));
-const common_1 = __importDefault(require("../../unity/common"));
+const common_1 = __importDefault(require("../../shared/game/common"));
 const db_2 = __importDefault(require("../../unity/db"));
 const task_base_1 = require("./../task_base");
 let isAcitve = false;

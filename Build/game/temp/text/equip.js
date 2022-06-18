@@ -7,7 +7,7 @@ exports.text_equip_style = void 0;
 const equip_1 = require("../../../shared/game/equip");
 const base64_safe_1 = __importDefault(require("../../../unity/base64_safe"));
 const bot_1 = __importDefault(require("../../../unity/bot"));
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 class text_equip_style {
     constructor() {
         return this;

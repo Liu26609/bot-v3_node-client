@@ -4,7 +4,7 @@ import { equip, EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN } from "../../../shared
 import { TEAM_INFO, teamLeve_CN, teamLeve } from "../../../shared/game/team";
 import { walletKey_CN, walletKey } from "../../../shared/game/user";
 import bot from "../../../unity/bot";
-import common from "../../../unity/common";
+import common from "../../../shared/game/common";
 import { embed_style } from "./embed";
 
 

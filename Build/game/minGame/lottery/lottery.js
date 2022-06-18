@@ -20,7 +20,7 @@ const bot_1 = __importDefault(require("../../../unity/bot"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const prop_2 = require("../../../shared/game/prop");
 const user_1 = require("../../../shared/game/user");
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 class lottery extends task_base_1.task_base {
     constructor(...a) {
         super(...a);

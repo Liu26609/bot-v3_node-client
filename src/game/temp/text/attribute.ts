@@ -4,7 +4,7 @@ import { ancestry, ancestryLeve, body, DNA_CN, DNA_Leve } from "../../../shared/
 import { teamLeve, teamLeve_CN, TEAM_INFO } from "../../../shared/game/team";
 import { walletKey, walletKey_CN } from "../../../shared/game/user";
 import bot from "../../../unity/bot";
-import common from "../../../unity/common";
+import common from "../../../shared/game/common";
 
 export class text_attribute_style {
     data?: body;

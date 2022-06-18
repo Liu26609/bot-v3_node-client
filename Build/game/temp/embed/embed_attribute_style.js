@@ -17,7 +17,7 @@ const __1 = require("../../..");
 const body_1 = require("../../../shared/game/body");
 const team_1 = require("../../../shared/game/team");
 const user_1 = require("../../../shared/game/user");
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 const embed_1 = require("./embed");
 class embed_attribute_style {
     constructor() {

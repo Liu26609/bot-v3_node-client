@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_petChangeName = void 0;
 const user_1 = require("../../../shared/game/user");
 const bot_1 = __importDefault(require("../../../unity/bot"));
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const text_length_1 = require("../../../unity/text_length");
 const task_base_1 = require("../../task_base");

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.auction_offer = void 0;
 const auction_look_1 = require("./auction_look");
 const bot_1 = __importDefault(require("../../unity/bot"));
-const common_1 = __importDefault(require("../../unity/common"));
+const common_1 = __importDefault(require("../../shared/game/common"));
 const task_base_1 = require("./../task_base");
 const sever_1 = __importDefault(require("../../unity/sever"));
 const __1 = require("../..");

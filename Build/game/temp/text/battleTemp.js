@@ -10,7 +10,7 @@ const skill_1 = require("./../../../shared/game/skill");
  */
 const __1 = require("../../..");
 const skill_2 = require("../../../shared/game/skill");
-const common_1 = __importDefault(require("../../../unity/common"));
+const common_1 = __importDefault(require("../../../shared/game/common"));
 const prop_1 = require("../../../shared/game/prop");
 class text_battleTemp_style {
     constructor() {

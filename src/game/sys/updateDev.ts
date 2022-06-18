@@ -1,7 +1,7 @@
 import { dbName } from './../../unity/db';
 import { log } from '../..';
 import bot from '../../unity/bot';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import db from '../../unity/db';
 import { task_base } from './../task_base';
 let isAcitve = false;

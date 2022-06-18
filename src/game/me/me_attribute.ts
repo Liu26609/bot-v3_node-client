@@ -6,7 +6,7 @@ import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { text_attribute_style } from '../temp/text/attribute';
 import { textStyle } from '../../shared/game/setUp';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import { ancestryLeve } from '../../shared/game/body';
 import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
 

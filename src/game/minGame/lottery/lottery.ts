@@ -5,7 +5,7 @@ import bot from '../../../unity/bot';
 import sever from '../../../unity/sever';
 import { rewardKey_CN } from '../../../shared/game/prop';
 import { walletKey, walletKey_CN } from '../../../shared/game/user';
-import common from '../../../unity/common';
+import common from '../../../shared/game/common';
 export class lottery extends task_base{
     constructor(...a){
         super(...a);

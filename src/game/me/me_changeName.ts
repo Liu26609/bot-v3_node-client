@@ -2,7 +2,7 @@ import { text_example_style } from './../temp/text/example';
 import { embed_style } from './../temp/embed/embed';
 import { TsrpcErrorType } from 'tsrpc';
 import bot from '../../unity/bot';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';

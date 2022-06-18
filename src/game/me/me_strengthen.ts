@@ -2,7 +2,7 @@ import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from '../..
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import { walletKey_CN, walletKey } from '../../shared/game/user';
 import bot from '../../unity/bot';
-import common from '../../unity/common';
+import common from '../../shared/game/common';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 

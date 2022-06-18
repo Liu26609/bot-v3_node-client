@@ -10,7 +10,7 @@ import { err } from "../../..";
 import { body } from "../../../shared/game/body";
 import { SKILL_ACTIVE, SKILL_TYPE } from "../../../shared/game/skill";
 import bot from "../../../unity/bot";
-import common from "../../../unity/common";
+import common from "../../../shared/game/common";
 
 export class text_skill_style {
     data?: SKILL_ACTIVE;
