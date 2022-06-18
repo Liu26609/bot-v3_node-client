@@ -106,14 +106,15 @@ class me_strengthen extends task_base_1.task_base {
             }
             else {
                 let temp = new embed_1.embed_style();
-                temp.setIcon(data.nowEquip.icon);
+                temp.setIcon(`${bot_1.default.getBotConfig().cosUrl_http}/equip/${data.nowEquip.icon}.png`);
                 temp.setTips(`${bf.name}+${now.leve}`);
                 if (data.isSuccress) {
                     temp.setTitle(`强化成功`);
                     temp.addLine(`🔣本次成功率:${data.rate.toFixed(4)}%\n`);
-                    temp.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
-                    temp.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}`);
+                    temp.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${common_1.default.BN(data.pay.condition.val)}`);
+                    temp.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${common_1.default.BN(data.pay.now)}`);
                     temp.addLine(`归属:${this.userName}(${equip_1.EQUIP_QUALITY[bf.quality]}级装备)`);
+                    temp.addLine(`${equip_1.EQUIP_QUALITY[bf.quality]}级装备`);
                     temp.addLine(`${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[bf.type]]}${bf.name}+${now.leve}`);
                     if (common_1.default.converEquipattribute(bf, `hp_max`) > 0)
                         temp.addLine(`♥️最大生命${common_1.default.BN(common_1.default.converEquipattribute(bf, `hp_max`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `hp_max`))}`);
