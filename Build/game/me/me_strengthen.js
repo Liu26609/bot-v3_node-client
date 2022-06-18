@@ -113,7 +113,7 @@ class me_strengthen extends task_base_1.task_base {
                     temp.addLine(`🔣本次成功率:${data.rate.toFixed(4)}%\n`);
                     temp.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${common_1.default.BN(data.pay.condition.val)}`);
                     temp.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${common_1.default.BN(data.pay.now)}`);
-                    temp.addLine(`归属:${this.userName}(${equip_1.EQUIP_QUALITY[bf.quality]}级装备)`);
+                    temp.addLine(`归属:${this.userName}`);
                     temp.addLine(`${equip_1.EQUIP_QUALITY[bf.quality]}级装备`);
                     temp.addLine(`${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[bf.type]]}${bf.name}+${now.leve}`);
                     if (common_1.default.converEquipattribute(bf, `hp_max`) > 0)

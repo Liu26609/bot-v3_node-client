@@ -1,5 +1,4 @@
 import { rewardKey } from "../game/prop"
-import { userSetUpCfg } from "../game/setUp"
 
 /**
  * 用户签到接口
@@ -19,6 +18,5 @@ export interface ResSign {
      * 1665841521
      */
     lastSignTime: number,
-    userCfg:userSetUpCfg,
     reward:{key:rewardKey,val:number}[]
 }

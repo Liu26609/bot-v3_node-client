@@ -4,7 +4,6 @@ import { ApiReturn } from "tsrpc";
 import { ResSign } from "../../shared/protocols/PtlSign";
 import bot from "../../unity/bot";
 import sever from "../../unity/sever";
-import { textStyle } from '../../shared/game/setUp';
 import { rewardKey_CN, rewardKey } from '../../shared/game/prop';
 import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
 /**

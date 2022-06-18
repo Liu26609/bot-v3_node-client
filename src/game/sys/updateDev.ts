@@ -52,10 +52,10 @@ export class sys_update_code extends task_base {
         outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '')
         outText = outText.replace('commit', '')
         outText = 'commit:' + outText;
-        await bot.sendText(this.channel_id, outText)
+        outText = '\n:即将开始,重启需要耗时0.${common.random(0, 1000)}秒,请耐心等待';
         db.saveDirData(dbName.GuildCfg)
         await new Promise(rs => { setTimeout(rs, 10000) });
-        await bot.callAll(`即将开始,重启需要耗时0.${common.random(0, 1000)}秒,请耐心等待`)
+        await bot.callAll(outText)
         process.exit()
     }
     async updateCode() {
