@@ -27,6 +27,8 @@ export class sys_update_code extends task_base {
         isAcitve = true;
         await bot.callAll(`开始更新版本\n本地版本号:V${bot.getDev()}\n开始获取更新最新版本信息...\n为了保证数据不会出错,请暂时不要艾特机器人。`)
         await this.updateCode()
+        db.saveDirData(dbName.GuildCfg)
+        db.saveDirData(dbName.UserCfg)
         isAcitve = false;
     }
     runCmd(task: string) {
@@ -51,7 +53,6 @@ export class sys_update_code extends task_base {
         outText = outText.replace('commit', '')
         outText = 'commit:' + outText;
         await bot.sendText(this.channel_id, outText)
-        await bot.callAll(`正在存储数据...这个时间大约需要10秒`)
         db.saveDirData(dbName.GuildCfg)
         await new Promise(rs => { setTimeout(rs, 10000) });
         await bot.callAll(`即将开始,重启需要耗时0.${common.random(0, 1000)}秒,请耐心等待`)
@@ -60,7 +61,7 @@ export class sys_update_code extends task_base {
     async updateCode() {
         // await this.runCmd('git stash');
         await this.runCmd('git pull');
-        await this.runCmd('git stash pop ');
+        // await this.runCmd('git stash pop ');
         this.getLog()
     }
 }

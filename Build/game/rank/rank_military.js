@@ -35,7 +35,7 @@ class rank_military extends task_base_1.task_base {
             temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ战力排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             for (let index = 0; index < data.list.length; index++) {
                 let e = data.list[index];
-                temp += `${common_1.default.getRankStr(index)}${e.icon}${e.name}<emoji:11>${common_1.default.BN(e.val, 0)}\n`;
+                temp += `${common_1.default.getRankStr(index)}<emoji:11>${common_1.default.BN(e.val, 0)}${e.icon}${e.name}\n`;
             }
             temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ战力排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
