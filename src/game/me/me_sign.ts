@@ -37,7 +37,7 @@ export default class me_sign extends task_base {
                 temp += `💝已签到:${data.cont}次<emoji:147>签到奖励\n`;
                 if (data.reward.length > 0) {
                     data.reward.forEach(item => {
-                        temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}\n`
+                        temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`
                     });
                     temp += `\n`
                 }
@@ -53,8 +53,7 @@ export default class me_sign extends task_base {
                 embed.setIcon(this.userIcon)
                 if (data.reward.length > 0) {
                     data.reward.forEach(item => {
-                        embed.addLine(`${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}\n`)
-                        temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}\n`
+                        embed.addLine(`${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`)
                     });
                 }
                 embed.addLine(`“${data.oneWord}”`)

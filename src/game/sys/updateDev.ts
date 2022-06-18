@@ -4,6 +4,7 @@ import bot from '../../unity/bot';
 import common from '../../shared/game/common';
 import db from '../../unity/db';
 import { task_base } from './../task_base';
+import { serviceProto } from '../../shared/protocols/serviceProto';
 let isAcitve = false;
 export class sys_update_code extends task_base {
     constructor(...a) {
