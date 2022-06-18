@@ -39,7 +39,7 @@ class me_sign extends task_base_1.task_base {
                 temp += `💝已签到:${data.cont}次<emoji:147>签到奖励\n`;
                 if (data.reward.length > 0) {
                     data.reward.forEach(item => {
-                        temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}\n`;
+                        temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
                     });
                     temp += `\n`;
                 }
@@ -54,8 +54,7 @@ class me_sign extends task_base_1.task_base {
                 embed.setIcon(this.userIcon);
                 if (data.reward.length > 0) {
                     data.reward.forEach(item => {
-                        embed.addLine(`${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}\n`);
-                        temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}\n`;
+                        embed.addLine(`${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`);
                     });
                 }
                 embed.addLine(`“${data.oneWord}”`);

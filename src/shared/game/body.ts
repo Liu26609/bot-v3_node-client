@@ -255,3 +255,8 @@ export interface base_attribute {
     PhysicalDefense: number,
     secondResHp: number,//每秒回复生命
 }
+export interface BattleKillLog{
+    round: number,
+    body: {name:string}, die_body: {name:string}
+
+}

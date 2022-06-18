@@ -1,5 +1,4 @@
-import { BattleKillLog } from "../../api/battle/ApiAttackBoss";
-import { BASE_BODYS } from "../game/body";
+import { BASE_BODYS, BattleKillLog } from "../game/body";
 import { rewardKey } from "../game/prop";
 import { userSetUpCfg } from "../game/setUp";
 import { SKILL_RES } from "../game/skill";
