@@ -13,8 +13,12 @@ var storeBackTemp;
 })(storeBackTemp = exports.storeBackTemp || (exports.storeBackTemp = {}));
 var storeTeamTemp;
 (function (storeTeamTemp) {
-    storeTeamTemp[storeTeamTemp["forever_hpMax_1"] = 0] = "forever_hpMax_1";
-    storeTeamTemp[storeTeamTemp["forever_hpMax_10"] = 1] = "forever_hpMax_10";
+    storeTeamTemp[storeTeamTemp["forever_hpMax_100"] = 0] = "forever_hpMax_100";
+    storeTeamTemp[storeTeamTemp["forever_MagicAttack_10"] = 1] = "forever_MagicAttack_10";
+    storeTeamTemp[storeTeamTemp["forever_PhysicalAttacks_10"] = 2] = "forever_PhysicalAttacks_10";
+    storeTeamTemp[storeTeamTemp["forever_MagicDefense_1"] = 3] = "forever_MagicDefense_1";
+    storeTeamTemp[storeTeamTemp["forever_PhysicalDefense_1"] = 4] = "forever_PhysicalDefense_1";
+    storeTeamTemp[storeTeamTemp["forever_secondResHp_1"] = 5] = "forever_secondResHp_1";
 })(storeTeamTemp = exports.storeTeamTemp || (exports.storeTeamTemp = {}));
 var mapId;
 (function (mapId) {

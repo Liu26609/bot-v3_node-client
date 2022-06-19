@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 47,
+    "version": 48,
     "services": [
         {
             "id": 0,
@@ -6148,6 +6148,22 @@ exports.serviceProto = {
                 {
                     "id": 1,
                     "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
                 }
             ]
         },

@@ -43,11 +43,23 @@ class shop_team extends task_base_1.task_base {
     converSellTemp(temp) {
         let str = ``;
         switch (temp) {
-            case prop_1.storeTeamTemp.forever_hpMax_1:
-                str = `♥️工会全体最大生命永久+1`;
+            case prop_1.storeTeamTemp.forever_hpMax_100:
+                str = `♥️工会全体生命永久+100`;
                 break;
-            case prop_1.storeTeamTemp.forever_hpMax_10:
-                str = `♥️工会全体最大生命永久+10`;
+            case prop_1.storeTeamTemp.forever_MagicAttack_10:
+                str = `🔮工会全体魔攻+1`;
+                break;
+            case prop_1.storeTeamTemp.forever_MagicDefense_1:
+                str = `🌟工会全体魔防+1`;
+                break;
+            case prop_1.storeTeamTemp.forever_PhysicalAttacks_10:
+                str = `🔪工会全体物攻+10`;
+                break;
+            case prop_1.storeTeamTemp.forever_PhysicalDefense_1:
+                str = `🔰工会全体物防+1`;
+                break;
+            case prop_1.storeTeamTemp.forever_secondResHp_1:
+                str = `💖工会全体回复+1`;
                 break;
             default:
                 break;

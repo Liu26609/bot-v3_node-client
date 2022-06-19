@@ -51,7 +51,7 @@ export class me_wallet extends task_base {
             temp.addLine(`${walletKey_CN[walletKey[walletKey.resLife]]}:${common.BN(data.resLife)}`);
             temp.addLine(`${walletKey_CN[walletKey[walletKey.driedFish]]}:${common.BN(data.driedFish)}`);
             temp.addLine(`${walletKey_CN[walletKey[walletKey.spiritBall]]}:${common.BN(data.spiritBall)}`);
-            temp.addLine(`${walletKey_CN[walletKey[walletKey.evolveCard]]}:${common.BN(data.spiritBall)}`);
+            temp.addLine(`${walletKey_CN[walletKey[walletKey.evolveCard]]}:${common.BN(data.evolveCard)}`);
             temp.sendMsg(this.channel_id)
         }
 

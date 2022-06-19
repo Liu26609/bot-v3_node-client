@@ -150,8 +150,12 @@ export interface store_team {
     updateNum: number
 }
 export enum storeTeamTemp {
-    forever_hpMax_1,//最大生命永久+
-    forever_hpMax_10,
+    forever_hpMax_100,//最大生命永久+
+    forever_MagicAttack_10,//最低魔法攻击
+    forever_PhysicalAttacks_10,//物理攻击
+    forever_MagicDefense_1,//50
+    forever_PhysicalDefense_1,//50
+    forever_secondResHp_1
 }
 export interface store_back {
     /**

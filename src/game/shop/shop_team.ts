@@ -4,7 +4,7 @@ import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 export class shop_team extends task_base {
-    constructor(...a){
+    constructor(...a) {
         super(...a);
         this.render();
     }
@@ -27,11 +27,23 @@ export class shop_team extends task_base {
     converSellTemp(temp: storeTeamTemp) {
         let str = ``
         switch (temp) {
-            case storeTeamTemp.forever_hpMax_1:
-                str = `♥️工会全体最大生命永久+1`
+            case storeTeamTemp.forever_hpMax_100:
+                str = `♥️工会全体生命永久+100`
                 break;
-            case storeTeamTemp.forever_hpMax_10:
-                str = `♥️工会全体最大生命永久+10`
+            case storeTeamTemp.forever_MagicAttack_10:
+                str = `🔮工会全体魔攻+1`
+                break;
+            case storeTeamTemp.forever_MagicDefense_1:
+                str = `🌟工会全体魔防+1`
+                break;
+            case storeTeamTemp.forever_PhysicalAttacks_10:
+                str = `🔪工会全体物攻+10`
+                break;
+            case storeTeamTemp.forever_PhysicalDefense_1:
+                str = `🔰工会全体物防+1`
+                break;
+            case storeTeamTemp.forever_secondResHp_1:
+                str = `💖工会全体回复+1`
                 break;
             default:
                 break;
