@@ -47,7 +47,7 @@ class me_team extends task_base_1.task_base {
 🔮魔法攻击+${data.info.gain.MagicAttack}
 🌟魔法防御+${data.info.gain.MagicDefense}
 ┗┄━${this.at()}━┄
-<emoji:147>击杀其他工会成员将获得贡献值`;
+<emoji:147>击杀其他玩家将获得贡献值`;
             bot_1.default.sendText(this.channel_id, team);
             this.ctlMenu(data.myLeve);
         });
