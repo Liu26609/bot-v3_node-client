@@ -39,7 +39,8 @@ export class embed_attribute_style {
         let temp = ``;
         embed.setTitle(this.data.title.name)
         embed.addLine(`战力:${this.data.military}`)
-        embed.addLine(`🔥Lv.${this.data.leve}⏳(${common.BN(this.data.exp,0)}/${common.BN(this.data.exp_max,0)})`)
+        embed.addLine(`🔥Lv.${this.data.leve}`)
+        embed.addLine(`⏳经验${common.BN(this.data.exp,0)}/${common.BN(this.data.exp_max,0)}`)
         embed.addLine(`${this.data.icon}名称:${this.data.name}`)
         // temp += `┏┄════👑属性═══━┄\n`
         // temp += `<emoji:11>战力:${this.data.military}\n`
@@ -47,7 +48,7 @@ export class embed_attribute_style {
         // temp += `${this.data.icon}名称:${this.data.name}\n`
         if (this.ancestry) {
             // temp += `👑${this.ancestry.title}\n`
-            embed.addLine(`👑${this.ancestry.title}`)
+            embed.addLine(`血统:👑${this.ancestry.title}`)
         }
         if (this.data.dnaLock > 0) {
             // temp += `🔒基因锁[${DNA_CN[DNA_Leve[this.data.dnaLock]]}]\n`;
@@ -68,7 +69,8 @@ export class embed_attribute_style {
             embed.addLine(`${walletKey_CN[walletKey[walletKey.justice]]}:${common.BN(this.data.wallet.justice)}`)
             // temp += `${walletKey_CN[walletKey[walletKey.justice]]}:${common.BN(this.data.wallet.justice)}\n`
         }
-        embed.addLine(`♥️${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}💖+${common.BN(out_attribute.secondResHp, 0)}/s`)
+        embed.addLine(`♥️${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}`)
+        embed.addLine(`💖每秒回复+${common.BN(out_attribute.secondResHp, 0)}/s`)
         // temp += `♥️${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}💖+${common.BN(out_attribute.secondResHp, 0)}/s\n`;
         if (out_attribute.MagicAttack > 1) embed.addLine(`🔮魔法攻击${common.BN(out_attribute.MagicAttack,4)}`);
         if (out_attribute.MagicDefense > 1)embed.addLine(`🌟魔法防御${common.BN(out_attribute.MagicDefense,4)}`);

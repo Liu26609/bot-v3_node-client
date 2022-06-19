@@ -27,6 +27,7 @@ export class text_attribute_style {
         this.data = data;
         return this;
     }
+
     async sendMsg(channelId: string) {
         if (!this.data) {
             err('text_attribute_style 没有数据')
