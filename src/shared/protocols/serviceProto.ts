@@ -489,7 +489,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 46,
+    "version": 47,
     "services": [
         {
             "id": 0,
@@ -1857,7 +1857,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Array",
                         "elementType": {
                             "type": "Reference",
-                            "target": "../../api/battle/ApiAttackBoss/BattleKillLog"
+                            "target": "../game/body/BattleKillLog"
                         }
                     }
                 },
@@ -2046,7 +2046,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "../../api/battle/ApiAttackBoss/BattleKillLog": {
+        "../game/body/BattleKillLog": {
             "type": "Interface",
             "properties": [
                 {

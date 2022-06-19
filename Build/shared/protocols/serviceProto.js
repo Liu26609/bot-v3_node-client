@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 46,
+    "version": 47,
     "services": [
         {
             "id": 0,
@@ -1370,7 +1370,7 @@ exports.serviceProto = {
                         "type": "Array",
                         "elementType": {
                             "type": "Reference",
-                            "target": "../../api/battle/ApiAttackBoss/BattleKillLog"
+                            "target": "../game/body/BattleKillLog"
                         }
                     }
                 },
@@ -1559,7 +1559,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "../../api/battle/ApiAttackBoss/BattleKillLog": {
+        "../game/body/BattleKillLog": {
             "type": "Interface",
             "properties": [
                 {
