@@ -155,7 +155,8 @@ export enum storeTeamTemp {
     forever_PhysicalAttacks_10,//物理攻击
     forever_MagicDefense_1,//50
     forever_PhysicalDefense_1,//50
-    forever_secondResHp_1
+    forever_secondResHp_1,
+    teamExp_1,//工会经验
 }
 export interface store_back {
     /**
