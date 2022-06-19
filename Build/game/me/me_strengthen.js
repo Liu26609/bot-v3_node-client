@@ -116,17 +116,17 @@ class me_strengthen extends task_base_1.task_base {
                     temp.addLine(`${equip_1.EQUIP_QUALITY[bf.quality]}级装备归属:${this.userName}`);
                     temp.addLine(`${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[bf.type]]}${bf.name}+${now.leve}`);
                     if (common_1.default.converEquipattribute(bf, `hp_max`) > 0)
-                        temp.addLine(`♥️最大生命${common_1.default.BN(common_1.default.converEquipattribute(bf, `hp_max`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `hp_max`))}`);
+                        temp.addLine(`♥️生命${common_1.default.BN(common_1.default.converEquipattribute(bf, `hp_max`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `hp_max`))}`);
                     if (common_1.default.converEquipattribute(bf, `MagicAttack`) > 0)
-                        temp.addLine(`🔮魔法攻击${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicAttack`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicAttack`))}`);
+                        temp.addLine(`🔮魔攻${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicAttack`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicAttack`))}`);
                     if (common_1.default.converEquipattribute(bf, `MagicDefense`) > 0)
-                        temp.addLine(`🌟魔法防御${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicDefense`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicDefense`))}`);
+                        temp.addLine(`🌟魔防${common_1.default.BN(common_1.default.converEquipattribute(bf, `MagicDefense`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `MagicDefense`))}`);
                     if (common_1.default.converEquipattribute(bf, `PhysicalAttacks`) > 0)
-                        temp.addLine(`🔪物理攻击${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalAttacks`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalAttacks`))}`);
+                        temp.addLine(`🔪物攻${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalAttacks`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalAttacks`))}`);
                     if (common_1.default.converEquipattribute(bf, `PhysicalDefense`) > 0)
-                        temp.addLine(`🔰物理防御${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalDefense`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalDefense`))}`);
+                        temp.addLine(`🔰物防${common_1.default.BN(common_1.default.converEquipattribute(bf, `PhysicalDefense`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `PhysicalDefense`))}`);
                     if (common_1.default.converEquipattribute(bf, `secondResHp`) > 0)
-                        temp.addLine(`💖每秒回复${common_1.default.BN(common_1.default.converEquipattribute(bf, `secondResHp`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `secondResHp`))}`);
+                        temp.addLine(`💖回复${common_1.default.BN(common_1.default.converEquipattribute(bf, `secondResHp`))}🔺${common_1.default.BN(common_1.default.converEquipattribute(now, `secondResHp`))}`);
                 }
                 else {
                     temp.setTitle(`强化失败`);
