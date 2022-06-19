@@ -17,17 +17,14 @@ const skill_1 = require("./../temp/text/skill");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
+const example_1 = require("../temp/text/example");
 class searchSkill extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     menu() {
-        let temp = `￣￣￣￣￣＼查询技能／￣￣￣￣￣
-查询指令：查询技能 + 技能名
-如:@我 查询技能普通攻击
-￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣`;
-        bot_1.default.sendText(this.channel_id, temp);
+        new example_1.text_example_style().setCommand('查询技能指令：查询技能 + 技能名').setExample('查询技能普通攻击').sendMsg(this.channel_id);
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {

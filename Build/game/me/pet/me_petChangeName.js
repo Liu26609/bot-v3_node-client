@@ -21,6 +21,7 @@ const sever_1 = __importDefault(require("../../../unity/sever"));
 const text_length_1 = require("../../../unity/text_length");
 const task_base_1 = require("../../task_base");
 const userCfg_1 = require("../../../interface/userCfg");
+const example_1 = require("../../temp/text/example");
 class me_petChangeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -73,10 +74,7 @@ class me_petChangeName extends task_base_1.task_base {
         });
     }
     menu() {
-        let temp = ``;
-        temp += `<emoji:147>提示：查看宠物改名指令:宠物改名 + ID + 名字\n`;
-        temp += `🌰栗子:@${bot_1.default.getBot_name()} 宠物改名0小黄`;
-        bot_1.default.sendText(this.channel_id, temp);
+        new example_1.text_example_style().setCommand('查看宠物改名指令:宠物改名 + ID + 名字').setExample('宠物改名0小黄').sendMsg(this.channel_id);
     }
 }
 exports.me_petChangeName = me_petChangeName;

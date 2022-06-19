@@ -63,7 +63,7 @@ class me_equip extends task_base_1.task_base {
                 });
             }
             else {
-                temp += `✎你好像一件装备都没有穿上哦，看看[背包]有没有装备呢\n`;
+                temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
             }
             temp += `┗┄━${this.at()}━┄\n`;
             bot_1.default.sendText(this.channel_id, temp);

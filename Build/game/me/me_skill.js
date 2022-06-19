@@ -13,6 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_skill = void 0;
+const embed_1 = require("./../temp/embed/embed");
+const userCfg_1 = require("../../interface/userCfg");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -39,13 +41,26 @@ class me_skill extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            let temp = ` ┏┄┄👑我的技能━┄\n`;
-            for (let index = 0; index < data.skillList.length; index++) {
-                const name = data.skillList[index];
-                temp += `[${index}]${name}\n`;
+            if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.card) {
+                let temp = new embed_1.embed_style();
+                temp.setTitle('👑我的技能');
+                temp.setIcon(this.userIcon);
+                temp.setTips('我的技能');
+                for (let index = 0; index < data.skillList.length; index++) {
+                    const name = data.skillList[index];
+                    temp.addLine(`[${index}]${name}`);
+                }
+                temp.sendMsg(this.channel_id);
             }
-            temp += `┗┄━${this.at()}━┄`;
-            yield bot_1.default.sendText(this.channel_id, temp);
+            else {
+                let temp = ` ┏┄┄👑我的技能━┄\n`;
+                for (let index = 0; index < data.skillList.length; index++) {
+                    const name = data.skillList[index];
+                    temp += `[${index}]${name}\n`;
+                }
+                temp += `┗┄━${this.at()}━┄`;
+                yield bot_1.default.sendText(this.channel_id, temp);
+            }
             let temps = ``;
             temps += `┏┄══👑指令提示═━┄\n`;
             temps += `[查询技能 + 名称]查询技能详细\n`;

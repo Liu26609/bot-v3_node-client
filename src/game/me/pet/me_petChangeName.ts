@@ -7,6 +7,7 @@ import sever from '../../../unity/sever';
 import { text_length } from '../../../unity/text_length';
 import { task_base } from '../../task_base';
 import { USER_CFG_MSGTEMPLATE } from '../../../interface/userCfg';
+import { text_example_style } from '../../temp/text/example';
 export class me_petChangeName extends task_base {
     constructor(...a) {
         super(...a);
@@ -58,9 +59,6 @@ export class me_petChangeName extends task_base {
         
     }
     menu() {
-        let temp = ``;
-        temp += `<emoji:147>提示：查看宠物改名指令:宠物改名 + ID + 名字\n`
-        temp += `🌰栗子:@${bot.getBot_name()} 宠物改名0小黄`
-        bot.sendText(this.channel_id, temp)
+        new text_example_style().setCommand('查看宠物改名指令:宠物改名 + ID + 名字').setExample('宠物改名0小黄').sendMsg(this.channel_id)
     }
 }

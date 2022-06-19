@@ -48,7 +48,7 @@ export class me_equip extends task_base {
                 // temp += `🔮${common.BN(common.converEquipattribute(info, `MagicAttack`))}🔪${common.BN(common.converEquipattribute(info, `PhysicalAttacks`))}🔰${common.BN(common.converEquipattribute(info, `PhysicalDefense`))}\n`;
             });
         } else {
-            temp += `✎你好像一件装备都没有穿上哦，看看[背包]有没有装备呢\n`;
+            temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
         }
         temp += `┗┄━${this.at()}━┄\n`;
         bot.sendText(this.channel_id, temp)
