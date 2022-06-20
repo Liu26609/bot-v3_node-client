@@ -32,8 +32,8 @@ class sys_update_code extends task_base_1.task_base {
             }
             let whiteMap = new Map();
             whiteMap.set('14139673525601401123', 1);
-            whiteMap.set('18408854810586198036', 2);
-            whiteMap.set('1081629992283146971', 2);
+            // whiteMap.set('18408854810586198036', 2)
+            // whiteMap.set('1081629992283146971', 2)
             if (!whiteMap.has(this.userId)) {
                 this.log('你没有权限更新');
                 return;
