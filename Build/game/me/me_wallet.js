@@ -36,16 +36,28 @@ class me_wallet extends task_base_1.task_base {
             if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 let temp = new text_style_1.text_style();
                 temp.setTitle('┏┄════🏧我的小金库═══━┄');
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evolveCard]]}:${common_1.default.BN(data.evolveCard)}`);
+                if (data.gold > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
+                if (data.BlindBox > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);
+                if (data.titleCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`);
+                if (data.changeNameCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`);
+                if (data.skillCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
+                if (data.transferCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
+                if (data.resLife > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
+                if (data.driedFish > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
+                if (data.spiritBall > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`);
+                if (data.evolveCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evolveCard]]}:${common_1.default.BN(data.evolveCard)}`);
+                if (data.strengthen > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.strengthen]]}:${common_1.default.BN(data.strengthen)}`);
                 temp.sendMsg(this.channel_id);
             }
             else {
@@ -53,16 +65,28 @@ class me_wallet extends task_base_1.task_base {
                 temp.setTitle(`🏧我的小金库`);
                 temp.setTips('我的小金库');
                 temp.setIcon(this.userIcon);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`);
-                temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evolveCard]]}:${common_1.default.BN(data.evolveCard)}`);
+                if (data.gold > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
+                if (data.BlindBox > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.BlindBox]]}:${common_1.default.BN(data.BlindBox)}`);
+                if (data.titleCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.titleCard]]}:${common_1.default.BN(data.titleCard)}`);
+                if (data.changeNameCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.changeNameCard]]}:${common_1.default.BN(data.changeNameCard)}`);
+                if (data.skillCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.skillCard]]}:${common_1.default.BN(data.skillCard)}`);
+                if (data.transferCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.transferCard]]}:${common_1.default.BN(data.transferCard)}`);
+                if (data.resLife > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.resLife]]}:${common_1.default.BN(data.resLife)}`);
+                if (data.driedFish > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.driedFish]]}:${common_1.default.BN(data.driedFish)}`);
+                if (data.spiritBall > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.spiritBall]]}:${common_1.default.BN(data.spiritBall)}`);
+                if (data.evolveCard > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evolveCard]]}:${common_1.default.BN(data.evolveCard)}`);
+                if (data.strengthen > 0)
+                    temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.strengthen]]}:${common_1.default.BN(data.strengthen)}`);
                 temp.sendMsg(this.channel_id);
             }
         });
