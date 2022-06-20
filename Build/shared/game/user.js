@@ -30,6 +30,10 @@ var walletKey;
      * 效果：商店不能购买东西
      */
     walletKey[walletKey["evil"] = 11] = "evil";
+    /**
+     * 强化碎片
+     */
+    walletKey[walletKey["strengthen"] = 12] = "strengthen";
 })(walletKey = exports.walletKey || (exports.walletKey = {}));
 var walletKey_CNText;
 (function (walletKey_CNText) {
@@ -45,6 +49,7 @@ var walletKey_CNText;
     walletKey_CNText["evolveCard"] = "\u8FDB\u5316\u5361";
     walletKey_CNText["justice"] = "\u6B63\u4E49\u503C";
     walletKey_CNText["evil"] = "\u7EA2\u540D\u503C";
+    walletKey_CNText["strengthen"] = "\u5F3A\u5316\u788E\u7247";
 })(walletKey_CNText = exports.walletKey_CNText || (exports.walletKey_CNText = {}));
 var walletKey_CN;
 (function (walletKey_CN) {
@@ -60,4 +65,5 @@ var walletKey_CN;
     walletKey_CN["evolveCard"] = "\uD83C\uDF0C\u8FDB\u5316\u5361";
     walletKey_CN["justice"] = "\uD83D\uDFE9\u6B63\u4E49\u503C";
     walletKey_CN["evil"] = "\uD83D\uDFE5\u7EA2\u540D\u503C";
+    walletKey_CN["strengthen"] = "\u2699\uFE0F\u5F3A\u5316\u788E\u7247";
 })(walletKey_CN = exports.walletKey_CN || (exports.walletKey_CN = {}));

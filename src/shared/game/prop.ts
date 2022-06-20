@@ -122,6 +122,7 @@ export enum storeBackTemp {
     forever_PhysicalDefense_1,
     forever_secondResHp_01,
     randomPoint,//随机玩家的坐标
+    team_contribution_now,//工会贡献
 }
 
 export interface store_team {
@@ -320,7 +321,11 @@ export enum rewardKey {
     /**
      * 工会贡献
      */
-    team_devote
+    team_devote,
+    /**
+     * 强化卡
+     */
+     strengthen
 }
 export enum rewardKey_CN {
     exp = '⏳经验',
@@ -340,7 +345,8 @@ export enum rewardKey_CN {
     dnaExp = '🧬进化点',
     titleExp = '🌈称号经验',
     petExp = '🍖宠物经验',
-    team_devote = '🏰工会贡献'
+    team_devote = '🏰工会贡献',
+    strengthen='⚙️强化碎片'
 }
 
 /**

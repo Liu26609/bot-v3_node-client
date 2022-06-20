@@ -69,7 +69,11 @@ export interface USER_wallet {
      * 减少：刷怪
      * 效果：商店不能购买东西
      */
-    evil:number
+    evil:number,
+    /**
+     * 碎片
+     */
+    strengthen:number
 }
 export enum walletKey {
     gold,
@@ -98,7 +102,11 @@ export enum walletKey {
      * 减少：刷怪
      * 效果：商店不能购买东西
      */
-    evil
+    evil,
+    /**
+     * 强化碎片
+     */
+    strengthen
 }
 export enum walletKey_CNText {
     gold = '金币',
@@ -112,7 +120,8 @@ export enum walletKey_CNText {
     spiritBall = '精灵球',
     evolveCard = '进化卡',
     justice = '正义值',
-    evil = '红名值'
+    evil = '红名值',
+    strengthen='强化碎片'
 }
 export enum walletKey_CN {
     gold = '💰️金币',
@@ -126,5 +135,6 @@ export enum walletKey_CN {
     spiritBall = '👾精灵球',
     evolveCard = '🌌进化卡',
     justice = '🟩正义值',
-    evil = '🟥红名值'
+    evil = '🟥红名值',
+    strengthen = '⚙️强化碎片'
 }

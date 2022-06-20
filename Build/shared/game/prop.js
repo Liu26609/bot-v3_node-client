@@ -15,6 +15,7 @@ var storeBackTemp;
     storeBackTemp[storeBackTemp["forever_PhysicalDefense_1"] = 4] = "forever_PhysicalDefense_1";
     storeBackTemp[storeBackTemp["forever_secondResHp_01"] = 5] = "forever_secondResHp_01";
     storeBackTemp[storeBackTemp["randomPoint"] = 6] = "randomPoint";
+    storeBackTemp[storeBackTemp["team_contribution_now"] = 7] = "team_contribution_now";
 })(storeBackTemp = exports.storeBackTemp || (exports.storeBackTemp = {}));
 var storeTeamTemp;
 (function (storeTeamTemp) {
@@ -112,6 +113,10 @@ var rewardKey;
      * 工会贡献
      */
     rewardKey[rewardKey["team_devote"] = 17] = "team_devote";
+    /**
+     * 强化卡
+     */
+    rewardKey[rewardKey["strengthen"] = 18] = "strengthen";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -133,6 +138,7 @@ var rewardKey_CN;
     rewardKey_CN["titleExp"] = "\uD83C\uDF08\u79F0\u53F7\u7ECF\u9A8C";
     rewardKey_CN["petExp"] = "\uD83C\uDF56\u5BA0\u7269\u7ECF\u9A8C";
     rewardKey_CN["team_devote"] = "\uD83C\uDFF0\u5DE5\u4F1A\u8D21\u732E";
+    rewardKey_CN["strengthen"] = "\u2699\uFE0F\u5F3A\u5316\u788E\u7247";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型

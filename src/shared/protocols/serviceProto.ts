@@ -489,7 +489,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 53,
+    "version": 54,
     "services": [
         {
             "id": 0,
@@ -1432,6 +1432,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 11,
                     "value": 11
+                },
+                {
+                    "id": 12,
+                    "value": 12
                 }
             ]
         },
@@ -2179,6 +2183,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 17,
                     "value": 17
+                },
+                {
+                    "id": 18,
+                    "value": 18
                 }
             ]
         },
@@ -4022,6 +4030,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 11,
                     "name": "evil",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "strengthen",
                     "type": {
                         "type": "Number"
                     }
@@ -5968,6 +5983,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 6,
                     "value": 6
+                },
+                {
+                    "id": 7,
+                    "value": 7
                 }
             ]
         },
