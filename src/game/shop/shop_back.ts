@@ -28,11 +28,26 @@ export class shop_back extends task_base {
     converSellTemp(temp: storeBackTemp) {
         let str = ``
         switch (temp) {
-            case storeBackTemp.forever_hpMax_1:
-                str = `♥️最大生命永久+1`
-                break;
             case storeBackTemp.forever_hpMax_10:
-                str = `♥️最大生命永久+10`
+                str = `♥️生命永久+10`
+                break;
+            case storeBackTemp.forever_MagicAttack_1:
+                str = `🔮魔法攻击+1`
+                break;
+            case storeBackTemp.forever_MagicDefense_1:
+                str = `🌟魔法防御+1`
+                break;
+            case storeBackTemp.forever_PhysicalAttacks_1:
+                str = `🔪物理攻击+1`
+                break;
+            case storeBackTemp.forever_PhysicalDefense_1:
+                str = `🔰物理防御+1`
+                break;
+            case storeBackTemp.forever_secondResHp_01:
+                str = `💖生命回复+0.1`
+                break;
+            case storeBackTemp.randomPoint:
+                str = `💖向全服随机暴露一个玩家的坐标`
                 break;
             default:
                 break;

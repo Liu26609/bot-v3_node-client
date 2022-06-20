@@ -29,6 +29,18 @@ export enum SKILL_TYPE {
      * 参数2：数量
      */
     creator_shadow,
+    /**
+     * 连续攻击N次，每次攻击为物理攻击的百分比属性
+     * 参数1:攻击次数
+     * 参数2:百分比属性
+     */
+    continuity_Physics,
+    /**
+    * 连续攻击N次，每次攻击为物理攻击的百分比属性
+    * 参数1:攻击次数
+    * 参数2:百分比属性
+    */
+    continuity_Magic,
 
 }
 /**
@@ -146,5 +158,5 @@ export interface SKILL_RES {
     tag: SKILL_ACTIVE_RES_TAG,
     // 统计单位
     unit: SKILL_UNITY,
-    data?:number[]
+    data?: number[]
 }

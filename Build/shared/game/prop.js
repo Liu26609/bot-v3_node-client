@@ -8,8 +8,13 @@ var autionType;
 })(autionType = exports.autionType || (exports.autionType = {}));
 var storeBackTemp;
 (function (storeBackTemp) {
-    storeBackTemp[storeBackTemp["forever_hpMax_1"] = 0] = "forever_hpMax_1";
-    storeBackTemp[storeBackTemp["forever_hpMax_10"] = 1] = "forever_hpMax_10";
+    storeBackTemp[storeBackTemp["forever_hpMax_10"] = 0] = "forever_hpMax_10";
+    storeBackTemp[storeBackTemp["forever_MagicAttack_1"] = 1] = "forever_MagicAttack_1";
+    storeBackTemp[storeBackTemp["forever_PhysicalAttacks_1"] = 2] = "forever_PhysicalAttacks_1";
+    storeBackTemp[storeBackTemp["forever_MagicDefense_1"] = 3] = "forever_MagicDefense_1";
+    storeBackTemp[storeBackTemp["forever_PhysicalDefense_1"] = 4] = "forever_PhysicalDefense_1";
+    storeBackTemp[storeBackTemp["forever_secondResHp_01"] = 5] = "forever_secondResHp_01";
+    storeBackTemp[storeBackTemp["randomPoint"] = 6] = "randomPoint";
 })(storeBackTemp = exports.storeBackTemp || (exports.storeBackTemp = {}));
 var storeTeamTemp;
 (function (storeTeamTemp) {

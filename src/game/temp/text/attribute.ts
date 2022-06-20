@@ -58,7 +58,7 @@ export class text_attribute_style {
         } else {
             temp += `${walletKey_CN[walletKey[walletKey.justice]]}:${common.BN(this.data.wallet.justice)}\n`
         }
-
+        
         temp += `♥️${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}💖+${common.BN(out_attribute.secondResHp, 0)}/s\n`;
         if (out_attribute.MagicAttack > 1) temp += `🔮魔法攻击${common.BN(out_attribute.MagicAttack,4)}\n`;
         if (out_attribute.MagicDefense > 1) temp += `🌟魔法防御${common.BN(out_attribute.MagicDefense,4)}\n`;

@@ -115,8 +115,13 @@ export interface store_icon {
     updateNum: number
 }
 export enum storeBackTemp {
-    forever_hpMax_1,//最大生命永久+
-    forever_hpMax_10,
+    forever_hpMax_10,//最大生命永久+
+    forever_MagicAttack_1,
+    forever_PhysicalAttacks_1,
+    forever_MagicDefense_1,
+    forever_PhysicalDefense_1,
+    forever_secondResHp_01,
+    randomPoint,//随机玩家的坐标
 }
 
 export interface store_team {
