@@ -256,6 +256,7 @@ class game {
      */
     atBot(data) {
         return __awaiter(this, void 0, void 0, function* () {
+            // return
             if (!sever_1.default.isReady()) {
                 let temp = ``;
                 temp += `<emoji:147>有内鬼！服务器终止了通话,正在重新通话`;
@@ -297,10 +298,10 @@ class game {
             //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
             //     return;
             // }
-            if (data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123') {
-                bot_1.default.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验`);
-                // return;
-            }
+            // if (data.guild_id != '8512894071433076954' && data.author.id != '14139673525601401123') {
+            //     bot.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验`)
+            //     // return;
+            // }
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;
