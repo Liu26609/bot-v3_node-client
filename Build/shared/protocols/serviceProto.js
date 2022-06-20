@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 52,
+    "version": 53,
     "services": [
         {
             "id": 0,
@@ -719,6 +719,13 @@ exports.serviceProto = {
         "../game/skill/SKILL_ACTIVE": {
             "type": "Interface",
             "properties": [
+                {
+                    "id": 7,
+                    "name": "isSell",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
                 {
                     "id": 0,
                     "name": "id",

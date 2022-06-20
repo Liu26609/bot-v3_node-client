@@ -489,7 +489,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 52,
+    "version": 53,
     "services": [
         {
             "id": 0,
@@ -1206,6 +1206,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
         "../game/skill/SKILL_ACTIVE": {
             "type": "Interface",
             "properties": [
+                {
+                    "id": 7,
+                    "name": "isSell",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
                 {
                     "id": 0,
                     "name": "id",

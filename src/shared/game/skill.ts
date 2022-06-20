@@ -47,6 +47,7 @@ export enum SKILL_TYPE {
  * 主动技能
  */
 export interface SKILL_ACTIVE {
+    isSell:boolean,
     id: number,
     // 技能名称
     name: string,
