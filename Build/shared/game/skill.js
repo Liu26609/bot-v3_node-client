@@ -36,13 +36,15 @@ var SKILL_TYPE;
     /**
      * 连续攻击N次，每次攻击为物理攻击的百分比属性
      * 参数1:攻击次数
-     * 参数2:百分比属性
+     * 参数2:每次攻击最小的伤害
+     * 参数3:每次攻击最大的伤害
      */
     SKILL_TYPE[SKILL_TYPE["continuity_Physics"] = 6] = "continuity_Physics";
     /**
-    * 连续攻击N次，每次攻击为物理攻击的百分比属性
+    * 连续攻击N次，每次攻击为魔法攻击的百分比属性
     * 参数1:攻击次数
-    * 参数2:百分比属性
+    * 参数2:每次攻击最小的伤害
+    * 参数3:每次攻击最大的伤害
     */
     SKILL_TYPE[SKILL_TYPE["continuity_Magic"] = 7] = "continuity_Magic";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
