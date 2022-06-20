@@ -97,6 +97,7 @@ import { ReqKicOut_team, ResKicOut_team } from './team/PtlKicOut_team';
 import { ReqMe_team, ResMe_team } from './team/PtlMe_team';
 import { ReqOut_team, ResOut_team } from './team/PtlOut_team';
 import { ReqUserList, ResUserList } from './team/PtlUserList';
+import { ReqMe_lookVip, ResMe_lookVip } from './vip/PtlMe_lookVip';
 
 export interface ServiceType {
     api: {
@@ -479,6 +480,10 @@ export interface ServiceType {
         "team/UserList": {
             req: ReqUserList,
             res: ResUserList
+        },
+        "vip/Me_lookVip": {
+            req: ReqMe_lookVip,
+            res: ResMe_lookVip
         }
     },
     msg: {
@@ -489,7 +494,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 54,
+    "version": 55,
     "services": [
         {
             "id": 0,
@@ -980,6 +985,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "id": 56,
             "name": "team/UserList",
             "type": "api"
+        },
+        {
+            "id": 109,
+            "name": "vip/Me_lookVip",
+            "type": "api"
         }
     ],
     "types": {
@@ -1295,6 +1305,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 7,
                     "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
                 }
             ]
         },
@@ -1984,6 +1998,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 2,
                     "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
                 }
             ]
         },
@@ -3643,6 +3661,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ],
             "properties": [
+                {
+                    "id": 15,
+                    "name": "isVip",
+                    "type": {
+                        "type": "Boolean"
+                    },
+                    "optional": true
+                },
                 {
                     "id": 10,
                     "name": "rankscore",
@@ -7183,6 +7209,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                                 }
                             ]
                         }
+                    }
+                }
+            ]
+        },
+        "vip/PtlMe_lookVip/ReqMe_lookVip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "vip/PtlMe_lookVip/ResMe_lookVip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "isVip",
+                    "type": {
+                        "type": "Boolean"
                     }
                 }
             ]

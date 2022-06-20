@@ -43,7 +43,11 @@ export enum SKILL_TYPE {
     * 参数3:每次攻击最大的伤害
     */
     continuity_Magic,
-
+    /**
+     * 有N概率永久复制对方技能
+     * 参数1:概率
+     */
+     forever_steal_skill,
 }
 /**
  * 主动技能
@@ -75,7 +79,11 @@ export enum SKILL_ACTIVE_RES_TYPE {
     /**
      * 增加单位
      */
-    addUnit
+    addUnit,
+    /**
+     * 复制技能
+     */
+    copySkill
 }
 /**
  * 技能目标

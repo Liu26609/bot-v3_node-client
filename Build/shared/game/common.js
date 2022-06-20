@@ -194,9 +194,17 @@ class common {
             case skill_1.SKILL_TYPE.creator_shadow:
                 temp += `创造${info.data[1]}个镜像分身,分身有自身${(info.data[0]).toFixed(2)}%属性,但只会存在一回合`;
                 break;
+            case skill_1.SKILL_TYPE.continuity_Physics:
+                // 连续攻击N次，每次攻击为魔法攻击的百分比属性 参数1:攻击次数 参数2:每次攻击最小的伤害 参数3:每次攻击最大的伤害
+                temp += `连续攻击${info.data[0]}次，每次攻击为物理攻击的百分比[${info.data[1]}%-${info.data[2]}]%`;
+                break;
             case skill_1.SKILL_TYPE.continuity_Magic:
                 // 连续攻击N次，每次攻击为魔法攻击的百分比属性 参数1:攻击次数 参数2:每次攻击最小的伤害 参数3:每次攻击最大的伤害
                 temp += `连续攻击${info.data[0]}次，每次攻击为魔法攻击的百分比[${info.data[1]}%-${info.data[2]}]%`;
+                break;
+            case skill_1.SKILL_TYPE.forever_steal_skill:
+                // 有N概率永久复制对方技能
+                temp += `有${info.data[0]}%概率永久复制对方技能`;
                 break;
             default:
                 temp += `这个技能好像还没有收录到系统`;

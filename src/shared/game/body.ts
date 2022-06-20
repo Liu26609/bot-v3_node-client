@@ -4,6 +4,7 @@ import { teamLeve } from './team';
 import { USER_SIGN, USER_wallet } from './user';
 // 角色属性
 export interface body extends BASE_BODYS {
+    isVip?:boolean,
     /**
      * 声望
      */

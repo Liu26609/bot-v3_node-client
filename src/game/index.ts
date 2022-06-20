@@ -100,6 +100,7 @@ import { rank_PhysicalAttacks } from './rank/rank_PhysicalAttacks';
 import { rank_PhysicalDefense } from './rank/rank_PhysicalDefense';
 import { shop_rankscore } from './shop/shop_rankscore';
 import { switch_CN, CFG_SWITCH } from '../interface/guildCfg';
+import { me_vip } from './me/me_vip';
 
 enum matchType {
     /**
@@ -151,6 +152,7 @@ export default class game {
         /**
         * 排行榜指令模块
         */
+         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
         this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })

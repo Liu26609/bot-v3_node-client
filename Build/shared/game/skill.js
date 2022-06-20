@@ -47,6 +47,11 @@ var SKILL_TYPE;
     * 参数3:每次攻击最大的伤害
     */
     SKILL_TYPE[SKILL_TYPE["continuity_Magic"] = 7] = "continuity_Magic";
+    /**
+     * 有N概率永久复制对方技能
+     * 参数1:概率
+     */
+    SKILL_TYPE[SKILL_TYPE["forever_steal_skill"] = 8] = "forever_steal_skill";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -62,6 +67,10 @@ var SKILL_ACTIVE_RES_TYPE;
      * 增加单位
      */
     SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["addUnit"] = 2] = "addUnit";
+    /**
+     * 复制技能
+     */
+    SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["copySkill"] = 3] = "copySkill";
 })(SKILL_ACTIVE_RES_TYPE = exports.SKILL_ACTIVE_RES_TYPE || (exports.SKILL_ACTIVE_RES_TYPE = {}));
 /**
  * 技能目标

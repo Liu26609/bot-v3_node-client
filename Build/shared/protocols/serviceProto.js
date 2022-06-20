@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 54,
+    "version": 55,
     "services": [
         {
             "id": 0,
@@ -493,6 +493,11 @@ exports.serviceProto = {
             "id": 56,
             "name": "team/UserList",
             "type": "api"
+        },
+        {
+            "id": 109,
+            "name": "vip/Me_lookVip",
+            "type": "api"
         }
     ],
     "types": {
@@ -808,6 +813,10 @@ exports.serviceProto = {
                 {
                     "id": 7,
                     "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
                 }
             ]
         },
@@ -1497,6 +1506,10 @@ exports.serviceProto = {
                 {
                     "id": 2,
                     "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
                 }
             ]
         },
@@ -3156,6 +3169,14 @@ exports.serviceProto = {
                 }
             ],
             "properties": [
+                {
+                    "id": 15,
+                    "name": "isVip",
+                    "type": {
+                        "type": "Boolean"
+                    },
+                    "optional": true
+                },
                 {
                     "id": 10,
                     "name": "rankscore",
@@ -6696,6 +6717,30 @@ exports.serviceProto = {
                                 }
                             ]
                         }
+                    }
+                }
+            ]
+        },
+        "vip/PtlMe_lookVip/ReqMe_lookVip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "vip/PtlMe_lookVip/ResMe_lookVip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "isVip",
+                    "type": {
+                        "type": "Boolean"
                     }
                 }
             ]
