@@ -10,7 +10,8 @@ export interface Resfishing {
     userCfg:userSetUpCfg,
     jin:number,
     fish: string,
-    reward:number
+    reward:number,
+    tips:string | undefined
 }
 
 // export const conf = {}
