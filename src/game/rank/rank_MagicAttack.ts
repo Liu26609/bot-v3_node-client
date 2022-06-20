@@ -9,7 +9,7 @@ export class rank_MagicAttack extends task_base{
         this.render();
     }
     async render(){
-        let req = await sever.callApi('rank/Rank_PhysicalAttacks',{userId:this.userId})
+        let req = await sever.callApi('rank/Rank_MagicAttack',{userId:this.userId})
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

@@ -286,10 +286,10 @@ class game {
             // if(!isNext){
             //     return;
             // }
-            if (data.guild_id != '8512894071433076954') {
-                (0, __1.log)('收到消息', data.guild_id, data.author.username, data.content);
-            }
-            return;
+            // if(data.guild_id != '8512894071433076954'){
+            //     log('收到消息', data.guild_id, data.author.username, data.content)
+            // }
+            // return
             if (data.guild_id != '8512894071433076954') {
                 bot_1.default.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`);
             }
