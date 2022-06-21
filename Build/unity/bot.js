@@ -41,8 +41,10 @@ const __1 = require("..");
 const bot_1 = require("../shared/bot/bot");
 const db_1 = __importStar(require("./db"));
 const sever_1 = __importDefault(require("./sever"));
+const common_1 = __importDefault(require("../shared/game/common"));
 class bot {
     constructor() {
+        this.machMap = new Map();
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
@@ -177,7 +179,7 @@ class bot {
      * @param channelID 频道ID
      * @param content 文字内容
      */
-    sendText(channelID, content) {
+    sendText(channelID, content, triggerKey) {
         return __awaiter(this, void 0, void 0, function* () {
             let msg_id;
             msg_id = this.getMsgId(channelID);
@@ -208,7 +210,29 @@ class bot {
                 else {
                     (0, __1.err)('消息发送错误', msg_id, content);
                 }
+            }).then((res) => {
+                console.log('res', res);
+                if (triggerKey) {
+                    this.machMap.set(res.data.id, triggerKey);
+                    try {
+                        this.addEmoji(channelID, res.data.id);
+                    }
+                    catch (error) {
+                    }
+                }
             });
+        });
+    }
+    addEmoji(channelId, msgId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let type = [1, 2];
+            let randomType = type[common_1.default.random(0, type.length - 1)];
+            let obj = {
+                message_id: msgId,
+                emoji_type: randomType,
+                emoji_id: 5
+            };
+            yield this.client.reactionApi.postReaction(channelId, obj);
         });
     }
     /**
@@ -294,8 +318,8 @@ class bot {
             case qq_guild_bot_1.AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
                 this.ws.on(qq_guild_bot_1.AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data) => {
                     (0, __1.log)('？？？', data);
-                    if (data.eventType == bot_1.BOT_EventType.test) {
-                        this._test();
+                    if (data.eventType == bot_1.BOT_EventType.emoji_add) {
+                        this._test(data);
                     }
                 });
                 break;
@@ -304,13 +328,56 @@ class bot {
                 break;
         }
     }
-    _test() {
+    _test(data) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            (0, __1.log)('测试表情');
-            // const options = {
-            //     timeTo:(Date.now() + 2000 / 1000).toFixed(0)
-            // }
-            // await this.client.muteApi.muteMember(guildID, userID, options);
+            if (data.msg.user_id == ((_a = this.botInfo) === null || _a === void 0 ? void 0 : _a.user.id)) {
+                console.log('机器人自己id，不处理');
+                return;
+            }
+            let msg_id;
+            msg_id = this.getMsgId(data.msg.channel_id);
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 1200); });
+                msg_id = this.getMsgId(data.msg.channel_id);
+            }
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 1200); });
+                msg_id = this.getMsgId(data.msg.channel_id);
+            }
+            // 单频道1秒内只能发送5条消息
+            // TODO：后期考虑利用每天主动消息
+            if (!msg_id) {
+                (0, __1.err)('没有找到可用消息ID');
+                return;
+            }
+            if (this.machMap.has(data.msg.target.id)) {
+                // 处理指令
+                let content = this.machMap.get(data.msg.target.id);
+                if (!content) {
+                    (0, __1.err)('内容为空');
+                    return;
+                }
+                console.log(this.machMap.get(data.msg.target.id));
+                let tempData = {
+                    author: {
+                        avatar: '',
+                        bot: false,
+                        id: data.msg.user_id,
+                        username: '匿名用户'
+                    },
+                    channel_id: data.msg.channel_id,
+                    content: content,
+                    guild_id: data.msg.guild_id,
+                    id: msg_id,
+                    timestamp: '',
+                    member: { joined_at: '', nick: '', roles: [''] },
+                    mentions: [],
+                    seq: 1,
+                    seq_in_channel: '',
+                };
+                this._onMsg_at(tempData);
+            }
         });
     }
     getGuildCfgTemp() {

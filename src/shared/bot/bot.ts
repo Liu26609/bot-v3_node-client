@@ -62,7 +62,7 @@ export interface BOT_MSG_EMOJI {
 export enum BOT_EventType {
     msg_at = 'AT_MESSAGE_CREATE',
     msg_del = 'PUBLIC_MESSAGE_DELETE',
-    test = 'GUILD_MESSAGE_REACTIONS'
+    emoji_add = 'MESSAGE_REACTION_ADD'
 }
 /**
  * 用户信息

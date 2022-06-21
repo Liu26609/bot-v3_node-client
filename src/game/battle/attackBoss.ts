@@ -64,6 +64,6 @@ export class attackBoss extends task_base {
         //     temp += `😤这次战斗好像奖励了个寂寞`
         // }
 
-        bot.sendText(this.channel_id, temp)
+        bot.sendText(this.channel_id, temp,this.matchKey)
     }
 }

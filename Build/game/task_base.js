@@ -42,10 +42,10 @@ class task_base {
         this.args = args;
         this.userId = args[0];
         this.channel_id = args[1];
-        this.userIcon = args[2];
+        this.userIcon = args[2] || '';
         this.content = args[3];
         this.matchKey = args[4];
-        this.userName = args[5];
+        this.userName = args[5] || '匿名用户';
         this.guild = args[6];
         this.GuildCfg = db_1.default.get(db_1.dbName.GuildCfg, this.guild);
         if (!this.GuildCfg) {

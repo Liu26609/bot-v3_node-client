@@ -5,6 +5,7 @@ import { CFG_SWITCH, guildCfg } from "../interface/guildCfg";
 import { BOT_Config, BOT_READY, BOT_EventType, BOT_MSG_AT, BOT_OnData, BOT_MSGID_MAP } from '../shared/bot/bot'
 import db, { dbName } from "./db";
 import sever from "./sever";
+import common from '../shared/game/common';
 
 class bot {
     private config?: BOT_Config;
@@ -16,7 +17,13 @@ class bot {
     private channelMap: Map<string, number>;//子频道ID，上次此频道活跃时间
     private userActiveChannelMap: Map<string, string>;//玩家上次活跃的频道
     private locaDev: string;
+    /**
+     * 消息ID
+     * 触发指令
+     */
+    private machMap: Map<string, string>
     constructor() {
+        this.machMap = new Map();
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
@@ -147,7 +154,7 @@ class bot {
      * @param channelID 频道ID
      * @param content 文字内容
      */
-    async sendText(channelID: string, content: string) {
+    async sendText(channelID: string, content: string, triggerKey?: string) {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
@@ -179,7 +186,27 @@ class bot {
             } else {
                 err('消息发送错误', msg_id, content)
             }
+        }).then((res) => {
+            console.log('res', res)
+            if (triggerKey) {
+                this.machMap.set(res.data.id, triggerKey)
+                try {
+                    this.addEmoji(channelID, res.data.id)
+                } catch (error) {
+                    
+                }
+            }
         })
+    }
+    async addEmoji(channelId: string, msgId: string) {
+        let type = [1, 2];
+        let randomType = type[common.random(0, type.length - 1)]
+        let obj = {
+            message_id: msgId,
+            emoji_type: randomType,
+            emoji_id: 5
+        }
+        await this.client.reactionApi.postReaction(channelId, obj);
     }
     /**
  * 发送图片内容
@@ -264,8 +291,8 @@ class bot {
             case AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
                 this.ws.on(AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data: BOT_OnData) => {
                     log('？？？', data)
-                    if (data.eventType == BOT_EventType.test) {
-                        this._test()
+                    if (data.eventType == BOT_EventType.emoji_add) {
+                        this._test(data)
                     }
                 })
                 break;
@@ -274,8 +301,56 @@ class bot {
                 break;
         }
     }
-    private async _test() {
-        log('测试表情')
+    private async _test(data: BOT_OnData) {
+        if (data.msg.user_id == this.botInfo?.user.id) {
+            console.log('机器人自己id，不处理')
+            return
+        }
+        let msg_id;
+
+        msg_id = this.getMsgId(data.msg.channel_id)
+        if (msg_id == 1) {
+            await new Promise(rs => { setTimeout(rs, 1200) });
+            msg_id = this.getMsgId(data.msg.channel_id)
+        }
+        if (msg_id == 1) {
+            await new Promise(rs => { setTimeout(rs, 1200) });
+            msg_id = this.getMsgId(data.msg.channel_id)
+        }
+        // 单频道1秒内只能发送5条消息
+
+        // TODO：后期考虑利用每天主动消息
+        if (!msg_id) {
+            err('没有找到可用消息ID')
+            return;
+        }
+        if (this.machMap.has(data.msg.target.id)) {
+            // 处理指令
+            let content = this.machMap.get(data.msg.target.id);
+            if(!content){
+                err('内容为空')
+                return;
+            }
+            console.log(this.machMap.get(data.msg.target.id))
+            let tempData = {
+                author: {
+                    avatar:'',
+                    bot:false,
+                    id:data.msg.user_id,
+                    username:'匿名用户'
+                },
+                channel_id: data.msg.channel_id,
+                content: content,
+                guild_id: data.msg.guild_id,
+                id: msg_id,
+                timestamp: '',
+                member: { joined_at: '', nick: '', roles: [''] },
+                mentions: [],
+                seq: 1,
+                seq_in_channel: '',
+            }
+            this._onMsg_at(tempData)
+        }
         // const options = {
         //     timeTo:(Date.now() + 2000 / 1000).toFixed(0)
         // }
@@ -290,10 +365,10 @@ class bot {
         }
         return temp
     }
-    private getUserCfgTemp():userCfg{
+    private getUserCfgTemp(): userCfg {
         let temp = {
-            textStrStyle:USER_CFG_TEXTSTRSTYLE.default,
-            msgTemplate:USER_CFG_MSGTEMPLATE.card
+            textStrStyle: USER_CFG_TEXTSTRSTYLE.default,
+            msgTemplate: USER_CFG_MSGTEMPLATE.card
         }
         return temp;
     }
@@ -308,8 +383,8 @@ class bot {
         }
         gCfg.atCont += 1;
 
-        let uCfg = db.get(dbName.UserCfg,data.author.id);
-        if(!uCfg){
+        let uCfg = db.get(dbName.UserCfg, data.author.id);
+        if (!uCfg) {
             uCfg = db.create(dbName.UserCfg, data.author.id, this.getUserCfgTemp());
         }
 
