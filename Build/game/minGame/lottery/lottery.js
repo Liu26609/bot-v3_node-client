@@ -42,14 +42,14 @@ class lottery extends task_base_1.task_base {
             let temp = `┏┄══🎰猜数第${data.info.round}轮══━┄\n`;
             if (data.guessJude) {
                 temp += `💌恭喜！！！${this.at()} 猜对了本轮数字:${guessNum}\n`;
-                temp += `🧧获得奖励:${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.exp]]}x${data.reward}\n`;
+                temp += `🧧获得奖励:${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.strengthen]]}x${data.reward}\n`;
                 temp += `下一轮即将开始！请做好准备\n`;
             }
             else {
                 temp += `${this.at()}很遗憾，数字猜错了\n`;
                 temp += `❓数字范围[${data.info.min} - ${data.info.max}]之间\n`;
                 temp += `📈本轮全服已猜${data.info.guessCont}次\n`;
-                temp += `🧧累计奖励:${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.exp]]}x${data.info.addup}\n`;
+                temp += `🧧累计奖励:${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.strengthen]]}x${data.info.addup}\n`;
                 temp += `🥳上一轮赢家:${data.info.lastWin}\n`;
             }
             temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
@@ -70,7 +70,7 @@ class lottery extends task_base_1.task_base {
 🏷️本轮数字还有${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒结束
 ❓数字范围[${data.info.min} - ${data.info.max}]之间
 📈本轮全服已猜${data.info.guessCont}次
-🧧累计奖励${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.exp]]}x${data.info.addup}
+🧧累计奖励${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.strengthen]]}x${data.info.addup}
 🥳上一轮赢家:${data.info.lastWin}
 ┗┄━${this.at()}━┄`;
             bot_1.default.sendText(this.channel_id, temp);

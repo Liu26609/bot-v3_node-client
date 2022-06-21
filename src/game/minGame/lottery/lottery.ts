@@ -27,13 +27,13 @@ export class lottery extends task_base{
 
         if(data.guessJude){
             temp += `💌恭喜！！！${this.at()} 猜对了本轮数字:${guessNum}\n`
-            temp += `🧧获得奖励:${rewardKey_CN[rewardKey[rewardKey.exp]]}x${data.reward}\n`
+            temp += `🧧获得奖励:${rewardKey_CN[rewardKey[rewardKey.strengthen]]}x${data.reward}\n`
             temp += `下一轮即将开始！请做好准备\n`
         }else{
             temp += `${this.at()}很遗憾，数字猜错了\n`
             temp += `❓数字范围[${data.info.min} - ${data.info.max}]之间\n`
             temp += `📈本轮全服已猜${data.info.guessCont}次\n`
-            temp += `🧧累计奖励:${rewardKey_CN[rewardKey[rewardKey.exp]]}x${data.info.addup}\n`
+            temp += `🧧累计奖励:${rewardKey_CN[rewardKey[rewardKey.strengthen]]}x${data.info.addup}\n`
             temp += `🥳上一轮赢家:${data.info.lastWin}\n`
         }
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
@@ -52,7 +52,7 @@ export class lottery extends task_base{
 🏷️本轮数字还有${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒结束
 ❓数字范围[${data.info.min} - ${data.info.max}]之间
 📈本轮全服已猜${data.info.guessCont}次
-🧧累计奖励${rewardKey_CN[rewardKey[rewardKey.exp]]}x${data.info.addup}
+🧧累计奖励${rewardKey_CN[rewardKey[rewardKey.strengthen]]}x${data.info.addup}
 🥳上一轮赢家:${data.info.lastWin}
 ┗┄━${this.at()}━┄`
         bot.sendText(this.channel_id,temp)
