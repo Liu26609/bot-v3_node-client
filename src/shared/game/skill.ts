@@ -58,6 +58,11 @@ export enum SKILL_TYPE {
 * 参数1:提高值
 */
     upMagicDefense_fixed,
+    /**
+     * 每次触发提高N%全属性
+     * 参数1:百分比值
+     */
+    upAll
 }
 /**
  * 主动技能
@@ -152,7 +157,11 @@ export enum SKILL_UNITY {
     /**
      * 提高魔防值
      */
-     upMagicDefense
+    upMagicDefense,
+    /**
+     * 提高全属性
+     */
+    upAll
 }
 export enum SKILL_UNITY_CN {
     /**
@@ -175,10 +184,14 @@ export enum SKILL_UNITY_CN {
      * 
      */
     upPhysicalDefense = '+🔰',
-/**
-     * 提高魔防值
+    /**
+         * 提高魔防值
+         */
+    upMagicDefense = '+🌟',
+    /**
+     * 提高全部属性
      */
-    upMagicDefense = '+🌟'
+    upAll = '🔺'
 }
 export interface SKILL_RES {
     // 技能id
