@@ -235,7 +235,7 @@ class bot {
             err('消息发送错误')
         })
     }
-    async sendEmbed(channelID: string, embed: any) {
+    async sendEmbed(channelID: string, embed: any,triggerKey?) {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
@@ -255,6 +255,15 @@ class bot {
             embed: embed
         }).catch(() => {
             err('消息发送错误')
+        }).then((res)=>{
+            if (triggerKey) {
+                this.machMap.set(res.data.id, triggerKey)
+                try {
+                    this.addEmoji(channelID, res.data.id)
+                } catch (error) {
+                    
+                }
+            }
         })
     }
     /**

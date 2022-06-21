@@ -21,14 +21,14 @@ class text_style {
     addLine(str) {
         this.list.push(str);
     }
-    sendMsg(channelId) {
+    sendMsg(channelId, triggerKey) {
         let temp = `${this.title}\n`;
         for (let index = 0; index < this.list.length; index++) {
             const item = this.list[index];
             temp += item + '\n';
         }
         temp += this.end;
-        return bot_1.default.sendText(channelId, temp);
+        return bot_1.default.sendText(channelId, temp, triggerKey);
     }
 }
 exports.text_style = text_style;

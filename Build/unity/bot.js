@@ -262,7 +262,7 @@ class bot {
             });
         });
     }
-    sendEmbed(channelID, embed) {
+    sendEmbed(channelID, embed, triggerKey) {
         return __awaiter(this, void 0, void 0, function* () {
             let msg_id;
             msg_id = this.getMsgId(channelID);
@@ -281,6 +281,15 @@ class bot {
                 embed: embed
             }).catch(() => {
                 (0, __1.err)('消息发送错误');
+            }).then((res) => {
+                if (triggerKey) {
+                    this.machMap.set(res.data.id, triggerKey);
+                    try {
+                        this.addEmoji(channelID, res.data.id);
+                    }
+                    catch (error) {
+                    }
+                }
             });
         });
     }
