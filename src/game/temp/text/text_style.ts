@@ -20,13 +20,13 @@ export class text_style {
     addLine(str: string) {
         this.list.push(str)
     }
-    sendMsg(channelId: string,triggerKey?) {
+    sendMsg(channelId: string) {
         let temp = `${this.title}\n`;
         for (let index = 0; index < this.list.length; index++) {
             const item = this.list[index];
             temp += item + '\n';
         }
         temp += this.end;
-        return bot.sendText(channelId, temp,triggerKey)
+        return bot.sendText(channelId, temp)
     }
 }

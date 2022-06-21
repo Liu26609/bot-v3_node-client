@@ -69,7 +69,7 @@ class attackBoss extends task_base_1.task_base {
             // }else{
             //     temp += `😤这次战斗好像奖励了个寂寞`
             // }
-            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
+            bot_1.default.sendText(this.channel_id, temp);
         });
     }
 }
