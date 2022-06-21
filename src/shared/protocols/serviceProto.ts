@@ -4460,6 +4460,34 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Reference",
                         "target": "../game/setUp/userSetUpCfg"
                     }
+                },
+                {
+                    "id": 1,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "optional": true
                 }
             ]
         },

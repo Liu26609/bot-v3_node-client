@@ -1,3 +1,4 @@
+import { rewardKey } from "../game/prop";
 import { userSetUpCfg } from "../game/setUp";
 
 export interface ReqMe_destroyMeSkill {
@@ -7,6 +8,7 @@ export interface ReqMe_destroyMeSkill {
 
 export interface ResMe_destroyMeSkill {
     userCfg:userSetUpCfg,
+    reward?:{key:rewardKey,val:number}[]
 }
 
 // export const conf = {}

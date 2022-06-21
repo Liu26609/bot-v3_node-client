@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_destroyMeSkill = void 0;
+const prop_1 = require("../../shared/game/prop");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -41,7 +42,16 @@ ps:数字为[我的技能]的id
                 this.sendErr(req.err);
                 return;
             }
-            this.log(`我之前学会了哪些技能来着？(技能遗忘成功)`);
+            let data = req.res;
+            let temp = `┏┄══<emoji:173>遗忘完成══━┄\n`;
+            temp += `我之前学会了哪些技能来着？\n`;
+            if (data.reward && data.reward.length > 0) {
+                data.reward.forEach(item => {
+                    temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}+${item.val}\n`;
+                });
+            }
+            temp += `┗┄━${this.at()}━┄`;
+            bot_1.default.sendText(this.channel_id, temp);
         });
     }
 }

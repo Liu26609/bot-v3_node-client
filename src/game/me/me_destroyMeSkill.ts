@@ -1,3 +1,4 @@
+import { rewardKey_CN, rewardKey } from '../../shared/game/prop';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
@@ -25,6 +26,15 @@ ps:数字为[我的技能]的id
             this.sendErr(req.err)
             return;
         }
-        this.log(`我之前学会了哪些技能来着？(技能遗忘成功)`)
+        let data = req.res;
+        let temp = `┏┄══<emoji:173>遗忘完成══━┄\n`
+        temp += `我之前学会了哪些技能来着？\n`
+        if (data.reward && data.reward.length > 0) {
+            data.reward.forEach(item => {
+                temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
+            });
+        }
+        temp += `┗┄━${this.at()}━┄`;
+        bot.sendText(this.channel_id,temp)
     }
 }
