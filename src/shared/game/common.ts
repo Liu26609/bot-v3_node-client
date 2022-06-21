@@ -205,6 +205,14 @@ class common {
             // 有N概率永久复制对方技能
             temp += `有${info.data[0]}%概率永久复制对方技能`
             break;
+         case SKILL_TYPE.upMagicDefense_fixed:
+            // 每触发一次提高N点物理防御
+            temp += `每触发一次提高${info.data[0]}点魔法防御`
+            break;
+         case SKILL_TYPE.upPhysicalDefense_fixed:
+            // 每触发一次提高N点物理防御
+            temp += `每触发一次提高${info.data[0]}点物理防御`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

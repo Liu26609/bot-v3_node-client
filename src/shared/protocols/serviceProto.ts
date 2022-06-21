@@ -1309,6 +1309,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 8,
                     "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
+                },
+                {
+                    "id": 10,
+                    "value": 10
                 }
             ]
         },
@@ -2080,6 +2088,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 3,
                     "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
                 }
             ]
         },

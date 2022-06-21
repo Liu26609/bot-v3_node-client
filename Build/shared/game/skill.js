@@ -52,6 +52,16 @@ var SKILL_TYPE;
      * 参数1:概率
      */
     SKILL_TYPE[SKILL_TYPE["forever_steal_skill"] = 8] = "forever_steal_skill";
+    /**
+  * 每触发一次提高N点物理防御
+  * 参数1:提高值
+  */
+    SKILL_TYPE[SKILL_TYPE["upPhysicalDefense_fixed"] = 9] = "upPhysicalDefense_fixed";
+    /**
+* 每触发一次提高N点魔法防御
+* 参数1:提高值
+*/
+    SKILL_TYPE[SKILL_TYPE["upMagicDefense_fixed"] = 10] = "upMagicDefense_fixed";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -124,6 +134,14 @@ var SKILL_UNITY;
      * 魔法伤害
      */
     SKILL_UNITY[SKILL_UNITY["MagicDamage"] = 3] = "MagicDamage";
+    /**
+     * 提高值防御
+     */
+    SKILL_UNITY[SKILL_UNITY["upPhysicalDefense"] = 4] = "upPhysicalDefense";
+    /**
+     * 提高魔防值
+     */
+    SKILL_UNITY[SKILL_UNITY["upMagicDefense"] = 5] = "upMagicDefense";
 })(SKILL_UNITY = exports.SKILL_UNITY || (exports.SKILL_UNITY = {}));
 var SKILL_UNITY_CN;
 (function (SKILL_UNITY_CN) {
@@ -143,4 +161,12 @@ var SKILL_UNITY_CN;
      * 魔法伤害
      */
     SKILL_UNITY_CN["MagicDamage"] = "";
+    /**
+     *
+     */
+    SKILL_UNITY_CN["upPhysicalDefense"] = "+\uD83D\uDD30";
+    /**
+         * 提高魔防值
+         */
+    SKILL_UNITY_CN["upMagicDefense"] = "+\uD83C\uDF1F";
 })(SKILL_UNITY_CN = exports.SKILL_UNITY_CN || (exports.SKILL_UNITY_CN = {}));

@@ -47,13 +47,23 @@ export enum SKILL_TYPE {
      * 有N概率永久复制对方技能
      * 参数1:概率
      */
-     forever_steal_skill,
+    forever_steal_skill,
+    /**
+  * 每触发一次提高N点物理防御
+  * 参数1:提高值
+  */
+    upPhysicalDefense_fixed,
+    /**
+* 每触发一次提高N点魔法防御
+* 参数1:提高值
+*/
+    upMagicDefense_fixed,
 }
 /**
  * 主动技能
  */
 export interface SKILL_ACTIVE {
-    isSell:boolean,
+    isSell: boolean,
     id: number,
     // 技能名称
     name: string,
@@ -135,7 +145,14 @@ export enum SKILL_UNITY {
      * 魔法伤害
      */
     MagicDamage,
-
+    /**
+     * 提高值防御
+     */
+    upPhysicalDefense,
+    /**
+     * 提高魔防值
+     */
+     upMagicDefense
 }
 export enum SKILL_UNITY_CN {
     /**
@@ -154,7 +171,14 @@ export enum SKILL_UNITY_CN {
      * 魔法伤害
      */
     MagicDamage = '',
-
+    /**
+     * 
+     */
+    upPhysicalDefense = '+🔰',
+/**
+     * 提高魔防值
+     */
+    upMagicDefense = '+🌟'
 }
 export interface SKILL_RES {
     // 技能id

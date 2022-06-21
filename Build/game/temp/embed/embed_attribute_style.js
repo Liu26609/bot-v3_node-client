@@ -56,7 +56,7 @@ class embed_attribute_style {
             // temp += `${this.data.icon}名称:${this.data.name}\n`
             if (this.ancestry) {
                 // temp += `👑${this.ancestry.title}\n`
-                embed.addLine(`血统:👑${this.ancestry.title}`);
+                embed.addLine(`👑血统:${this.ancestry.title}`);
             }
             if (this.data.dnaLock > 0) {
                 // temp += `🔒基因锁[${DNA_CN[DNA_Leve[this.data.dnaLock]]}]\n`;
