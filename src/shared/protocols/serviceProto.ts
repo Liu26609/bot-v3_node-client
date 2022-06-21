@@ -97,6 +97,7 @@ import { ReqKicOut_team, ResKicOut_team } from './team/PtlKicOut_team';
 import { ReqMe_team, ResMe_team } from './team/PtlMe_team';
 import { ReqOut_team, ResOut_team } from './team/PtlOut_team';
 import { ReqUserList, ResUserList } from './team/PtlUserList';
+import { MsgLookVip } from './vip/MsgLookVip';
 import { ReqMe_lookVip, ResMe_lookVip } from './vip/PtlMe_lookVip';
 
 export interface ServiceType {
@@ -489,12 +490,13 @@ export interface ServiceType {
     msg: {
         "CallAll": MsgCallAll,
         "CallAppoint": MsgCallAppoint,
-        "CallAutoPlay": MsgCallAutoPlay
+        "CallAutoPlay": MsgCallAutoPlay,
+        "vip/LookVip": MsgLookVip
     }
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 55,
+    "version": 56,
     "services": [
         {
             "id": 0,
@@ -988,6 +990,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         },
         {
             "id": 109,
+            "name": "vip/LookVip",
+            "type": "msg"
+        },
+        {
+            "id": 110,
             "name": "vip/Me_lookVip",
             "type": "api"
         }
@@ -2229,6 +2236,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 18,
                     "value": 18
+                },
+                {
+                    "id": 19,
+                    "value": 19
                 }
             ]
         },
@@ -2799,6 +2810,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 1,
                     "name": "channel_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "id",
                     "type": {
                         "type": "String"
                     }
@@ -7266,6 +7284,9 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 }
             ]
+        },
+        "vip/MsgLookVip/MsgLookVip": {
+            "type": "Interface"
         },
         "vip/PtlMe_lookVip/ReqMe_lookVip": {
             "type": "Interface",

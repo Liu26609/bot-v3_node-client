@@ -61,6 +61,9 @@ class shop_team extends task_base_1.task_base {
             case prop_1.storeTeamTemp.forever_secondResHp_1:
                 str = `💖工会全体回复+1`;
                 break;
+            case prop_1.storeTeamTemp.teamExp_1:
+                str = `🏰工会经验+1`;
+                break;
             default:
                 break;
         }

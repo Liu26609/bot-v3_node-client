@@ -1,6 +1,7 @@
 export interface autoInfo {
     startTime: number,
-    channel_id:string
+    channel_id:string,
+    id:string,
 }
 /**
  * 开始自动挂机

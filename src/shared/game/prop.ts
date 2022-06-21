@@ -84,11 +84,11 @@ export interface store_icon {
 /**
  * 声望商店
  */
- export interface store_rankscore{
+export interface store_rankscore {
     /**
              * 出售的模板id
              */
-    sell_temp: {key:rewardKey,val:number},
+    sell_temp: { key: rewardKey, val: number },
     /**
      * 刷新的时间
      */
@@ -250,10 +250,10 @@ export interface prop {
     data: equip;
 }
 export enum rewardKey {
-       /**
-     * 盲盒
-     */
-        BlindBox,
+    /**
+  * 盲盒
+  */
+    BlindBox,
     /**
      * 经验
      */
@@ -302,9 +302,9 @@ export enum rewardKey {
      * 正义值
      */
     justice,
-     /**
-     * 红名值
-     */
+    /**
+    * 红名值
+    */
     evil,
     /**
      * 进化点
@@ -325,7 +325,11 @@ export enum rewardKey {
     /**
      * 强化卡
      */
-     strengthen
+    strengthen,
+    /**
+     * 工会经验
+     */
+    team_exp
 }
 export enum rewardKey_CN {
     exp = '⏳经验',
@@ -346,7 +350,8 @@ export enum rewardKey_CN {
     titleExp = '🌈称号经验',
     petExp = '🍖宠物经验',
     team_devote = '🏰工会贡献',
-    strengthen='⚙️强化碎片'
+    strengthen = '⚙️强化碎片',
+    team_exp = '🏰工会经验'
 }
 
 /**

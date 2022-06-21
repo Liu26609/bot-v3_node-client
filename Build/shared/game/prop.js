@@ -117,6 +117,10 @@ var rewardKey;
      * 强化卡
      */
     rewardKey[rewardKey["strengthen"] = 18] = "strengthen";
+    /**
+     * 工会经验
+     */
+    rewardKey[rewardKey["team_exp"] = 19] = "team_exp";
 })(rewardKey = exports.rewardKey || (exports.rewardKey = {}));
 var rewardKey_CN;
 (function (rewardKey_CN) {
@@ -139,6 +143,7 @@ var rewardKey_CN;
     rewardKey_CN["petExp"] = "\uD83C\uDF56\u5BA0\u7269\u7ECF\u9A8C";
     rewardKey_CN["team_devote"] = "\uD83C\uDFF0\u5DE5\u4F1A\u8D21\u732E";
     rewardKey_CN["strengthen"] = "\u2699\uFE0F\u5F3A\u5316\u788E\u7247";
+    rewardKey_CN["team_exp"] = "\uD83C\uDFF0\u5DE5\u4F1A\u7ECF\u9A8C";
 })(rewardKey_CN = exports.rewardKey_CN || (exports.rewardKey_CN = {}));
 /**
  * 奖励公式类型

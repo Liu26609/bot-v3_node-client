@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 55,
+    "version": 56,
     "services": [
         {
             "id": 0,
@@ -496,6 +496,11 @@ exports.serviceProto = {
         },
         {
             "id": 109,
+            "name": "vip/LookVip",
+            "type": "msg"
+        },
+        {
+            "id": 110,
             "name": "vip/Me_lookVip",
             "type": "api"
         }
@@ -1737,6 +1742,10 @@ exports.serviceProto = {
                 {
                     "id": 18,
                     "value": 18
+                },
+                {
+                    "id": 19,
+                    "value": 19
                 }
             ]
         },
@@ -2307,6 +2316,13 @@ exports.serviceProto = {
                 {
                     "id": 1,
                     "name": "channel_id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "id",
                     "type": {
                         "type": "String"
                     }
@@ -6774,6 +6790,9 @@ exports.serviceProto = {
                     }
                 }
             ]
+        },
+        "vip/MsgLookVip/MsgLookVip": {
+            "type": "Interface"
         },
         "vip/PtlMe_lookVip/ReqMe_lookVip": {
             "type": "Interface",
