@@ -113,6 +113,7 @@ const rank_PhysicalAttacks_1 = require("./rank/rank_PhysicalAttacks");
 const rank_PhysicalDefense_1 = require("./rank/rank_PhysicalDefense");
 const shop_rankscore_1 = require("./shop/shop_rankscore");
 const me_vip_1 = require("./me/me_vip");
+const emoji_1 = require("./sys/emoji");
 var matchType;
 (function (matchType) {
     /**
@@ -137,6 +138,8 @@ class game {
         /**
         * 排行榜指令模块
         */
+        //    emojiMenu
+        this.matchMap.set(`表情指令`, { action: emoji_1.emojiMenu, match: matchType.all });
         this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
         this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });

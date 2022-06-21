@@ -1,13 +1,12 @@
 import bot from "../../unity/bot";
 import { task_base } from "../task_base";
 
-export class baseTaskMenu extends task_base{
+export class emojiMenu extends task_base{
     constructor(...a){
         super(...a)
         this.render();
     }
     render(){
-        let pack = require('../../../package.json');
         let temp = `┏┄😀表情表态快捷指令
 此功能正在测试中,不稳定
 当给部分固定指令的功能添加消息表情时可快捷触发此指令

@@ -101,6 +101,7 @@ import { rank_PhysicalDefense } from './rank/rank_PhysicalDefense';
 import { shop_rankscore } from './shop/shop_rankscore';
 import { switch_CN, CFG_SWITCH } from '../interface/guildCfg';
 import { me_vip } from './me/me_vip';
+import { emojiMenu } from './sys/emoji';
 
 enum matchType {
     /**
@@ -145,7 +146,7 @@ export default class game {
     /**
      * dev tips Map
      */
-    devTipsMap:Map<string,boolean>
+    devTipsMap: Map<string, boolean>
     constructor() {
         this.devTipsMap = new Map();
         this.repeState = new Map();
@@ -158,7 +159,9 @@ export default class game {
         /**
         * 排行榜指令模块
         */
-         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
+        //    emojiMenu
+        this.matchMap.set(`表情指令`, { action: emojiMenu, match: matchType.all })
+        this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
         this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
@@ -319,11 +322,11 @@ export default class game {
         // if(!isNext){
         //     return;
         // }
-     
-     
+
+
         if (data.guild_id != '8512894071433076954' && !this.devTipsMap.has(data.guild_id)) {
             bot.sendText(data.channel_id, `内测中,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
-            this.devTipsMap.set(data.guild_id,true)
+            this.devTipsMap.set(data.guild_id, true)
 
         }
 
