@@ -160,7 +160,6 @@ export default class game {
         * 排行榜指令模块
         */
         //    emojiMenu
-        this.matchMap.set(`表情指令`, { action: emojiMenu, match: matchType.all })
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
         this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })

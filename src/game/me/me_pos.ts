@@ -83,7 +83,7 @@ export class me_pos extends task_base {
         }
         temp += `┗┄━${this.at()}━┄`
 
-        bot.sendText(this.channel_id, temp,'攻击怪物')
+        bot.sendText(this.channel_id, temp)
 
     }
 }

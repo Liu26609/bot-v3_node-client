@@ -20,7 +20,6 @@ export class baseTaskMenu extends task_base{
 ￣￣￣￣￣￣＼高级功能／￣￣￣￣
 ＞复读　　　　　　　　　　挂机＜
 ＞更新日志　　　　　　赞助会员＜
-＞表情指令　　　　　　　　　　＜
 ┗┄━══════════━┄`;
 // 飞升任务
 // 设置

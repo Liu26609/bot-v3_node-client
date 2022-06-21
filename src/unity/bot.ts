@@ -17,13 +17,7 @@ class bot {
     private channelMap: Map<string, number>;//子频道ID，上次此频道活跃时间
     private userActiveChannelMap: Map<string, string>;//玩家上次活跃的频道
     private locaDev: string;
-    /**
-     * 消息ID
-     * 触发指令
-     */
-    private machMap: Map<string, string>
     constructor() {
-        this.machMap = new Map();
         this.msgIdMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
@@ -154,7 +148,7 @@ class bot {
      * @param channelID 频道ID
      * @param content 文字内容
      */
-    async sendText(channelID: string, content: string, triggerKey?: string) {
+    async sendText(channelID: string, content: string) {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
@@ -187,15 +181,7 @@ class bot {
                 err('消息发送错误', msg_id, content)
             }
         }).then((res) => {
-            console.log('res', res)
-            if (triggerKey) {
-                this.machMap.set(res.data.id, triggerKey)
-                try {
-                    this.addEmoji(channelID, res.data.id)
-                } catch (error) {
-                    
-                }
-            }
+
         })
     }
     async addEmoji(channelId: string, msgId: string) {
@@ -235,7 +221,7 @@ class bot {
             err('消息发送错误')
         })
     }
-    async sendEmbed(channelID: string, embed: any,triggerKey?) {
+    async sendEmbed(channelID: string, embed: any) {
         let msg_id;
 
         msg_id = this.getMsgId(channelID)
@@ -256,14 +242,7 @@ class bot {
         }).catch(() => {
             err('消息发送错误')
         }).then((res)=>{
-            if (triggerKey) {
-                this.machMap.set(res.data.id, triggerKey)
-                try {
-                    this.addEmoji(channelID, res.data.id)
-                } catch (error) {
-                    
-                }
-            }
+
         })
     }
     /**
@@ -333,33 +312,33 @@ class bot {
             err('没有找到可用消息ID')
             return;
         }
-        if (this.machMap.has(data.msg.target.id)) {
-            // 处理指令
-            let content = this.machMap.get(data.msg.target.id);
-            if(!content){
-                err('内容为空')
-                return;
-            }
-            console.log(this.machMap.get(data.msg.target.id))
-            let tempData = {
-                author: {
-                    avatar:'',
-                    bot:false,
-                    id:data.msg.user_id,
-                    username:'匿名用户'
-                },
-                channel_id: data.msg.channel_id,
-                content: content,
-                guild_id: data.msg.guild_id,
-                id: msg_id,
-                timestamp: '',
-                member: { joined_at: '', nick: '', roles: [''] },
-                mentions: [],
-                seq: 1,
-                seq_in_channel: '',
-            }
-            this._onMsg_at(tempData)
-        }
+        // if (this.machMap.has(data.msg.target.id)) {
+        //     // 处理指令
+        //     let content = this.machMap.get(data.msg.target.id);
+        //     if(!content){
+        //         err('内容为空')
+        //         return;
+        //     }
+        //     console.log(this.machMap.get(data.msg.target.id))
+        //     let tempData = {
+        //         author: {
+        //             avatar:'',
+        //             bot:false,
+        //             id:data.msg.user_id,
+        //             username:'匿名用户'
+        //         },
+        //         channel_id: data.msg.channel_id,
+        //         content: content,
+        //         guild_id: data.msg.guild_id,
+        //         id: msg_id,
+        //         timestamp: '',
+        //         member: { joined_at: '', nick: '', roles: [''] },
+        //         mentions: [],
+        //         seq: 1,
+        //         seq_in_channel: '',
+        //     }
+        //     this._onMsg_at(tempData)
+        // }
         // const options = {
         //     timeTo:(Date.now() + 2000 / 1000).toFixed(0)
         // }
