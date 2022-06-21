@@ -3865,7 +3865,37 @@ exports.serviceProto = {
             ]
         },
         "PtlMe_destroyBagEquip/ResMe_destroyBagEquip": {
-            "type": "Interface"
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "optional": true
+                }
+            ]
         },
         "PtlMe_destroyMeSkill/ReqMe_destroyMeSkill": {
             "type": "Interface",

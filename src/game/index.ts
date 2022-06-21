@@ -141,7 +141,13 @@ export default class game {
      * 复读状态
      */
     repeState: Map<string, boolean>
+
+    /**
+     * dev tips Map
+     */
+    devTipsMap:Map<string,boolean>
     constructor() {
+        this.devTipsMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
         this.contentMap = new Map()
@@ -188,7 +194,7 @@ export default class game {
         this.matchMap.set('挂机', { action: me_AutoPlay, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
-        this.matchMap.set('销毁全部装备', { action: me_destroyBagEquip, match: matchType.all })
+        this.matchMap.set('分解全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('一言', { action: addOneWord, match: matchType.match })
         this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
         this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
@@ -200,7 +206,7 @@ export default class game {
         this.matchMap.set('查询技能', { action: searchSkill, match: matchType.match })
         this.matchMap.set('我的装备', { action: me_equip, match: matchType.all })
         this.matchMap.set('遗忘技能', { action: me_destroyMeSkill, match: matchType.match })
-        this.matchMap.set('销毁装备', { action: me_destroyBagEquip, match: matchType.match })
+        this.matchMap.set('分解装备', { action: me_destroyBagEquip, match: matchType.match })
         this.matchMap.set('装备商店', { action: shop_equip, match: matchType.all })
         this.matchMap.set('购买装备', { action: shop_equip_buy, match: matchType.all })
         this.matchMap.set('技能商店', { action: shop_skill, match: matchType.all })
@@ -278,6 +284,7 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
+        log('收到消息', data.guild_id, data.author.username, data.content)
         // return
         if (!sever.isReady()) {
             let temp = ``;
@@ -312,13 +319,13 @@ export default class game {
         // if(!isNext){
         //     return;
         // }
-        log('收到消息', data.guild_id, data.author.username, data.content)
      
-        // if (data.guild_id != '8512894071433076954') {
-        //     bot.sendText(data.channel_id, `内测中,请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
-        //     return
-        
-        // }
+     
+        if (data.guild_id != '8512894071433076954' && !this.devTipsMap.has(data.guild_id)) {
+            bot.sendText(data.channel_id, `内测中,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
+            this.devTipsMap.set(data.guild_id,true)
+
+        }
 
         // if (data.author.id != '14139673525601401123') {
         //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)

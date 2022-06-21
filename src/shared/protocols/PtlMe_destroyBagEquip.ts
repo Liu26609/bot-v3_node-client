@@ -1,3 +1,5 @@
+import { rewardKey } from "../game/prop"
+
 export interface ReqMe_destroyBagEquip {
     userId: string,
     /**
@@ -7,7 +9,7 @@ export interface ReqMe_destroyBagEquip {
 }
 
 export interface ResMe_destroyBagEquip {
-    
+    reward?:{key:rewardKey,val:number}[]
 }
 
 // export const conf = {}
