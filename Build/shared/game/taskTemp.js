@@ -13,6 +13,12 @@ var taskType;
     taskType[taskType["ladder_1"] = 1] = "ladder_1";
     taskType[taskType["ladder_2"] = 2] = "ladder_2";
     taskType[taskType["ladder_3"] = 3] = "ladder_3";
+    taskType[taskType["ladder_4"] = 4] = "ladder_4";
+    taskType[taskType["ladder_5"] = 5] = "ladder_5";
+    taskType[taskType["ladder_6"] = 6] = "ladder_6";
+    taskType[taskType["ladder_7"] = 7] = "ladder_7";
+    taskType[taskType["ladder_8"] = 8] = "ladder_8";
+    taskType[taskType["ladder_9"] = 9] = "ladder_9";
 })(taskType = exports.taskType || (exports.taskType = {}));
 var taskType_CN;
 (function (taskType_CN) {
@@ -26,6 +32,12 @@ var taskType_CN;
     taskType_CN["ladder_1"] = "\u9636\u68AF\u8BA1\u5212(\u4E00\u7EA7)";
     taskType_CN["ladder_2"] = "\u9636\u68AF\u8BA1\u5212(\u4E8C\u7EA7)";
     taskType_CN["ladder_3"] = "\u9636\u68AF\u8BA1\u5212(\u4E09\u7EA7)";
+    taskType_CN["ladder_4"] = "\u9636\u68AF\u8BA1\u5212(\u56DB\u7EA7)";
+    taskType_CN["ladder_5"] = "\u9636\u68AF\u8BA1\u5212(\u4E94\u7EA7)";
+    taskType_CN["ladder_6"] = "\u9636\u68AF\u8BA1\u5212(\u516D\u7EA7)";
+    taskType_CN["ladder_7"] = "\u9636\u68AF\u8BA1\u5212(\u4E03\u7EA7)";
+    taskType_CN["ladder_8"] = "\u9636\u68AF\u8BA1\u5212(\u516B\u7EA7)";
+    taskType_CN["ladder_9"] = "\u9636\u68AF\u8BA1\u5212(\u4E5D\u7EA7)";
 })(taskType_CN = exports.taskType_CN || (exports.taskType_CN = {}));
 var TaskId;
 (function (TaskId) {
@@ -42,7 +54,7 @@ var TaskId;
      */
     TaskId[TaskId["PK"] = 2] = "PK";
     /**
-     * 捕捉宠物
+     * 捕捉成功宠物
      */
     TaskId[TaskId["catch"] = 3] = "catch";
     /**
@@ -74,15 +86,19 @@ var TaskId;
      */
     TaskId[TaskId["lottery_partake"] = 10] = "lottery_partake";
     /**
+     * 猜数胜利
+     */
+    TaskId[TaskId["lottery_win"] = 11] = "lottery_win";
+    /**
      * 击杀一次BOSS
      */
-    TaskId[TaskId["attackBoss_kill"] = 11] = "attackBoss_kill";
+    TaskId[TaskId["attackBoss_kill"] = 12] = "attackBoss_kill";
     /**
      * 成功强化一次装备
      */
-    TaskId[TaskId["strengthen_succress"] = 12] = "strengthen_succress";
+    TaskId[TaskId["strengthen_succress"] = 13] = "strengthen_succress";
     /**
      * 捕捉一次宠物
      */
-    TaskId[TaskId["docile_partake"] = 13] = "docile_partake";
+    TaskId[TaskId["docile_partake"] = 14] = "docile_partake";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

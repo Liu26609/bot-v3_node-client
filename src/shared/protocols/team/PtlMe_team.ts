@@ -7,7 +7,7 @@ export interface ReqMe_team {
 export interface ResMe_team {
     info:TEAM_INFO | undefined,
     myLeve:teamLeve,
-    myContribute:number
+    myContribute:number,
 }
 
 // export const conf = {}

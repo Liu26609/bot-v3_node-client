@@ -35,7 +35,13 @@ export enum taskType {
      */
     ladder_1,
     ladder_2,
-    ladder_3
+    ladder_3,
+    ladder_4,
+    ladder_5,
+    ladder_6,
+    ladder_7,
+    ladder_8,
+    ladder_9
 }
 export enum taskType_CN {
     /**
@@ -47,7 +53,13 @@ export enum taskType_CN {
      */
      ladder_1 = '阶梯计划(一级)',
      ladder_2 = '阶梯计划(二级)',
-     ladder_3 = '阶梯计划(三级)'
+     ladder_3 = '阶梯计划(三级)',
+     ladder_4 = '阶梯计划(四级)',
+     ladder_5 = '阶梯计划(五级)',
+     ladder_6 = '阶梯计划(六级)',
+     ladder_7 = '阶梯计划(七级)',
+     ladder_8 = '阶梯计划(八级)',
+     ladder_9 = '阶梯计划(九级)'
 }
 export enum TaskId {
     /**
@@ -63,7 +75,7 @@ export enum TaskId {
      */
     PK,
     /**
-     * 捕捉宠物
+     * 捕捉成功宠物
      */
     catch,
     /**
@@ -94,6 +106,10 @@ export enum TaskId {
      * 参与猜数
      */
     lottery_partake,
+    /**
+     * 猜数胜利
+     */
+    lottery_win,
     /**
      * 击杀一次BOSS
      */
