@@ -43,6 +43,7 @@ export class me_vip extends task_base{
         temp += '4.可自己创建一个专属机器人\n'
         temp += '7.签到奖励翻倍\n'
         temp += '8.更新可享更多特权..\n'
+        temp += '9.联系QQ3245000000\n'
         temp += `┗┄━══════════━┄`
         bot.sendText(this.channel_id,temp)
     }
