@@ -330,10 +330,9 @@ export default class game {
         // }
 
 
-        if (data.guild_id != '8512894071433076954' && !this.devTipsMap.has(data.guild_id)) {
-            bot.sendText(data.channel_id, `内测中,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
+        if (!this.devTipsMap.has(data.guild_id)) {
+            bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
             this.devTipsMap.set(data.guild_id, true)
-
         }
 
         // if (data.author.id != '14139673525601401123') {
