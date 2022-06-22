@@ -34,9 +34,25 @@ export class soaringTask extends task_base {
             case TaskId.attackBoss_kill:
                 str = `击杀世界BOSS`
                 break;
+            case TaskId.PK:
+                str = `频道内[PK]其他玩家`
+                break;
+            case TaskId.PK:
+                str = `[华山论剑]一决高下`
+                break;
+            case TaskId.sign:
+                str = `[签到]每日签到`
+                break;
+            case TaskId.docile_partake:
+                str = `[捕捉]捕捉宠物`
+                break;
+            case TaskId.lottery_win:
+                str = `[猜数]猜中数字`
+                break;
             default:
                 str = `未收录任务id${id}`
                 break;
+
         }
         return str
     }
