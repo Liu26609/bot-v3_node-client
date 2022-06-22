@@ -16,6 +16,7 @@ var storeBackTemp;
     storeBackTemp[storeBackTemp["forever_secondResHp_01"] = 5] = "forever_secondResHp_01";
     storeBackTemp[storeBackTemp["randomPoint"] = 6] = "randomPoint";
     storeBackTemp[storeBackTemp["team_contribution_now"] = 7] = "team_contribution_now";
+    storeBackTemp[storeBackTemp["team_exp"] = 8] = "team_exp";
 })(storeBackTemp = exports.storeBackTemp || (exports.storeBackTemp = {}));
 var storeTeamTemp;
 (function (storeTeamTemp) {

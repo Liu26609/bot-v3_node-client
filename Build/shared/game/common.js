@@ -218,6 +218,10 @@ class common {
                 // 每触发一次提高N点物理防御
                 temp += `每次触发提高${info.data[0]}%全属性,可无限叠加最高可到一亿亿亿亿亿亿亿亿亿亿`;
                 break;
+            case skill_1.SKILL_TYPE.resHp_fixed:
+                // 每触发一次提高N点物理防御
+                temp += `每次触发回复${info.data[0]}生命`;
+                break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
                 break;

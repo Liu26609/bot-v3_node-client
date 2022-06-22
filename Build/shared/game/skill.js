@@ -67,6 +67,10 @@ var SKILL_TYPE;
      * 参数1:百分比值
      */
     SKILL_TYPE[SKILL_TYPE["upAll"] = 11] = "upAll";
+    /**
+     * 回复固定N点生命
+     */
+    SKILL_TYPE[SKILL_TYPE["resHp_fixed"] = 12] = "resHp_fixed";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -151,6 +155,10 @@ var SKILL_UNITY;
      * 提高全属性
      */
     SKILL_UNITY[SKILL_UNITY["upAll"] = 6] = "upAll";
+    /**
+     * 恢复生命
+     */
+    SKILL_UNITY[SKILL_UNITY["resHp"] = 7] = "resHp";
 })(SKILL_UNITY = exports.SKILL_UNITY || (exports.SKILL_UNITY = {}));
 var SKILL_UNITY_CN;
 (function (SKILL_UNITY_CN) {
@@ -182,4 +190,5 @@ var SKILL_UNITY_CN;
      * 提高全部属性
      */
     SKILL_UNITY_CN["upAll"] = "\uD83D\uDD3A";
+    SKILL_UNITY_CN["resHp"] = "\uD83D\uDC96";
 })(SKILL_UNITY_CN = exports.SKILL_UNITY_CN || (exports.SKILL_UNITY_CN = {}));

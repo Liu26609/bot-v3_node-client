@@ -62,7 +62,11 @@ export enum SKILL_TYPE {
      * 每次触发提高N%全属性
      * 参数1:百分比值
      */
-    upAll
+    upAll,
+    /**
+     * 回复固定N点生命
+     */
+    resHp_fixed
 }
 /**
  * 主动技能
@@ -161,7 +165,11 @@ export enum SKILL_UNITY {
     /**
      * 提高全属性
      */
-    upAll
+    upAll,
+    /**
+     * 恢复生命
+     */
+    resHp
 }
 export enum SKILL_UNITY_CN {
     /**
@@ -191,7 +199,8 @@ export enum SKILL_UNITY_CN {
     /**
      * 提高全部属性
      */
-    upAll = '🔺'
+    upAll = '🔺',
+    resHp = '💖'
 }
 export interface SKILL_RES {
     // 技能id

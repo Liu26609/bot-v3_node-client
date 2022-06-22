@@ -49,6 +49,12 @@ export class shop_back extends task_base {
             case storeBackTemp.randomPoint:
                 str = `💖向全服随机暴露一个玩家的坐标`
                 break;
+            case storeBackTemp.team_contribution_now:
+                str = `🏰工会贡献+10`
+                break;
+            case storeBackTemp.team_exp:
+                str = `🏰工会经验+1`
+                break;
             default:
                 break;
         }

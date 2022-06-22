@@ -123,6 +123,7 @@ export enum storeBackTemp {
     forever_secondResHp_01,
     randomPoint,//随机玩家的坐标
     team_contribution_now,//工会贡献
+    team_exp,//工会经验
 }
 
 export interface store_team {
