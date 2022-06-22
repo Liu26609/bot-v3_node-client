@@ -28,7 +28,8 @@ export class me_vip extends task_base{
         temp += '3.宠物数量上限+5\n'
         temp += '4.可自己创建一个专属机器人\n'
         temp += '6.可控制机器人更新\n'
-        temp += '7.更新可享更多特权..\n'
+        temp += '7.签到奖励翻倍\n'
+        temp += '8.更新可享更多特权..\n'
         temp += `┗┄━══════════━┄`
         bot.sendText(this.channel_id,temp)
     }
@@ -40,7 +41,8 @@ export class me_vip extends task_base{
         temp += '2.背包数量上限+20\n'
         temp += '3.宠物数量上限+5\n'
         temp += '4.可自己创建一个专属机器人\n'
-        temp += '5.更新可享更多特权..\n'
+        temp += '7.签到奖励翻倍\n'
+        temp += '8.更新可享更多特权..\n'
         temp += `┗┄━══════════━┄`
         bot.sendText(this.channel_id,temp)
     }
