@@ -34,7 +34,7 @@ export class pos_attackPlayer extends task_base {
         temp += `<emoji:187>本次战斗共${data.battleRound}回合\n`
         temp += battleTemp.getKillProcess();
 
-
+        
         temp += `┏┄════🎁战斗结果═══━┄\n`;
         if (battleTemp.getReward()) {
             temp += battleTemp.getReward()

@@ -54,8 +54,8 @@ class soaringTask extends task_base_1.task_base {
             case taskTemp_1.TaskId.PK:
                 str = `频道内[PK]其他玩家`;
                 break;
-            case taskTemp_1.TaskId.PK:
-                str = `[华山论剑]一决高下`;
+            case taskTemp_1.TaskId.rank:
+                str = `[华山论剑]菜鸡互啄`;
                 break;
             case taskTemp_1.TaskId.sign:
                 str = `[签到]每日签到`;
