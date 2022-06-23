@@ -51,6 +51,15 @@ export class auction extends task_base{
         }else if(auctionStr.includes(walletKey_CNText[walletKey[walletKey.transferCard]])){
             type = autionType.wallet;
             key = walletKey.transferCard
+        }else if(auctionStr.includes(walletKey_CNText[walletKey[walletKey.strengthen]])){
+            type = autionType.wallet;
+            key = walletKey.strengthen
+        }else if(auctionStr.includes(walletKey_CNText[walletKey[walletKey.spiritBall]])){
+            type = autionType.wallet;
+            key = walletKey.spiritBall
+        }else if(auctionStr.includes(walletKey_CNText[walletKey[walletKey.evolveCard]])){
+            type = autionType.wallet;
+            key = walletKey.evolveCard
         }
         
         if(typeof(type) == 'undefined'){

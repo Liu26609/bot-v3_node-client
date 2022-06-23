@@ -71,6 +71,18 @@ class auction extends task_base_1.task_base {
                 type = prop_1.autionType.wallet;
                 key = user_1.walletKey.transferCard;
             }
+            else if (auctionStr.includes(user_1.walletKey_CNText[user_1.walletKey[user_1.walletKey.strengthen]])) {
+                type = prop_1.autionType.wallet;
+                key = user_1.walletKey.strengthen;
+            }
+            else if (auctionStr.includes(user_1.walletKey_CNText[user_1.walletKey[user_1.walletKey.spiritBall]])) {
+                type = prop_1.autionType.wallet;
+                key = user_1.walletKey.spiritBall;
+            }
+            else if (auctionStr.includes(user_1.walletKey_CNText[user_1.walletKey[user_1.walletKey.evolveCard]])) {
+                type = prop_1.autionType.wallet;
+                key = user_1.walletKey.evolveCard;
+            }
             if (typeof (type) == 'undefined') {
                 new auction_look_1.auction_look(...this.args);
                 return;
