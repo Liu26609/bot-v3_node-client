@@ -27,10 +27,9 @@ export class me_vip extends task_base{
         temp += '2.背包数量上限+20\n'
         temp += '3.宠物数量上限+5\n'
         temp += '4.可自己创建一个专属机器人\n'
-        temp += '6.可控制机器人更新\n'
-        temp += '7.签到奖励翻倍\n'
-        temp += '9.免费创建工会\n'
-        temp += '10.更新可享更多特权..\n'
+        temp += '5.签到奖励翻倍\n'
+        temp += '6.免费创建工会\n'
+        temp += '7.更新可享更多特权..\n'
         temp += `┗┄━══════════━┄`
         bot.sendText(this.channel_id,temp)
     }
@@ -39,15 +38,14 @@ export class me_vip extends task_base{
         temp += '你还不是赞助会员哦~会员没有到期时间,一次付费永久使用\n'
         temp += '做这个机器人没有任何收益，全靠用热爱发电做，所以下一秒不能用了也不足为奇\n'
         temp += '┄════👑会员特权═══━┄\n'
-        temp += '1.挂机不消耗小鱼干且能获得挂机碎片\n'
+        temp += '1.挂机不消耗小鱼干且能获得装备碎片\n'
         temp += '2.背包数量上限+20\n'
         temp += '3.宠物数量上限+5\n'
         temp += '4.可自己创建一个专属机器人\n'
-        temp += '7.签到奖励翻倍\n'
-        temp += '8.更新可享更多特权..\n'
-        temp += '9.免费创建工会\n'
-        temp += '10.更新可享更多特权..\n'
-        temp += '9.联系QQ3245000000\n'
+        temp += '5.签到奖励翻倍\n'
+        temp += '6.免费创建工会\n'
+        temp += '7.更新可享更多特权..\n'
+        temp += '8.联系QQ550620904\n'
         temp += `┗┄━══════════━┄`
         bot.sendText(this.channel_id,temp)
     }

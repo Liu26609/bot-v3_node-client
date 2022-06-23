@@ -41,9 +41,10 @@ export class setUp extends task_base {
             }
         }
         // temp += `[设置默认样式风格]目前有1种风格\n`;
-        temp += `[设置消息文本模式]消息采用文本+表情发送\n`;
-        temp += `[设置消息卡片模式]目前在部分PC端不会显示内容\n`;
-        temp += `卡片模式目前并不推荐。也不会花大心思去做这个\n`;
+        temp += `[设置消息文本模式]消息采用文本+表情\n`;
+        temp += `[设置消息卡片模式]目前部分PC端不会显示内容\n`;
+        temp += `[设置不显示地图坐标]目前部分PC端不会显示内容\n`;
+        temp += `[设置显示地图坐标]目前部分PC端不会显示内容\n`;
         temp += `官方不给按钮权限,你可以去官方天天刷反馈。\n`;
         temp += `┗┄━══════════━┄`;
 
@@ -71,6 +72,12 @@ export class setUp extends task_base {
             case '设置消息卡片模式':
                 this.UserCfg.msgTemplate = USER_CFG_MSGTEMPLATE.card
                 break;
+            case '设置不显示地图坐标':
+                this.UserCfg.isShowPos = false;
+                break;
+            case '设置显示地图坐标':
+                this.UserCfg.isShowPos = true;
+                break;
             case `${switch_CN[CFG_SWITCH.open]}艾特所有人权限`:
                 if (!this.isMaster()) {
                     this.notPass();
@@ -83,6 +90,7 @@ export class setUp extends task_base {
                     return;
                 }
                 break;
+
             default:
                 this.notDevFunction();
                 return;

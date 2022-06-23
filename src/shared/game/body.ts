@@ -180,6 +180,7 @@ export enum DNA_Leve {
     SSS,
     // 超脱
     MAX,
+    MAXX
 }
 export enum DNA_CN {
     F = '未解开基因锁',

@@ -12,6 +12,7 @@ export interface userCfg{
     textStrStyle:USER_CFG_TEXTSTRSTYLE;
     // 消息模板
     msgTemplate:USER_CFG_MSGTEMPLATE;
+    isShowPos?:boolean
 }
 export enum USER_CFG_TEXTSTRSTYLE{
     // 默认样式

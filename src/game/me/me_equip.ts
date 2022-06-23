@@ -47,6 +47,7 @@ export class me_equip extends task_base {
                 // temp += `♥️${common.BN(common.converEquipattribute(info, `hp_max`))}💖${common.BN(common.converEquipattribute(info, `secondResHp`))}🌟${common.BN(common.converEquipattribute(info, `MagicDefense`))}\n`
                 // temp += `🔮${common.BN(common.converEquipattribute(info, `MagicAttack`))}🔪${common.BN(common.converEquipattribute(info, `PhysicalAttacks`))}🔰${common.BN(common.converEquipattribute(info, `PhysicalDefense`))}\n`;
             });
+            temp = temp.replace('\n\n','\n')
         } else {
             temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
         }

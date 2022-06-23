@@ -60,6 +60,7 @@ var DNA_Leve;
     DNA_Leve[DNA_Leve["SSS"] = 18] = "SSS";
     // 超脱
     DNA_Leve[DNA_Leve["MAX"] = 19] = "MAX";
+    DNA_Leve[DNA_Leve["MAXX"] = 20] = "MAXX";
 })(DNA_Leve = exports.DNA_Leve || (exports.DNA_Leve = {}));
 var DNA_CN;
 (function (DNA_CN) {

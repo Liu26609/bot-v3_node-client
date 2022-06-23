@@ -31,7 +31,12 @@ export class me_pos extends task_base {
 
         
         let temp = ``;
-        temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
+        if(this.UserCfg.isShowPos){
+            temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
+        }else{
+            temp += `┏┄🌏[已设置隐藏坐标]━┄\n`;
+        }
+        
         temp += `                     ${data.isTop ? '上' : '⛔'}\n`;
         temp += `  ${data.isLeft ? '左' : '⛔'}              ${data.meIcon}              ${data.isRight ? '右' : '⛔'}\n`;
         temp += `                     ${data.isButtom ? '下' : '⛔'}\n`;
