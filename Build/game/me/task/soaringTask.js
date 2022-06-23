@@ -66,6 +66,9 @@ class soaringTask extends task_base_1.task_base {
             case taskTemp_1.TaskId.lottery_win:
                 str = `[猜数]猜中数字`;
                 break;
+            case taskTemp_1.TaskId.attackMonster:
+                str = `[攻击怪物]刷怪睡觉吃饭`;
+                break;
             default:
                 str = `未收录任务id${id}`;
                 break;

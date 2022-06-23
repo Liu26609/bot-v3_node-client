@@ -31,7 +31,7 @@ export class randomAncestry extends task_base{
 🔻消耗${walletKey_CN[walletKey[pay.condition.key]]}x${pay.condition.val}
 ▶️还有${walletKey_CN[walletKey[pay.condition.key]]}x${pay.now}
 ┗┄━${this.at()}━┄
-<emoji:147>成长分数越高升级速度越慢哦`;
+<emoji:147>重新血统会清空经验和等级哦`;
         bot.sendText(this.channel_id,temp);
     }
 }

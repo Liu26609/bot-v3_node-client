@@ -47,6 +47,9 @@ class everDayTask extends task_base_1.task_base {
             case taskTemp_1.TaskId.sign:
                 str = `[签到]签什么到，钓鱼去！`;
                 break;
+            case taskTemp_1.TaskId.SkillShop_look:
+                str = `[技能商店]查看技能商店`;
+                break;
             case taskTemp_1.TaskId.BackShop_look:
                 str = `[黑市商店]不正当的PY商店`;
                 break;
