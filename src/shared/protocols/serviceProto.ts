@@ -496,7 +496,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 60,
+    "version": 61,
     "services": [
         {
             "id": 0,
@@ -2769,14 +2769,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                                 }
                             ]
                         }
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]

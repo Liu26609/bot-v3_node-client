@@ -3,38 +3,27 @@ import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import bot from '../../unity/bot';
 import common from '../../shared/game/common';
 import sever from '../../unity/sever';
-import { task_base } from './../task_base';
-export class openMapChestBox extends task_base {
+import { task_base } from '../task_base';
+export class openMapChestBox_all extends task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     menu() {
         let temp = `┏┄═════🎁打开宝箱═══━┄
-打开指令：打开宝箱 + 数字
-如:@我 打开宝箱1
+打开指令：打开全部宝箱
+如:@我 打开全部宝箱
 ps:宝箱会在地图上击杀怪物后随机掉落
 ┗┄━${this.at()}━┄`
         bot.sendText(this.channel_id, temp)
     }
     async render() {
         // 判断宝箱ID
-        if (this.content == this.matchKey) {
+        if (this.content != this.matchKey) {
             this.menu();
             return;
         }
-        let openStr = this.content.replace(this.matchKey, '');
-        let openIndex = Math.ceil(Number(openStr));
-        if (isNaN(openIndex) || openIndex < 0) {
-
-            this.log('打开宝箱的ID不能小于0')
-            return;
-        }
-        if(openIndex > 10000){
-            this.log('打开宝箱的数量不能大于10000')
-            return;
-        }
-        let req = await sever.callApi('map/OpenMapChestBox', { userId: this.userId, openIndex: openIndex });
+        let req = await sever.callApi('map/OpenMapChestBox', { userId: this.userId, openIndex: 88 });
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

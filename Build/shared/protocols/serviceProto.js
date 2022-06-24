@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 60,
+    "version": 61,
     "services": [
         {
             "id": 0,
@@ -2275,14 +2275,6 @@ exports.serviceProto = {
                                 }
                             ]
                         }
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]

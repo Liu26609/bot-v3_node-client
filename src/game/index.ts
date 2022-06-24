@@ -102,6 +102,7 @@ import { shop_rankscore } from './shop/shop_rankscore';
 import { switch_CN, CFG_SWITCH } from '../interface/guildCfg';
 import { me_vip } from './me/me_vip';
 import { emojiMenu } from './sys/emoji';
+import { openMapChestBox_all } from './map/openMapChestBox_all';
 
 enum matchType {
     /**
@@ -211,6 +212,7 @@ export default class game {
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
         this.matchMap.set('打开宝箱', { action: openMapChestBox, match: matchType.match })
+        this.matchMap.set('打开全部宝箱', { action: openMapChestBox_all, match: matchType.all })
         this.matchMap.set('打开盲盒', { action: me_openBlindBox, match: matchType.match })
         this.matchMap.set('查询技能', { action: searchSkill, match: matchType.match })
         this.matchMap.set('我的装备', { action: me_equip, match: matchType.all })

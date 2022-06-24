@@ -113,6 +113,7 @@ const rank_PhysicalAttacks_1 = require("./rank/rank_PhysicalAttacks");
 const rank_PhysicalDefense_1 = require("./rank/rank_PhysicalDefense");
 const shop_rankscore_1 = require("./shop/shop_rankscore");
 const me_vip_1 = require("./me/me_vip");
+const openMapChestBox_all_1 = require("./map/openMapChestBox_all");
 var matchType;
 (function (matchType) {
     /**
@@ -183,6 +184,7 @@ class game {
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('基础指令', { action: baseTaskMenu_1.baseTaskMenu, match: matchType.match });
         this.matchMap.set('打开宝箱', { action: openMapChestBox_1.openMapChestBox, match: matchType.match });
+        this.matchMap.set('打开全部宝箱', { action: openMapChestBox_all_1.openMapChestBox_all, match: matchType.all });
         this.matchMap.set('打开盲盒', { action: me_openBlindBox_1.me_openBlindBox, match: matchType.match });
         this.matchMap.set('查询技能', { action: searchSkill_1.searchSkill, match: matchType.match });
         this.matchMap.set('我的装备', { action: me_equip_1.me_equip, match: matchType.all });

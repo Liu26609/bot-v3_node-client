@@ -12,20 +12,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.openMapChestBox = void 0;
+exports.openMapChestBox_all = void 0;
 const prop_1 = require("../../shared/game/prop");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
-const task_base_1 = require("./../task_base");
-class openMapChestBox extends task_base_1.task_base {
+const task_base_1 = require("../task_base");
+class openMapChestBox_all extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     menu() {
         let temp = `┏┄═════🎁打开宝箱═══━┄
-打开指令：打开宝箱 + 数字
-如:@我 打开宝箱1
+打开指令：打开全部宝箱
+如:@我 打开全部宝箱
 ps:宝箱会在地图上击杀怪物后随机掉落
 ┗┄━${this.at()}━┄`;
         bot_1.default.sendText(this.channel_id, temp);
@@ -33,21 +33,11 @@ ps:宝箱会在地图上击杀怪物后随机掉落
     render() {
         return __awaiter(this, void 0, void 0, function* () {
             // 判断宝箱ID
-            if (this.content == this.matchKey) {
+            if (this.content != this.matchKey) {
                 this.menu();
                 return;
             }
-            let openStr = this.content.replace(this.matchKey, '');
-            let openIndex = Math.ceil(Number(openStr));
-            if (isNaN(openIndex) || openIndex < 0) {
-                this.log('打开宝箱的ID不能小于0');
-                return;
-            }
-            if (openIndex > 10000) {
-                this.log('打开宝箱的数量不能大于10000');
-                return;
-            }
-            let req = yield sever_1.default.callApi('map/OpenMapChestBox', { userId: this.userId, openIndex: openIndex });
+            let req = yield sever_1.default.callApi('map/OpenMapChestBox', { userId: this.userId, openIndex: 88 });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
@@ -78,4 +68,4 @@ ps:宝箱会在地图上击杀怪物后随机掉落
         });
     }
 }
-exports.openMapChestBox = openMapChestBox;
+exports.openMapChestBox_all = openMapChestBox_all;
