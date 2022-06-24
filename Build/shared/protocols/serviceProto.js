@@ -440,6 +440,21 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 111,
+            "name": "store/store_get",
+            "type": "api"
+        },
+        {
+            "id": 112,
+            "name": "store/store_look",
+            "type": "api"
+        },
+        {
+            "id": 113,
+            "name": "store/store_save_equip",
+            "type": "api"
+        },
+        {
             "id": 86,
             "name": "task/EverDayTask",
             "type": "api"
@@ -3238,6 +3253,32 @@ exports.serviceProto = {
                                 }
                             }
                         ]
+                    }
+                },
+                {
+                    "id": 16,
+                    "name": "store",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "type",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "data",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 },
                 {
@@ -6368,6 +6409,93 @@ exports.serviceProto = {
                     "value": 6
                 }
             ]
+        },
+        "store/Ptlstore_get/Reqstore_get": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "storeIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_get/Resstore_get": {
+            "type": "Interface"
+        },
+        "store/Ptlstore_look/Reqstore_look": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_look/Resstore_look": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "store",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "type",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "data",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_save_equip/Reqstore_save_equip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "bagIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_save_equip/Resstore_save_equip": {
+            "type": "Interface"
         },
         "task/PtlEverDayTask/ReqEverDayTask": {
             "type": "Interface",

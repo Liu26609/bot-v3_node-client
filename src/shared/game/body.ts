@@ -13,6 +13,10 @@ export interface body extends BASE_BODYS {
     sys: {
         creator_time: number
     },
+    /**
+     * 0资源，1装备
+     */
+    store:{type:any,data:any}[],
     equip: {
         weapons?: equip,
         /**

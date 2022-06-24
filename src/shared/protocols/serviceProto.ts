@@ -86,6 +86,9 @@ import { ReqShop_skill_buy, ResShop_skill_buy } from './shop/PtlShop_skill_buy';
 import { ReqShop_skill, ResShop_skill } from './shop/PtlShop_skill';
 import { ReqShop_team_buy, ResShop_team_buy } from './shop/PtlShop_team_buy';
 import { ReqShop_team, ResShop_team } from './shop/PtlShop_team';
+import { Reqstore_get, Resstore_get } from './store/Ptlstore_get';
+import { Reqstore_look, Resstore_look } from './store/Ptlstore_look';
+import { Reqstore_save_equip, Resstore_save_equip } from './store/Ptlstore_save_equip';
 import { ReqEverDayTask, ResEverDayTask } from './task/PtlEverDayTask';
 import { ReqsoaringTask, RessoaringTask } from './task/PtlsoaringTask';
 import { ReqChangeName_team, ResChangeName_team } from './team/PtlChangeName_team';
@@ -437,6 +440,18 @@ export interface ServiceType {
         "shop/Shop_team": {
             req: ReqShop_team,
             res: ResShop_team
+        },
+        "store/store_get": {
+            req: Reqstore_get,
+            res: Resstore_get
+        },
+        "store/store_look": {
+            req: Reqstore_look,
+            res: Resstore_look
+        },
+        "store/store_save_equip": {
+            req: Reqstore_save_equip,
+            res: Resstore_save_equip
         },
         "task/EverDayTask": {
             req: ReqEverDayTask,
@@ -931,6 +946,21 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 60,
             "name": "shop/Shop_team",
+            "type": "api"
+        },
+        {
+            "id": 111,
+            "name": "store/store_get",
+            "type": "api"
+        },
+        {
+            "id": 112,
+            "name": "store/store_look",
+            "type": "api"
+        },
+        {
+            "id": 113,
+            "name": "store/store_save_equip",
             "type": "api"
         },
         {
@@ -3732,6 +3762,32 @@ export const serviceProto: ServiceProto<ServiceType> = {
                                 }
                             }
                         ]
+                    }
+                },
+                {
+                    "id": 16,
+                    "name": "store",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "type",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "data",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 },
                 {
@@ -6862,6 +6918,93 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "value": 6
                 }
             ]
+        },
+        "store/Ptlstore_get/Reqstore_get": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "storeIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_get/Resstore_get": {
+            "type": "Interface"
+        },
+        "store/Ptlstore_look/Reqstore_look": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_look/Resstore_look": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "store",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "type",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "data",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_save_equip/Reqstore_save_equip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "bagIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "store/Ptlstore_save_equip/Resstore_save_equip": {
+            "type": "Interface"
         },
         "task/PtlEverDayTask/ReqEverDayTask": {
             "type": "Interface",

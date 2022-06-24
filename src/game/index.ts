@@ -103,6 +103,9 @@ import { switch_CN, CFG_SWITCH } from '../interface/guildCfg';
 import { me_vip } from './me/me_vip';
 import { emojiMenu } from './sys/emoji';
 import { openMapChestBox_all } from './map/openMapChestBox_all';
+import { store_save_equip } from './me/store/store_save_equip';
+import { store_look } from './me/store/store_look';
+import { store_get } from './me/store/store_get';
 
 enum matchType {
     /**
@@ -254,9 +257,9 @@ export default class game {
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`拍卖`, { action: auction, match: matchType.match })
         this.matchMap.set(`出价`, { action: auction_offer, match: matchType.match })
-
-
-
+        this.matchMap.set('仓库', { action: store_look, match: matchType.all })
+        this.matchMap.set('取', { action: store_get, match: matchType.match })
+        this.matchMap.set('存装备', { action: store_save_equip, match: matchType.match })
         this.matchMap.set('穿装备', { action: me_wearEquip, match: matchType.match })
         this.matchMap.set('钓鱼', { action: fishing, match: matchType.all })
         this.matchMap.set('黑市商店', { action: shop_back, match: matchType.all })
