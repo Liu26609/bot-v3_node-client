@@ -71,6 +71,16 @@ var SKILL_TYPE;
      * 回复固定N点生命
      */
     SKILL_TYPE[SKILL_TYPE["resHp_fixed"] = 12] = "resHp_fixed";
+    /**
+     * 对敌方全部单位造成N点百分比魔法伤害
+     * 参数1:百分比
+     */
+    SKILL_TYPE[SKILL_TYPE["enemy_all_Magic"] = 13] = "enemy_all_Magic";
+    /**
+    * 对敌方全部单位造成N点百分比物理伤害
+    * 参数1:百分比
+    */
+    SKILL_TYPE[SKILL_TYPE["enemy_all_Physics"] = 14] = "enemy_all_Physics";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -109,18 +119,12 @@ var SKILL_ACTIVE_RES_TAG;
      * 敌人召唤单位
      */
     SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["enemy_Pets"] = 3] = "enemy_Pets";
-    /**
-     * 敌人单位
-     */
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["enemy_will"] = 4] = "enemy_will";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend"] = 5] = "friend";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend_Pets"] = 6] = "friend_Pets";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend_will"] = 7] = "friend_will";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend_all"] = 8] = "friend_all";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me"] = 9] = "me";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me_Pets"] = 10] = "me_Pets";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me_all"] = 11] = "me_all";
-    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me_will"] = 12] = "me_will";
+    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend"] = 4] = "friend";
+    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend_Pets"] = 5] = "friend_Pets";
+    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["friend_all"] = 6] = "friend_all";
+    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me"] = 7] = "me";
+    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me_Pets"] = 8] = "me_Pets";
+    SKILL_ACTIVE_RES_TAG[SKILL_ACTIVE_RES_TAG["me_all"] = 9] = "me_all";
 })(SKILL_ACTIVE_RES_TAG = exports.SKILL_ACTIVE_RES_TAG || (exports.SKILL_ACTIVE_RES_TAG = {}));
 /**
  * 技能统计单位

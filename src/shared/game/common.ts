@@ -221,6 +221,11 @@ class common {
             // 每触发一次提高N点物理防御
             temp += `每次触发回复${info.data[0]}生命`
             break;
+
+         case SKILL_TYPE.enemy_all_Magic:
+            // 每触发一次提高N点物理防御
+            temp += `对敌方全部单位造成${info.data[0]}%百分比魔法伤害`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

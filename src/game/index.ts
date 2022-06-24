@@ -276,8 +276,11 @@ export default class game {
         this.matchMap.set('设置消息卡片模式', { action: setUp, match: matchType.match, isShowMatch: false })
         this.matchMap.set('设置不显示地图坐标', { action: setUp, match: matchType.match, isShowMatch: false })
         this.matchMap.set('设置显示地图坐标', { action: setUp, match: matchType.match, isShowMatch: false })
+        this.matchMap.set('设置显示伤害日志', { action: setUp, match: matchType.match, isShowMatch: false })
+        this.matchMap.set('设置不显示伤害日志', { action: setUp, match: matchType.match, isShowMatch: false })
+        this.matchMap.set('设置显示击杀日志', { action: setUp, match: matchType.match, isShowMatch: false })
+        this.matchMap.set('设置不显示击杀日志', { action: setUp, match: matchType.match, isShowMatch: false })
 
-        
         this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
         this.matchMap.set('传送', { action: me_callPos, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })

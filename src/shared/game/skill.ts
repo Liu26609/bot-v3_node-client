@@ -66,7 +66,17 @@ export enum SKILL_TYPE {
     /**
      * 回复固定N点生命
      */
-    resHp_fixed
+    resHp_fixed,
+    /**
+     * 对敌方全部单位造成N点百分比魔法伤害
+     * 参数1:百分比
+     */
+    enemy_all_Magic,
+    /**
+    * 对敌方全部单位造成N点百分比物理伤害
+    * 参数1:百分比
+    */
+    enemy_all_Physics,
 }
 /**
  * 主动技能
@@ -121,18 +131,12 @@ export enum SKILL_ACTIVE_RES_TAG {
      * 敌人召唤单位
      */
     enemy_Pets,
-    /**
-     * 敌人单位
-     */
-    enemy_will,
     friend,
     friend_Pets,
-    friend_will,
     friend_all,
     me,
     me_Pets,
     me_all,
-    me_will
 }
 /**
  * 技能统计单位

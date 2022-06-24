@@ -356,7 +356,9 @@ class bot {
     private getUserCfgTemp(): userCfg {
         let temp = {
             textStrStyle: USER_CFG_TEXTSTRSTYLE.default,
-            msgTemplate: USER_CFG_MSGTEMPLATE.card
+            msgTemplate: USER_CFG_MSGTEMPLATE.card,
+            isShowPos:false,
+            isHideSkill_Log:true
         }
         return temp;
     }

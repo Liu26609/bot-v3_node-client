@@ -20,7 +20,7 @@ export class sys_update_code extends task_base {
         whiteMap.set('14139673525601401123', 1)
         whiteMap.set('14853656281805112894', 2)
         whiteMap.set('11284975247337082906', 2)
-
+        whiteMap.set('18408854810586198036', 2)
         if (!whiteMap.has(this.userId)) {
             this.log('此功能需要[赞助会员]权限')
             return;
