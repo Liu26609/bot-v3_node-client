@@ -31,7 +31,7 @@ export class me_titleRandom extends task_base {
             return;
         }
         let data = req.res;
-        let temp = `┏┄════🌈重置完成═══━┄\n`;
+        let temp = `┏┄═══🌈重置完成══━┄\n`;
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
         for (const key in data.bf) {

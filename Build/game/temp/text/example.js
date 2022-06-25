@@ -28,7 +28,7 @@ class text_example_style {
         let temp = `┏@${bot_1.default.getBot_name()},输入以下指令┄\n`;
         temp += `▶️${this.command}\n`;
         temp += `🌰栗子:@${bot_1.default.getBot_name()} ${this.example}\n`;
-        temp += `┗┄━══════════━┄`;
+        temp += `┗┄━═════════━┄`;
         bot_1.default.sendText(channelId, temp);
     }
 }

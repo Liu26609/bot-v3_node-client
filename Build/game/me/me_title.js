@@ -30,7 +30,7 @@ class me_title extends task_base_1.task_base {
             }
             let data = req.res;
             const leve = data.title.leve;
-            let temp = `┏┄════👑我的称号═══━┄\n`;
+            let temp = `┏┄═══👑我的称号══━┄\n`;
             temp += `⚜️等级：LV.${data.title.leve}(${data.title.exp}/${data.title.exp_max})\n`;
             temp += `${data.title.name}\n`;
             if (data.title.todayGetExp > 0) {
@@ -50,7 +50,7 @@ class me_title extends task_base_1.task_base {
             temp += `┏┄═══👑指令提示══━┄\n`;
             temp += `🏷️称号改名[称号改名 + 名称]\n`;
             temp += `🔂重置称号[重置称号 + 次数]\n`;
-            temp += `┗┄━══════════━┄`;
+            temp += `┗┄━═════════━┄`;
             // 　称号改名　重置称号
             bot_1.default.sendText(this.channel_id, temp);
         });

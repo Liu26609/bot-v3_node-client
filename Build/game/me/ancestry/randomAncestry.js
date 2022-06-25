@@ -33,14 +33,14 @@ class randomAncestry extends task_base_1.task_base {
             let info = req.res.ancestry;
             let sk = req.res.SK;
             let pay = req.res.pay;
-            let temp = `┏┄════👑新的血统═══━┄
+            let temp = `┏┄═══👑新的血统══━┄
 Ⓜ️来源[${info.from}]
 👑血统[${info.title}]
-┄════初始分数═══━┄
+┄════初始分数══━┄
 ♥️最大生命${info.base.hp_max}分🔪物理攻击${info.base.PhysicalAttacks}分
 🔰物理防御${info.base.PhysicalDefense}分🔮魔法攻击${info.base.MagicAttack}分
 🌟魔法防御${info.base.MagicDefense}分💖生命回复${info.base.secondResHp}分
-┄════附带技能═══━┄
+┄════附带技能══━┄
 [${sk.name}]${common_1.default.getSkDesc(sk)}
 🔻消耗${user_1.walletKey_CN[user_1.walletKey[pay.condition.key]]}x${pay.condition.val}
 ▶️还有${user_1.walletKey_CN[user_1.walletKey[pay.condition.key]]}x${pay.now}

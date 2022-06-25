@@ -57,7 +57,7 @@ class me_changeName extends task_base_1.task_base {
             let data = req.res;
             if (data.userCfg.textStyle == setUp_1.textStyle.text) {
                 let temp = ``;
-                temp += `┏┄════<emoji:269>改名成功═══━┄\n`;
+                temp += `┏┄═══<emoji:269>改名成功══━┄\n`;
                 temp += `<emoji:322>改名前:${data.lastName}\n`;
                 temp += `<emoji:301>改名后:${data.newName}\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
@@ -67,7 +67,7 @@ class me_changeName extends task_base_1.task_base {
             }
             else if (data.userCfg.textStyle == setUp_1.textStyle.card) {
                 let temps = new embed_1.embed_style();
-                temps.setTitle('┏┄════<emoji:269>改名成功═══━┄');
+                temps.setTitle('┏┄═══<emoji:269>改名成功══━┄');
                 temps.setIcon(this.userIcon);
                 temps.setTips('改名成功！');
                 temps.addLine(`改名前:${data.lastName}`);

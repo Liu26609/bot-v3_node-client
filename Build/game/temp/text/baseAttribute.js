@@ -26,7 +26,7 @@ class text_baseAttribute_style {
         }
         const out_attribute = this.data.out_attribute;
         let temp = ``;
-        temp += `┏┄════${this.title}═══━┄\n`;
+        temp += `┏┄═══${this.title}══━┄\n`;
         temp += `<emoji:11>战力:${common_1.default.BN(this.data.military)}\n`;
         temp += `${this.data.icon}名称:${this.data.name}\n`;
         temp += `🔥等级:${this.data.leve}⏳${common_1.default.BN(this.data.exp)}/${common_1.default.BN(this.data.exp_max)}\n`;
@@ -35,7 +35,7 @@ class text_baseAttribute_style {
         temp += `🌟魔法防御:${common_1.default.BN(out_attribute.MagicDefense)}\n`;
         temp += `🔪物理攻击:${common_1.default.BN(out_attribute.PhysicalAttacks)}\n`;
         temp += `🔰物理防御:${common_1.default.BN(out_attribute.PhysicalDefense)}\n`;
-        temp += `┗┄━══════════━┄`;
+        temp += `┗┄━═════════━┄`;
         bot_1.default.sendText(channelId, temp);
     }
 }

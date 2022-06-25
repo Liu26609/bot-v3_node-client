@@ -34,11 +34,11 @@ class shop_rankscore_buy extends task_base_1.task_base {
             let data = req.res;
             if (data.userCfg.textStyle == setUp_1.textStyle.text) {
                 let temp = ``;
-                temp += `┏┄════🕊️购买成功═══━┄\n`;
+                temp += `┏┄═══🕊️购买成功══━┄\n`;
                 temp += `🎫强者伴随孤独而生，弱者却在黑暗中，敲着醒钟\n`;
                 temp += `🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.rankscore]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.rankscore]]}x${data.pay.now}\n`;
-                temp += `┗┄━═══════════━┄\n`;
+                temp += `┗┄━══════════━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp);
             }
             else if (data.userCfg.textStyle == setUp_1.textStyle.card) {

@@ -9,7 +9,7 @@ export class me_callPos extends task_base {
         this.render();
     }
     menu() {
-        let temp = `┏┄═════🌏传送═════━┄
+        let temp = `┏┄════🌏传送════━┄
 ┣传送指令：传送 + 坐标
 ┣每次传送需要${walletKey_CN[walletKey[walletKey.transferCard]]}x1
 🌰栗子：传送 + 10，20(传送10,20)
@@ -34,7 +34,7 @@ export class me_callPos extends task_base {
             return;
         }
         let data = req.res;
-        let temp = `┏┄════🌏传送完成═══━┄\n`;
+        let temp = `┏┄═══🌏传送完成══━┄\n`;
         temp += `你已传送到🌏${data.mapName}[${data.callPos.x},${data.callPos.y}]\n`;
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;

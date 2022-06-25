@@ -48,15 +48,15 @@ class challenge_image extends task_base_1.task_base {
             if (data.battle) {
                 let temp = ``;
                 let battleTemp = new battleTemp_1.text_battleTemp_style().sendData(data.battle);
-                battleTemp.setHurtLotTitle_me(`┏┄════📄伤害统计═══━┄`);
-                battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计═══━┄`);
+                battleTemp.setHurtLotTitle_me(`┏┄══📄伤害统计═━┄`);
+                battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计══━┄`);
                 temp += battleTemp.getSkillHurt(0);
                 temp += battleTemp.getSkillHurt(1);
-                temp += `┄════🧙战斗过程═══━┄\n`;
+                temp += `┄════🧙战斗过程══━┄\n`;
                 temp += `<emoji:187>本次战斗共${data.battle.battleRound}回合\n`;
                 temp += battleTemp.getKillProcess();
                 if (battleTemp.getReward()) {
-                    temp += `┏┄════🎁战斗结果═══━┄\n`;
+                    temp += `┏┄══🎁战斗结果═━┄\n`;
                     temp += battleTemp.getReward();
                 }
                 temp += `\n┗┄━${this.at()}━┄`;
@@ -92,7 +92,7 @@ class challenge_image extends task_base_1.task_base {
             temp += `🔺基因锁增益:全属性+${data.winAdd}%\n`;
             temp += `┄══💀挑战失败══━┄\n`;
             temp += `🔻等级扣除${data.failDel}级\n`;
-            temp += `┗┄━══════════━┄`;
+            temp += `┗┄━═════════━┄`;
             bot_1.default.sendText(this.channel_id, temp);
             new example_1.text_example_style().setCommand(`挑战指令：开始${this.matchKey}`).setExample(`开始${this.matchKey}`).sendMsg(this.channel_id);
         });

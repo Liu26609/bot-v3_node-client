@@ -30,11 +30,11 @@ class shop_team_buy extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = ``;
-            temp += `┏┄════🕊️购买成功═══━┄\n`;
+            temp += `┏┄═══🕊️购买成功══━┄\n`;
             temp += `🎫工会变得更强了~\n`;
             temp += `🔻消耗工会贡献x${data.pay.condition.val}\n`;
             temp += `▶️还有工会贡献x${data.pay.now}\n`;
-            temp += `┗┄━═══════════━┄\n`;
+            temp += `┗┄━══════════━┄\n`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }

@@ -64,7 +64,7 @@ class me_petChangeName extends task_base_1.task_base {
                 temp.sendMsg(this.channel_id);
             }
             else {
-                let temp = `┏┄════👑改名成功═══━┄\n`;
+                let temp = `┏┄═══👑改名成功══━┄\n`;
                 temp += `🌰宠物改名成功，快发送[查看宠物${index}]看看吧~\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;

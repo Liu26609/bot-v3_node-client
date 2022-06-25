@@ -380,7 +380,7 @@ class game {
                         return Math.random() - 0.5;
                     });
                 }
-                let temp = `┏┄════<emoji:318>你想找什么?══━┄\n`;
+                let temp = `┏┄═══<emoji:318>你想找什么?══━┄\n`;
                 if (matchList[0].match == 0) {
                     for (let index = 0; index < 10; index++) {
                         temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
@@ -393,7 +393,7 @@ class game {
                         }
                     }
                 }
-                temp += `┗┄━══════════━┄`;
+                temp += `┗┄━═════════━┄`;
                 yield bot_1.default.sendText(data.channel_id, temp);
             }
         });

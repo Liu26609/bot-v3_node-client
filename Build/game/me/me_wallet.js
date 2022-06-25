@@ -35,7 +35,7 @@ class me_wallet extends task_base_1.task_base {
             let data = req.res;
             if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 let temp = new text_style_1.text_style();
-                temp.setTitle('┏┄════🏧我的小金库═══━┄');
+                temp.setTitle('┏┄═══🏧我的小金库══━┄');
                 if (data.gold > 0)
                     temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.gold]]}:${common_1.default.BN(data.gold)}`);
                 if (data.BlindBox > 0)

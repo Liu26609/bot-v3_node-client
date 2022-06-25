@@ -13,7 +13,7 @@ export class userList_team extends task_base{
             return;
         }
         let data = req.res;
-        let temp = `┏┄════🏰工会成员═══━┄\n`;
+        let temp = `┏┄═══🏰工会成员══━┄\n`;
         for (let index = 0; index < data.list.length; index++) {
             const e = data.list[index];
             temp += `[${index}]Lv.${e.leve}${e.name}🌏[${e.pos.x},${e.pos.y}]\n`

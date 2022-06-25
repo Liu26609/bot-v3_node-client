@@ -87,12 +87,12 @@ export class task_base {
             default:
                 if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text) {
                     let temp = ``;
-                    temp += `┏┄════⚠️错误提示═══━┄\n`
+                    temp += `┏┄═══⚠️错误提示══━┄\n`
                     temp += `┣⛔︎错误代码:${err.code || '0x' + common.random(0, 99999999999).toString(16)}\n`;
                     temp += `┣🗂️错误类型:${err.type}\n`;
-                    temp += `┣┄════❌错误提示═══━┄\n`
+                    temp += `┣┄════❌错误提示══━┄\n`
                     temp += `          ${err.message}\n`;
-                    temp += `┗┄━═══════════━┄\n`;
+                    temp += `┗┄━══════════━┄\n`;
                     temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
                     bot.sendText(this.channel_id, temp);
                 } else {

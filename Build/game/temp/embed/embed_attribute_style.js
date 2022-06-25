@@ -50,7 +50,6 @@ class embed_attribute_style {
             embed.addLine(`🔥Lv.${this.data.leve}`);
             embed.addLine(`⏳经验${common_1.default.BN(this.data.exp, 0)}/${common_1.default.BN(this.data.exp_max, 0)}`);
             embed.addLine(`${this.data.icon}名称:${this.data.name}`);
-            // temp += `┏┄════👑属性═══━┄\n`
             // temp += `<emoji:11>战力:${this.data.military}\n`
             // temp += `🔥Lv.${this.data.leve}⏳(${common.BN(this.data.exp,0)}/${common.BN(this.data.exp_max,0)})\n`;
             // temp += `${this.data.icon}名称:${this.data.name}\n`
@@ -90,7 +89,7 @@ class embed_attribute_style {
             if (out_attribute.PhysicalDefense > 1)
                 embed.addLine(`🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense, 4)}`);
             yield embed.sendMsg(channelId);
-            // temp += `┗┄━══════════━┄`
+            // temp += `┗┄━═════════━┄`
             // await bot.sendText(channelId, temp);
         });
     }

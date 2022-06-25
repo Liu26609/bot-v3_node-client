@@ -37,9 +37,9 @@ class attackBoss extends task_base_1.task_base {
             let temp = ``;
             let battleTemp = new battleTemp_1.text_battleTemp_style().sendData(data);
             let hurtLog = '';
-            battleTemp.setHurtLotTitle_me(`┄════<emoji:223>我方伤害═══━┄`);
+            battleTemp.setHurtLotTitle_me(`┄════<emoji:223>我方伤害══━┄`);
             hurtLog += `${battleTemp.getSkillHurt(0)}`;
-            battleTemp.setHurtLotTitle_enemy(`┄════<emoji:202>BOSS伤害═══━┄`);
+            battleTemp.setHurtLotTitle_enemy(`┄════<emoji:202>BOSS伤害══━┄`);
             hurtLog += `${battleTemp.getSkillHurt(1)}`;
             temp += hurtLog;
             let killLog = '';
@@ -51,7 +51,7 @@ class attackBoss extends task_base_1.task_base {
                 killLog += `\n`;
             }
             else {
-                killLog += `┄════<emoji:299>刮痧奖励═══━┄\n`;
+                killLog += `┄════<emoji:299>刮痧奖励══━┄\n`;
                 killLog += `💀世界BOSS在${data.battleRound}回合击败了${this.at()}\n`;
                 killLog += `<emoji:67>BOSS(${((data.hp / data.hp_max) * 100).toFixed(2)}%)${common_1.default.BN(data.hp)}/${common_1.default.BN(data.hp_max)}\n`;
                 killLog += `<emoji:224>伤害贡献:${common_1.default.BN(data.hurt)}\n`;
@@ -61,7 +61,6 @@ class attackBoss extends task_base_1.task_base {
             temp += killLog;
             temp += `<emoji:147>攻击boss会死亡但可获得大量奖励\n`;
             temp += `┗┄━${this.at()}━┄`;
-            // temp += `\n￣￣￣￣￣＼🎁战斗结果／￣￣￣￣￣\n`;
             // if(data.reward.length > 0){
             //     data.reward.forEach(item => {
             //         temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}`

@@ -41,11 +41,11 @@ export class me_pos extends task_base {
         temp += `  ${data.isLeft ? '左' : '⛔'}              ${data.meIcon}              ${data.isRight ? '右' : '⛔'}\n`;
         temp += `                     ${data.isButtom ? '下' : '⛔'}\n`;
         if (data.posTiledId == 2) {
-            temp += `┄════💧发现湖泊═══━┄\n`
+            temp += `┄════💧发现湖泊══━┄\n`
             temp += `在这里发现了一个湖泊，你可以发送[钓鱼]试试\n`
         }
         if (data.player.length + data.enemy.length > 1) {
-            temp += `┄════<emoji:325>发现敌人═══━┄\n`;
+            temp += `┄════<emoji:325>发现敌人══━┄\n`;
             for (let index = 0; index < data.player.length; index++) {
                 const body = data.player[index] as body;
                 const id = body.id;
@@ -79,7 +79,7 @@ export class me_pos extends task_base {
                 const item = data.chest[index];
                 if (!item.isOpen) {
                     if (haveNull) {
-                        temp += `┄════🎉发现宝箱═══━┄\n`;
+                        temp += `┄════🎉发现宝箱══━┄\n`;
                     }
                     haveNull = false;
                     temp += ` [宝箱${index}]${chestBoxLv_CN[chestBoxLv[item.leve]]}\n`;

@@ -38,7 +38,7 @@ export class lottery extends task_base{
         }
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-        temp += `┗┄━══════════━┄`
+        temp += `┗┄━═════════━┄`
         bot.sendText(this.channel_id,temp)
     }
     async menu(){

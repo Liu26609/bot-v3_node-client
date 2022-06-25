@@ -22,7 +22,7 @@ export class shop_back_buy extends task_base{
         log('data',data)
         if(data.userCfg.textStyle == textStyle.text){
             let temp = ``;
-            temp += `┏┄════🕊️购买成功═══━┄\n`
+            temp += `┏┄═══🕊️购买成功══━┄\n`
             temp += `🎫商品已交易成功，祝您购物愉快~\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;

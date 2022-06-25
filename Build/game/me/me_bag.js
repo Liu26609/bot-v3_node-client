@@ -58,7 +58,7 @@ class me_bag extends task_base_1.task_base {
             temps += `[分解全部装备]分解背包全部装备\n`;
             temps += `[拍卖装备 + 数字]拍卖指定装备\n`;
             temps += `[存装备 + 数字]将指定装备放仓库\n`;
-            temps += `┗┄━══════════━┄\n`;
+            temps += `┗┄━═════════━┄\n`;
             yield bot_1.default.sendText(this.channel_id, temp);
             yield bot_1.default.sendText(this.channel_id, temps);
         });

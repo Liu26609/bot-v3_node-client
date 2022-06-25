@@ -66,7 +66,7 @@ class setUp extends task_base_1.task_base {
             //     this.sendErr(req.err)
             //     return;
             // }
-            let temp = `┏┄════👑机器人设置═══━┄\n`;
+            let temp = `┏┄═══👑机器人设置══━┄\n`;
             //判定是频道主还是普通用户 
             if (this.isMaster()) {
                 if (!this.GuildCfg.autoPassChannel_id) {
@@ -86,16 +86,16 @@ class setUp extends task_base_1.task_base {
             temp += `[设置显示击杀日志]\n`;
             temp += `[设置不显示击杀日志]\n`;
             temp += `官方不给按钮权限,你可以去官方天天刷反馈。\n`;
-            temp += `┗┄━══════════━┄`;
+            temp += `┗┄━═════════━┄`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }
     notDevFunction() {
-        let temp = `┏┄════👑机器人设置═══━┄\n`;
+        let temp = `┏┄═══👑机器人设置══━┄\n`;
         temp += `未找到功能设置[${this.content}]\n`;
         temp += `①你可能少打或多打了字\n`;
         temp += `②没有次功能设置,你可以联系作者定制\n`;
-        temp += `┗┄━══════════━┄`;
+        temp += `┗┄━═════════━┄`;
         bot_1.default.sendText(this.channel_id, temp);
     }
     notPass() {

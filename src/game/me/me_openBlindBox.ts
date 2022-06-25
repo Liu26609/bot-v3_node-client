@@ -22,7 +22,7 @@ export class me_openBlindBox extends task_base {
             temp.addLine(`参与打怪，各种活动，拍卖可获得盲盒哦~`)
             temp.sendMsg(this.channel_id)
         } else {
-            let temp = `┏┄═════🎁打开盲盒═══━┄
+            let temp = `┏┄════🎁打开盲盒══━┄
 打开指令：打开盲盒 + 数量
 如:@${bot.getBot_name()} 打开盲盒1
 <emoji:147>参与打怪，各种活动，拍卖可获得盲盒哦~
@@ -68,7 +68,7 @@ export class me_openBlindBox extends task_base {
             temp.sendMsg(this.channel_id)
         } else {
             let temp = ``;
-            temp += `┏┄═════🎁盲盒奖励═══━┄\n`;
+            temp += `┏┄════🎁盲盒奖励══━┄\n`;
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`
             if (data.reward.length > 0) {

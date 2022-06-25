@@ -418,7 +418,7 @@ export default class game {
                     return Math.random() - 0.5
                 })
             }
-            let temp = `┏┄════<emoji:318>你想找什么?══━┄\n`;
+            let temp = `┏┄═══<emoji:318>你想找什么?══━┄\n`;
             if (matchList[0].match == 0) {
                 for (let index = 0; index < 10; index++) {
                     temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
@@ -431,7 +431,7 @@ export default class game {
                 }
             }
 
-            temp += `┗┄━══════════━┄`
+            temp += `┗┄━═════════━┄`
 
             await bot.sendText(data.channel_id, temp)
         }

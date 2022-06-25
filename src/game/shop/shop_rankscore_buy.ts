@@ -20,11 +20,11 @@ export class shop_rankscore_buy extends task_base{
         let data = req.res;
         if(data.userCfg.textStyle == textStyle.text){
             let temp = ``;
-            temp += `┏┄════🕊️购买成功═══━┄\n`
+            temp += `┏┄═══🕊️购买成功══━┄\n`
             temp += `🎫强者伴随孤独而生，弱者却在黑暗中，敲着醒钟\n`
             temp += `🔻消耗${rewardKey_CN[rewardKey[rewardKey.rankscore]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${rewardKey_CN[rewardKey[rewardKey.rankscore]]}x${data.pay.now}\n`;
-            temp += `┗┄━═══════════━┄\n`;
+            temp += `┗┄━══════════━┄\n`;
             bot.sendText(this.channel_id,temp);
         }else if(data.userCfg.textStyle == textStyle.card){
             let temps = new embed_style();

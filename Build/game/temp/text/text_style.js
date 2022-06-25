@@ -9,7 +9,7 @@ class text_style {
     constructor() {
         this.title = '未命名';
         this.list = new Array();
-        this.end = `┗┄━══════════━┄`;
+        this.end = `┗┄━═════════━┄`;
         return this;
     }
     setTitle(title) {

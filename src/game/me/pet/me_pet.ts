@@ -20,7 +20,7 @@ export class me_pet extends task_base{
             return;
         }
         let list = req.res.petList;
-        let temp = `┏┄═══<emoji:244>我的宠物═══━┄\n`;
+        let temp = `┏┄═══<emoji:244>我的宠物══━┄\n`;
         for (let index = 0; index < list.length; index++) {
             const pet = list[index];
             temp+= `[${index}]${pet.name}Lv.${pet.leve}♥️${((pet.hp / pet.out_attribute.hp_max)*100).toFixed(0)}%\n`;
@@ -32,7 +32,7 @@ export class me_pet extends task_base{
         temps += `[查看宠物+ID]查看指定宠物属性\n`;
         temps += `[宠物改名 + ID + 名字]修改宠物名称\n`;
         temps += `[放生宠物 + ID]放生指定宠物\n`;
-        temps += `┗┄━══════════━┄\n`;
+        temps += `┗┄━═════════━┄\n`;
 
         bot.sendText(this.channel_id,temp)
         bot.sendText(this.channel_id,temps)

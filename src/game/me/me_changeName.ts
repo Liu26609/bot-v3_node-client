@@ -44,7 +44,7 @@ export class me_changeName extends task_base {
         let data = req.res;
         if (data.userCfg.textStyle == textStyle.text) {
             let temp = ``;
-            temp += `┏┄════<emoji:269>改名成功═══━┄\n`
+            temp += `┏┄═══<emoji:269>改名成功══━┄\n`
             temp += `<emoji:322>改名前:${data.lastName}\n`;
             temp += `<emoji:301>改名后:${data.newName}\n`;
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
@@ -53,7 +53,7 @@ export class me_changeName extends task_base {
             bot.sendText(this.channel_id, temp);
         } else if (data.userCfg.textStyle == textStyle.card) {
             let temps = new embed_style();
-            temps.setTitle('┏┄════<emoji:269>改名成功═══━┄')
+            temps.setTitle('┏┄═══<emoji:269>改名成功══━┄')
             temps.setIcon(this.userIcon);
             temps.setTips('改名成功！')
             temps.addLine(`改名前:${data.lastName}`)

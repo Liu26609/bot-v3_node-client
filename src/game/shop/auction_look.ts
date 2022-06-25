@@ -41,7 +41,7 @@ export class auction_look extends task_base {
         if (!data.info.auction) {
             return;
         }
-        let temp = `┏┄════⚖️拍卖行═══━┄
+        let temp = `┏┄═══⚖️拍卖行══━┄
 🎟第${data.info.index}次拍卖
 🕤成交倒计时：${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒
 🏷拍卖物品：${walletKey_CN[walletKey[data.info.auction.data.key]]}X${data.info.auction.data.val}
@@ -50,7 +50,7 @@ export class auction_look extends task_base {
 📊最低加价:${data.info.min_offer}💰
 ✨当前价格：${data.info.offer_val}💰
 🏆最后出价人：${data.info.offer_name || '虚位以待'}
-┗┄━═══════════━┄
+┗┄━══════════━┄
 <emoji:147>出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)`
 
         bot.sendText(this.channel_id, temp);
@@ -62,7 +62,7 @@ export class auction_look extends task_base {
         let equipData = data.info.auction.data as equip;
 
         new text_equip_style().setData(equipData).sendMsg(this.channel_id)
-        let temp = `┏┄════⚖️拍卖行═══━┄
+        let temp = `┏┄═══⚖️拍卖行══━┄
 🎟拍卖行第${data.info.index}次拍卖
 🕤成交倒计时：${((data.info.endTime - Date.now()) / 1000).toFixed(3)}秒
 🛒出价次数：${data.info.offer_Cont}次
@@ -71,7 +71,7 @@ export class auction_look extends task_base {
 ✨当前价格：${data.info.offer_val}💰
 🏆最后出价人：${data.info.offer_name || '虚位以待'}
 <emoji:147>出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)
-┗┄━═══════════━┄
+┗┄━══════════━┄
 `
         bot.sendText(this.channel_id, temp);
     }
@@ -79,7 +79,7 @@ export class auction_look extends task_base {
      * 没有拍卖
      */
     notAuction() {
-        let temp = `┏┄════⚖️拍卖行═══━┄
+        let temp = `┏┄═══⚖️拍卖行══━┄
 目前还没有商品拍卖噢~
 你可以选择等待一会或者拍卖道具
 目前可拍卖物品:🎁盲盒🌈称号卡💳改名卡🔯技能卡🏃传送卡💠复活币🐟️小鱼干👾精灵球🌌进化卡⚙️强化碎片🏧装备
@@ -87,7 +87,7 @@ export class auction_look extends task_base {
 拍卖行流通货币为:💰️金币
 道具拍卖：拍卖 + 拍卖道具名 + 数量(如:拍卖盲盒10)
 装备拍卖：请发送[背包]查看拍卖指令
-┗┄━═══════════━┄`
+┗┄━══════════━┄`
         bot.sendText(this.channel_id, temp);
     }
 }

@@ -76,7 +76,7 @@ export class me_AutoPlay extends task_base {
         bot.sendText(this.channel_id, temp)
     }
     menu() {
-        let temp = `┏┄════挂机══━┄\n`;
+        let temp = `┏┄═══挂机══━┄\n`;
         temp += `1.每战斗一次会消耗${walletKey_CN[walletKey[walletKey.driedFish]]},没有${walletKey_CN[walletKey[walletKey.driedFish]]}将自动停止挂机\n`
         temp += `2.挂机会持续与怪物战斗,如果你太弱可能会频繁死亡\n`
         temp += `3.艾特机器人5分钟内会推送挂机战斗记录\n`

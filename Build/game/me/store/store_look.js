@@ -51,7 +51,7 @@ class store_look extends task_base_1.task_base {
             let temps = ``;
             temps += `┏┄═══👑指令提示══━┄\n`;
             temps += `[取 + ID]将查看指定装备/资源取出\n`;
-            temps += `┗┄━══════════━┄\n`;
+            temps += `┗┄━═════════━┄\n`;
             yield bot_1.default.sendText(this.channel_id, temps);
         });
     }

@@ -41,19 +41,19 @@ export class pk extends task_base {
         let data = req.res;
         let temp = ``;
         let battleTemp = new text_battleTemp_style().sendData(data)
-        battleTemp.setHurtLotTitle_me(`┏┄════📄伤害统计═══━┄`)
-        battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计═══━┄`)
+        battleTemp.setHurtLotTitle_me(`┏┄══📄伤害统计═━┄`)
+        battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计══━┄`)
 
 
         temp += battleTemp.getSkillHurt(0);
         temp += battleTemp.getSkillHurt(1);
 
-        temp += `┄════🧙战斗过程═══━┄\n`;
+        temp += `┄════🧙战斗过程══━┄\n`;
         temp += `<emoji:187>本次战斗共${data.battleRound}回合\n`
         temp += battleTemp.getKillProcess();
 
 
-        temp += `┏┄════🎁战斗结果═══━┄\n`;
+        temp += `┏┄══🎁战斗结果═━┄\n`;
         if (battleTemp.getReward()) {
             temp += battleTemp.getReward()
         } else {

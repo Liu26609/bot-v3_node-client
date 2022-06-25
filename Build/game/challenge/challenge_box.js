@@ -54,14 +54,14 @@ class challenge_box extends task_base_1.task_base {
             if (data.battle) {
                 let temp = ``;
                 let battleTemp = new battleTemp_1.text_battleTemp_style().sendData(data.battle);
-                battleTemp.setHurtLotTitle_me(`┏┄════📄伤害统计═══━┄`);
-                battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计═══━┄`);
+                battleTemp.setHurtLotTitle_me(`┏┄══📄伤害统计═━┄`);
+                battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计══━┄`);
                 temp += battleTemp.getSkillHurt(0);
                 temp += battleTemp.getSkillHurt(1);
-                temp += `┄════🧙战斗过程═══━┄\n`;
+                temp += `┄════🧙战斗过程══━┄\n`;
                 temp += `<emoji:187>本次战斗共${data.battle.battleRound}回合\n`;
                 temp += battleTemp.getKillProcess();
-                temp += `┏┄════🎁战斗结果═══━┄\n`;
+                temp += `┏┄══🎁战斗结果═━┄\n`;
                 if (battleTemp.getReward()) {
                     temp += `🎴破壁计划完成度:${data.completion}%<emoji:67>\n`;
                     temp += `📜累计参与人数:${data.partakeCont}人\n`;
@@ -93,7 +93,7 @@ class challenge_box extends task_base_1.task_base {
             temp += `🌈挑战胜利🔺${data.win}\n`;
             temp += `💀挑战失败🔻${data.fail}\n`;
             temp += `⬛从开始计划若1天内没人挑战则视为失败\n`;
-            temp += `┗┄━══════════━┄`;
+            temp += `┗┄━═════════━┄`;
             yield bot_1.default.sendText(this.channel_id, temp);
             let tips = `┏@${bot_1.default.getBot_name()},输入以下指令┄
 ▶️开启指令：开启${this.matchKey}
