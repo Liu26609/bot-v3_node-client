@@ -223,6 +223,7 @@ export interface BASE_BODYS {
     hp: number,
     active_skill: number[],//主动技能
     out_attribute: base_attribute,
+    attribute?:base_attribute,
     pos: posV2//位置
     exp: number,//当前经验
     exp_max: number,//最大经验

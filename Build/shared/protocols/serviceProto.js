@@ -2736,6 +2736,15 @@ exports.serviceProto = {
                     }
                 },
                 {
+                    "id": 13,
+                    "name": "attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    },
+                    "optional": true
+                },
+                {
                     "id": 7,
                     "name": "pos",
                     "type": {
