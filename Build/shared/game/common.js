@@ -226,6 +226,21 @@ class common {
                 // 每触发一次提高N点物理防御
                 temp += `对敌方全部单位造成${info.data[0]}%百分比魔法伤害`;
                 break;
+            case skill_1.SKILL_TYPE.enemy_all_Physics:
+                temp += `对敌方全部单位造成${info.data[0]}%百分比物理伤害`;
+                break;
+            case skill_1.SKILL_TYPE.random_Physics_fixed:
+                temp += `随机造成${info.data[0]}-${info.data[1]}物理伤害`;
+                break;
+            case skill_1.SKILL_TYPE.random_Magic_fixed:
+                temp += `随机造成${info.data[0]}-${info.data[1]}魔法伤害`;
+                break;
+            case skill_1.SKILL_TYPE.random_Physics:
+                temp += `随机造成${info.data[0]}%-${info.data[1]}%物理伤害`;
+                break;
+            case skill_1.SKILL_TYPE.random_Magic:
+                temp += `随机造成${info.data[0]}%-${info.data[1]}%魔法伤害`;
+                break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
                 break;

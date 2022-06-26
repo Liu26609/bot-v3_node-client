@@ -77,6 +77,30 @@ export enum SKILL_TYPE {
     * 参数1:百分比
     */
     enemy_all_Physics,
+    /**
+     * 随机造成N-N物理固定伤害
+     * 参数1：最小伤害
+     * 参数2：最大伤害
+     */
+    random_Physics_fixed,
+    /**
+    * 随机造成N-N魔法固定伤害
+    * 参数1：最小伤害
+    * 参数2：最大伤害
+    */
+    random_Magic_fixed,
+    /**
+    * 随机造成N-N物理百分比伤害
+    * 参数1：最小伤害
+    * 参数2：最大伤害
+    */
+    random_Physics,
+    /**
+    * 随机造成N-N魔法百分比伤害
+    * 参数1：最小伤害
+    * 参数2：最大伤害
+    */
+    random_Magic,
 }
 /**
  * 主动技能

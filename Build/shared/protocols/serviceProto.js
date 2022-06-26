@@ -861,6 +861,22 @@ exports.serviceProto = {
                 {
                     "id": 14,
                     "value": 14
+                },
+                {
+                    "id": 15,
+                    "value": 15
+                },
+                {
+                    "id": 16,
+                    "value": 16
+                },
+                {
+                    "id": 17,
+                    "value": 17
+                },
+                {
+                    "id": 18,
+                    "value": 18
                 }
             ]
         },

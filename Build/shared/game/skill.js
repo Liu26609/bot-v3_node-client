@@ -81,6 +81,30 @@ var SKILL_TYPE;
     * 参数1:百分比
     */
     SKILL_TYPE[SKILL_TYPE["enemy_all_Physics"] = 14] = "enemy_all_Physics";
+    /**
+     * 随机造成N-N物理固定伤害
+     * 参数1：最小伤害
+     * 参数2：最大伤害
+     */
+    SKILL_TYPE[SKILL_TYPE["random_Physics_fixed"] = 15] = "random_Physics_fixed";
+    /**
+    * 随机造成N-N魔法固定伤害
+    * 参数1：最小伤害
+    * 参数2：最大伤害
+    */
+    SKILL_TYPE[SKILL_TYPE["random_Magic_fixed"] = 16] = "random_Magic_fixed";
+    /**
+    * 随机造成N-N物理百分比伤害
+    * 参数1：最小伤害
+    * 参数2：最大伤害
+    */
+    SKILL_TYPE[SKILL_TYPE["random_Physics"] = 17] = "random_Physics";
+    /**
+    * 随机造成N-N魔法百分比伤害
+    * 参数1：最小伤害
+    * 参数2：最大伤害
+    */
+    SKILL_TYPE[SKILL_TYPE["random_Magic"] = 18] = "random_Magic";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
