@@ -53,7 +53,7 @@ export class auction_look extends task_base {
 ┗┄━══════════━┄
 <emoji:147>出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)`
 
-        bot.sendText(this.channel_id, temp);
+        bot.sendText(this.channel_id, temp,this.matchKey);
     }
     async equipAuction(data: ResAuction_look) {
         if (!data.info.auction) {
@@ -73,7 +73,7 @@ export class auction_look extends task_base {
 <emoji:147>出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)
 ┗┄━══════════━┄
 `
-        bot.sendText(this.channel_id, temp);
+        bot.sendText(this.channel_id, temp,this.matchKey);
     }
     /**
      * 没有拍卖
@@ -88,6 +88,6 @@ export class auction_look extends task_base {
 道具拍卖：拍卖 + 拍卖道具名 + 数量(如:拍卖盲盒10)
 装备拍卖：请发送[背包]查看拍卖指令
 ┗┄━══════════━┄`
-        bot.sendText(this.channel_id, temp);
+        bot.sendText(this.channel_id, temp,this.matchKey);
     }
 }

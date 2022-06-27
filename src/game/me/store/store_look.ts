@@ -36,6 +36,6 @@ export class store_look extends task_base {
         temps += `[取 + ID]将查看指定装备/资源取出\n`;
         temps += `┗┄━═════════━┄\n`;
 
-        await bot.sendText(this.channel_id, temps)
+        await bot.sendText(this.channel_id, temps,this.content)
     }
 }

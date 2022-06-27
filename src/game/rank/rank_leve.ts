@@ -23,6 +23,6 @@ export class rank_leve extends task_base{
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ肝帝你不懂ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.matchKey)
     }
 }

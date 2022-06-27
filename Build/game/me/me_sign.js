@@ -45,7 +45,7 @@ class me_sign extends task_base_1.task_base {
                 }
                 temp += `┗┄━${this.at()}━┄\n`;
                 temp += `“${data.oneWord}”`;
-                bot_1.default.sendText(this.channel_id, temp);
+                bot_1.default.sendText(this.channel_id, temp, this.content);
                 break;
             case userCfg_1.USER_CFG_MSGTEMPLATE.card:
                 let embed = new embed_1.embed_style();

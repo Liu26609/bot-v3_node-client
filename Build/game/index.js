@@ -113,6 +113,7 @@ const rank_PhysicalAttacks_1 = require("./rank/rank_PhysicalAttacks");
 const rank_PhysicalDefense_1 = require("./rank/rank_PhysicalDefense");
 const shop_rankscore_1 = require("./shop/shop_rankscore");
 const me_vip_1 = require("./me/me_vip");
+const emojiMenu_1 = require("./sys/emojiMenu");
 const openMapChestBox_all_1 = require("./map/openMapChestBox_all");
 const store_save_equip_1 = require("./me/store/store_save_equip");
 const store_look_1 = require("./me/store/store_look");
@@ -203,6 +204,7 @@ class game {
         this.matchMap.set('头像商店', { action: shop_icon_1.shop_icon, match: matchType.all });
         this.matchMap.set('购买头像', { action: shop_icon_buy_1.shop_icon_buy, match: matchType.all });
         // 
+        this.matchMap.set('表情指令', { action: emojiMenu_1.emojiMenu, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('我的宠物', { action: me_pet_1.me_pet, match: matchType.all });
         this.matchMap.set('查看宠物', { action: me_lookPet_1.me_lookPet, match: matchType.match });

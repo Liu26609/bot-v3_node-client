@@ -15,6 +15,6 @@ export class fishing extends task_base{
         }
         let data = req.res;
         let temp = `<@!${this.userId}>在这片神奇的湖泊里你钓到了${data.jin}斤的${data.fish}<emoji:293>!获得🐟️小鱼干${data.reward}`
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.content)
     }
 }

@@ -55,7 +55,7 @@ class docile extends task_base_1.task_base {
         let temp = ``;
         temp += `<emoji:147>提示：查看捕捉宠物指令:捕捉 + 怪物id\n`;
         temp += `🌰栗子:@${bot_1.default.getBot_name()} 捕捉0`;
-        bot_1.default.sendText(this.channel_id, temp);
+        bot_1.default.sendText(this.channel_id, temp, this.content);
     }
 }
 exports.docile = docile;

@@ -65,7 +65,7 @@ class me_vip extends task_base_1.task_base {
         temp += '7.更新可享更多特权..\n';
         temp += '8.联系QQ550620904\n';
         temp += `┗┄━═════════━┄`;
-        bot_1.default.sendText(this.channel_id, temp);
+        bot_1.default.sendText(this.channel_id, temp, this.content);
     }
 }
 exports.me_vip = me_vip;

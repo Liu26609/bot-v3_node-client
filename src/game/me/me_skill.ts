@@ -42,7 +42,7 @@ export class me_skill extends task_base {
                 temp += `[${index}]${name}\n`;
             }
             temp += `┗┄━${this.at()}━┄`
-            await bot.sendText(this.channel_id, temp)
+            await bot.sendText(this.channel_id, temp,this.content)
         }
 
 
@@ -51,6 +51,6 @@ export class me_skill extends task_base {
         temps += `[查询技能 + 名称]查询技能详细\n`;
         temps += `[遗忘技能 + 数字]废弃指定技能\n`;
         temps += `┗┄━━━━━━━━━┄\n`;
-        bot.sendText(this.channel_id, temps)
+        bot.sendText(this.channel_id, temps,this.content)
     }
 }

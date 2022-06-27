@@ -23,7 +23,7 @@ export class soaringTask extends task_base {
             temp += `${isDone ? '✅' : '☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`
         }
         temp += `┗┄━${this.at()}━┄`
-        bot.sendText(this.channel_id, temp)
+        bot.sendText(this.channel_id, temp,this.content)
     }
     coverTaskIdTips(id: TaskId) {
         let str = ``;

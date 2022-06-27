@@ -40,7 +40,7 @@ class shop_skill extends task_base_1.task_base {
             str += `\n🎫购买指令：购买技能`;
             str += `\n<emoji:147>每次刷新随机价格，与技能属性无关`;
             str += `\n↓↓以下是技能属性预览↓↓`;
-            yield bot_1.default.sendText(this.channel_id, str);
+            yield bot_1.default.sendText(this.channel_id, str, this.matchKey);
             new skill_1.text_skill_style().sendData(data.sell_temp).sendMsg(this.channel_id);
             switch (data.userCfg.textStyle) {
                 case setUp_1.textStyle.card:

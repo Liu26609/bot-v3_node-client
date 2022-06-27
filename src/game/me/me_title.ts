@@ -35,7 +35,7 @@ export class me_title extends task_base{
         temp += `🔂重置称号[重置称号 + 次数]\n`
         temp += `┗┄━═════════━┄`
         // 　称号改名　重置称号
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.content)
        
     }
 }

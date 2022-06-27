@@ -37,7 +37,7 @@ class shop_team extends task_base_1.task_base {
 🕤刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
 🎫购买指令：工会购买
 <emoji:147>出售商品和价格每次随机刷新`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
     converSellTemp(temp) {

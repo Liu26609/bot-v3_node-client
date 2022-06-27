@@ -86,7 +86,7 @@ class me_titleRandom extends task_base_1.task_base {
                 temp += ` ${titleStr}${data.bf[key]}${changeIcon}${data.now[key]}%\n`;
             }
             temp += `┗┄━${this.at()}━┄`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.content);
         });
     }
 }

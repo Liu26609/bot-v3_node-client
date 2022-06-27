@@ -91,7 +91,7 @@ class me_openBlindBox extends task_base_1.task_base {
                     });
                 }
                 temp += `┗┄━${this.at()}━┄`;
-                bot_1.default.sendText(this.channel_id, temp);
+                bot_1.default.sendText(this.channel_id, temp, this.content);
             }
         });
     }

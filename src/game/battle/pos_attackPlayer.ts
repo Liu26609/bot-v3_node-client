@@ -45,6 +45,6 @@ export class pos_attackPlayer extends task_base {
 
         temp += `\n<emoji:147>击杀怪物后地图有几率掉落宝箱哦~`
 
-        bot.sendText(this.channel_id, temp)
+        bot.sendText(this.channel_id, temp,this.content)
     }
 }

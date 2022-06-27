@@ -65,7 +65,7 @@ export class pk extends task_base {
         
         // bot.sendText(this.channel_id, `向${newArr.length}位玩家发起PK`)
 
-        await bot.sendText(this.channel_id,temp)
+        await bot.sendText(this.channel_id,temp,this.matchKey)
     }
     menu() {
         new text_example_style().setCommand('PK指令:PK + @PK的玩家').setExample('PK@玩家名').sendMsg(this.channel_id)

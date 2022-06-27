@@ -87,7 +87,7 @@ class setUp extends task_base_1.task_base {
             temp += `[设置不显示击杀日志]\n`;
             temp += `官方不给按钮权限,你可以去官方天天刷反馈。\n`;
             temp += `┗┄━═════════━┄`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.content);
         });
     }
     notDevFunction() {
@@ -96,7 +96,7 @@ class setUp extends task_base_1.task_base {
         temp += `①你可能少打或多打了字\n`;
         temp += `②没有次功能设置,你可以联系作者定制\n`;
         temp += `┗┄━═════════━┄`;
-        bot_1.default.sendText(this.channel_id, temp);
+        bot_1.default.sendText(this.channel_id, temp, this.content);
     }
     notPass() {
         this.log(`你没有此设置的权限~`);

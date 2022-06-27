@@ -43,7 +43,7 @@ class me_lookPet extends task_base_1.task_base {
         let temp = ``;
         temp += `<emoji:147>提示：查看宠物属性指令:查看宠物 + ID\n`;
         temp += `🌰栗子:@${bot_1.default.getBot_name()} 查看宠物0`;
-        bot_1.default.sendText(this.channel_id, temp);
+        bot_1.default.sendText(this.channel_id, temp, this.content);
     }
 }
 exports.me_lookPet = me_lookPet;

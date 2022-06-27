@@ -35,7 +35,7 @@ export class me_team extends task_base {
 🌟魔法防御+${data.info.gain.MagicDefense}
 ┗┄━${this.at()}━┄
 <emoji:147>击杀其他玩家将获得贡献值`;
-        bot.sendText(this.channel_id, team);
+        bot.sendText(this.channel_id, team,this.content);
         this.ctlMenu(data.myLeve);
     }
     ctlMenu(leve: teamLeve) {
@@ -53,7 +53,7 @@ export class me_team extends task_base {
             temp += `[成员列表]查看工会全部成员\n`
             temp += `┗┄━${this.at()}━┄`;
         }
-        bot.sendText(this.channel_id, temp);
+        bot.sendText(this.channel_id, temp,this.content);
     }
     notTeam() {
         let team = `┏┄═══🏰我的工会══━┄
@@ -62,6 +62,6 @@ export class me_team extends task_base {
 [创建工会 + 名字]创建一个工会
 ┗┄━${this.at()}━┄
 <emoji:147>邀请码需要会长艾特机器人发送[创建邀请码]`;
-        bot.sendText(this.channel_id, team)
+        bot.sendText(this.channel_id, team,this.content)
     }
 }

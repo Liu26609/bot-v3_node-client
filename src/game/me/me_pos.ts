@@ -88,7 +88,7 @@ export class me_pos extends task_base {
         }
         temp += `┗┄━${this.at()}━┄`
 
-        bot.sendText(this.channel_id, temp)
+        bot.sendText(this.channel_id, temp,this.content)
 
     }
 }

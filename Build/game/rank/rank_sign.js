@@ -39,7 +39,7 @@ class rank_sign extends task_base_1.task_base {
             }
             temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ坚持就是胜利ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
 }

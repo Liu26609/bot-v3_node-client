@@ -39,7 +39,7 @@ class rank_MagicAttack extends task_base_1.task_base {
             }
             temp += `࿐ᐖ因为太怕痛就全加魔攻ᐛ࿐\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
 }

@@ -72,7 +72,7 @@ class pos_attackEnemy extends task_base_1.task_base {
             }
             temp += `\n┗┄━${this.at()}━┄`;
             temp += `\n<emoji:147>击杀怪物后地图有几率掉落宝箱哦~`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
 }

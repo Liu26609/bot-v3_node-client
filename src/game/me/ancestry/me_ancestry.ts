@@ -30,6 +30,6 @@ ${common.getSkDesc(data.SK)}
 ┗┄━${this.at()}━┄
 <emoji:147>[重置进化]更换血统会清空当前等级和经验
 <emoji:147>成长分和技能会随着进化等级变化`
-        bot.sendText(this.channel_id, temp);
+        bot.sendText(this.channel_id, temp,this.content);
     }
 }

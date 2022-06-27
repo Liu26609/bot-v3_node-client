@@ -64,7 +64,7 @@ class auction_look extends task_base_1.task_base {
 🏆最后出价人：${data.info.offer_name || '虚位以待'}
 ┗┄━══════════━┄
 <emoji:147>出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)`;
-        bot_1.default.sendText(this.channel_id, temp);
+        bot_1.default.sendText(this.channel_id, temp, this.matchKey);
     }
     equipAuction(data) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -84,7 +84,7 @@ class auction_look extends task_base_1.task_base {
 <emoji:147>出价指令：出价 + 加价金币(如:出价100，如果成交则按当前价格 + 出价成交)
 ┗┄━══════════━┄
 `;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
     /**
@@ -100,7 +100,7 @@ class auction_look extends task_base_1.task_base {
 道具拍卖：拍卖 + 拍卖道具名 + 数量(如:拍卖盲盒10)
 装备拍卖：请发送[背包]查看拍卖指令
 ┗┄━══════════━┄`;
-        bot_1.default.sendText(this.channel_id, temp);
+        bot_1.default.sendText(this.channel_id, temp, this.matchKey);
     }
 }
 exports.auction_look = auction_look;

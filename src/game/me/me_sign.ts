@@ -43,7 +43,7 @@ export default class me_sign extends task_base {
                 }
                 temp += `┗┄━${this.at()}━┄\n`
                 temp += `“${data.oneWord}”`
-                bot.sendText(this.channel_id, temp)
+                bot.sendText(this.channel_id, temp,this.content)
 
                 break;
             case USER_CFG_MSGTEMPLATE.card:

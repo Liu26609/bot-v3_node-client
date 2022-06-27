@@ -42,7 +42,7 @@ export class me_bag extends task_base {
         temps += `[存装备 + 数字]将指定装备放仓库\n`;
         temps += `┗┄━═════════━┄\n`;
 
-        await bot.sendText(this.channel_id, temp);
-        await bot.sendText(this.channel_id, temps)
+        await bot.sendText(this.channel_id, temp,this.matchKey);
+        await bot.sendText(this.channel_id, temps,this.matchKey)
     }
 }

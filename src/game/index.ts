@@ -101,7 +101,7 @@ import { rank_PhysicalDefense } from './rank/rank_PhysicalDefense';
 import { shop_rankscore } from './shop/shop_rankscore';
 import { switch_CN, CFG_SWITCH } from '../interface/guildCfg';
 import { me_vip } from './me/me_vip';
-import { emojiMenu } from './sys/emoji';
+import { emojiMenu } from './sys/emojiMenu';
 import { openMapChestBox_all } from './map/openMapChestBox_all';
 import { store_save_equip } from './me/store/store_save_equip';
 import { store_look } from './me/store/store_look';
@@ -231,6 +231,8 @@ export default class game {
         this.matchMap.set('头像商店', { action: shop_icon, match: matchType.all })
         this.matchMap.set('购买头像', { action: shop_icon_buy, match: matchType.all })
         // 
+        this.matchMap.set('表情指令', { action: emojiMenu, match: matchType.all })
+        
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
         this.matchMap.set('查看宠物', { action: me_lookPet, match: matchType.match })

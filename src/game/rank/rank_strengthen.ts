@@ -23,6 +23,6 @@ export class rank_strengthen extends task_base{
         }
         temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ神器封神榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.matchKey)
     }
 }

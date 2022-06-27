@@ -52,7 +52,7 @@ export class setUp extends task_base {
         temp += `官方不给按钮权限,你可以去官方天天刷反馈。\n`;
         temp += `┗┄━═════════━┄`;
 
-        bot.sendText(this.channel_id, temp)
+        bot.sendText(this.channel_id, temp,this.content)
     }
     notDevFunction() {
         let temp = `┏┄═══👑机器人设置══━┄\n`
@@ -60,7 +60,7 @@ export class setUp extends task_base {
         temp += `①你可能少打或多打了字\n`
         temp += `②没有次功能设置,你可以联系作者定制\n`
         temp += `┗┄━═════════━┄`
-        bot.sendText(this.channel_id, temp);
+        bot.sendText(this.channel_id, temp,this.content);
     }
     notPass() {
         this.log(`你没有此设置的权限~`)

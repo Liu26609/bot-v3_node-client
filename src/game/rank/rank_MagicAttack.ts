@@ -23,6 +23,6 @@ export class rank_MagicAttack extends task_base{
         }
         temp += `࿐ᐖ因为太怕痛就全加魔攻ᐛ࿐\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.matchKey)
     }
 }

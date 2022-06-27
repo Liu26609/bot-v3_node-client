@@ -23,7 +23,7 @@ export class searchSkill extends task_base {
             return;
         }
         let data = req.res;
-        await bot.sendText(this.channel_id, `已为你找到相识度${data.match.toFixed(3)}%的技能`)
+        await bot.sendText(this.channel_id, `已为你找到相识度${data.match.toFixed(3)}%的技能`,this.content)
         new text_skill_style().sendData(data.skill).sendMsg(this.channel_id);
 
     }

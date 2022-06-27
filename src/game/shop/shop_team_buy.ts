@@ -19,6 +19,6 @@ export class shop_team_buy extends task_base{
         temp += `🔻消耗工会贡献x${data.pay.condition.val}\n`;
         temp += `▶️还有工会贡献x${data.pay.now}\n`;
         temp += `┗┄━══════════━┄\n`;
-        bot.sendText(this.channel_id,temp);
+        bot.sendText(this.channel_id,temp,this.matchKey);
     }
 }

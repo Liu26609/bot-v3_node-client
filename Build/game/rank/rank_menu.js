@@ -36,7 +36,7 @@ class rank_menu extends task_base_1.task_base {
 📑魔防排行榜📑物防排行榜
 📑工会贡献排行榜📑生命排行榜
 ࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ目前可查看排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
 }

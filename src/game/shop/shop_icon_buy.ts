@@ -25,7 +25,7 @@ export class shop_icon_buy extends task_base{
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━══════════━┄\n`;
-            bot.sendText(this.channel_id,temp);
+            bot.sendText(this.channel_id,temp,this.matchKey);
         }else if(data.userCfg.textStyle == textStyle.card){
             let temps = new embed_style();
             temps.setTitle('             🕊️购买成功')

@@ -39,7 +39,7 @@ class rank_MinGame_lottery_cont extends task_base_1.task_base {
             }
             temp += `࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ猜数参与排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒\n`;
             temp += `${this.at()}我的排名${common_1.default.getRankStr(data.meIndex)}`;
-            bot_1.default.sendText(this.channel_id, temp);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
         });
     }
 }

@@ -85,7 +85,7 @@ export class me_strengthen extends task_base {
                 temp += `┗┄━${this.at()}━┄`;
             }
 
-            bot.sendText(this.channel_id, temp)
+            bot.sendText(this.channel_id, temp,this.content)
         } else {
             let temp = new embed_style();
             temp.setIcon(`${bot.getBotConfig().cosUrl_http}/equip/${data.nowEquip.icon}.png`);

@@ -24,6 +24,6 @@ export class rank_dnaLv extends task_base{
         }
         temp += `࿒࿐⋆˃̵͙˂̵͙⍣ᐖ强者没有真正的朋友ᐛ⍣˃̵͙˂̵࿐࿒\n`
         temp += `${this.at()}我的排名${common.getRankStr(data.meIndex)}`
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.matchKey)
     }
 }

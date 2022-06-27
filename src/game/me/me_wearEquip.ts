@@ -34,6 +34,6 @@ export class me_wearEquip extends task_base {
             this.sendErr(req.err)
             return;
         }
-        bot.sendText(this.channel_id, '装备已成功穿戴,查看最新装备发送[我的装备]')
+        bot.sendText(this.channel_id, '装备已成功穿戴,查看最新装备发送[我的装备]',this.content)
     }
 }
