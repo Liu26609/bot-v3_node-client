@@ -46,7 +46,7 @@ class shop_rankscore_buy extends task_base_1.task_base {
                 temps.setTitle('             🕊️购买成功');
                 temps.setIcon(this.userIcon);
                 temps.setTips('强者伴随孤独而生，弱者却在黑暗中，敲着醒钟');
-                temps.addLine(`<emoji:147>强者伴随孤独而生，弱者却在黑暗中，敲着醒钟`);
+                temps.addLine(`🎫强者伴随孤独而生，弱者却在黑暗中，敲着醒钟`);
                 temps.addLine(`🔻消耗${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.rankscore]]}x${data.pay.condition.val}`);
                 temps.addLine(`▶️还有${prop_1.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.rankscore]]}x${data.pay.now}`);
                 temps.sendMsg(this.channel_id);

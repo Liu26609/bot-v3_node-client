@@ -34,7 +34,7 @@ export class shop_back_buy extends task_base{
             temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
             temps.setTips('🎫商品已交易成功，祝您购物愉快~')
-            temps.addLine(`<emoji:147>商品已交易成功，祝您购物愉快~`)
+            temps.addLine(`🎫商品已交易成功，祝您购物愉快~`)
             temps.addLine(`🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`)
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)

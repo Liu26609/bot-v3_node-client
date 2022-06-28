@@ -30,7 +30,7 @@ export class shop_team_buy extends task_base {
             temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
             temps.setTips('🎫工会变得更强了~')
-            temps.addLine('<emoji:147>购买成功，祝您购物愉快~')
+            temps.addLine('🎫购买成功，祝您购物愉快~')
             temps.addLine(`🔻消耗工会贡献x${data.pay.condition.val}`)
             temps.addLine(`有工会贡献x${data.pay.now}`)
             temps.sendMsg(this.channel_id)
