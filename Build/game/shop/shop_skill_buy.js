@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.shop_skill_buy = void 0;
-const setUp_1 = require("../../shared/game/setUp");
+const userCfg_1 = require("../../interface/userCfg");
 const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
@@ -32,7 +32,7 @@ class shop_skill_buy extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            if (data.userCfg.textStyle == setUp_1.textStyle.text) {
+            if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 let temp = ``;
                 temp += `┏┄═══🕊️购买成功══━┄\n`;
                 temp += `🎫技能已领悟，祝您购物愉快~\n`;
@@ -41,7 +41,7 @@ class shop_skill_buy extends task_base_1.task_base {
                 temp += `┗┄━══════════━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp, this.matchKey);
             }
-            else if (data.userCfg.textStyle == setUp_1.textStyle.card) {
+            else {
                 let temps = new embed_1.embed_style();
                 temps.setTitle('             🕊️购买成功');
                 temps.setIcon(this.userIcon);

@@ -77,6 +77,9 @@ class everDayTask extends task_base_1.task_base {
             case taskTemp_1.TaskId.lottery_partake:
                 str = `[猜数]中是不可能中的`;
                 break;
+            case taskTemp_1.TaskId.look_Horse:
+                str = `[宠物马拉松]查看一次宠物马拉松`;
+                break;
             default:
                 str = `未收录任务id${id}`;
                 break;

@@ -241,6 +241,12 @@ class common {
          case SKILL_TYPE.random_Magic:
             temp += `随机造成${info.data[0]}%-${info.data[1]}%魔法伤害`
             break;
+         case SKILL_TYPE.random_Skill:
+            temp += `游戏所有技能中随机一个技能释放`
+            break;
+         case SKILL_TYPE.stop_attack:
+            temp += `让一个敌人${info.data[0]}回合不能释放任何技能`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

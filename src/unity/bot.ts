@@ -299,7 +299,6 @@ class bot {
                 break;
             case AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
                 this.ws.on(AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data: BOT_OnData) => {
-                    log('？？？', data)
                     if (data.eventType == BOT_EventType.emoji_add) {
                         this._test(data)
                     }

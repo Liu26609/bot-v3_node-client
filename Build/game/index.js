@@ -120,7 +120,6 @@ const openMapChestBox_all_1 = require("./map/openMapChestBox_all");
 const store_save_equip_1 = require("./me/store/store_save_equip");
 const store_look_1 = require("./me/store/store_look");
 const store_get_1 = require("./me/store/store_get");
-const horse_1 = require("./minGame/horse/horse");
 var matchType;
 (function (matchType) {
     /**
@@ -147,7 +146,6 @@ class game {
         * 排行榜指令模块
         */
         //    emojiMenu
-        this.matchMap.set(`test`, { action: horse_1.horse, match: matchType.all });
         this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });
         this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
         this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });

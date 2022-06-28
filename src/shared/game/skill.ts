@@ -101,6 +101,15 @@ export enum SKILL_TYPE {
     * 参数2：最大伤害
     */
     random_Magic,
+    /**
+   * 随机游戏所有技能中选一个技能释放
+   */
+    random_Skill,
+    /**
+     * 让一个敌人N回合不能释放任何技能
+     * 参赛1:停止回合数
+     */
+    stop_attack
 }
 /**
  * 主动技能
@@ -136,7 +145,11 @@ export enum SKILL_ACTIVE_RES_TYPE {
     /**
      * 复制技能
      */
-    copySkill
+    copySkill,
+    /**
+     * 让对手停止攻击
+     */
+    stopAttack
 }
 /**
  * 技能目标

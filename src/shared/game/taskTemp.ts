@@ -121,5 +121,9 @@ export enum TaskId {
     /**
      * 捕捉一次宠物
      */
-    docile_partake
+    docile_partake,
+    /**
+     * 查看一次宠物马拉松
+     */
+    look_Horse
 }

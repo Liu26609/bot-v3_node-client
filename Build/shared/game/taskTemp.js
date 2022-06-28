@@ -101,4 +101,8 @@ var TaskId;
      * 捕捉一次宠物
      */
     TaskId[TaskId["docile_partake"] = 14] = "docile_partake";
+    /**
+     * 查看一次宠物马拉松
+     */
+    TaskId[TaskId["look_Horse"] = 15] = "look_Horse";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

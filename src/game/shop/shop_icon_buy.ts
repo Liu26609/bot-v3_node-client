@@ -5,6 +5,7 @@ import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { embed_style } from '../temp/embed/embed';
 import { task_base } from '../task_base';
+import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
 export class shop_icon_buy extends task_base{
     constructor(...a){
         super(...a);
@@ -18,7 +19,7 @@ export class shop_icon_buy extends task_base{
         }
 
         let data = req.res;
-        if(data.userCfg.textStyle == textStyle.text){
+        if(this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text){
             let temp = ``;
             temp += `┏┄═══🕊️购买成功══━┄\n`
             temp += `🎫头像已经自动修改，祝您购物愉快~\n`
@@ -26,7 +27,7 @@ export class shop_icon_buy extends task_base{
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━══════════━┄\n`;
             bot.sendText(this.channel_id,temp,this.matchKey);
-        }else if(data.userCfg.textStyle == textStyle.card){
+        }else{
             let temps = new embed_style();
             temps.setTitle('             🕊️购买成功')
             temps.setIcon(this.userIcon);
@@ -36,5 +37,6 @@ export class shop_icon_buy extends task_base{
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)
         }
+       
     }
 }

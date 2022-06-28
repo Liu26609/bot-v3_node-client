@@ -174,7 +174,6 @@ export default class game {
         * 排行榜指令模块
         */
         //    emojiMenu
-        this.matchMap.set(`test`, { action: horse, match: matchType.all })
         this.matchMap.set(`宠物马拉松`, { action: horse_look, match: matchType.all })
         this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })

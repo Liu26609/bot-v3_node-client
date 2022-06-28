@@ -24,7 +24,7 @@ export class everDayTask extends task_base {
         }
         temp += `┗┄━${this.at()}━┄`
 
-        bot.sendText(this.channel_id, temp,this.content)
+        bot.sendText(this.channel_id, temp, this.content)
     }
     coverTaskIdTips(id: TaskId) {
         let str = ``;
@@ -61,6 +61,9 @@ export class everDayTask extends task_base {
                 break;
             case TaskId.lottery_partake:
                 str = `[猜数]中是不可能中的`
+                break;
+            case TaskId.look_Horse:
+                str = `[宠物马拉松]查看一次宠物马拉松`
                 break;
             default:
                 str = `未收录任务id${id}`

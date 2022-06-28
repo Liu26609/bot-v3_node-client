@@ -325,7 +325,6 @@ class bot {
                 break;
             case qq_guild_bot_1.AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS:
                 this.ws.on(qq_guild_bot_1.AvailableIntentsEventsEnum.GUILD_MESSAGE_REACTIONS, (data) => {
-                    (0, __1.log)('？？？', data);
                     if (data.eventType == bot_1.BOT_EventType.emoji_add) {
                         this._test(data);
                     }

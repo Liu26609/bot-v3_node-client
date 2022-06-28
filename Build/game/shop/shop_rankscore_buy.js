@@ -14,11 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.shop_rankscore_buy = void 0;
 const prop_1 = require("../../shared/game/prop");
-const setUp_1 = require("../../shared/game/setUp");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const embed_1 = require("../temp/embed/embed");
 const task_base_1 = require("../task_base");
+const userCfg_1 = require("../../interface/userCfg");
 class shop_rankscore_buy extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -32,7 +32,7 @@ class shop_rankscore_buy extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            if (data.userCfg.textStyle == setUp_1.textStyle.text) {
+            if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 let temp = ``;
                 temp += `┏┄═══🕊️购买成功══━┄\n`;
                 temp += `🎫强者伴随孤独而生，弱者却在黑暗中，敲着醒钟\n`;
@@ -41,7 +41,7 @@ class shop_rankscore_buy extends task_base_1.task_base {
                 temp += `┗┄━══════════━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp, this.matchKey);
             }
-            else if (data.userCfg.textStyle == setUp_1.textStyle.card) {
+            else {
                 let temps = new embed_1.embed_style();
                 temps.setTitle('             🕊️购买成功');
                 temps.setIcon(this.userIcon);
