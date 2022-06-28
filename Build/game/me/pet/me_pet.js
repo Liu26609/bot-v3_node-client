@@ -48,8 +48,8 @@ class me_pet extends task_base_1.task_base {
             temps += `[宠物改名 + ID + 名字]修改宠物名称\n`;
             temps += `[放生宠物 + ID]放生指定宠物\n`;
             temps += `┗┄━═════════━┄\n`;
-            bot_1.default.sendText(this.channel_id, temp);
-            bot_1.default.sendText(this.channel_id, temps);
+            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
+            bot_1.default.sendText(this.channel_id, temps, this.matchKey);
         });
     }
 }

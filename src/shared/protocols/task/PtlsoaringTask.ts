@@ -1,7 +1,7 @@
 import { taskTemp } from "../../game/taskTemp";
 
 /**
- * 阶梯计划
+ * 阶梯任务
  */
 export interface ReqsoaringTask {
     userId: string

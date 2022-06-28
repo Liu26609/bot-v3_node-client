@@ -18,6 +18,7 @@ import { ReqendAutoPlay, ResendAutoPlay } from './me/autoPlay/PtlendAutoPlay';
 import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPlay';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
+import { ReqHorse, ResHorse } from './minGame/PtlHorse';
 import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lottery';
 import { MsgCallAll } from './MsgCallAll';
 import { MsgCallAppoint } from './MsgCallAppoint';
@@ -180,6 +181,10 @@ export interface ServiceType {
         "me/title/Me_titleRandom": {
             req: ReqMe_titleRandom,
             res: ResMe_titleRandom
+        },
+        "minGame/Horse": {
+            req: ReqHorse,
+            res: ResHorse
         },
         "minGame/MinGame_lottery": {
             req: ReqMinGame_lottery,
@@ -511,7 +516,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 61,
+    "version": 62,
     "services": [
         {
             "id": 0,
@@ -606,6 +611,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 93,
             "name": "me/title/Me_titleRandom",
+            "type": "api"
+        },
+        {
+            "id": 114,
+            "name": "minGame/Horse",
             "type": "api"
         },
         {
@@ -2993,6 +3003,129 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "type": "Reference",
                         "target": "../game/body/base_attribute"
                     }
+                }
+            ]
+        },
+        "minGame/PtlHorse/ReqHorse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "minGame/PtlHorse/HORSE_TYPE"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "joinPetIndex",
+                    "type": {
+                        "type": "Number"
+                    },
+                    "optional": true
+                }
+            ]
+        },
+        "minGame/PtlHorse/HORSE_TYPE": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                }
+            ]
+        },
+        "minGame/PtlHorse/ResHorse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "state",
+                    "type": {
+                        "type": "Reference",
+                        "target": "minGame/PtlHorse/HORSE_STATE"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "round",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nowCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "maxCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "allGift",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "buyCondition",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/user/walletKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "minGame/PtlHorse/HORSE_STATE": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
                 }
             ]
         },

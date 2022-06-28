@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const horse_look_1 = require("./minGame/horse/horse_look");
+const horse_join_1 = require("./minGame/horse/horse_join");
 const rank_hp_1 = require("./rank/rank_hp");
 const rank_teamContribute_1 = require("./rank/rank_teamContribute");
 const shop_rankscore_buy_1 = require("./shop/shop_rankscore_buy");
@@ -118,6 +120,7 @@ const openMapChestBox_all_1 = require("./map/openMapChestBox_all");
 const store_save_equip_1 = require("./me/store/store_save_equip");
 const store_look_1 = require("./me/store/store_look");
 const store_get_1 = require("./me/store/store_get");
+const horse_1 = require("./minGame/horse/horse");
 var matchType;
 (function (matchType) {
     /**
@@ -144,6 +147,9 @@ class game {
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set(`test`, { action: horse_1.horse, match: matchType.all });
+        this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });
+        this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
         this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
         this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });
@@ -176,7 +182,7 @@ class game {
         this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });
         this.matchMap.set('镜像挑战', { action: challenge_image_1.challenge_image, match: matchType.match });
         this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
-        this.matchMap.set('阶梯计划', { action: soaringTask_1.soaringTask, match: matchType.all });
+        this.matchMap.set('阶梯任务', { action: soaringTask_1.soaringTask, match: matchType.all });
         this.matchMap.set('挂机', { action: me_AutoPlay_1.me_AutoPlay, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
@@ -203,7 +209,6 @@ class game {
         this.matchMap.set('黑市购买', { action: shop_back_buy_1.shop_back_buy, match: matchType.all });
         this.matchMap.set('头像商店', { action: shop_icon_1.shop_icon, match: matchType.all });
         this.matchMap.set('购买头像', { action: shop_icon_buy_1.shop_icon_buy, match: matchType.all });
-        // 
         this.matchMap.set('表情指令', { action: emojiMenu_1.emojiMenu, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('我的宠物', { action: me_pet_1.me_pet, match: matchType.all });
@@ -297,6 +302,13 @@ class game {
                 bot_1.default.test(data.guild_id, data.author.id);
                 return;
             }
+            // if (data.content) {
+            //     log('测试')
+            //     for (let index = 0; index < 20; index++) {
+            //         await bot.sendText(data.channel_id, `赛马/参赛`)
+            //     }
+            //     return;
+            // }
             // let isNext = false;
             // let whiteMap = new Map();
             // whiteMap.set('1933444',true)
@@ -309,10 +321,10 @@ class game {
             // if(!isNext){
             //     return;
             // }
-            if (!this.devTipsMap.has(data.guild_id)) {
-                bot_1.default.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`);
-                this.devTipsMap.set(data.guild_id, true);
-            }
+            // if (!this.devTipsMap.has(data.guild_id)) {
+            //     bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
+            //     this.devTipsMap.set(data.guild_id, true)
+            // }
             // if (data.author.id != '14139673525601401123') {
             //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
             //     return;
@@ -384,12 +396,12 @@ class game {
                 }
                 let temp = `┏┄═══<emoji:318>你想找什么?══━┄\n`;
                 if (matchList[0].match == 0) {
-                    for (let index = 0; index < 10; index++) {
+                    for (let index = 0; index < 12; index++) {
                         temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                     }
                 }
                 else {
-                    for (let index = 0; index < 10; index++) {
+                    for (let index = 0; index < 12; index++) {
                         if (matchList[index].match > 0) {
                             temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                         }

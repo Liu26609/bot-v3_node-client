@@ -64,7 +64,7 @@ export interface body extends BASE_BODYS {
     sign: USER_SIGN,
     task: {
         /**
-         * 阶梯计划任务等级
+         * 阶梯任务等级
          */
         ladderLeve: number
     },

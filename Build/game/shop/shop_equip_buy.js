@@ -38,7 +38,7 @@ class shop_equip_buy extends task_base_1.task_base {
                 temp += `🎫装备已放入你的背包，祝您购物愉快~\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-                temp += `┗┄━══════════━┄\n`;
+                temp += `┗┄━${this.at()}━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp, this.matchKey);
             }
             else if (data.userCfg.textStyle == setUp_1.textStyle.card) {

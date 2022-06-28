@@ -51,15 +51,15 @@ export enum taskType_CN {
     /**
      * 飞升任务
      */
-     ladder_1 = '阶梯计划(一级)',
-     ladder_2 = '阶梯计划(二级)',
-     ladder_3 = '阶梯计划(三级)',
-     ladder_4 = '阶梯计划(四级)',
-     ladder_5 = '阶梯计划(五级)',
-     ladder_6 = '阶梯计划(六级)',
-     ladder_7 = '阶梯计划(七级)',
-     ladder_8 = '阶梯计划(八级)',
-     ladder_9 = '阶梯计划(九级)'
+     ladder_1 = '阶梯任务(一级)',
+     ladder_2 = '阶梯任务(二级)',
+     ladder_3 = '阶梯任务(三级)',
+     ladder_4 = '阶梯任务(四级)',
+     ladder_5 = '阶梯任务(五级)',
+     ladder_6 = '阶梯任务(六级)',
+     ladder_7 = '阶梯任务(七级)',
+     ladder_8 = '阶梯任务(八级)',
+     ladder_9 = '阶梯任务(九级)'
 }
 export enum TaskId {
     /**

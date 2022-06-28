@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 61,
+    "version": 62,
     "services": [
         {
             "id": 0,
@@ -97,6 +97,11 @@ exports.serviceProto = {
         {
             "id": 93,
             "name": "me/title/Me_titleRandom",
+            "type": "api"
+        },
+        {
+            "id": 114,
+            "name": "minGame/Horse",
             "type": "api"
         },
         {
@@ -2484,6 +2489,129 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/body/base_attribute"
                     }
+                }
+            ]
+        },
+        "minGame/PtlHorse/ReqHorse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "minGame/PtlHorse/HORSE_TYPE"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "joinPetIndex",
+                    "type": {
+                        "type": "Number"
+                    },
+                    "optional": true
+                }
+            ]
+        },
+        "minGame/PtlHorse/HORSE_TYPE": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                }
+            ]
+        },
+        "minGame/PtlHorse/ResHorse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "state",
+                    "type": {
+                        "type": "Reference",
+                        "target": "minGame/PtlHorse/HORSE_STATE"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "round",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "nowCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "maxCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "allGift",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "buyCondition",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/user/walletKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "minGame/PtlHorse/HORSE_STATE": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
                 }
             ]
         },

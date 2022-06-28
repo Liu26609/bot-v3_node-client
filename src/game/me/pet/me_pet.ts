@@ -34,7 +34,7 @@ export class me_pet extends task_base{
         temps += `[放生宠物 + ID]放生指定宠物\n`;
         temps += `┗┄━═════════━┄\n`;
 
-        bot.sendText(this.channel_id,temp)
-        bot.sendText(this.channel_id,temps)
+        bot.sendText(this.channel_id,temp,this.matchKey)
+        bot.sendText(this.channel_id,temps,this.matchKey)
     }
 }

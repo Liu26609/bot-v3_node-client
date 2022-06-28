@@ -32,7 +32,7 @@ class soaringTask extends task_base_1.task_base {
             let data = req.res;
             let temp = `┏┄═🌈${taskTemp_1.taskType_CN[taskTemp_1.taskType[data.taskLeve]]}═━┄\n`;
             temp += `⬛实力提升到一定程度成长就会变得缓慢,进而造成高等级玩家互相残杀的局面，这对于破壁计划是不利的。
-因此，在破壁计划之前，准备了阶梯计划。每一级阶梯计划都提供不同任务和奖励\n`;
+因此，在破壁计划之前，准备了阶梯任务。每一级阶梯任务都提供不同任务和奖励\n`;
             for (let index = 0; index < data.list.length; index++) {
                 const item = data.list[index];
                 const isDone = item.now >= item.target;

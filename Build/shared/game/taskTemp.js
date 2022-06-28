@@ -29,15 +29,15 @@ var taskType_CN;
     /**
      * 飞升任务
      */
-    taskType_CN["ladder_1"] = "\u9636\u68AF\u8BA1\u5212(\u4E00\u7EA7)";
-    taskType_CN["ladder_2"] = "\u9636\u68AF\u8BA1\u5212(\u4E8C\u7EA7)";
-    taskType_CN["ladder_3"] = "\u9636\u68AF\u8BA1\u5212(\u4E09\u7EA7)";
-    taskType_CN["ladder_4"] = "\u9636\u68AF\u8BA1\u5212(\u56DB\u7EA7)";
-    taskType_CN["ladder_5"] = "\u9636\u68AF\u8BA1\u5212(\u4E94\u7EA7)";
-    taskType_CN["ladder_6"] = "\u9636\u68AF\u8BA1\u5212(\u516D\u7EA7)";
-    taskType_CN["ladder_7"] = "\u9636\u68AF\u8BA1\u5212(\u4E03\u7EA7)";
-    taskType_CN["ladder_8"] = "\u9636\u68AF\u8BA1\u5212(\u516B\u7EA7)";
-    taskType_CN["ladder_9"] = "\u9636\u68AF\u8BA1\u5212(\u4E5D\u7EA7)";
+    taskType_CN["ladder_1"] = "\u9636\u68AF\u4EFB\u52A1(\u4E00\u7EA7)";
+    taskType_CN["ladder_2"] = "\u9636\u68AF\u4EFB\u52A1(\u4E8C\u7EA7)";
+    taskType_CN["ladder_3"] = "\u9636\u68AF\u4EFB\u52A1(\u4E09\u7EA7)";
+    taskType_CN["ladder_4"] = "\u9636\u68AF\u4EFB\u52A1(\u56DB\u7EA7)";
+    taskType_CN["ladder_5"] = "\u9636\u68AF\u4EFB\u52A1(\u4E94\u7EA7)";
+    taskType_CN["ladder_6"] = "\u9636\u68AF\u4EFB\u52A1(\u516D\u7EA7)";
+    taskType_CN["ladder_7"] = "\u9636\u68AF\u4EFB\u52A1(\u4E03\u7EA7)";
+    taskType_CN["ladder_8"] = "\u9636\u68AF\u4EFB\u52A1(\u516B\u7EA7)";
+    taskType_CN["ladder_9"] = "\u9636\u68AF\u4EFB\u52A1(\u4E5D\u7EA7)";
 })(taskType_CN = exports.taskType_CN || (exports.taskType_CN = {}));
 var TaskId;
 (function (TaskId) {
