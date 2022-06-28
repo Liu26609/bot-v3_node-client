@@ -46,7 +46,7 @@ export class me_attribute extends task_base {
             // temp.sendMsg(this.channel_id)
             new embed_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
         } else if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text) {
-            new text_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
+            new text_attribute_style().setData(data.body).setUserName(this.userName).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
         }
     }
 }

@@ -55,7 +55,7 @@ class me_attribute extends task_base_1.task_base {
                 new embed_attribute_style_1.embed_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
             }
             else if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
-                new attribute_1.text_attribute_style().setData(data.body).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
+                new attribute_1.text_attribute_style().setData(data.body).setUserName(this.userName).setTeam(data.team).setAncestry(data.ancestry).sendMsg(this.channel_id);
             }
         });
     }
