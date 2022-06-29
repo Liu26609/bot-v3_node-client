@@ -47,11 +47,11 @@ export class sys_update_code extends task_base {
         outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '')
         outText = outText.replace('commit', '')
         outText = 'commit:' + outText;
-        outText += `\n更新完成。需等待服务器全局重启后生效`;
+        outText += `\n即将开始,重启需要耗时0.${common.random(0, 1000)}秒,请耐心等待`;
         db.saveDirData(dbName.GuildCfg)
         await new Promise(rs => { setTimeout(rs, 10000) });
         await bot.callAll(outText)
-        // process.exit()
+        process.exit()
     }
     async updateCode() {
         await this.runCmd('git stash');
