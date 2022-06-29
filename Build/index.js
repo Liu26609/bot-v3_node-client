@@ -24,10 +24,17 @@ exports.info = console.info;
 start();
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
-        (0, exports.info)('开始初始化配置');
+        (0, exports.info)('开始初始化配置s');
         yield db_1.default.init();
-        (0, exports.info)('初始化完成');
+        (0, exports.info)('初始化完成', process.env.BOT_NAME);
         yield sever_1.default.setApiUrl(botCfg_1.default.apiUrl);
+        const author = process.env.BOT_CONFIG_author || botCfg_1.default.author;
+        const appID = process.env.BOT_CONFIG_appID || botCfg_1.default.appID;
+        const token = process.env.BOT_CONFIG_token || botCfg_1.default.token;
+        botCfg_1.default.author = author;
+        botCfg_1.default.appID = appID;
+        botCfg_1.default.token = token;
+        (0, exports.info)('修改配置', appID);
         sever_1.default.setWsUrl(botCfg_1.default.wsUrl).then(() => {
             (0, exports.info)('开始启动机器人');
             bot_1.default.setBotConfig(botCfg_1.default);
