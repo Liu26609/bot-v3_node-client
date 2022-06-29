@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sys_update_code = void 0;
 const db_1 = require("./../../unity/db");
 const bot_1 = __importDefault(require("../../unity/bot"));
+const common_1 = __importDefault(require("../../shared/game/common"));
 const db_2 = __importDefault(require("../../unity/db"));
 const task_base_1 = require("./../task_base");
 const botCfg_1 = __importDefault(require("../../botCfg"));
@@ -65,11 +66,11 @@ class sys_update_code extends task_base_1.task_base {
             outText = outText.replace(outText.slice(urlStartIndex, urlEndIndex + 1), '');
             outText = outText.replace('commit', '');
             outText = 'commit:' + outText;
-            outText += `\n更新完成。需等待服务器全局重启后生效`;
+            outText += `\n即将开始,重启需要耗时0.${common_1.default.random(0, 1000)}秒,请耐心等待`;
             db_2.default.saveDirData(db_1.dbName.GuildCfg);
             yield new Promise(rs => { setTimeout(rs, 10000); });
             yield bot_1.default.callAll(outText);
-            // process.exit()
+            process.exit();
         });
     }
     updateCode() {

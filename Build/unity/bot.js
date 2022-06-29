@@ -211,7 +211,6 @@ class bot {
                     (0, __1.err)('消息发送错误', msg_id, content);
                 }
             }).then((res) => {
-                console.log('res', res);
                 if (triggerKey) {
                     this.machMap.set(res.data.id, triggerKey);
                     // try {
