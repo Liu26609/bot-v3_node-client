@@ -1,9 +1,8 @@
-import { me_pos } from './me_pos';
+import { me_pos } from '../me/me_pos';
 import { err, log } from '../..';
-import { moveDirection } from '../../shared/protocols/PtlMove';
 import sever from '../../unity/sever';
-import { task_base } from './../task_base';
-import bot from '../../unity/bot';
+import { task_base } from '../task_base';
+import { moveDirection } from '../../shared/protocols/map/PtlMove';
 //TODO指令：移动 上 下 左 右
 export class me_move extends task_base {
     constructor(...a) {
@@ -33,7 +32,7 @@ export class me_move extends task_base {
             return;
         }
 
-        let req = await sever.callApi('Move', {
+        let req = await sever.callApi('map/Move', {
             direction: direction,
             userId: this.userId
         })

@@ -1,7 +1,6 @@
 import { log } from '../..';
 import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
-import { textStyle } from '../../shared/game/setUp';
 import { walletKey, walletKey_CN } from '../../shared/game/user';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';

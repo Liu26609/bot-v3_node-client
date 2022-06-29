@@ -1,4 +1,4 @@
-import { ResBattle } from '../PtlBattle';
+import { ResBattle } from '../Battle';
 import { DNA_Leve } from './../../game/body';
 /**
  * 破壁计划:挑战完成将会获得奖励和切换地图

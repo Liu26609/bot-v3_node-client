@@ -1,4 +1,4 @@
-import { body, posV2 } from "../game/body"
+import { body, posV2 } from "../../game/body"
 /**
  * 移动
  */

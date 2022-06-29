@@ -1,4 +1,3 @@
-import { userSetUpCfg } from '../game/setUp';
 import { equip } from './../game/equip';
 /**
  * 背包查看
@@ -11,7 +10,6 @@ export interface ReqBag {
  */
 export interface ResBag {
     bag:equip[],
-    userCfg:userSetUpCfg
 }
 
 // export const conf = {}

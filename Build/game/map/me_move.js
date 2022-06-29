@@ -12,36 +12,51 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.shop_skill = void 0;
-const skill_1 = require("./../temp/text/skill");
-const bot_1 = __importDefault(require("../../unity/bot"));
+exports.me_move = void 0;
+const me_pos_1 = require("../me/me_pos");
+const __1 = require("../..");
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("../task_base");
-const user_1 = require("../../shared/game/user");
-class shop_skill extends task_base_1.task_base {
+const PtlMove_1 = require("../../shared/protocols/map/PtlMove");
+//TODO指令：移动 上 下 左 右
+class me_move extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            let req = yield sever_1.default.callApi('shop/Shop_skill', { userId: this.userId });
+            let direction;
+            switch (this.content) {
+                case '上':
+                    direction = PtlMove_1.moveDirection.top;
+                    break;
+                case '下':
+                    direction = PtlMove_1.moveDirection.buttom;
+                    break;
+                case '右':
+                    direction = PtlMove_1.moveDirection.right;
+                    break;
+                case '左':
+                    direction = PtlMove_1.moveDirection.left;
+                    break;
+                default:
+                    break;
+            }
+            if (typeof (direction) == 'undefined') {
+                (0, __1.err)('错误的移动', this.content);
+                return;
+            }
+            let req = yield sever_1.default.callApi('map/Move', {
+                direction: direction,
+                userId: this.userId
+            });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
             }
-            let data = req.res;
-            let str = '';
-            str += `技能商店第${data.updateNum}期商品到货啦~`;
-            str += `\n🛒购买价格:${user_1.walletKey_CN[user_1.walletKey[data.buyCondition.key]]}x${data.buyCondition.val}`;
-            str += `\n🧮商店库存:${data.stock - data.sellNum}`;
-            str += `\n🕤刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒`;
-            str += `\n🎫购买指令：购买技能`;
-            str += `\n<emoji:147>每次刷新随机价格，与技能属性无关`;
-            str += `\n↓↓以下是技能属性预览↓↓`;
-            yield bot_1.default.sendText(this.channel_id, str, this.matchKey);
-            new skill_1.text_skill_style().sendData(data.sell_temp).sendMsg(this.channel_id);
+            new me_pos_1.me_pos(...this.args);
         });
     }
 }
-exports.shop_skill = shop_skill;
+exports.me_move = me_move;

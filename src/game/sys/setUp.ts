@@ -1,9 +1,7 @@
 import { CFG_SWITCH, switch_CN } from '../../interface/guildCfg';
 import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
-import { textStyle, textStyle_CN } from '../../shared/game/setUp';
 import bot from '../../unity/bot';
 import db, { dbName } from '../../unity/db';
-import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 export class setUp extends task_base {
     constructor(...a) {
@@ -24,11 +22,6 @@ export class setUp extends task_base {
      * @returns 
      */
     async menu() {
-        // let req = await sever.callApi('GetUserSetUp', { userId: this.userId })
-        // if (!req.isSucc) {
-        //     this.sendErr(req.err)
-        //     return;
-        // }
 
         let temp = `┏┄═══👑机器人设置══━┄\n`
         //判定是频道主还是普通用户 

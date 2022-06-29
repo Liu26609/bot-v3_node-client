@@ -4,7 +4,6 @@ import { TsrpcErrorType } from 'tsrpc';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
-import { textStyle } from '../../shared/game/setUp';
 export class me_lookBag extends task_base {
     constructor(...a) {
         super(...a)

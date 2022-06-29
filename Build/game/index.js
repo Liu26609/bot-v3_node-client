@@ -58,7 +58,7 @@ const me_resLife_1 = require("./me/me_resLife");
 const me_changeName_1 = require("./me/me_changeName");
 const me_wallet_1 = require("./me/me_wallet");
 const pos_attackPlayer_1 = require("./battle/pos_attackPlayer");
-const me_move_1 = require("./me/me_move");
+const me_move_1 = require("./map/me_move");
 const update_1 = require("./sys/update");
 const me_attribute_1 = require("./me/me_attribute");
 const __1 = require("..");
@@ -138,21 +138,11 @@ class game {
         this.repeState = new Map();
         this.matchMap = new Map();
         this.contentMap = new Map();
+        this.initRankKey();
         this.initKeyMap();
         this.start();
     }
-    initKeyMap() {
-        /**
-        * 排行榜指令模块
-        */
-        //    emojiMenu
-        this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });
-        this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
-        this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });
-        this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
-        this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });
-        this.matchMap.set('复读', { action: me_Reread_1.me_Reread, match: matchType.all });
-        this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
+    initRankKey() {
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
         this.matchMap.set(`魔攻排行榜`, { action: rank_MagicAttack_1.rank_MagicAttack, match: matchType.all });
         this.matchMap.set(`魔防排行榜`, { action: rank_MagicDefense_1.rank_MagicDefense, match: matchType.all });
@@ -175,6 +165,19 @@ class game {
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont_1.rank_titleCont, match: matchType.all });
         this.matchMap.set(`猜数排行榜`, { action: rank_MinGame_lottery_cont_1.rank_MinGame_lottery_cont, match: matchType.all });
         this.matchMap.set(`猜数欧皇排行榜`, { action: rank_MinGame_lottery_win_1.rank_MinGame_lottery_win, match: matchType.all });
+        this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
+        this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });
+    }
+    initKeyMap() {
+        /**
+        * 排行榜指令模块
+        */
+        //    emojiMenu
+        this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });
+        this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
+        this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });
+        this.matchMap.set('复读', { action: me_Reread_1.me_Reread, match: matchType.all });
+        this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });

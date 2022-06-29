@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 63,
+    "version": 66,
     "services": [
         {
             "id": 0,
@@ -72,6 +72,11 @@ exports.serviceProto = {
         {
             "id": 7,
             "name": "map/fishing",
+            "type": "api"
+        },
+        {
+            "id": 115,
+            "name": "map/Move",
             "type": "api"
         },
         {
@@ -155,16 +160,6 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 17,
-            "name": "Battle",
-            "type": "api"
-        },
-        {
-            "id": 18,
-            "name": "GetUserSetUp",
-            "type": "api"
-        },
-        {
             "id": 19,
             "name": "Hello",
             "type": "api"
@@ -210,11 +205,6 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 28,
-            "name": "Me_setUp",
-            "type": "api"
-        },
-        {
             "id": 29,
             "name": "Me_skill",
             "type": "api"
@@ -237,11 +227,6 @@ exports.serviceProto = {
         {
             "id": 35,
             "name": "Me_wearEquip",
-            "type": "api"
-        },
-        {
-            "id": 36,
-            "name": "Move",
             "type": "api"
         },
         {
@@ -1056,14 +1041,6 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/auction"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -1254,32 +1231,6 @@ exports.serviceProto = {
                 }
             ]
         },
-        "../game/setUp/userSetUpCfg": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "textStyle",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/textStyle"
-                    }
-                }
-            ]
-        },
-        "../game/setUp/textStyle": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                }
-            ]
-        },
         "auction/PtlAuction_offer/ReqAuction_offer": {
             "type": "Interface",
             "properties": [
@@ -1300,17 +1251,7 @@ exports.serviceProto = {
             ]
         },
         "auction/PtlAuction_offer/ResAuction_offer": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                }
-            ]
+            "type": "Interface"
         },
         "auction/PtlAuction/ReqAuction": {
             "type": "Interface",
@@ -1365,10 +1306,10 @@ exports.serviceProto = {
             "type": "Interface",
             "extends": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     }
                 }
             ],
@@ -1403,7 +1344,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "PtlBattle/ResBattle": {
+        "Battle/ResBattle": {
             "type": "Interface",
             "properties": [
                 {
@@ -1422,35 +1363,35 @@ exports.serviceProto = {
                             "type": "Interface",
                             "properties": [
                                 {
-                                    "id": 4,
+                                    "id": 0,
                                     "name": "icon",
                                     "type": {
                                         "type": "String"
                                     }
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "name": "id",
                                     "type": {
                                         "type": "String"
                                     }
                                 },
                                 {
-                                    "id": 1,
+                                    "id": 2,
                                     "name": "name",
                                     "type": {
                                         "type": "String"
                                     }
                                 },
                                 {
-                                    "id": 2,
+                                    "id": 3,
                                     "name": "group",
                                     "type": {
                                         "type": "Number"
                                     }
                                 },
                                 {
-                                    "id": 3,
+                                    "id": 4,
                                     "name": "list",
                                     "type": {
                                         "type": "Array",
@@ -1828,7 +1769,7 @@ exports.serviceProto = {
                     "name": "battle",
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     },
                     "optional": true
                 },
@@ -2000,7 +1941,7 @@ exports.serviceProto = {
                     "name": "battle",
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     },
                     "optional": true
                 },
@@ -2076,10 +2017,10 @@ exports.serviceProto = {
             "type": "Interface",
             "extends": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     }
                 }
             ]
@@ -2107,10 +2048,10 @@ exports.serviceProto = {
             "type": "Interface",
             "extends": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     }
                 }
             ]
@@ -2138,10 +2079,10 @@ exports.serviceProto = {
             "type": "Interface",
             "extends": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     }
                 }
             ]
@@ -2162,10 +2103,10 @@ exports.serviceProto = {
             "type": "Interface",
             "extends": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "type": {
                         "type": "Reference",
-                        "target": "PtlBattle/ResBattle"
+                        "target": "Battle/ResBattle"
                     }
                 }
             ]
@@ -2225,14 +2166,6 @@ exports.serviceProto = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
                     "id": 1,
                     "name": "jin",
                     "type": {
@@ -2269,6 +2202,894 @@ exports.serviceProto = {
                                 "id": 1,
                                 "type": {
                                     "type": "Literal"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "map/PtlMove/ReqMove": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "direction",
+                    "type": {
+                        "type": "Reference",
+                        "target": "map/PtlMove/moveDirection"
+                    }
+                }
+            ]
+        },
+        "map/PtlMove/moveDirection": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                }
+            ]
+        },
+        "map/PtlMove/ResMove": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pos_name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "pos",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/posV2"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "isTop",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "isButtom",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isRight",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "isLeft",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "player",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Reference",
+                            "target": "../game/body/body"
+                        }
+                    }
+                }
+            ]
+        },
+        "../game/body/posV2": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "x",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "y",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/body/body": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/BASE_BODYS"
+                    }
+                }
+            ],
+            "properties": [
+                {
+                    "id": 15,
+                    "name": "isVip",
+                    "type": {
+                        "type": "Boolean"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 10,
+                    "name": "rankscore",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 0,
+                    "name": "sys",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "creator_time",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 16,
+                    "name": "store",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "type",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "data",
+                                    "type": {
+                                        "type": "Any"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "equip",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "weapons",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 1,
+                                "name": "subWeapon",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 2,
+                                "name": "clothes",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 3,
+                                "name": "necklace",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 4,
+                                "name": "hat",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            },
+                            {
+                                "id": 5,
+                                "name": "medal",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                },
+                                "optional": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "title",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "name",
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "leve",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "name": "exp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 5,
+                                "name": "exp_max",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 6,
+                                "name": "todayGetExp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 7,
+                                "name": "updateExpTime",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "name": "randomCont",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 4,
+                                "name": "attribute",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/body/base_attribute"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "dnaLock",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "add",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "sign",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/user/USER_SIGN"
+                    }
+                },
+                {
+                    "id": 14,
+                    "name": "task",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "ladderLeve",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "wallet",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/user/USER_wallet"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "bag",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Reference",
+                            "target": "../game/equip/equip"
+                        }
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "pet",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Reference",
+                            "target": "../game/body/BASE_BODYS"
+                        }
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "ancestry",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "id",
+                                "type": {
+                                    "type": "String"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "leve",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "name": "exp",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "name": "exp_max",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "team",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/BODY_TEAM"
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "minGameLog",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/minGame"
+                    }
+                }
+            ]
+        },
+        "../game/body/BASE_BODYS": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "military",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "icon",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/bodyType"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "hp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "active_skill",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Number"
+                        }
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "out_attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 7,
+                    "name": "pos",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/posV2"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "exp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "lastResHpTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/body/bodyType": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                }
+            ]
+        },
+        "../game/equip/equip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "icon",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "story",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "quality",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_QUALITY"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "type",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_TYPE"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "base_attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                }
+            ]
+        },
+        "../game/equip/EQUIP_QUALITY": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
+                },
+                {
+                    "id": 6,
+                    "value": 6
+                },
+                {
+                    "id": 7,
+                    "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
+                }
+            ]
+        },
+        "../game/equip/EQUIP_TYPE": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 3
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
+                }
+            ]
+        },
+        "../game/user/USER_SIGN": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "cont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "lastSignTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/user/USER_wallet": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "gold",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "titleCard",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "BlindBox",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "changeNameCard",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "skillCard",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "transferCard",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "resLife",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "driedFish",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "spiritBall",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "evolveCard",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "justice",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "evil",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "strengthen",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/body/BODY_TEAM": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "leve",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/team/teamLeve"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "contribute",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "../game/team/teamLeve": {
+            "type": "Enum",
+            "members": [
+                {
+                    "id": 0,
+                    "value": 0
+                },
+                {
+                    "id": 1,
+                    "value": 1
+                }
+            ]
+        },
+        "../game/body/minGame": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "lottery",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "partake",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "win",
+                                "type": {
+                                    "type": "Number"
                                 }
                             }
                         ]
@@ -2431,14 +3252,6 @@ exports.serviceProto = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
                     "id": 1,
                     "name": "pay",
                     "type": {
@@ -2470,14 +3283,6 @@ exports.serviceProto = {
         "me/title/PtlMe_titleRandom/ResMe_titleRandom": {
             "type": "Interface",
             "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
                 {
                     "id": 1,
                     "name": "pay",
@@ -2820,157 +3625,6 @@ exports.serviceProto = {
                 }
             ]
         },
-        "../game/body/BASE_BODYS": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 12,
-                    "name": "military",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 10,
-                    "name": "icon",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "type",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/bodyType"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "leve",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "hp",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "active_skill",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Number"
-                        }
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "out_attribute",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                },
-                {
-                    "id": 13,
-                    "name": "attribute",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 7,
-                    "name": "pos",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/posV2"
-                    }
-                },
-                {
-                    "id": 8,
-                    "name": "exp",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 9,
-                    "name": "exp_max",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 11,
-                    "name": "lastResHpTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "../game/body/bodyType": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                }
-            ]
-        },
-        "../game/body/posV2": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "x",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "y",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
         "pet/PtlMe_petChangeName/ReqMe_petChangeName": {
             "type": "Interface",
             "properties": [
@@ -3113,172 +3767,6 @@ exports.serviceProto = {
                             "target": "../game/equip/equip"
                         }
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                }
-            ]
-        },
-        "../game/equip/equip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "icon",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "story",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "quality",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/EQUIP_QUALITY"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "type",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/EQUIP_TYPE"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "leve",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "base_attribute",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                }
-            ]
-        },
-        "../game/equip/EQUIP_QUALITY": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                },
-                {
-                    "id": 4,
-                    "value": 4
-                },
-                {
-                    "id": 5,
-                    "value": 5
-                },
-                {
-                    "id": 6,
-                    "value": 6
-                },
-                {
-                    "id": 7,
-                    "value": 7
-                },
-                {
-                    "id": 8,
-                    "value": 8
-                },
-                {
-                    "id": 9,
-                    "value": 9
-                }
-            ]
-        },
-        "../game/equip/EQUIP_TYPE": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                },
-                {
-                    "id": 4,
-                    "value": 4
-                },
-                {
-                    "id": 5,
-                    "value": 5
-                }
-            ]
-        },
-        "PtlBattle/ReqBattle": {
-            "type": "Interface"
-        },
-        "PtlGetUserSetUp/ReqGetUserSetUp": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "PtlGetUserSetUp/ResGetUserSetUp": {
-            "type": "Interface",
-            "extends": [
-                {
-                    "id": 0,
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -3366,528 +3854,6 @@ exports.serviceProto = {
                         ]
                     },
                     "optional": true
-                },
-                {
-                    "id": 2,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                }
-            ]
-        },
-        "../game/body/body": {
-            "type": "Interface",
-            "extends": [
-                {
-                    "id": 0,
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/BASE_BODYS"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 15,
-                    "name": "isVip",
-                    "type": {
-                        "type": "Boolean"
-                    },
-                    "optional": true
-                },
-                {
-                    "id": 10,
-                    "name": "rankscore",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 0,
-                    "name": "sys",
-                    "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "creator_time",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": 16,
-                    "name": "store",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "type",
-                                    "type": {
-                                        "type": "Any"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "data",
-                                    "type": {
-                                        "type": "Any"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "equip",
-                    "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "weapons",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/equip/equip"
-                                },
-                                "optional": true
-                            },
-                            {
-                                "id": 1,
-                                "name": "subWeapon",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/equip/equip"
-                                },
-                                "optional": true
-                            },
-                            {
-                                "id": 2,
-                                "name": "clothes",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/equip/equip"
-                                },
-                                "optional": true
-                            },
-                            {
-                                "id": 3,
-                                "name": "necklace",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/equip/equip"
-                                },
-                                "optional": true
-                            },
-                            {
-                                "id": 4,
-                                "name": "hat",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/equip/equip"
-                                },
-                                "optional": true
-                            },
-                            {
-                                "id": 5,
-                                "name": "medal",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/equip/equip"
-                                },
-                                "optional": true
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "title",
-                    "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "name",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 5,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 6,
-                                "name": "todayGetExp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 7,
-                                "name": "updateExpTime",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "randomCont",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 4,
-                                "name": "attribute",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/body/base_attribute"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": 12,
-                    "name": "dnaLock",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/DNA_Leve"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "add",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "sign",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/user/USER_SIGN"
-                    }
-                },
-                {
-                    "id": 14,
-                    "name": "task",
-                    "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "ladderLeve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "wallet",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/user/USER_wallet"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "bag",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Reference",
-                            "target": "../game/equip/equip"
-                        }
-                    }
-                },
-                {
-                    "id": 7,
-                    "name": "setUp",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
-                    "id": 8,
-                    "name": "pet",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Reference",
-                            "target": "../game/body/BASE_BODYS"
-                        }
-                    }
-                },
-                {
-                    "id": 9,
-                    "name": "ancestry",
-                    "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "id",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": 11,
-                    "name": "team",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/BODY_TEAM"
-                    }
-                },
-                {
-                    "id": 13,
-                    "name": "minGameLog",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/minGame"
-                    }
-                }
-            ]
-        },
-        "../game/user/USER_SIGN": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "cont",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "lastSignTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "../game/user/USER_wallet": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "gold",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "titleCard",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "BlindBox",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "changeNameCard",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "skillCard",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "transferCard",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "resLife",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 7,
-                    "name": "driedFish",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 8,
-                    "name": "spiritBall",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 9,
-                    "name": "evolveCard",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 10,
-                    "name": "justice",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 11,
-                    "name": "evil",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 12,
-                    "name": "strengthen",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "../game/body/BODY_TEAM": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "id",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "leve",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/team/teamLeve"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "contribute",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "../game/team/teamLeve": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                }
-            ]
-        },
-        "../game/body/minGame": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "lottery",
-                    "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "partake",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "win",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
-                    }
                 }
             ]
         },
@@ -4020,14 +3986,6 @@ exports.serviceProto = {
                     }
                 },
                 {
-                    "id": 2,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
                     "id": 3,
                     "name": "pay",
                     "type": {
@@ -4079,14 +4037,6 @@ exports.serviceProto = {
                     "name": "newName",
                     "type": {
                         "type": "String"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -4166,14 +4116,6 @@ exports.serviceProto = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
                     "id": 1,
                     "name": "reward",
                     "type": {
@@ -4219,14 +4161,6 @@ exports.serviceProto = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
                     "id": 1,
                     "name": "equipList",
                     "type": {
@@ -4266,16 +4200,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/equip/equip"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -4336,45 +4260,8 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
                     }
-                },
-                {
-                    "id": 2,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
-        },
-        "PtlMe_setUp/ReqMe_setUp": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "setKey",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "setVal",
-                    "type": {
-                        "type": "Any"
-                    }
-                }
-            ]
-        },
-        "PtlMe_setUp/ResMe_setUp": {
-            "type": "Interface"
         },
         "PtlMe_skill/ReqMe_skill": {
             "type": "Interface",
@@ -4391,14 +4278,6 @@ exports.serviceProto = {
         "PtlMe_skill/ResMe_skill": {
             "type": "Interface",
             "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
                 {
                     "id": 1,
                     "name": "skillList",
@@ -4434,14 +4313,6 @@ exports.serviceProto = {
         "PtlMe_strengthen/ResMe_strengthen": {
             "type": "Interface",
             "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
                 {
                     "id": 1,
                     "name": "bfEquip",
@@ -4497,14 +4368,6 @@ exports.serviceProto = {
         "PtlMe_title/ResMe_title": {
             "type": "Interface",
             "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
                 {
                     "id": 1,
                     "name": "title",
@@ -4617,117 +4480,7 @@ exports.serviceProto = {
             ]
         },
         "PtlMe_wearEquip/ResMe_wearEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                }
-            ]
-        },
-        "PtlMove/ReqMove": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "direction",
-                    "type": {
-                        "type": "Reference",
-                        "target": "PtlMove/moveDirection"
-                    }
-                }
-            ]
-        },
-        "PtlMove/moveDirection": {
-            "type": "Enum",
-            "members": [
-                {
-                    "id": 0,
-                    "value": 0
-                },
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                }
-            ]
-        },
-        "PtlMove/ResMove": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "pos_name",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "pos",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/posV2"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "isTop",
-                    "type": {
-                        "type": "Boolean"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "isButtom",
-                    "type": {
-                        "type": "Boolean"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "isRight",
-                    "type": {
-                        "type": "Boolean"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "isLeft",
-                    "type": {
-                        "type": "Boolean"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "player",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Reference",
-                            "target": "../game/body/body"
-                        }
-                    }
-                }
-            ]
+            "type": "Interface"
         },
         "PtlPos/ReqPos": {
             "type": "Interface",
@@ -4944,14 +4697,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/skill/SKILL_ACTIVE"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 },
                 {
@@ -5668,14 +5413,6 @@ exports.serviceProto = {
             "type": "Interface",
             "properties": [
                 {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
-                },
-                {
                     "id": 1,
                     "name": "pay",
                     "type": {
@@ -5705,16 +5442,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/store_back"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -5854,14 +5581,6 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -5885,16 +5604,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/store_equip"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -5993,14 +5702,6 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -6024,16 +5725,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/store_icon"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -6131,14 +5822,6 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -6162,16 +5845,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/store_rankscore"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -6286,14 +5959,6 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -6317,16 +5982,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/store_skill"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]
@@ -6425,14 +6080,6 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/prop/payRes"
                     }
-                },
-                {
-                    "id": 1,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
-                    }
                 }
             ]
         },
@@ -6456,16 +6103,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/store_team"
-                    }
-                }
-            ],
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userCfg",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/setUp/userSetUpCfg"
                     }
                 }
             ]

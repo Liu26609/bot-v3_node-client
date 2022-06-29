@@ -1,5 +1,4 @@
 import {rewardKey } from "../../game/prop"
-import { userSetUpCfg } from "../../game/setUp"
 /**
  * 打开当前位置宝箱
  */

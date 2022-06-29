@@ -1,5 +1,4 @@
 import { equip } from './equip';
-import { userSetUpCfg } from './setUp';
 import { teamLeve } from './team';
 import { USER_SIGN, USER_wallet } from './user';
 // 角色属性
@@ -73,7 +72,6 @@ export interface body extends BASE_BODYS {
  */
     wallet: USER_wallet,
     bag: equip[],
-    setUp: userSetUpCfg,
     pet: BASE_BODYS[],
     ancestry: { id: string, leve: number, exp: number, exp_max: number },
     team: BODY_TEAM,

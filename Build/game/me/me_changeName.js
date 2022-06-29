@@ -19,9 +19,9 @@ const tsrpc_1 = require("tsrpc");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
-const setUp_1 = require("../../shared/game/setUp");
 const user_1 = require("../../shared/game/user");
 const text_length_1 = require("../../unity/text_length");
+const userCfg_1 = require("../../interface/userCfg");
 class me_changeName extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -55,7 +55,7 @@ class me_changeName extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            if (data.userCfg.textStyle == setUp_1.textStyle.text) {
+            if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 let temp = ``;
                 temp += `┏┄═══<emoji:269>改名成功══━┄\n`;
                 temp += `<emoji:322>改名前:${data.lastName}\n`;
@@ -65,7 +65,7 @@ class me_changeName extends task_base_1.task_base {
                 temp += `┗┄━${this.at()}━┄\n`;
                 bot_1.default.sendText(this.channel_id, temp);
             }
-            else if (data.userCfg.textStyle == setUp_1.textStyle.card) {
+            else {
                 let temps = new embed_1.embed_style();
                 temps.setTitle('┏┄═══<emoji:269>改名成功══━┄');
                 temps.setIcon(this.userIcon);

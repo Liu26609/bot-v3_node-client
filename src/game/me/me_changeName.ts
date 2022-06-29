@@ -6,9 +6,9 @@ import common from '../../shared/game/common';
 import sever from '../../unity/sever';
 import { task_base } from './../task_base';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
-import { textStyle } from '../../shared/game/setUp';
 import { walletKey_CN, walletKey } from '../../shared/game/user';
 import { text_length } from '../../unity/text_length';
+import { USER_CFG_MSGTEMPLATE, USER_CFG_TEXTSTRSTYLE } from '../../interface/userCfg';
 export class me_changeName extends task_base {
     constructor(...a) {
         super(...a)
@@ -42,7 +42,7 @@ export class me_changeName extends task_base {
             return;
         }
         let data = req.res;
-        if (data.userCfg.textStyle == textStyle.text) {
+        if(this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text){
             let temp = ``;
             temp += `┏┄═══<emoji:269>改名成功══━┄\n`
             temp += `<emoji:322>改名前:${data.lastName}\n`;
@@ -51,7 +51,7 @@ export class me_changeName extends task_base {
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
             temp += `┗┄━${this.at()}━┄\n`;
             bot.sendText(this.channel_id, temp);
-        } else if (data.userCfg.textStyle == textStyle.card) {
+        }else{
             let temps = new embed_style();
             temps.setTitle('┏┄═══<emoji:269>改名成功══━┄')
             temps.setIcon(this.userIcon);
@@ -62,7 +62,5 @@ export class me_changeName extends task_base {
             temps.addLine(`▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}`)
             temps.sendMsg(this.channel_id)
         }
-
-
     }
 }

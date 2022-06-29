@@ -1,7 +1,6 @@
 import { embed_equip_style } from './../temp/embed/embed_equip_style';
 import { log } from '../..';
 import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
-import { textStyle } from '../../shared/game/setUp';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { text_equip_style } from '../temp/text/equip';

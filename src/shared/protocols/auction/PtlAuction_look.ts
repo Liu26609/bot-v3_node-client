@@ -1,5 +1,4 @@
 import { auction } from "../../game/prop";
-import { userSetUpCfg } from "../../game/setUp";
 /**
  * 查看拍卖行
  */
@@ -9,7 +8,6 @@ export interface ReqAuction_look {
 
 export interface ResAuction_look {
     info:auction,
-    userCfg:userSetUpCfg
 }
 
 // export const conf = {}

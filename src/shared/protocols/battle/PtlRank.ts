@@ -1,4 +1,4 @@
-import { ResBattle } from "../PtlBattle";
+import { ResBattle } from "../Battle";
 /**
  * 排位
  */

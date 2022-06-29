@@ -1,6 +1,5 @@
 import { text_skill_style } from './../temp/text/skill';
 import { rewardKey, rewardKey_CN } from "../../shared/game/prop";
-import { textStyle } from "../../shared/game/setUp";
 import bot from "../../unity/bot";
 import sever from "../../unity/sever";
 import { task_base } from "../task_base";
@@ -30,16 +29,6 @@ export class shop_skill extends task_base{
         str += `\n↓↓以下是技能属性预览↓↓`;
         await bot.sendText(this.channel_id, str,this.matchKey)
         new text_skill_style().sendData(data.sell_temp).sendMsg(this.channel_id)
-        switch (data.userCfg.textStyle) {
-            case textStyle.card:
-                
-                break;
-            case textStyle.text:
-
-                break;
-            default:
-                break;
-        }
 
     }
 }

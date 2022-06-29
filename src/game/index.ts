@@ -44,7 +44,7 @@ import { me_resLife } from './me/me_resLife';
 import { me_changeName } from './me/me_changeName';
 import { me_wallet } from './me/me_wallet';
 import { pos_attackPlayer } from './battle/pos_attackPlayer';
-import { me_move } from './me/me_move';
+import { me_move } from './map/me_move';
 import { sys_update } from './sys/update';
 import { me_attribute } from './me/me_attribute';
 import { log } from "..";
@@ -166,21 +166,11 @@ export default class game {
         this.repeState = new Map();
         this.matchMap = new Map();
         this.contentMap = new Map()
+        this.initRankKey();
         this.initKeyMap();
         this.start();
     }
-    private initKeyMap() {
-        /**
-        * 排行榜指令模块
-        */
-        //    emojiMenu
-        this.matchMap.set(`宠物马拉松`, { action: horse_look, match: matchType.all })
-        this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
-        this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
-        this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
-        this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
-        this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
-        this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
+    private initRankKey(){
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
         this.matchMap.set(`魔攻排行榜`, { action: rank_MagicAttack, match: matchType.all })
         this.matchMap.set(`魔防排行榜`, { action: rank_MagicDefense, match: matchType.all })
@@ -203,6 +193,22 @@ export default class game {
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont, match: matchType.all })
         this.matchMap.set(`猜数排行榜`, { action: rank_MinGame_lottery_cont, match: matchType.all })
         this.matchMap.set(`猜数欧皇排行榜`, { action: rank_MinGame_lottery_win, match: matchType.all })
+        this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
+        this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
+
+
+    }
+    private initKeyMap() {
+        /**
+        * 排行榜指令模块
+        */
+        //    emojiMenu
+        this.matchMap.set(`宠物马拉松`, { action: horse_look, match: matchType.all })
+        this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
+        this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
+        this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
+        this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
+       
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })

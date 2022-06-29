@@ -1,11 +1,9 @@
-import { userSetUpCfg } from '../game/setUp';
 import { base_attribute } from './../game/body';
 export interface ReqMe_title {
     userId:string
 }
 
 export interface ResMe_title {
-    userCfg:userSetUpCfg,
     title:{
         name:string,
         leve:number,

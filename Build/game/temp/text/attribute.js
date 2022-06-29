@@ -19,10 +19,8 @@ const team_1 = require("../../../shared/game/team");
 const user_1 = require("../../../shared/game/user");
 const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../shared/game/common"));
-const base64_safe_1 = __importDefault(require("../../../unity/base64_safe"));
 class text_attribute_style {
     constructor() {
-        this.name = '达尔文进化岛';
     }
     setAncestry(info) {
         this.ancestry = info;
@@ -36,10 +34,6 @@ class text_attribute_style {
     }
     setData(data) {
         this.data = data;
-        return this;
-    }
-    setUserName(str) {
-        this.name = str;
         return this;
     }
     sendMsg(channelId) {
@@ -84,33 +78,6 @@ class text_attribute_style {
                 temp += `🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense, 4)}\n`;
             temp += `┗┄━═════════━┄`;
             yield bot_1.default.sendText(channelId, temp);
-            let bot_cfg = bot_1.default.getBotConfig();
-            let image = `${bot_cfg.cosUrl}/test/test1.png?`;
-            // 装备图标
-            image += `${bot_cfg.imgImgCode}/${base64_safe_1.default.urlEncode(`${bot_cfg.cosUrl_http}/test/16.png`)}/dx/873/dy/10`;
-            // 战力
-            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${this.data.military}`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#ffffff`)}/fontsize/32/dx/370/dy/542`;
-            // 等级
-            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${this.data.leve}`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#000000`)}/fontsize/32/dx/530/dy/490`;
-            // 基因锁
-            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${body_1.DNA_CN[body_1.DNA_Leve[this.data.dnaLock]]}`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#000000`)}/fontsize/24/dx/35/dy/490`;
-            // 生命
-            // image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}+${common.BN(out_attribute.secondResHp, 0)}s\n`)}/font/${base64_safe.urlEncode('幼圆.TTF')}/fill/${base64_safe.urlEncode(`#000000`)}/fontsize/24/dx/442/dy/415`;
-            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${Math.ceil(out_attribute.PhysicalAttacks)}
-${Math.ceil(out_attribute.PhysicalDefense)}
-${Math.ceil(out_attribute.MagicAttack)}
-${Math.ceil(out_attribute.MagicDefense)}`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#000000`)}/fontsize/24/dx/270/dy/285`;
-            // 归属玩家
-            // 血统等级
-            // if (this.ancestry) {
-            //     image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`${this.ancestry.title}`)}/font/${base64_safe.urlEncode('幼圆.TTF')}/fill/${base64_safe.urlEncode(`#000000`)}/fontsize/24/dx/450/dy/100`;
-            // } else {
-            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`@${this.name}`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#000000`)}/fontsize/24/dx/0/dy/0`;
-            // }
-            // image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`1000`)}/font/${base64_safe.urlEncode('幼圆.TTF')}/fill/${base64_safe.urlEncode(`#000000`)}/fontsize/24/dx/15/dy/15`;
-            //         image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`基础属性:${mark}分`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#00FFFF`)}/fontsize/24/dx/10/dy/170`;
-            //         image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`强化属性:${Markconver}分`)}/font/${base64_safe.urlEncode('simkai楷体.ttf')}/fill/${base64_safe.urlEncode(`#FFFF6F`)}/fontsize/24/dx/10/dy/140`;
-            bot_1.default.sendImage(channelId, image);
         });
     }
 }

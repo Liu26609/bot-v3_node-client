@@ -1,5 +1,4 @@
 import { payRes } from "../game/prop";
-import { userSetUpCfg } from "../game/setUp";
 /**
  * 坐标传送
  */
@@ -14,7 +13,6 @@ export interface ReqMe_callPos {
 export interface ResMe_callPos {
     mapName:string,
     callPos:{x:number,y:number},
-    userCfg:userSetUpCfg,
     pay:payRes,
 }
 

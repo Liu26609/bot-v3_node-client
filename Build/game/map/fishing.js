@@ -31,6 +31,9 @@ class fishing extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = `<@!${this.userId}>在这片神奇的湖泊里你钓到了${data.jin}斤的${data.fish}<emoji:293>!获得🐟️小鱼干${data.reward}`;
+            if (data.tips) {
+                bot_1.default.sendText(this.channel_id, data.tips, this.content);
+            }
             bot_1.default.sendText(this.channel_id, temp, this.content);
         });
     }

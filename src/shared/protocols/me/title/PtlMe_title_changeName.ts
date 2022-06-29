@@ -1,5 +1,4 @@
 import { payRes } from "../../../game/prop";
-import { userSetUpCfg } from "../../../game/setUp";
 /**
  * 称号改名
  */
@@ -12,7 +11,6 @@ export interface ReqMe_title_changeName {
 }
 
 export interface ResMe_title_changeName {
-    userCfg:userSetUpCfg,
     pay:payRes,
 }
 

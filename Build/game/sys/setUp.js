@@ -61,11 +61,6 @@ class setUp extends task_base_1.task_base {
      */
     menu() {
         return __awaiter(this, void 0, void 0, function* () {
-            // let req = await sever.callApi('GetUserSetUp', { userId: this.userId })
-            // if (!req.isSucc) {
-            //     this.sendErr(req.err)
-            //     return;
-            // }
             let temp = `┏┄═══👑机器人设置══━┄\n`;
             //判定是频道主还是普通用户 
             if (this.isMaster()) {
