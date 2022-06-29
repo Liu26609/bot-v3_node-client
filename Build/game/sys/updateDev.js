@@ -18,6 +18,7 @@ const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../shared/game/common"));
 const db_2 = __importDefault(require("../../unity/db"));
 const task_base_1 = require("./../task_base");
+const botCfg_1 = __importDefault(require("../../botCfg"));
 let isAcitve = false;
 class sys_update_code extends task_base_1.task_base {
     constructor(...a) {
@@ -30,13 +31,8 @@ class sys_update_code extends task_base_1.task_base {
                 this.log('正在更新中,请勿重复更新');
                 return;
             }
-            let whiteMap = new Map();
-            whiteMap.set('14139673525601401123', 1);
-            whiteMap.set('14853656281805112894', 2);
-            whiteMap.set('11284975247337082906', 2);
-            whiteMap.set('18408854810586198036', 2);
-            if (!whiteMap.has(this.userId)) {
-                this.log('此功能需要[赞助会员]权限');
+            if (botCfg_1.default.author != this.userId) {
+                this.log('你不是此机器人的拥有者，无法更新');
                 return;
             }
             isAcitve = true;

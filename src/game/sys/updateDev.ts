@@ -5,6 +5,7 @@ import common from '../../shared/game/common';
 import db from '../../unity/db';
 import { task_base } from './../task_base';
 import { serviceProto } from '../../shared/protocols/serviceProto';
+import botCfg from '../../botCfg';
 let isAcitve = false;
 export class sys_update_code extends task_base {
     constructor(...a) {
@@ -16,13 +17,8 @@ export class sys_update_code extends task_base {
             this.log('正在更新中,请勿重复更新')
             return;
         }
-        let whiteMap = new Map();
-        whiteMap.set('14139673525601401123', 1)
-        whiteMap.set('14853656281805112894', 2)
-        whiteMap.set('11284975247337082906', 2)
-        whiteMap.set('18408854810586198036', 2)
-        if (!whiteMap.has(this.userId)) {
-            this.log('此功能需要[赞助会员]权限')
+        if(botCfg.author != this.userId){
+            this.log('你不是此机器人的拥有者，无法更新')
             return;
         }
         isAcitve = true;

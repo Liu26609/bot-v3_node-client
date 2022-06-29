@@ -95,7 +95,7 @@ class text_attribute_style {
             // 基因锁
             image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${body_1.DNA_CN[body_1.DNA_Leve[this.data.dnaLock]]}`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#000000`)}/fontsize/24/dx/35/dy/490`;
             // 生命
-            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${common_1.default.BN(this.data.hp, 1)}/${common_1.default.BN(out_attribute.hp_max, 1)}+${common_1.default.BN(out_attribute.secondResHp, 0)}s\n`)}/font/${base64_safe_1.default.urlEncode('幼圆.TTF')}/fill/${base64_safe_1.default.urlEncode(`#000000`)}/fontsize/24/dx/442/dy/415`;
+            // image += `${bot_cfg.imgTextCode}/${base64_safe.urlEncode(`${common.BN(this.data.hp, 1)}/${common.BN(out_attribute.hp_max, 1)}+${common.BN(out_attribute.secondResHp, 0)}s\n`)}/font/${base64_safe.urlEncode('幼圆.TTF')}/fill/${base64_safe.urlEncode(`#000000`)}/fontsize/24/dx/442/dy/415`;
             image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`${Math.ceil(out_attribute.PhysicalAttacks)}
 ${Math.ceil(out_attribute.PhysicalDefense)}
 ${Math.ceil(out_attribute.MagicAttack)}
