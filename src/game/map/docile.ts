@@ -27,7 +27,7 @@ export class docile extends task_base{
         if(data.succress){
             temp += `🎉恭喜${this.at()}！成功捕捉了一只宠物,快发送[我的宠物]看看吧~\n`
         }else{
-            temp += `🙃很遗憾${this.at()}！没有捕捉到这个宠物\n当你等级比怪物高时才有可能抓到哦~`
+            temp += `🙃很遗憾${this.at()}！没有捕捉到这个宠物\n当你等级比怪物高时才有可能抓到哦~\n`
         }
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`

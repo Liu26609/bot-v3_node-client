@@ -44,7 +44,7 @@ class docile extends task_base_1.task_base {
                 temp += `🎉恭喜${this.at()}！成功捕捉了一只宠物,快发送[我的宠物]看看吧~\n`;
             }
             else {
-                temp += `🙃很遗憾${this.at()}！没有捕捉到这个宠物\n当你等级比怪物高时才有可能抓到哦~`;
+                temp += `🙃很遗憾${this.at()}！没有捕捉到这个宠物\n当你等级比怪物高时才有可能抓到哦~\n`;
             }
             temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
