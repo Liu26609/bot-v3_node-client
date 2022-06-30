@@ -30,6 +30,7 @@ export enum taskType {
      * 每日任务
      */
     everDay,
+    newUser,
     /**
      * 飞升任务一级
      */
@@ -48,18 +49,19 @@ export enum taskType_CN {
      * 每日任务
      */
     everDay = '每日任务',
+    newUser = '新手任务',
     /**
      * 飞升任务
      */
-     ladder_1 = '阶梯任务(一级)',
-     ladder_2 = '阶梯任务(二级)',
-     ladder_3 = '阶梯任务(三级)',
-     ladder_4 = '阶梯任务(四级)',
-     ladder_5 = '阶梯任务(五级)',
-     ladder_6 = '阶梯任务(六级)',
-     ladder_7 = '阶梯任务(七级)',
-     ladder_8 = '阶梯任务(八级)',
-     ladder_9 = '阶梯任务(九级)'
+    ladder_1 = '阶梯任务(一级)',
+    ladder_2 = '阶梯任务(二级)',
+    ladder_3 = '阶梯任务(三级)',
+    ladder_4 = '阶梯任务(四级)',
+    ladder_5 = '阶梯任务(五级)',
+    ladder_6 = '阶梯任务(六级)',
+    ladder_7 = '阶梯任务(七级)',
+    ladder_8 = '阶梯任务(八级)',
+    ladder_9 = '阶梯任务(九级)'
 }
 export enum TaskId {
     /**
@@ -125,5 +127,29 @@ export enum TaskId {
     /**
      * 查看一次宠物马拉松
      */
-    look_Horse
+    look_Horse,
+    /**
+     * 查看一次位置
+     */
+    look_loca,
+    /**
+     * 移动
+     * 上下左右
+     */
+    move_right,
+    /**
+     * 移动
+     * 上下左右
+     */
+    move_left,
+    /**
+    * 移动
+    * 上下左右
+    */
+    move_top,
+    /**
+     * 移动
+     * 上下左右
+     */
+    move_buttom,
 }

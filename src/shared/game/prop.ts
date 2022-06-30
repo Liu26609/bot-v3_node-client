@@ -330,7 +330,8 @@ export enum rewardKey {
     /**
      * 工会经验
      */
-    team_exp
+    team_exp,
+
 }
 export enum rewardKey_CN {
     exp = '⏳经验',
@@ -352,7 +353,7 @@ export enum rewardKey_CN {
     petExp = '🍖宠物经验',
     team_devote = '🏰工会贡献',
     strengthen = '⚙️强化碎片',
-    team_exp = '🏰工会经验'
+    team_exp = '🏰工会经验',
 }
 
 /**

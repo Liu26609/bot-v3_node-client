@@ -27,6 +27,12 @@ class common {
         this.rankMap.set(17, '⑱');
         this.rankMap.set(18, '⑲');
         this.rankMap.set(19, '⑳');
+        this.leve_base_hp_max = 100;
+        this.leve_base_MagicAttack = 1;
+        this.leve_base_PhysicalAttacks = 1;
+        this.leve_base_MagicDefense = 0.1;
+        this.leve_base_PhysicalDefense = 0.1;
+        this.leve_base_secondResHp = 1;
     }
     /**
       * 获取排行文字
@@ -149,6 +155,36 @@ class common {
         let equipVal = e.base_attribute[keys];
         let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality + 1, 0.2);
         return val || 0;
+    }
+    /**
+     * 计算战力
+     */
+    converMilitary(attribute) {
+        let military = 0;
+        for (const key in attribute) {
+            switch (key) {
+                case 'MagicAttack':
+                    military += Math.ceil(attribute[key] / this.leve_base_MagicAttack);
+                    break;
+                case 'hp_max':
+                    military += Math.ceil(attribute[key] / this.leve_base_hp_max);
+                    break;
+                case 'PhysicalAttacks':
+                    military += Math.ceil(attribute[key] / this.leve_base_PhysicalAttacks);
+                    break;
+                case 'MagicDefense':
+                    military += Math.ceil(attribute[key] / this.leve_base_MagicDefense);
+                    break;
+                case 'PhysicalDefense':
+                    military += Math.ceil(attribute[key] / this.leve_base_PhysicalDefense);
+                    break;
+                case 'secondResHp':
+                    break;
+                default:
+                    break;
+            }
+        }
+        return military;
     }
     /**
     * 判定两个时间戳是否为同一天

@@ -1,5 +1,5 @@
 import { DNA_Leve } from './../../game/body';
-import { ResBattle } from "../PtlBattle";
+import { ResBattle } from "../Battle";
 /**
  * 挑战自身镜像
  */

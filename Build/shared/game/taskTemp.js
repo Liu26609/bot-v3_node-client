@@ -7,18 +7,19 @@ var taskType;
      * 每日任务
      */
     taskType[taskType["everDay"] = 0] = "everDay";
+    taskType[taskType["newUser"] = 1] = "newUser";
     /**
      * 飞升任务一级
      */
-    taskType[taskType["ladder_1"] = 1] = "ladder_1";
-    taskType[taskType["ladder_2"] = 2] = "ladder_2";
-    taskType[taskType["ladder_3"] = 3] = "ladder_3";
-    taskType[taskType["ladder_4"] = 4] = "ladder_4";
-    taskType[taskType["ladder_5"] = 5] = "ladder_5";
-    taskType[taskType["ladder_6"] = 6] = "ladder_6";
-    taskType[taskType["ladder_7"] = 7] = "ladder_7";
-    taskType[taskType["ladder_8"] = 8] = "ladder_8";
-    taskType[taskType["ladder_9"] = 9] = "ladder_9";
+    taskType[taskType["ladder_1"] = 2] = "ladder_1";
+    taskType[taskType["ladder_2"] = 3] = "ladder_2";
+    taskType[taskType["ladder_3"] = 4] = "ladder_3";
+    taskType[taskType["ladder_4"] = 5] = "ladder_4";
+    taskType[taskType["ladder_5"] = 6] = "ladder_5";
+    taskType[taskType["ladder_6"] = 7] = "ladder_6";
+    taskType[taskType["ladder_7"] = 8] = "ladder_7";
+    taskType[taskType["ladder_8"] = 9] = "ladder_8";
+    taskType[taskType["ladder_9"] = 10] = "ladder_9";
 })(taskType = exports.taskType || (exports.taskType = {}));
 var taskType_CN;
 (function (taskType_CN) {
@@ -26,6 +27,7 @@ var taskType_CN;
      * 每日任务
      */
     taskType_CN["everDay"] = "\u6BCF\u65E5\u4EFB\u52A1";
+    taskType_CN["newUser"] = "\u65B0\u624B\u4EFB\u52A1";
     /**
      * 飞升任务
      */
@@ -105,4 +107,28 @@ var TaskId;
      * 查看一次宠物马拉松
      */
     TaskId[TaskId["look_Horse"] = 15] = "look_Horse";
+    /**
+     * 查看一次位置
+     */
+    TaskId[TaskId["look_loca"] = 16] = "look_loca";
+    /**
+     * 移动
+     * 上下左右
+     */
+    TaskId[TaskId["move_right"] = 17] = "move_right";
+    /**
+     * 移动
+     * 上下左右
+     */
+    TaskId[TaskId["move_left"] = 18] = "move_left";
+    /**
+    * 移动
+    * 上下左右
+    */
+    TaskId[TaskId["move_top"] = 19] = "move_top";
+    /**
+     * 移动
+     * 上下左右
+     */
+    TaskId[TaskId["move_buttom"] = 20] = "move_buttom";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

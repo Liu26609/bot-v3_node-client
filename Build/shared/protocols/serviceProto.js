@@ -450,6 +450,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 116,
+            "name": "task/NewUsetTask",
+            "type": "api"
+        },
+        {
             "id": 87,
             "name": "task/soaringTask",
             "type": "api"
@@ -6460,6 +6465,50 @@ exports.serviceProto = {
                 {
                     "id": 15,
                     "value": 15
+                },
+                {
+                    "id": 16,
+                    "value": 16
+                },
+                {
+                    "id": 17,
+                    "value": 17
+                },
+                {
+                    "id": 18,
+                    "value": 18
+                },
+                {
+                    "id": 19,
+                    "value": 19
+                },
+                {
+                    "id": 20,
+                    "value": 20
+                }
+            ]
+        },
+        "task/PtlNewUsetTask/ReqNewUsetTask": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "task/PtlNewUsetTask/ResNewUsetTask": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/taskTemp/taskTemp"
+                    }
                 }
             ]
         },

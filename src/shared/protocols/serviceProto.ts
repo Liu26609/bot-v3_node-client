@@ -88,6 +88,7 @@ import { Reqstore_get, Resstore_get } from './store/Ptlstore_get';
 import { Reqstore_look, Resstore_look } from './store/Ptlstore_look';
 import { Reqstore_save_equip, Resstore_save_equip } from './store/Ptlstore_save_equip';
 import { ReqEverDayTask, ResEverDayTask } from './task/PtlEverDayTask';
+import { ReqNewUsetTask, ResNewUsetTask } from './task/PtlNewUsetTask';
 import { ReqsoaringTask, RessoaringTask } from './task/PtlsoaringTask';
 import { ReqChangeName_team, ResChangeName_team } from './team/PtlChangeName_team';
 import { ReqCreator_team, ResCreator_team } from './team/PtlCreator_team';
@@ -446,6 +447,10 @@ export interface ServiceType {
         "task/EverDayTask": {
             req: ReqEverDayTask,
             res: ResEverDayTask
+        },
+        "task/NewUsetTask": {
+            req: ReqNewUsetTask,
+            res: ResNewUsetTask
         },
         "task/soaringTask": {
             req: ReqsoaringTask,
@@ -946,6 +951,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 86,
             "name": "task/EverDayTask",
+            "type": "api"
+        },
+        {
+            "id": 116,
+            "name": "task/NewUsetTask",
             "type": "api"
         },
         {
@@ -6959,6 +6969,50 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 15,
                     "value": 15
+                },
+                {
+                    "id": 16,
+                    "value": 16
+                },
+                {
+                    "id": 17,
+                    "value": 17
+                },
+                {
+                    "id": 18,
+                    "value": 18
+                },
+                {
+                    "id": 19,
+                    "value": 19
+                },
+                {
+                    "id": 20,
+                    "value": 20
+                }
+            ]
+        },
+        "task/PtlNewUsetTask/ReqNewUsetTask": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "task/PtlNewUsetTask/ResNewUsetTask": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/taskTemp/taskTemp"
+                    }
                 }
             ]
         },

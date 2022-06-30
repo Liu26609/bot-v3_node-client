@@ -109,6 +109,7 @@ import { store_save_equip } from './me/store/store_save_equip';
 import { store_look } from './me/store/store_look';
 import { store_get } from './me/store/store_get';
 import { horse } from './minGame/horse/horse';
+import { newUserTask } from './me/task/newUserTask';
 
 enum matchType {
     /**
@@ -215,6 +216,8 @@ export default class game {
         this.matchMap.set('镜像挑战', { action: challenge_image, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
         this.matchMap.set('阶梯任务', { action: soaringTask, match: matchType.all })
+        this.matchMap.set('每日任务', { action: everDayTask, match: matchType.all })
+        this.matchMap.set('新手任务', { action: newUserTask, match: matchType.all })
         this.matchMap.set('挂机', { action: me_AutoPlay, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
@@ -261,7 +264,6 @@ export default class game {
         this.matchMap.set('退出工会', { action: out_team, match: matchType.all })
         this.matchMap.set('踢出成员', { action: kickout_team, match: matchType.match })
         this.matchMap.set('工会商店', { action: shop_team, match: matchType.all })
-        this.matchMap.set('每日任务', { action: everDayTask, match: matchType.all })
         this.matchMap.set('工会购买', { action: shop_team_buy, match: matchType.all })
         this.matchMap.set('PK', { action: pk, match: matchType.match })
         this.matchMap.set('攻击boss', { action: attackBoss, match: matchType.match })

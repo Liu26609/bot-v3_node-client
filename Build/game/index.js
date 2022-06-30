@@ -120,6 +120,7 @@ const openMapChestBox_all_1 = require("./map/openMapChestBox_all");
 const store_save_equip_1 = require("./me/store/store_save_equip");
 const store_look_1 = require("./me/store/store_look");
 const store_get_1 = require("./me/store/store_get");
+const newUserTask_1 = require("./me/task/newUserTask");
 var matchType;
 (function (matchType) {
     /**
@@ -184,6 +185,8 @@ class game {
         this.matchMap.set('镜像挑战', { action: challenge_image_1.challenge_image, match: matchType.match });
         this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
         this.matchMap.set('阶梯任务', { action: soaringTask_1.soaringTask, match: matchType.all });
+        this.matchMap.set('每日任务', { action: everDayTask_1.everDayTask, match: matchType.all });
+        this.matchMap.set('新手任务', { action: newUserTask_1.newUserTask, match: matchType.all });
         this.matchMap.set('挂机', { action: me_AutoPlay_1.me_AutoPlay, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
@@ -229,7 +232,6 @@ class game {
         this.matchMap.set('退出工会', { action: out_team_1.out_team, match: matchType.all });
         this.matchMap.set('踢出成员', { action: Kickout_team_1.kickout_team, match: matchType.match });
         this.matchMap.set('工会商店', { action: shop_team_1.shop_team, match: matchType.all });
-        this.matchMap.set('每日任务', { action: everDayTask_1.everDayTask, match: matchType.all });
         this.matchMap.set('工会购买', { action: shop_team_buy_1.shop_team_buy, match: matchType.all });
         this.matchMap.set('PK', { action: pk_1.pk, match: matchType.match });
         this.matchMap.set('攻击boss', { action: attackBoss_1.attackBoss, match: matchType.match });
