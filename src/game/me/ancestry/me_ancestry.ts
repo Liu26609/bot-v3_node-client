@@ -19,7 +19,7 @@ export class me_ancestry extends task_base {
         let temp = `┏┄═══👑我的进化══━┄
 Ⓜ️来源[${data.ancestry.from}]
 👑${ancestryLeve[data.info.leve]}级[${data.ancestry.title}]
-⏳经验值(${data.info.exp}/${data.info.exp_max})
+🧬进化点(${data.info.exp}/${data.info.exp_max})
 ┄════成长分数══━┄
 ♥️最大生命${data.ancestry.base.hp_max}分🔪物理攻击${data.ancestry.base.PhysicalAttacks}分
 🔰物理防御${data.ancestry.base.PhysicalDefense}分🔮魔法攻击${data.ancestry.base.MagicAttack}分
