@@ -344,7 +344,7 @@ class bot {
                     avatar: '',
                     bot: false,
                     id: data.msg.user_id,
-                    username: '匿名用户'
+                    username: '表情指令'
                 },
                 channel_id: data.msg.channel_id,
                 content: content,

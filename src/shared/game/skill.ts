@@ -109,7 +109,17 @@ export enum SKILL_TYPE {
      * 让一个敌人N回合不能释放任何技能
      * 参赛1:停止回合数
      */
-    stop_attack
+    stop_attack,
+    /**
+     * 提高N点攻击
+     * 参数1:固定物理攻击
+     */
+    up_Physics_fixed,
+    /**
+     * 提高N点魔法攻击
+     * 参数1:固定魔法攻击
+     */
+    up_Magic_fixed,
 }
 /**
  * 主动技能
@@ -210,7 +220,9 @@ export enum SKILL_UNITY {
     /**
      * 恢复生命
      */
-    resHp
+    resHp,
+    upPhysics,
+    upMagic
 }
 export enum SKILL_UNITY_CN {
     /**
@@ -237,6 +249,8 @@ export enum SKILL_UNITY_CN {
          * 提高魔防值
          */
     upMagicDefense = '+🌟',
+    upPhysics = '',
+    upMagic = '',
     /**
      * 提高全部属性
      */

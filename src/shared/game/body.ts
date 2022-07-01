@@ -3,7 +3,7 @@ import { teamLeve } from './team';
 import { USER_SIGN, USER_wallet } from './user';
 // 角色属性
 export interface body extends BASE_BODYS {
-    isVip?:boolean,
+    isVip?: boolean,
     /**
      * 声望
      */
@@ -15,7 +15,7 @@ export interface body extends BASE_BODYS {
     /**
      * 0资源，1装备
      */
-    store:{type:any,data:any}[],
+    store: { type: any, data: any }[],
     equip: {
         weapons?: equip,
         /**
@@ -25,10 +25,10 @@ export interface body extends BASE_BODYS {
         /**
          * 衣服
          */
-        clothes?:equip,
-        necklace?:equip,
-        hat?:equip,
-        medal?:equip,
+        clothes?: equip,
+        necklace?: equip,
+        hat?: equip,
+        medal?: equip,
     },
     title: {
         name: string,
@@ -77,7 +77,7 @@ export interface body extends BASE_BODYS {
     team: BODY_TEAM,
     minGameLog: minGame
 }
-export interface BODY_TEAM{
+export interface BODY_TEAM {
     /**
      * 队伍ID
      */
@@ -99,6 +99,13 @@ export interface minGame {
      * 猜数
      */
     lottery: {
+        partake: number,
+        win: number
+    },
+    /**
+     * 马拉松
+     */
+    horse: {
         partake: number,
         win: number
     }
@@ -221,7 +228,7 @@ export interface BASE_BODYS {
     hp: number,
     active_skill: number[],//主动技能
     out_attribute: base_attribute,
-    attribute?:base_attribute,
+    attribute?: base_attribute,
     pos: posV2//位置
     exp: number,//当前经验
     exp_max: number,//最大经验
@@ -260,8 +267,8 @@ export interface base_attribute {
     PhysicalDefense: number,
     secondResHp: number,//每秒回复生命
 }
-export interface BattleKillLog{
+export interface BattleKillLog {
     round: number,
-    body: {name:string}, die_body: {name:string}
+    body: { name: string }, die_body: { name: string }
 
 }

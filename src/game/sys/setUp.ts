@@ -25,27 +25,24 @@ export class setUp extends task_base {
 
         let temp = `┏┄═══👑机器人设置══━┄\n`
         //判定是频道主还是普通用户 
-
         if (this.isMaster()) {
+            temp += `此频道共计艾特:${this.GuildCfg.atCont}\n`;
+            temp += `此机器人总用户:${db.getDbSize(dbName.UserCfg)}\n`;
+            temp += `此机器人总频道:${db.getDbSize(dbName.GuildCfg)}\n`;
             if (!this.GuildCfg.autoPassChannel_id) {
-                temp += `未授权挂机专属频道:需授权的子频道艾特机器人发送[挂机]\n`;
+                temp += `未授权挂机频道:授权发送[挂机]\n`;
             } else {
-                temp += `已授权专属挂机频道<#${this.GuildCfg.autoPassChannel_id}>\n`;
+                temp += `已授权挂机频道<#${this.GuildCfg.autoPassChannel_id}>\n`;
             }
         }
         // temp += `[设置默认样式风格]目前有1种风格\n`;
-        temp += `[设置消息文本模式]\n`;
-        temp += `[设置消息卡片模式]\n`;
-        temp += `[设置不显示地图坐标]\n`;
-        temp += `[设置显示地图坐标]\n`;
-        temp += `[设置显示伤害日志]\n`;
-        temp += `[设置不显示伤害日志]\n`;
-        temp += `[设置显示击杀日志]\n`;
-        temp += `[设置不显示击杀日志]\n`;
-        temp += `官方不给按钮权限,你可以去官方天天刷反馈。\n`;
+        temp += `[设置消息(文本/卡片)模式]\n`;
+        temp += `[设置(显示/不显示)地图坐标]\n`;
+        temp += `[设置(显示/不显示)伤害日志]\n`;
+        temp += `[设置(显示/不显示)击杀日志]\n`;
         temp += `┗┄━═════════━┄`;
 
-        bot.sendText(this.channel_id, temp,this.content)
+        bot.sendText(this.channel_id, temp, this.content)
     }
     notDevFunction() {
         let temp = `┏┄═══👑机器人设置══━┄\n`
@@ -53,7 +50,7 @@ export class setUp extends task_base {
         temp += `①你可能少打或多打了字\n`
         temp += `②没有次功能设置,你可以联系作者定制\n`
         temp += `┗┄━═════════━┄`
-        bot.sendText(this.channel_id, temp,this.content);
+        bot.sendText(this.channel_id, temp, this.content);
     }
     notPass() {
         this.log(`你没有此设置的权限~`)

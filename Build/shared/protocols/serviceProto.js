@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 66,
+    "version": 67,
     "services": [
         {
             "id": 0,
@@ -307,6 +307,16 @@ exports.serviceProto = {
         {
             "id": 95,
             "name": "rank/Rank_military",
+            "type": "api"
+        },
+        {
+            "id": 117,
+            "name": "rank/Rank_minGame_horse_cont",
+            "type": "api"
+        },
+        {
+            "id": 118,
+            "name": "rank/Rank_minGame_horse_win",
             "type": "api"
         },
         {
@@ -880,6 +890,14 @@ exports.serviceProto = {
                 {
                     "id": 20,
                     "value": 20
+                },
+                {
+                    "id": 21,
+                    "value": 21
+                },
+                {
+                    "id": 22,
+                    "value": 22
                 }
             ]
         },
@@ -1615,6 +1633,14 @@ exports.serviceProto = {
                 {
                     "id": 7,
                     "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
                 }
             ]
         },
@@ -3080,6 +3106,29 @@ exports.serviceProto = {
                 {
                     "id": 0,
                     "name": "lottery",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "partake",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "win",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "horse",
                     "type": {
                         "type": "Interface",
                         "properties": [
@@ -5103,6 +5152,54 @@ exports.serviceProto = {
             ]
         },
         "rank/PtlRank_military/ResRank_military": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_cont/ReqRank_minGame_horse_cont": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_cont/ResRank_minGame_horse_cont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_win/ReqRank_minGame_horse_win": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_win/ResRank_minGame_horse_win": {
             "type": "Interface",
             "extends": [
                 {

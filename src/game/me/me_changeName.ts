@@ -44,7 +44,7 @@ export class me_changeName extends task_base {
         let data = req.res;
         if(this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text){
             let temp = ``;
-            temp += `┏┄═══<emoji:269>改名成功══━┄\n`
+            temp += `       改名成功\n`
             temp += `<emoji:322>改名前:${data.lastName}\n`;
             temp += `<emoji:301>改名后:${data.newName}\n`;
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;

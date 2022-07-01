@@ -1,3 +1,5 @@
+import { rank_MinGame_horse_cont } from './rank/rank_MinGame_horse_cont';
+import { rank_MinGame_horse_win } from './rank/rank_MinGame_horse_win';
 import { horse_look } from './minGame/horse/horse_look';
 import { horse_join } from './minGame/horse/horse_join';
 import { rank_hp } from './rank/rank_hp';
@@ -159,7 +161,7 @@ export default class game {
      * speedLock Map
      * 消息速度限制
      */
-    speedLockMap:Map<string,number>
+    speedLockMap: Map<string, number>
 
     constructor() {
         this.speedLockMap = new Map();
@@ -171,7 +173,7 @@ export default class game {
         this.initKeyMap();
         this.start();
     }
-    private initRankKey(){
+    private initRankKey() {
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
         this.matchMap.set(`魔攻排行榜`, { action: rank_MagicAttack, match: matchType.all })
         this.matchMap.set(`魔防排行榜`, { action: rank_MagicDefense, match: matchType.all })
@@ -183,6 +185,7 @@ export default class game {
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry, match: matchType.all })
         this.matchMap.set(`战力排行榜`, { action: rank_military, match: matchType.all })
         this.matchMap.set(`宠物战力排行榜`, { action: rank_military_pet, match: matchType.all })
+
         this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
         this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv, match: matchType.all })
         this.matchMap.set(`声望排行榜`, { action: rank_rankscore, match: matchType.all })
@@ -194,6 +197,8 @@ export default class game {
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont, match: matchType.all })
         this.matchMap.set(`猜数排行榜`, { action: rank_MinGame_lottery_cont, match: matchType.all })
         this.matchMap.set(`猜数欧皇排行榜`, { action: rank_MinGame_lottery_win, match: matchType.all })
+        this.matchMap.set(`马拉松冠军排行榜`, { action: rank_MinGame_horse_win, match: matchType.all })
+        this.matchMap.set(`马拉松参与排行榜`, { action: rank_MinGame_horse_cont, match: matchType.all })
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
         this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
 
@@ -209,7 +214,7 @@ export default class game {
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
         this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
-       
+
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
@@ -245,7 +250,7 @@ export default class game {
         this.matchMap.set('头像商店', { action: shop_icon, match: matchType.all })
         this.matchMap.set('购买头像', { action: shop_icon_buy, match: matchType.all })
         this.matchMap.set('表情指令', { action: emojiMenu, match: matchType.all })
-        
+
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
         this.matchMap.set('查看宠物', { action: me_lookPet, match: matchType.match })
@@ -362,10 +367,10 @@ export default class game {
         // }
 
 
-        // if (!this.devTipsMap.has(data.guild_id)) {
-        //     bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
-        //     this.devTipsMap.set(data.guild_id, true)
-        // }
+        if (!this.devTipsMap.has(data.guild_id)) {
+            bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
+            this.devTipsMap.set(data.guild_id, true)
+        }
 
         // if (data.author.id != '14139673525601401123') {
         //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
@@ -382,15 +387,20 @@ export default class game {
         const userName = data.author.username;
         const lastContent = this.contentMap.get(userId);
         const guild = data.guild_id;
-        if(this.speedLockMap.has(userId)){
+
+
+        if (this.speedLockMap.has(userId) && userName != '表情指令') {
             let lastSendTime = this.speedLockMap.get(userId) as number;
-            if(Date.now() - lastSendTime <= 100){
-                bot.sendText(guild,'消息太过频繁。')
+            if (Date.now() - lastSendTime <= 300) {
+                const endLockTime = lastSendTime + 5000
+
+                this.speedLockMap.set(userId, endLockTime)
+                bot.sendText(fromChannel, `检测到消息太过频繁,请勿尝试使用脚本.冻结至:${new Date(endLockTime).toLocaleString()}`)
                 return;
             }
-        }else{
-            this.speedLockMap.set(userId,Date.now())
         }
+        this.speedLockMap.set(userId, Date.now())
+
 
         let content = data.content;
         if (content == '复读') {
@@ -441,11 +451,11 @@ export default class game {
             }
             let temp = `┏┄═══<emoji:318>你想找什么?══━┄\n`;
             if (matchList[0].match == 0) {
-                for (let index = 0; index < 12; index++) {
+                for (let index = 0; index < 15; index++) {
                     temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
                 }
             } else {
-                for (let index = 0; index < 12; index++) {
+                for (let index = 0; index < 15; index++) {
                     if (matchList[index].match > 0) {
                         temp += `@${bot.getBot_name()}  ${matchList[index].key}\n`;
                     }

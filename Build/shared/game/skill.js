@@ -114,6 +114,16 @@ var SKILL_TYPE;
      * 参赛1:停止回合数
      */
     SKILL_TYPE[SKILL_TYPE["stop_attack"] = 20] = "stop_attack";
+    /**
+     * 提高N点攻击
+     * 参数1:固定物理攻击
+     */
+    SKILL_TYPE[SKILL_TYPE["up_Physics_fixed"] = 21] = "up_Physics_fixed";
+    /**
+     * 提高N点魔法攻击
+     * 参数1:固定魔法攻击
+     */
+    SKILL_TYPE[SKILL_TYPE["up_Magic_fixed"] = 22] = "up_Magic_fixed";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -200,6 +210,8 @@ var SKILL_UNITY;
      * 恢复生命
      */
     SKILL_UNITY[SKILL_UNITY["resHp"] = 7] = "resHp";
+    SKILL_UNITY[SKILL_UNITY["upPhysics"] = 8] = "upPhysics";
+    SKILL_UNITY[SKILL_UNITY["upMagic"] = 9] = "upMagic";
 })(SKILL_UNITY = exports.SKILL_UNITY || (exports.SKILL_UNITY = {}));
 var SKILL_UNITY_CN;
 (function (SKILL_UNITY_CN) {
@@ -227,6 +239,8 @@ var SKILL_UNITY_CN;
          * 提高魔防值
          */
     SKILL_UNITY_CN["upMagicDefense"] = "+\uD83C\uDF1F";
+    SKILL_UNITY_CN["upPhysics"] = "";
+    SKILL_UNITY_CN["upMagic"] = "";
     /**
      * 提高全部属性
      */

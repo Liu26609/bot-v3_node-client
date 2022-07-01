@@ -12,7 +12,7 @@ class common {
    leve_base_MagicAttack: number//每级增加基础魔法攻击
    leve_base_PhysicalAttacks: number //每级增加基础物理攻击
    leve_base_MagicDefense: number //每级增加基础魔法防御
-   leve_base_PhysicalDefense:number //每级增加基础物理防御
+   leve_base_PhysicalDefense: number //每级增加基础物理防御
    leve_base_secondResHp: number //每级增加基础回血
    constructor() {
       this.rankMap = new Map();
@@ -39,7 +39,7 @@ class common {
 
       this.leve_base_hp_max = 100;
       this.leve_base_MagicAttack = 1;
-      this.leve_base_PhysicalAttacks  = 1;
+      this.leve_base_PhysicalAttacks = 1;
       this.leve_base_MagicDefense = 0.1;
       this.leve_base_PhysicalDefense = 0.1;
       this.leve_base_secondResHp = 1;
@@ -291,6 +291,12 @@ class common {
             break;
          case SKILL_TYPE.stop_attack:
             temp += `让一个敌人${info.data[0]}回合不能释放任何技能`
+            break;
+         case SKILL_TYPE.up_Magic_fixed:
+            temp += `每次触发提高${info.data[0]}魔法攻击`
+            break;
+         case SKILL_TYPE.up_Physics_fixed:
+            temp += `每次触发提高${info.data[0]}物理攻击`
             break;
          default:
             temp += `这个技能好像还没有收录到系统`;

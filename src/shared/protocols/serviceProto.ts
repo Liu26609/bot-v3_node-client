@@ -60,6 +60,8 @@ import { ReqRank_MagicAttack, ResRank_MagicAttack } from './rank/PtlRank_MagicAt
 import { ReqRank_MagicDefense, ResRank_MagicDefense } from './rank/PtlRank_MagicDefense';
 import { ReqRank_military_pet, ResRank_military_pet } from './rank/PtlRank_military_pet';
 import { ReqRank_military, ResRank_military } from './rank/PtlRank_military';
+import { ReqRank_minGame_horse_cont, ResRank_minGame_horse_cont } from './rank/PtlRank_minGame_horse_cont';
+import { ReqRank_minGame_horse_win, ResRank_minGame_horse_win } from './rank/PtlRank_minGame_horse_win';
 import { ReqRank_minGame_lottery_cont, ResRank_minGame_lottery_cont } from './rank/PtlRank_minGame_lottery_cont';
 import { ReqRank_minGame_lottery_win, ResRank_minGame_lottery_win } from './rank/PtlRank_minGame_lottery_win';
 import { ReqRank_petCont, ResRank_petCont } from './rank/PtlRank_petCont';
@@ -336,6 +338,14 @@ export interface ServiceType {
             req: ReqRank_military,
             res: ResRank_military
         },
+        "rank/Rank_minGame_horse_cont": {
+            req: ReqRank_minGame_horse_cont,
+            res: ResRank_minGame_horse_cont
+        },
+        "rank/Rank_minGame_horse_win": {
+            req: ReqRank_minGame_horse_win,
+            res: ResRank_minGame_horse_win
+        },
         "rank/Rank_minGame_lottery_cont": {
             req: ReqRank_minGame_lottery_cont,
             res: ResRank_minGame_lottery_cont
@@ -506,7 +516,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 66,
+    "version": 67,
     "services": [
         {
             "id": 0,
@@ -811,6 +821,16 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 95,
             "name": "rank/Rank_military",
+            "type": "api"
+        },
+        {
+            "id": 117,
+            "name": "rank/Rank_minGame_horse_cont",
+            "type": "api"
+        },
+        {
+            "id": 118,
+            "name": "rank/Rank_minGame_horse_win",
             "type": "api"
         },
         {
@@ -1384,6 +1404,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 20,
                     "value": 20
+                },
+                {
+                    "id": 21,
+                    "value": 21
+                },
+                {
+                    "id": 22,
+                    "value": 22
                 }
             ]
         },
@@ -2119,6 +2147,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 7,
                     "value": 7
+                },
+                {
+                    "id": 8,
+                    "value": 8
+                },
+                {
+                    "id": 9,
+                    "value": 9
                 }
             ]
         },
@@ -3584,6 +3620,29 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 0,
                     "name": "lottery",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "partake",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "win",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "horse",
                     "type": {
                         "type": "Interface",
                         "properties": [
@@ -5607,6 +5666,54 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "rank/PtlRank_military/ResRank_military": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_cont/ReqRank_minGame_horse_cont": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_cont/ResRank_minGame_horse_cont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_win/ReqRank_minGame_horse_win": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_win/ResRank_minGame_horse_win": {
             "type": "Interface",
             "extends": [
                 {

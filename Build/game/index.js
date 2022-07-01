@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const rank_MinGame_horse_cont_1 = require("./rank/rank_MinGame_horse_cont");
+const rank_MinGame_horse_win_1 = require("./rank/rank_MinGame_horse_win");
 const horse_look_1 = require("./minGame/horse/horse_look");
 const horse_join_1 = require("./minGame/horse/horse_join");
 const rank_hp_1 = require("./rank/rank_hp");
@@ -166,6 +168,8 @@ class game {
         this.matchMap.set(`称号重置排行榜`, { action: rank_titleCont_1.rank_titleCont, match: matchType.all });
         this.matchMap.set(`猜数排行榜`, { action: rank_MinGame_lottery_cont_1.rank_MinGame_lottery_cont, match: matchType.all });
         this.matchMap.set(`猜数欧皇排行榜`, { action: rank_MinGame_lottery_win_1.rank_MinGame_lottery_win, match: matchType.all });
+        this.matchMap.set(`马拉松冠军排行榜`, { action: rank_MinGame_horse_win_1.rank_MinGame_horse_win, match: matchType.all });
+        this.matchMap.set(`马拉松参与排行榜`, { action: rank_MinGame_horse_cont_1.rank_MinGame_horse_cont, match: matchType.all });
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
         this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });
     }
@@ -324,10 +328,10 @@ class game {
             // if(!isNext){
             //     return;
             // }
-            // if (!this.devTipsMap.has(data.guild_id)) {
-            //     bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
-            //     this.devTipsMap.set(data.guild_id, true)
-            // }
+            if (!this.devTipsMap.has(data.guild_id)) {
+                bot_1.default.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`);
+                this.devTipsMap.set(data.guild_id, true);
+            }
             // if (data.author.id != '14139673525601401123') {
             //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
             //     return;
@@ -342,16 +346,16 @@ class game {
             const userName = data.author.username;
             const lastContent = this.contentMap.get(userId);
             const guild = data.guild_id;
-            if (this.speedLockMap.has(userId)) {
+            if (this.speedLockMap.has(userId) && userName != '表情指令') {
                 let lastSendTime = this.speedLockMap.get(userId);
-                if (Date.now() - lastSendTime <= 100) {
-                    bot_1.default.sendText(guild, '消息太过频繁。');
+                if (Date.now() - lastSendTime <= 300) {
+                    const endLockTime = lastSendTime + 5000;
+                    this.speedLockMap.set(userId, endLockTime);
+                    bot_1.default.sendText(fromChannel, `检测到消息太过频繁,请勿尝试使用脚本.冻结至:${new Date(endLockTime).toLocaleString()}`);
                     return;
                 }
             }
-            else {
-                this.speedLockMap.set(userId, Date.now());
-            }
+            this.speedLockMap.set(userId, Date.now());
             let content = data.content;
             if (content == '复读') {
                 if (this.repeState.has(userId)) {
@@ -399,12 +403,12 @@ class game {
                 }
                 let temp = `┏┄═══<emoji:318>你想找什么?══━┄\n`;
                 if (matchList[0].match == 0) {
-                    for (let index = 0; index < 12; index++) {
+                    for (let index = 0; index < 15; index++) {
                         temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                     }
                 }
                 else {
-                    for (let index = 0; index < 12; index++) {
+                    for (let index = 0; index < 15; index++) {
                         if (matchList[index].match > 0) {
                             temp += `@${bot_1.default.getBot_name()}  ${matchList[index].key}\n`;
                         }
