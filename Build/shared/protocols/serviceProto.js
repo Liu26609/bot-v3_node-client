@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 68,
+    "version": 69,
     "services": [
         {
             "id": 0,
@@ -47,6 +47,11 @@ exports.serviceProto = {
         {
             "id": 80,
             "name": "battle/Challenge_image",
+            "type": "api"
+        },
+        {
+            "id": 120,
+            "name": "battle/Challenge_power",
             "type": "api"
         },
         {
@@ -1469,7 +1474,8 @@ exports.serviceProto = {
                                 }
                             ]
                         }
-                    }
+                    },
+                    "optional": true
                 },
                 {
                     "id": 4,
@@ -2054,6 +2060,82 @@ exports.serviceProto = {
                     "name": "failDel",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_power/ReqChallenge_power": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "isStart",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_power/ResChallenge_power": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "nextDNA",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "needHit",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "battle_round",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "winAdd",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "failDel",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
                     }
                 }
             ]
@@ -2904,6 +2986,23 @@ exports.serviceProto = {
                         "type": "Reference",
                         "target": "../game/body/base_attribute"
                     }
+                },
+                {
+                    "id": 7,
+                    "name": "skill_active_id",
+                    "type": {
+                        "type": "Number"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 8,
+                    "name": "outSkillData",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/skill/SKILL_ACTIVE"
+                    },
+                    "optional": true
                 }
             ]
         },

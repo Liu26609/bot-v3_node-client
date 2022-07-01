@@ -238,10 +238,10 @@ export interface BASE_BODYS {
     lastResHpTime: number,
 }
 export enum bodyType {
-    player,
+    shadow,
     enemy,
     pet,
-    shadow
+    player,
 }
 export interface posV2 {
     x: number,

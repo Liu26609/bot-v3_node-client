@@ -22,7 +22,8 @@ const battleTemp_1 = require("../temp/text/battleTemp");
 class challenge_image extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
-        this.render();
+        // this.render();
+        this.log('功能调整中');
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {

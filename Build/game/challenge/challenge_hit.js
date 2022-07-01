@@ -19,6 +19,7 @@ const task_base_1 = require("../task_base");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const battleTemp_1 = require("../temp/text/battleTemp");
+const taskTemp_1 = require("../../shared/game/taskTemp");
 class challenge_hit extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -60,7 +61,8 @@ class challenge_hit extends task_base_1.task_base {
     }
     menu() {
         return __awaiter(this, void 0, void 0, function* () {
-            let temp = `┏┄══🎰镜像挑战══━┄\n`;
+            let temp = `┏┄══🎰${taskTemp_1.taskType_CN.challenge_hit}══━┄\n`;
+            temp += `💌超越自我,琳琅天上!永无止境的突破\n`;
             temp += `🧚最高爆发伤害挑战,你最高能打出多少爆发伤害呢?期待你的挑战\n`;
             temp += `┄══🌈挑战完成══━┄\n`;
             temp += `🔺奖励造成的伤害同比${prop_1.rewardKey_CN.gold}\n`;

@@ -39,7 +39,7 @@ export interface ResBattle {
         list: SKILL_RES[]
     }[]
     kill_log:BattleKillLog[],
-    reward:{key:rewardKey,val:number}[],
+    reward?:{key:rewardKey,val:number}[],
     /**
      * 总伤害
      */

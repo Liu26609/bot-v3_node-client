@@ -10,7 +10,8 @@ import { text_battleTemp_style } from '../temp/text/battleTemp';
 export class challenge_box extends task_base {
     constructor(...a) {
         super(...a);
-        this.render();
+        this.log('功能调整中')
+        // this.render();
     }
     async render() {
         if (this.content == this.matchKey) {

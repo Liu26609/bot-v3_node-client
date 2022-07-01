@@ -73,6 +73,7 @@ class task_base {
         bot_1.default.sendText(this.channel_id, `<emoji:147><@!${this.userId}>${str}`);
     }
     sendErr(err) {
+        // console.log(err)
         switch (err.type) {
             case tsrpc_1.TsrpcErrorType.ApiError:
                 bot_1.default.sendText(this.channel_id, `<@!${this.userId}><emoji:147>${err.message}`);

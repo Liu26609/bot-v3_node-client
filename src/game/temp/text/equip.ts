@@ -17,8 +17,8 @@ export class text_equip_style {
         const quality = this.equipData.quality;
         const type = this.equipData.type;
         const attribute = this.equipData.base_attribute;
-        let  mark = 0;
-        let  Markconver = 0;
+        let mark = 0;
+        let Markconver = 0;
         for (const key in this.equipData.base_attribute) {
             mark += this.equipData.base_attribute[key]
             Markconver += Math.ceil(common.converEquipattribute(this.equipData, key))
@@ -46,6 +46,22 @@ ${Math.ceil(common.converEquipattribute(this.equipData, 'hp_max'))}`)}/font/${ba
     sendMsg(channelId: string) {
         let url = this.getTemp();
         bot.sendImage(channelId, url)
-        if (this.equipData.story.length > 0) bot.sendText(channelId, this.equipData.story)
+        let story = '';
+
+        if (this.equipData.story.length > 0) {
+            story += this.equipData.story || '暂无装备来源故事,你可以来补全他。'
+        };
+        if (typeof (this.equipData.skill_active_id) != 'undefined' && this.equipData.outSkillData) {
+            if(story.length > 0){
+                story += '\n';
+            }
+            story += `Ⓜ️附带技能:${this.equipData.outSkillData.name}`
+            story += `\n🚀触发频率:${this.equipData.outSkillData.speed}`
+            story += `\n📄效果描述:${common.getSkDesc(this.equipData.outSkillData)}`;
+        }
+        if (story.length > 0) {
+            bot.sendText(channelId, story)
+        }
+
     }
 }

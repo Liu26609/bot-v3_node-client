@@ -24,7 +24,8 @@ const battleTemp_1 = require("../temp/text/battleTemp");
 class challenge_box extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
-        this.render();
+        this.log('功能调整中');
+        // this.render();
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {

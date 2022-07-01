@@ -51,8 +51,22 @@ ${Math.ceil(common_1.default.converEquipattribute(this.equipData, 'hp_max'))}`)}
     sendMsg(channelId) {
         let url = this.getTemp();
         bot_1.default.sendImage(channelId, url);
-        if (this.equipData.story.length > 0)
-            bot_1.default.sendText(channelId, this.equipData.story);
+        let story = '';
+        if (this.equipData.story.length > 0) {
+            story += this.equipData.story || '暂无装备来源故事,你可以来补全他。';
+        }
+        ;
+        if (typeof (this.equipData.skill_active_id) != 'undefined' && this.equipData.outSkillData) {
+            if (story.length > 0) {
+                story += '\n';
+            }
+            story += `Ⓜ️附带技能:${this.equipData.outSkillData.name}`;
+            story += `\n🚀触发频率:${this.equipData.outSkillData.speed}`;
+            story += `\n📄效果描述:${common_1.default.getSkDesc(this.equipData.outSkillData)}`;
+        }
+        if (story.length > 0) {
+            bot_1.default.sendText(channelId, story);
+        }
     }
 }
 exports.text_equip_style = text_equip_style;

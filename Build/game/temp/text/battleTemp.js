@@ -47,7 +47,7 @@ class text_battleTemp_style {
             this.skillHurtLog[item.group] += itemLog;
         }
         // 设置战斗奖励
-        if (data.reward.length > 0) {
+        if (data.reward && data.reward.length > 0) {
             data.reward.forEach(item => {
                 this.rewardKey_str += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${common_1.default.BN(item.val)}`;
             });

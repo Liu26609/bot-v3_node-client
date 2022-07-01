@@ -5,6 +5,7 @@ import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { DNA_CN, DNA_Leve } from '../../shared/game/body';
 import { text_battleTemp_style } from '../temp/text/battleTemp';
+import { taskType_CN } from '../../shared/game/taskTemp';
 export class challenge_hit extends task_base {
     constructor(...a) {
         super(...a);
@@ -49,7 +50,8 @@ export class challenge_hit extends task_base {
 
     }
     async menu() {
-        let temp = `┏┄══🎰镜像挑战══━┄\n`;
+        let temp = `┏┄══🎰${taskType_CN.challenge_hit}══━┄\n`;
+        temp += `💌超越自我,琳琅天上!永无止境的突破\n`
         temp += `🧚最高爆发伤害挑战,你最高能打出多少爆发伤害呢?期待你的挑战\n`
         temp += `┄══🌈挑战完成══━┄\n`
         temp += `🔺奖励造成的伤害同比${rewardKey_CN.gold}\n`

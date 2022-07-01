@@ -1,3 +1,4 @@
+import { SKILL_ACTIVE } from './skill';
 import { base_attribute } from "./body";
 
 export interface equip {
@@ -24,6 +25,11 @@ export interface equip {
      * 基础属性
      */
     base_attribute: base_attribute
+    /**
+     * 附带技能
+     */
+    skill_active_id?:number
+    outSkillData?:SKILL_ACTIVE
 }
 
 /**

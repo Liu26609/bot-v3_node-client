@@ -25,23 +25,23 @@ class me_wearEquip extends task_base_1.task_base {
         return __awaiter(this, void 0, void 0, function* () {
             let wearIndex = this.content.replace(this.matchKey, '');
             if (wearIndex == '') {
-                this.log('需要装备的ID不能为空');
+                this.log('需要穿装备的ID不能为空');
                 return;
             }
             if (isNaN(Number(wearIndex))) {
-                this.log('需要装备的ID只能是数字');
+                this.log('需要穿装备的ID只能是数字');
                 return;
             }
             if (Number(wearIndex) < 0) {
-                this.log('需要装备的ID不能是负数');
+                this.log('需要穿装备的ID不能是负数');
                 return;
             }
             if (Math.ceil(Number(wearIndex)) != Number(wearIndex)) {
-                this.log('需要装备的ID不能是小数点');
+                this.log('需要穿装备的ID不能是小数点');
                 return;
             }
             if (Number(wearIndex) > 100) {
-                this.log('需要装备的的ID太大了');
+                this.log('需要穿装备的的ID太大了');
                 return;
             }
             let req = yield sever_1.default.callApi('Me_wearEquip', { userId: this.userId, wearIndex: Number(wearIndex) });

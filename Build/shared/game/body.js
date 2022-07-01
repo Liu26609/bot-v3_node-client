@@ -88,8 +88,8 @@ var DNA_CN;
 })(DNA_CN = exports.DNA_CN || (exports.DNA_CN = {}));
 var bodyType;
 (function (bodyType) {
-    bodyType[bodyType["player"] = 0] = "player";
+    bodyType[bodyType["shadow"] = 0] = "shadow";
     bodyType[bodyType["enemy"] = 1] = "enemy";
     bodyType[bodyType["pet"] = 2] = "pet";
-    bodyType[bodyType["shadow"] = 3] = "shadow";
+    bodyType[bodyType["player"] = 3] = "player";
 })(bodyType = exports.bodyType || (exports.bodyType = {}));

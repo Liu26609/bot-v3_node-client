@@ -124,6 +124,7 @@ const store_look_1 = require("./me/store/store_look");
 const store_get_1 = require("./me/store/store_get");
 const newUserTask_1 = require("./me/task/newUserTask");
 const challenge_hit_1 = require("./challenge/challenge_hit");
+const challenge_power_1 = require("./challenge/challenge_power");
 var matchType;
 (function (matchType) {
     /**
@@ -189,6 +190,7 @@ class game {
         this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });
         this.matchMap.set('镜像挑战', { action: challenge_image_1.challenge_image, match: matchType.match });
         this.matchMap.set('伤害挑战', { action: challenge_hit_1.challenge_hit, match: matchType.match });
+        this.matchMap.set('力量挑战', { action: challenge_power_1.challenge_power, match: matchType.match });
         this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
         this.matchMap.set('阶梯任务', { action: soaringTask_1.soaringTask, match: matchType.all });
         this.matchMap.set('每日任务', { action: everDayTask_1.everDayTask, match: matchType.all });
