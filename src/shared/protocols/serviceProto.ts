@@ -6,6 +6,7 @@ import { ReqAuction_offer, ResAuction_offer } from './auction/PtlAuction_offer';
 import { ReqAuction, ResAuction } from './auction/PtlAuction';
 import { ReqAttackBoss, ResAttackBoss } from './battle/PtlAttackBoss';
 import { ReqChallenge_box, ResChallenge_box } from './battle/PtlChallenge_box';
+import { ReqChallenge_hit, ResChallenge_hit } from './battle/PtlChallenge_hit';
 import { ReqChallenge_image, ResChallenge_image } from './battle/PtlChallenge_image';
 import { ReqPkRank, ResPkRank } from './battle/PtlPkRank';
 import { ReqPosAttackEnemy, ResPosAttackEnemy } from './battle/PtlPosAttackEnemy';
@@ -133,6 +134,10 @@ export interface ServiceType {
         "battle/Challenge_box": {
             req: ReqChallenge_box,
             res: ResChallenge_box
+        },
+        "battle/Challenge_hit": {
+            req: ReqChallenge_hit,
+            res: ResChallenge_hit
         },
         "battle/Challenge_image": {
             req: ReqChallenge_image,
@@ -516,7 +521,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 67,
+    "version": 68,
     "services": [
         {
             "id": 0,
@@ -551,6 +556,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 83,
             "name": "battle/Challenge_box",
+            "type": "api"
+        },
+        {
+            "id": 119,
+            "name": "battle/Challenge_hit",
             "type": "api"
         },
         {
@@ -1979,6 +1989,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                             ]
                         }
                     }
+                },
+                {
+                    "id": 4,
+                    "name": "hurt",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },
@@ -2456,6 +2473,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 20,
                     "value": 20
+                }
+            ]
+        },
+        "battle/PtlChallenge_hit/ReqChallenge_hit": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_hit/ResChallenge_hit": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    }
                 }
             ]
         },
@@ -7096,6 +7137,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 20,
                     "value": 20
+                },
+                {
+                    "id": 21,
+                    "value": 21
                 }
             ]
         },

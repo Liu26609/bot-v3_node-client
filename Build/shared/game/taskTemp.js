@@ -9,17 +9,21 @@ var taskType;
     taskType[taskType["everDay"] = 0] = "everDay";
     taskType[taskType["newUser"] = 1] = "newUser";
     /**
+     * 伤害挑战
+     */
+    taskType[taskType["challenge_hit"] = 2] = "challenge_hit";
+    /**
      * 飞升任务一级
      */
-    taskType[taskType["ladder_1"] = 2] = "ladder_1";
-    taskType[taskType["ladder_2"] = 3] = "ladder_2";
-    taskType[taskType["ladder_3"] = 4] = "ladder_3";
-    taskType[taskType["ladder_4"] = 5] = "ladder_4";
-    taskType[taskType["ladder_5"] = 6] = "ladder_5";
-    taskType[taskType["ladder_6"] = 7] = "ladder_6";
-    taskType[taskType["ladder_7"] = 8] = "ladder_7";
-    taskType[taskType["ladder_8"] = 9] = "ladder_8";
-    taskType[taskType["ladder_9"] = 10] = "ladder_9";
+    taskType[taskType["ladder_1"] = 3] = "ladder_1";
+    taskType[taskType["ladder_2"] = 4] = "ladder_2";
+    taskType[taskType["ladder_3"] = 5] = "ladder_3";
+    taskType[taskType["ladder_4"] = 6] = "ladder_4";
+    taskType[taskType["ladder_5"] = 7] = "ladder_5";
+    taskType[taskType["ladder_6"] = 8] = "ladder_6";
+    taskType[taskType["ladder_7"] = 9] = "ladder_7";
+    taskType[taskType["ladder_8"] = 10] = "ladder_8";
+    taskType[taskType["ladder_9"] = 11] = "ladder_9";
 })(taskType = exports.taskType || (exports.taskType = {}));
 var taskType_CN;
 (function (taskType_CN) {
@@ -28,6 +32,7 @@ var taskType_CN;
      */
     taskType_CN["everDay"] = "\u6BCF\u65E5\u4EFB\u52A1";
     taskType_CN["newUser"] = "\u65B0\u624B\u4EFB\u52A1";
+    taskType_CN["challenge_hit"] = "\u4F24\u5BB3\u6311\u6218";
     /**
      * 飞升任务
      */
@@ -56,79 +61,83 @@ var TaskId;
      */
     TaskId[TaskId["PK"] = 2] = "PK";
     /**
+     * 参与一次伤害挑战
+     */
+    TaskId[TaskId["challenge_hit"] = 3] = "challenge_hit";
+    /**
      * 捕捉成功宠物
      */
-    TaskId[TaskId["catch"] = 3] = "catch";
+    TaskId[TaskId["catch"] = 4] = "catch";
     /**
      * 钓鱼
      */
-    TaskId[TaskId["fishing"] = 4] = "fishing";
+    TaskId[TaskId["fishing"] = 5] = "fishing";
     /**
      * 查看技能商店
      */
-    TaskId[TaskId["SkillShop_look"] = 5] = "SkillShop_look";
+    TaskId[TaskId["SkillShop_look"] = 6] = "SkillShop_look";
     /**
      * 查看装备商店
      */
-    TaskId[TaskId["EquipShop_look"] = 6] = "EquipShop_look";
+    TaskId[TaskId["EquipShop_look"] = 7] = "EquipShop_look";
     /**
      * 攻击一次怪物
      */
-    TaskId[TaskId["attackMonster"] = 7] = "attackMonster";
+    TaskId[TaskId["attackMonster"] = 8] = "attackMonster";
     /**
      * 攻击一次boss
      */
-    TaskId[TaskId["attackBoss_partake"] = 8] = "attackBoss_partake";
+    TaskId[TaskId["attackBoss_partake"] = 9] = "attackBoss_partake";
     /**
      * 排位一次
      */
-    TaskId[TaskId["rank"] = 9] = "rank";
+    TaskId[TaskId["rank"] = 10] = "rank";
     /**
      * 参与猜数
      */
-    TaskId[TaskId["lottery_partake"] = 10] = "lottery_partake";
+    TaskId[TaskId["lottery_partake"] = 11] = "lottery_partake";
     /**
      * 猜数胜利
      */
-    TaskId[TaskId["lottery_win"] = 11] = "lottery_win";
+    TaskId[TaskId["lottery_win"] = 12] = "lottery_win";
     /**
      * 击杀一次BOSS
      */
-    TaskId[TaskId["attackBoss_kill"] = 12] = "attackBoss_kill";
+    TaskId[TaskId["attackBoss_kill"] = 13] = "attackBoss_kill";
     /**
      * 成功强化一次装备
      */
-    TaskId[TaskId["strengthen_succress"] = 13] = "strengthen_succress";
+    TaskId[TaskId["strengthen_succress"] = 14] = "strengthen_succress";
     /**
      * 捕捉一次宠物
      */
-    TaskId[TaskId["docile_partake"] = 14] = "docile_partake";
+    TaskId[TaskId["docile_partake"] = 15] = "docile_partake";
     /**
      * 查看一次宠物马拉松
      */
-    TaskId[TaskId["look_Horse"] = 15] = "look_Horse";
+    TaskId[TaskId["look_Horse"] = 16] = "look_Horse";
     /**
      * 查看一次位置
      */
-    TaskId[TaskId["look_loca"] = 16] = "look_loca";
+    TaskId[TaskId["look_loca"] = 17] = "look_loca";
     /**
      * 移动
      * 上下左右
      */
-    TaskId[TaskId["move_right"] = 17] = "move_right";
+    TaskId[TaskId["move_right"] = 18] = "move_right";
     /**
      * 移动
      * 上下左右
      */
-    TaskId[TaskId["move_left"] = 18] = "move_left";
+    TaskId[TaskId["move_left"] = 19] = "move_left";
     /**
     * 移动
     * 上下左右
     */
-    TaskId[TaskId["move_top"] = 19] = "move_top";
+    TaskId[TaskId["move_top"] = 20] = "move_top";
     /**
      * 移动
      * 上下左右
      */
-    TaskId[TaskId["move_buttom"] = 20] = "move_buttom";
+    TaskId[TaskId["move_buttom"] = 21] = "move_buttom";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

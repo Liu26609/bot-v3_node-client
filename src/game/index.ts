@@ -112,6 +112,7 @@ import { store_look } from './me/store/store_look';
 import { store_get } from './me/store/store_get';
 import { horse } from './minGame/horse/horse';
 import { newUserTask } from './me/task/newUserTask';
+import { challenge_hit } from './challenge/challenge_hit';
 
 enum matchType {
     /**
@@ -219,6 +220,7 @@ export default class game {
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
         this.matchMap.set('镜像挑战', { action: challenge_image, match: matchType.match })
+        this.matchMap.set('伤害挑战', { action: challenge_hit, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
         this.matchMap.set('阶梯任务', { action: soaringTask, match: matchType.all })
         this.matchMap.set('每日任务', { action: everDayTask, match: matchType.all })
@@ -392,7 +394,7 @@ export default class game {
         if (this.speedLockMap.has(userId) && userName != '表情指令') {
             let lastSendTime = this.speedLockMap.get(userId) as number;
             if (Date.now() - lastSendTime <= 300) {
-                const endLockTime = lastSendTime + 5000
+                const endLockTime = lastSendTime + 60000
 
                 this.speedLockMap.set(userId, endLockTime)
                 bot.sendText(fromChannel, `检测到消息太过频繁,请勿尝试使用脚本.冻结至:${new Date(endLockTime).toLocaleString()}`)

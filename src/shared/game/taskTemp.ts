@@ -32,6 +32,10 @@ export enum taskType {
     everDay,
     newUser,
     /**
+     * 伤害挑战
+     */
+    challenge_hit,
+    /**
      * 飞升任务一级
      */
     ladder_1,
@@ -50,6 +54,7 @@ export enum taskType_CN {
      */
     everDay = '每日任务',
     newUser = '新手任务',
+    challenge_hit = '伤害挑战',
     /**
      * 飞升任务
      */
@@ -76,6 +81,11 @@ export enum TaskId {
      * 频道PK
      */
     PK,
+    /**
+     * 参与一次伤害挑战
+     */
+    challenge_hit,
+
     /**
      * 捕捉成功宠物
      */

@@ -4,10 +4,10 @@ import { SKILL_UNITY } from './../../../shared/game/skill';
  */
 import { err, info, log } from "../../..";
 import { SKILL_UNITY_CN } from "../../../shared/game/skill";
-import { ResBattle } from "../../../shared/protocols/PtlBattle";
 import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
 import { rewardKey_CN, rewardKey } from '../../../shared/game/prop';
+import { ResBattle } from '../../../shared/protocols/Battle';
 
 export class text_battleTemp_style {
     data?: ResBattle;
@@ -103,7 +103,7 @@ export class text_battleTemp_style {
             info('未设置战斗格式数据')
             return ''
         }
-        let str = '';
+        let str = `<emoji:224>本次战斗总伤害:${common.BN(this.data.hurt)}\n`;
         for (let index = 0; index < this.data.kill_log.length; index++) {
             const kill_item = this.data.kill_log[index];
             str += `${kill_item.round}回合${kill_item.body.name}击杀了${kill_item.die_body.name}\n`

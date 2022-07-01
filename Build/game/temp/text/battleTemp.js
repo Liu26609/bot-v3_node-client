@@ -85,7 +85,7 @@ class text_battleTemp_style {
             (0, __1.info)('未设置战斗格式数据');
             return '';
         }
-        let str = '';
+        let str = `<emoji:224>本次战斗总伤害:${common_1.default.BN(this.data.hurt)}\n`;
         for (let index = 0; index < this.data.kill_log.length; index++) {
             const kill_item = this.data.kill_log[index];
             str += `${kill_item.round}回合${kill_item.body.name}击杀了${kill_item.die_body.name}\n`;

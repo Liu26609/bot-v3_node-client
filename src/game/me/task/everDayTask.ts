@@ -65,6 +65,9 @@ export class everDayTask extends task_base {
             case TaskId.look_Horse:
                 str = `[宠物马拉松]查看一次宠物马拉松`
                 break;
+            case TaskId.challenge_hit:
+                str = `[伤害挑战]最高爆发伤害挑战`
+                break;
             default:
                 str = `未收录任务id${id}`
                 break;

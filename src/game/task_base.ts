@@ -91,7 +91,7 @@ export class task_base {
                     temp += `┣⛔︎错误代码:${err.code || '0x' + common.random(0, 99999999999).toString(16)}\n`;
                     temp += `┣🗂️错误类型:${err.type}\n`;
                     temp += `┣┄════❌错误提示══━┄\n`
-                    temp += `          ${err.message}\n`;
+                    temp += `          ${err.innerErr}\n`;
                     temp += `┗┄━══════════━┄\n`;
                     temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
                     bot.sendText(this.channel_id, temp);
@@ -101,7 +101,7 @@ export class task_base {
                     temp.setTips('出错了。')
                     temp.addLine(`⛔︎错误代码:${err.code || '0x' + common.random(0, 99999999999).toString(16)}`)
                     temp.addLine(`🗂️错误类型:${err.type}`)
-                    temp.addLine(`${err.message}`)
+                    temp.addLine(`${err.innerErr}`)
                     temp.addLine(`有问题截图反馈`)
                     temp.sendMsg(this.channel_id)
                 }

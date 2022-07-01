@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 67,
+    "version": 68,
     "services": [
         {
             "id": 0,
@@ -37,6 +37,11 @@ exports.serviceProto = {
         {
             "id": 83,
             "name": "battle/Challenge_box",
+            "type": "api"
+        },
+        {
+            "id": 119,
+            "name": "battle/Challenge_hit",
             "type": "api"
         },
         {
@@ -1465,6 +1470,13 @@ exports.serviceProto = {
                             ]
                         }
                     }
+                },
+                {
+                    "id": 4,
+                    "name": "hurt",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },
@@ -1942,6 +1954,30 @@ exports.serviceProto = {
                 {
                     "id": 20,
                     "value": 20
+                }
+            ]
+        },
+        "battle/PtlChallenge_hit/ReqChallenge_hit": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_hit/ResChallenge_hit": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    }
                 }
             ]
         },
@@ -6582,6 +6618,10 @@ exports.serviceProto = {
                 {
                     "id": 20,
                     "value": 20
+                },
+                {
+                    "id": 21,
+                    "value": 21
                 }
             ]
         },

@@ -123,6 +123,7 @@ const store_save_equip_1 = require("./me/store/store_save_equip");
 const store_look_1 = require("./me/store/store_look");
 const store_get_1 = require("./me/store/store_get");
 const newUserTask_1 = require("./me/task/newUserTask");
+const challenge_hit_1 = require("./challenge/challenge_hit");
 var matchType;
 (function (matchType) {
     /**
@@ -187,6 +188,7 @@ class game {
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });
         this.matchMap.set('镜像挑战', { action: challenge_image_1.challenge_image, match: matchType.match });
+        this.matchMap.set('伤害挑战', { action: challenge_hit_1.challenge_hit, match: matchType.match });
         this.matchMap.set('破壁计划', { action: challenge_box_1.challenge_box, match: matchType.match });
         this.matchMap.set('阶梯任务', { action: soaringTask_1.soaringTask, match: matchType.all });
         this.matchMap.set('每日任务', { action: everDayTask_1.everDayTask, match: matchType.all });
@@ -349,7 +351,7 @@ class game {
             if (this.speedLockMap.has(userId) && userName != '表情指令') {
                 let lastSendTime = this.speedLockMap.get(userId);
                 if (Date.now() - lastSendTime <= 300) {
-                    const endLockTime = lastSendTime + 5000;
+                    const endLockTime = lastSendTime + 60000;
                     this.speedLockMap.set(userId, endLockTime);
                     bot_1.default.sendText(fromChannel, `检测到消息太过频繁,请勿尝试使用脚本.冻结至:${new Date(endLockTime).toLocaleString()}`);
                     return;
