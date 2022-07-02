@@ -71,6 +71,8 @@ export class me_pos extends task_base {
                 if(body.out_attribute.hp_max > body.hp){
                     temp += `<emoji:67>`
                     temp += `${((body.hp/body.out_attribute.hp_max)*100).toFixed(0)}%\n`
+                }else{
+                    temp += `\n`
                 }
             }
         }

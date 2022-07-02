@@ -84,6 +84,9 @@ class me_pos extends task_base_1.task_base {
                         temp += `<emoji:67>`;
                         temp += `${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
                     }
+                    else {
+                        temp += `\n`;
+                    }
                 }
             }
             if (data.chest.length > 0) {
