@@ -43,6 +43,7 @@ class common {
       this.leve_base_MagicDefense = 0.1;
       this.leve_base_PhysicalDefense = 0.1;
       this.leve_base_secondResHp = 1;
+
    }
    /**
      * 获取排行文字

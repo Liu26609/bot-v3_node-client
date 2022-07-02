@@ -114,6 +114,7 @@ import { horse } from './minGame/horse/horse';
 import { newUserTask } from './me/task/newUserTask';
 import { challenge_hit } from './challenge/challenge_hit';
 import { challenge_power } from './challenge/challenge_power';
+import { challenge_downUser } from './challenge/challenge_downUser';
 
 enum matchType {
     /**
@@ -223,6 +224,7 @@ export default class game {
         this.matchMap.set('镜像挑战', { action: challenge_image, match: matchType.match })
         this.matchMap.set('伤害挑战', { action: challenge_hit, match: matchType.match })
         this.matchMap.set('力量挑战', { action: challenge_power, match: matchType.match })
+        this.matchMap.set('强者挑战', { action: challenge_downUser, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
         this.matchMap.set('阶梯任务', { action: soaringTask, match: matchType.all })
         this.matchMap.set('每日任务', { action: everDayTask, match: matchType.all })

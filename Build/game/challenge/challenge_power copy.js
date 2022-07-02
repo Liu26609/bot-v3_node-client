@@ -12,14 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.challenge_image = void 0;
-const example_1 = require("./../temp/text/example");
-const task_base_1 = require("./../task_base");
+exports.challenge_power = void 0;
+const example_1 = require("../temp/text/example");
+const task_base_1 = require("../task_base");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const body_1 = require("../../shared/game/body");
 const battleTemp_1 = require("../temp/text/battleTemp");
-class challenge_image extends task_base_1.task_base {
+class challenge_power extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
@@ -35,7 +35,7 @@ class challenge_image extends task_base_1.task_base {
                 this.menu();
                 return;
             }
-            let req = yield sever_1.default.callApi('battle/Challenge_image', { userId: this.userId, isStart: true });
+            let req = yield sever_1.default.callApi('battle/Challenge_power', { userId: this.userId, isStart: true });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
@@ -66,14 +66,12 @@ class challenge_image extends task_base_1.task_base {
     }
     max() {
         return __awaiter(this, void 0, void 0, function* () {
-            bot_1.default.sendText(this.channel_id, `${this.at()}镜像挑战只能支持提升到[${body_1.DNA_CN[body_1.DNA_Leve[body_1.DNA_Leve.EEE]]}]
-而更高级的基因锁需要挑战[破壁计划]才能做到。
-为了顺利完成破壁计划,为此准备了[阶梯计划]`);
+            bot_1.default.sendText(this.channel_id, `${this.at()}力量挑战只能支持提升到[${body_1.DNA_CN[body_1.DNA_Leve[body_1.DNA_Leve.E]]}]更高级的基因锁需要进行[强者挑战]`);
         });
     }
     menu() {
         return __awaiter(this, void 0, void 0, function* () {
-            let req = yield sever_1.default.callApi('battle/Challenge_image', { userId: this.userId, isStart: false });
+            let req = yield sever_1.default.callApi('battle/Challenge_power', { userId: this.userId, isStart: false });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
@@ -83,9 +81,12 @@ class challenge_image extends task_base_1.task_base {
                 this.max();
                 return;
             }
-            let temp = `┏┄══🎰镜像挑战══━┄\n`;
-            temp += `介绍:前三阶的基因锁是可以通过面临生命危险、死亡的恐惧中激发潜能，基因锁一旦达到四阶以上，就必然殊途同归，渐渐达到另一个生命层次，基因锁是神与识结合，二者合一方才是神。\n`;
-            temp += `🧚相同属性强者胜,祝君好运,你将挑战你的镜像,在死亡的恐惧中,激发潜能突破限制。镜像没有装备,但称号满分且基因锁为[${body_1.DNA_CN[body_1.DNA_Leve[data.imageDNALeve]]}]\n`;
+            let temp = `┏┄══🎰力量挑战══━┄\n`;
+            temp += `介绍:榨压身体的力量超出肉体承受的极限，就能够激发出人类的潜在能力，这便是基因锁的第一阶
+世界上存在着许多奇迹，比如说那个很有名的催眠实验：
+用冰冷的铁条把人烫伤，再比如老太太为了救外孙把汽车抬起来、母亲为了救坠楼的儿子百米只用五秒
+但这不过是因为他们在某些情况下某些激素的快速分泌，达成了表面上违反常理的结果，就算衰竭而死也不是因为基因崩溃和潜能耗尽，只是因为自我催眠后引起的器官功能紊乱、爆发时的细胞加速分裂耗尽了人的寿命。\n`;
+            temp += `🧚突破常人的力量极限,破开自身生命界限,你将对木桩进行战斗(此战斗将不携带宠物),在${data.battle_round}回合内伤害达到${data.needHit}即可胜利\n`;
             temp += `┄══🌈挑战胜利══━┄\n`;
             temp += `🔺基因锁将进阶为[${body_1.DNA_CN[body_1.DNA_Leve[data.nextDNA]]}]\n`;
             temp += `🔺基因锁增益:全属性+${data.winAdd}%\n`;
@@ -97,4 +98,4 @@ class challenge_image extends task_base_1.task_base {
         });
     }
 }
-exports.challenge_image = challenge_image;
+exports.challenge_power = challenge_power;

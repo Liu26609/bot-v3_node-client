@@ -40,6 +40,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 120,
+            "name": "battle/Challenge_downUser",
+            "type": "api"
+        },
+        {
             "id": 119,
             "name": "battle/Challenge_hit",
             "type": "api"
@@ -50,7 +55,7 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 120,
+            "id": 121,
             "name": "battle/Challenge_power",
             "type": "api"
         },
@@ -1960,6 +1965,75 @@ exports.serviceProto = {
                 {
                     "id": 20,
                     "value": 20
+                }
+            ]
+        },
+        "battle/PtlChallenge_downUser/ReqChallenge_downUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "isStart",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_downUser/ResChallenge_downUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "nextDNA",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "winAdd",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "failDel",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "challenge_cont",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },

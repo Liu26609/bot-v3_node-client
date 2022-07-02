@@ -6,6 +6,7 @@ import { ReqAuction_offer, ResAuction_offer } from './auction/PtlAuction_offer';
 import { ReqAuction, ResAuction } from './auction/PtlAuction';
 import { ReqAttackBoss, ResAttackBoss } from './battle/PtlAttackBoss';
 import { ReqChallenge_box, ResChallenge_box } from './battle/PtlChallenge_box';
+import { ReqChallenge_downUser, ResChallenge_downUser } from './battle/PtlChallenge_downUser';
 import { ReqChallenge_hit, ResChallenge_hit } from './battle/PtlChallenge_hit';
 import { ReqChallenge_image, ResChallenge_image } from './battle/PtlChallenge_image';
 import { ReqChallenge_power, ResChallenge_power } from './battle/PtlChallenge_power';
@@ -135,6 +136,10 @@ export interface ServiceType {
         "battle/Challenge_box": {
             req: ReqChallenge_box,
             res: ResChallenge_box
+        },
+        "battle/Challenge_downUser": {
+            req: ReqChallenge_downUser,
+            res: ResChallenge_downUser
         },
         "battle/Challenge_hit": {
             req: ReqChallenge_hit,
@@ -564,6 +569,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 120,
+            "name": "battle/Challenge_downUser",
+            "type": "api"
+        },
+        {
             "id": 119,
             "name": "battle/Challenge_hit",
             "type": "api"
@@ -574,7 +584,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 120,
+            "id": 121,
             "name": "battle/Challenge_power",
             "type": "api"
         },
@@ -2484,6 +2494,75 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 20,
                     "value": 20
+                }
+            ]
+        },
+        "battle/PtlChallenge_downUser/ReqChallenge_downUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "isStart",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_downUser/ResChallenge_downUser": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "nextDNA",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/DNA_Leve"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "winAdd",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "failDel",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "challenge_cont",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },

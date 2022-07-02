@@ -78,11 +78,12 @@ class me_pos extends task_base_1.task_base {
                     }
                     const name = body.name;
                     const leve = body.leve;
-                    let emoji = `♥️`;
+                    temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}`;
+                    temp += `♥️`;
                     if (body.out_attribute.hp_max > body.hp) {
-                        emoji = `<emoji:67>`;
+                        temp += `<emoji:67>`;
+                        temp += `${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
                     }
-                    temp += ` [怪物${index}]Lv.${leve}${body.icon}${name}${emoji}${((body.hp / body.out_attribute.hp_max) * 100).toFixed(0)}%\n`;
                 }
             }
             if (data.chest.length > 0) {
