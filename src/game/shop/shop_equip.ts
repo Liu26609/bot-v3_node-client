@@ -28,7 +28,7 @@ export class shop_equip extends task_base {
         str += `\n🎫购买指令：购买装备`
         str += `\n<emoji:147>每次刷新随机价格，与装备属性无关`;
         str += `\n↓↓以下是装备属性预览↓↓`;
-        await bot.sendText(this.channel_id, str,this.matchKey)
+        await bot.sendText(this.channel_id, str,'购买装备')
 
 
         let temp = new text_equip_style();

@@ -1,9 +1,9 @@
 import { TsrpcErrorType } from 'tsrpc';
-import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
-import { ResMe_destroyBagEquip } from '../../shared/protocols/PtlMe_destroyBagEquip';
-import bot from '../../unity/bot';
-import sever from '../../unity/sever';
-import { task_base } from './../task_base';
+import { rewardKey, rewardKey_CN } from '../../../shared/game/prop';
+import { ResMe_destroyBagEquip } from '../../../shared/protocols/me/equip/PtlMe_destroyBagEquip';
+import bot from '../../../unity/bot';
+import sever from '../../../unity/sever';
+import { task_base } from '../../task_base';
 export class me_destroyBagEquip extends task_base {
     constructor(...a) {
         super(...a);
@@ -22,7 +22,7 @@ export class me_destroyBagEquip extends task_base {
     }
     async render() {
         if (this.matchKey == '分解全部装备') {
-            let reqs = await sever.callApi('Me_destroyBagEquip', { userId: this.userId, destroyIndex: -1 });
+            let reqs = await sever.callApi('me/equip/Me_destroyBagEquip', { userId: this.userId, destroyIndex: -1 });
             if (!reqs.isSucc) {
                 this.sendErr(reqs.err)
                 return;
@@ -52,7 +52,7 @@ export class me_destroyBagEquip extends task_base {
             this.log('需要分解的背包装备的的ID太大了')
             return;
         }
-        let req = await sever.callApi('Me_destroyBagEquip', { userId: this.userId, destroyIndex: Number(destroyIndex) });
+        let req = await sever.callApi('me/equip/Me_destroyBagEquip', { userId: this.userId, destroyIndex: Number(destroyIndex) });
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

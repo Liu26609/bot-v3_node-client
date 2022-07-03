@@ -258,11 +258,11 @@ class bot {
         }).then((res) => {
             if (triggerKey) {
                 this.machMap.set(res.data.id, triggerKey)
-                try {
-                    // this.addEmoji(channelID, res.data.id)
-                } catch (error) {
+                // try {
+                //     // this.addEmoji(channelID, res.data.id)
+                // } catch (error) {
 
-                }
+                // }
             }
         })
     }
@@ -358,6 +358,9 @@ class bot {
                 seq_in_channel: '',
             }
             this._onMsg_at(tempData)
+            if(this.machMap.size > 10000){
+                this.machMap = new Map();
+            }
         }
         // const options = {
         //     timeTo:(Date.now() + 2000 / 1000).toFixed(0)

@@ -20,6 +20,7 @@ import { ReqMove, ResMove } from './map/PtlMove';
 import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox';
 import { ReqendAutoPlay, ResendAutoPlay } from './me/autoPlay/PtlendAutoPlay';
 import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPlay';
+import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_destroyBagEquip';
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
@@ -38,7 +39,6 @@ import { ReqHello, ResHello } from './PtlHello';
 import { ReqMe_Attribute, ResMe_Attribute } from './PtlMe_Attribute';
 import { ReqMe_callPos, ResMe_callPos } from './PtlMe_callPos';
 import { ReqMe_changeName, ResMe_changeName } from './PtlMe_changeName';
-import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './PtlMe_destroyBagEquip';
 import { ReqMe_destroyMeSkill, ResMe_destroyMeSkill } from './PtlMe_destroyMeSkill';
 import { ReqMe_equip, ResMe_equip } from './PtlMe_equip';
 import { ReqMe_lookBag, ResMe_lookBag } from './PtlMe_lookBag';
@@ -193,6 +193,10 @@ export interface ServiceType {
             req: ReqstartAutoPlay,
             res: ResstartAutoPlay
         },
+        "me/equip/Me_destroyBagEquip": {
+            req: ReqMe_destroyBagEquip,
+            res: ResMe_destroyBagEquip
+        },
         "me/equip/Me_wearEquip": {
             req: ReqMe_wearEquip,
             res: ResMe_wearEquip
@@ -252,10 +256,6 @@ export interface ServiceType {
         "Me_changeName": {
             req: ReqMe_changeName,
             res: ResMe_changeName
-        },
-        "Me_destroyBagEquip": {
-            req: ReqMe_destroyBagEquip,
-            res: ResMe_destroyBagEquip
         },
         "Me_destroyMeSkill": {
             req: ReqMe_destroyMeSkill,
@@ -640,6 +640,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         },
         {
             "id": 122,
+            "name": "me/equip/Me_destroyBagEquip",
+            "type": "api"
+        },
+        {
+            "id": 123,
             "name": "me/equip/Me_wearEquip",
             "type": "api"
         },
@@ -726,11 +731,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 22,
             "name": "Me_changeName",
-            "type": "api"
-        },
-        {
-            "id": 23,
-            "name": "Me_destroyBagEquip",
             "type": "api"
         },
         {
@@ -4021,6 +4021,58 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "me/equip/PtlMe_destroyBagEquip/ReqMe_destroyBagEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "destroyIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlMe_destroyBagEquip/ResMe_destroyBagEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "optional": true
+                }
+            ]
+        },
         "me/equip/PtlMe_wearEquip/ReqMe_wearEquip": {
             "type": "Interface",
             "properties": [
@@ -4891,58 +4943,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "String"
                     }
-                }
-            ]
-        },
-        "PtlMe_destroyBagEquip/ReqMe_destroyBagEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "destroyIndex",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlMe_destroyBagEquip/ResMe_destroyBagEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "reward",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "key",
-                                    "type": {
-                                        "type": "Reference",
-                                        "target": "../game/prop/rewardKey"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "optional": true
                 }
             ]
         },

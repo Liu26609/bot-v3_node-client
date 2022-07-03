@@ -111,6 +111,11 @@ exports.serviceProto = {
         },
         {
             "id": 122,
+            "name": "me/equip/Me_destroyBagEquip",
+            "type": "api"
+        },
+        {
+            "id": 123,
             "name": "me/equip/Me_wearEquip",
             "type": "api"
         },
@@ -197,11 +202,6 @@ exports.serviceProto = {
         {
             "id": 22,
             "name": "Me_changeName",
-            "type": "api"
-        },
-        {
-            "id": 23,
-            "name": "Me_destroyBagEquip",
             "type": "api"
         },
         {
@@ -3492,6 +3492,58 @@ exports.serviceProto = {
                 }
             ]
         },
+        "me/equip/PtlMe_destroyBagEquip/ReqMe_destroyBagEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "destroyIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlMe_destroyBagEquip/ResMe_destroyBagEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "optional": true
+                }
+            ]
+        },
         "me/equip/PtlMe_wearEquip/ReqMe_wearEquip": {
             "type": "Interface",
             "properties": [
@@ -4362,58 +4414,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "String"
                     }
-                }
-            ]
-        },
-        "PtlMe_destroyBagEquip/ReqMe_destroyBagEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "destroyIndex",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlMe_destroyBagEquip/ResMe_destroyBagEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "reward",
-                    "type": {
-                        "type": "Array",
-                        "elementType": {
-                            "type": "Interface",
-                            "properties": [
-                                {
-                                    "id": 0,
-                                    "name": "key",
-                                    "type": {
-                                        "type": "Reference",
-                                        "target": "../game/prop/rewardKey"
-                                    }
-                                },
-                                {
-                                    "id": 1,
-                                    "name": "val",
-                                    "type": {
-                                        "type": "Number"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "optional": true
                 }
             ]
         },

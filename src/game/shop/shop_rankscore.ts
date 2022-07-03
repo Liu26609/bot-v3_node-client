@@ -23,7 +23,7 @@ export class shop_rankscore extends task_base {
 🕤刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
 🎫购买指令：声望购买
 <emoji:147>出售商品和价格每次随机刷新`;
-        bot.sendText(this.channel_id, temp,this.matchKey)
+        bot.sendText(this.channel_id, temp,'声望购买')
     }
 
 }

@@ -1,4 +1,4 @@
-import { rewardKey } from "../game/prop"
+import { rewardKey } from "../../../game/prop"
 
 export interface ReqMe_destroyBagEquip {
     userId: string,

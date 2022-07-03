@@ -25,7 +25,7 @@ export class embed_style {
     addLine(str: string) {
         this.list.push({ name: str })
     }
-    sendMsg(channelId: string) {
+    sendMsg(channelId: string,triggerKey?) {
         let sendObj = {
             title: this.title,
             thumbnail: {
@@ -34,6 +34,6 @@ export class embed_style {
             prompt: this.tips,
             fields: [...this.list]
         }
-        bot.sendEmbed(channelId,sendObj)
+        bot.sendEmbed(channelId,sendObj,triggerKey)
     }
 }

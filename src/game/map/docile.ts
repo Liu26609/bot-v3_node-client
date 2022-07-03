@@ -31,7 +31,7 @@ export class docile extends task_base{
         }
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`
-        bot.sendText(this.channel_id,temp)
+        bot.sendText(this.channel_id,temp,this.content)
     }
     menu(){
         let temp = ``;

@@ -38,7 +38,7 @@ import { shop_skill_buy } from './shop/shop_skill_buy';
 import { shop_skill } from './shop/shop_skill';
 import { shop_equip_buy } from './shop/shop_equip_buy';
 import { shop_equip } from './shop/shop_equip';
-import { me_destroyBagEquip } from './me/me_destroyBagEquip';
+import { me_destroyBagEquip } from './me/equip/me_destroyBagEquip';
 import { me_wearEquip } from './me/equip/me_wearEquip';
 import { me_lookBag } from './me/me_lookBag';
 import { me_bag } from './me/me_bag';

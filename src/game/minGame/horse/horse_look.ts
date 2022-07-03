@@ -18,9 +18,9 @@ export class horse_look extends task_base {
         let data = req.res;
         let temp = `┏┄═🎰宠物马拉松第${data.round}届\n`
         if (data.state == HORSE_STATE.wait) {
-            temp += `赛事状态:等待参赛中...\n`
-            temp += `报名人数:${data.nowCont}/${data.maxCont}\n`
-            temp += `报名价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}\n`
+            temp += `🏁赛事状态:等待参赛中...\n`
+            temp += `😀报名人数:${data.nowCont}/${data.maxCont}\n`
+            temp += `💳报名价格:${walletKey_CN[walletKey[data.buyCondition.key]]}x${data.buyCondition.val}\n`
             new text_example_style().setCommand('参赛指令:参赛 + 宠物ID').setExample('参赛2').sendMsg(this.channel_id);
         } else {
             temp += `赛事状态:正在激烈比赛中...\n`

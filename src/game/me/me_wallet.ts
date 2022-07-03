@@ -36,7 +36,7 @@ export class me_wallet extends task_base {
             if(data.spiritBall > 0)temp.addLine(`${walletKey_CN[walletKey[walletKey.spiritBall]]}:${common.BN(data.spiritBall)}`);
             if(data.evolveCard > 0)temp.addLine(`${walletKey_CN[walletKey[walletKey.evolveCard]]}:${common.BN(data.evolveCard)}`);
             if(data.strengthen > 0) temp.addLine(`${walletKey_CN[walletKey[walletKey.strengthen]]}:${common.BN(data.strengthen)}`);
-            temp.sendMsg(this.channel_id)
+            temp.sendMsg(this.channel_id,this.content)
         } else {
             let temp = new embed_style();
             temp.setTitle(`🏧我的小金库`);
@@ -53,7 +53,7 @@ export class me_wallet extends task_base {
             if(data.spiritBall > 0)temp.addLine(`${walletKey_CN[walletKey[walletKey.spiritBall]]}:${common.BN(data.spiritBall)}`);
             if(data.evolveCard > 0)temp.addLine(`${walletKey_CN[walletKey[walletKey.evolveCard]]}:${common.BN(data.evolveCard)}`);
             if(data.strengthen > 0) temp.addLine(`${walletKey_CN[walletKey[walletKey.strengthen]]}:${common.BN(data.strengthen)}`);
-            temp.sendMsg(this.channel_id)
+            temp.sendMsg(this.channel_id,this.content)
         }
 
 

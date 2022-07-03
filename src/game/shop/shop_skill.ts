@@ -27,7 +27,7 @@ export class shop_skill extends task_base{
         str += `\n🎫购买指令：购买技能`
         str += `\n<emoji:147>每次刷新随机价格，与技能属性无关`;
         str += `\n↓↓以下是技能属性预览↓↓`;
-        await bot.sendText(this.channel_id, str,this.matchKey)
+        await bot.sendText(this.channel_id, str,'购买技能')
         new text_skill_style().sendData(data.sell_temp).sendMsg(this.channel_id)
 
     }
