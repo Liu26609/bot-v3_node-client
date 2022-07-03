@@ -58,7 +58,7 @@ class me_wallet extends task_base_1.task_base {
                     temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.evolveCard]]}:${common_1.default.BN(data.evolveCard)}`);
                 if (data.strengthen > 0)
                     temp.addLine(`${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.strengthen]]}:${common_1.default.BN(data.strengthen)}`);
-                temp.sendMsg(this.channel_id);
+                temp.sendMsg(this.channel_id, this.content);
             }
             else {
                 let temp = new embed_1.embed_style();

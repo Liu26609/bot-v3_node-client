@@ -76,6 +76,7 @@ class bot {
         sever.wsClient.listenMsg('CallAll', (res) => {
             this.callAll(res.content)
         })
+       
         // CallAutoPlay
         sever.wsClient.listenMsg('CallAutoPlay', (res) => {
             let msg_id;
@@ -108,7 +109,14 @@ class bot {
             if (Date.now() - lastActiveTime > 60 * 5 * 950) {
                 this.channelMap.delete(id)
             } else {
-                list.push(id);
+                let gCfg = db.get(dbName.GuildCfg, id) as guildCfg;
+                if(str.includes('比赛画面')){
+                    if(gCfg && gCfg.passHorseChannel_id == id){
+                        list.push(id);
+                    }
+                }else{
+                    list.push(id);
+                }
             }
         });
         for (let index = 0; index < list.length; index++) {
@@ -371,6 +379,7 @@ class bot {
     private getGuildCfgTemp(): guildCfg {
         let temp = {
             autoPassChannel_id: '',
+            passHorseChannel_id:'',
             atCont: 0,
             master: ''
         }

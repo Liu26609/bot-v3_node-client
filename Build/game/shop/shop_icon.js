@@ -37,7 +37,7 @@ class shop_icon extends task_base_1.task_base {
 🕤刷新时间:${Math.ceil((data.nextUpdateTime - Date.now()) / 1000)}秒
 🎫购买指令：购买头像
 <emoji:147>购买头像后角色自动修改为最新头像`;
-            bot_1.default.sendText(this.channel_id, temp, this.matchKey);
+            bot_1.default.sendText(this.channel_id, temp, '购买头像');
         });
     }
 }

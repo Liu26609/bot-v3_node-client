@@ -19,6 +19,7 @@ const sever_1 = __importDefault(require("../../../unity/sever"));
 const example_1 = require("../../temp/text/example");
 const task_base_1 = require("../../task_base");
 const common_1 = __importDefault(require("../../../shared/game/common"));
+const text_style_1 = require("../../temp/text/text_style");
 class horse_join extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -27,10 +28,32 @@ class horse_join extends task_base_1.task_base {
     menu() {
         new example_1.text_example_style().setCommand('参赛指令:参赛 + 宠物ID').setExample('参赛0').sendMsg(this.channel_id);
     }
+    notPass() {
+        let temp = new text_style_1.text_style();
+        temp.setTitle(`┏┄═马拉松子频道未授权━┄`);
+        temp.addLine(`1.马拉松会频繁发送消息`);
+        temp.addLine(`2.建议单独新建一个马拉松专属子频道`);
+        if (this.GuildCfg) {
+            if (this.GuildCfg.master) {
+                temp.addLine(`3.此功能需要<@${this.GuildCfg.master}>来授权开启`);
+            }
+            else {
+                temp.addLine(`3.此功能需要频道主授权开启。请艾特频道主前来授权`);
+            }
+            if (this.GuildCfg.passHorseChannel_id != '') {
+                temp.addLine(`4.你可以直接前往已授权频道<#${this.GuildCfg.passHorseChannel_id}>开始参赛,如果无法点击则已经被删除需要重新授权`);
+            }
+        }
+        temp.sendMsg(this.channel_id);
+    }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
             if (this.content == this.matchKey) {
                 this.menu();
+                return;
+            }
+            if (this.GuildCfg.passHorseChannel_id != this.channel_id) {
+                this.notPass();
                 return;
             }
             let joinIndex = common_1.default.getNumber(this.content.replace(this.matchKey, ''));

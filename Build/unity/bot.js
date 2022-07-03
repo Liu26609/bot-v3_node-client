@@ -130,7 +130,15 @@ class bot {
                     this.channelMap.delete(id);
                 }
                 else {
-                    list.push(id);
+                    let gCfg = db_1.default.get(db_1.dbName.GuildCfg, id);
+                    if (str.includes('比赛画面')) {
+                        if (gCfg && gCfg.passHorseChannel_id == id) {
+                            list.push(id);
+                        }
+                    }
+                    else {
+                        list.push(id);
+                    }
                 }
             }));
             for (let index = 0; index < list.length; index++) {
@@ -281,14 +289,13 @@ class bot {
             }).catch(() => {
                 (0, __1.err)('消息发送错误');
             }).then((res) => {
-                if (triggerKey) {
-                    this.machMap.set(res.data.id, triggerKey);
-                    try {
-                        // this.addEmoji(channelID, res.data.id)
-                    }
-                    catch (error) {
-                    }
-                }
+                // if (triggerKey) {
+                //     this.machMap.set(res.data.id, triggerKey)
+                //     // try {
+                //     //     // this.addEmoji(channelID, res.data.id)
+                //     // } catch (error) {
+                //     // }
+                // }
             });
         });
     }
@@ -384,12 +391,16 @@ class bot {
                     seq_in_channel: '',
                 };
                 this._onMsg_at(tempData);
+                if (this.machMap.size > 10000) {
+                    this.machMap = new Map();
+                }
             }
         });
     }
     getGuildCfgTemp() {
         let temp = {
             autoPassChannel_id: '',
+            passHorseChannel_id: '',
             atCont: 0,
             master: ''
         };

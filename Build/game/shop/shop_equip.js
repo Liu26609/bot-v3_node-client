@@ -39,7 +39,7 @@ class shop_equip extends task_base_1.task_base {
             str += `\n🎫购买指令：购买装备`;
             str += `\n<emoji:147>每次刷新随机价格，与装备属性无关`;
             str += `\n↓↓以下是装备属性预览↓↓`;
-            yield bot_1.default.sendText(this.channel_id, str, this.matchKey);
+            yield bot_1.default.sendText(this.channel_id, str, '购买装备');
             let temp = new equip_1.text_equip_style();
             temp.setData(data.sell_temp).sendMsg(this.channel_id);
         });

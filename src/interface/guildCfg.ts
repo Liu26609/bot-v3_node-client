@@ -6,6 +6,7 @@ export interface guildCfg {
      * 频道授权挂机频道
      */
     autoPassChannel_id: string | undefined,
+    passHorseChannel_id:string | undefined,
     /**
      * 频道艾特机器人次数
      */
