@@ -42,7 +42,7 @@ class horse_look extends task_base_1.task_base {
             }
         }
         temp.addLine(`┄═══👑授权指令══━┄`);
-        temp.addLine(`频道主在需要授权的子频道@${bot_1.default.getBot_name()} + [${this.channel_id}]即可`);
+        temp.addLine(`频道主在需要授权的子频道@${bot_1.default.getBot_name()} + [${this.matchKey}]即可`);
         temp.sendMsg(this.channel_id);
     }
     passAutoChannel() {

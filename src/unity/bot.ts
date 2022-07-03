@@ -111,8 +111,8 @@ class bot {
             } else {
                 let gCfg = db.get(dbName.GuildCfg, id) as guildCfg;
                 if(str.includes('比赛画面')){
-                    if(gCfg && gCfg.passHorseChannel_id == id){
-                        list.push(id);
+                    if(gCfg && gCfg.passHorseChannel_id){
+                        list.push(gCfg.passHorseChannel_id);
                     }
                 }else{
                     list.push(id);
