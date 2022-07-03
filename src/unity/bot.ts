@@ -15,6 +15,7 @@ class bot {
     private onMsg_atCall?: any;
     private msgIdMap: Map<string, Map<string, BOT_MSGID_MAP>>;//消息id哈希表，子频道ID，消息ID
     private channelMap: Map<string, number>;//子频道ID，上次此频道活跃时间
+    private guildMap: Map<string, string>;//频道子id,频道主id
     private userActiveChannelMap: Map<string, string>;//玩家上次活跃的频道
     private locaDev: string;
     /**
@@ -25,6 +26,7 @@ class bot {
     constructor() {
         this.machMap = new Map();
         this.msgIdMap = new Map();
+        this.guildMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
         let pack = require('../../package.json');
@@ -66,7 +68,7 @@ class bot {
             // AvailableIntentsEventsEnum.PUBLIC_GUILD_MESSAGES
         }
         sever.wsClient.listenMsg('CallAppoint', (res) => {
-            console.log('res',res)
+            console.log('res', res)
             let lastChannelId = this.userActiveChannelMap.get(res.callUserId);
             if (lastChannelId) {
                 this.sendText(lastChannelId, res.content)
@@ -76,7 +78,7 @@ class bot {
         sever.wsClient.listenMsg('CallAll', (res) => {
             this.callAll(res.content)
         })
-       
+
         // CallAutoPlay
         sever.wsClient.listenMsg('CallAutoPlay', (res) => {
             let msg_id;
@@ -109,12 +111,13 @@ class bot {
             if (Date.now() - lastActiveTime > 60 * 5 * 950) {
                 this.channelMap.delete(id)
             } else {
-                let gCfg = db.get(dbName.GuildCfg, id) as guildCfg;
-                if(str.includes('比赛画面')){
-                    if(gCfg && gCfg.passHorseChannel_id){
+                let guildId = this.guildMap.get(id)
+                if (str.includes('比赛画面') && guildId) {
+                    let gCfg = db.get(dbName.GuildCfg, guildId) as guildCfg;
+                    if (gCfg && gCfg.passHorseChannel_id == id) {
                         list.push(gCfg.passHorseChannel_id);
                     }
-                }else{
+                } else {
                     list.push(id);
                 }
             }
@@ -366,7 +369,7 @@ class bot {
                 seq_in_channel: '',
             }
             this._onMsg_at(tempData)
-            if(this.machMap.size > 10000){
+            if (this.machMap.size > 10000) {
                 this.machMap = new Map();
             }
         }
@@ -379,7 +382,7 @@ class bot {
     private getGuildCfgTemp(): guildCfg {
         let temp = {
             autoPassChannel_id: '',
-            passHorseChannel_id:'',
+            passHorseChannel_id: '',
             atCont: 0,
             master: ''
         }
@@ -404,6 +407,8 @@ class bot {
             gCfg = db.create(dbName.GuildCfg, data.guild_id, this.getGuildCfgTemp());
         }
         gCfg.atCont += 1;
+        // 主频道子id记录
+        this.guildMap.set(data.channel_id, data.guild_id)
 
         let uCfg = db.get(dbName.UserCfg, data.author.id);
         if (!uCfg) {

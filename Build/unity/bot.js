@@ -46,6 +46,7 @@ class bot {
     constructor() {
         this.machMap = new Map();
         this.msgIdMap = new Map();
+        this.guildMap = new Map();
         this.userActiveChannelMap = new Map();
         this.channelMap = new Map();
         let pack = require('../../package.json');
@@ -130,9 +131,10 @@ class bot {
                     this.channelMap.delete(id);
                 }
                 else {
-                    let gCfg = db_1.default.get(db_1.dbName.GuildCfg, id);
-                    if (str.includes('比赛画面')) {
-                        if (gCfg && gCfg.passHorseChannel_id) {
+                    let guildId = this.guildMap.get(id);
+                    if (str.includes('比赛画面') && guildId) {
+                        let gCfg = db_1.default.get(db_1.dbName.GuildCfg, guildId);
+                        if (gCfg && gCfg.passHorseChannel_id == id) {
                             list.push(gCfg.passHorseChannel_id);
                         }
                     }
@@ -426,6 +428,8 @@ class bot {
             gCfg = db_1.default.create(db_1.dbName.GuildCfg, data.guild_id, this.getGuildCfgTemp());
         }
         gCfg.atCont += 1;
+        // 主频道子id记录
+        this.guildMap.set(data.channel_id, data.guild_id);
         let uCfg = db_1.default.get(db_1.dbName.UserCfg, data.author.id);
         if (!uCfg) {
             uCfg = db_1.default.create(db_1.dbName.UserCfg, data.author.id, this.getUserCfgTemp());

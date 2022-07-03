@@ -1,5 +1,3 @@
-import { log } from '../..';
-import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
 import bot from '../../unity/bot';
 import sever from '../../unity/sever';
 import { text_battleTemp_style } from '../temp/text/battleTemp';
@@ -27,7 +25,6 @@ export class pos_attackEnemy extends task_base {
                 attackId = index;
             }
         }
-
         let req = await sever.callApi('battle/PosAttackEnemy', { userId: this.userId, attackId: attackId });
         if (!req.isSucc) {
             this.sendErr(req.err)
@@ -42,16 +39,11 @@ export class pos_attackEnemy extends task_base {
             temp += battleTemp.getSkillHurt(0);
             temp += battleTemp.getSkillHurt(1);
         }
-
         if(!this.UserCfg.isHideKill_Log){
             temp += `┄════🧙战斗过程══━┄\n`;
             temp += `<emoji:187>本次战斗共${data.battleRound}回合\n`
             temp += battleTemp.getKillProcess();
         }
-
-
-
-
         temp += `┏┄══🎁战斗结果═━┄\n`;
         if (battleTemp.getReward()) {
             temp += battleTemp.getReward()
