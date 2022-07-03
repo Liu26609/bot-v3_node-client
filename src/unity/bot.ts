@@ -256,14 +256,14 @@ class bot {
         }).catch(() => {
             err('消息发送错误')
         }).then((res) => {
-            if (triggerKey) {
-                this.machMap.set(res.data.id, triggerKey)
-                // try {
-                //     // this.addEmoji(channelID, res.data.id)
-                // } catch (error) {
+            // if (triggerKey) {
+            //     this.machMap.set(res.data.id, triggerKey)
+            //     // try {
+            //     //     // this.addEmoji(channelID, res.data.id)
+            //     // } catch (error) {
 
-                // }
-            }
+            //     // }
+            // }
         })
     }
     /**
