@@ -29,7 +29,7 @@ class me_destroyBagEquip extends task_base_1.task_base {
                 temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}+${item.val}\n`;
             });
         }
-        temp += `┗┄━${this.at()}━┄`;
+        temp += `┗┄${this.at()}┄`;
         bot_1.default.sendText(this.channel_id, temp);
     }
     render() {

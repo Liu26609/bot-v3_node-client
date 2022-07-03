@@ -26,7 +26,7 @@ export class me_pet extends task_base{
             temp+= `[${index}]${pet.name}Lv.${pet.leve}♥️${((pet.hp / pet.out_attribute.hp_max)*100).toFixed(0)}%\n`;
         }
 
-        temp += `┗┄━${this.at()}━┄\n`;
+        temp += `┗┄${this.at()}┄\n`;
         let temps = ``;
         temps += `┏┄═══👑指令提示══━┄\n`;
         temps += `[查看宠物+ID]查看指定宠物属性\n`;

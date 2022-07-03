@@ -65,7 +65,7 @@ var TaskId;
      */
     TaskId[TaskId["challenge_hit"] = 3] = "challenge_hit";
     /**
-     * 捕捉成功宠物
+     * 捕捉一次宠物
      */
     TaskId[TaskId["catch"] = 4] = "catch";
     /**
@@ -109,7 +109,7 @@ var TaskId;
      */
     TaskId[TaskId["strengthen_succress"] = 14] = "strengthen_succress";
     /**
-     * 捕捉一次宠物
+     * 捕捉成功一次宠物
      */
     TaskId[TaskId["docile_partake"] = 15] = "docile_partake";
     /**

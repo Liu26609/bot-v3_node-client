@@ -62,7 +62,7 @@ class me_changeName extends task_base_1.task_base {
                 temp += `<emoji:301>改名后:${data.newName}\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-                temp += `┗┄━${this.at()}━┄\n`;
+                temp += `┗┄${this.at()}┄\n`;
                 bot_1.default.sendText(this.channel_id, temp);
             }
             else {

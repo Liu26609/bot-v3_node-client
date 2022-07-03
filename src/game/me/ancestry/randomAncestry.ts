@@ -30,7 +30,7 @@ export class randomAncestry extends task_base{
 [${sk.name}]${common.getSkDesc(sk)}
 🔻消耗${walletKey_CN[walletKey[pay.condition.key]]}x${pay.condition.val}
 ▶️还有${walletKey_CN[walletKey[pay.condition.key]]}x${pay.now}
-┗┄━${this.at()}━┄
+┗┄${this.at()}┄
 <emoji:147>重新血统会清空经验和等级哦`;
         bot.sendText(this.channel_id,temp);
     }

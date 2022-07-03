@@ -24,7 +24,7 @@ export class shop_equip_buy extends task_base{
             temp += `🎫装备已放入你的背包，祝您购物愉快~\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `┗┄━${this.at()}━┄\n`;
+            temp += `┗┄${this.at()}┄\n`;
             bot.sendText(this.channel_id,temp,this.matchKey);
         }else{
             let temps = new embed_style();

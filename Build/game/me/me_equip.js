@@ -66,7 +66,7 @@ class me_equip extends task_base_1.task_base {
             else {
                 temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
             }
-            temp += `┗┄━${this.at()}━┄\n`;
+            temp += `┗┄${this.at()}┄\n`;
             bot_1.default.sendText(this.channel_id, temp, this.content);
             new example_1.text_example_style().setCommand('强化装备指令:强化 + 装备位置').setExample('强化主武器').sendMsg(this.channel_id);
         });

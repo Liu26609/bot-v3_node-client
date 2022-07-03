@@ -54,7 +54,7 @@ export class lottery extends task_base{
 📈本轮全服已猜${data.info.guessCont}次
 🧧累计奖励${rewardKey_CN[rewardKey[rewardKey.strengthen]]}x${data.info.addup}
 🥳上一轮赢家:${data.info.lastWin}
-┗┄━${this.at()}━┄`
+┗┄${this.at()}┄`
         bot.sendText(this.channel_id,temp)
         new text_example_style().setCommand('猜数指令:猜数 + 猜的数字').setExample('猜数1').sendMsg(this.channel_id);
     }

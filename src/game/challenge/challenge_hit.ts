@@ -45,7 +45,7 @@ export class challenge_hit extends task_base {
             temp += `┏┄══🎁伤害奖励═━┄\n`;
             temp += battleTemp.getReward()
         }
-        temp += `\n┗┄━${this.at()}━┄`
+        temp += `\n┗┄${this.at()}┄`
         await bot.sendText(this.channel_id, temp)
 
     }

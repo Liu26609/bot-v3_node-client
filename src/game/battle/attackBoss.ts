@@ -53,7 +53,7 @@ export class attackBoss extends task_base {
         }
         temp += killLog;
         temp += `<emoji:147>攻击boss会死亡但可获得大量奖励\n`
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
 
         // if(data.reward.length > 0){
         //     data.reward.forEach(item => {

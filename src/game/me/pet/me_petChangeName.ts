@@ -53,7 +53,7 @@ export class me_petChangeName extends task_base {
             temp += `🌰宠物改名成功，快发送[查看宠物${index}]看看吧~\n`
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `┗┄━${this.at()}━┄`
+            temp += `┗┄${this.at()}┄`
             bot.sendText(this.channel_id, temp);
         }
         

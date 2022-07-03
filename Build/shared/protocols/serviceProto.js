@@ -110,6 +110,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 122,
+            "name": "me/equip/Me_wearEquip",
+            "type": "api"
+        },
+        {
             "id": 90,
             "name": "me/title/Me_title_changeName",
             "type": "api"
@@ -237,11 +242,6 @@ exports.serviceProto = {
         {
             "id": 34,
             "name": "Me_wallet",
-            "type": "api"
-        },
-        {
-            "id": 35,
-            "name": "Me_wearEquip",
             "type": "api"
         },
         {
@@ -3492,6 +3492,67 @@ exports.serviceProto = {
                 }
             ]
         },
+        "me/equip/PtlMe_wearEquip/ReqMe_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "wearIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlMe_wearEquip/ResMe_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "lastEquip",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nowEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "change_military",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
         "me/title/PtlMe_title_changeName/ReqMe_title_changeName": {
             "type": "Interface",
             "properties": [
@@ -4722,28 +4783,6 @@ exports.serviceProto = {
                     }
                 }
             ]
-        },
-        "PtlMe_wearEquip/ReqMe_wearEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "wearIndex",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlMe_wearEquip/ResMe_wearEquip": {
-            "type": "Interface"
         },
         "PtlPos/ReqPos": {
             "type": "Interface",

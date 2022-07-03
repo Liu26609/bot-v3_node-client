@@ -36,7 +36,7 @@ export class creator_team extends task_base {
         temp += `<emoji:147>成功创建工会:${name}\n`
         temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
         temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
         bot.sendText(this.channel_id, temp)
     }
     menu() {

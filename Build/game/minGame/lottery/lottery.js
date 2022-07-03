@@ -72,7 +72,7 @@ class lottery extends task_base_1.task_base {
 📈本轮全服已猜${data.info.guessCont}次
 🧧累计奖励${prop_2.rewardKey_CN[prop_1.rewardKey[prop_1.rewardKey.strengthen]]}x${data.info.addup}
 🥳上一轮赢家:${data.info.lastWin}
-┗┄━${this.at()}━┄`;
+┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, temp);
             new example_1.text_example_style().setCommand('猜数指令:猜数 + 猜的数字').setExample('猜数1').sendMsg(this.channel_id);
         });

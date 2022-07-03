@@ -69,7 +69,7 @@ export class me_titleRandom extends task_base {
             }
             temp += ` ${titleStr}${data.bf[key]}${changeIcon}${data.now[key]}%\n`;
         }
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
 
         bot.sendText(this.channel_id, temp,this.content)
 

@@ -38,7 +38,7 @@ class soaringTask extends task_base_1.task_base {
                 const isDone = item.now >= item.target;
                 temp += `${isDone ? '✅' : '☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`;
             }
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, temp, this.content);
         });
     }

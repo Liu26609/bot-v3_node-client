@@ -29,7 +29,7 @@ export class store_look extends task_base {
             }
         }
 
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
         await bot.sendText(this.channel_id, temp)
         let temps = ``;
         temps += `┏┄═══👑指令提示══━┄\n`;

@@ -46,7 +46,7 @@ class store_look extends task_base_1.task_base {
                     }
                 }
             }
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
             yield bot_1.default.sendText(this.channel_id, temp);
             let temps = ``;
             temps += `┏┄═══👑指令提示══━┄\n`;

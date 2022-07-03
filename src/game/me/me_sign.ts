@@ -41,7 +41,7 @@ export default class me_sign extends task_base {
                     });
                     temp += `\n`
                 }
-                temp += `┗┄━${this.at()}━┄\n`
+                temp += `┗┄${this.at()}┄\n`
                 temp += `“${data.oneWord}”`
                 bot.sendText(this.channel_id, temp,this.content)
 
@@ -71,7 +71,7 @@ export default class me_sign extends task_base {
                 let temp = `┏┄═💌签到重复━┄
 累计签到:${data.cont}
 <emoji:147>今天已经签到过了
-┗┄━${this.at()}━┄
+┗┄${this.at()}┄
 “${data.oneWord}”`
                 bot.sendText(this.channel_id, temp)
                 break;

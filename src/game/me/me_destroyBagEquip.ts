@@ -17,7 +17,7 @@ export class me_destroyBagEquip extends task_base {
                 temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
             });
         }
-        temp += `┗┄━${this.at()}━┄`;
+        temp += `┗┄${this.at()}┄`;
         bot.sendText(this.channel_id,temp)
     }
     async render() {

@@ -27,7 +27,7 @@ class me_destroyMeSkill extends task_base_1.task_base {
 遗忘指令：遗忘技能 + 数字
 如:@我 遗忘技能1
 ps:数字为[我的技能]的id
-┗┄━${this.at()}━┄`;
+┗┄${this.at()}┄`;
         bot_1.default.sendText(this.channel_id, temp);
     }
     render() {
@@ -50,7 +50,7 @@ ps:数字为[我的技能]的id
                     temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}+${item.val}\n`;
                 });
             }
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }

@@ -44,7 +44,7 @@ class horse_look extends task_base_1.task_base {
                 temp += `现场记者会稍后报道赛事现场\n`;
             }
             temp += `🧧冠军奖励⚙️强化碎片x${data.allGift}\n`;
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, temp);
             /**
              * ┏┄══🎰猜数第75轮══━┄

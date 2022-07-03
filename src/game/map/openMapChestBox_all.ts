@@ -14,7 +14,7 @@ export class openMapChestBox_all extends task_base {
 打开指令：打开全部宝箱
 如:@我 打开全部宝箱
 ps:宝箱会在地图上击杀怪物后随机掉落
-┗┄━${this.at()}━┄`
+┗┄${this.at()}┄`
         bot.sendText(this.channel_id, temp)
     }
     async render() {
@@ -39,7 +39,7 @@ ps:宝箱会在地图上击杀怪物后随机掉落
                 }
             });
         }
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
         bot.sendText(this.channel_id, temp,this.matchKey)
 
         //         ￣￣￣￣￣＼盲盒奖励／￣￣￣￣￣

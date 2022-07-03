@@ -18,7 +18,7 @@ export class userList_team extends task_base{
             const e = data.list[index];
             temp += `[${index}]Lv.${e.leve}${e.name}🌏[${e.pos.x},${e.pos.y}]\n`
         }
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
         bot.sendText(this.channel_id,temp);
     }
 }

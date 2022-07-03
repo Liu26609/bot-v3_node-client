@@ -87,7 +87,7 @@ export enum TaskId {
     challenge_hit,
 
     /**
-     * 捕捉成功宠物
+     * 捕捉一次宠物
      */
     catch,
     /**
@@ -131,7 +131,7 @@ export enum TaskId {
      */
     strengthen_succress,
     /**
-     * 捕捉一次宠物
+     * 捕捉成功一次宠物
      */
     docile_partake,
     /**

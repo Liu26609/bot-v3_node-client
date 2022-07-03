@@ -20,6 +20,7 @@ import { ReqMove, ResMove } from './map/PtlMove';
 import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox';
 import { ReqendAutoPlay, ResendAutoPlay } from './me/autoPlay/PtlendAutoPlay';
 import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPlay';
+import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqHorse, ResHorse } from './minGame/PtlHorse';
@@ -46,7 +47,6 @@ import { ReqMe_skill, ResMe_skill } from './PtlMe_skill';
 import { ReqMe_strengthen, ResMe_strengthen } from './PtlMe_strengthen';
 import { ReqMe_title, ResMe_title } from './PtlMe_title';
 import { ReqMe_wallet, ResMe_wallet } from './PtlMe_wallet';
-import { ReqMe_wearEquip, ResMe_wearEquip } from './PtlMe_wearEquip';
 import { ReqPos, ResPos } from './PtlPos';
 import { ReqResLife, ResResLife } from './PtlResLife';
 import { ReqSearchSkill, ResSearchSkill } from './PtlSearchSkill';
@@ -193,6 +193,10 @@ export interface ServiceType {
             req: ReqstartAutoPlay,
             res: ResstartAutoPlay
         },
+        "me/equip/Me_wearEquip": {
+            req: ReqMe_wearEquip,
+            res: ResMe_wearEquip
+        },
         "me/title/Me_title_changeName": {
             req: ReqMe_title_changeName,
             res: ResMe_title_changeName
@@ -284,10 +288,6 @@ export interface ServiceType {
         "Me_wallet": {
             req: ReqMe_wallet,
             res: ResMe_wallet
-        },
-        "Me_wearEquip": {
-            req: ReqMe_wearEquip,
-            res: ResMe_wearEquip
         },
         "Pos": {
             req: ReqPos,
@@ -639,6 +639,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
+            "id": 122,
+            "name": "me/equip/Me_wearEquip",
+            "type": "api"
+        },
+        {
             "id": 90,
             "name": "me/title/Me_title_changeName",
             "type": "api"
@@ -766,11 +771,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 34,
             "name": "Me_wallet",
-            "type": "api"
-        },
-        {
-            "id": 35,
-            "name": "Me_wearEquip",
             "type": "api"
         },
         {
@@ -4021,6 +4021,67 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "me/equip/PtlMe_wearEquip/ReqMe_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "wearIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlMe_wearEquip/ResMe_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "lastEquip",
+                    "type": {
+                        "type": "Union",
+                        "members": [
+                            {
+                                "id": 0,
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/equip/equip"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "type": {
+                                    "type": "Literal"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nowEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "change_military",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
         "me/title/PtlMe_title_changeName/ReqMe_title_changeName": {
             "type": "Interface",
             "properties": [
@@ -5251,28 +5312,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 }
             ]
-        },
-        "PtlMe_wearEquip/ReqMe_wearEquip": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "wearIndex",
-                    "type": {
-                        "type": "Number"
-                    }
-                }
-            ]
-        },
-        "PtlMe_wearEquip/ResMe_wearEquip": {
-            "type": "Interface"
         },
         "PtlPos/ReqPos": {
             "type": "Interface",

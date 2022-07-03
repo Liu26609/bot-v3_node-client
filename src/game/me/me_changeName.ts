@@ -49,7 +49,7 @@ export class me_changeName extends task_base {
             temp += `<emoji:301>改名后:${data.newName}\n`;
             temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
             temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-            temp += `┗┄━${this.at()}━┄\n`;
+            temp += `┗┄${this.at()}┄\n`;
             bot.sendText(this.channel_id, temp);
         }else{
             let temps = new embed_style();

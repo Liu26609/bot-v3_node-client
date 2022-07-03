@@ -72,7 +72,7 @@ export class me_AutoPlay extends task_base {
         }
         temp += `┄═══👑授权指令══━┄\n`
         temp += `频道主在需要授权的子频道@${bot.getBot_name()} + [挂机]即可\n`
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
         bot.sendText(this.channel_id, temp)
     }
     menu() {
@@ -84,7 +84,7 @@ export class me_AutoPlay extends task_base {
         temp += `┄═══👑指令提示══━┄\n`
         temp += `[开始挂机]开始自动挂机\n`
         temp += `[结束挂机]结束挂机打怪\n`
-        temp += `┗┄━${this.at()}━┄`
+        temp += `┗┄${this.at()}┄`
         bot.sendText(this.channel_id, temp)
         /**
          * 1.查看是否频道主授权了指定子频道

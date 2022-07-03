@@ -31,8 +31,7 @@ class newUserTask extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = `┏┄═🌈${taskTemp_1.taskType_CN[taskTemp_1.taskType[taskTemp_1.taskType.newUser]]}═━┄\n`;
-            temp += `不错，你是这次来的人里素质最好的一个。
-        想明白生命的意义吗?想真正的……活着吗?
+            temp += `想明白生命的意义吗?想真正的……活着吗?
     欢迎来到主神空间,选择一个基因并进化并解开基因锁最高阶，那么最强之名......就是你的了！
 但是我不会帮你，想要什么样的未来.....自己去追寻吧！那么......选择权现在给你了。
 希望您能在主神空间活到最后。\n`;
@@ -41,7 +40,7 @@ class newUserTask extends task_base_1.task_base {
                 const isDone = item.now >= item.target;
                 temp += `${isDone ? '✅' : '☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`;
             }
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, temp, this.content);
         });
     }

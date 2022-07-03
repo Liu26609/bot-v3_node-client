@@ -82,7 +82,7 @@ export class me_strengthen extends task_base {
                 temp += `🔣本次成功率:${data.rate.toFixed(4)}%\n`
                 temp += `🔻消耗${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${walletKey_CN[walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
-                temp += `┗┄━${this.at()}━┄`;
+                temp += `┗┄${this.at()}┄`;
             }
 
             bot.sendText(this.channel_id, temp,this.content)

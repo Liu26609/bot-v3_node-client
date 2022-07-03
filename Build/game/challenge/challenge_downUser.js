@@ -59,7 +59,7 @@ class challenge_downUser extends task_base_1.task_base {
                     temp += `┏┄══🎁战斗结果═━┄\n`;
                     temp += battleTemp.getReward();
                 }
-                temp += `\n┗┄━${this.at()}━┄`;
+                temp += `\n┗┄${this.at()}┄`;
                 yield bot_1.default.sendText(this.channel_id, temp);
             }
         });

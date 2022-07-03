@@ -33,7 +33,7 @@ export class me_team extends task_base {
 🔰物理防御+${data.info.gain.PhysicalDefense}
 🔮魔法攻击+${data.info.gain.MagicAttack}
 🌟魔法防御+${data.info.gain.MagicDefense}
-┗┄━${this.at()}━┄
+┗┄${this.at()}┄
 <emoji:147>击杀其他玩家将获得贡献值`;
         bot.sendText(this.channel_id, team,this.content);
         this.ctlMenu(data.myLeve);
@@ -47,11 +47,11 @@ export class me_team extends task_base {
             temp += `[成员列表]查看工会全部成员\n`
             temp += `[踢出 + 成员ID]踢出工会指定成员\n`
             temp += `[生成邀请码]创建一个工会加入代码\n`
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
         } else if (leve == teamLeve.teamMember) {
             temp += `[退出工会]退出此工会\n`;
             temp += `[成员列表]查看工会全部成员\n`
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
         }
         bot.sendText(this.channel_id, temp,this.content);
     }
@@ -60,7 +60,7 @@ export class me_team extends task_base {
 你还未加入任何工会哦~
 [加入工会 + 邀请码]加入工会一个指定工会
 [创建工会 + 名字]创建一个工会
-┗┄━${this.at()}━┄
+┗┄${this.at()}┄
 <emoji:147>邀请码需要会长艾特机器人发送[创建邀请码]`;
         bot.sendText(this.channel_id, team,this.content)
     }

@@ -74,7 +74,7 @@ class challenge_box extends task_base_1.task_base {
                     temp += `📜累计参与人数:${data.partakeCont}人\n`;
                     temp += `📑累计挑战次数:${data.challengeCont}次\n`;
                 }
-                temp += `┗┄━${this.at()}━┄`;
+                temp += `┗┄${this.at()}┄`;
                 yield bot_1.default.sendText(this.channel_id, temp);
             }
         });
@@ -97,7 +97,7 @@ class challenge_box extends task_base_1.task_base {
             let tips = `┏@${bot_1.default.getBot_name()},输入以下指令┄
 ▶️开启指令：开启${this.matchKey}
 ▶️挑战指令：挑战${this.matchKey}
-┗┄━${this.at()}━┄`;
+┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, tips);
         });
     }

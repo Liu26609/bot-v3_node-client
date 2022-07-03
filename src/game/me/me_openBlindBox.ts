@@ -26,7 +26,7 @@ export class me_openBlindBox extends task_base {
 打开指令：打开盲盒 + 数量
 如:@${bot.getBot_name()} 打开盲盒1
 <emoji:147>参与打怪，各种活动，拍卖可获得盲盒哦~
-┗┄━${this.at()}━┄`;
+┗┄${this.at()}┄`;
 
             bot.sendText(this.channel_id, temp)
         }
@@ -76,7 +76,7 @@ export class me_openBlindBox extends task_base {
                     temp += `${rewardKey_CN[rewardKey[item.key]]}+${item.val}\n`
                 });
             }
-            temp += `┗┄━${this.at()}━┄`;
+            temp += `┗┄${this.at()}┄`;
             bot.sendText(this.channel_id, temp,this.content);
         }
 

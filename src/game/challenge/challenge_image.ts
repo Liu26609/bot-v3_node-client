@@ -50,7 +50,7 @@ export class challenge_image extends task_base {
                 temp += `┏┄══🎁战斗结果═━┄\n`;
                 temp += battleTemp.getReward()
             }
-            temp += `\n┗┄━${this.at()}━┄`
+            temp += `\n┗┄${this.at()}┄`
             await bot.sendText(this.channel_id, temp)
         }
 

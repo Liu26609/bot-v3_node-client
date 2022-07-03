@@ -50,7 +50,7 @@ class me_bag extends task_base_1.task_base {
                 const item = data.bag[index];
                 temp += `[${index}]${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[item.type]]}${item.name}(${equip_1.EQUIP_QUALITY[item.quality]})+${item.leve}\n`;
             }
-            temp += `┗┄━${this.at()}━┄\n`;
+            temp += `┗┄${this.at()}┄\n`;
             let temps = ``;
             temps += `┏┄═══👑指令提示══━┄\n`;
             temps += `[查看背包装备 + 数字]查看指定装备属性\n`;

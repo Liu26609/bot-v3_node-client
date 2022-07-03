@@ -44,7 +44,7 @@ class me_wearEquip extends task_base_1.task_base {
                 this.log('需要穿装备的的ID太大了');
                 return;
             }
-            let req = yield sever_1.default.callApi('Me_wearEquip', { userId: this.userId, wearIndex: Number(wearIndex) });
+            let req = yield sever_1.default.callApi('me/equip/Me_wearEquip', { userId: this.userId, wearIndex: Number(wearIndex) });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;

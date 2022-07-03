@@ -38,7 +38,7 @@ export class rank extends task_base{
         } else {
             temp += `😤这次战斗好像奖励了个寂寞`
         }
-        temp += `\n┗┄━${this.at()}━┄`
+        temp += `\n┗┄${this.at()}┄`
         temp += `\n<emoji:147>声望值越高每天可领取奖励越高~`
 
         await bot.sendText(this.channel_id,temp,this.matchKey)
