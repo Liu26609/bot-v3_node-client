@@ -44,8 +44,7 @@ class randomAncestry extends task_base_1.task_base {
 [${sk.name}]${common_1.default.getSkDesc(sk)}
 🔻消耗${user_1.walletKey_CN[user_1.walletKey[pay.condition.key]]}x${pay.condition.val}
 ▶️还有${user_1.walletKey_CN[user_1.walletKey[pay.condition.key]]}x${pay.now}
-┗┄${this.at()}┄
-<emoji:147>重新血统会清空经验和等级哦`;
+┗┄${this.at()}┄`;
             bot_1.default.sendText(this.channel_id, temp);
         });
     }

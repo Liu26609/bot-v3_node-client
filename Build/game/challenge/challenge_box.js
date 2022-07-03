@@ -24,8 +24,7 @@ const battleTemp_1 = require("../temp/text/battleTemp");
 class challenge_box extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
-        this.log('功能调整中');
-        // this.render();
+        this.render();
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -88,9 +87,11 @@ class challenge_box extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = `┏┄══⚠️破壁计划══━┄\n`;
-            temp += `⬛当全服实力足够之后，所有轮回者都将一同参与[破壁计划]摧毁盒子的障碍，去挑战盒子外的敌人。破壁计划几乎必须需要[${body_1.DNA_CN[body_1.DNA_Leve[data.openlimit]]}]级别以上才能开展\n`;
-            temp += `🌈挑战胜利🔺${data.win}\n`;
-            temp += `💀挑战失败🔻${data.fail}\n`;
+            temp += `⬛当全服实力足够之后，所有轮回者都将一同参与[破壁计划]摧毁盒子的障碍，去挑战盒子外的敌人。破壁计划几乎必须需要[${body_1.DNA_CN[body_1.DNA_Leve[data.openlimit]]}]级别才能开展\n`;
+            temp += `┄══🌈挑战胜利══━┄\n`;
+            temp += `🔺${data.win}\n`;
+            temp += `┄══💀挑战失败══━┄\n`;
+            temp += `🔻${data.fail}\n`;
             temp += `⬛从开始计划若1天内没人挑战则视为失败\n`;
             temp += `┗┄━═════════━┄`;
             yield bot_1.default.sendText(this.channel_id, temp);

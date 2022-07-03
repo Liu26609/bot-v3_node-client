@@ -74,7 +74,9 @@ class bot {
                 this.sendText(lastChannelId, res.content)
             }
         })
-
+        sever.wsClient.listenMsg('CallHorse', (res) => {
+            this.CallHorse(res.content)
+        })
         sever.wsClient.listenMsg('CallAll', (res) => {
             this.callAll(res.content)
         })
@@ -100,12 +102,11 @@ class bot {
         }
     }
 
-
     /**
-     * 通知客户端全部频道
-     * @param str 
+     * 
+     * @param str 通知全部客户端，宠物马拉松专用
      */
-    async callAll(str: string) {
+    private CallHorse(str:string){
         let list: string[] = []
         this.channelMap.forEach(async (lastActiveTime, id) => {
             if (Date.now() - lastActiveTime > 60 * 5 * 950) {
@@ -120,6 +121,24 @@ class bot {
                 } else {
                     list.push(id);
                 }
+            }
+        });
+        for (let index = 0; index < list.length; index++) {
+            this.sendText(list[index], str)
+        }
+    }
+
+    /**
+     * 通知客户端全部频道
+     * @param str 
+     */
+    async callAll(str: string) {
+        let list: string[] = []
+        this.channelMap.forEach(async (lastActiveTime, id) => {
+            if (Date.now() - lastActiveTime > 60 * 5 * 950) {
+                this.channelMap.delete(id)
+            } else {
+                list.push(id);
             }
         });
         for (let index = 0; index < list.length; index++) {

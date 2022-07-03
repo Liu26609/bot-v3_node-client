@@ -20,6 +20,7 @@ export class rank_menu extends task_base{
 📑工会贡献排行榜📑生命排行榜
 📑马拉松冠军排行榜📑红名排行榜
 📑马拉松参与排行榜📑正义排行榜
+📑马拉松猝死排行榜
 ࿒࿐⋆ ˃̵͙˂̵͙⍣ᐖ目前可查看排行榜ᐛ⍣˃̵͙˂̵͙ ⋆࿐࿒`
         bot.sendText(this.channel_id,temp,this.matchKey)
     }

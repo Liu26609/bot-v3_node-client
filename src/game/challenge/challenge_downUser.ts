@@ -53,7 +53,7 @@ export class challenge_downUser extends task_base {
 
     }
     async max() {
-        bot.sendText(this.channel_id, `${this.at()}强者挑战只能支持提升到[${DNA_CN[DNA_Leve[DNA_Leve.EE]]}]更高级的基因锁需要进行[镜像挑战]`)
+        bot.sendText(this.channel_id, `${this.at()}强者挑战只能支持提升到[${DNA_CN[DNA_Leve[DNA_Leve.EE]]}]更高的基因锁需要进行[镜像挑战]`)
     }
     async menu() {
         let req = await sever.callApi('battle/Challenge_downUser', { userId: this.userId, isStart: false });

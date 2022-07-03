@@ -155,6 +155,11 @@ exports.serviceProto = {
             "type": "msg"
         },
         {
+            "id": 124,
+            "name": "CallHorse",
+            "type": "msg"
+        },
+        {
             "id": 11,
             "name": "pet/Me_pet",
             "type": "api"
@@ -327,6 +332,11 @@ exports.serviceProto = {
         {
             "id": 117,
             "name": "rank/Rank_minGame_horse_cont",
+            "type": "api"
+        },
+        {
+            "id": 125,
+            "name": "rank/Rank_minGame_horse_die",
             "type": "api"
         },
         {
@@ -1826,6 +1836,13 @@ exports.serviceProto = {
                         "target": "Battle/ResBattle"
                     },
                     "optional": true
+                },
+                {
+                    "id": 8,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
+                    }
                 },
                 {
                     "id": 1,
@@ -3354,6 +3371,13 @@ exports.serviceProto = {
                                 "type": {
                                     "type": "Number"
                                 }
+                            },
+                            {
+                                "id": 2,
+                                "name": "die",
+                                "type": {
+                                    "type": "Number"
+                                }
                             }
                         ]
                     }
@@ -3966,6 +3990,18 @@ exports.serviceProto = {
                 },
                 {
                     "id": 1,
+                    "name": "content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "MsgCallHorse/MsgCallHorse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
                     "name": "content",
                     "type": {
                         "type": "String"
@@ -5424,6 +5460,30 @@ exports.serviceProto = {
             ]
         },
         "rank/PtlRank_minGame_horse_cont/ResRank_minGame_horse_cont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_die/ReqRank_minGame_horse_die": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_die/ResRank_minGame_horse_die": {
             "type": "Interface",
             "extends": [
                 {

@@ -40,6 +40,10 @@ export interface horse {
          */
         id: string,
         /**
+         * 用户头像
+         */
+        userIcon:string,
+        /**
          * 参赛宠物昵称
          */
         petName:string,

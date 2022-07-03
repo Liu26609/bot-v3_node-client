@@ -29,6 +29,7 @@ import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lot
 import { MsgCallAll } from './MsgCallAll';
 import { MsgCallAppoint } from './MsgCallAppoint';
 import { MsgCallAutoPlay } from './MsgCallAutoPlay';
+import { MsgCallHorse } from './MsgCallHorse';
 import { ReqMe_pet, ResMe_pet } from './pet/PtlMe_pet';
 import { ReqMe_petChangeName, ResMe_petChangeName } from './pet/PtlMe_petChangeName';
 import { ReqMe_petLook, ResMe_petLook } from './pet/PtlMe_petLook';
@@ -64,6 +65,7 @@ import { ReqRank_MagicDefense, ResRank_MagicDefense } from './rank/PtlRank_Magic
 import { ReqRank_military_pet, ResRank_military_pet } from './rank/PtlRank_military_pet';
 import { ReqRank_military, ResRank_military } from './rank/PtlRank_military';
 import { ReqRank_minGame_horse_cont, ResRank_minGame_horse_cont } from './rank/PtlRank_minGame_horse_cont';
+import { ReqRank_minGame_horse_die, ResRank_minGame_horse_die } from './rank/PtlRank_minGame_horse_die';
 import { ReqRank_minGame_horse_win, ResRank_minGame_horse_win } from './rank/PtlRank_minGame_horse_win';
 import { ReqRank_minGame_lottery_cont, ResRank_minGame_lottery_cont } from './rank/PtlRank_minGame_lottery_cont';
 import { ReqRank_minGame_lottery_win, ResRank_minGame_lottery_win } from './rank/PtlRank_minGame_lottery_win';
@@ -357,6 +359,10 @@ export interface ServiceType {
             req: ReqRank_minGame_horse_cont,
             res: ResRank_minGame_horse_cont
         },
+        "rank/Rank_minGame_horse_die": {
+            req: ReqRank_minGame_horse_die,
+            res: ResRank_minGame_horse_die
+        },
         "rank/Rank_minGame_horse_win": {
             req: ReqRank_minGame_horse_win,
             res: ResRank_minGame_horse_win
@@ -526,6 +532,7 @@ export interface ServiceType {
         "CallAll": MsgCallAll,
         "CallAppoint": MsgCallAppoint,
         "CallAutoPlay": MsgCallAutoPlay,
+        "CallHorse": MsgCallHorse,
         "vip/LookVip": MsgLookVip
     }
 }
@@ -681,6 +688,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 106,
             "name": "CallAutoPlay",
+            "type": "msg"
+        },
+        {
+            "id": 124,
+            "name": "CallHorse",
             "type": "msg"
         },
         {
@@ -856,6 +868,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 117,
             "name": "rank/Rank_minGame_horse_cont",
+            "type": "api"
+        },
+        {
+            "id": 125,
+            "name": "rank/Rank_minGame_horse_die",
             "type": "api"
         },
         {
@@ -2355,6 +2372,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "target": "Battle/ResBattle"
                     },
                     "optional": true
+                },
+                {
+                    "id": 8,
+                    "name": "isMax",
+                    "type": {
+                        "type": "Boolean"
+                    }
                 },
                 {
                     "id": 1,
@@ -3883,6 +3907,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
                                 "type": {
                                     "type": "Number"
                                 }
+                            },
+                            {
+                                "id": 2,
+                                "name": "die",
+                                "type": {
+                                    "type": "Number"
+                                }
                             }
                         ]
                     }
@@ -4495,6 +4526,18 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 },
                 {
                     "id": 1,
+                    "name": "content",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "MsgCallHorse/MsgCallHorse": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
                     "name": "content",
                     "type": {
                         "type": "String"
@@ -5953,6 +5996,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
             ]
         },
         "rank/PtlRank_minGame_horse_cont/ResRank_minGame_horse_cont": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_die/ReqRank_minGame_horse_die": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_minGame_horse_die/ResRank_minGame_horse_die": {
             "type": "Interface",
             "extends": [
                 {

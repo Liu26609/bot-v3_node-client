@@ -66,7 +66,7 @@ class challenge_downUser extends task_base_1.task_base {
     }
     max() {
         return __awaiter(this, void 0, void 0, function* () {
-            bot_1.default.sendText(this.channel_id, `${this.at()}强者挑战只能支持提升到[${body_1.DNA_CN[body_1.DNA_Leve[body_1.DNA_Leve.EE]]}]更高级的基因锁需要进行[镜像挑战]`);
+            bot_1.default.sendText(this.channel_id, `${this.at()}强者挑战只能支持提升到[${body_1.DNA_CN[body_1.DNA_Leve[body_1.DNA_Leve.EE]]}]更高的基因锁需要进行[镜像挑战]`);
         });
     }
     menu() {

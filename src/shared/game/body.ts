@@ -107,7 +107,8 @@ export interface minGame {
      */
     horse: {
         partake: number,
-        win: number
+        win: number,
+        die:number
     }
 }
 /**
