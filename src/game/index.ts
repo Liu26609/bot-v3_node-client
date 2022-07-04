@@ -115,6 +115,7 @@ import { newUserTask } from './me/task/newUserTask';
 import { challenge_hit } from './challenge/challenge_hit';
 import { challenge_power } from './challenge/challenge_power';
 import { challenge_downUser } from './challenge/challenge_downUser';
+import { rank_MinGame_horse_die } from './rank/rank_MinGame_horse_die';
 
 enum matchType {
     /**
@@ -188,7 +189,7 @@ export default class game {
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry, match: matchType.all })
         this.matchMap.set(`战力排行榜`, { action: rank_military, match: matchType.all })
         this.matchMap.set(`宠物战力排行榜`, { action: rank_military_pet, match: matchType.all })
-
+        this.matchMap.set(`马拉松猝死排行榜`, { action: rank_MinGame_horse_die, match: matchType.all })
         this.matchMap.set(`等级排行榜`, { action: rank_leve, match: matchType.all })
         this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv, match: matchType.all })
         this.matchMap.set(`声望排行榜`, { action: rank_rankscore, match: matchType.all })

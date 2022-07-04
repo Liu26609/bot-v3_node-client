@@ -126,6 +126,7 @@ const newUserTask_1 = require("./me/task/newUserTask");
 const challenge_hit_1 = require("./challenge/challenge_hit");
 const challenge_power_1 = require("./challenge/challenge_power");
 const challenge_downUser_1 = require("./challenge/challenge_downUser");
+const rank_MinGame_horse_die_1 = require("./rank/rank_MinGame_horse_die");
 var matchType;
 (function (matchType) {
     /**
@@ -160,6 +161,7 @@ class game {
         this.matchMap.set(`进化排行榜`, { action: rank_ancestry_1.rank_ancestry, match: matchType.all });
         this.matchMap.set(`战力排行榜`, { action: rank_military_1.rank_military, match: matchType.all });
         this.matchMap.set(`宠物战力排行榜`, { action: rank_military_pet_1.rank_military_pet, match: matchType.all });
+        this.matchMap.set(`马拉松猝死排行榜`, { action: rank_MinGame_horse_die_1.rank_MinGame_horse_die, match: matchType.all });
         this.matchMap.set(`等级排行榜`, { action: rank_leve_1.rank_leve, match: matchType.all });
         this.matchMap.set(`基因锁排行榜`, { action: rank_dnaLv_1.rank_dnaLv, match: matchType.all });
         this.matchMap.set(`声望排行榜`, { action: rank_rankscore_1.rank_rankscore, match: matchType.all });
