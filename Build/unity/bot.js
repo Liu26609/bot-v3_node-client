@@ -127,27 +127,29 @@ class bot {
      * @param str 通知全部客户端，宠物马拉松专用
      */
     CallHorse(str) {
-        let list = [];
-        this.channelMap.forEach((lastActiveTime, id) => __awaiter(this, void 0, void 0, function* () {
-            if (Date.now() - lastActiveTime > 60 * 5 * 950) {
-                this.channelMap.delete(id);
-            }
-            else {
-                let guildId = this.guildMap.get(id);
-                if (str.includes('比赛画面') && guildId) {
-                    let gCfg = db_1.default.get(db_1.dbName.GuildCfg, guildId);
-                    if (gCfg && gCfg.passHorseChannel_id == id) {
-                        list.push(gCfg.passHorseChannel_id);
-                    }
+        return __awaiter(this, void 0, void 0, function* () {
+            let list = [];
+            this.channelMap.forEach((lastActiveTime, id) => __awaiter(this, void 0, void 0, function* () {
+                if (Date.now() - lastActiveTime > 60 * 5 * 1000) {
+                    this.channelMap.delete(id);
                 }
                 else {
-                    list.push(id);
+                    let guildId = this.guildMap.get(id);
+                    if (str.includes('比赛画面') && guildId) {
+                        let gCfg = db_1.default.get(db_1.dbName.GuildCfg, guildId);
+                        if (gCfg && gCfg.passHorseChannel_id == id) {
+                            list.push(gCfg.passHorseChannel_id);
+                        }
+                    }
+                    else {
+                        list.push(id);
+                    }
                 }
+            }));
+            for (let index = 0; index < list.length; index++) {
+                yield this.sendText(list[index], str);
             }
-        }));
-        for (let index = 0; index < list.length; index++) {
-            this.sendText(list[index], str);
-        }
+        });
     }
     /**
      * 通知客户端全部频道
@@ -157,7 +159,7 @@ class bot {
         return __awaiter(this, void 0, void 0, function* () {
             let list = [];
             this.channelMap.forEach((lastActiveTime, id) => __awaiter(this, void 0, void 0, function* () {
-                if (Date.now() - lastActiveTime > 60 * 5 * 950) {
+                if (Date.now() - lastActiveTime > 60 * 5 * 1000) {
                     this.channelMap.delete(id);
                 }
                 else {

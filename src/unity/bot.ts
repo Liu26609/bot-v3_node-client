@@ -106,10 +106,10 @@ class bot {
      * 
      * @param str 通知全部客户端，宠物马拉松专用
      */
-    private CallHorse(str:string){
+    private async CallHorse(str:string){
         let list: string[] = []
         this.channelMap.forEach(async (lastActiveTime, id) => {
-            if (Date.now() - lastActiveTime > 60 * 5 * 950) {
+            if (Date.now() - lastActiveTime > 60 * 5 * 1000) {
                 this.channelMap.delete(id)
             } else {
                 let guildId = this.guildMap.get(id)
@@ -124,7 +124,7 @@ class bot {
             }
         });
         for (let index = 0; index < list.length; index++) {
-            this.sendText(list[index], str)
+            await this.sendText(list[index], str)
         }
     }
 
@@ -135,7 +135,7 @@ class bot {
     async callAll(str: string) {
         let list: string[] = []
         this.channelMap.forEach(async (lastActiveTime, id) => {
-            if (Date.now() - lastActiveTime > 60 * 5 * 950) {
+            if (Date.now() - lastActiveTime > 60 * 5 * 1000) {
                 this.channelMap.delete(id)
             } else {
                 list.push(id);
