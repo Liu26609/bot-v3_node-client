@@ -22,7 +22,7 @@ export class me_ancestry extends task_base {
         temp.setTitle(`┏┄═══👑我的进化══━┄`)
         temp.addLine(`Ⓜ️来源[${data.ancestry.from}]`)
         temp.addLine(`👑${ancestryLeve[data.info.leve]}级[${data.ancestry.title}]`)
-        if(data.info.updateExpTime <= 0){
+        if(data.info.todayGetExp <= 0){
             temp.addLine(`🧬进化点已达今日上限`)
         }else{
             temp.addLine(`🧬进化点(${data.info.exp}/${data.info.exp_max})`)
