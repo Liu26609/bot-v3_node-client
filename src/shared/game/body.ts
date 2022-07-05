@@ -1,6 +1,20 @@
 import { equip } from './equip';
 import { teamLeve } from './team';
 import { USER_SIGN, USER_wallet } from './user';
+export interface body_ancestry{
+    id: string,
+    leve: number,
+    exp: number,
+    exp_max: number,
+      /**
+     * 经验上限刷新时间
+     */
+    updateExpTime: number,
+     /**
+     * 今日剩余可获取经验
+     */
+    todayGetExp: number
+}
 // 角色属性
 export interface body extends BASE_BODYS {
     isVip?: boolean,
@@ -73,10 +87,11 @@ export interface body extends BASE_BODYS {
     wallet: USER_wallet,
     bag: equip[],
     pet: BASE_BODYS[],
-    ancestry: { id: string, leve: number, exp: number, exp_max: number },
+    ancestry:body_ancestry,
     team: BODY_TEAM,
     minGameLog: minGame
 }
+
 export interface BODY_TEAM {
     /**
      * 队伍ID
@@ -108,7 +123,20 @@ export interface minGame {
     horse: {
         partake: number,
         win: number,
-        die:number
+        die: number
+    },
+    /**
+     * 无尽回廊
+     */
+    infinite:{
+        /**
+         * 层数
+         */
+        layer:number,
+        /**
+         * 调整次数
+         */
+        cont:number
     }
 }
 /**
@@ -149,6 +177,7 @@ export enum ancestryLeve {
     SSR,
     MAX
 }
+
 export enum DNA_Leve {
     // 未解开基因锁
     F,

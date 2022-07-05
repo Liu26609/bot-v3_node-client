@@ -37,33 +37,34 @@ class me_vip extends task_base_1.task_base {
             }
         });
     }
-    vip() {
-        let temp = `┏┄═══👑赞助会员══━┄\n`;
-        temp += '你已是永久赞助会员\n';
-        temp += '┄════👑会员特权══━┄\n';
+    /**
+     * 特权
+     */
+    privilege() {
+        let temp = ``;
         temp += '1.挂机不消耗小鱼干且能获得强化碎片\n';
         temp += '2.背包上限+20宠物上限+5\n';
         temp += '3.可自己创建一个专属机器人\n';
         temp += '4.签到奖励翻倍\n';
         temp += '5.免费创建工会\n';
         temp += '6.自动打开全部宝箱\n';
-        temp += '7.更新可享更多特权..\n';
+        temp += '7.死亡不扣除进化点\n';
+        temp += '8.更新可享更多特权..\n';
+        return temp;
+    }
+    vip() {
+        let temp = `┏┄═══👑赞助会员══━┄\n`;
+        temp += '你已是永久赞助会员\n';
+        temp += '┄════👑会员特权══━┄\n';
+        temp += this.privilege();
         temp += `┗┄━═════════━┄`;
         bot_1.default.sendText(this.channel_id, temp);
     }
     notVip() {
         let temp = `┏┄═══👑赞助会员══━┄\n`;
-        temp += '1.你还不是赞助会员哦~会员88元没有到期时间,一次付费永久使用\n';
-        temp += '2.当你不想玩了/觉得不值或可随时退款,当然对应游戏数据也会清空。\n';
+        temp += '你还不是赞助会员,价格88元没有到期时间,一次付费永久使用\n';
         temp += '┄════👑会员特权══━┄\n';
-        temp += '1.挂机不消耗小鱼干且能获得强化碎片\n';
-        temp += '2.背包上限+20宠物上限+5\n';
-        temp += '3.可自己创建一个专属机器人\n';
-        temp += '4.签到奖励翻倍\n';
-        temp += '5.免费创建工会\n';
-        temp += '6.自动打开全部宝箱\n';
-        temp += '7.更新可享更多特权..\n';
-        temp += '8.联系QQ550620904\n';
+        temp += this.privilege();
         temp += `┗┄━═════════━┄`;
         bot_1.default.sendText(this.channel_id, temp, this.content);
     }

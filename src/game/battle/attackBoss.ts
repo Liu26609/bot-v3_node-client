@@ -23,7 +23,7 @@ export class attackBoss extends task_base {
         let temp = ``;
 
 
-        let battleTemp = new text_battleTemp_style().sendData(data)
+        let battleTemp = new text_battleTemp_style(this.UserCfg).sendData(data)
 
 
         let hurtLog = '';

@@ -35,7 +35,7 @@ class attackBoss extends task_base_1.task_base {
             let data = req.res;
             (0, __1.log)(data);
             let temp = ``;
-            let battleTemp = new battleTemp_1.text_battleTemp_style().sendData(data);
+            let battleTemp = new battleTemp_1.text_battleTemp_style(this.UserCfg).sendData(data);
             let hurtLog = '';
             battleTemp.setHurtLotTitle_me(`┄════<emoji:223>我方伤害══━┄`);
             hurtLog += `${battleTemp.getSkillHurt(0)}`;

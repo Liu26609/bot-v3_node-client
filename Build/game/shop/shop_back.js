@@ -31,7 +31,7 @@ class shop_back extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            let temp = `黑市商店第${data.updateNum}期商品到货啦~
+            let temp = `黑市商店${data.updateNum}期
 🏷出售商品:${this.converSellTemp(data.sell_temp)}
 🛒购买价格:${user_1.walletKey_CN[user_1.walletKey[data.buyCondition.key]]}x${data.buyCondition.val}
 🧮商店库存:${data.stock - data.sellNum}

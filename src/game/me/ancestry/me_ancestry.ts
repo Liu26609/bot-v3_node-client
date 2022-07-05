@@ -1,3 +1,5 @@
+import { text_style } from './../../temp/text/text_style';
+import { text_example_style } from './../../temp/text/example';
 import { ancestryLeve } from "../../../shared/game/body";
 import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
@@ -16,20 +18,27 @@ export class me_ancestry extends task_base {
             return;
         }
         let data = req.res;
-        let temp = `┏┄═══👑我的进化══━┄
-Ⓜ️来源[${data.ancestry.from}]
-👑${ancestryLeve[data.info.leve]}级[${data.ancestry.title}]
-🧬进化点(${data.info.exp}/${data.info.exp_max})
-┄════成长分数══━┄
-♥️最大生命${data.ancestry.base.hp_max}分🔪物理攻击${data.ancestry.base.PhysicalAttacks}分
-🔰物理防御${data.ancestry.base.PhysicalDefense}分🔮魔法攻击${data.ancestry.base.MagicAttack}分
-🌟魔法防御${data.ancestry.base.MagicDefense}分💖生命回复${data.ancestry.base.secondResHp}分
-┄════附带技能══━┄
-[${data.SK.name}]
-${common.getSkDesc(data.SK)}
-┗┄${this.at()}┄
-<emoji:147>[重置进化]更换血统会清空当前等级和经验
-<emoji:147>成长分和技能会随着进化等级变化`
-        bot.sendText(this.channel_id, temp,this.content);
+        let temp = new text_style();
+        temp.setTitle(`┏┄═══👑我的进化══━┄`)
+        temp.addLine(`Ⓜ️来源[${data.ancestry.from}]`)
+        temp.addLine(`👑${ancestryLeve[data.info.leve]}级[${data.ancestry.title}]`)
+        if(data.info.updateExpTime <= 0){
+            temp.addLine(`🧬进化点已达今日上限`)
+        }else{
+            temp.addLine(`🧬进化点(${data.info.exp}/${data.info.exp_max})`)
+        }
+        temp.addLine(`┄════成长分数══━┄`)
+        temp.addLine(`♥️最大生命${data.ancestry.base.hp_max}分🔪物理攻击${data.ancestry.base.PhysicalAttacks}分`)
+        temp.addLine(`🔰物理防御${data.ancestry.base.PhysicalDefense}分🔮魔法攻击${data.ancestry.base.MagicAttack}分`)
+        temp.addLine(`🌟魔法防御${data.ancestry.base.MagicDefense}分💖生命回复${data.ancestry.base.secondResHp}分`)
+        temp.addLine(`┄════附带技能══━┄`)
+        temp.addLine(`[${data.SK.name}]`)
+        temp.addLine(`${common.getSkDesc(data.SK)}`)
+        temp.addLine(`<emoji:147>成长分和技能会随着进化等级变化`)
+        temp.setEnd(`┗┄${this.at()}┄`)
+        temp.sendMsg(this.channel_id)
+
+
+       new text_example_style().setCommand(`重置进化:更换一个进化路线`).setExample('重置进化').sendMsg(this.channel_id);;
     }
 }

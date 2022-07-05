@@ -9,6 +9,7 @@ import { ReqChallenge_box, ResChallenge_box } from './battle/PtlChallenge_box';
 import { ReqChallenge_downUser, ResChallenge_downUser } from './battle/PtlChallenge_downUser';
 import { ReqChallenge_hit, ResChallenge_hit } from './battle/PtlChallenge_hit';
 import { ReqChallenge_image, ResChallenge_image } from './battle/PtlChallenge_image';
+import { ReqChallenge_infinite, ResChallenge_infinite } from './battle/PtlChallenge_infinite';
 import { ReqChallenge_power, ResChallenge_power } from './battle/PtlChallenge_power';
 import { ReqPkRank, ResPkRank } from './battle/PtlPkRank';
 import { ReqPosAttackEnemy, ResPosAttackEnemy } from './battle/PtlPosAttackEnemy';
@@ -21,6 +22,7 @@ import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox
 import { ReqendAutoPlay, ResendAutoPlay } from './me/autoPlay/PtlendAutoPlay';
 import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPlay';
 import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_destroyBagEquip';
+import { ReqMe_strengthen, ResMe_strengthen } from './me/equip/PtlMe_strengthen';
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
@@ -45,7 +47,6 @@ import { ReqMe_equip, ResMe_equip } from './PtlMe_equip';
 import { ReqMe_lookBag, ResMe_lookBag } from './PtlMe_lookBag';
 import { ReqMe_openBlindBox, ResMe_openBlindBox } from './PtlMe_openBlindBox';
 import { ReqMe_skill, ResMe_skill } from './PtlMe_skill';
-import { ReqMe_strengthen, ResMe_strengthen } from './PtlMe_strengthen';
 import { ReqMe_title, ResMe_title } from './PtlMe_title';
 import { ReqMe_wallet, ResMe_wallet } from './PtlMe_wallet';
 import { ReqPos, ResPos } from './PtlPos';
@@ -151,6 +152,10 @@ export interface ServiceType {
             req: ReqChallenge_image,
             res: ResChallenge_image
         },
+        "battle/Challenge_infinite": {
+            req: ReqChallenge_infinite,
+            res: ResChallenge_infinite
+        },
         "battle/Challenge_power": {
             req: ReqChallenge_power,
             res: ResChallenge_power
@@ -198,6 +203,10 @@ export interface ServiceType {
         "me/equip/Me_destroyBagEquip": {
             req: ReqMe_destroyBagEquip,
             res: ResMe_destroyBagEquip
+        },
+        "me/equip/Me_strengthen": {
+            req: ReqMe_strengthen,
+            res: ResMe_strengthen
         },
         "me/equip/Me_wearEquip": {
             req: ReqMe_wearEquip,
@@ -278,10 +287,6 @@ export interface ServiceType {
         "Me_skill": {
             req: ReqMe_skill,
             res: ResMe_skill
-        },
-        "Me_strengthen": {
-            req: ReqMe_strengthen,
-            res: ResMe_strengthen
         },
         "Me_title": {
             req: ReqMe_title,
@@ -538,7 +543,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 69,
+    "version": 71,
     "services": [
         {
             "id": 0,
@@ -588,6 +593,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 80,
             "name": "battle/Challenge_image",
+            "type": "api"
+        },
+        {
+            "id": 126,
+            "name": "battle/Challenge_infinite",
             "type": "api"
         },
         {
@@ -648,6 +658,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 122,
             "name": "me/equip/Me_destroyBagEquip",
+            "type": "api"
+        },
+        {
+            "id": 127,
+            "name": "me/equip/Me_strengthen",
             "type": "api"
         },
         {
@@ -768,11 +783,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 29,
             "name": "Me_skill",
-            "type": "api"
-        },
-        {
-            "id": 30,
-            "name": "Me_strengthen",
             "type": "api"
         },
         {
@@ -1122,37 +1132,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 2,
                     "name": "info",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "id",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/body_ancestry"
                     }
                 }
             ]
@@ -1459,6 +1440,53 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 22,
                     "value": 22
+                }
+            ]
+        },
+        "../game/body/body_ancestry": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "id",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "exp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "updateExpTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "todayGetExp",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },
@@ -2691,6 +2719,46 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "battle/PtlChallenge_infinite/ReqChallenge_infinite": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "isStart",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_infinite/ResChallenge_infinite": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "layers",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
         "battle/PtlChallenge_power/ReqChallenge_power": {
             "type": "Interface",
             "properties": [
@@ -3376,37 +3444,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 9,
                     "name": "ancestry",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "id",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/body_ancestry"
                     }
                 },
                 {
@@ -3675,6 +3714,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 9,
                     "value": 9
+                },
+                {
+                    "id": 10,
+                    "value": 10
+                },
+                {
+                    "id": 11,
+                    "value": 11
+                },
+                {
+                    "id": 12,
+                    "value": 12
+                },
+                {
+                    "id": 13,
+                    "value": 13
+                },
+                {
+                    "id": 14,
+                    "value": 14
+                },
+                {
+                    "id": 15,
+                    "value": 15
                 }
             ]
         },
@@ -3917,6 +3980,29 @@ export const serviceProto: ServiceProto<ServiceType> = {
                             }
                         ]
                     }
+                },
+                {
+                    "id": 2,
+                    "name": "infinite",
+                    "type": {
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "layer",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "cont",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -4101,6 +4187,69 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         }
                     },
                     "optional": true
+                }
+            ]
+        },
+        "me/equip/PtlMe_strengthen/ReqMe_strengthen": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "strengthenType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_TYPE"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlMe_strengthen/ResMe_strengthen": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "bfEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nowEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "rate",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isSuccress",
+                    "type": {
+                        "type": "Boolean"
+                    }
                 }
             ]
         },
@@ -5182,69 +5331,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         "elementType": {
                             "type": "String"
                         }
-                    }
-                }
-            ]
-        },
-        "PtlMe_strengthen/ReqMe_strengthen": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "strengthenType",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/EQUIP_TYPE"
-                    }
-                }
-            ]
-        },
-        "PtlMe_strengthen/ResMe_strengthen": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 1,
-                    "name": "bfEquip",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/equip"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nowEquip",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/equip"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "rate",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "isSuccress",
-                    "type": {
-                        "type": "Boolean"
                     }
                 }
             ]

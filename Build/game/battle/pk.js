@@ -53,7 +53,7 @@ class pk extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = ``;
-            let battleTemp = new battleTemp_1.text_battleTemp_style().sendData(data);
+            let battleTemp = new battleTemp_1.text_battleTemp_style(this.UserCfg).sendData(data);
             battleTemp.setHurtLotTitle_me(`┏┄══📄伤害统计═━┄`);
             battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计══━┄`);
             temp += battleTemp.getSkillHurt(0);

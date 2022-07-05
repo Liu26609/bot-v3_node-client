@@ -32,18 +32,14 @@ export class pos_attackEnemy extends task_base {
         }
         let data = req.res;
         let temp = ``;
-        let battleTemp = new text_battleTemp_style().sendData(data)
+        let battleTemp = new text_battleTemp_style(this.UserCfg).sendData(data)
         battleTemp.setHurtLotTitle_me(`┏┄══📄伤害统计═━┄`)
         battleTemp.setHurtLotTitle_enemy(`┄════🔥敌方统计══━┄`)
-        if(!this.UserCfg.isHideSkill_Log){
-            temp += battleTemp.getSkillHurt(0);
-            temp += battleTemp.getSkillHurt(1);
-        }
-        if(!this.UserCfg.isHideKill_Log){
-            temp += `┄════🧙战斗过程══━┄\n`;
-            temp += `<emoji:187>本次战斗共${data.battleRound}回合\n`
-            temp += battleTemp.getKillProcess();
-        }
+        temp += battleTemp.getSkillHurt(0);
+        temp += battleTemp.getSkillHurt(1);
+        temp += `┄════🧙战斗过程══━┄\n`;
+        temp += `<emoji:187>本次战斗共${data.battleRound}回合\n`
+        temp += battleTemp.getKillProcess();
         temp += `┏┄══🎁战斗结果═━┄\n`;
         if (battleTemp.getReward()) {
             temp += battleTemp.getReward()
@@ -54,6 +50,6 @@ export class pos_attackEnemy extends task_base {
         temp += `\n<emoji:147>击杀怪物后地图有几率掉落宝箱哦~`
 
 
-        bot.sendText(this.channel_id, temp,this.matchKey)
+        bot.sendText(this.channel_id, temp, this.matchKey)
     }
 }

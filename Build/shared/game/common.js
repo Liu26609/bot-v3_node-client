@@ -154,7 +154,7 @@ class common {
     converEquipattribute(e, keys) {
         let equipVal = e.base_attribute[keys];
         let val = equipVal + equipVal * Math.pow(e.leve, 1.05) * Math.pow(e.quality + 1, 0.2);
-        return val || 0;
+        return Math.ceil(val) || 0;
     }
     /**
      * 计算战力

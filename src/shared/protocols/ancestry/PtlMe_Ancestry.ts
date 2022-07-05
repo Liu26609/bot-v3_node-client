@@ -1,5 +1,4 @@
-import { body } from './../../game/body';
-import { ancestry } from "../../game/body"
+import { ancestry, body_ancestry } from "../../game/body"
 import { SKILL_ACTIVE } from "../../game/skill"
 /**
  * 我的进化
@@ -14,7 +13,8 @@ export interface ResMe_Ancestry {
     /**
      * 用户血统信息
      */
-    info:{ id: string, leve: number,exp:number,exp_max:number }
+    info:body_ancestry
+    
 }
 
 // export const conf = {}

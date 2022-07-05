@@ -1,6 +1,6 @@
-import { payRes } from './../game/prop';
-import { equip } from './../game/equip';
-import { EQUIP_TYPE } from "../game/equip";
+import { payRes } from '../../../game/prop';
+import { equip } from '../../../game/equip';
+import { EQUIP_TYPE } from "../../../game/equip";
 
 export interface ReqMe_strengthen {
     userId:string,

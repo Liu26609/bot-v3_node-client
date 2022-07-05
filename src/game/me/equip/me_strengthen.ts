@@ -1,12 +1,12 @@
-import { embed_style } from './../temp/embed/embed';
-import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from '../../shared/game/equip';
-import { rewardKey, rewardKey_CN } from '../../shared/game/prop';
-import { walletKey_CN, walletKey } from '../../shared/game/user';
-import bot from '../../unity/bot';
-import common from '../../shared/game/common';
-import sever from '../../unity/sever';
-import { task_base } from './../task_base';
-import { USER_CFG_MSGTEMPLATE } from '../../interface/userCfg';
+import { embed_style } from '../../temp/embed/embed';
+import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from '../../../shared/game/equip';
+import { rewardKey, rewardKey_CN } from '../../../shared/game/prop';
+import { walletKey_CN, walletKey } from '../../../shared/game/user';
+import bot from '../../../unity/bot';
+import common from '../../../shared/game/common';
+import sever from '../../../unity/sever';
+import { task_base } from '../../task_base';
+import { USER_CFG_MSGTEMPLATE } from '../../../interface/userCfg';
 
 export class me_strengthen extends task_base {
     constructor(...a) {
@@ -54,7 +54,7 @@ export class me_strengthen extends task_base {
             this.menu();
             return;
         }
-        let req = await sever.callApi('Me_strengthen', { userId: this.userId, strengthenType: strengthenType })
+        let req = await sever.callApi('me/equip/Me_strengthen', { userId: this.userId, strengthenType: strengthenType })
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

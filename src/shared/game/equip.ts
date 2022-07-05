@@ -45,7 +45,13 @@ export enum EQUIP_QUALITY {
     A,//="传说"
     S,//="神器"
     SS,//="上古"
-    SSS//="作者专属"
+    SSS,//="作者专属"
+    SSSS,
+    R,
+    SR,
+    SSR,
+    SSSR,
+    SSSSR
 }
 export enum EQUIP_QUALITY_COLOR {
     G='#FFFFFF',//="破烂"
@@ -57,7 +63,13 @@ export enum EQUIP_QUALITY_COLOR {
     A='#FFA500',//="传说"
     S='#FF00FF',//="神器"
     SS='#FFA500',//="上古"
-    SSS='#EE2C2C'//="作者专属"
+    SSS='#EE2C2C',//="作者专属"
+    SSSS='#EE2C2C',//="作者专属"
+    R='#EE2C2C',
+    SR='#EE2C2C',
+    SSR='#EE2C2C',
+    SSSR='#EE2C2C',
+    SSSSR='#EE2C2C',
 }
 export enum EQUIP_TYPE {
     /**

@@ -32,7 +32,7 @@ import { shop_back_buy } from './shop/shop_back_buy';
 import { me_titleRandom } from './me/title/me_titleRandom';
 import { me_title } from './me/me_title';
 import { me_callPos } from './me/me_callPos';
-import { me_strengthen } from './me/me_strengthen';
+import { me_strengthen } from './me/equip/me_strengthen';
 import { me_skill } from './me/me_skill';
 import { shop_skill_buy } from './shop/shop_skill_buy';
 import { shop_skill } from './shop/shop_skill';
@@ -47,7 +47,6 @@ import { me_changeName } from './me/me_changeName';
 import { me_wallet } from './me/me_wallet';
 import { pos_attackPlayer } from './battle/pos_attackPlayer';
 import { me_move } from './map/me_move';
-import { sys_update } from './sys/update';
 import { me_attribute } from './me/me_attribute';
 import { log } from "..";
 import { BOT_MSG_AT } from "../shared/bot/bot";
@@ -116,6 +115,7 @@ import { challenge_hit } from './challenge/challenge_hit';
 import { challenge_power } from './challenge/challenge_power';
 import { challenge_downUser } from './challenge/challenge_downUser';
 import { rank_MinGame_horse_die } from './rank/rank_MinGame_horse_die';
+import { challenge_infinite } from './challenge/challenge_infinite';
 
 enum matchType {
     /**
@@ -217,7 +217,6 @@ export default class game {
         this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
-        this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
 
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
@@ -225,6 +224,7 @@ export default class game {
         this.matchMap.set('镜像挑战', { action: challenge_image, match: matchType.match })
         this.matchMap.set('伤害挑战', { action: challenge_hit, match: matchType.match })
         this.matchMap.set('力量挑战', { action: challenge_power, match: matchType.match })
+        this.matchMap.set('无尽回廊', { action: challenge_infinite, match: matchType.match })
         this.matchMap.set('强者挑战', { action: challenge_downUser, match: matchType.match })
         this.matchMap.set('破壁计划', { action: challenge_box, match: matchType.match })
         this.matchMap.set('阶梯任务', { action: soaringTask, match: matchType.all })
@@ -236,7 +236,6 @@ export default class game {
         this.matchMap.set('分解全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('一言', { action: addOneWord, match: matchType.match })
         this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
-        this.matchMap.set('更新日志', { action: sys_update, match: matchType.all })
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
