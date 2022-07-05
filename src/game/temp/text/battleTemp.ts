@@ -45,11 +45,13 @@ export class text_battleTemp_style {
         for (let index = 0; index < battleList.length; index++) {
             const item = battleList[index];
             let itemLog = ''
-            itemLog += item.icon + item.name;
             for (let index = 0; index < item.list.length; index++) {
                 const free_skill = item.list[index];
                 if(free_skill.val == 0){
                     continue;
+                }
+                if(index == 0){
+                    itemLog += item.icon + item.name;
                 }
                 itemLog += `│▌${free_skill.name}${common.BN(free_skill.val)}`;
                 itemLog += SKILL_UNITY_CN[SKILL_UNITY[free_skill.unit]]
