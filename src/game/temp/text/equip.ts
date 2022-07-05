@@ -20,7 +20,7 @@ export class text_equip_style {
         let mark = 0;
         let Markconver = 0;
         for (const key in this.equipData.base_attribute) {
-            mark += this.equipData.base_attribute[key]
+            mark += Math.ceil(this.equipData.base_attribute[key])
             Markconver += Math.ceil(common.converEquipattribute(this.equipData, key))
         }
         const iconId = this.equipData.icon;
