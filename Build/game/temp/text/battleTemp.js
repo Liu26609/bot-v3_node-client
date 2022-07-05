@@ -35,9 +35,9 @@ class text_battleTemp_style {
             itemLog += item.icon + item.name;
             for (let index = 0; index < item.list.length; index++) {
                 const free_skill = item.list[index];
-                // if(free_skill.val == 0){
-                //     continue;
-                // }
+                if (free_skill.val == 0) {
+                    continue;
+                }
                 itemLog += `│▌${free_skill.name}${common_1.default.BN(free_skill.val)}`;
                 itemLog += skill_2.SKILL_UNITY_CN[skill_1.SKILL_UNITY[free_skill.unit]];
             }
@@ -113,6 +113,9 @@ class text_battleTemp_style {
         }
         else {
             console.error('错误的调用！');
+        }
+        if (str.length > 1500) {
+            str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。';
         }
         return str;
     }
