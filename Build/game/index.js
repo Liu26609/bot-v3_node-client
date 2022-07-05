@@ -108,6 +108,7 @@ const rank_military_1 = require("./rank/rank_military");
 const rank_evil_1 = require("./rank/rank_evil");
 const rank_justice_1 = require("./rank/rank_justice");
 const me_AutoPlay_1 = require("./me/autoPlay/me_AutoPlay");
+const updateDev_1 = require("./sys/updateDev");
 const me_Reread_1 = require("./me/autoPlay/me_Reread");
 const rank_MagicAttack_1 = require("./rank/rank_MagicAttack");
 const rank_MagicDefense_1 = require("./rank/rank_MagicDefense");
@@ -186,6 +187,7 @@ class game {
         this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
         this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });
         this.matchMap.set('复读', { action: me_Reread_1.me_Reread, match: matchType.all });
+        this.matchMap.set('更新', { action: updateDev_1.sys_update_code, match: matchType.all });
         this.matchMap.set(`排行榜`, { action: rank_menu_1.rank_menu, match: matchType.all });
         this.matchMap.set('拍卖行', { action: auction_look_1.auction_look, match: matchType.all });
         this.matchMap.set(`猜数`, { action: lottery_1.lottery, match: matchType.match });

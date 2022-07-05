@@ -217,7 +217,8 @@ export default class game {
         this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
-
+        this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
+        
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
