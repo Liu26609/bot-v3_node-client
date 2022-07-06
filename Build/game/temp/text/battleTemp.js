@@ -117,7 +117,7 @@ class text_battleTemp_style {
             console.error('错误的调用！');
         }
         if (str.length > 1500) {
-            str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。';
+            str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。\n';
         }
         return str;
     }

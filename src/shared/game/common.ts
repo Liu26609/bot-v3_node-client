@@ -299,6 +299,9 @@ class common {
          case SKILL_TYPE.up_Physics_fixed:
             temp += `每次触发提高${info.data[0]}物理攻击`
             break;
+         case SKILL_TYPE.stop_attack_all:
+            temp += `让一个敌人全体${info.data[0]}回合不能释放任何技能`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

@@ -120,6 +120,10 @@ export enum SKILL_TYPE {
      * 参数1:固定魔法攻击
      */
     up_Magic_fixed,
+    /**
+     * 让地方全体停止攻击N回合
+     */
+    stop_attack_all
 }
 /**
  * 主动技能

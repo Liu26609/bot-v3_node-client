@@ -1440,6 +1440,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 22,
                     "value": 22
+                },
+                {
+                    "id": 23,
+                    "value": 23
                 }
             ]
         },

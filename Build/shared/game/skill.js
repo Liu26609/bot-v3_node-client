@@ -124,6 +124,10 @@ var SKILL_TYPE;
      * 参数1:固定魔法攻击
      */
     SKILL_TYPE[SKILL_TYPE["up_Magic_fixed"] = 22] = "up_Magic_fixed";
+    /**
+     * 让地方全体停止攻击N回合
+     */
+    SKILL_TYPE[SKILL_TYPE["stop_attack_all"] = 23] = "stop_attack_all";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
