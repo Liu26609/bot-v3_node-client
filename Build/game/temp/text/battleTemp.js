@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_battleTemp_style = void 0;
+const text_length_1 = require("./../../../unity/text_length");
 const skill_1 = require("./../../../shared/game/skill");
 /**
  * 转化战斗日志数据模板
@@ -116,7 +117,7 @@ class text_battleTemp_style {
         else {
             console.error('错误的调用！');
         }
-        if (str.length > 1500) {
+        if (new text_length_1.text_length().getlength(str) > 1500) {
             str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。\n';
         }
         return str;

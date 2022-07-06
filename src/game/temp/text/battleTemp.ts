@@ -1,3 +1,4 @@
+import { text_length } from './../../../unity/text_length';
 import { SKILL_UNITY } from './../../../shared/game/skill';
 /**
  * 转化战斗日志数据模板
@@ -131,7 +132,8 @@ export class text_battleTemp_style {
         }else{
             console.error('错误的调用！')
         }
-        if(str.length > 1500){
+        
+        if(new text_length().getlength(str) > 1500){
             str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。\n'
         }
         return str
