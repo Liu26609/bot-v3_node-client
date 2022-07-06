@@ -45,6 +45,7 @@ export class me_vip extends task_base{
     notVip(){
         let temp = `┏┄═══👑赞助会员══━┄\n`
         temp += '你还不是赞助会员,价格88元没有到期时间,一次付费永久使用\n'
+        temp += '除不可抗拒因素不做了可双倍退款\n'
         temp += 'Q3245000000\n'
         temp += '┄════👑会员特权══━┄\n'
         temp += this.privilege();

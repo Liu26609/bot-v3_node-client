@@ -30,7 +30,7 @@ class text_baseAttribute_style {
         temp += `<emoji:11>战力:${common_1.default.BN(this.data.military)}\n`;
         temp += `${this.data.icon}名称:${this.data.name}\n`;
         temp += `🔥等级:${this.data.leve}⏳${common_1.default.BN(this.data.exp)}/${common_1.default.BN(this.data.exp_max)}\n`;
-        temp += `♥️生命:${common_1.default.BN(this.data.hp)}/${common_1.default.BN(out_attribute.hp_max)}`;
+        temp += `♥️生命:${common_1.default.BN(this.data.hp)}/${common_1.default.BN(out_attribute.hp_max)}\n`;
         temp += `💖生命恢复:${common_1.default.BN(out_attribute.secondResHp)}/秒\n`;
         temp += `🔮魔法攻击:${common_1.default.BN(out_attribute.MagicAttack)}\n`;
         temp += `🌟魔法防御:${common_1.default.BN(out_attribute.MagicDefense)}\n`;

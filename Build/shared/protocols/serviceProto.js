@@ -280,6 +280,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 128,
+            "name": "rank/Rank_Challenge_infinte",
+            "type": "api"
+        },
+        {
             "id": 107,
             "name": "rank/Rank_contribute",
             "type": "api"
@@ -5276,6 +5281,30 @@ exports.serviceProto = {
                     "name": "meIndex",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_Challenge_infinte/ReqRank_Challenge_infinte": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_Challenge_infinte/ResRank_Challenge_infinte": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]

@@ -54,6 +54,7 @@ import { ReqResLife, ResResLife } from './PtlResLife';
 import { ReqSearchSkill, ResSearchSkill } from './PtlSearchSkill';
 import { ReqSign, ResSign } from './PtlSign';
 import { ReqRank_ancestry, ResRank_ancestry } from './rank/PtlRank_ancestry';
+import { ReqRank_Challenge_infinte, ResRank_Challenge_infinte } from './rank/PtlRank_Challenge_infinte';
 import { ReqRank_contribute, ResRank_contribute } from './rank/PtlRank_contribute';
 import { ReqRank_dnaLv, ResRank_dnaLv } from './rank/PtlRank_dnaLv';
 import { ReqRank_evil, ResRank_evil } from './rank/PtlRank_evil';
@@ -315,6 +316,10 @@ export interface ServiceType {
         "rank/Rank_ancestry": {
             req: ReqRank_ancestry,
             res: ResRank_ancestry
+        },
+        "rank/Rank_Challenge_infinte": {
+            req: ReqRank_Challenge_infinte,
+            res: ResRank_Challenge_infinte
         },
         "rank/Rank_contribute": {
             req: ReqRank_contribute,
@@ -818,6 +823,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 91,
             "name": "rank/Rank_ancestry",
+            "type": "api"
+        },
+        {
+            "id": 128,
+            "name": "rank/Rank_Challenge_infinte",
             "type": "api"
         },
         {
@@ -5817,6 +5827,30 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "meIndex",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_Challenge_infinte/ReqRank_Challenge_infinte": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "rank/PtlRank_Challenge_infinte/ResRank_Challenge_infinte": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "rank/PtlRank_leve/ResRank_leve"
                     }
                 }
             ]
