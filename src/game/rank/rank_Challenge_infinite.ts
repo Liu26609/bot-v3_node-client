@@ -9,7 +9,7 @@ export class rank_Challenge_infinite extends task_base{
         this.render();
     }
     async render(){
-        let req = await sever.callApi('rank/Rank_minGame_horse_cont',{userId:this.userId})
+        let req = await sever.callApi('rank/Rank_Challenge_infinte',{userId:this.userId})
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

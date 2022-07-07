@@ -116,6 +116,8 @@ import { challenge_power } from './challenge/challenge_power';
 import { challenge_downUser } from './challenge/challenge_downUser';
 import { rank_MinGame_horse_die } from './rank/rank_MinGame_horse_die';
 import { challenge_infinite } from './challenge/challenge_infinite';
+import { rank_Challenge_infinite } from './rank/rank_Challenge_infinite';
+import { challenge_greed } from './challenge/challenge_greed';
 
 enum matchType {
     /**
@@ -205,7 +207,7 @@ export default class game {
         this.matchMap.set(`马拉松参与排行榜`, { action: rank_MinGame_horse_cont, match: matchType.all })
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute, match: matchType.all })
         this.matchMap.set(`生命排行榜`, { action: rank_hp, match: matchType.all })
-
+        this.matchMap.set(`无尽回廊排行榜`, { action: rank_Challenge_infinite, match: matchType.all })
 
     }
     private initKeyMap() {
@@ -213,6 +215,7 @@ export default class game {
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set(`贪婪洞窟`, { action: challenge_greed, match: matchType.match })
         this.matchMap.set(`宠物马拉松`, { action: horse_look, match: matchType.all })
         this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })

@@ -39,7 +39,6 @@ export default class me_sign extends task_base {
                     data.reward.forEach(item => {
                         temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`
                     });
-                    temp += `\n`
                 }
                 temp += `┗┄${this.at()}┄\n`
                 temp += `“${data.oneWord}”`

@@ -218,12 +218,9 @@ class bot {
             }
         }).then((res) => {
             if (triggerKey) {
-                this.machMap.set(res.data.id, triggerKey)
-                // try {
-                //     // this.addEmoji(channelID, res.data.id)
-                // } catch (error) {
-
-                // }
+                if (res.data && res.data.id) {
+                    this.machMap.set(res.data.id, triggerKey);
+                }
             }
         })
     }

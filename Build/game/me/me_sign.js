@@ -41,7 +41,6 @@ class me_sign extends task_base_1.task_base {
                     data.reward.forEach(item => {
                         temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${item.val}`;
                     });
-                    temp += `\n`;
                 }
                 temp += `┗┄${this.at()}┄\n`;
                 temp += `“${data.oneWord}”`;

@@ -127,6 +127,8 @@ const challenge_power_1 = require("./challenge/challenge_power");
 const challenge_downUser_1 = require("./challenge/challenge_downUser");
 const rank_MinGame_horse_die_1 = require("./rank/rank_MinGame_horse_die");
 const challenge_infinite_1 = require("./challenge/challenge_infinite");
+const rank_Challenge_infinite_1 = require("./rank/rank_Challenge_infinite");
+const challenge_greed_1 = require("./challenge/challenge_greed");
 var matchType;
 (function (matchType) {
     /**
@@ -177,12 +179,14 @@ class game {
         this.matchMap.set(`马拉松参与排行榜`, { action: rank_MinGame_horse_cont_1.rank_MinGame_horse_cont, match: matchType.all });
         this.matchMap.set(`工会贡献排行榜`, { action: rank_teamContribute_1.rank_teamContribute, match: matchType.all });
         this.matchMap.set(`生命排行榜`, { action: rank_hp_1.rank_hp, match: matchType.all });
+        this.matchMap.set(`无尽回廊排行榜`, { action: rank_Challenge_infinite_1.rank_Challenge_infinite, match: matchType.all });
     }
     initKeyMap() {
         /**
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set(`贪婪洞窟`, { action: challenge_greed_1.challenge_greed, match: matchType.match });
         this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });
         this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
         this.matchMap.set(`赞助会员`, { action: me_vip_1.me_vip, match: matchType.all });

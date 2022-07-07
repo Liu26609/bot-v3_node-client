@@ -45,6 +45,11 @@ exports.serviceProto = {
             "type": "api"
         },
         {
+            "id": 126,
+            "name": "battle/Challenge_greed",
+            "type": "api"
+        },
+        {
             "id": 119,
             "name": "battle/Challenge_hit",
             "type": "api"
@@ -55,7 +60,7 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 126,
+            "id": 127,
             "name": "battle/Challenge_infinite",
             "type": "api"
         },
@@ -120,7 +125,7 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 127,
+            "id": 128,
             "name": "me/equip/Me_strengthen",
             "type": "api"
         },
@@ -280,7 +285,7 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 128,
+            "id": 129,
             "name": "rank/Rank_Challenge_infinte",
             "type": "api"
         },
@@ -2083,6 +2088,95 @@ exports.serviceProto = {
                     "type": {
                         "type": "Number"
                     }
+                }
+            ]
+        },
+        "battle/PtlChallenge_greed/ReqChallenge_greed": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "type",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "battle/PtlChallenge_greed/ResChallenge_greed": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "battle",
+                    "type": {
+                        "type": "Reference",
+                        "target": "Battle/ResBattle"
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 1,
+                    "name": "reward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "optional": true
+                },
+                {
+                    "id": 2,
+                    "name": "nowReward",
+                    "type": {
+                        "type": "Array",
+                        "elementType": {
+                            "type": "Interface",
+                            "properties": [
+                                {
+                                    "id": 0,
+                                    "name": "key",
+                                    "type": {
+                                        "type": "Reference",
+                                        "target": "../game/prop/rewardKey"
+                                    }
+                                },
+                                {
+                                    "id": 1,
+                                    "name": "val",
+                                    "type": {
+                                        "type": "Number"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "optional": true
                 }
             ]
         },

@@ -25,7 +25,7 @@ class rank_Challenge_infinite extends task_base_1.task_base {
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            let req = yield sever_1.default.callApi('rank/Rank_minGame_horse_cont', { userId: this.userId });
+            let req = yield sever_1.default.callApi('rank/Rank_Challenge_infinte', { userId: this.userId });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
