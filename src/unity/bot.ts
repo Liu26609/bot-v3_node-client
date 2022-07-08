@@ -189,11 +189,7 @@ class bot {
 
         msg_id = this.getMsgId(channelID)
         if (msg_id == 1) {
-            await new Promise(rs => { setTimeout(rs, 1200) });
-            msg_id = this.getMsgId(channelID)
-        }
-        if (msg_id == 1) {
-            await new Promise(rs => { setTimeout(rs, 1200) });
+            await new Promise(rs => { setTimeout(rs, 1000) });
             msg_id = this.getMsgId(channelID)
         }
         // 单频道1秒内只能发送5条消息
@@ -343,10 +339,6 @@ class bot {
         let msg_id;
 
         msg_id = this.getMsgId(data.msg.channel_id)
-        if (msg_id == 1) {
-            await new Promise(rs => { setTimeout(rs, 1200) });
-            msg_id = this.getMsgId(data.msg.channel_id)
-        }
         if (msg_id == 1) {
             await new Promise(rs => { setTimeout(rs, 1200) });
             msg_id = this.getMsgId(data.msg.channel_id)
