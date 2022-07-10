@@ -337,6 +337,10 @@ export default class game {
             await sever.HelloWorld()
             return;
         }
+        if (data.content == '组') {
+            await bot.sendText(data.channel_id, data.guild_id);
+            return
+        }
         if (data.content == '频道ID') {
             await bot.sendText(data.channel_id, data.channel_id);
             return
@@ -377,10 +381,10 @@ export default class game {
         //     this.devTipsMap.set(data.guild_id, true)
         // }
 
-        if (data.channel_id != '6348738') {
-            bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
-            return;
-        }
+        // if (data.guild_id != '9398930356848575724') {
+        //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
+        //     return;
+        // }
     
 
         const userId = data.author.id;

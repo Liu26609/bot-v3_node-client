@@ -446,9 +446,15 @@ class bot {
         if (!uCfg) {
             uCfg = db_1.default.create(db_1.dbName.UserCfg, data.author.id, this.getUserCfgTemp());
         }
-        if (data.member.roles.includes('4')) {
-            // 频道主艾特了
-            gCfg.master = data.author.id;
+        try {
+            if (data.member.roles.includes('4')) {
+                // 频道主艾特了
+                gCfg.master = data.author.id;
+            }
+        }
+        catch (error) {
+            console.log(data);
+            console.error('频道主艾特了', error);
         }
         // 过滤艾特
         let filter = `<@!${(_a = this.botInfo) === null || _a === void 0 ? void 0 : _a.user.id}>`;

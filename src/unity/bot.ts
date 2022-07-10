@@ -421,11 +421,16 @@ class bot {
         if (!uCfg) {
             uCfg = db.create(dbName.UserCfg, data.author.id, this.getUserCfgTemp());
         }
-
-        if (data.member.roles.includes('4')) {
-            // 频道主艾特了
-            gCfg.master = data.author.id;
+        try {
+            if (data.member.roles.includes('4')) {
+                // 频道主艾特了
+                gCfg.master = data.author.id;
+            }
+        } catch (error) {
+            console.log(data)
+            console.error('频道主艾特了',error)
         }
+        
         // 过滤艾特
         let filter = `<@!${this.botInfo?.user.id}>`;
         while (data.content.includes(filter)) {

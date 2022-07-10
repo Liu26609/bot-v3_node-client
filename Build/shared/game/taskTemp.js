@@ -144,5 +144,8 @@ var TaskId;
      * 上下左右
      */
     TaskId[TaskId["move_buttom"] = 21] = "move_buttom";
+    /**
+     * 完成贪婪洞窟
+     */
     TaskId[TaskId["challenge_greed"] = 22] = "challenge_greed";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

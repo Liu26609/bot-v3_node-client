@@ -16,7 +16,6 @@ exports.challenge_greed = void 0;
 const task_base_1 = require("../task_base");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
-const body_1 = require("../../shared/game/body");
 const battleTemp_1 = require("../temp/text/battleTemp");
 const common_1 = __importDefault(require("../../shared/game/common"));
 const prop_1 = require("../../shared/game/prop");
@@ -65,7 +64,7 @@ class challenge_greed extends task_base_1.task_base {
                 yield bot_1.default.sendText(this.channel_id, temp);
             }
             if (data.reward) {
-                let temp = `┄══🎁获得奖励═━┄\n`;
+                let temp = `┏┄══🎁获得奖励═━┄\n`;
                 if (data.reward && data.reward.length > 0) {
                     data.reward.forEach(item => {
                         temp += `${prop_1.rewardKey_CN[prop_1.rewardKey[item.key]]}${item.val > 0 ? '+' : ''}${common_1.default.BN(item.val)}\n`;
@@ -74,11 +73,6 @@ class challenge_greed extends task_base_1.task_base {
                 temp += `┗┄${this.at()}┄`;
                 yield bot_1.default.sendText(this.channel_id, temp);
             }
-        });
-    }
-    max() {
-        return __awaiter(this, void 0, void 0, function* () {
-            bot_1.default.sendText(this.channel_id, `${this.at()}力量挑战只能支持提升到[${body_1.DNA_CN[body_1.DNA_Leve[body_1.DNA_Leve.E]]}]更高级的基因锁需要进行[强者挑战]`);
         });
     }
     menu() {

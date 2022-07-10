@@ -12,7 +12,7 @@ export class pos_attackPlayer extends task_base {
     async render() {
         let attackIndex = this.content.replace(this.matchKey, '');
         if (typeof (attackIndex) == 'undefined' || attackIndex == '' || isNaN(Number(attackIndex))) {
-            bot.sendText(this.channel_id, '请指定当前位置玩家的ID')
+            bot.sendText(this.channel_id, '请指定当前位置玩家的ID(ID通过[位置]查看)')
             return;
         }
         let req = await sever.callApi('battle/PosAttackPlayer', { userId: this.userId, attackId: Math.ceil(Number(attackIndex)) });

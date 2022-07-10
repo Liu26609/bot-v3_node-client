@@ -166,5 +166,8 @@ export enum TaskId {
      * 上下左右
      */
     move_buttom,
+    /**
+     * 完成贪婪洞窟
+     */
     challenge_greed
 }

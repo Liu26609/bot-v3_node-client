@@ -27,7 +27,7 @@ class pos_attackPlayer extends task_base_1.task_base {
         return __awaiter(this, void 0, void 0, function* () {
             let attackIndex = this.content.replace(this.matchKey, '');
             if (typeof (attackIndex) == 'undefined' || attackIndex == '' || isNaN(Number(attackIndex))) {
-                bot_1.default.sendText(this.channel_id, '请指定当前位置玩家的ID');
+                bot_1.default.sendText(this.channel_id, '请指定当前位置玩家的ID(ID通过[位置]查看)');
                 return;
             }
             let req = yield sever_1.default.callApi('battle/PosAttackPlayer', { userId: this.userId, attackId: Math.ceil(Number(attackIndex)) });

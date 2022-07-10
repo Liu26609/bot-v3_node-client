@@ -307,6 +307,10 @@ class game {
                 yield sever_1.default.HelloWorld();
                 return;
             }
+            if (data.content == '组') {
+                yield bot_1.default.sendText(data.channel_id, data.guild_id);
+                return;
+            }
             if (data.content == '频道ID') {
                 yield bot_1.default.sendText(data.channel_id, data.channel_id);
                 return;
@@ -343,10 +347,10 @@ class game {
             //     bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
             //     this.devTipsMap.set(data.guild_id, true)
             // }
-            if (data.channel_id != '6348738') {
-                bot_1.default.sendText(data.channel_id, `你没有对此机器人的测试权限`);
-                return;
-            }
+            // if (data.guild_id != '9398930356848575724') {
+            //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
+            //     return;
+            // }
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;

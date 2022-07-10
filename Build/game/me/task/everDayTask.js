@@ -83,6 +83,9 @@ class everDayTask extends task_base_1.task_base {
             case taskTemp_1.TaskId.challenge_hit:
                 str = `[伤害挑战]最高爆发伤害挑战`;
                 break;
+            case taskTemp_1.TaskId.challenge_greed:
+                str = `[贪婪洞窟]与欲望为敌`;
+                break;
             default:
                 str = `未收录任务id${id}`;
                 break;

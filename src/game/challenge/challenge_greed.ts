@@ -52,7 +52,7 @@ export class challenge_greed extends task_base {
             await bot.sendText(this.channel_id,temp)
         }
         if(data.reward){
-            let temp = `┄══🎁获得奖励═━┄\n`;
+            let temp = `┏┄══🎁获得奖励═━┄\n`;
             if(data.reward && data.reward.length > 0){
                 data.reward.forEach(item => {
                     temp += `${rewardKey_CN[rewardKey[item.key]]}${item.val > 0?'+':''}${common.BN(item.val)}\n`
@@ -62,9 +62,6 @@ export class challenge_greed extends task_base {
             await bot.sendText(this.channel_id,temp)
         }
 
-    }
-    async max() {
-        bot.sendText(this.channel_id, `${this.at()}力量挑战只能支持提升到[${DNA_CN[DNA_Leve[DNA_Leve.E]]}]更高级的基因锁需要进行[强者挑战]`)
     }
     async menu() {
         let req = await sever.callApi('battle/Challenge_greed', { userId: this.userId, type: 0 });
