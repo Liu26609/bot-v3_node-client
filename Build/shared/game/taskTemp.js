@@ -13,17 +13,21 @@ var taskType;
      */
     taskType[taskType["challenge_hit"] = 2] = "challenge_hit";
     /**
+     * 贪婪洞窟
+     */
+    taskType[taskType["challenge_greed"] = 3] = "challenge_greed";
+    /**
      * 飞升任务一级
      */
-    taskType[taskType["ladder_1"] = 3] = "ladder_1";
-    taskType[taskType["ladder_2"] = 4] = "ladder_2";
-    taskType[taskType["ladder_3"] = 5] = "ladder_3";
-    taskType[taskType["ladder_4"] = 6] = "ladder_4";
-    taskType[taskType["ladder_5"] = 7] = "ladder_5";
-    taskType[taskType["ladder_6"] = 8] = "ladder_6";
-    taskType[taskType["ladder_7"] = 9] = "ladder_7";
-    taskType[taskType["ladder_8"] = 10] = "ladder_8";
-    taskType[taskType["ladder_9"] = 11] = "ladder_9";
+    taskType[taskType["ladder_1"] = 4] = "ladder_1";
+    taskType[taskType["ladder_2"] = 5] = "ladder_2";
+    taskType[taskType["ladder_3"] = 6] = "ladder_3";
+    taskType[taskType["ladder_4"] = 7] = "ladder_4";
+    taskType[taskType["ladder_5"] = 8] = "ladder_5";
+    taskType[taskType["ladder_6"] = 9] = "ladder_6";
+    taskType[taskType["ladder_7"] = 10] = "ladder_7";
+    taskType[taskType["ladder_8"] = 11] = "ladder_8";
+    taskType[taskType["ladder_9"] = 12] = "ladder_9";
 })(taskType = exports.taskType || (exports.taskType = {}));
 var taskType_CN;
 (function (taskType_CN) {
@@ -140,4 +144,5 @@ var TaskId;
      * 上下左右
      */
     TaskId[TaskId["move_buttom"] = 21] = "move_buttom";
+    TaskId[TaskId["challenge_greed"] = 22] = "challenge_greed";
 })(TaskId = exports.TaskId || (exports.TaskId = {}));

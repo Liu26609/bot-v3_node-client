@@ -14,7 +14,7 @@ export class soaringTask extends task_base {
             return;
         }
         let data = req.res;
-        let temp = `┏┄═🌈${taskType_CN[taskType[`ladder_${data.taskLeve}`]]}═━┄\n`
+        let temp = `┏┄═🌈${taskType_CN[`ladder_${data.taskLeve}`]}═━┄\n`
         temp += `⬛实力提升到一定程度成长就会变得缓慢,进而造成高等级玩家互相残杀的局面，这对于破壁计划是不利的。
 因此，在破壁计划之前，准备了阶梯任务。每一级阶梯任务都提供不同任务和奖励\n`
         for (let index = 0; index < data.list.length; index++) {
@@ -23,7 +23,7 @@ export class soaringTask extends task_base {
             temp += `${isDone ? '✅' : '☑️'}${this.coverTaskIdTips(item.id)}(${item.now}/${item.target})\n`
         }
         temp += `┗┄${this.at()}┄`
-        bot.sendText(this.channel_id, temp,this.content)
+        bot.sendText(this.channel_id, temp, this.content)
     }
     coverTaskIdTips(id: TaskId) {
         let str = ``;
@@ -48,6 +48,9 @@ export class soaringTask extends task_base {
                 break;
             case TaskId.lottery_win:
                 str = `[猜数]猜中数字`
+                break;
+            case TaskId.lottery_partake:
+                str = `[猜数]参与猜数`
                 break;
             case TaskId.attackMonster:
                 str = `[攻击怪物]刷怪睡觉吃饭`

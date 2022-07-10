@@ -142,7 +142,6 @@ var matchType;
 })(matchType || (matchType = {}));
 class game {
     constructor() {
-        this.speedLockMap = new Map();
         this.devTipsMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
@@ -344,26 +343,16 @@ class game {
             //     bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
             //     this.devTipsMap.set(data.guild_id, true)
             // }
-            // if (data.author.id != '14139673525601401123') {
-            //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
-            //     return;
-            // }
+            if (data.channel_id != '6348738') {
+                bot_1.default.sendText(data.channel_id, `你没有对此机器人的测试权限`);
+                return;
+            }
             const userId = data.author.id;
             const userIcon = data.author.avatar;
             const fromChannel = data.channel_id;
             const userName = data.author.username;
             const lastContent = this.contentMap.get(userId);
             const guild = data.guild_id;
-            if (this.speedLockMap.has(userId) && userName != '表情指令') {
-                let lastSendTime = this.speedLockMap.get(userId);
-                if (Date.now() - lastSendTime <= 300) {
-                    const endLockTime = lastSendTime + 60000;
-                    this.speedLockMap.set(userId, endLockTime);
-                    bot_1.default.sendText(fromChannel, `检测到消息太过频繁,请勿尝试使用脚本.冻结至:${new Date(endLockTime).toLocaleString()}`);
-                    return;
-                }
-            }
-            this.speedLockMap.set(userId, Date.now());
             let content = data.content;
             if (content == '复读') {
                 if (this.repeState.has(userId)) {

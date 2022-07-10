@@ -36,6 +36,10 @@ export enum taskType {
      */
     challenge_hit,
     /**
+     * 贪婪洞窟
+     */
+    challenge_greed,
+    /**
      * 飞升任务一级
      */
     ladder_1,
@@ -162,4 +166,5 @@ export enum TaskId {
      * 上下左右
      */
     move_buttom,
+    challenge_greed
 }

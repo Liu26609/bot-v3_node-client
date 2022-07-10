@@ -163,14 +163,9 @@ export default class game {
      * dev tips Map
      */
     devTipsMap: Map<string, boolean>
-    /**
-     * speedLock Map
-     * 消息速度限制
-     */
-    speedLockMap: Map<string, number>
+
 
     constructor() {
-        this.speedLockMap = new Map();
         this.devTipsMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
@@ -382,10 +377,10 @@ export default class game {
         //     this.devTipsMap.set(data.guild_id, true)
         // }
 
-        // if (data.author.id != '14139673525601401123') {
-        //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
-        //     return;
-        // }
+        if (data.channel_id != '6348738') {
+            bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
+            return;
+        }
     
 
         const userId = data.author.id;
@@ -396,17 +391,6 @@ export default class game {
         const guild = data.guild_id;
 
 
-        if (this.speedLockMap.has(userId) && userName != '表情指令') {
-            let lastSendTime = this.speedLockMap.get(userId) as number;
-            if (Date.now() - lastSendTime <= 300) {
-                const endLockTime = lastSendTime + 60000
-
-                this.speedLockMap.set(userId, endLockTime)
-                bot.sendText(fromChannel, `检测到消息太过频繁,请勿尝试使用脚本.冻结至:${new Date(endLockTime).toLocaleString()}`)
-                return;
-            }
-        }
-        this.speedLockMap.set(userId, Date.now())
 
 
         let content = data.content;

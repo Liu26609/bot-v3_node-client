@@ -35,9 +35,9 @@ class text_battleTemp_style {
             let itemLog = '';
             for (let index = 0; index < item.list.length; index++) {
                 const free_skill = item.list[index];
-                if (free_skill.val == 0) {
-                    continue;
-                }
+                // if(free_skill.val == 0){
+                //     continue;
+                // }
                 if (index == 0) {
                     itemLog += item.icon + item.name;
                 }

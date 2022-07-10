@@ -43,6 +43,7 @@ class text_attribute_style {
                 return;
             }
             const out_attribute = this.data.out_attribute;
+            console.log(out_attribute);
             let temp = ``;
             temp += this.data.title.name + '\n';
             temp += `┏┄═══👑属性══━┄\n`;
@@ -68,13 +69,13 @@ class text_attribute_style {
                 temp += `${user_1.walletKey_CN[user_1.walletKey[user_1.walletKey.justice]]}:${common_1.default.BN(this.data.wallet.justice)}\n`;
             }
             temp += `♥️${common_1.default.BN(this.data.hp, 1)}/${common_1.default.BN(out_attribute.hp_max, 1)}💖+${common_1.default.BN(out_attribute.secondResHp, 0)}/s\n`;
-            if (out_attribute.MagicAttack > 1)
+            if (out_attribute.MagicAttack > 0)
                 temp += `🔮魔法攻击${common_1.default.BN(out_attribute.MagicAttack, 4)}\n`;
-            if (out_attribute.MagicDefense > 1)
+            if (out_attribute.MagicDefense > 10)
                 temp += `🌟魔法防御${common_1.default.BN(out_attribute.MagicDefense, 4)}\n`;
-            if (out_attribute.PhysicalAttacks > 1)
+            if (out_attribute.PhysicalAttacks > 0)
                 temp += `🔪物理攻击${common_1.default.BN(out_attribute.PhysicalAttacks, 4)}\n`;
-            if (out_attribute.PhysicalDefense > 1)
+            if (out_attribute.PhysicalDefense > 0)
                 temp += `🔰物理防御${common_1.default.BN(out_attribute.PhysicalDefense, 4)}\n`;
             temp += `┗┄━═════════━┄`;
             yield bot_1.default.sendText(channelId, temp);

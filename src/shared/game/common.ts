@@ -38,11 +38,11 @@ class common {
       this.rankMap.set(19, '⑳')
 
       this.leve_base_hp_max = 100;
-      this.leve_base_MagicAttack = 1;
-      this.leve_base_PhysicalAttacks = 1;
-      this.leve_base_MagicDefense = 0.1;
-      this.leve_base_PhysicalDefense = 0.1;
-      this.leve_base_secondResHp = 1;
+      this.leve_base_MagicAttack = 0;
+      this.leve_base_PhysicalAttacks = 0;
+      this.leve_base_MagicDefense = 0;
+      this.leve_base_PhysicalDefense = 0;
+      this.leve_base_secondResHp = 0.01;
 
    }
    /**
@@ -171,19 +171,19 @@ class common {
       for (const key in attribute) {
          switch (key) {
             case 'MagicAttack':
-               military += Math.ceil(attribute[key] / this.leve_base_MagicAttack)
+               military += Math.ceil(attribute[key])
                break;
             case 'hp_max':
-               military += Math.ceil(attribute[key] / this.leve_base_hp_max)
+               military += Math.ceil(attribute[key] / 100)
                break;
             case 'PhysicalAttacks':
-               military += Math.ceil(attribute[key] / this.leve_base_PhysicalAttacks)
+               military += Math.ceil(attribute[key])
                break;
             case 'MagicDefense':
-               military += Math.ceil(attribute[key] / this.leve_base_MagicDefense)
+               military += Math.ceil(attribute[key])
                break;
             case 'PhysicalDefense':
-               military += Math.ceil(attribute[key] / this.leve_base_PhysicalDefense)
+               military += Math.ceil(attribute[key])
                break;
             case 'secondResHp':
 
