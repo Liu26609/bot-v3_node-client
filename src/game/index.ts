@@ -118,6 +118,7 @@ import { rank_MinGame_horse_die } from './rank/rank_MinGame_horse_die';
 import { challenge_infinite } from './challenge/challenge_infinite';
 import { rank_Challenge_infinite } from './rank/rank_Challenge_infinite';
 import { challenge_greed } from './challenge/challenge_greed';
+import { me_saveUser } from './me/me_saveUser';
 
 enum matchType {
     /**
@@ -309,7 +310,7 @@ export default class game {
         this.matchMap.set('设置不显示伤害日志', { action: setUp, match: matchType.match, isShowMatch: false })
         this.matchMap.set('设置显示击杀日志', { action: setUp, match: matchType.match, isShowMatch: false })
         this.matchMap.set('设置不显示击杀日志', { action: setUp, match: matchType.match, isShowMatch: false })
-
+        this.matchMap.set('存档', { action: me_saveUser, match: matchType.all })
         this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
         this.matchMap.set('传送', { action: me_callPos, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })

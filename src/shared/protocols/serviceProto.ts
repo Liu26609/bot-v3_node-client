@@ -50,6 +50,7 @@ import { ReqMe_openBlindBox, ResMe_openBlindBox } from './PtlMe_openBlindBox';
 import { ReqMe_skill, ResMe_skill } from './PtlMe_skill';
 import { ReqMe_title, ResMe_title } from './PtlMe_title';
 import { ReqMe_wallet, ResMe_wallet } from './PtlMe_wallet';
+import { ReqMeSave, ResMeSave } from './PtlMeSave';
 import { ReqPos, ResPos } from './PtlPos';
 import { ReqResLife, ResResLife } from './PtlResLife';
 import { ReqSearchSkill, ResSearchSkill } from './PtlSearchSkill';
@@ -302,6 +303,10 @@ export interface ServiceType {
             req: ReqMe_wallet,
             res: ResMe_wallet
         },
+        "MeSave": {
+            req: ReqMeSave,
+            res: ResMeSave
+        },
         "Pos": {
             req: ReqPos,
             res: ResPos
@@ -553,7 +558,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 72,
+    "version": 73,
     "services": [
         {
             "id": 0,
@@ -808,6 +813,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 34,
             "name": "Me_wallet",
+            "type": "api"
+        },
+        {
+            "id": 130,
+            "name": "MeSave",
             "type": "api"
         },
         {
@@ -5554,6 +5564,21 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 }
             ]
+        },
+        "PtlMeSave/ReqMeSave": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlMeSave/ResMeSave": {
+            "type": "Interface"
         },
         "PtlPos/ReqPos": {
             "type": "Interface",
