@@ -349,11 +349,11 @@ export default class game {
             await bot.sendText(data.channel_id, data.author.id)
             return;
         }
-        if (data.content == '测试') {
-            log('测试')
-            bot.test(data.guild_id, data.author.id)
-            return;
-        }
+        // if (data.content == '测试') {
+        //     log('测试')
+        //     bot.test(data.guild_id, data.author.id)
+        //     return;
+        // }
         // if (data.content) {
         //     log('测试')
         //     for (let index = 0; index < 20; index++) {
