@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 72,
+    "version": 73,
     "services": [
         {
             "id": 0,
@@ -257,6 +257,11 @@ exports.serviceProto = {
         {
             "id": 34,
             "name": "Me_wallet",
+            "type": "api"
+        },
+        {
+            "id": 130,
+            "name": "MeSave",
             "type": "api"
         },
         {
@@ -5003,6 +5008,21 @@ exports.serviceProto = {
                     }
                 }
             ]
+        },
+        "PtlMeSave/ReqMeSave": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "PtlMeSave/ResMeSave": {
+            "type": "Interface"
         },
         "PtlPos/ReqPos": {
             "type": "Interface",

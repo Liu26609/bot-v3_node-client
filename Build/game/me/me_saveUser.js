@@ -12,10 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.me_resLife = void 0;
+exports.me_saveUser = void 0;
+const text_style_1 = require("./../temp/text/text_style");
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
-class me_resLife extends task_base_1.task_base {
+class me_saveUser extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
@@ -27,7 +28,12 @@ class me_resLife extends task_base_1.task_base {
                 this.sendErr(req.err);
                 return;
             }
+            let temp = new text_style_1.text_style();
+            temp.setTitle(`┏┄══📄存档成功═━┄`);
+            temp.addLine(`此功能说明`);
+            temp.addLine(`服务器每1小时统一存档,期间更新将会回档到上次保存数据,你可以手动存档减少损失`);
+            temp.sendMsg(this.channel_id);
         });
     }
 }
-exports.me_resLife = me_resLife;
+exports.me_saveUser = me_saveUser;

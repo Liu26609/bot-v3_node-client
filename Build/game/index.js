@@ -129,6 +129,7 @@ const rank_MinGame_horse_die_1 = require("./rank/rank_MinGame_horse_die");
 const challenge_infinite_1 = require("./challenge/challenge_infinite");
 const rank_Challenge_infinite_1 = require("./rank/rank_Challenge_infinite");
 const challenge_greed_1 = require("./challenge/challenge_greed");
+const me_saveUser_1 = require("./me/me_saveUser");
 var matchType;
 (function (matchType) {
     /**
@@ -281,6 +282,7 @@ class game {
         this.matchMap.set('设置不显示伤害日志', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
         this.matchMap.set('设置显示击杀日志', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
         this.matchMap.set('设置不显示击杀日志', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
+        this.matchMap.set('存档', { action: me_saveUser_1.me_saveUser, match: matchType.all });
         this.matchMap.set('强化', { action: me_strengthen_1.me_strengthen, match: matchType.match });
         this.matchMap.set('传送', { action: me_callPos_1.me_callPos, match: matchType.match });
         this.matchMap.set('上', { action: me_move_1.me_move, match: matchType.all });
