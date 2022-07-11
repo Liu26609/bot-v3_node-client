@@ -57,10 +57,10 @@ export class text_battleTemp_style {
                 itemLog += `│▌${free_skill.name}${common.BN(free_skill.val)}`;
                 itemLog += SKILL_UNITY_CN[SKILL_UNITY[free_skill.unit]]
             }
-
-            itemLog += '\n';
-
-            this.skillHurtLog[item.group] += itemLog;
+            if(itemLog.length > 0){
+                itemLog += '\n';
+                this.skillHurtLog[item.group] += itemLog;
+            }
         }
 
 
@@ -133,8 +133,8 @@ export class text_battleTemp_style {
             console.error('错误的调用！')
         }
         
-        if(new text_length().getlength(str) > 1500){
-            str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。\n'
+        if(new text_length().getlength(str) > 2000){
+            str = '字数已超过2000，你需要设置[分段发送]没开发功能。你可以定制开发。\n'
         }
         return str
     }

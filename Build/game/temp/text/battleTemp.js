@@ -44,8 +44,10 @@ class text_battleTemp_style {
                 itemLog += `│▌${free_skill.name}${common_1.default.BN(free_skill.val)}`;
                 itemLog += skill_2.SKILL_UNITY_CN[skill_1.SKILL_UNITY[free_skill.unit]];
             }
-            itemLog += '\n';
-            this.skillHurtLog[item.group] += itemLog;
+            if (itemLog.length > 0) {
+                itemLog += '\n';
+                this.skillHurtLog[item.group] += itemLog;
+            }
         }
         // 设置战斗奖励
         if (data.reward && data.reward.length > 0) {
@@ -117,8 +119,8 @@ class text_battleTemp_style {
         else {
             console.error('错误的调用！');
         }
-        if (new text_length_1.text_length().getlength(str) > 1500) {
-            str = '字数已超过1500，你需要设置[分段发送]没开发功能。你可以定制开发。\n';
+        if (new text_length_1.text_length().getlength(str) > 2000) {
+            str = '字数已超过2000，你需要设置[分段发送]没开发功能。你可以定制开发。\n';
         }
         return str;
     }
