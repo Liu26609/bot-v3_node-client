@@ -4,13 +4,14 @@ import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
 import sever from "../../../unity/sever";
 import { task_base } from "../../task_base";
+import db from "../../../unity/db";
 
-export class randomAncestry extends task_base{
-    constructor(...a){
+export class randomAncestry extends task_base {
+    constructor(...a) {
         super(...a);
         this.render()
     }
-    async render(){
+    async render() {
         let req = await sever.callApi('ancestry/Me_randomAncestry', { userId: this.userId })
         if (!req.isSucc) {
             this.sendErr(req.err)
@@ -20,7 +21,8 @@ export class randomAncestry extends task_base{
         let sk = req.res.SK;
         let pay = req.res.pay;
         let temp = `┏┄═══👑新的血统══━┄
-Ⓜ️来源[${info.from}]
+Ⓜ️出自:${info.from}
+🌏来源:${db.getMapName()[info.formId]}
 👑血统[${info.title}]
 ┄════初始分数══━┄
 ♥️最大生命${info.base.hp_max}分🔪物理攻击${info.base.PhysicalAttacks}分
@@ -31,6 +33,6 @@ export class randomAncestry extends task_base{
 🔻消耗${walletKey_CN[walletKey[pay.condition.key]]}x${pay.condition.val}
 ▶️还有${walletKey_CN[walletKey[pay.condition.key]]}x${pay.now}
 ┗┄${this.at()}┄`;
-        bot.sendText(this.channel_id,temp);
+        bot.sendText(this.channel_id, temp);
     }
 }

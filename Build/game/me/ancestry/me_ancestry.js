@@ -19,6 +19,7 @@ const body_1 = require("../../../shared/game/body");
 const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const task_base_1 = require("../../task_base");
+const db_1 = __importDefault(require("../../../unity/db"));
 class me_ancestry extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -34,7 +35,8 @@ class me_ancestry extends task_base_1.task_base {
             let data = req.res;
             let temp = new text_style_1.text_style();
             temp.setTitle(`┏┄═══👑我的进化══━┄`);
-            temp.addLine(`Ⓜ️来源[${data.ancestry.from}]`);
+            temp.addLine(`Ⓜ️出自:${data.ancestry.from}`);
+            temp.addLine(`🌏来源:${db_1.default.getMapName()[data.ancestry.formId]}`);
             temp.addLine(`👑${body_1.ancestryLeve[data.info.leve]}级[${data.ancestry.title}]`);
             if (data.info.todayGetExp <= 0) {
                 temp.addLine(`🧬进化点已达今日上限`);

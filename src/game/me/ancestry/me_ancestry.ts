@@ -1,11 +1,10 @@
 import { text_style } from './../../temp/text/text_style';
 import { text_example_style } from './../../temp/text/example';
 import { ancestryLeve } from "../../../shared/game/body";
-import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
 import sever from "../../../unity/sever";
 import { task_base } from "../../task_base";
-
+import db from '../../../unity/db';
 export class me_ancestry extends task_base {
     constructor(...a) {
         super(...a);
@@ -20,7 +19,8 @@ export class me_ancestry extends task_base {
         let data = req.res;
         let temp = new text_style();
         temp.setTitle(`┏┄═══👑我的进化══━┄`)
-        temp.addLine(`Ⓜ️来源[${data.ancestry.from}]`)
+        temp.addLine(`Ⓜ️出自:${data.ancestry.from}`)
+        temp.addLine(`🌏来源:${db.getMapName()[data.ancestry.formId]}`)
         temp.addLine(`👑${ancestryLeve[data.info.leve]}级[${data.ancestry.title}]`)
         if(data.info.todayGetExp <= 0){
             temp.addLine(`🧬进化点已达今日上限`)

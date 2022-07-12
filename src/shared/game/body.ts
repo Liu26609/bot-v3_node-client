@@ -160,6 +160,10 @@ export interface ancestry {
      * 附带技能
      */
     skill: number,
+    /**
+     * 来源
+     */
+    formId:number
 }
 export enum ancestryLeve {
     E,

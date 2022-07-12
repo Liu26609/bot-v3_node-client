@@ -18,6 +18,7 @@ const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const task_base_1 = require("../../task_base");
+const db_1 = __importDefault(require("../../../unity/db"));
 class randomAncestry extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -34,7 +35,8 @@ class randomAncestry extends task_base_1.task_base {
             let sk = req.res.SK;
             let pay = req.res.pay;
             let temp = `┏┄═══👑新的血统══━┄
-Ⓜ️来源[${info.from}]
+Ⓜ️出自:${info.from}
+🌏来源:${db_1.default.getMapName()[info.formId]}
 👑血统[${info.title}]
 ┄════初始分数══━┄
 ♥️最大生命${info.base.hp_max}分🔪物理攻击${info.base.PhysicalAttacks}分

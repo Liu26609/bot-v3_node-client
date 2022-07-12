@@ -34,6 +34,9 @@ class db {
             yield this.loadDirData(dbName.UserCfg);
         });
     }
+    getMapName() {
+        return ["未知领域", "修仙世界", "漫威世界"];
+    }
     /**
      * 创建一个数据，存在将覆盖
      * @param pathName

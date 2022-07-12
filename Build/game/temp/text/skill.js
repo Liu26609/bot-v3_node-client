@@ -14,7 +14,7 @@ exports.text_skill_style = void 0;
 const __1 = require("../../..");
 const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../shared/game/common"));
-let mapName = ["未知领域", "修仙世界", "漫威世界"];
+const db_1 = __importDefault(require("../../../unity/db"));
 class text_skill_style {
     constructor() {
     }
@@ -32,7 +32,7 @@ class text_skill_style {
         temp += `┏┄═══👑技能描述══━┄\n`;
         temp += `Ⓜ️名称:${info.name}\n`;
         temp += `Ⓜ️${info.isSell ? '可在商店购买' : '不可在商店购买'}\n`;
-        temp += `📖技能来源:${mapName[info.formId]}\n`;
+        temp += `📖技能来源:${db_1.default.getMapName()[info.formId]}\n`;
         temp += `📄效果描述:${common_1.default.getSkDesc(info)}\n`;
         temp += `🚀触发频率:${info.speed}\n`;
         temp += `<emoji:147>频率≠概率,部分技能需要有特殊条件才能触发\n`;
