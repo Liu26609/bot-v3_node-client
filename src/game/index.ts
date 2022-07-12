@@ -164,9 +164,14 @@ export default class game {
      * dev tips Map
      */
     devTipsMap: Map<string, boolean>
-
+    /**
+         * speedLock Map
+         * 消息速度限制
+         */
+    speedLockMap: Map<string, number>
 
     constructor() {
+        this.speedLockMap = new Map();
         this.devTipsMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
@@ -217,7 +222,7 @@ export default class game {
         this.matchMap.set(`赞助会员`, { action: me_vip, match: matchType.all })
         this.matchMap.set('复读', { action: me_Reread, match: matchType.all })
         this.matchMap.set('更新', { action: sys_update_code, match: matchType.all })
-        
+
         this.matchMap.set(`排行榜`, { action: rank_menu, match: matchType.all })
         this.matchMap.set('拍卖行', { action: auction_look, match: matchType.all })
         this.matchMap.set(`猜数`, { action: lottery, match: matchType.match })
@@ -386,7 +391,7 @@ export default class game {
         //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
         //     return;
         // }
-    
+
 
         const userId = data.author.id;
         const userIcon = data.author.avatar;
@@ -395,7 +400,15 @@ export default class game {
         const lastContent = this.contentMap.get(userId);
         const guild = data.guild_id;
 
+        if (this.speedLockMap.has(userId)) {
+            let lastSendTime = this.speedLockMap.get(userId) as number;
+            if (Date.now() - lastSendTime <= 300) {
 
+                bot.sendText(fromChannel, `检测到消息太过频繁,请稍等2秒`)
+                return;
+            }
+        }
+        this.speedLockMap.set(userId, Date.now())
 
 
         let content = data.content;

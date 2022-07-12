@@ -143,6 +143,7 @@ var matchType;
 })(matchType || (matchType = {}));
 class game {
     constructor() {
+        this.speedLockMap = new Map();
         this.devTipsMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
@@ -359,6 +360,14 @@ class game {
             const userName = data.author.username;
             const lastContent = this.contentMap.get(userId);
             const guild = data.guild_id;
+            if (this.speedLockMap.has(userId)) {
+                let lastSendTime = this.speedLockMap.get(userId);
+                if (Date.now() - lastSendTime <= 300) {
+                    bot_1.default.sendText(fromChannel, `检测到消息太过频繁,请稍等2秒`);
+                    return;
+                }
+            }
+            this.speedLockMap.set(userId, Date.now());
             let content = data.content;
             if (content == '复读') {
                 if (this.repeState.has(userId)) {
