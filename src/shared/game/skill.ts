@@ -133,8 +133,8 @@ export interface SKILL_ACTIVE {
     id: number,
     // 技能名称
     name: string,
-    // 技能故事
-    story: string,
+    // 技能来源
+    formId: number,
     // typeId:
     // 技能类型
     type: SKILL_TYPE,

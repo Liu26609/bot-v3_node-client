@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.searchSkill = void 0;
 const skill_1 = require("./../temp/text/skill");
-const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
 const example_1 = require("../temp/text/example");
@@ -39,7 +38,6 @@ class searchSkill extends task_base_1.task_base {
                 return;
             }
             let data = req.res;
-            yield bot_1.default.sendText(this.channel_id, `已为你找到相识度${data.match.toFixed(3)}%的技能`, this.content);
             new skill_1.text_skill_style().sendData(data.skill).sendMsg(this.channel_id);
         });
     }
