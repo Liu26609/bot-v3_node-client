@@ -357,7 +357,6 @@ class bot {
                 err('内容为空')
                 return;
             }
-            console.log(this.machMap.get(data.msg.target.id))
             let tempData = {
                 author: {
                     avatar: '',
@@ -427,7 +426,6 @@ class bot {
                 gCfg.master = data.author.id;
             }
         } catch (error) {
-            console.log(data)
             console.error('频道主艾特了',error)
         }
         

@@ -40,7 +40,6 @@ export class text_battleTemp_style {
         }
     }
     sendData(data: ResBattle) {
-        console.log(data)
         this.data = data;
         let battleList = data.log
         for (let index = 0; index < battleList.length; index++) {

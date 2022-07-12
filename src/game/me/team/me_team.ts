@@ -19,7 +19,6 @@ export class me_team extends task_base {
             this.notTeam();
             return;
         }
-        console.log(data)
         let team = `┏┄═══🏰我的工会══━┄
 工会名称:${data.info.name}
 我的职位：${teamLeve_CN[teamLeve[data.myLeve]]}

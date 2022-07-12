@@ -43,7 +43,6 @@ class text_attribute_style {
                 return;
             }
             const out_attribute = this.data.out_attribute;
-            console.log(out_attribute);
             let temp = ``;
             temp += this.data.title.name + '\n';
             temp += `┏┄═══👑属性══━┄\n`;

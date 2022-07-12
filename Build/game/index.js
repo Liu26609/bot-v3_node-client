@@ -62,7 +62,6 @@ const me_wallet_1 = require("./me/me_wallet");
 const pos_attackPlayer_1 = require("./battle/pos_attackPlayer");
 const me_move_1 = require("./map/me_move");
 const me_attribute_1 = require("./me/me_attribute");
-const __1 = require("..");
 const bot_1 = __importDefault(require("../unity/bot"));
 const sever_1 = __importDefault(require("../unity/sever"));
 const me_sign_1 = __importDefault(require("./me/me_sign"));
@@ -301,7 +300,6 @@ class game {
      */
     atBot(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            (0, __1.log)('收到消息', data.guild_id, data.author.username, data.content);
             // return
             if (!sever_1.default.isReady()) {
                 let temp = ``;

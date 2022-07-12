@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.attackBoss = void 0;
-const __1 = require("../..");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const common_1 = __importDefault(require("../../shared/game/common"));
 const sever_1 = __importDefault(require("../../unity/sever"));
@@ -31,9 +30,7 @@ class attackBoss extends task_base_1.task_base {
                 this.sendErr(req.err);
                 return;
             }
-            (0, __1.log)(req.res);
             let data = req.res;
-            (0, __1.log)(data);
             let temp = ``;
             let battleTemp = new battleTemp_1.text_battleTemp_style(this.UserCfg).sendData(data);
             let hurtLog = '';

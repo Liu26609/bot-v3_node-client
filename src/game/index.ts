@@ -334,7 +334,6 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
-        log('收到消息', data.guild_id, data.author.username, data.content)
         // return
         if (!sever.isReady()) {
             let temp = ``;

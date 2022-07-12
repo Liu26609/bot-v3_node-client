@@ -1,5 +1,3 @@
-import { log } from "../..";
-import { rewardKey, rewardKey_CN } from "../../shared/game/prop";
 import bot from "../../unity/bot";
 import common from "../../shared/game/common";
 import sever from "../../unity/sever";
@@ -17,9 +15,7 @@ export class attackBoss extends task_base {
             this.sendErr(req.err)
             return;
         }
-        log(req.res)
         let data = req.res;
-        log(data)
         let temp = ``;
 
 

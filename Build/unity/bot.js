@@ -386,7 +386,6 @@ class bot {
                     (0, __1.err)('内容为空');
                     return;
                 }
-                console.log(this.machMap.get(data.msg.target.id));
                 let tempData = {
                     author: {
                         avatar: '',
@@ -453,7 +452,6 @@ class bot {
             }
         }
         catch (error) {
-            console.log(data);
             console.error('频道主艾特了', error);
         }
         // 过滤艾特

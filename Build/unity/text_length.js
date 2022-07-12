@@ -51,7 +51,6 @@ class text_length {
         }
         return false;
     }
-    // console.log(estring("❤️❤️a🎅")); // 4
     getlength(str) {
         this.str = str;
         let emoji_str = this.emoji_str(this.str);

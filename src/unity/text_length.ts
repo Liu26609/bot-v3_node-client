@@ -53,7 +53,6 @@ export class text_length {
         }
         return false;
     }
-    // console.log(estring("❤️❤️a🎅")); // 4
 
     getlength(str:string) {
         this.str = str;
