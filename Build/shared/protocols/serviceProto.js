@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 74,
+    "version": 75,
     "services": [
         {
             "id": 0,
@@ -925,6 +925,10 @@ exports.serviceProto = {
                 {
                     "id": 23,
                     "value": 23
+                },
+                {
+                    "id": 24,
+                    "value": 24
                 }
             ]
         },
@@ -1573,6 +1577,14 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/skill/SKILL_ACTIVE_RES_TYPE"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "SkillType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/skill/SKILL_TYPE"
                     }
                 },
                 {

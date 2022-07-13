@@ -123,7 +123,11 @@ export enum SKILL_TYPE {
     /**
      * 让地方全体停止攻击N回合
      */
-    stop_attack_all
+    stop_attack_all,
+    /**
+     * 永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能遗忘无效)
+     */
+    stopAttack_forever
 }
 /**
  * 主动技能
@@ -163,7 +167,7 @@ export enum SKILL_ACTIVE_RES_TYPE {
     /**
      * 让对手停止攻击
      */
-    stopAttack
+    stopAttack,
 }
 /**
  * 技能目标
@@ -268,6 +272,7 @@ export interface SKILL_RES {
     name: string,
     // 返回值类型
     type: SKILL_ACTIVE_RES_TYPE,
+    SkillType:SKILL_TYPE,
     // 数值
     val: number,
     // 目标

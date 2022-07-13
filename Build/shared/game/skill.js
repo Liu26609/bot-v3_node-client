@@ -128,6 +128,10 @@ var SKILL_TYPE;
      * 让地方全体停止攻击N回合
      */
     SKILL_TYPE[SKILL_TYPE["stop_attack_all"] = 23] = "stop_attack_all";
+    /**
+     * 永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能遗忘无效)
+     */
+    SKILL_TYPE[SKILL_TYPE["stopAttack_forever"] = 24] = "stopAttack_forever";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {

@@ -1,4 +1,3 @@
-import { body } from './body';
 
 export interface USER_SIGN {
     // 签到次数

@@ -344,6 +344,9 @@ class common {
             case skill_1.SKILL_TYPE.stop_attack_all:
                 temp += `让一个敌人全体${info.data[0]}回合不能释放任何技能`;
                 break;
+            case skill_1.SKILL_TYPE.stopAttack_forever:
+                temp += `永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能/友谊切磋/遗忘无效)`;
+                break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
                 break;

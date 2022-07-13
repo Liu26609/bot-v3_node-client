@@ -167,54 +167,54 @@ class common {
    coverTaskIdTips(id: TaskId) {
       let str = ``;
       switch (id) {
-          case TaskId.sign:
-              str = `[签到]签什么到，钓鱼去！`
-              break;
-          case TaskId.SkillShop_look:
-              str = `[技能商店]查看技能商店`
-              break;
-          case TaskId.BackShop_look:
-              str = `[黑市商店]不正当的PY商店`
-              break;
-          case TaskId.EquipShop_look:
-              str = `[装备商店]查看装备商店`
-              break;
-          case TaskId.PK:
-              str = `[PK]频道PK点到为止`
-              break;
-          case TaskId.catch:
-              str = `[捕捉]废品收集器`
-              break;
-          case TaskId.fishing:
-              str = `[钓鱼]钓鱼佬绝不空军`
-              break;
-          case TaskId.attackMonster:
-              str = `[攻击怪物]闲的无聊打个怪`
-              break;
-          case TaskId.attackBoss_partake:
-              str = `[攻击boss]刮痧师傅在线刮痧`
-              break;
-          case TaskId.rank:
-              str = `[华山论剑]菜鸡互啄`
-              break;
-          case TaskId.lottery_partake:
-              str = `[猜数]中是不可能中的`
-              break;
-          case TaskId.look_Horse:
-              str = `[宠物马拉松]查看一次宠物马拉松`
-              break;
-          case TaskId.challenge_hit:
-              str = `[伤害挑战]最高爆发伤害挑战`
-              break;
-          case TaskId.challenge_greed:
-              str = `[贪婪洞窟]与欲望为敌`
-              break;
-          default:
-              str = `未收录任务id${id}`
-              break;
+         case TaskId.sign:
+            str = `[签到]签什么到，钓鱼去！`
+            break;
+         case TaskId.SkillShop_look:
+            str = `[技能商店]查看技能商店`
+            break;
+         case TaskId.BackShop_look:
+            str = `[黑市商店]不正当的PY商店`
+            break;
+         case TaskId.EquipShop_look:
+            str = `[装备商店]查看装备商店`
+            break;
+         case TaskId.PK:
+            str = `[PK]频道PK点到为止`
+            break;
+         case TaskId.catch:
+            str = `[捕捉]废品收集器`
+            break;
+         case TaskId.fishing:
+            str = `[钓鱼]钓鱼佬绝不空军`
+            break;
+         case TaskId.attackMonster:
+            str = `[攻击怪物]闲的无聊打个怪`
+            break;
+         case TaskId.attackBoss_partake:
+            str = `[攻击boss]刮痧师傅在线刮痧`
+            break;
+         case TaskId.rank:
+            str = `[华山论剑]菜鸡互啄`
+            break;
+         case TaskId.lottery_partake:
+            str = `[猜数]中是不可能中的`
+            break;
+         case TaskId.look_Horse:
+            str = `[宠物马拉松]查看一次宠物马拉松`
+            break;
+         case TaskId.challenge_hit:
+            str = `[伤害挑战]最高爆发伤害挑战`
+            break;
+         case TaskId.challenge_greed:
+            str = `[贪婪洞窟]与欲望为敌`
+            break;
+         default:
+            str = `未收录任务id${id}`
+            break;
       }
       return str
-  }
+   }
    /**
     * 计算战力
     */
@@ -353,6 +353,9 @@ class common {
             break;
          case SKILL_TYPE.stop_attack_all:
             temp += `让一个敌人全体${info.data[0]}回合不能释放任何技能`
+            break;
+         case SKILL_TYPE.stopAttack_forever:
+            temp += `永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能/友谊切磋/遗忘无效)`
             break;
          default:
             temp += `这个技能好像还没有收录到系统`;

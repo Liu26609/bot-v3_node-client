@@ -558,7 +558,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 74,
+    "version": 75,
     "services": [
         {
             "id": 0,
@@ -1481,6 +1481,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 23,
                     "value": 23
+                },
+                {
+                    "id": 24,
+                    "value": 24
                 }
             ]
         },
@@ -2129,6 +2133,14 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/skill/SKILL_ACTIVE_RES_TYPE"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "SkillType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/skill/SKILL_TYPE"
                     }
                 },
                 {
