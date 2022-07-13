@@ -127,7 +127,12 @@ export enum SKILL_TYPE {
     /**
      * 永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能遗忘无效)
      */
-    stopAttack_forever
+    stopAttack_forever,
+    /**
+     * 每触发一次提高N点魔法/物理防御
+     * 参数1：提高防御值
+     */
+    upAllDefense_fixed
 }
 /**
  * 主动技能
@@ -230,7 +235,11 @@ export enum SKILL_UNITY {
      */
     resHp,
     upPhysics,
-    upMagic
+    upMagic,
+    /**
+     * 提高双防
+     */
+    upAllDefense
 }
 export enum SKILL_UNITY_CN {
     /**
@@ -252,18 +261,19 @@ export enum SKILL_UNITY_CN {
     /**
      * 
      */
-    upPhysicalDefense = '+🔰',
+    upPhysicalDefense = '🔺🔰',
     /**
          * 提高魔防值
          */
-    upMagicDefense = '+🌟',
+    upMagicDefense = '🔺🌟',
     upPhysics = '',
     upMagic = '',
     /**
      * 提高全部属性
      */
     upAll = '🔺',
-    resHp = '💖'
+    resHp = '💖',
+    upAllDefense = '🔺🌟🔰'
 }
 export interface SKILL_RES {
     // 技能id

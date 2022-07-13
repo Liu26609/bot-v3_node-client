@@ -132,6 +132,11 @@ var SKILL_TYPE;
      * 永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能遗忘无效)
      */
     SKILL_TYPE[SKILL_TYPE["stopAttack_forever"] = 24] = "stopAttack_forever";
+    /**
+     * 每触发一次提高N点魔法/物理防御
+     * 参数1：提高防御值
+     */
+    SKILL_TYPE[SKILL_TYPE["upAllDefense_fixed"] = 25] = "upAllDefense_fixed";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -220,6 +225,10 @@ var SKILL_UNITY;
     SKILL_UNITY[SKILL_UNITY["resHp"] = 7] = "resHp";
     SKILL_UNITY[SKILL_UNITY["upPhysics"] = 8] = "upPhysics";
     SKILL_UNITY[SKILL_UNITY["upMagic"] = 9] = "upMagic";
+    /**
+     * 提高双防
+     */
+    SKILL_UNITY[SKILL_UNITY["upAllDefense"] = 10] = "upAllDefense";
 })(SKILL_UNITY = exports.SKILL_UNITY || (exports.SKILL_UNITY = {}));
 var SKILL_UNITY_CN;
 (function (SKILL_UNITY_CN) {
@@ -242,11 +251,11 @@ var SKILL_UNITY_CN;
     /**
      *
      */
-    SKILL_UNITY_CN["upPhysicalDefense"] = "+\uD83D\uDD30";
+    SKILL_UNITY_CN["upPhysicalDefense"] = "\uD83D\uDD3A\uD83D\uDD30";
     /**
          * 提高魔防值
          */
-    SKILL_UNITY_CN["upMagicDefense"] = "+\uD83C\uDF1F";
+    SKILL_UNITY_CN["upMagicDefense"] = "\uD83D\uDD3A\uD83C\uDF1F";
     SKILL_UNITY_CN["upPhysics"] = "";
     SKILL_UNITY_CN["upMagic"] = "";
     /**
@@ -254,4 +263,5 @@ var SKILL_UNITY_CN;
      */
     SKILL_UNITY_CN["upAll"] = "\uD83D\uDD3A";
     SKILL_UNITY_CN["resHp"] = "\uD83D\uDC96";
+    SKILL_UNITY_CN["upAllDefense"] = "\uD83D\uDD3A\uD83C\uDF1F\uD83D\uDD30";
 })(SKILL_UNITY_CN = exports.SKILL_UNITY_CN || (exports.SKILL_UNITY_CN = {}));

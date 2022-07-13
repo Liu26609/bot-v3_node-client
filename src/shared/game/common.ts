@@ -357,6 +357,9 @@ class common {
          case SKILL_TYPE.stopAttack_forever:
             temp += `永远停止攻击直到战斗结束，但该技能也将永久遗忘(血统/装备技能/友谊切磋/遗忘无效)`
             break;
+         case SKILL_TYPE.upAllDefense_fixed:
+            temp += `每次触发提高${info.data[0]}物理防御，${info.data[0]}魔法防御`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

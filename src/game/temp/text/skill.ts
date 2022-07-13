@@ -29,7 +29,7 @@ export class text_skill_style {
         let temp = ``;
         temp += `┏┄═══👑技能描述══━┄\n`;
         temp += `Ⓜ️名称:${info.name}\n`;
-        temp += `Ⓜ️${info.isSell?'可在商店购买':'不可在商店购买'}\n`;
+        temp += `🛒${info.isSell?'可在商店购买':'不可在商店购买'}\n`;
         temp += `📖技能来源:${db.getMapName()[info.formId]}\n`;
         temp += `📄效果描述:${common.getSkDesc(info)}\n`;
         temp += `🚀触发频率:${info.speed}\n`;
