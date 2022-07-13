@@ -424,7 +424,7 @@ class bot {
             textStrStyle: userCfg_1.USER_CFG_TEXTSTRSTYLE.default,
             msgTemplate: userCfg_1.USER_CFG_MSGTEMPLATE.card,
             isShowPos: false,
-            isHideSkill_Log: true
+            isHideSkill_Log: false
         };
         return temp;
     }

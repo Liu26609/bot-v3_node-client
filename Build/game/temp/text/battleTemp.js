@@ -118,8 +118,8 @@ class text_battleTemp_style {
         else {
             console.error('错误的调用！');
         }
-        if (new text_length_1.text_length().getlength(str) > 2000) {
-            str = '字数已超过2000，你需要设置[分段发送]没开发功能。你可以定制开发。\n';
+        if (new text_length_1.text_length().getlength(str) > 2500) {
+            str = '字数已超过2500，你需要设置[分段发送]没开发功能。你可以定制开发。\n';
         }
         return str;
     }
