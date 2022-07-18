@@ -19,7 +19,7 @@ class db {
         await this.loadDirData(dbName.UserCfg);
     }
     getMapName(){
-        return ["未知领域","修仙世界","漫威世界"]
+        return ["未知领域","修仙世界","漫威世界","哈利·波特魔法世界"]
     }
     /**
      * 创建一个数据，存在将覆盖
