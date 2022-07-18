@@ -33,4 +33,5 @@ async function start() {
         // 开始测试实例
         new game();
     })
+   
 }

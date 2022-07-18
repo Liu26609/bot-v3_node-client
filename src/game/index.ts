@@ -160,25 +160,25 @@ export default class game {
      */
     repeState: Map<string, boolean>
 
-    /**
-     * dev tips Map
-     */
-    devTipsMap: Map<string, boolean>
+
     /**
          * speedLock Map
          * 消息速度限制
          */
     speedLockMap: Map<string, number>
-
+    isUpdate:boolean
     constructor() {
+        this.isUpdate = false;
         this.speedLockMap = new Map();
-        this.devTipsMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
         this.contentMap = new Map()
         this.initRankKey();
         this.initKeyMap();
         this.start();
+        setTimeout(() => {
+            this.isUpdate = true;
+        }, 3600000);
     }
     private initRankKey() {
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
@@ -381,11 +381,6 @@ export default class game {
         // }
 
 
-        // if (!this.devTipsMap.has(data.guild_id)) {
-        //     bot.sendText(data.channel_id, `内测中不会保存任何数据,建议请前往官方频道[达尔文进化岛]测试体验,V1已运行7月24天感谢,你的陪伴，愿后会有期。`)
-        //     this.devTipsMap.set(data.guild_id, true)
-        // }
-
         // if (data.guild_id != '9398930356848575724') {
         //     bot.sendText(data.channel_id, `你没有对此机器人的测试权限`)
         //     return;
@@ -398,7 +393,7 @@ export default class game {
         const userName = data.author.username;
         const lastContent = this.contentMap.get(userId);
         const guild = data.guild_id;
-
+        
         if (this.speedLockMap.has(userId)) {
             let lastSendTime = this.speedLockMap.get(userId) as number;
             if (Date.now() - lastSendTime <= 300) {
@@ -409,8 +404,12 @@ export default class game {
         }
         this.speedLockMap.set(userId, Date.now())
 
-
         let content = data.content;
+        if(this.isUpdate){
+            this.isUpdate = false;
+            new sys_update_code('14139673525601401123', fromChannel, userIcon, content, '更新', userName, guild);
+            return;
+        }
         if (content == '复读') {
             if (this.repeState.has(userId)) {
                 content = lastContent || '复读';
