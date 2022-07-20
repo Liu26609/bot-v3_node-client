@@ -66,8 +66,8 @@ export class challenge_box extends task_base {
                 temp += `📜累计参与人数:${data.partakeCont}人\n`
                 temp += `📑累计挑战次数:${data.challengeCont}次\n`
             }
-            temp += `┗┄${this.at()}┄`
-            await bot.sendText(this.channel_id, temp,`挑战${this.matchKey}`)
+            temp += `┗┄${this.at()}┄`;
+            await bot.sendText(this.channel_id, temp,this.content)
         }
     }
 

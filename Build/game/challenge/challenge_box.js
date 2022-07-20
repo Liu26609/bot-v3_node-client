@@ -74,7 +74,7 @@ class challenge_box extends task_base_1.task_base {
                     temp += `📑累计挑战次数:${data.challengeCont}次\n`;
                 }
                 temp += `┗┄${this.at()}┄`;
-                yield bot_1.default.sendText(this.channel_id, temp, `挑战${this.matchKey}`);
+                yield bot_1.default.sendText(this.channel_id, temp, this.content);
             }
         });
     }
