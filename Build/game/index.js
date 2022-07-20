@@ -46,7 +46,7 @@ const shop_back_buy_1 = require("./shop/shop_back_buy");
 const me_titleRandom_1 = require("./me/title/me_titleRandom");
 const me_title_1 = require("./me/me_title");
 const me_callPos_1 = require("./me/me_callPos");
-const me_strengthen_1 = require("./me/equip/me_strengthen");
+const strengthen_wearEquip_1 = require("./me/equip/strengthen_wearEquip");
 const me_skill_1 = require("./me/me_skill");
 const shop_skill_buy_1 = require("./shop/shop_skill_buy");
 const shop_skill_1 = require("./shop/shop_skill");
@@ -54,8 +54,8 @@ const shop_equip_buy_1 = require("./shop/shop_equip_buy");
 const shop_equip_1 = require("./shop/shop_equip");
 const me_destroyBagEquip_1 = require("./me/equip/me_destroyBagEquip");
 const me_wearEquip_1 = require("./me/equip/me_wearEquip");
-const me_lookBag_1 = require("./me/me_lookBag");
-const me_bag_1 = require("./me/me_bag");
+const me_lookBag_1 = require("./me/equip/me_lookBag");
+const me_bag_1 = require("./me/equip/me_bag");
 const me_resLife_1 = require("./me/me_resLife");
 const me_changeName_1 = require("./me/me_changeName");
 const me_wallet_1 = require("./me/me_wallet");
@@ -74,7 +74,7 @@ const setUp_1 = require("./sys/setUp");
 const searchSkill_1 = require("./sys/searchSkill");
 const me_destroyMeSkill_1 = require("./me/me_destroyMeSkill");
 const me_openBlindBox_1 = require("./me/me_openBlindBox");
-const me_equip_1 = require("./me/me_equip");
+const me_equip_1 = require("./me/equip/me_equip");
 const me_titleChangeName_1 = require("./me/me_titleChangeName");
 const shop_back_1 = require("./shop/shop_back");
 const auction_1 = require("./shop/auction");
@@ -129,6 +129,7 @@ const challenge_infinite_1 = require("./challenge/challenge_infinite");
 const rank_Challenge_infinite_1 = require("./rank/rank_Challenge_infinite");
 const challenge_greed_1 = require("./challenge/challenge_greed");
 const me_saveUser_1 = require("./me/me_saveUser");
+const strengthen_bagEquip_1 = require("./me/equip/strengthen_bagEquip");
 var matchType;
 (function (matchType) {
     /**
@@ -142,7 +143,6 @@ var matchType;
 })(matchType || (matchType = {}));
 class game {
     constructor() {
-        this.isUpdate = false;
         this.speedLockMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
@@ -151,8 +151,8 @@ class game {
         this.initKeyMap();
         this.start();
         setTimeout(() => {
-            this.isUpdate = true;
-        }, 3600000);
+            process.exit();
+        }, 10800000);
     }
     initRankKey() {
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen_1.rank_strengthen, match: matchType.all });
@@ -210,6 +210,7 @@ class game {
         this.matchMap.set('挂机', { action: me_AutoPlay_1.me_AutoPlay, match: matchType.match });
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('查看背包装备', { action: me_lookBag_1.me_lookBag, match: matchType.match });
+        this.matchMap.set('强化背包装备', { action: strengthen_bagEquip_1.strengthen_bagEquip, match: matchType.match });
         this.matchMap.set('分解全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
         this.matchMap.set('一言', { action: addOneWrod_1.addOneWord, match: matchType.match });
         this.matchMap.set('称号改名', { action: me_titleChangeName_1.me_titleChangeName, match: matchType.match });
@@ -286,7 +287,7 @@ class game {
         this.matchMap.set('设置显示击杀日志', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
         this.matchMap.set('设置不显示击杀日志', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });
         this.matchMap.set('存档', { action: me_saveUser_1.me_saveUser, match: matchType.all });
-        this.matchMap.set('强化', { action: me_strengthen_1.me_strengthen, match: matchType.match });
+        this.matchMap.set('强化', { action: strengthen_wearEquip_1.strengthen_wearEquip, match: matchType.match });
         this.matchMap.set('传送', { action: me_callPos_1.me_callPos, match: matchType.match });
         this.matchMap.set('上', { action: me_move_1.me_move, match: matchType.all });
         this.matchMap.set('下', { action: me_move_1.me_move, match: matchType.all });
@@ -366,11 +367,6 @@ class game {
             }
             this.speedLockMap.set(userId, Date.now());
             let content = data.content;
-            if (this.isUpdate) {
-                this.isUpdate = false;
-                new updateDev_1.sys_update_code('14139673525601401123', fromChannel, userIcon, content, '更新', userName, guild);
-                return;
-            }
             if (content == '复读') {
                 if (this.repeState.has(userId)) {
                     content = lastContent || '复读';

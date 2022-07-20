@@ -1,10 +1,10 @@
-import { log } from "../..";
-import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from "../../shared/game/equip";
-import bot from "../../unity/bot";
-import common from "../../shared/game/common";
-import sever from "../../unity/sever";
-import { task_base } from "../task_base";
-import { text_example_style } from "../temp/text/example";
+import { log } from "../../..";
+import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from "../../../shared/game/equip";
+import bot from "../../../unity/bot";
+import common from "../../../shared/game/common";
+import sever from "../../../unity/sever";
+import { task_base } from "../../task_base";
+import { text_example_style } from "../../temp/text/example";
 export class me_equip extends task_base {
     constructor(...a) {
         super(...a);
@@ -37,22 +37,23 @@ export class me_equip extends task_base {
                     if (val <= 0) {
                         continue;
                     }
-                    showCont += 1;
-                    temp += `${attr.icon}${common.BN(val)}`;
                     if (showCont % 3 == 0) {
                         temp += '\n';
                     }
+                    showCont += 1;
+                    temp += `${attr.icon}${common.BN(val)}`;
                 }
                 temp += '\n';
-                // temp += `♥️${common.BN(common.converEquipattribute(info, `hp_max`))}💖${common.BN(common.converEquipattribute(info, `secondResHp`))}🌟${common.BN(common.converEquipattribute(info, `MagicDefense`))}\n`
-                // temp += `🔮${common.BN(common.converEquipattribute(info, `MagicAttack`))}🔪${common.BN(common.converEquipattribute(info, `PhysicalAttacks`))}🔰${common.BN(common.converEquipattribute(info, `PhysicalDefense`))}\n`;
             });
-            temp = temp.replace('\n\n','\n')
+            temp = temp.replace('\n\n', '\n')
         } else {
             temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
         }
         temp += `┗┄${this.at()}┄\n`;
-        bot.sendText(this.channel_id, temp,this.content)
-        new text_example_style().setCommand('强化装备指令:强化 + 装备位置').setExample('强化主武器').sendMsg(this.channel_id)
+        bot.sendText(this.channel_id, temp, this.content)
+        this.tips()
+    }
+    tips() {
+        new text_example_style().setCommand('强化装备指令:强化 + 装备类型').setExample('强化武器').sendMsg(this.channel_id)
     }
 }

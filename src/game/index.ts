@@ -32,7 +32,7 @@ import { shop_back_buy } from './shop/shop_back_buy';
 import { me_titleRandom } from './me/title/me_titleRandom';
 import { me_title } from './me/me_title';
 import { me_callPos } from './me/me_callPos';
-import { me_strengthen } from './me/equip/me_strengthen';
+import { strengthen_wearEquip } from './me/equip/strengthen_wearEquip';
 import { me_skill } from './me/me_skill';
 import { shop_skill_buy } from './shop/shop_skill_buy';
 import { shop_skill } from './shop/shop_skill';
@@ -40,8 +40,8 @@ import { shop_equip_buy } from './shop/shop_equip_buy';
 import { shop_equip } from './shop/shop_equip';
 import { me_destroyBagEquip } from './me/equip/me_destroyBagEquip';
 import { me_wearEquip } from './me/equip/me_wearEquip';
-import { me_lookBag } from './me/me_lookBag';
-import { me_bag } from './me/me_bag';
+import { me_lookBag } from './me/equip/me_lookBag';
+import { me_bag } from './me/equip/me_bag';
 import { me_resLife } from './me/me_resLife';
 import { me_changeName } from './me/me_changeName';
 import { me_wallet } from './me/me_wallet';
@@ -62,7 +62,7 @@ import { setUp } from './sys/setUp';
 import { searchSkill } from './sys/searchSkill';
 import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
-import { me_equip } from './me/me_equip';
+import { me_equip } from './me/equip/me_equip';
 import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
 import { auction } from './shop/auction';
@@ -119,6 +119,8 @@ import { challenge_infinite } from './challenge/challenge_infinite';
 import { rank_Challenge_infinite } from './rank/rank_Challenge_infinite';
 import { challenge_greed } from './challenge/challenge_greed';
 import { me_saveUser } from './me/me_saveUser';
+import botCfg from '../botCfg';
+import { strengthen_bagEquip } from './me/equip/strengthen_bagEquip';
 
 enum matchType {
     /**
@@ -166,9 +168,7 @@ export default class game {
          * 消息速度限制
          */
     speedLockMap: Map<string, number>
-    isUpdate:boolean
     constructor() {
-        this.isUpdate = false;
         this.speedLockMap = new Map();
         this.repeState = new Map();
         this.matchMap = new Map();
@@ -177,8 +177,8 @@ export default class game {
         this.initKeyMap();
         this.start();
         setTimeout(() => {
-            this.isUpdate = true;
-        }, 3600000);
+            process.exit()
+        }, 10800000);
     }
     private initRankKey() {
         this.matchMap.set(`强化排行榜`, { action: rank_strengthen, match: matchType.all })
@@ -238,6 +238,7 @@ export default class game {
         this.matchMap.set('挂机', { action: me_AutoPlay, match: matchType.match })
         this.matchMap.set('攻击全部怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('查看背包装备', { action: me_lookBag, match: matchType.match })
+        this.matchMap.set('强化背包装备', { action: strengthen_bagEquip, match: matchType.match })
         this.matchMap.set('分解全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('一言', { action: addOneWord, match: matchType.match })
         this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
@@ -316,7 +317,7 @@ export default class game {
         this.matchMap.set('设置显示击杀日志', { action: setUp, match: matchType.match, isShowMatch: false })
         this.matchMap.set('设置不显示击杀日志', { action: setUp, match: matchType.match, isShowMatch: false })
         this.matchMap.set('存档', { action: me_saveUser, match: matchType.all })
-        this.matchMap.set('强化', { action: me_strengthen, match: matchType.match })
+        this.matchMap.set('强化', { action: strengthen_wearEquip, match: matchType.match })
         this.matchMap.set('传送', { action: me_callPos, match: matchType.match })
         this.matchMap.set('上', { action: me_move, match: matchType.all })
         this.matchMap.set('下', { action: me_move, match: matchType.all })
@@ -393,7 +394,7 @@ export default class game {
         const userName = data.author.username;
         const lastContent = this.contentMap.get(userId);
         const guild = data.guild_id;
-        
+
         if (this.speedLockMap.has(userId)) {
             let lastSendTime = this.speedLockMap.get(userId) as number;
             if (Date.now() - lastSendTime <= 300) {
@@ -405,11 +406,7 @@ export default class game {
         this.speedLockMap.set(userId, Date.now())
 
         let content = data.content;
-        if(this.isUpdate){
-            this.isUpdate = false;
-            new sys_update_code('14139673525601401123', fromChannel, userIcon, content, '更新', userName, guild);
-            return;
-        }
+
         if (content == '复读') {
             if (this.repeState.has(userId)) {
                 content = lastContent || '复读';

@@ -360,6 +360,9 @@ class common {
          case SKILL_TYPE.upAllDefense_fixed:
             temp += `每次触发提高${info.data[0]}物理防御，${info.data[0]}魔法防御`
             break;
+         case SKILL_TYPE.resHp_fixed_all:
+            temp += `每次触发回复我方全体${info.data[0]}生命`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

@@ -25,6 +25,7 @@ import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPl
 import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_destroyBagEquip';
 import { ReqMe_strengthen, ResMe_strengthen } from './me/equip/PtlMe_strengthen';
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
+import { ReqStrengthen_bagEquip, ResStrengthen_bagEquip } from './me/equip/PtlStrengthen_bagEquip';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqHorse, ResHorse } from './minGame/PtlHorse';
@@ -218,6 +219,10 @@ export interface ServiceType {
         "me/equip/Me_wearEquip": {
             req: ReqMe_wearEquip,
             res: ResMe_wearEquip
+        },
+        "me/equip/Strengthen_bagEquip": {
+            req: ReqStrengthen_bagEquip,
+            res: ResStrengthen_bagEquip
         },
         "me/title/Me_title_changeName": {
             req: ReqMe_title_changeName,
@@ -558,7 +563,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 76,
+    "version": 77,
     "services": [
         {
             "id": 0,
@@ -688,6 +693,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 123,
             "name": "me/equip/Me_wearEquip",
+            "type": "api"
+        },
+        {
+            "id": 131,
+            "name": "me/equip/Strengthen_bagEquip",
             "type": "api"
         },
         {
@@ -1489,6 +1499,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 25,
                     "value": 25
+                },
+                {
+                    "id": 26,
+                    "value": 26
                 }
             ]
         },
@@ -2205,6 +2219,10 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 4,
                     "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
                 }
             ]
         },
@@ -4460,6 +4478,37 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "name": "change_military",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlStrengthen_bagEquip/ReqStrengthen_bagEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "bagIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlStrengthen_bagEquip/ResStrengthen_bagEquip": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "me/equip/PtlMe_strengthen/ResMe_strengthen"
                     }
                 }
             ]

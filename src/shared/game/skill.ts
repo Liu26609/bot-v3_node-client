@@ -132,7 +132,12 @@ export enum SKILL_TYPE {
      * 每触发一次提高N点魔法/物理防御
      * 参数1：提高防御值
      */
-    upAllDefense_fixed
+    upAllDefense_fixed,
+    /**
+     * 回复我方全体生命
+     * 参数1:回复值
+     */
+    resHp_fixed_all
 }
 /**
  * 主动技能
@@ -173,6 +178,10 @@ export enum SKILL_ACTIVE_RES_TYPE {
      * 让对手停止攻击
      */
     stopAttack,
+    /**
+     * 回复生命
+     */
+    resHp
 }
 /**
  * 技能目标
@@ -282,7 +291,7 @@ export interface SKILL_RES {
     name: string,
     // 返回值类型
     type: SKILL_ACTIVE_RES_TYPE,
-    SkillType:SKILL_TYPE,
+    SkillType: SKILL_TYPE,
     // 数值
     val: number,
     // 目标

@@ -1,7 +1,7 @@
-import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_ICON } from '../../shared/game/equip';
-import bot from '../../unity/bot';
-import sever from '../../unity/sever';
-import { task_base } from './../task_base';
+import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_ICON } from '../../../shared/game/equip';
+import bot from '../../../unity/bot';
+import sever from '../../../unity/sever';
+import { task_base } from '../../task_base';
 export class me_bag extends task_base {
     constructor(...a) {
         super(...a)
@@ -36,6 +36,7 @@ export class me_bag extends task_base {
         let temps = ``;
         temps += `┏┄═══👑指令提示══━┄\n`;
         temps += `[查看背包装备 + 数字]查看指定装备属性\n`;
+        temps += `[强化背包装备 + 数字]强化背包指定装备\n`;
         temps += `[穿装备 + 数字]装备上指定装备\n`;
         temps += `[分解装备 + 数字]分解指定装备\n`;
         temps += `[分解全部装备]分解背包全部装备\n`;
