@@ -62,7 +62,7 @@ import { setUp } from './sys/setUp';
 import { searchSkill } from './sys/searchSkill';
 import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
-import { me_equip } from './me/me_equip';
+import { me_equip } from './me/equip/me_equip';
 import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
 import { auction } from './shop/auction';
