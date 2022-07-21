@@ -32,6 +32,7 @@ export class me_team extends task_base {
 🔰物理防御+${data.info.gain.PhysicalDefense}
 🔮魔法攻击+${data.info.gain.MagicAttack}
 🌟魔法防御+${data.info.gain.MagicDefense}
+💖生命恢复+${data.info.gain.secondResHp}
 ┗┄${this.at()}┄
 <emoji:147>击杀其他玩家将获得贡献值`;
         bot.sendText(this.channel_id, team,this.content);
