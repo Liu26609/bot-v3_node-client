@@ -166,7 +166,7 @@ export default class game {
          * 消息速度限制
          */
     speedLockMap: Map<string, number>
-    isUpdate:boolean
+    isUpdate: boolean
     constructor() {
         this.isUpdate = false;
         this.speedLockMap = new Map();
@@ -393,7 +393,7 @@ export default class game {
         const userName = data.author.username;
         const lastContent = this.contentMap.get(userId);
         const guild = data.guild_id;
-        
+
         if (this.speedLockMap.has(userId)) {
             let lastSendTime = this.speedLockMap.get(userId) as number;
             if (Date.now() - lastSendTime <= 300) {
@@ -405,7 +405,7 @@ export default class game {
         this.speedLockMap.set(userId, Date.now())
 
         let content = data.content;
-        if(this.isUpdate){
+        if (this.isUpdate) {
             this.isUpdate = false;
             new sys_update_code('14139673525601401123', fromChannel, userIcon, content, '更新', userName, guild);
             return;
