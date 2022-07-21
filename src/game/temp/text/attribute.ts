@@ -50,7 +50,7 @@ export class text_attribute_style {
         }
         // 工会
         if (this.team) {
-            temp += `🏰${this.team.leve}级工会:${this.team.name}[${teamLeve_CN[teamLeve[this.data.team.leve]]}]\n`
+            temp += `🏰${this.team.leve}级工会${teamLeve_CN[teamLeve[this.data.team.leve]]}:${this.team.name}\n`
         }
         temp += `⚜️声望值:${common.BN(this.data.rankscore)}`;
 
