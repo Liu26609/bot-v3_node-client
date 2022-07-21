@@ -363,6 +363,9 @@ class common {
          case SKILL_TYPE.resHp_fixed_all:
             temp += `每次触发回复我方全体${info.data[0]}生命`
             break;
+         case SKILL_TYPE.realHurt_fixed:
+            temp += `对一个敌人造成${info.data[0]}真实伤害`
+            break;
          default:
             temp += `这个技能好像还没有收录到系统`;
             break;

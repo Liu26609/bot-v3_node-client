@@ -47,7 +47,7 @@ class me_pos extends task_base_1.task_base {
                 temp += `┏┄🌏${data.pos_name}[${data.pos.x},${data.pos.y}]━┄\n`;
             }
             else {
-                temp += `┏┄🌏[已设置隐藏坐标]━┄\n`;
+                temp += `┏🌏${data.pos_name}[匿名坐标]┄\n`;
             }
             temp += `                     ${data.isTop ? '上' : '⛔'}\n`;
             temp += `  ${data.isLeft ? '左' : '⛔'}              ${data.meIcon}              ${data.isRight ? '右' : '⛔'}\n`;
@@ -57,7 +57,7 @@ class me_pos extends task_base_1.task_base {
                 temp += `在这里发现了一个湖泊，你可以发送[钓鱼]试试\n`;
             }
             if (data.player.length + data.enemy.length > 1) {
-                temp += `┄════<emoji:325>发现敌人══━┄\n`;
+                temp += `┄════${data.meIcon}发现敌人══━┄\n`;
                 for (let index = 0; index < data.player.length; index++) {
                     const body = data.player[index];
                     const id = body.id;

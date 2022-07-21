@@ -57,7 +57,7 @@ class text_attribute_style {
             }
             // 工会
             if (this.team) {
-                temp += `🏰${this.team.leve}级工会:${this.team.name}[${team_1.teamLeve_CN[team_1.teamLeve[this.data.team.leve]]}]\n`;
+                temp += `🏰${this.team.leve}级工会${team_1.teamLeve_CN[team_1.teamLeve[this.data.team.leve]]}:${this.team.name}\n`;
             }
             temp += `⚜️声望值:${common_1.default.BN(this.data.rankscore)}`;
             // 红名值or正义值

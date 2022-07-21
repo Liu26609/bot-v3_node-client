@@ -9,7 +9,6 @@ var SKILL_TYPE;
     SKILL_TYPE[SKILL_TYPE["miss"] = 0] = "miss";
     /**
      * 对一个单位造成固定物理伤害
-     * 参数1:伤害值
      */
     SKILL_TYPE[SKILL_TYPE["attack_Physics_fixed"] = 1] = "attack_Physics_fixed";
     /**
@@ -142,6 +141,11 @@ var SKILL_TYPE;
      * 参数1:回复值
      */
     SKILL_TYPE[SKILL_TYPE["resHp_fixed_all"] = 26] = "resHp_fixed_all";
+    /**
+     * 对单体造成真实伤害
+     * 参数1:固定值
+     */
+    SKILL_TYPE[SKILL_TYPE["realHurt_fixed"] = 27] = "realHurt_fixed";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -169,6 +173,10 @@ var SKILL_ACTIVE_RES_TYPE;
      * 回复生命
      */
     SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["resHp"] = 5] = "resHp";
+    /**
+     * 真实伤害
+     */
+    SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["realHurt"] = 6] = "realHurt";
 })(SKILL_ACTIVE_RES_TYPE = exports.SKILL_ACTIVE_RES_TYPE || (exports.SKILL_ACTIVE_RES_TYPE = {}));
 /**
  * 技能目标
@@ -238,6 +246,10 @@ var SKILL_UNITY;
      * 提高双防
      */
     SKILL_UNITY[SKILL_UNITY["upAllDefense"] = 10] = "upAllDefense";
+    /**
+     * 真实伤害
+     */
+    SKILL_UNITY[SKILL_UNITY["realHurt"] = 11] = "realHurt";
 })(SKILL_UNITY = exports.SKILL_UNITY || (exports.SKILL_UNITY = {}));
 var SKILL_UNITY_CN;
 (function (SKILL_UNITY_CN) {
@@ -273,4 +285,5 @@ var SKILL_UNITY_CN;
     SKILL_UNITY_CN["upAll"] = "\uD83D\uDD3A";
     SKILL_UNITY_CN["resHp"] = "\uD83D\uDC96";
     SKILL_UNITY_CN["upAllDefense"] = "\uD83D\uDD3A\uD83C\uDF1F\uD83D\uDD30";
+    SKILL_UNITY_CN["realHurt"] = "\uD83D\uDD38";
 })(SKILL_UNITY_CN = exports.SKILL_UNITY_CN || (exports.SKILL_UNITY_CN = {}));
