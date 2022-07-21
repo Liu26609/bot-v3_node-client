@@ -137,6 +137,11 @@ var SKILL_TYPE;
      * 参数1：提高防御值
      */
     SKILL_TYPE[SKILL_TYPE["upAllDefense_fixed"] = 25] = "upAllDefense_fixed";
+    /**
+     * 回复我方全体生命
+     * 参数1:回复值
+     */
+    SKILL_TYPE[SKILL_TYPE["resHp_fixed_all"] = 26] = "resHp_fixed_all";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {
@@ -160,6 +165,10 @@ var SKILL_ACTIVE_RES_TYPE;
      * 让对手停止攻击
      */
     SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["stopAttack"] = 4] = "stopAttack";
+    /**
+     * 回复生命
+     */
+    SKILL_ACTIVE_RES_TYPE[SKILL_ACTIVE_RES_TYPE["resHp"] = 5] = "resHp";
 })(SKILL_ACTIVE_RES_TYPE = exports.SKILL_ACTIVE_RES_TYPE || (exports.SKILL_ACTIVE_RES_TYPE = {}));
 /**
  * 技能目标

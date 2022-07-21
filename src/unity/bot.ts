@@ -193,7 +193,6 @@ class bot {
             msg_id = this.getMsgId(channelID)
         }
         // 单频道1秒内只能发送5条消息
-
         // TODO：后期考虑利用每天主动消息
         if (!msg_id) {
             err('没有找到可用消息ID')

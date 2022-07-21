@@ -22,12 +22,13 @@ class text_equip_style {
         const quality = this.equipData.quality;
         const type = this.equipData.type;
         const attribute = this.equipData.base_attribute;
-        let mark = 0;
-        let Markconver = 0;
-        for (const key in this.equipData.base_attribute) {
-            mark += Math.ceil(this.equipData.base_attribute[key]);
-            Markconver += Math.ceil(common_1.default.converEquipattribute(this.equipData, key));
+        let converAttribut = JSON.parse(JSON.stringify(this.equipData.base_attribute));
+        let mark = common_1.default.converMilitary(attribute); //基础战力
+        let Markconver = 0; //装备转化后战力
+        for (const key in converAttribut) {
+            converAttribut[key] = Math.ceil(common_1.default.converEquipattribute(this.equipData, key));
         }
+        Markconver = common_1.default.converMilitary(converAttribut);
         const iconId = this.equipData.icon;
         let bot_cfg = bot_1.default.getBotConfig();
         let image = `${bot_cfg.cosUrl}/temp/equip.png?`;

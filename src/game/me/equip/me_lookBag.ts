@@ -1,9 +1,9 @@
-import { embed_equip_style } from './../temp/embed/embed_equip_style';
-import { text_equip_style } from './../temp/text/equip';
+import { embed_equip_style } from '../../temp/embed/embed_equip_style';
+import { text_equip_style } from '../../temp/text/equip';
 import { TsrpcErrorType } from 'tsrpc';
-import bot from '../../unity/bot';
-import sever from '../../unity/sever';
-import { task_base } from './../task_base';
+import bot from '../../../unity/bot';
+import sever from '../../../unity/sever';
+import { task_base } from '../../task_base';
 export class me_lookBag extends task_base {
     constructor(...a) {
         super(...a)

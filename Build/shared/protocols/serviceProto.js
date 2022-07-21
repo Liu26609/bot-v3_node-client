@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 76,
+    "version": 77,
     "services": [
         {
             "id": 0,
@@ -132,6 +132,11 @@ exports.serviceProto = {
         {
             "id": 123,
             "name": "me/equip/Me_wearEquip",
+            "type": "api"
+        },
+        {
+            "id": 131,
+            "name": "me/equip/Strengthen_bagEquip",
             "type": "api"
         },
         {
@@ -933,6 +938,10 @@ exports.serviceProto = {
                 {
                     "id": 25,
                     "value": 25
+                },
+                {
+                    "id": 26,
+                    "value": 26
                 }
             ]
         },
@@ -1649,6 +1658,10 @@ exports.serviceProto = {
                 {
                     "id": 4,
                     "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 5
                 }
             ]
         },
@@ -3904,6 +3917,37 @@ exports.serviceProto = {
                     "name": "change_military",
                     "type": {
                         "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlStrengthen_bagEquip/ReqStrengthen_bagEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "bagIndex",
+                    "type": {
+                        "type": "Number"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlStrengthen_bagEquip/ResStrengthen_bagEquip": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "me/equip/PtlMe_strengthen/ResMe_strengthen"
                     }
                 }
             ]

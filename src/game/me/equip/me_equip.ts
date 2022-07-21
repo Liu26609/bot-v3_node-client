@@ -45,7 +45,10 @@ export class me_equip extends task_base {
             temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
         }
         temp += `┗┄${this.at()}┄\n`;
-        bot.sendText(this.channel_id, temp,this.content)
-        new text_example_style().setCommand('强化装备指令:强化 + 装备位置').setExample('强化主武器').sendMsg(this.channel_id)
+        bot.sendText(this.channel_id, temp, this.content)
+        this.tips()
+    }
+    tips() {
+        new text_example_style().setCommand('强化装备指令:强化 + 装备类型').setExample('强化武器').sendMsg(this.channel_id)
     }
 }

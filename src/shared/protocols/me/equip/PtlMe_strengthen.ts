@@ -4,7 +4,7 @@ import { EQUIP_TYPE } from "../../../game/equip";
 
 export interface ReqMe_strengthen {
     userId:string,
-    strengthenType:EQUIP_TYPE
+    strengthenType:EQUIP_TYPE,
 }
 
 export interface ResMe_strengthen {
