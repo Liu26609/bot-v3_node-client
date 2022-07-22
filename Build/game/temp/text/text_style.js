@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_style = void 0;
 const bot_1 = __importDefault(require("../../../unity/bot"));
+let titleSize = new Map();
 class text_style {
     constructor() {
         this.title = '未命名';
@@ -13,7 +14,16 @@ class text_style {
         return this;
     }
     setTitle(title) {
-        this.title = title;
+        let before = '┏┄';
+        let later = '';
+        let safeLength = 16;
+        let surplus = Math.ceil((safeLength - title.length) / 2) > 0 ? Math.ceil((safeLength - title.length) / 2) : 2;
+        for (let index = 0; index < Math.ceil(surplus / 3); index++) {
+            before += `═`;
+            later += `═`;
+        }
+        later += `━┄`;
+        this.title = `${before}${title}${later}`;
     }
     setEnd(end) {
         this.end = end;

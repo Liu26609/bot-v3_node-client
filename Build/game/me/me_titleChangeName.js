@@ -32,14 +32,10 @@ class me_titleChangeName extends task_base_1.task_base {
                 return;
             }
             let text = new text_length_1.text_length();
-            if (text.getlength(changeName) > 6) {
+            if (text.getlength(changeName) > 18) {
                 this.log(`要修改的称号名太长了~`);
                 return;
             }
-            // if (changeName.length > 6) {
-            //     bot.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~')
-            //     return;
-            // }
             let req = yield sever_1.default.callApi('me/title/Me_title_changeName', { userId: this.userId, changeName: changeName });
             if (!req.isSucc) {
                 this.sendErr(req.err);

@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { base_attribute } from './body';
 import { equip } from "./equip";
 import { SKILL_ACTIVE, SKILL_TYPE } from './skill';
@@ -365,6 +364,9 @@ class common {
             break;
          case SKILL_TYPE.realHurt_fixed:
             temp += `对一个敌人造成${info.data[0]}真实伤害`
+            break;
+         case SKILL_TYPE.creatorEnemy:
+            temp += `召唤${info.data[1]}只${info.data[0]}级怪物参加战斗`
             break;
          default:
             temp += `这个技能好像还没有收录到系统`;

@@ -146,6 +146,12 @@ var SKILL_TYPE;
      * 参数1:固定值
      */
     SKILL_TYPE[SKILL_TYPE["realHurt_fixed"] = 27] = "realHurt_fixed";
+    /**
+     * 召唤怪物参加战斗
+     * 参数1:等级
+     * 参数2:数量
+     */
+    SKILL_TYPE[SKILL_TYPE["creatorEnemy"] = 28] = "creatorEnemy";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {

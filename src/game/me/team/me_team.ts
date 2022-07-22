@@ -21,7 +21,7 @@ export class me_team extends task_base {
         }
         let team = `┏┄═══🏰我的工会══━┄
 工会名称:${data.info.name}
-我的职位：${teamLeve_CN[teamLeve[data.myLeve]]}
+我的职位:${teamLeve_CN[teamLeve[data.myLeve]]}
 公会等级:${data.info.leve}(${data.info.exp}/${data.info.maxExp})
 我的贡献:${data.myContribute}
 工会贡献:${data.info.contribution}

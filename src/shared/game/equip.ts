@@ -57,19 +57,19 @@ export enum EQUIP_QUALITY_COLOR {
     G='#FFFFFF',//="破烂"
     F='#F8F8FF',//="战损"
     E='#BBFFFF',//="普通"
-    D='#7FFFD4',//="精良"
-    C='#1E90FF',//="稀有"
-    B='#A020F0',//="史诗"
-    A='#FFA500',//="传说"
-    S='#FF00FF',//="神器"
-    SS='#FFA500',//="上古"
-    SSS='#EE2C2C',//="作者专属"
-    SSSS='#EE2C2C',//="作者专属"
-    R='#EE2C2C',
-    SR='#EE2C2C',
-    SSR='#EE2C2C',
-    SSSR='#EE2C2C',
-    SSSSR='#EE2C2C',
+    D='#00C5CD',//="精良"
+    C='#00F5FF',//="稀有"
+    B='#1E90FF',//="史诗"
+    A='#8470FF',//="传说"
+    S='#A020F0',//="神器"
+    SS='#FF00FF',//="上古"
+    SSS='#F5DEB3',//="作者专属"
+    SSSS='#FFFF00',//="作者专属"
+    R='#CD5555',
+    SR='#EE6363',
+    SSR='#FF6A6A',
+    SSSR='#FF69B4',
+    SSSSR='#FF3030',
 }
 export enum EQUIP_TYPE {
     /**

@@ -34,7 +34,7 @@ class me_ancestry extends task_base_1.task_base {
             }
             let data = req.res;
             let temp = new text_style_1.text_style();
-            temp.setTitle(`┏┄═══👑我的进化══━┄`);
+            temp.setTitle(`👑我的进化`);
             temp.addLine(`Ⓜ️出自:${data.ancestry.from}`);
             temp.addLine(`🌏来源:${db_1.default.getMapName()[data.ancestry.formId]}`);
             temp.addLine(`👑${body_1.ancestryLeve[data.info.leve]}级[${data.ancestry.title}]`);

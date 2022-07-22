@@ -141,7 +141,13 @@ export enum SKILL_TYPE {
      * 对单体造成真实伤害
      * 参数1:固定值
      */
-    realHurt_fixed
+    realHurt_fixed,
+    /**
+     * 召唤怪物参加战斗
+     * 参数1:等级
+     * 参数2:数量
+     */
+    creatorEnemy
 }
 /**
  * 主动技能

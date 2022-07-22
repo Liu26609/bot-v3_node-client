@@ -45,8 +45,10 @@ ${Math.ceil(common_1.default.converEquipattribute(this.equipData, 'PhysicalDefen
 ${Math.ceil(common_1.default.converEquipattribute(this.equipData, 'MagicDefense'))}
 ${Math.ceil(common_1.default.converEquipattribute(this.equipData, 'secondResHp'))}
 ${Math.ceil(common_1.default.converEquipattribute(this.equipData, 'hp_max'))}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#ffffff`)}/fontsize/20/dx/10/dy/215`;
-        image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`基础属性:${mark}分`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#00FFFF`)}/fontsize/24/dx/10/dy/170`;
-        image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`强化属性:${Markconver}分`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#FFFF6F`)}/fontsize/24/dx/10/dy/140`;
+        image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`基础战力:${mark}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#00FFFF`)}/fontsize/24/dx/10/dy/170`;
+        if (Markconver != mark) {
+            image += `${bot_cfg.imgTextCode}/${base64_safe_1.default.urlEncode(`强化战力:${Markconver}`)}/font/${base64_safe_1.default.urlEncode('simkai楷体.ttf')}/fill/${base64_safe_1.default.urlEncode(`#FFFF6F`)}/fontsize/24/dx/10/dy/140`;
+        }
         return image;
     }
     sendMsg(channelId) {

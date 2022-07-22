@@ -113,11 +113,11 @@ export class text_battleTemp_style {
                     lastStr = processMap.get(`${kill_item.round}回合${kill_item.body.name}`);
                     lastStr += `,${kill_item.die_body.name}`
                 }
-                processMap.set(`${kill_item.round}回合${kill_item.body.name}`,lastStr);
+                processMap.set(`${common.getRankStr(kill_item.round)}>${kill_item.body.name}`,lastStr);
                 // str += `${kill_item.round}回合${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
             }
-            processMap.forEach((roundStr,killStr) => {
-                str += `${roundStr}击杀:${killStr}\n`
+            processMap.forEach((roundStr,killName) => {
+                str += `${killName}击杀:${roundStr}\n`
             });
         }
         return str;

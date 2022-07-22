@@ -12,9 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.text_skill_style = void 0;
 const __1 = require("../../..");
-const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../shared/game/common"));
 const db_1 = __importDefault(require("../../../unity/db"));
+const text_style_1 = require("./text_style");
 class text_skill_style {
     constructor() {
     }
@@ -28,16 +28,15 @@ class text_skill_style {
             return;
         }
         const info = this.data;
-        let temp = ``;
-        temp += `┏┄═══👑技能描述══━┄\n`;
-        temp += `Ⓜ️名称:${info.name}\n`;
-        temp += `🛒${info.isSell ? '可在商店购买' : '不可在商店购买'}\n`;
-        temp += `📖技能来源:${db_1.default.getMapName()[info.formId]}\n`;
-        temp += `📄效果描述:${common_1.default.getSkDesc(info)}\n`;
-        temp += `🚀触发频率:${info.speed}\n`;
-        temp += `<emoji:147>频率≠概率,部分技能需要有特殊条件才能触发\n`;
-        temp += `┗┄━═════════━┄`;
-        bot_1.default.sendText(channelId, temp);
+        let temp = new text_style_1.text_style();
+        temp.setTitle(`👑技能描述`);
+        temp.addLine(`Ⓜ️技能名称:${info.name}`);
+        temp.addLine(`🛒${info.isSell ? '可在商店购买' : '不可在商店购买'}`);
+        temp.addLine(`🌎技能来源:${db_1.default.getMapName()[info.formId]}`);
+        temp.addLine(`📄效果描述:${common_1.default.getSkDesc(info)}`);
+        temp.addLine(`🚀触发频率:${info.speed}`);
+        temp.addLine(`<emoji:147>频率≠概率,部分技能需要有特殊条件才能触发`);
+        temp.sendMsg(channelId);
     }
 }
 exports.text_skill_style = text_skill_style;
