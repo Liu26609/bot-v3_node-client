@@ -18,7 +18,7 @@ export class me_titleChangeName extends task_base {
             return;
         }
         let text = new text_length()
-        if(text.getlength(changeName) > 6){
+        if(text.getlength(changeName) > 18){
             this.log(`要修改的称号名太长了~`)
             return;
         }
