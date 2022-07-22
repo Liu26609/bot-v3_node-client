@@ -1,12 +1,9 @@
-import { info } from 'console';
 import { err } from "../../..";
 import { ancestry, ancestryLeve, body, DNA_CN, DNA_Leve } from "../../../shared/game/body";
 import { teamLeve, teamLeve_CN, TEAM_INFO } from "../../../shared/game/team";
 import { walletKey, walletKey_CN } from "../../../shared/game/user";
 import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
-import { EQUIP_QUALITY, EQUIP_TYPE_CN, EQUIP_TYPE, EQUIP_QUALITY_COLOR } from '../../../shared/game/equip';
-import base64_safe from '../../../unity/base64_safe';
 
 export class text_attribute_style {
     data?: body;

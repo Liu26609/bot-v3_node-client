@@ -41,7 +41,7 @@ export class me_wearEquip extends task_base {
         let data = req.res;
         if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text) {
             let temp = new text_style();
-            temp.setTitle(`┏┄══<emoji:320>装备成功══━┄`)
+            temp.setTitle(`<emoji:320>装备成功`)
             temp.addLine(`${EQUIP_TYPE_ICON[EQUIP_TYPE[data.nowEquip.type]]}${data.nowEquip.name}+${data.nowEquip.leve}`)
             if (data.change_military > 0) {
                 temp.addLine(`<emoji:11>战力🔺${data.change_military}`)

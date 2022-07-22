@@ -13,7 +13,7 @@ export class me_saveUser extends task_base {
             return;
         }
         let temp = new text_style();
-        temp.setTitle(`┏┄══📄存档成功═━┄`)
+        temp.setTitle(`📄存档成功`)
         temp.addLine(`此功能说明：`)
         temp.addLine(`服务器每1小时统一存档,期间更新将会回档到上次保存数据,你可以手动存档减少损失`)
         temp.addLine(`大部分时间你无须执行此功能。`)

@@ -5,7 +5,6 @@ import { SKILL_UNITY } from './../../../shared/game/skill';
  */
 import { err, info, log } from "../../..";
 import { SKILL_UNITY_CN } from "../../../shared/game/skill";
-import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
 import { rewardKey_CN, rewardKey } from '../../../shared/game/prop';
 import { ResBattle } from '../../../shared/protocols/Battle';

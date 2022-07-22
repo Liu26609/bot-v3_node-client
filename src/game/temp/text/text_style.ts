@@ -12,7 +12,7 @@ export class text_style {
 
     }
     setTitle(title: string) {
-        this.title = title;
+        this.title = `┏┄═══${title}══━┄`;
     }
     setEnd(end: string) {
         this.end = end;

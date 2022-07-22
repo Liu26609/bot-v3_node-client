@@ -24,7 +24,7 @@ export class me_wallet extends task_base {
 
         if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text) {
             let temp = new text_style()
-            temp.setTitle('┏┄═══🏧我的小金库══━┄')
+            temp.setTitle('🏧我的小金库')
             if(data.gold > 0) temp.addLine(`${walletKey_CN[walletKey[walletKey.gold]]}:${common.BN(data.gold)}`);
             if(data.BlindBox > 0)temp.addLine(`${walletKey_CN[walletKey[walletKey.BlindBox]]}:${common.BN(data.BlindBox)}`);
             if(data.titleCard > 0)temp.addLine(`${walletKey_CN[walletKey[walletKey.titleCard]]}:${common.BN(data.titleCard)}`)

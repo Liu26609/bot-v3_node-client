@@ -16,7 +16,7 @@ export class horse_join extends task_base {
     }
     notPass() {
         let temp = new text_style();
-        temp.setTitle(`┏┄═马拉松子频道未授权━┄`)
+        temp.setTitle(`马拉松子频道未授权`)
         temp.addLine(`1.马拉松会频繁发送消息`)
         temp.addLine(`2.建议单独新建一个马拉松专属子频道`)
         if (this.GuildCfg) {
