@@ -84,28 +84,14 @@ class task_base {
                 bot_1.default.sendText(this.channel_id, `<@!${this.userId}><emoji:147>服务器睡着了，正在努力叫醒中`);
                 break;
             default:
-                if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
-                    let temp = ``;
-                    temp += `┏┄═══⚠️错误提示══━┄\n`;
-                    temp += `┣⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}\n`;
-                    temp += `┣🗂️错误类型:${err.type}\n`;
-                    temp += `┣┄════❌错误提示══━┄\n`;
-                    temp += `          ${err.message}\n`;
-                    temp += `          ${err.innerErr}\n`;
-                    temp += `┗┄━══════════━┄\n`;
-                    temp += `<emoji:147>如不知如何发生的错误且长时间存在请截图反馈`;
-                    bot_1.default.sendText(this.channel_id, temp);
-                }
-                else {
-                    let temp = new embed_1.embed_style();
-                    temp.setTitle('⚠️错误提示');
-                    temp.setTips('出错了。');
-                    temp.addLine(`⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}`);
-                    temp.addLine(`🗂️错误类型:${err.type}`);
-                    temp.addLine(`${err.message}`);
-                    temp.addLine(`有问题截图反馈`);
-                    temp.sendMsg(this.channel_id);
-                }
+                let temp = new embed_1.embed_style();
+                temp.setTitle('⚠️错误提示');
+                temp.setTips('出错了。');
+                temp.addLine(`⛔︎错误代码:${err.code || '0x' + common_1.default.random(0, 99999999999).toString(16)}`);
+                temp.addLine(`🗂️错误类型:${err.type}`);
+                temp.addLine(`${err.message}`);
+                temp.addLine(`有问题截图反馈`);
+                temp.sendMsg(this.channel_id);
                 break;
         }
     }

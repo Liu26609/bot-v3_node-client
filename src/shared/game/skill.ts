@@ -5,7 +5,6 @@ export enum SKILL_TYPE {
     miss,
     /**
      * 对一个单位造成固定物理伤害
-     * 参数1:伤害值
      */
     attack_Physics_fixed,
     /**
@@ -137,7 +136,12 @@ export enum SKILL_TYPE {
      * 回复我方全体生命
      * 参数1:回复值
      */
-    resHp_fixed_all
+    resHp_fixed_all,
+    /**
+     * 对单体造成真实伤害
+     * 参数1:固定值
+     */
+    realHurt_fixed
 }
 /**
  * 主动技能
@@ -181,7 +185,11 @@ export enum SKILL_ACTIVE_RES_TYPE {
     /**
      * 回复生命
      */
-    resHp
+    resHp,
+    /**
+     * 真实伤害
+     */
+    realHurt
 }
 /**
  * 技能目标
@@ -248,7 +256,11 @@ export enum SKILL_UNITY {
     /**
      * 提高双防
      */
-    upAllDefense
+    upAllDefense,
+    /**
+     * 真实伤害
+     */
+    realHurt
 }
 export enum SKILL_UNITY_CN {
     /**
@@ -282,7 +294,8 @@ export enum SKILL_UNITY_CN {
      */
     upAll = '🔺',
     resHp = '💖',
-    upAllDefense = '🔺🌟🔰'
+    upAllDefense = '🔺🌟🔰',
+    realHurt = '🔸'
 }
 export interface SKILL_RES {
     // 技能id

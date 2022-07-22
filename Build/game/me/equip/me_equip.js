@@ -33,33 +33,29 @@ class me_equip extends task_base_1.task_base {
             }
             let data = res.res;
             const attrArry = [
-                { key: 'hp_max', icon: '♥️' },
-                { key: 'secondResHp', icon: '💖' },
-                { key: 'MagicDefense', icon: '🌟' },
-                { key: 'MagicAttack', icon: '🔮' },
-                { key: 'PhysicalAttacks', icon: '🔪' },
-                { key: 'PhysicalDefense', icon: '🔰' },
+                { key: 'hp_max', icon: '♥️', name: '最大生命' },
+                { key: 'secondResHp', icon: '💖', name: '生命回复' },
+                { key: 'MagicDefense', icon: '🌟', name: '魔法防御' },
+                { key: 'MagicAttack', icon: '🔮', name: '魔法攻击' },
+                { key: 'PhysicalAttacks', icon: '🔪', name: '物理攻击' },
+                { key: 'PhysicalDefense', icon: '🔰', name: '物理防御' },
             ];
             let temp = `┏┄══👑我的装备═━┄\n`;
             if (data.equipList.length > 0) {
                 data.equipList.forEach(info => {
                     temp += `[${equip_1.EQUIP_TYPE_CN[equip_1.EQUIP_TYPE[info.type]]}]${equip_1.EQUIP_QUALITY[info.quality]}级装备\n${equip_1.EQUIP_TYPE_ICON[equip_1.EQUIP_TYPE[info.type]]}${info.name}+${info.leve}\n`;
-                    let showCont = 0;
                     for (let index = 0; index < attrArry.length; index++) {
                         const attr = attrArry[index];
                         const val = common_1.default.converEquipattribute(info, attr.key);
                         if (val <= 0) {
                             continue;
                         }
-                        if (showCont % 3 == 0) {
-                            temp += '\n';
-                        }
-                        showCont += 1;
-                        temp += `${attr.icon}${common_1.default.BN(val)}`;
+                        temp += `${attr.icon}${attr.name}${common_1.default.BN(val)}\n`;
                     }
-                    temp += '\n';
+                    // temp += '\n';
+                    // temp += `♥️${common.BN(common.converEquipattribute(info, `hp_max`))}💖${common.BN(common.converEquipattribute(info, `secondResHp`))}🌟${common.BN(common.converEquipattribute(info, `MagicDefense`))}\n`
+                    // temp += `🔮${common.BN(common.converEquipattribute(info, `MagicAttack`))}🔪${common.BN(common.converEquipattribute(info, `PhysicalAttacks`))}🔰${common.BN(common.converEquipattribute(info, `PhysicalDefense`))}\n`;
                 });
-                temp = temp.replace('\n\n', '\n');
             }
             else {
                 temp += `✎你好像一件装备都没有穿上哦\n看看[背包]有没有装备呢\n`;
