@@ -22,10 +22,6 @@ export class me_titleChangeName extends task_base {
             this.log(`要修改的称号名太长了~`)
             return;
         }
-        // if (changeName.length > 6) {
-        //     bot.sendText(this.channel_id, '称号库里没有匹配到此文字长度的称号样式哦~')
-        //     return;
-        // }
         let req = await sever.callApi('me/title/Me_title_changeName', { userId: this.userId, changeName: changeName });
         if (!req.isSucc) {
             this.sendErr(req.err)
