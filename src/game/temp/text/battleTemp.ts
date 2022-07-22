@@ -106,10 +106,20 @@ export class text_battleTemp_style {
         }
         let str = `<emoji:224>本次战斗总伤害:${common.BN(this.data.hurt)}\n`;
         if(!this.battleConfig.isHideKill_Log){
+            let processMap = new Map();
             for (let index = 0; index < this.data.kill_log.length; index++) {
                 const kill_item = this.data.kill_log[index];
-                str += `${kill_item.round}回合${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
+                let lastStr = kill_item.die_body.name;
+                if(processMap.has(`${kill_item.round}回合${kill_item.body.name}`)){
+                    lastStr = processMap.get(`${kill_item.round}回合${kill_item.body.name}`);
+                    lastStr += `,${kill_item.die_body.name}`
+                }
+                processMap.set(`${kill_item.round}回合${kill_item.body.name}`,lastStr);
+                // str += `${kill_item.round}回合${kill_item.body.name}击杀了${kill_item.die_body.name}\n`
             }
+            processMap.forEach((roundStr,killStr) => {
+                str += `${roundStr}击杀:${killStr}\n`
+            });
         }
         return str;
     }
