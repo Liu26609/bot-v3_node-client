@@ -1,4 +1,5 @@
 import bot from "../../../unity/bot";
+let titleSize = new Map();
 
 export class text_style {
     private title: string;
@@ -12,7 +13,16 @@ export class text_style {
 
     }
     setTitle(title: string) {
-        this.title = `┏┄═══${title}══━┄`;
+        let before = '┏┄';
+        let later = ''
+        let safeLength = 10;
+        let surplus = Math.ceil((safeLength - title.length)/2) > 0 ? Math.ceil((safeLength - title.length)/2):2;
+        for (let index = 0; index < surplus / 2; index++) {
+            before += `═`;
+            later += `═`;
+        }
+        later += `━┄`;
+        this.title = `${before}${title}${later}`
     }
     setEnd(end: string) {
         this.end = end;
