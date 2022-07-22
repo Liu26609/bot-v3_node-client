@@ -15,9 +15,9 @@ export class text_style {
     setTitle(title: string) {
         let before = '┏┄';
         let later = ''
-        let safeLength = 10;
+        let safeLength = 16;
         let surplus = Math.ceil((safeLength - title.length)/2) > 0 ? Math.ceil((safeLength - title.length)/2):2;
-        for (let index = 0; index < surplus / 2; index++) {
+        for (let index = 0; index < Math.ceil(surplus / 3); index++) {
             before += `═`;
             later += `═`;
         }
