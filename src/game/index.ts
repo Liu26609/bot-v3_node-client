@@ -335,6 +335,7 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
+        console.log(data)
         // return
         if (!sever.isReady()) {
             let temp = ``;
@@ -355,7 +356,7 @@ export default class game {
             await bot.sendText(data.channel_id, data.author.id)
             return;
         }
-        if(data.guild_id == '8512894071433076954'){
+        if(data.channel_id == '9128934'){
             return;
         }
         // if (data.content == '测试') {

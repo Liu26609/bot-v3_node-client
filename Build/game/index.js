@@ -304,6 +304,7 @@ class game {
      */
     atBot(data) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(data);
             // return
             if (!sever_1.default.isReady()) {
                 let temp = ``;
@@ -324,7 +325,7 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.author.id);
                 return;
             }
-            if (data.guild_id == '8512894071433076954') {
+            if (data.channel_id == '9128934') {
                 return;
             }
             // if (data.content == '测试') {
