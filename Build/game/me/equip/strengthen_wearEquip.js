@@ -59,7 +59,7 @@ class strengthen_wearEquip extends task_base_1.task_base {
                 this.menu();
                 return;
             }
-            let req = yield sever_1.default.callApi('me/equip/Me_strengthen', { userId: this.userId, strengthenType: strengthenType });
+            let req = yield sever_1.default.callApi('me/equip/Strengthen_wearEquip', { userId: this.userId, strengthenType: strengthenType });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;

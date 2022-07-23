@@ -130,6 +130,7 @@ const rank_Challenge_infinite_1 = require("./rank/rank_Challenge_infinite");
 const challenge_greed_1 = require("./challenge/challenge_greed");
 const me_saveUser_1 = require("./me/me_saveUser");
 const strengthen_bagEquip_1 = require("./me/equip/strengthen_bagEquip");
+const down_wearEquip_1 = require("./me/equip/down_wearEquip");
 var matchType;
 (function (matchType) {
     /**
@@ -276,6 +277,7 @@ class game {
         this.matchMap.set('复活', { action: me_resLife_1.me_resLife, match: matchType.all });
         this.matchMap.set('治疗', { action: me_resLife_1.me_resLife, match: matchType.all });
         this.matchMap.set('背包', { action: me_bag_1.me_bag, match: matchType.all });
+        this.matchMap.set('卸下', { action: down_wearEquip_1.down_wearEquip, match: matchType.match });
         // 设置相关
         this.matchMap.set('设置', { action: setUp_1.setUp, match: matchType.match, isShowMatch: true });
         this.matchMap.set('设置消息文本模式', { action: setUp_1.setUp, match: matchType.match, isShowMatch: false });

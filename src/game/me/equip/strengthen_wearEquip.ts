@@ -47,7 +47,7 @@ export class strengthen_wearEquip extends task_base {
             this.menu();
             return;
         }
-        let req = await sever.callApi('me/equip/Me_strengthen', { userId: this.userId, strengthenType: strengthenType})
+        let req = await sever.callApi('me/equip/Strengthen_wearEquip', { userId: this.userId, strengthenType: strengthenType})
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

@@ -6,9 +6,9 @@ import common from "../shared/game/common";
 import { guildCfg } from '../interface/guildCfg';
 import db, { dbName } from '../unity/db';
 import { userCfg, USER_CFG_MSGTEMPLATE } from '../interface/userCfg';
-import { ResMe_strengthen } from '../shared/protocols/me/equip/PtlMe_strengthen';
 import { EQUIP_QUALITY, EQUIP_TYPE_ICON, EQUIP_TYPE } from '../shared/game/equip';
 import { walletKey_CN, walletKey } from '../shared/game/user';
+import { ResStrengthen_wearEquip } from '../shared/protocols/me/equip/PtlStrengthen_wearEquip';
 
 /**
  * 指令基类
@@ -104,7 +104,7 @@ export class task_base {
     /**
      * 装备强化结果
      */
-    strenthen(data:ResMe_strengthen){
+    strenthen(data:ResStrengthen_wearEquip){
         let bf = data.bfEquip;
         let now = data.nowEquip;
         if (this.UserCfg.msgTemplate == USER_CFG_MSGTEMPLATE.text) {

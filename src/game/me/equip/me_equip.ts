@@ -1,3 +1,4 @@
+import { text_style } from './../../temp/text/text_style';
 import { EQUIP_QUALITY, EQUIP_TYPE, EQUIP_TYPE_CN, EQUIP_TYPE_ICON } from "../../../shared/game/equip";
 import bot from "../../../unity/bot";
 import common from "../../../shared/game/common";
@@ -49,6 +50,10 @@ export class me_equip extends task_base {
         this.tips()
     }
     tips() {
-        new text_example_style().setCommand('强化装备指令:强化 + 装备类型').setExample('强化武器').sendMsg(this.channel_id)
+        let temp = new text_style();
+        temp.setTitle(`👑指令提示`)
+        temp.addLine('[强化 + 装备类型]强化指定装备')
+        temp.addLine('[卸下 + 装备类型]卸下指定装备')
+        temp.sendMsg(this.channel_id);
     }
 }

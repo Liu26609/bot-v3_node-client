@@ -22,10 +22,11 @@ import { ReqMove, ResMove } from './map/PtlMove';
 import { ReqOpenMapChestBox, ResOpenMapChestBox } from './map/PtlOpenMapChestBox';
 import { ReqendAutoPlay, ResendAutoPlay } from './me/autoPlay/PtlendAutoPlay';
 import { ReqstartAutoPlay, ResstartAutoPlay } from './me/autoPlay/PtlstartAutoPlay';
+import { ReqDown_wearEquip, ResDown_wearEquip } from './me/equip/PtlDown_wearEquip';
 import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_destroyBagEquip';
-import { ReqMe_strengthen, ResMe_strengthen } from './me/equip/PtlMe_strengthen';
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqStrengthen_bagEquip, ResStrengthen_bagEquip } from './me/equip/PtlStrengthen_bagEquip';
+import { ReqStrengthen_wearEquip, ResStrengthen_wearEquip } from './me/equip/PtlStrengthen_wearEquip';
 import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqHorse, ResHorse } from './minGame/PtlHorse';
@@ -208,13 +209,13 @@ export interface ServiceType {
             req: ReqstartAutoPlay,
             res: ResstartAutoPlay
         },
+        "me/equip/Down_wearEquip": {
+            req: ReqDown_wearEquip,
+            res: ResDown_wearEquip
+        },
         "me/equip/Me_destroyBagEquip": {
             req: ReqMe_destroyBagEquip,
             res: ResMe_destroyBagEquip
-        },
-        "me/equip/Me_strengthen": {
-            req: ReqMe_strengthen,
-            res: ResMe_strengthen
         },
         "me/equip/Me_wearEquip": {
             req: ReqMe_wearEquip,
@@ -223,6 +224,10 @@ export interface ServiceType {
         "me/equip/Strengthen_bagEquip": {
             req: ReqStrengthen_bagEquip,
             res: ResStrengthen_bagEquip
+        },
+        "me/equip/Strengthen_wearEquip": {
+            req: ReqStrengthen_wearEquip,
+            res: ResStrengthen_wearEquip
         },
         "me/title/Me_title_changeName": {
             req: ReqMe_title_changeName,
@@ -563,7 +568,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 83,
+    "version": 85,
     "services": [
         {
             "id": 0,
@@ -681,13 +686,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 122,
-            "name": "me/equip/Me_destroyBagEquip",
+            "id": 132,
+            "name": "me/equip/Down_wearEquip",
             "type": "api"
         },
         {
-            "id": 128,
-            "name": "me/equip/Me_strengthen",
+            "id": 122,
+            "name": "me/equip/Me_destroyBagEquip",
             "type": "api"
         },
         {
@@ -698,6 +703,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 131,
             "name": "me/equip/Strengthen_bagEquip",
+            "type": "api"
+        },
+        {
+            "id": 133,
+            "name": "me/equip/Strengthen_wearEquip",
             "type": "api"
         },
         {
@@ -4327,6 +4337,38 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
+        "me/equip/PtlDown_wearEquip/ReqDown_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "strengthenType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_TYPE"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlDown_wearEquip/ResDown_wearEquip": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                }
+            ]
+        },
         "me/equip/PtlMe_destroyBagEquip/ReqMe_destroyBagEquip": {
             "type": "Interface",
             "properties": [
@@ -4376,69 +4418,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                         }
                     },
                     "optional": true
-                }
-            ]
-        },
-        "me/equip/PtlMe_strengthen/ReqMe_strengthen": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "strengthenType",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/EQUIP_TYPE"
-                    }
-                }
-            ]
-        },
-        "me/equip/PtlMe_strengthen/ResMe_strengthen": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "bfEquip",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/equip"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "nowEquip",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/equip/equip"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "rate",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "isSuccress",
-                    "type": {
-                        "type": "Boolean"
-                    }
                 }
             ]
         },
@@ -4526,10 +4505,73 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "Interface",
             "extends": [
                 {
-                    "id": 0,
+                    "id": 2,
                     "type": {
                         "type": "Reference",
-                        "target": "me/equip/PtlMe_strengthen/ResMe_strengthen"
+                        "target": "me/equip/PtlStrengthen_wearEquip/ResStrengthen_wearEquip"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlStrengthen_wearEquip/ResStrengthen_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "bfEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nowEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "rate",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isSuccress",
+                    "type": {
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlStrengthen_wearEquip/ReqStrengthen_wearEquip": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "strengthenType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_TYPE"
                     }
                 }
             ]

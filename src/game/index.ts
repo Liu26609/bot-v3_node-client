@@ -121,6 +121,7 @@ import { challenge_greed } from './challenge/challenge_greed';
 import { me_saveUser } from './me/me_saveUser';
 import botCfg from '../botCfg';
 import { strengthen_bagEquip } from './me/equip/strengthen_bagEquip';
+import { down_wearEquip } from './me/equip/down_wearEquip';
 
 enum matchType {
     /**
@@ -305,7 +306,7 @@ export default class game {
         this.matchMap.set('复活', { action: me_resLife, match: matchType.all })
         this.matchMap.set('治疗', { action: me_resLife, match: matchType.all })
         this.matchMap.set('背包', { action: me_bag, match: matchType.all })
-
+        this.matchMap.set('卸下', { action: down_wearEquip, match: matchType.match })
         // 设置相关
         this.matchMap.set('设置', { action: setUp, match: matchType.match, isShowMatch: true })
         this.matchMap.set('设置消息文本模式', { action: setUp, match: matchType.match, isShowMatch: false })

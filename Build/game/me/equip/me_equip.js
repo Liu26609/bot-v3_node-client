@@ -13,12 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_equip = void 0;
+const text_style_1 = require("./../../temp/text/text_style");
 const equip_1 = require("../../../shared/game/equip");
 const bot_1 = __importDefault(require("../../../unity/bot"));
 const common_1 = __importDefault(require("../../../shared/game/common"));
 const sever_1 = __importDefault(require("../../../unity/sever"));
 const task_base_1 = require("../../task_base");
-const example_1 = require("../../temp/text/example");
 class me_equip extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
@@ -66,7 +66,11 @@ class me_equip extends task_base_1.task_base {
         });
     }
     tips() {
-        new example_1.text_example_style().setCommand('强化装备指令:强化 + 装备类型').setExample('强化武器').sendMsg(this.channel_id);
+        let temp = new text_style_1.text_style();
+        temp.setTitle(`👑指令提示`);
+        temp.addLine('[强化 + 装备类型]强化指定装备');
+        temp.addLine('[卸下 + 装备类型]卸下指定装备');
+        temp.sendMsg(this.channel_id);
     }
 }
 exports.me_equip = me_equip;
