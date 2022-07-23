@@ -152,6 +152,12 @@ var SKILL_TYPE;
      * 参数2:数量
      */
     SKILL_TYPE[SKILL_TYPE["creatorEnemy"] = 28] = "creatorEnemy";
+    /**
+     * 永久增加生命
+     * 参数1:增加生命值
+     * 参数2：概率
+     */
+    SKILL_TYPE[SKILL_TYPE["forever_add_hp"] = 29] = "forever_add_hp";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {

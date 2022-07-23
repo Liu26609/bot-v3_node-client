@@ -147,7 +147,13 @@ export enum SKILL_TYPE {
      * 参数1:等级
      * 参数2:数量
      */
-    creatorEnemy
+    creatorEnemy,
+    /**
+     * 永久增加生命
+     * 参数1:增加生命值
+     * 参数2：概率
+     */
+    forever_add_hp
 }
 /**
  * 主动技能

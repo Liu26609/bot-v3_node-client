@@ -359,6 +359,9 @@ class common {
             case skill_1.SKILL_TYPE.creatorEnemy:
                 temp += `召唤${info.data[1]}只${info.data[0]}级怪物参加战斗`;
                 break;
+            case skill_1.SKILL_TYPE.forever_add_hp:
+                temp += `每触发一次有${info.data[1]}%概率永久生命+${info.data[0]}`;
+                break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
                 break;

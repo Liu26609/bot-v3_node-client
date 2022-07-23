@@ -68,7 +68,7 @@ export interface body extends BASE_BODYS {
      */
     dnaLock: DNA_Leve,
     /**
-     * 额外附加属性（黑市）
+     * 额外附加属性（黑市,技能）
      */
     add: base_attribute,
     /**
