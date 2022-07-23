@@ -1,18 +1,18 @@
 import { equip } from './equip';
 import { teamLeve } from './team';
 import { USER_SIGN, USER_wallet } from './user';
-export interface body_ancestry{
+export interface body_ancestry {
     id: string,
     leve: number,
     exp: number,
     exp_max: number,
-      /**
-     * 经验上限刷新时间
-     */
+    /**
+   * 经验上限刷新时间
+   */
     updateExpTime: number,
-     /**
-     * 今日剩余可获取经验
-     */
+    /**
+    * 今日剩余可获取经验
+    */
     todayGetExp: number
 }
 // 角色属性
@@ -67,10 +67,7 @@ export interface body extends BASE_BODYS {
      * 基因锁
      */
     dnaLock: DNA_Leve,
-    /**
-     * 额外附加属性（黑市,技能）
-     */
-    add: base_attribute,
+
     /**
      * 签到数据
      */
@@ -87,7 +84,7 @@ export interface body extends BASE_BODYS {
     wallet: USER_wallet,
     bag: equip[],
     pet: BASE_BODYS[],
-    ancestry:body_ancestry,
+    ancestry: body_ancestry,
     team: BODY_TEAM,
     minGameLog: minGame
 }
@@ -128,15 +125,15 @@ export interface minGame {
     /**
      * 无尽回廊
      */
-    infinite:{
+    infinite: {
         /**
          * 层数
          */
-        layer:number,
+        layer: number,
         /**
          * 调整次数
          */
-        cont:number
+        cont: number
     }
 }
 /**
@@ -163,7 +160,7 @@ export interface ancestry {
     /**
      * 来源
      */
-    formId:number
+    formId: number
 }
 export enum ancestryLeve {
     E,
@@ -270,6 +267,10 @@ export interface BASE_BODYS {
      * 上次生命恢复时间戳
      */
     lastResHpTime: number,
+    /**
+    * 额外附加属性（黑市,技能）
+    */
+    add?: base_attribute,
 }
 export enum bodyType {
     shadow,

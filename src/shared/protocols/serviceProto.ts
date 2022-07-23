@@ -563,7 +563,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 82,
+    "version": 83,
     "services": [
         {
             "id": 0,
@@ -3567,14 +3567,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     }
                 },
                 {
-                    "id": 3,
-                    "name": "add",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/body/base_attribute"
-                    }
-                },
-                {
                     "id": 4,
                     "name": "sign",
                     "type": {
@@ -3762,6 +3754,15 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Number"
                     }
+                },
+                {
+                    "id": 14,
+                    "name": "add",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    },
+                    "optional": true
                 }
             ]
         },

@@ -324,6 +324,9 @@ class game {
                 yield bot_1.default.sendText(data.channel_id, data.author.id);
                 return;
             }
+            if (data.guild_id == '8512894071433076954') {
+                return;
+            }
             // if (data.content == '测试') {
             //     log('测试')
             //     bot.test(data.guild_id, data.author.id)

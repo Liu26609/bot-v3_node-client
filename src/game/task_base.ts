@@ -80,7 +80,7 @@ export class task_base {
         bot.sendText(this.channel_id, `<emoji:147><@!${this.userId}>${str}`)
     }
     sendErr(err: TsrpcError) {
-        // console.log(err)
+        console.log(err)
         switch (err.type) {
             case TsrpcErrorType.ApiError:
                 bot.sendText(this.channel_id, `<@!${this.userId}><emoji:147>${err.message}`);
