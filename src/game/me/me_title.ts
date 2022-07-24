@@ -39,6 +39,7 @@ export class me_title extends task_base {
         temp += `🏷️称号改名[称号改名 + 名称]\n`
         temp += `🔂重置称号[重置称号 + 次数]\n`
         temp += `┗┄━═════════━┄`
+        bot.sendText(this.channel_id,temp,this.content)
         this.renderImage(data)
     }
     renderImage(data: ResMe_title) {
