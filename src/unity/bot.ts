@@ -6,6 +6,7 @@ import { BOT_Config, BOT_READY, BOT_EventType, BOT_MSG_AT, BOT_OnData, BOT_MSGID
 import db, { dbName } from "./db";
 import sever from "./sever";
 import common from '../shared/game/common';
+import { sendImage } from './sendLocaImage';
 
 class bot {
     private config?: BOT_Config;
@@ -85,9 +86,6 @@ class bot {
             let msg_id;
             msg_id = this.getMsgId(res.channel_id)
             this.sendText(res.channel_id, res.content)
-            // if(typeof(msg_id) == 'string'){
-            //     this.postMessage(res.channel_id,{msg_id:msg_id,content:res.content})
-            // }
         })
     }
     async test(guildID: string, userID: string) {
@@ -219,6 +217,25 @@ class bot {
             }
         })
     }
+    async sendLocaImage(channelID:string,pathStr:string){
+        let msg_id;
+
+        msg_id = this.getMsgId(channelID)
+        if (msg_id == 1) {
+            await new Promise(rs => { setTimeout(rs, 500) });
+            msg_id = this.getMsgId(channelID)
+        }
+        // 单频道1秒内只能发送5条消息
+
+        // TODO：后期考虑利用每天主动消息
+        if (!msg_id) {
+            err('没有找到可用消息ID')
+            return;
+        }
+        
+        sendImage(msg_id,channelID,pathStr)
+    }
+    
     async addEmoji(channelId: string, msgId: string) {
         let type = [1, 2];
         let randomType = type[common.random(0, type.length - 1)]

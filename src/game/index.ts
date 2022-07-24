@@ -122,6 +122,8 @@ import { me_saveUser } from './me/me_saveUser';
 import botCfg from '../botCfg';
 import { strengthen_bagEquip } from './me/equip/strengthen_bagEquip';
 import { down_wearEquip } from './me/equip/down_wearEquip';
+import { sendImage } from '../unity/sendLocaImage';
+
 
 enum matchType {
     /**
@@ -336,7 +338,6 @@ export default class game {
      * 用户艾特机器人触发
      */
     async atBot(data: BOT_MSG_AT) {
-        console.log(data)
         // return
         if (!sever.isReady()) {
             let temp = ``;
@@ -357,14 +358,10 @@ export default class game {
             await bot.sendText(data.channel_id, data.author.id)
             return;
         }
-        if(data.channel_id == '9128934'){
+        if (data.channel_id == '9128934') {
             return;
         }
-        // if (data.content == '测试') {
-        //     log('测试')
-        //     bot.test(data.guild_id, data.author.id)
-        //     return;
-        // }
+        
         // if (data.content) {
         //     log('测试')
         //     for (let index = 0; index < 20; index++) {

@@ -42,6 +42,7 @@ const bot_1 = require("../shared/bot/bot");
 const db_1 = __importStar(require("./db"));
 const sever_1 = __importDefault(require("./sever"));
 const common_1 = __importDefault(require("../shared/game/common"));
+const sendLocaImage_1 = require("./sendLocaImage");
 class bot {
     constructor() {
         this.machMap = new Map();
@@ -103,9 +104,6 @@ class bot {
             let msg_id;
             msg_id = this.getMsgId(res.channel_id);
             this.sendText(res.channel_id, res.content);
-            // if(typeof(msg_id) == 'string'){
-            //     this.postMessage(res.channel_id,{msg_id:msg_id,content:res.content})
-            // }
         });
     }
     test(guildID, userID) {
@@ -246,6 +244,23 @@ class bot {
                     }
                 }
             });
+        });
+    }
+    sendLocaImage(channelID, pathStr) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let msg_id;
+            msg_id = this.getMsgId(channelID);
+            if (msg_id == 1) {
+                yield new Promise(rs => { setTimeout(rs, 500); });
+                msg_id = this.getMsgId(channelID);
+            }
+            // 单频道1秒内只能发送5条消息
+            // TODO：后期考虑利用每天主动消息
+            if (!msg_id) {
+                (0, __1.err)('没有找到可用消息ID');
+                return;
+            }
+            (0, sendLocaImage_1.sendImage)(msg_id, channelID, pathStr);
         });
     }
     addEmoji(channelId, msgId) {

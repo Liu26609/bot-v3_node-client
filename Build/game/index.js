@@ -306,7 +306,6 @@ class game {
      */
     atBot(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(data);
             // return
             if (!sever_1.default.isReady()) {
                 let temp = ``;
@@ -330,11 +329,6 @@ class game {
             if (data.channel_id == '9128934') {
                 return;
             }
-            // if (data.content == '测试') {
-            //     log('测试')
-            //     bot.test(data.guild_id, data.author.id)
-            //     return;
-            // }
             // if (data.content) {
             //     log('测试')
             //     for (let index = 0; index < 20; index++) {

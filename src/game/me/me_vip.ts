@@ -31,7 +31,8 @@ export class me_vip extends task_base{
         temp += '5.免费创建工会\n'
         temp += '6.自动打开全部宝箱\n'
         temp += '7.死亡不扣除进化点\n'
-        temp += '8.更新可享更多特权..\n'
+        temp += '8.拍卖行交易无手续费\n'
+        temp += '9.更新可享更多特权..\n'
         return temp;
     }
     vip(){
