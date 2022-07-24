@@ -15,6 +15,29 @@ export interface body_ancestry {
     */
     todayGetExp: number
 }
+export interface body_title{
+    name: string,
+    leve: number,
+    exp: number,
+    exp_max: number,
+    /**
+     * 今日剩余可获取经验
+     */
+    todayGetExp: number,
+    /**
+     * 经验上限刷新时间
+     */
+    updateExpTime: number,
+    /**
+     * 随机次数
+     */
+    randomCont: number,
+    attribute: base_attribute,
+    /**
+     * 称号图片形象
+     */
+    showId:number
+}
 // 角色属性
 export interface body extends BASE_BODYS {
     isVip?: boolean,
@@ -44,25 +67,7 @@ export interface body extends BASE_BODYS {
         hat?: equip,
         medal?: equip,
     },
-    title: {
-        name: string,
-        leve: number,
-        exp: number,
-        exp_max: number,
-        /**
-         * 今日剩余可获取经验
-         */
-        todayGetExp: number,
-        /**
-         * 经验上限刷新时间
-         */
-        updateExpTime: number,
-        /**
-         * 随机次数
-         */
-        randomCont: number,
-        attribute: base_attribute
-    },
+    title: body_title,
     /**
      * 基因锁
      */

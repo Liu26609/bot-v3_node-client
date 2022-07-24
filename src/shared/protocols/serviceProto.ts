@@ -27,8 +27,8 @@ import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_d
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqStrengthen_bagEquip, ResStrengthen_bagEquip } from './me/equip/PtlStrengthen_bagEquip';
 import { ReqStrengthen_wearEquip, ResStrengthen_wearEquip } from './me/equip/PtlStrengthen_wearEquip';
-import { ReqMe_title_changeName, ResMe_title_changeName } from './me/title/PtlMe_title_changeName';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
+import { ReqTitle_randomStyle, ResTitle_randomStyle } from './me/title/PtlTitle_randomStyle';
 import { ReqHorse, ResHorse } from './minGame/PtlHorse';
 import { ReqMinGame_lottery, ResMinGame_lottery } from './minGame/PtlMinGame_lottery';
 import { MsgCallAll } from './MsgCallAll';
@@ -229,13 +229,13 @@ export interface ServiceType {
             req: ReqStrengthen_wearEquip,
             res: ResStrengthen_wearEquip
         },
-        "me/title/Me_title_changeName": {
-            req: ReqMe_title_changeName,
-            res: ResMe_title_changeName
-        },
         "me/title/Me_titleRandom": {
             req: ReqMe_titleRandom,
             res: ResMe_titleRandom
+        },
+        "me/title/Title_randomStyle": {
+            req: ReqTitle_randomStyle,
+            res: ResTitle_randomStyle
         },
         "minGame/Horse": {
             req: ReqHorse,
@@ -568,7 +568,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 85,
+    "version": 87,
     "services": [
         {
             "id": 0,
@@ -711,13 +711,13 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 90,
-            "name": "me/title/Me_title_changeName",
+            "id": 93,
+            "name": "me/title/Me_titleRandom",
             "type": "api"
         },
         {
-            "id": 93,
-            "name": "me/title/Me_titleRandom",
+            "id": 134,
+            "name": "me/title/Title_randomStyle",
             "type": "api"
         },
         {
@@ -3506,66 +3506,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 2,
                     "name": "title",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "name",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 5,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 6,
-                                "name": "todayGetExp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 7,
-                                "name": "updateExpTime",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "randomCont",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 4,
-                                "name": "attribute",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/body/base_attribute"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/body_title"
                     }
                 },
                 {
@@ -3966,6 +3908,75 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 {
                     "id": 5,
                     "value": 5
+                }
+            ]
+        },
+        "../game/body/body_title": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "exp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "todayGetExp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "updateExpTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "randomCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "showId",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },
@@ -4576,38 +4587,6 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "me/title/PtlMe_title_changeName/ReqMe_title_changeName": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "changeName",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "me/title/PtlMe_title_changeName/ResMe_title_changeName": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 1,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                }
-            ]
-        },
         "me/title/PtlMe_titleRandom/ReqMe_titleRandom": {
             "type": "Interface",
             "properties": [
@@ -4652,6 +4631,31 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/body/base_attribute"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlTitle_randomStyle/ReqTitle_randomStyle": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlTitle_randomStyle/ResTitle_randomStyle": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
                     }
                 }
             ]
@@ -5616,66 +5620,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "id": 1,
                     "name": "title",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "name",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 5,
-                                "name": "todayGetExp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 6,
-                                "name": "updateExpTime",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 7,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "randomCont",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 4,
-                                "name": "attribute",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/body/base_attribute"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/body_title"
                     }
                 }
             ]

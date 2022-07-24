@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 85,
+    "version": 87,
     "services": [
         {
             "id": 0,
@@ -145,13 +145,13 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 90,
-            "name": "me/title/Me_title_changeName",
+            "id": 93,
+            "name": "me/title/Me_titleRandom",
             "type": "api"
         },
         {
-            "id": 93,
-            "name": "me/title/Me_titleRandom",
+            "id": 134,
+            "name": "me/title/Title_randomStyle",
             "type": "api"
         },
         {
@@ -2940,66 +2940,8 @@ exports.serviceProto = {
                     "id": 2,
                     "name": "title",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "name",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 5,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 6,
-                                "name": "todayGetExp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 7,
-                                "name": "updateExpTime",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "randomCont",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 4,
-                                "name": "attribute",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/body/base_attribute"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/body_title"
                     }
                 },
                 {
@@ -3400,6 +3342,75 @@ exports.serviceProto = {
                 {
                     "id": 5,
                     "value": 5
+                }
+            ]
+        },
+        "../game/body/body_title": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "name",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "leve",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "exp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "exp_max",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "todayGetExp",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "updateExpTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "randomCont",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "attribute",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/body/base_attribute"
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "showId",
+                    "type": {
+                        "type": "Number"
+                    }
                 }
             ]
         },
@@ -4010,38 +4021,6 @@ exports.serviceProto = {
                 }
             ]
         },
-        "me/title/PtlMe_title_changeName/ReqMe_title_changeName": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 0,
-                    "name": "changeName",
-                    "type": {
-                        "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "userId",
-                    "type": {
-                        "type": "String"
-                    }
-                }
-            ]
-        },
-        "me/title/PtlMe_title_changeName/ResMe_title_changeName": {
-            "type": "Interface",
-            "properties": [
-                {
-                    "id": 1,
-                    "name": "pay",
-                    "type": {
-                        "type": "Reference",
-                        "target": "../game/prop/payRes"
-                    }
-                }
-            ]
-        },
         "me/title/PtlMe_titleRandom/ReqMe_titleRandom": {
             "type": "Interface",
             "properties": [
@@ -4086,6 +4065,31 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/body/base_attribute"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlTitle_randomStyle/ReqTitle_randomStyle": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "me/title/PtlTitle_randomStyle/ResTitle_randomStyle": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
                     }
                 }
             ]
@@ -5050,66 +5054,8 @@ exports.serviceProto = {
                     "id": 1,
                     "name": "title",
                     "type": {
-                        "type": "Interface",
-                        "properties": [
-                            {
-                                "id": 0,
-                                "name": "name",
-                                "type": {
-                                    "type": "String"
-                                }
-                            },
-                            {
-                                "id": 1,
-                                "name": "leve",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 2,
-                                "name": "exp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 5,
-                                "name": "todayGetExp",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 6,
-                                "name": "updateExpTime",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 7,
-                                "name": "exp_max",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 3,
-                                "name": "randomCont",
-                                "type": {
-                                    "type": "Number"
-                                }
-                            },
-                            {
-                                "id": 4,
-                                "name": "attribute",
-                                "type": {
-                                    "type": "Reference",
-                                    "target": "../game/body/base_attribute"
-                                }
-                            }
-                        ]
+                        "type": "Reference",
+                        "target": "../game/body/body_title"
                     }
                 }
             ]

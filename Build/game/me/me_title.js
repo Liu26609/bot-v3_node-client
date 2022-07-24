@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.me_title = void 0;
-const common_1 = __importDefault(require("../../shared/game/common"));
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const task_base_1 = require("./../task_base");
@@ -50,8 +49,8 @@ class me_title extends task_base_1.task_base {
             // temp += `┗┄${this.at()}┄\n`;
             // bot.sendText(this.channel_id,temp,this.content)
             let temp = `┏┄═══👑指令提示══━┄\n`;
-            temp += `🏷️称号改名[称号改名 + 名称]\n`;
-            temp += `🔂重置称号[重置称号 + 次数]\n`;
+            temp += `🏷️[重置称号形象]重置称号图片形象\n`;
+            temp += `🔂[重置称号 + 次数]重置称号\n`;
             temp += `┗┄━═════════━┄`;
             bot_1.default.sendText(this.channel_id, temp, this.content);
             this.renderImage(data);
@@ -67,7 +66,7 @@ class me_title extends task_base_1.task_base {
         image.draw(`image Over 0, 0, 324, 384 "./image/称号面板.png"`);
         image.gravity('Center');
         // 称号图片
-        image.draw(`image Over 0,-160, 0, 0 "./image/title/1 (${common_1.default.random(52, 353)}).png"`);
+        image.draw(`image Over 0,-160, 0, 0 "./image/title/${data.title.showId}.png"`);
         // NorthWest
         image.gravity('NorthWest');
         image.fontSize(24);

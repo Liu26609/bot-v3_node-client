@@ -50,7 +50,7 @@ export class me_attribute extends task_base {
         // 战力值
         image.drawText(105, 377, `${data.military}`)
         // 称号图片
-        image.draw(`image Over 70,240, 0, 0 "./image/title/1 (${common.random(52, 353)}).png"`)
+        image.draw(`image Over 70,240, 0, 0 "./image/title/${data.title.showId}.png"`)
         // NorthWest
         // image.gravity('NorthWest')
 

@@ -75,7 +75,6 @@ const searchSkill_1 = require("./sys/searchSkill");
 const me_destroyMeSkill_1 = require("./me/me_destroyMeSkill");
 const me_openBlindBox_1 = require("./me/me_openBlindBox");
 const me_equip_1 = require("./me/equip/me_equip");
-const me_titleChangeName_1 = require("./me/me_titleChangeName");
 const shop_back_1 = require("./shop/shop_back");
 const auction_1 = require("./shop/auction");
 const auction_offer_1 = require("./shop/auction_offer");
@@ -131,6 +130,7 @@ const challenge_greed_1 = require("./challenge/challenge_greed");
 const me_saveUser_1 = require("./me/me_saveUser");
 const strengthen_bagEquip_1 = require("./me/equip/strengthen_bagEquip");
 const down_wearEquip_1 = require("./me/equip/down_wearEquip");
+const title_randomStyle_1 = require("./me/title/title_randomStyle");
 var matchType;
 (function (matchType) {
     /**
@@ -190,6 +190,7 @@ class game {
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set(`重置称号形象`, { action: title_randomStyle_1.title_randomStyle, match: matchType.match });
         this.matchMap.set(`贪婪洞窟`, { action: challenge_greed_1.challenge_greed, match: matchType.match });
         this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });
         this.matchMap.set(`参赛`, { action: horse_join_1.horse_join, match: matchType.match });
@@ -214,7 +215,6 @@ class game {
         this.matchMap.set('强化背包装备', { action: strengthen_bagEquip_1.strengthen_bagEquip, match: matchType.match });
         this.matchMap.set('分解全部装备', { action: me_destroyBagEquip_1.me_destroyBagEquip, match: matchType.all });
         this.matchMap.set('一言', { action: addOneWrod_1.addOneWord, match: matchType.match });
-        this.matchMap.set('称号改名', { action: me_titleChangeName_1.me_titleChangeName, match: matchType.match });
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer_1.pos_attackPlayer, match: matchType.match });
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy_1.pos_attackEnemy, match: matchType.match });
         this.matchMap.set('基础指令', { action: baseTaskMenu_1.baseTaskMenu, match: matchType.match });

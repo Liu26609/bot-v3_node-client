@@ -8,7 +8,6 @@ export async function sendImage(msgId:string,channel_id:string, picName: string,
 
     picName = picName?.startsWith("/") ? picName : `./${picName}`;
     console.debug(`upload11ing ${picName}`);
-
     var picData = fs.createReadStream(picName);
 
     var formdata = new FormData();

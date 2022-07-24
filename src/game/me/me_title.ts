@@ -36,8 +36,8 @@ export class me_title extends task_base {
         // bot.sendText(this.channel_id,temp,this.content)
 
         let temp = `┏┄═══👑指令提示══━┄\n`
-        temp += `🏷️称号改名[称号改名 + 名称]\n`
-        temp += `🔂重置称号[重置称号 + 次数]\n`
+        temp += `🏷️[重置称号形象]重置称号图片形象\n`
+        temp += `🔂[重置称号 + 次数]重置称号\n`
         temp += `┗┄━═════════━┄`
         bot.sendText(this.channel_id,temp,this.content)
         this.renderImage(data)
@@ -52,7 +52,7 @@ export class me_title extends task_base {
         image.draw(`image Over 0, 0, 324, 384 "./image/称号面板.png"`)
         image.gravity('Center')
         // 称号图片
-        image.draw(`image Over 0,-160, 0, 0 "./image/title/1 (${common.random(52, 353)}).png"`)
+        image.draw(`image Over 0,-160, 0, 0 "./image/title/${data.title.showId}.png"`)
         // NorthWest
         image.gravity('NorthWest')
 

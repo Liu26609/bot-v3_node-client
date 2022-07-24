@@ -63,7 +63,6 @@ import { searchSkill } from './sys/searchSkill';
 import { me_destroyMeSkill } from './me/me_destroyMeSkill';
 import { me_openBlindBox } from './me/me_openBlindBox';
 import { me_equip } from './me/equip/me_equip';
-import { me_titleChangeName } from './me/me_titleChangeName';
 import { shop_back } from './shop/shop_back';
 import { auction } from './shop/auction';
 import { auction_offer } from './shop/auction_offer';
@@ -123,6 +122,7 @@ import botCfg from '../botCfg';
 import { strengthen_bagEquip } from './me/equip/strengthen_bagEquip';
 import { down_wearEquip } from './me/equip/down_wearEquip';
 import { sendImage } from '../unity/sendLocaImage';
+import { title_randomStyle } from './me/title/title_randomStyle';
 
 
 enum matchType {
@@ -219,6 +219,7 @@ export default class game {
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set(`重置称号形象`, { action: title_randomStyle, match: matchType.match })
         this.matchMap.set(`贪婪洞窟`, { action: challenge_greed, match: matchType.match })
         this.matchMap.set(`宠物马拉松`, { action: horse_look, match: matchType.all })
         this.matchMap.set(`参赛`, { action: horse_join, match: matchType.match })
@@ -244,7 +245,6 @@ export default class game {
         this.matchMap.set('强化背包装备', { action: strengthen_bagEquip, match: matchType.match })
         this.matchMap.set('分解全部装备', { action: me_destroyBagEquip, match: matchType.all })
         this.matchMap.set('一言', { action: addOneWord, match: matchType.match })
-        this.matchMap.set('称号改名', { action: me_titleChangeName, match: matchType.match })
         this.matchMap.set('攻击玩家', { action: pos_attackPlayer, match: matchType.match })
         this.matchMap.set('攻击怪物', { action: pos_attackEnemy, match: matchType.match })
         this.matchMap.set('基础指令', { action: baseTaskMenu, match: matchType.match })
