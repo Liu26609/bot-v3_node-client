@@ -52,11 +52,8 @@ class me_lookPet extends task_base_1.task_base {
         let image = gm(657, 387, "#ddff99f3");
         image.font('./font/ttf_cn.ttf', 32);
         image.fill("#ffffff");
-        let showId = common_1.default.random(1, 1167);
-        showId = 1;
-        console.log('showId', showId);
         image.draw(`image Over 0, 0, 657, 387 "./image/怪物属性背景.png"`);
-        image.draw(`image Over 53, 35, 250, 300 "./image/enemy/${showId}.png"`);
+        image.draw(`image Over 53, 35, 250, 300 "./image/enemy/${data.showId}.png"`);
         image.draw(`image Over 0, 0, 657, 387 "./image/怪物属性面板.png"`);
         // 战力值
         image.drawText(105, 377, `${data.military}`);
