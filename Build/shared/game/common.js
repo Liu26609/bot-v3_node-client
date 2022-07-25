@@ -362,6 +362,9 @@ class common {
             case skill_1.SKILL_TYPE.forever_add_hp:
                 temp += `每触发一次有${info.data[1]}%概率永久生命+${info.data[0]}`;
                 break;
+            case skill_1.SKILL_TYPE.round_realHurt:
+                temp += `当技能触发时的回合数除以${info.data[0]}为整数时造成${info.data[1]}的真实伤害`;
+                break;
             default:
                 temp += `这个技能好像还没有收录到系统`;
                 break;

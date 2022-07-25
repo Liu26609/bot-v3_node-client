@@ -158,6 +158,12 @@ var SKILL_TYPE;
      * 参数2：概率
      */
     SKILL_TYPE[SKILL_TYPE["forever_add_hp"] = 29] = "forever_add_hp";
+    /**
+     * 当技能触发时的回合数除以参数1为整数时造成参数2的真实伤害
+     * 参数1:回合数
+     * 参数2:真实伤害值
+     */
+    SKILL_TYPE[SKILL_TYPE["round_realHurt"] = 30] = "round_realHurt";
 })(SKILL_TYPE = exports.SKILL_TYPE || (exports.SKILL_TYPE = {}));
 var SKILL_ACTIVE_RES_TYPE;
 (function (SKILL_ACTIVE_RES_TYPE) {

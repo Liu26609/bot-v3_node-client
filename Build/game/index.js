@@ -131,6 +131,8 @@ const me_saveUser_1 = require("./me/me_saveUser");
 const strengthen_bagEquip_1 = require("./me/equip/strengthen_bagEquip");
 const down_wearEquip_1 = require("./me/equip/down_wearEquip");
 const title_randomStyle_1 = require("./me/title/title_randomStyle");
+const shop_showStyle_1 = require("./shop/shop_showStyle");
+const shop_showStyle_buy_1 = require("./shop/shop_showStyle_buy");
 var matchType;
 (function (matchType) {
     /**
@@ -235,6 +237,8 @@ class game {
         this.matchMap.set('头像商店', { action: shop_icon_1.shop_icon, match: matchType.all });
         this.matchMap.set('购买头像', { action: shop_icon_buy_1.shop_icon_buy, match: matchType.all });
         this.matchMap.set('表情指令', { action: emojiMenu_1.emojiMenu, match: matchType.all });
+        this.matchMap.set('形象商店', { action: shop_showStyle_1.shop_showStyle, match: matchType.all });
+        this.matchMap.set('购买形象', { action: shop_showStyle_buy_1.shop_showStyle_buy, match: matchType.all });
         this.matchMap.set('我的技能', { action: me_skill_1.me_skill, match: matchType.all });
         this.matchMap.set('我的宠物', { action: me_pet_1.me_pet, match: matchType.all });
         this.matchMap.set('查看宠物', { action: me_lookPet_1.me_lookPet, match: matchType.match });

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 87,
+    "version": 90,
     "services": [
         {
             "id": 0,
@@ -472,6 +472,16 @@ exports.serviceProto = {
         {
             "id": 104,
             "name": "shop/Shop_rankscore",
+            "type": "api"
+        },
+        {
+            "id": 136,
+            "name": "shop/Shop_showStyle_buy",
+            "type": "api"
+        },
+        {
+            "id": 135,
+            "name": "shop/Shop_showStyle",
             "type": "api"
         },
         {
@@ -959,6 +969,10 @@ exports.serviceProto = {
                 {
                     "id": 29,
                     "value": 29
+                },
+                {
+                    "id": 30,
+                    "value": 30
                 }
             ]
         },
@@ -3040,6 +3054,13 @@ exports.serviceProto = {
                     "name": "id",
                     "type": {
                         "type": "String"
+                    }
+                },
+                {
+                    "id": 15,
+                    "name": "showId",
+                    "type": {
+                        "type": "Number"
                     }
                 },
                 {
@@ -6161,6 +6182,15 @@ exports.serviceProto = {
         },
         "../game/prop/store_back": {
             "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
             "properties": [
                 {
                     "id": 0,
@@ -6168,27 +6198,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/storeBackTemp"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "creatorTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nextUpdateTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "sellNum",
-                    "type": {
-                        "type": "Number"
                     }
                 },
                 {
@@ -6214,16 +6223,42 @@ exports.serviceProto = {
                             }
                         ]
                     }
+                }
+            ]
+        },
+        "../game/prop/store_temp": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "creatorTime",
+                    "type": {
+                        "type": "Number"
+                    }
                 },
                 {
-                    "id": 5,
+                    "id": 1,
+                    "name": "nextUpdateTime",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "sellNum",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 3,
                     "name": "stock",
                     "type": {
                         "type": "Number"
                     }
                 },
                 {
-                    "id": 6,
+                    "id": 4,
                     "name": "updateNum",
                     "type": {
                         "type": "Number"
@@ -6323,6 +6358,15 @@ exports.serviceProto = {
         },
         "../game/prop/store_equip": {
             "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
             "properties": [
                 {
                     "id": 0,
@@ -6330,27 +6374,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/equip/equip"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "creatorTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nextUpdateTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "sellNum",
-                    "type": {
-                        "type": "Number"
                     }
                 },
                 {
@@ -6375,20 +6398,6 @@ exports.serviceProto = {
                                 }
                             }
                         ]
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "stock",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "updateNum",
-                    "type": {
-                        "type": "Number"
                     }
                 }
             ]
@@ -6444,33 +6453,21 @@ exports.serviceProto = {
         },
         "../game/prop/store_icon": {
             "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
             "properties": [
                 {
                     "id": 0,
                     "name": "sell_temp",
                     "type": {
                         "type": "String"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "creatorTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nextUpdateTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "sellNum",
-                    "type": {
-                        "type": "Number"
                     }
                 },
                 {
@@ -6495,20 +6492,6 @@ exports.serviceProto = {
                                 }
                             }
                         ]
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "stock",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "updateNum",
-                    "type": {
-                        "type": "Number"
                     }
                 }
             ]
@@ -6564,6 +6547,15 @@ exports.serviceProto = {
         },
         "../game/prop/store_rankscore": {
             "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
             "properties": [
                 {
                     "id": 0,
@@ -6590,27 +6582,6 @@ exports.serviceProto = {
                     }
                 },
                 {
-                    "id": 1,
-                    "name": "creatorTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nextUpdateTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "sellNum",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
                     "id": 4,
                     "name": "buyCondition",
                     "type": {
@@ -6633,19 +6604,90 @@ exports.serviceProto = {
                             }
                         ]
                     }
-                },
+                }
+            ]
+        },
+        "shop/PtlShop_showStyle_buy/ReqShop_showStyle_buy": {
+            "type": "Interface",
+            "properties": [
                 {
-                    "id": 5,
-                    "name": "stock",
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_showStyle_buy/ResShop_showStyle_buy": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                }
+            ]
+        },
+        "shop/PtlShop_showStyle/ReqShop_showStyle": {
+            "type": "Interface"
+        },
+        "shop/PtlShop_showStyle/ResShop_showStyle": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_showStyle"
+                    }
+                }
+            ]
+        },
+        "../game/prop/store_showStyle": {
+            "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "sell_temp",
                     "type": {
                         "type": "Number"
                     }
                 },
                 {
-                    "id": 6,
-                    "name": "updateNum",
+                    "id": 1,
+                    "name": "buyCondition",
                     "type": {
-                        "type": "Number"
+                        "type": "Interface",
+                        "properties": [
+                            {
+                                "id": 0,
+                                "name": "key",
+                                "type": {
+                                    "type": "Reference",
+                                    "target": "../game/user/walletKey"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "name": "val",
+                                "type": {
+                                    "type": "Number"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -6701,6 +6743,15 @@ exports.serviceProto = {
         },
         "../game/prop/store_skill": {
             "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
             "properties": [
                 {
                     "id": 0,
@@ -6708,27 +6759,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/skill/SKILL_ACTIVE"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "creatorTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nextUpdateTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "sellNum",
-                    "type": {
-                        "type": "Number"
                     }
                 },
                 {
@@ -6753,20 +6783,6 @@ exports.serviceProto = {
                                 }
                             }
                         ]
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "stock",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "updateNum",
-                    "type": {
-                        "type": "Number"
                     }
                 }
             ]
@@ -6822,6 +6838,15 @@ exports.serviceProto = {
         },
         "../game/prop/store_team": {
             "type": "Interface",
+            "extends": [
+                {
+                    "id": 0,
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/store_temp"
+                    }
+                }
+            ],
             "properties": [
                 {
                     "id": 0,
@@ -6829,27 +6854,6 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/prop/storeTeamTemp"
-                    }
-                },
-                {
-                    "id": 1,
-                    "name": "creatorTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 2,
-                    "name": "nextUpdateTime",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "sellNum",
-                    "type": {
-                        "type": "Number"
                     }
                 },
                 {
@@ -6874,20 +6878,6 @@ exports.serviceProto = {
                                 }
                             }
                         ]
-                    }
-                },
-                {
-                    "id": 5,
-                    "name": "stock",
-                    "type": {
-                        "type": "Number"
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "updateNum",
-                    "type": {
-                        "type": "Number"
                     }
                 }
             ]

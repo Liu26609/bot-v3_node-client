@@ -12,21 +12,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.shop_icon_buy = void 0;
+exports.shop_showStyle_buy = void 0;
 const user_1 = require("../../shared/game/user");
 const bot_1 = __importDefault(require("../../unity/bot"));
 const sever_1 = __importDefault(require("../../unity/sever"));
 const embed_1 = require("../temp/embed/embed");
 const task_base_1 = require("../task_base");
 const userCfg_1 = require("../../interface/userCfg");
-class shop_icon_buy extends task_base_1.task_base {
+class shop_showStyle_buy extends task_base_1.task_base {
     constructor(...a) {
         super(...a);
         this.render();
     }
     render() {
         return __awaiter(this, void 0, void 0, function* () {
-            let req = yield sever_1.default.callApi('shop/Shop_icon_buy', { userId: this.userId });
+            let req = yield sever_1.default.callApi('shop/Shop_showStyle_buy', { userId: this.userId });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
@@ -35,7 +35,7 @@ class shop_icon_buy extends task_base_1.task_base {
             if (this.UserCfg.msgTemplate == userCfg_1.USER_CFG_MSGTEMPLATE.text) {
                 let temp = ``;
                 temp += `┏┄═══🕊️购买成功══━┄\n`;
-                temp += `🎫头像已经自动修改，祝您购物愉快~\n`;
+                temp += `🎫形象已经自动修改，祝您购物愉快~\n`;
                 temp += `🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}\n`;
                 temp += `▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}\n`;
                 temp += `┗┄━══════════━┄\n`;
@@ -45,8 +45,8 @@ class shop_icon_buy extends task_base_1.task_base {
                 let temps = new embed_1.embed_style();
                 temps.setTitle('             🕊️购买成功');
                 temps.setIcon(this.userIcon);
-                temps.setTips('🎫头像已经自动修改，祝您购物愉快~');
-                temps.addLine(`🎫头像已经自动修改，祝您购物愉快~`);
+                temps.setTips('🎫形象已经自动修改，祝您购物愉快~');
+                temps.addLine(`🎫形象已经自动修改，祝您购物愉快~`);
                 temps.addLine(`🔻消耗${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.condition.val}`);
                 temps.addLine(`▶️还有${user_1.walletKey_CN[user_1.walletKey[data.pay.condition.key]]}x${data.pay.now}`);
                 temps.sendMsg(this.channel_id);
@@ -54,4 +54,4 @@ class shop_icon_buy extends task_base_1.task_base {
         });
     }
 }
-exports.shop_icon_buy = shop_icon_buy;
+exports.shop_showStyle_buy = shop_showStyle_buy;

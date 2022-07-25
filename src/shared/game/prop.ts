@@ -18,101 +18,51 @@ export enum autionType {
     wallet,
     equip
 }
-export interface store_equip {
+export interface store_equip extends store_temp {
     /**
              * 出售的模板id
              */
     sell_temp: equip,
     /**
-     * 刷新的时间
+     * 购买条件
      */
-    creatorTime: number,
+    buyCondition: { key: walletKey, val: number },
+}
+export interface store_showStyle extends store_temp {
     /**
-     * 下次刷新时间
-     */
-    nextUpdateTime: number,
-    /**
-     * 已出售数量
-     */
-    sellNum: number,
+             * 出售的模板id
+             */
+    sell_temp: number,
     /**
      * 购买条件
      */
     buyCondition: { key: walletKey, val: number },
-    /**
-     * 本次库存
-     */
-    stock: number,
-    /**
-     * 商店总共刷新次数
-     */
-    updateNum: number
 }
 /**
  * 头像商店
  */
-export interface store_icon {
+export interface store_icon extends store_temp {
     /**
              * 出售的模板id
              */
     sell_temp: string,
     /**
-     * 刷新的时间
-     */
-    creatorTime: number,
-    /**
-     * 下次刷新时间
-     */
-    nextUpdateTime: number,
-    /**
-     * 已出售数量
-     */
-    sellNum: number,
-    /**
      * 购买条件
      */
     buyCondition: { key: walletKey, val: number },
-    /**
-     * 本次库存
-     */
-    stock: number,
-    /**
-     * 商店总共刷新次数
-     */
-    updateNum: number
 }
 /**
  * 声望商店
  */
-export interface store_rankscore {
+export interface store_rankscore extends store_temp {
     /**
              * 出售的模板id
              */
     sell_temp: { key: rewardKey, val: number },
     /**
-     * 刷新的时间
-     */
-    creatorTime: number,
-    /**
-     * 下次刷新时间
-     */
-    nextUpdateTime: number,
-    /**
-     * 已出售数量
-     */
-    sellNum: number,
-    /**
      * 购买条件
      */
     buyCondition: { key: rewardKey, val: number },
-    /**
-     * 本次库存
-     */
-    stock: number,
-    /**
-     * 商店总共刷新次数
-     */
-    updateNum: number
 }
 export enum storeBackTemp {
     forever_hpMax_10,//最大生命永久+
@@ -126,14 +76,21 @@ export enum storeBackTemp {
     team_exp,//工会经验
 }
 
-export interface store_team {
+export interface store_team extends store_temp {
     /**
              * 出售的模板id
              */
     sell_temp: storeTeamTemp,
+
     /**
-     * 刷新的时间
+     * 购买条件
      */
+    buyCondition: { key: rewardKey, val: number },
+}
+export interface store_temp {
+    /**
+        * 刷新的时间
+        */
     creatorTime: number,
     /**
      * 下次刷新时间
@@ -143,10 +100,6 @@ export interface store_team {
      * 已出售数量
      */
     sellNum: number,
-    /**
-     * 购买条件
-     */
-    buyCondition: { key: rewardKey, val: number },
     /**
      * 本次库存
      */
@@ -165,65 +118,25 @@ export enum storeTeamTemp {
     forever_secondResHp_1,
     teamExp_1,//工会经验
 }
-export interface store_back {
+export interface store_back extends store_temp {
     /**
     * 出售的模板id
     */
     sell_temp: storeBackTemp,
     /**
-     * 刷新的时间
-     */
-    creatorTime: number,
-    /**
-     * 下次刷新时间
-     */
-    nextUpdateTime: number,
-    /**
-     * 已出售数量
-     */
-    sellNum: number,
-    /**
      * 购买条件
      */
     buyCondition: { key: walletKey, val: number },
-    /**
-     * 本次库存
-     */
-    stock: number,
-    /**
-     * 商店总共刷新次数
-     */
-    updateNum: number
 }
-export interface store_skill {
+export interface store_skill extends store_temp {
     /**
              * 出售的模板id
              */
     sell_temp: SKILL_ACTIVE,
     /**
-     * 刷新的时间
-     */
-    creatorTime: number,
-    /**
-     * 下次刷新时间
-     */
-    nextUpdateTime: number,
-    /**
-     * 已出售数量
-     */
-    sellNum: number,
-    /**
      * 购买条件
      */
     buyCondition: { key: walletKey, val: number },
-    /**
-     * 本次库存
-     */
-    stock: number,
-    /**
-     * 商店总共刷新次数
-     */
-    updateNum: number
 }
 export enum mapId {
     /**

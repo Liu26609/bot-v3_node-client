@@ -123,6 +123,8 @@ import { strengthen_bagEquip } from './me/equip/strengthen_bagEquip';
 import { down_wearEquip } from './me/equip/down_wearEquip';
 import { sendImage } from '../unity/sendLocaImage';
 import { title_randomStyle } from './me/title/title_randomStyle';
+import { shop_showStyle } from './shop/shop_showStyle';
+import { shop_showStyle_buy } from './shop/shop_showStyle_buy';
 
 
 enum matchType {
@@ -265,6 +267,8 @@ export default class game {
         this.matchMap.set('头像商店', { action: shop_icon, match: matchType.all })
         this.matchMap.set('购买头像', { action: shop_icon_buy, match: matchType.all })
         this.matchMap.set('表情指令', { action: emojiMenu, match: matchType.all })
+        this.matchMap.set('形象商店', { action: shop_showStyle, match: matchType.all })
+        this.matchMap.set('购买形象', { action: shop_showStyle_buy, match: matchType.all })
 
         this.matchMap.set('我的技能', { action: me_skill, match: matchType.all })
         this.matchMap.set('我的宠物', { action: me_pet, match: matchType.all })
@@ -361,7 +365,7 @@ export default class game {
         if (data.channel_id == '9128934') {
             return;
         }
-        
+
         // if (data.content) {
         //     log('测试')
         //     for (let index = 0; index < 20; index++) {

@@ -45,7 +45,7 @@ export interface body extends BASE_BODYS {
      * 声望
      */
     rankscore: number,
-
+   
     sys: {
         creator_time: number
     },
@@ -253,6 +253,7 @@ export enum DNA_CN {
 
 export interface BASE_BODYS {
     id: string,
+    showId:number,
     /**
      * 战力
      */

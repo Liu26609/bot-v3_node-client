@@ -153,7 +153,13 @@ export enum SKILL_TYPE {
      * 参数1:增加生命值
      * 参数2：概率
      */
-    forever_add_hp
+    forever_add_hp,
+    /**
+     * 当技能触发时的回合数除以参数1为整数时造成参数2的真实伤害
+     * 参数1:回合数
+     * 参数2:真实伤害值
+     */
+    round_realHurt
 }
 /**
  * 主动技能

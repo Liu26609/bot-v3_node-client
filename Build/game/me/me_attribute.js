@@ -51,11 +51,9 @@ class me_attribute extends task_base_1.task_base {
         image.font('./font/ttf_cn.ttf', 32);
         image.fill("#ffffff");
         let randomShowId = common_1.default.random(1, 1167);
-        let showId = common_1.default.random(1, 1167);
-        console.log('showId', showId);
         image.draw(`image Over 0, 0, 360, 387"./image/show/${randomShowId}.png"`);
         image.draw(`image Over 0, 0, 657, 387 "./image/属性背景.png"`);
-        image.draw(`image Over 38, 25, 250, 300 "./image/show/${showId}.png"`);
+        image.draw(`image Over 38, 25, 250, 300 "./image/show/${data.showId}.png"`);
         // 战力值
         image.drawText(105, 377, `${data.military}`);
         // 称号图片
