@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 91,
+    "version": 92,
     "services": [
         {
             "id": 0,
@@ -145,8 +145,8 @@ exports.serviceProto = {
             "type": "api"
         },
         {
-            "id": 136,
-            "name": "me/equip/WearEquip_RandomSkill",
+            "id": 137,
+            "name": "me/equip/WeaEquip_randomSkill",
             "type": "api"
         },
         {
@@ -4047,7 +4047,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "me/equip/PtlWearEquip_RandomSkill/ReqWearEquip_RandomSkill": {
+        "me/equip/PtlWeaEquip_randomSkill/ReqWeaEquip_randomSkill": {
             "type": "Interface",
             "properties": [
                 {
@@ -4067,7 +4067,7 @@ exports.serviceProto = {
                 }
             ]
         },
-        "me/equip/PtlWearEquip_RandomSkill/ResWearEquip_RandomSkill": {
+        "me/equip/PtlWeaEquip_randomSkill/ResWeaEquip_randomSkill": {
             "type": "Interface",
             "properties": [
                 {

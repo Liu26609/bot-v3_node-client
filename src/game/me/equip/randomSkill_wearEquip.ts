@@ -47,7 +47,7 @@ export class randomSkill_wearEquip extends task_base {
                 strengthenType = EQUIP_TYPE.necklace;
                 break;
             default:
-
+            
                 break;
         }
 
@@ -55,8 +55,7 @@ export class randomSkill_wearEquip extends task_base {
             this.menu();
             return;
         }
-        console.log('me/equip/WearEquip_RandomSkill','sss')
-        let req = await sever.callApi('me/equip/WearEquip_RandomSkill', { userId: this.userId, strengthenType: strengthenType })
+        let req = await sever.callApi('me/equip/WeaEquip_randomSkill', { userId: this.userId, strengthenType: strengthenType })
         if (!req.isSucc) {
             this.sendErr(req.err)
             return;

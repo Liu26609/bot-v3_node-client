@@ -27,7 +27,7 @@ import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_d
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqStrengthen_bagEquip, ResStrengthen_bagEquip } from './me/equip/PtlStrengthen_bagEquip';
 import { ReqStrengthen_wearEquip, ResStrengthen_wearEquip } from './me/equip/PtlStrengthen_wearEquip';
-import { ReqWearEquip_RandomSkill, ResWearEquip_RandomSkill } from './me/equip/PtlWearEquip_RandomSkill';
+import { ReqWeaEquip_randomSkill, ResWeaEquip_randomSkill } from './me/equip/PtlWeaEquip_randomSkill';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqTitle_randomStyle, ResTitle_randomStyle } from './me/title/PtlTitle_randomStyle';
 import { ReqHorse, ResHorse } from './minGame/PtlHorse';
@@ -232,9 +232,9 @@ export interface ServiceType {
             req: ReqStrengthen_wearEquip,
             res: ResStrengthen_wearEquip
         },
-        "me/equip/WearEquip_RandomSkill": {
-            req: ReqWearEquip_RandomSkill,
-            res: ResWearEquip_RandomSkill
+        "me/equip/WeaEquip_randomSkill": {
+            req: ReqWeaEquip_randomSkill,
+            res: ResWeaEquip_randomSkill
         },
         "me/title/Me_titleRandom": {
             req: ReqMe_titleRandom,
@@ -583,7 +583,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 91,
+    "version": 92,
     "services": [
         {
             "id": 0,
@@ -726,8 +726,8 @@ export const serviceProto: ServiceProto<ServiceType> = {
             "type": "api"
         },
         {
-            "id": 136,
-            "name": "me/equip/WearEquip_RandomSkill",
+            "id": 137,
+            "name": "me/equip/WeaEquip_randomSkill",
             "type": "api"
         },
         {
@@ -4628,7 +4628,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "me/equip/PtlWearEquip_RandomSkill/ReqWearEquip_RandomSkill": {
+        "me/equip/PtlWeaEquip_randomSkill/ReqWeaEquip_randomSkill": {
             "type": "Interface",
             "properties": [
                 {
@@ -4648,7 +4648,7 @@ export const serviceProto: ServiceProto<ServiceType> = {
                 }
             ]
         },
-        "me/equip/PtlWearEquip_RandomSkill/ResWearEquip_RandomSkill": {
+        "me/equip/PtlWeaEquip_randomSkill/ResWeaEquip_randomSkill": {
             "type": "Interface",
             "properties": [
                 {

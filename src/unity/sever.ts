@@ -1,4 +1,3 @@
-import { log } from './../index';
 import { ApiReturn, HttpClient, HttpServer, TransportOptions, WsClient } from "tsrpc";
 import { err, info } from "..";
 import { serviceProto, ServiceType } from "../shared/protocols/serviceProto";

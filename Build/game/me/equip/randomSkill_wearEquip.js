@@ -69,8 +69,7 @@ class randomSkill_wearEquip extends task_base_1.task_base {
                 this.menu();
                 return;
             }
-            console.log('me/equip/WearEquip_RandomSkill', 'sss');
-            let req = yield sever_1.default.callApi('me/equip/WearEquip_RandomSkill', { userId: this.userId, strengthenType: strengthenType });
+            let req = yield sever_1.default.callApi('me/equip/WeaEquip_randomSkill', { userId: this.userId, strengthenType: strengthenType });
             if (!req.isSucc) {
                 this.sendErr(req.err);
                 return;
