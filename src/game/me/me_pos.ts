@@ -57,7 +57,7 @@ export class me_pos extends task_base {
                 }
                 const name = body.name;
                 const leve = body.leve;
-                temp += ` [玩家${index}]Lv.${leve}${body.icon}${name}\n`;
+                temp += ` [玩家${index}]${body.icon}${name}\n`;
             }
             for (let index = 0; index < data.enemy.length; index++) {
                 const body = data.enemy[index] as BASE_BODYS;

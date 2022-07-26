@@ -64,6 +64,7 @@ export interface store_rankscore extends store_temp {
      */
     buyCondition: { key: rewardKey, val: number },
 }
+
 export enum storeBackTemp {
     forever_hpMax_10,//最大生命永久+
     forever_MagicAttack_1,

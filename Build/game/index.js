@@ -133,6 +133,7 @@ const down_wearEquip_1 = require("./me/equip/down_wearEquip");
 const title_randomStyle_1 = require("./me/title/title_randomStyle");
 const shop_showStyle_1 = require("./shop/shop_showStyle");
 const shop_showStyle_buy_1 = require("./shop/shop_showStyle_buy");
+const randomSkill_wearEquip_1 = require("./me/equip/randomSkill_wearEquip");
 var matchType;
 (function (matchType) {
     /**
@@ -192,6 +193,7 @@ class game {
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set('附魔', { action: randomSkill_wearEquip_1.randomSkill_wearEquip, match: matchType.match });
         this.matchMap.set(`重置称号形象`, { action: title_randomStyle_1.title_randomStyle, match: matchType.match });
         this.matchMap.set(`贪婪洞窟`, { action: challenge_greed_1.challenge_greed, match: matchType.match });
         this.matchMap.set(`宠物马拉松`, { action: horse_look_1.horse_look, match: matchType.all });

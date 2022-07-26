@@ -125,6 +125,7 @@ import { sendImage } from '../unity/sendLocaImage';
 import { title_randomStyle } from './me/title/title_randomStyle';
 import { shop_showStyle } from './shop/shop_showStyle';
 import { shop_showStyle_buy } from './shop/shop_showStyle_buy';
+import { randomSkill_wearEquip } from './me/equip/randomSkill_wearEquip';
 
 
 enum matchType {
@@ -221,6 +222,7 @@ export default class game {
         * 排行榜指令模块
         */
         //    emojiMenu
+        this.matchMap.set('附魔', { action: randomSkill_wearEquip, match: matchType.match })
         this.matchMap.set(`重置称号形象`, { action: title_randomStyle, match: matchType.match })
         this.matchMap.set(`贪婪洞窟`, { action: challenge_greed, match: matchType.match })
         this.matchMap.set(`宠物马拉松`, { action: horse_look, match: matchType.all })

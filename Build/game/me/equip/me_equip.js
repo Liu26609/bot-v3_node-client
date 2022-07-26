@@ -70,6 +70,7 @@ class me_equip extends task_base_1.task_base {
         temp.setTitle(`👑指令提示`);
         temp.addLine('[强化 + 装备类型]强化指定装备');
         temp.addLine('[卸下 + 装备类型]卸下指定装备');
+        temp.addLine('[附魔 + 装备类型]重置装备技能');
         temp.sendMsg(this.channel_id);
     }
 }

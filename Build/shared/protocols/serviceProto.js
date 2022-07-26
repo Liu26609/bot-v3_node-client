@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviceProto = void 0;
 exports.serviceProto = {
-    "version": 90,
+    "version": 91,
     "services": [
         {
             "id": 0,
@@ -142,6 +142,11 @@ exports.serviceProto = {
         {
             "id": 133,
             "name": "me/equip/Strengthen_wearEquip",
+            "type": "api"
+        },
+        {
+            "id": 136,
+            "name": "me/equip/WearEquip_RandomSkill",
             "type": "api"
         },
         {
@@ -4038,6 +4043,69 @@ exports.serviceProto = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/equip/EQUIP_TYPE"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlWearEquip_RandomSkill/ReqWearEquip_RandomSkill": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "strengthenType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_TYPE"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlWearEquip_RandomSkill/ResWearEquip_RandomSkill": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "bfEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nowEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "rate",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isSuccress",
+                    "type": {
+                        "type": "Boolean"
                     }
                 }
             ]

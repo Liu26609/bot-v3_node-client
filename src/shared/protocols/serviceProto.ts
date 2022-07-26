@@ -27,6 +27,7 @@ import { ReqMe_destroyBagEquip, ResMe_destroyBagEquip } from './me/equip/PtlMe_d
 import { ReqMe_wearEquip, ResMe_wearEquip } from './me/equip/PtlMe_wearEquip';
 import { ReqStrengthen_bagEquip, ResStrengthen_bagEquip } from './me/equip/PtlStrengthen_bagEquip';
 import { ReqStrengthen_wearEquip, ResStrengthen_wearEquip } from './me/equip/PtlStrengthen_wearEquip';
+import { ReqWearEquip_RandomSkill, ResWearEquip_RandomSkill } from './me/equip/PtlWearEquip_RandomSkill';
 import { ReqMe_titleRandom, ResMe_titleRandom } from './me/title/PtlMe_titleRandom';
 import { ReqTitle_randomStyle, ResTitle_randomStyle } from './me/title/PtlTitle_randomStyle';
 import { ReqHorse, ResHorse } from './minGame/PtlHorse';
@@ -230,6 +231,10 @@ export interface ServiceType {
         "me/equip/Strengthen_wearEquip": {
             req: ReqStrengthen_wearEquip,
             res: ResStrengthen_wearEquip
+        },
+        "me/equip/WearEquip_RandomSkill": {
+            req: ReqWearEquip_RandomSkill,
+            res: ResWearEquip_RandomSkill
         },
         "me/title/Me_titleRandom": {
             req: ReqMe_titleRandom,
@@ -578,7 +583,7 @@ export interface ServiceType {
 }
 
 export const serviceProto: ServiceProto<ServiceType> = {
-    "version": 90,
+    "version": 91,
     "services": [
         {
             "id": 0,
@@ -718,6 +723,11 @@ export const serviceProto: ServiceProto<ServiceType> = {
         {
             "id": 133,
             "name": "me/equip/Strengthen_wearEquip",
+            "type": "api"
+        },
+        {
+            "id": 136,
+            "name": "me/equip/WearEquip_RandomSkill",
             "type": "api"
         },
         {
@@ -4614,6 +4624,69 @@ export const serviceProto: ServiceProto<ServiceType> = {
                     "type": {
                         "type": "Reference",
                         "target": "../game/equip/EQUIP_TYPE"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlWearEquip_RandomSkill/ReqWearEquip_RandomSkill": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "userId",
+                    "type": {
+                        "type": "String"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "strengthenType",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/EQUIP_TYPE"
+                    }
+                }
+            ]
+        },
+        "me/equip/PtlWearEquip_RandomSkill/ResWearEquip_RandomSkill": {
+            "type": "Interface",
+            "properties": [
+                {
+                    "id": 0,
+                    "name": "bfEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "nowEquip",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/equip/equip"
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "pay",
+                    "type": {
+                        "type": "Reference",
+                        "target": "../game/prop/payRes"
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "rate",
+                    "type": {
+                        "type": "Number"
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "isSuccress",
+                    "type": {
+                        "type": "Boolean"
                     }
                 }
             ]
